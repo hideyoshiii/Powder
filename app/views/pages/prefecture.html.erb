@@ -1,0 +1,227 @@
+<header class="">
+  <div class="navbar navbar-default visible-xs">
+    <button type="button" class="navbar-toggle collapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/" class="navbar-brand">Powder</a>
+  </div>
+
+  <nav class="sidebar">
+    <div class="navbar-collapse" id="navbar-collapse">
+      <div class="site-header hidden-xs">
+          <a class="site-brand" href="/" title="">
+            <h2>
+              <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
+              Powder
+            </h2>
+          </a>
+        <p>あなたのデートコース</p>
+      </div>
+      <ul class="nav">
+        <li>Book</li>
+        
+
+
+      </ul>
+
+      <nav class="nav-footer">
+        <% if (user_signed_in?) %>
+        <%= link_to user_path(current_user) do %>
+        <%= image_tag current_user.image, :class => "img-circle profile-0" %>
+        &nbsp;&nbsp;<%= current_user.nickname %>
+        <% end %>
+        <br>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <% else %>
+        <%= link_to "アカウント作成", new_user_registration_path %>
+        <br>
+          <%= link_to "ログイン", new_user_session_path %>
+        <% end %>
+        <p class="nav-footer-social-buttons">
+          <a class="fa-icon" href="https://www.instagram.com/myi.no1/" target="_blank">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a class="fa-icon" href="https://www.facebook.com/myi.no1/" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a class="fa-icon" href="https://twitter.com/myi_no1/" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </p>
+        <p>© You | Website created with <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
+      </nav>  
+    </div> 
+  </nav>
+</header>
+<main class="" id="main-collapse">
+  <%= link_to search_hokkaido_path do %>
+  <%= image_tag "hokkaido.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_aomori_path do %>
+  <%= image_tag "aomori.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_iwate_path do %>
+  <%= image_tag "iwate.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_miyagi_path do %>
+  <%= image_tag "miyagi.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_akita_path do %>
+  <%= image_tag "akita.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_yamagata_path do %>
+  <%= image_tag "yamagata.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_fukushima_path do %>
+  <%= image_tag "fukushima.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_ibaraki_path do %>
+  <%= image_tag "ibaraki.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_tochigi_path do %>
+  <%= image_tag "tochigi.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_gunma_path do %>
+  <%= image_tag "gunma.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_saitama_path do %>
+  <%= image_tag "saitama.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_chiba_path do %>
+  <%= image_tag "chiba.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_tokyo_path do %>
+  <%= image_tag "tokyo.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_kanagawa_path do %>
+  <%= image_tag "kanagawa.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_niigata_path do %>
+  <%= image_tag "niigata.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_toyama_path do %>
+  <%= image_tag "toyama.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_ishikawa_path do %>
+  <%= image_tag "ishikawa.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_fukui_path do %>
+  <%= image_tag "fukui.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_yamanashi_path do %>
+  <%= image_tag "yamanashi.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_nagano_path do %>
+  <%= image_tag "nagano.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_gifu_path do %>
+  <%= image_tag "gifu.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_shizuoka_path do %>
+  <%= image_tag "shizuoka.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_aichi_path do %>
+  <%= image_tag "aichi.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_mie_path do %>
+  <%= image_tag "mie.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_shiga_path do %>
+
+  <%= image_tag "shiga.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_kyoto_path do %>
+  <%= image_tag "kyoto.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_osaka_path do %>
+  <%= image_tag "osaka.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_hyogo_path do %>
+  <%= image_tag "hyogo.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_nara_path do %>
+  <%= image_tag "nara.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_wakayama_path do %>
+  <%= image_tag "wakayama.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_tottori_path do %>
+  <%= image_tag "tottori.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_shimane_path do %>
+  <%= image_tag "shimane.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_okayama_path do %>
+  <%= image_tag "okayama.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_hiroshima_path do %>
+  <%= image_tag "hiroshima.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_yamaguchi_path do %>
+  <%= image_tag "yamaguchi.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_tokushima_path do %>
+  <%= image_tag "tokushima.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_kagawa_path do %>
+  <%= image_tag "kagawa.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_ehime_path do %>
+  <%= image_tag "ehime.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_kouchi_path do %>
+  <%= image_tag "kouchi.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_fukuoka_path do %>
+  <%= image_tag "fukuoka.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_saga_path do %>
+  <%= image_tag "saga.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_nagasaki_path do %>
+  <%= image_tag "nagasaki.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_kumamoto_path do %>
+  <%= image_tag "kumamoto.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_oita_path do %>
+  <%= image_tag "oita.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_miyazaki_path do %>
+  <%= image_tag "miyazaki.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_kagoshima_path do %>
+  <%= image_tag "kagoshima.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_okinawa_path do %>
+  <%= image_tag "okinawa.jpg", :class =>'img-prefecture' %>
+  <% end %>
+  <%= link_to search_oversea_path do %>
+  <%= image_tag "oversea.jpg", :class =>'img-prefecture' %>
+  <% end %>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>
