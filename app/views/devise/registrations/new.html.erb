@@ -9,6 +9,25 @@
   </div>
 
   <div class="field">
+    <%= f.label :nickname %><br />
+  <%= f.text_field :nickname %></div>
+
+  
+  <div class="field">
+  <%= f.label :sex %><br />
+  <%= f.radio_button :sex, "男" %> 男性 
+  <%= f.radio_button :sex, "女" %> 女性 
+  </div>
+  
+
+  
+  <div class="field">
+  <%= f.label :age %><br />
+  <%= f.number_field :age, min:0, max:100 %>歳
+  </div>
+  <br>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
