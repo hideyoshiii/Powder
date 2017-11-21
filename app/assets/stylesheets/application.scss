@@ -96,7 +96,16 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .img-prefecture{width:49.5%;height:100px;border-radius: 10px;margin:3px 0px;}
 }
 
-.img-prefecture-famous{width: 200px;height: 200px;margin:20px 20px;}
+.img-prefecture-famous{width: 20%;height: 220px;margin:15px 15px;}
+@media only screen and (max-width: 1300px) {
+.img-prefecture-famous{width: 20%;height: 170px;margin:12px 12px;}
+}
+@media only screen and (max-width: 1000px) {
+.img-prefecture-famous{width: 20%;height: 120px;margin:10px 10px;}
+}
+@media only screen and (max-width: 768px) {
+.img-prefecture-famous{width: 20%;height: 70px;margin:5px 5px;}
+}
 
 @media only screen and (min-width: 768px) {
 .city-check{font-size:18px;}
