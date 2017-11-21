@@ -21,25 +21,35 @@
         <p>あなたのデートコース</p>
       </div>
       <ul class="nav">
-        <li>Book</li>
-        
-
+        <% if (user_signed_in?) %>
+        <li><%= link_to "デートスポット一覧", spots_path %></li> 
+        <li><%= link_to "検索", search_prefecture_path %></li>
+        <li><%= link_to "デートスポットを投稿する", new_spot_path %></li>
+        <% end %>
 
       </ul>
 
       <nav class="nav-footer">
         <% if (user_signed_in?) %>
+        
         <%= link_to user_path(current_user) do %>
         <%= image_tag current_user.image, :class => "img-circle profile-0" %>
         &nbsp;&nbsp;<%= current_user.nickname %>
         <% end %>
         <br>
+        <%= link_to "プロフィール編集", edit_user_registration_path(current_user) %>
+        <br>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <br>
         <% else %>
         <%= link_to "アカウント作成", new_user_registration_path %>
         <br>
           <%= link_to "ログイン", new_user_session_path %>
+          <br>
         <% end %>
+
+        
+        
         <p class="nav-footer-social-buttons">
           <a class="fa-icon" href="https://www.instagram.com/myi.no1/" target="_blank">
             <i class="fa fa-instagram"></i>
