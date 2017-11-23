@@ -1,0 +1,145 @@
+<header class="">
+  <div class="navbar navbar-default visible-xs">
+    <button type="button" class="navbar-toggle collapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/" class="navbar-brand">Powder</a>
+  </div>
+
+  <nav class="sidebar">
+    <div class="navbar-collapse" id="navbar-collapse">
+      <div class="site-header hidden-xs">
+          <a class="site-brand" href="/" title="">
+            <h2>
+              <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
+              Powder
+            </h2>
+          </a>
+        <p>あなたのデートコース</p>
+      </div>
+      <ul class="nav">
+        <% if (user_signed_in?) %>
+        <li><%= link_to "デートスポット一覧", spots_path %></li> 
+        <li><%= link_to "検索", search_prefecture_path %></li>
+        <li><%= link_to "デートスポットを投稿する", new_spot_path %></li>
+        <% end %>
+
+      </ul>
+
+      <nav class="nav-footer">
+        <% if (user_signed_in?) %>
+        
+        <%= link_to user_path(current_user) do %>
+        <%= image_tag current_user.image, :class => "img-circle profile-0" %>
+        &nbsp;&nbsp;<%= current_user.nickname %>
+        <% end %>
+        <br>
+        <%= link_to "プロフィール編集", edit_user_registration_path(current_user) %>
+        <br>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <br>
+        <% else %>
+        <%= link_to "アカウント作成", new_user_registration_path %>
+        <br>
+          <%= link_to "ログイン", new_user_session_path %>
+          <br>
+        <% end %>
+
+        
+        
+        <p class="nav-footer-social-buttons">
+          <a class="fa-icon" href="https://www.instagram.com/myi.no1/" target="_blank">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a class="fa-icon" href="https://www.facebook.com/myi.no1/" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a class="fa-icon" href="https://twitter.com/myi_no1/" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </p>
+        <p>© Powder | Website created with <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
+      </nav>  
+    </div> 
+  </nav>
+</header>
+<main class="" id="main-collapse">
+ 
+
+ <div class="panel panel-default">
+	<div class="panel-heading">
+	  検索フォーム
+	</div>
+<%= search_form_for @q, url: questions_women_path do |f| %>
+    <div class="panel-body">
+      	<div class="form-group">
+      		<div class="city-check">
+	        <label>
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "誘う", unchecked_value = "" %> 誘う
+			</label>
+			<label>
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "プラン", unchecked_value = "" %>　プラン
+			</label>
+			<label>
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "当日", unchecked_value = "" %>　当日
+			</label>
+			<label>
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "デート後", unchecked_value = "" %>　デート後
+			</label>
+			<label>
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "メッセージ", unchecked_value = "" %>　メッセージ
+			</label>
+			<label>
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "その他", unchecked_value = "" %>　その他
+			</label>
+	        </div>	
+	          
+      	</div>
+    </div>
+
+    <!-- Submitボタン -->
+    <div class="panel-body">
+      <div class="col-md-12">
+        <div class="pull-right">
+        <%= f.submit "検索", class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>  
+    <br>  
+<% end %>
+</div>
+
+
+	<br>
+	<% if @arrlistings %>
+	<% @arrlistings.each do |question| %>
+	<%= question.content %>
+	<br>
+	<% end %>
+	<% end %>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>
