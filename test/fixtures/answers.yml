@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: 1
+  sex: MyString
+  user: one
+  spot: one
+
+two:
+  kind: 1
+  sex: MyString
+  user: two
+  spot: two

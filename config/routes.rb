@@ -23,6 +23,21 @@ Rails.application.routes.draw do
   post "likes/:spot_id/destroy1" => "likes#destroy1"
   post "likes/:spot_id/destroy2" => "likes#destroy2"
 
+  post "answers/:question_id/create1" => "answers#create1"
+  post "answers/:question_id/create2" => "answers#create2"
+  post "answers/:question_id/update1" => "answers#update1"
+  post "answers/:question_id/update2" => "answers#update2"
+  post "answers/:question_id/destroy1" => "answers#destroy1"
+  post "answers/:question_id/destroy2" => "answers#destroy2"
+
+  post "clips/:question_id/create" => "clips#create"
+  post "clips/:question_id/destroy" => "clips#destroy"
+
+  resources :comments, only: [:create, :destroy]
+
+
+
+
   get "search/prefecture" => "pages#prefecture"
 
   get "search/hokkaido" => "pages#hokkaido"

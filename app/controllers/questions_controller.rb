@@ -6,19 +6,24 @@ class QuestionsController < ApplicationController
 
   def men
     @questions = Question.where(sex: "男").all.reverse_order
-    @q = Question.ransack(params[:q])
+    @q = @questions.ransack(params[:q])
     @result = @q.result(distinct: true)
     @arrlistings = @result.to_a
   end
 
   def women
     @questions = Question.where(sex: "女").all.reverse_order
-    @q = Question.ransack(params[:q])
+    @q = @questions.ransack(params[:q])
     @result = @q.result(distinct: true)
     @arrlistings = @result.to_a
   end
 
   def show
+    @question = Question.find(params[:id])
+
+    @comments = Comment.where(question_id: @question.id).all.reverse_order
+
+    @comment = current_user.comments.build
   end
 
   def new

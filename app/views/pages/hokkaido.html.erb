@@ -1,75 +1,15 @@
-<header class="">
-  <div class="navbar navbar-default visible-xs">
-    <button type="button" class="navbar-toggle collapsed">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a href="/" class="navbar-brand">Powder</a>
-  </div>
+<%= render "partial/navbar" %>
 
-  <nav class="sidebar">
-    <div class="navbar-collapse" id="navbar-collapse">
-      <div class="site-header hidden-xs">
-          <a class="site-brand" href="/" title="">
-            <h2>
-              <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
-              Powder
-            </h2>
-          </a>
-        <p>あなたのデートコース</p>
-      </div>
-      <ul class="nav">
-        <li>Book</li>
-        
-
-
-      </ul>
-
-      <nav class="nav-footer">
-        <% if (user_signed_in?) %>
-        <%= link_to user_path(current_user) do %>
-        <%= image_tag current_user.image, :class => "img-circle profile-0" %>
-        &nbsp;&nbsp;<%= current_user.nickname %>
-        <% end %>
-        <br>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <% else %>
-        <%= link_to "アカウント作成", new_user_registration_path %>
-        <br>
-          <%= link_to "ログイン", new_user_session_path %>
-        <% end %>
-        <p class="nav-footer-social-buttons">
-          <a class="fa-icon" href="https://www.instagram.com/myi.no1/" target="_blank">
-            <i class="fa fa-instagram"></i>
-          </a>
-          <a class="fa-icon" href="https://www.facebook.com/myi.no1/" target="_blank">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-          </a>
-          <a class="fa-icon" href="https://twitter.com/myi_no1/" target="_blank">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </p>
-        <p>© You | Website created with <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
-      </nav>  
-    </div> 
-  </nav>
-</header>
 <main class="" id="main-collapse">
 
-
-	<!-- Search Form -->
 <div class="panel panel-default">
 	<div class="panel-heading">
 	  検索フォーム
 	</div>
-<%= search_form_for @q, url: search_hokkaido1_path do |f| %>
+	<%= search_form_for @q, url: search_hokkaido1_path do |f| %>
     <div class="panel-body">
       	<div class="form-group">
       		<div class="city-check">
-	        
-
 	        <label>
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "伊豆諸島・小笠原諸島", unchecked_value = "" %> 伊豆諸島・小笠原諸島
 			</label>
@@ -181,14 +121,10 @@
 			<label>
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "小金井・国分寺・国立", unchecked_value = "" %>　小金井・国分寺・国立
 			</label>
-			
-	        </div>	
-	          
+	        </div>	    
       	</div>
     </div>
 
-
-    <!-- Submitボタン -->
     <div class="panel-body">
       <div class="col-md-12">
         <div class="pull-right">

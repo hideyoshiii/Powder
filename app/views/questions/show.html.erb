@@ -1,2 +1,308 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
+<%= render "partial/navbar" %>
+<main class="" id="main-collapse">
+
+<div class="show-element">
+<% if @question.sex == "男" %>
+    <%= image_tag "male.png", :class => "img-circle profile-2" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <% else %>
+    <%= image_tag "female.png", :class => "img-circle profile-2" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <% end %>
+<%= @question.content %>
+</div>
+<br>
+
+<% if @question.photo_file_name %>
+<div class="img-show">
+<%= image_tag @question.photo.url, :class =>'pc' %>
+</div>
+<br><br>
+<% end %>
+
+
+	<% if @question.sex == "男" %>
+
+	<% if current_user.sex == "男" %>
+
+
+	<div class="like-font-show">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+          	<div class="text-center">
+		        <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;">アリ</span>
+		        <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+		        &nbsp;<%= answer_good_count %>
+        	</div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div class="text-center">
+		        <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+		        <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+		        &nbsp;<%= answer_bad_count %> 
+	        </div>
+        </div>
+      </div>
+    </div>
+
+	<% else %>
+
+	<div class="like-font-show">
+      <% if Answer.find_by(user_id: current_user.id, question_id: @question.id) %>
+        <% if Answer.find_by(user_id: current_user.id, question_id: @question.id, kind: 1) %>
+          <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+          <div class="text-center">
+          <%= link_to("/answers/#{@question.id}/destroy1", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-up good-btn" aria-hidden="true"></i><span style="color: black;">アリ</span>
+          <% end %>
+          <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+          </div>
+          </div>
+          <div class="col-xs-6 col-ms-6 col-md-3">
+          <div class="text-center">
+          <%= link_to("/likes/#{@question.id}/update2", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+          <% end %>
+          <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %> 
+          </div>
+          </div>
+          </div>
+      <% else %>
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+              <div class="text-center">
+          <%= link_to("/answers/#{@question.id}/update1", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;">アリ</span>
+          <% end %>
+          <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+          </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <div class="text-center">
+          <%= link_to("/answers/#{@question.id}/destroy2", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-down bad-btn" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+          <% end %>
+          <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %> 
+          </div>
+          </div>
+          </div>
+      <% end %>
+    <% else %>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+          <div class="text-center">
+        <%= link_to("/answers/#{@question.id}/create1", {method: "post"}) do %>
+        <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;">アリ</span>
+        <% end %>
+        <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+        </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div class="text-center">
+        <%= link_to("/answers/#{@question.id}/create2", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+        <% end %>  
+        <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %> 
+        </div>
+        </div>
+        </div>
+    
+
+      <% end %>
+      </div>
+
+      <% end %>
+      
+
+  <% else %>
+  	<% if current_user.sex == "男" %>
+  		<div class="like-font-show">
+      <% if Answer.find_by(user_id: current_user.id, question_id: @question.id) %>
+        <% if Answer.find_by(user_id: current_user.id, question_id: @question.id, kind: 1) %>
+          <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+          <div class="text-center">
+          <%= link_to("/answers/#{@question.id}/destroy1", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-up good-btn" aria-hidden="true"></i><span style="color: black;">アリ</span>
+          <% end %>
+          <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+          </div>
+          </div>
+          <div class="col-xs-6 col-ms-6 col-md-3">
+          <div class="text-center">
+          <%= link_to("/likes/#{@question.id}/update2", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+          <% end %>
+          <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %> 
+          </div>
+          </div>
+          </div>
+      <% else %>
+          <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+              <div class="text-center">
+          <%= link_to("/answers/#{@question.id}/update1", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;">アリ</span>
+          <% end %>
+          <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+          </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-3">
+            <div class="text-center">
+          <%= link_to("/answers/#{@question.id}/destroy2", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-down bad-btn" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+          <% end %>
+          <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %> 
+          </div>
+          </div>
+          </div>
+      <% end %>
+    <% else %>
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+          <div class="text-center">
+        <%= link_to("/answers/#{@question.id}/create1", {method: "post"}) do %>
+        <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;">アリ</span>
+        <% end %>
+        <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+        </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div class="text-center">
+        <%= link_to("/answers/#{@question.id}/create2", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+        <% end %>  
+        <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %> 
+        </div>
+        </div>
+        </div>
+    
+
+      <% end %>
+      </div>
+
+  	<% else %>
+
+
+  	<div class="like-font-show">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-offset-3 col-md-3">
+          	<div class="text-center">
+		        <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;">アリ</span>
+		        <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
+		        &nbsp;<%= answer_good_count %>
+        	</div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-3">
+          <div class="text-center">
+		        <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;">ナシ</span>
+		        <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
+		        &nbsp;<%= answer_bad_count %> 
+	        </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  	<% end %>
+
+
+  <% end %>
+
+    
+<% if @question.user == current_user %>
+<br><br>
+<div class="img-show">
+<%= link_to "編集する", edit_question_path(@question), :class => "btn btn-default btn-sm" %>
+<% end %>
+</div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel-body">      
+          <!-- ここからフォーム -->
+          <%= form_for @comment do |f| %>
+            <br>  
+            <div class="row">
+              <div class="col-md-12 select">
+                <div class="form-group">
+                    <label>content</label>
+                    <%= f.text_area :content, rows: 4, placeholder: "コメント", class: "form-control", required: "true" %>
+                </div> 
+              </div>
+            </div>
+                  <%= f.hidden_field :sex, value: current_user.sex %>
+                  <%= f.hidden_field :question_id, value: @question.id %>
+            <div class="actions">
+              <%= f.submit "Save", class: "btn btn-primary btn-sm pull-right" %>
+            </div>
+          <% end %>
+        
+      </div>
+    </div>
+  </div>
+<br>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+  <% if Comment.find_by(question_id: @question.id) %>
+  <% @comments.each do |comment| %>
+    <% if comment.sex == "男" %>
+    <%= image_tag "male.png", :class => "img-circle profile-0" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <% else %>
+    <%= image_tag "female.png", :class => "img-circle profile-0" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <% end %>
+    <%= comment.content %>
+    <hr>
+  <% end %>
+  <% end %>
+  </div>
+  </div>
+
+
+
+
+
+
+    
+
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>

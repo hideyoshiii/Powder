@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
   def hokkaido
   	@spots = Spot.where(prefecture: "東京").all.reverse_order
-  	@q = Spot.ransack(params[:q])
+  	@q = @spots.ransack(params[:q])
     @result = @q.result(distinct: true)
     @arrlistings = @result.to_a
   end
@@ -18,23 +18,37 @@ class PagesController < ApplicationController
   	@sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "癒し", "夜景", "テーマパーク", "フォトジェニック", "朝食", "ランチ", "ディナー", "春", "夏", "秋", "冬"]
 
   	@spots = Spot.where(prefecture: "東京").all.reverse_order
-  	@q = Spot.ransack(params[:q])
+  	@q = @spots.ransack(params[:q])
     @result = @q.result(distinct: true)
     @arrlistings = @result.to_a
-
 
     if params[:sample_form].nil?
       @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "癒し", "夜景", "テーマパーク", "フォトジェニック", "朝食", "ランチ", "ディナー", "春", "夏", "秋", "冬"]
   	else
   	  @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
   	end
-	
   end
 
   def aomori
+    @spots = Spot.where(prefecture: "青森").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
   end
 
   def aomori1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "癒し", "夜景", "テーマパーク", "フォトジェニック", "朝食", "ランチ", "ディナー", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "青森").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "癒し", "夜景", "テーマパーク", "フォトジェニック", "朝食", "ランチ", "ディナー", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def iwate
@@ -289,10 +303,10 @@ class PagesController < ApplicationController
   def oita1
   end
 
-  def miyaszaki
+  def miyazaki
   end
 
-  def miyaszaki1
+  def miyazaki1
   end
 
   def kagoshima

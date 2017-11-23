@@ -1,125 +1,172 @@
-<header class="">
-  <div class="navbar navbar-default visible-xs">
-    <button type="button" class="navbar-toggle collapsed">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <a href="/" class="navbar-brand">Powder</a>
-  </div>
-
-  <nav class="sidebar">
-    <div class="navbar-collapse" id="navbar-collapse">
-      <div class="site-header hidden-xs">
-          <a class="site-brand" href="/" title="">
-            <h2>
-              <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
-              Powder
-            </h2>
-          </a>
-        <p>あなたのデートコース</p>
-      </div>
-      <ul class="nav">
-        <% if (user_signed_in?) %>
-        <li><%= link_to "デートスポット一覧", spots_path %></li> 
-        <li><%= link_to "検索", search_prefecture_path %></li>
-        <li><%= link_to "デートスポットを投稿する", new_spot_path %></li>
-        <% end %>
-
-      </ul>
-
-      <nav class="nav-footer">
-        <% if (user_signed_in?) %>
-        
-        <%= link_to user_path(current_user) do %>
-        <%= image_tag current_user.image, :class => "img-circle profile-0" %>
-        &nbsp;&nbsp;<%= current_user.nickname %>
-        <% end %>
-        <br>
-        <%= link_to "プロフィール編集", edit_user_registration_path(current_user) %>
-        <br>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <br>
-        <% else %>
-        <%= link_to "アカウント作成", new_user_registration_path %>
-        <br>
-          <%= link_to "ログイン", new_user_session_path %>
-          <br>
-        <% end %>
-
-        
-        
-        <p class="nav-footer-social-buttons">
-          <a class="fa-icon" href="https://www.instagram.com/myi.no1/" target="_blank">
-            <i class="fa fa-instagram"></i>
-          </a>
-          <a class="fa-icon" href="https://www.facebook.com/myi.no1/" target="_blank">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
-          </a>
-          <a class="fa-icon" href="https://twitter.com/myi_no1/" target="_blank">
-            <i class="fa fa-twitter"></i>
-          </a>
-        </p>
-        <p>© Powder | Website created with <a href="http://www.mashup-template.com/" title="Create website with free html template">Mashup Template</a>/<a href="https://www.unsplash.com/" title="Beautiful Free Images">Unsplash</a></p>
-      </nav>  
-    </div> 
-  </nav>
-</header>
+<%= render "partial/navbar" %>
 <main class="" id="main-collapse">
  
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
 
  <div class="panel panel-default">
-	<div class="panel-heading">
-	  検索フォーム
-	</div>
-<%= search_form_for @q, url: questions_women_path do |f| %>
+  <div class="panel-heading">
+    検索フォーム
+  </div>
+<%= search_form_for @q, url: questions_men_path do |f| %>
     <div class="panel-body">
-      	<div class="form-group">
-      		<div class="city-check">
-	        <label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "誘う", unchecked_value = "" %> 誘う
-			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "プラン", unchecked_value = "" %>　プラン
-			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "当日", unchecked_value = "" %>　当日
-			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "デート後", unchecked_value = "" %>　デート後
-			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "メッセージ", unchecked_value = "" %>　メッセージ
-			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "その他", unchecked_value = "" %>　その他
-			</label>
-	        </div>	
-	          
-      	</div>
-    </div>
-
-    <!-- Submitボタン -->
-    <div class="panel-body">
-      <div class="col-md-12">
-        <div class="pull-right">
-        <%= f.submit "検索", class: "btn btn-default" %>
-        </div>
+        <div class="form-group">
+          <div class="city-check">
+      <label>
+       <%= f.check_box :category_eq_any, { multiple: true },checked_value = "誘う", unchecked_value = "" %> 誘う
+      </label>
+      <label>
+        <%= f.check_box :category_eq_any, { multiple: true },checked_value = "プラン", unchecked_value = "" %>　プラン
+      </label>
+      <label>
+        <%= f.check_box :category_eq_any, { multiple: true },checked_value = "当日", unchecked_value = "" %>　当日
+      </label>
+      <label>
+        <%= f.check_box :category_eq_any, { multiple: true },checked_value = "デート後", unchecked_value = "" %>　デート後
+      </label>
+      <label>
+        <%= f.check_box :category_eq_any, { multiple: true },checked_value = "メッセージ", unchecked_value = "" %>　メッセージ
+      </label>
+      <label>
+        <%= f.check_box :category_eq_any, { multiple: true },checked_value = "その他", unchecked_value = "" %>　その他
+      </label>
+       </div>    
       </div>
-    </div>  
-    <br>  
-<% end %>
+    
+
+    
+        <%= f.submit "検索", class: "btn btn-default btn-sm pull-right" %>
+        <% end %>
+        </div>
+        </div>
+        
+      
+</div>
 </div>
 
 
-	<br>
-	<% if @arrlistings %>
-	<% @arrlistings.each do |question| %>
-	<%= question.content %>
-	<br>
-	<% end %>
-	<% end %>
+  <br>
+
+
+  <div class="row">
+    <div class="col-md-offset-2 col-md-8">
+      <% if @arrlistings %>
+      <% @arrlistings.each do |question| %>
+      <%= link_to question_path(question) do %>
+      <div class="black">
+      <%= image_tag "female.png", :class => "img-circle profile-2" %>&nbsp;&nbsp;&nbsp;&nbsp;
+      <%= question.content %>
+      </div>
+      <% end %>
+      <br>
+
+      <div class="row">
+
+        <div class="col-md-offset-4 col-md-2">
+          <% comment_count = Comment.where(question_id: question.id).count %>
+          <i class="fa fa-comment-o" aria-hidden="true"></i>
+          &nbsp;<%= comment_count %>
+        </div>
+
+
+
+        <div class="col-md-2">
+          <% if Clip.find_by(user_id: current_user.id, question_id: question.id) %>
+            <%= link_to("/clips/#{question.id}/destroy", {method: "post"}) do %>
+            <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i><span style="color: black;"></span>
+            <% end %>
+            <% clip_count = Clip.where(question_id: question.id).count %>
+            &nbsp;<%= clip_count %>
+          <% else %>
+            <%= link_to("/clips/#{question.id}/create", {method: "post"}) do %>
+            <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i><span style="color: black;"></span>
+            <% end %>
+            <% clip_count = Clip.where(question_id: question.id).count %>
+            &nbsp;<%= clip_count %>
+          <% end %>
+        </div>
+
+
+      <% if current_user.sex == "男" %>
+
+        <% if Answer.find_by(user_id: current_user.id, question_id: question.id) %>
+          <% if Answer.find_by(user_id: current_user.id, question_id: question.id, kind: 1) %> 
+            <div class="col-md-2">
+            <%= link_to("/answers/#{question.id}/destroy1", {method: "post"}) do %>
+            <i class="fa fa-thumbs-o-up good-btn" aria-hidden="true"></i><span style="color: black;"></span>
+            <% end %>
+            <% answer_good_count = Answer.where(question_id: question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+            </div>
+            
+            <div class="col-md-2">
+            <%= link_to("/answers/#{question.id}/update2", {method: "post"}) do %>
+            <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
+            <% end %>
+            <% answer_bad_count = Answer.where(question_id: question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %>  
+            </div>    
+          <% else %>  
+            <div class="col-md-2">       
+            <%= link_to("/answers/#{question.id}/update1", {method: "post"}) do %>
+            <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
+            <% end %>
+            <% answer_good_count = Answer.where(question_id: question.id, kind: 1).count %>
+            &nbsp;<%= answer_good_count %>
+            </div>   
+               
+            <div class="col-md-2">
+            <%= link_to("/answers/#{question.id}/destroy2", {method: "post"}) do %>
+            <i class="fa fa-thumbs-o-down bad-btn" aria-hidden="true"></i><span style="color: black;"></span>
+            <% end %>
+            <% answer_bad_count = Answer.where(question_id: question.id, kind: 2).count %>
+            &nbsp;<%= answer_bad_count %> 
+            </div>       
+          <% end %>
+        <% else %>
+          <div class="col-md-2">
+          <%= link_to("/answers/#{question.id}/create1", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
+          <% end %>
+          <% answer_good_count = Answer.where(question_id: question.id, kind: 1).count %>
+          &nbsp;<%= answer_good_count %>
+          </div>   
+             
+          <div class="col-md-2">
+          <%= link_to("/answers/#{question.id}/create2", {method: "post"}) do %>
+          <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
+          <% end %>  
+          <% answer_bad_count = Answer.where(question_id: question.id, kind: 2).count %>
+          &nbsp;<%= answer_bad_count %> 
+          </div>   
+        <% end %>
+      <% else %>
+
+        <div class="col-md-2"> 
+        <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;"></span>      
+        <% answer_good_count = Answer.where(question_id: question.id, kind: 1).count %>
+        &nbsp;<%= answer_good_count %>
+        </div>
+
+        <div class="col-md-2">
+        <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
+        <% answer_bad_count = Answer.where(question_id: question.id, kind: 2).count %>
+        &nbsp;<%= answer_bad_count %> 
+        </div> 
+
+
+      <% end %>
+
+
+
+
+      </div>
+
+      <hr>
+  <% end %>
+  <% end %>
+    </div>
+  </div>
 </main>
 
 <script>
