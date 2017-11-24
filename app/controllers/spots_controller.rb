@@ -3,6 +3,7 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all.reverse_order
+    @tags = ActsAsTaggableOn::Tag.most_used(3)
   end
 
   def show

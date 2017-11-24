@@ -6,14 +6,14 @@
 	
 	<div class="panel-body scene-check">
   <%= form_tag(search_hokkaido1_path, method: :get) do %>
-  <div class="field">
+  
     <% @sceness.each do |scene| %>
-    <label>
+    <label class="checkbox-inline">
       <%= check_box_tag 'sample_form[scenes][]', scene,nil %>
       <%= scene %>
     </label>
     <% end %>
-  </div>
+  
   <%= submit_tag "検索", :class => "btn btn-default btn-sm pull-right" %>
 <% end %>
 </div>

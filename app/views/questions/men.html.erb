@@ -10,23 +10,23 @@
     <div class="panel-body">
       	<div class="form-group">
       		<div class="city-check">
-	    <label>
-			 <%= f.check_box :category_eq_any, { multiple: true },checked_value = "誘う", unchecked_value = "" %> 誘う
+	    <label class="checkbox-inline">
+			 <%= f.check_box :category_eq_any, { multiple: true },checked_value = "誘う", unchecked_value = "" %>誘う
 			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "プラン", unchecked_value = "" %>　プラン
+			<label class="checkbox-inline">
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "プラン", unchecked_value = "" %>プラン
 			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "当日", unchecked_value = "" %>　当日
+			<label class="checkbox-inline">
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "当日", unchecked_value = "" %>当日
 			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "デート後", unchecked_value = "" %>　デート後
+			<label class="checkbox-inline">
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "デート後", unchecked_value = "" %>デート後
 			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "メッセージ", unchecked_value = "" %>　メッセージ
+			<label class="checkbox-inline">
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "メッセージ", unchecked_value = "" %>メッセージ
 			</label>
-			<label>
-			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "その他", unchecked_value = "" %>　その他
+			<label class="checkbox-inline">
+			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "その他", unchecked_value = "" %>その他
 			</label>
 	     </div>	
           <%= f.submit "検索", class: "btn btn-default btn-sm pull-right" %>
