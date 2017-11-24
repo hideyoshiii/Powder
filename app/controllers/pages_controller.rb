@@ -8,16 +8,14 @@ class PagesController < ApplicationController
 
 
   def hokkaido
-  	@spots = Spot.where(prefecture: "東京").all.reverse_order
+  	@spots = Spot.where(prefecture: "北海道").all.reverse_order
   	@q = @spots.ransack(params[:q])
-    @result = @q.result(distinct: true)
-    @arrlistings = @result.to_a
   end
 
   def hokkaido1
   	@sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
 
-  	@spots = Spot.where(prefecture: "東京").all.reverse_order
+  	@spots = Spot.where(prefecture: "北海道").all.reverse_order
   	@q = @spots.ransack(params[:q])
     @result = @q.result(distinct: true)
     @arrlistings = @result.to_a
@@ -32,8 +30,6 @@ class PagesController < ApplicationController
   def aomori
     @spots = Spot.where(prefecture: "青森").all.reverse_order
     @q = @spots.ransack(params[:q])
-    @result = @q.result(distinct: true)
-    @arrlistings = @result.to_a
   end
 
   def aomori1
@@ -52,33 +48,103 @@ class PagesController < ApplicationController
   end
 
   def iwate
+    @spots = Spot.where(prefecture: "岩手").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def iwate1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "岩手").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def miyagi
+    @spots = Spot.where(prefecture: "宮城").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def miyagi1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "宮城").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def akita
+    @spots = Spot.where(prefecture: "秋田").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def akita1
+     @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "秋田").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def yamagata
+    @spots = Spot.where(prefecture: "山形").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def yamagata1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "山形").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def fukushima
+    @spots = Spot.where(prefecture: "福島").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def fukushima1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "福島").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def ibaraki
@@ -112,15 +178,43 @@ class PagesController < ApplicationController
   end
 
   def tokyo
+    @spots = Spot.where(prefecture: "東京").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def tokyo1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "東京").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def kanagawa
+    @spots = Spot.where(prefecture: "神奈川").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def kanagawa1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "神奈川").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def niigata
@@ -190,15 +284,43 @@ class PagesController < ApplicationController
   end
 
   def kyoto
+    @spots = Spot.where(prefecture: "京都").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def kyoto1
+     @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "京都").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def osaka
+    @spots = Spot.where(prefecture: "大阪").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def osaka1
+     @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "大阪").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def hyogo
@@ -274,9 +396,23 @@ class PagesController < ApplicationController
   end
 
   def fukuoka
+    @spots = Spot.where(prefecture: "福岡").all.reverse_order
+    @q = @spots.ransack(params[:q])
   end
 
   def fukuoka1
+    @sceness = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+
+    @spots = Spot.where(prefecture: "福岡").all.reverse_order
+    @q = @spots.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
+
+    if params[:sample_form].nil?
+      @scenes = ["クリスマス", "記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ショッピング", "癒し", "夜景", "テーマパーク", "美術館", "フォトジェニック", "朝食", "ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き", "春", "夏", "秋", "冬"]
+    else
+      @scenes = params[:sample_form][:scenes].to_a.reject(&:blank?) unless params[:sample_form].nil?
+    end
   end
 
   def saga
