@@ -126,12 +126,12 @@
 <% end %>
 <div class="img-show">
 <% @spot.scenes.each do |scene| %>
-<%= scene %>&nbsp;&nbsp;&nbsp;
+<p class="btn btn-default btn-sm">#<%= scene %></p>
 <% end %>
 </div>
 <br>
 <div class="img-show">
-<p class="btn btn-default btn-sm">#<%= @spot.label_list %></p>
+<%= @spot.label_list %>
 </div>
 <br><br>
 <div class="img-show">
