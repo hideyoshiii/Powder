@@ -2,12 +2,8 @@
 <main class="" id="main-collapse">
  
 <div class="row">
-  <div class="col-md-offset-2 col-md-8">
-
- <div class="panel panel-default">
-  <div class="panel-heading">
-    検索フォーム
-  </div>
+  <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8">
+ <div class="panel panel-default"> 
 <%= search_form_for @q, url: questions_men_path do |f| %>
     <div class="panel-body">
         <div class="form-group">
@@ -31,38 +27,40 @@
         <%= f.check_box :category_eq_any, { multiple: true },checked_value = "その他", unchecked_value = "" %>　その他
       </label>
        </div>    
-      </div>
-    
-
-    
-        <%= f.submit "検索", class: "btn btn-default btn-sm pull-right" %>
+       <%= f.submit "検索", class: "btn btn-default btn-sm pull-right" %>
+      </div> 
         <% end %>
         </div>
         </div>
-        
-      
 </div>
 </div>
-
 
   <br>
 
 
   <div class="row">
-    <div class="col-md-offset-2 col-md-8">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-2 col-md-8">
       <% if @arrlistings %>
       <% @arrlistings.each do |question| %>
       <%= link_to question_path(question) do %>
       <div class="black">
-      <%= image_tag "female.png", :class => "img-circle profile-2" %>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="row">
+          <div class="col-xs-2 col-sm-2 col-md-2">
+            <div class="pull-right">
+      <%= image_tag "female.png", :class => "img-circle profile-2" %>
+      </div>
+      </div>
+      <div class="col-xs-10 col-sm-10 col-md-10">
       <%= question.content %>
+      </div>
+      </div>
       </div>
       <% end %>
       <br>
 
       <div class="row">
 
-        <div class="col-md-offset-4 col-md-2">
+        <div class="col-xs-offset-4 col-xs-2 col-sm-offset-4 col-sm-2 col-md-offset-4 col-md-2">
           <% comment_count = Comment.where(question_id: question.id).count %>
           <i class="fa fa-comment-o" aria-hidden="true"></i>
           &nbsp;<%= comment_count %>
@@ -70,7 +68,7 @@
 
 
 
-        <div class="col-md-2">
+        <div class="col-xs-2 col-sm-2 col-md-2">
           <% if Clip.find_by(user_id: current_user.id, question_id: question.id) %>
             <%= link_to("/clips/#{question.id}/destroy", {method: "post"}) do %>
             <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i><span style="color: black;"></span>
@@ -99,7 +97,7 @@
             &nbsp;<%= answer_good_count %>
             </div>
             
-            <div class="col-md-2">
+            <div class="col-xs-2 col-sm-2 col-md-2">
             <%= link_to("/answers/#{question.id}/update2", {method: "post"}) do %>
             <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
             <% end %>
@@ -107,7 +105,7 @@
             &nbsp;<%= answer_bad_count %>  
             </div>    
           <% else %>  
-            <div class="col-md-2">       
+            <div class="col-xs-2 col-sm-2 col-md-2">       
             <%= link_to("/answers/#{question.id}/update1", {method: "post"}) do %>
             <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
             <% end %>
@@ -115,7 +113,7 @@
             &nbsp;<%= answer_good_count %>
             </div>   
                
-            <div class="col-md-2">
+            <div class="col-xs-2 col-sm-2 col-md-2">
             <%= link_to("/answers/#{question.id}/destroy2", {method: "post"}) do %>
             <i class="fa fa-thumbs-o-down bad-btn" aria-hidden="true"></i><span style="color: black;"></span>
             <% end %>
@@ -124,7 +122,7 @@
             </div>       
           <% end %>
         <% else %>
-          <div class="col-md-2">
+          <div class="col-xs-2 col-sm-2 col-md-2">
           <%= link_to("/answers/#{question.id}/create1", {method: "post"}) do %>
           <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
           <% end %>
@@ -132,7 +130,7 @@
           &nbsp;<%= answer_good_count %>
           </div>   
              
-          <div class="col-md-2">
+          <div class="col-xs-2 col-sm-2 col-md-2">
           <%= link_to("/answers/#{question.id}/create2", {method: "post"}) do %>
           <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
           <% end %>  
@@ -142,13 +140,13 @@
         <% end %>
       <% else %>
 
-        <div class="col-md-2"> 
+        <div class="col-xs-2 col-sm-2 col-md-2"> 
         <i class="fa fa-thumbs-o-up good-btn-un" aria-hidden="true"></i><span style="color: black;"></span>      
         <% answer_good_count = Answer.where(question_id: question.id, kind: 1).count %>
         &nbsp;<%= answer_good_count %>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-xs-2 col-sm-2 col-md-2">
         <i class="fa fa-thumbs-o-down bad-btn-un" aria-hidden="true"></i><span style="color: black;"></span>
         <% answer_bad_count = Answer.where(question_id: question.id, kind: 2).count %>
         &nbsp;<%= answer_bad_count %> 
