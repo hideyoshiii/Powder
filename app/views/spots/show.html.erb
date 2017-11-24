@@ -116,18 +116,22 @@
 <p class="show-element"><%= @spot.description %></p>
 <br><br>
 <% end %>
+<% if @spot.introduction %>
 <div class="img-show">
-<p class="btn btn-primary btn-sm">詳しく見る</p>
+  <%= link_to "#{@spot.introduction}", :target=>["_blank"] do %>
+<p class="btn btn-primary btn-sm"><i class="fa fa-instagram" aria-hidden="true"></i>&nbsp;instagramで見る</p>
+  <% end %>
 </div>
 <br><br>
+<% end %>
 <div class="img-show">
 <% @spot.scenes.each do |scene| %>
-<p class="btn btn-default btn-sm">#<%= scene %></p>
+<%= scene %>&nbsp;&nbsp;&nbsp;
 <% end %>
 </div>
 <br>
 <div class="img-show">
-<%= @spot.label_list %>
+<p class="btn btn-default btn-sm">#<%= @spot.label_list %></p>
 </div>
 <br><br>
 <div class="img-show">
