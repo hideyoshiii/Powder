@@ -1,23 +1,33 @@
 <%= render "partial/navbar" %>
+
 <main class="" id="main-collapse">
+
+<div class="panel panel-default">
+	
+	<div class="panel-body scene-check">
+  <%= form_tag(search_tokyo99e_path, method: :get) do %>
   
-  <h4 style="font-size: 17px;font-weight: bold;">詳しく探す</div>
-  <br>
-  <br>
-  <%= link_to search_tokyo98_path do %>
-  <%= image_tag "tokyo-famous.jpg", :class =>'img-prefecture-tokyo' %>
-  <% end %>
+    <% @sceness.each do |scene| %>
+    <label class="checkbox-inline">
+      <%= check_box_tag 'sample_form[scenes][]', scene,nil %>
+      <%= scene %>
+    </label>
+    <% end %>
   
-  
-  <hr>
-  
-  
+  <%= submit_tag "検索", :class => "btn btn-default btn-sm pull-right" %>
+<% end %>
+</div>
+</div>
+<br>
 
   <div class="hero-full-wrapper">
   <div class="grid">
   <div class="gutter-sizer"></div>
     <div class="grid-sizer"></div>
-    <% @spots.each do |spot| %>
+    <% if @arrlistings  %>
+	<% @arrlistings.each do |spot| %>
+		<% a = spot.scenes & @scenes %>
+		<% if !a.blank? %>
     <div class="grid-item iii">
       <%= link_to spot_path(spot) do %>
       <%= image_tag spot.photo.url, :class =>'img-responsive' %>
@@ -117,16 +127,20 @@
         </div>
         </div>
     <% end %>
+    
+	
 
 
     
     
 
       <% end %>
-      </div>
+  	</div>
       <br>
       
     </div>
+    <% end %>
+    <% end %>
    <% end %>  
   </div>
 </div>
@@ -161,3 +175,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 
 --> <script type="text/javascript" src="./main.85741bff.js"></script></body>
+
+
