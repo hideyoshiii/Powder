@@ -2,6 +2,10 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
+    @questions = Question.all.reverse_order
+    @q = @questions.ransack(params[:q])
+    @result = @q.result(distinct: true)
+    @arrlistings = @result.to_a
   end
 
   def men
