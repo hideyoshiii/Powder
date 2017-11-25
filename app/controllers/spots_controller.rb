@@ -2,11 +2,12 @@ class SpotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
-    @spots = Spot.order('id DESC').limit(25)
+    @spots = Spot.order('id DESC').limit(50)
   end
 
   def show
     @spot = Spot.find(params[:id])
+    @tags = @spot.label_list
   end
 
   def new

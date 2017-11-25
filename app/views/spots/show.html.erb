@@ -126,12 +126,16 @@
 <% end %>
 <div class="img-show">
 <% @spot.scenes.each do |scene| %>
-<p class="btn btn-default btn-sm">#<%= scene %></p>
+<p class="btn btn-default btn-sm"><%= scene %></p>
 <% end %>
 </div>
 <br>
 <div class="img-show">
-<%= @spot.label_list %>
+<% @tags.each do |tag| %>
+<%= link_to search_tags_index_path(tag: tag) do %>
+<i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag %></span>　
+<% end %>
+<% end %>
 </div>
 <br><br>
 <div class="img-show">
