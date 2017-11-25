@@ -193,6 +193,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 .img-prefecture-tokyo{
 	width:32.666%;height:auto;border-radius: 40px;
+	display: inline-block; 
+    box-shadow: 0px 5px 15px -5px rgba(0, 0, 0, 0.8); /*横方向　下方向　ぼかし　広がり　色 */
 }
 
 
