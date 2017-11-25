@@ -38,7 +38,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem "paperclip", "~> 5.0.0"
 gem 'ransack'
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem "figaro", "~> 1.0.0"
 gem 'aws-sdk', '~> 2.3'
 

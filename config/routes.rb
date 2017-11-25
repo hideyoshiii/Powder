@@ -35,7 +35,8 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :destroy]
 
-
+  get "search/tags" => "tags#search"
+  get "search/tags/index" => "tags#index"
 
 
   get "search/prefecture" => "pages#prefecture"

@@ -2,8 +2,7 @@ class SpotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
-    @spots = Spot.all.reverse_order
-    @tags = ActsAsTaggableOn::Tag.most_used(3)
+    @spots = Spot.order('id DESC').limit(25)
   end
 
   def show
