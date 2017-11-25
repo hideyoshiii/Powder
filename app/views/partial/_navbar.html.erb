@@ -22,14 +22,13 @@
       </div>
       <ul class="nav">
         <% if (user_signed_in?) %>
+        <%= link_to "Q&Aへ", questions_path, :class =>'btn btn-success btn-sm' %>
+        <br><br>
         <li><%= link_to "デートスポット一覧", spots_path %></li> 
         <li><%= link_to "エリアから探す", search_prefecture_path %></li>
         <li><%= link_to "タグから探す", search_tags_path %></li>
         <li><%= link_to "デートスポットを投稿する", new_spot_path %></li>
-        <br>
-        <li><%= link_to "Question一覧(men)", questions_men_path %></li> 
-        <li><%= link_to "Question一覧(women)", questions_women_path %></li> 
-        <li><%= link_to "質問する", new_question_path %></li>
+
         <% end %>
 
       </ul>
