@@ -1,1 +1,105 @@
-chiba.html.erb
+<%= render "partial/navbar" %>
+
+<main class="" id="main-collapse">
+
+<div class="panel panel-default">
+	
+	<%= search_form_for @q, url: search_chiba1_path do |f| %>
+    <div class="panel-body">
+      	<div class="form-group">
+      		<div class="city-check">
+	        <label class="checkbox-inline">
+			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "浦安・舞浜", unchecked_value = "" %>浦安・舞浜　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "鎌ヶ谷・白井・印西", unchecked_value = "" %>鎌ヶ谷・白井・印西　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "鴨川", unchecked_value = "" %>鴨川　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "館山・南房総", unchecked_value = "" %>館山・南房総　
+			</label>
+			<label class="checkbox-inline">
+			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "君津・富津", unchecked_value = "" %>君津・富津　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "香取・銚子・旭市", unchecked_value = "" %>"香取・銚子・旭市
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "市原", unchecked_value = "" %>市原　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "勝浦・いすみ", unchecked_value = "" %>勝浦・いすみ　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "松戸・市川", unchecked_value = "" %>松戸・市川　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "成田", unchecked_value = "" %>成田
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "船橋・習志野", unchecked_value = "" %>船橋・習志野　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "東金・大綱白里・九十九里", unchecked_value = "" %>東金・大綱白里・九十九里　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "柏・我孫子", unchecked_value = "" %>柏・我孫子　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "八千代・佐倉", unchecked_value = "" %>八千代・佐倉　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "茂原", unchecked_value = "" %>茂原　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "木更津・袖ヶ浦", unchecked_value = "" %>木更津・袖ヶ浦
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "流山・野田", unchecked_value = "" %>流山・野田　
+			</label>
+			<label class="checkbox-inline">
+			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "千葉市", unchecked_value = "" %>千葉市　
+			</label>
+			
+	        </div>	    
+      	
+    
+        <div class="pull-right">
+        <%= f.submit "検索", class: "btn btn-default" %>
+        </div>
+        </div>
+    </div>
+
+      
+    <br>  
+<% end %>
+</div>
+ 
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>
+
+
+

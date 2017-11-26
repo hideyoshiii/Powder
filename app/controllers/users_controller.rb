@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show 
   	@user = User.find(params[:id]) 
-    @spots = Spot.where(user_id: current_user.id)
+    @spots = Spot.where(user_id: @user.id)
   	@wants = Like.where(user_id: @user.id, kind: 1)
   	@dones = Like.where(user_id: @user.id, kind: 2)
   end
@@ -14,6 +14,11 @@ class UsersController < ApplicationController
   def done
   	@user = User.find(params[:id]) 
   	@dones = Like.where(user_id: @user.id, kind: 2)
+  end
+
+  def spot 
+    @user = User.find(params[:id]) 
+    @spots = Spot.where(user_id: @user.id)
   end
 
 end

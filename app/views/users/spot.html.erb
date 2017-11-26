@@ -1,25 +1,12 @@
 <%= render "partial/navbar" %>
-
 <main class="" id="main-collapse">
 
-<div class="panel panel-default">
 	
-	<div class="panel-body scene-check">
-  <%= form_tag(search_kanagawa1_path, method: :get) do %>
-  <%= render "partial/scene" %>
-  <% end %>
-</div>
-</div>
-<br>
-
-  <div class="hero-full-wrapper">
+<div class="hero-full-wrapper">
   <div class="grid">
   <div class="gutter-sizer"></div>
     <div class="grid-sizer"></div>
-    <% if @arrlistings  %>
-	<% @arrlistings.each do |spot| %>
-		<% a = spot.scenes & @scenes %>
-		<% if !a.blank? %>
+    <% @spots.each do |spot| %>
     <div class="grid-item iii">
       <%= link_to spot_path(spot) do %>
       <%= image_tag spot.photo.url, :class =>'img-responsive' %>
@@ -119,20 +106,16 @@
         </div>
         </div>
     <% end %>
-    
-	
 
 
     
     
 
       <% end %>
-  	</div>
+      </div>
       <br>
       
     </div>
-    <% end %>
-    <% end %>
    <% end %>  
   </div>
 </div>
@@ -143,6 +126,9 @@
      masonryBuild();
   });
 </script>
+
+
+ 
  
 </main>
 
@@ -167,5 +153,3 @@ document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 
 --> <script type="text/javascript" src="./main.85741bff.js"></script></body>
-
-
