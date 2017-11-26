@@ -39,9 +39,9 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
 
     if @question.save
-      redirect_to user_path(current_user), notice: "リスティングを作成・保存をしました"
+      redirect_to user_path(current_user)
     else
-      redirect_to new_question_path, notice: "リスティングを作成・保存出来ませんでした"
+      redirect_to new_question_path
     end
 
   end
@@ -49,14 +49,14 @@ class QuestionsController < ApplicationController
   def edit
      @question = Question.find(params[:id])
     if !(current_user == @question.user)
-      redirect_to root_path, notice: "他人の編集ページにはアクセスできません"
+      redirect_to root_path
     end
   end
 
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to user_path(current_user), notice: "更新しました"
+      redirect_to user_path(current_user)
     end
   end
 

@@ -24,13 +24,6 @@
             <br>
 
 
-            <label>性別</label>
-            <div class="form-group">
-            <label><%= f.radio_button :sex, "男" %> 男性 </label>
-            <label><%= f.radio_button :sex, "女" %> 女性 </label>
-            </div>
-            <br>
-
             <label>年齢</label>
             <div class="form-group">
               <%= f.number_field :age, min:0, max:100, :class => 'form-control' %>

@@ -39,7 +39,7 @@
       <div class="row">
         <div class="col-xs-offset-3 col-xs-2 col-sm-2 col-md-2">
           <div class="text-center">
-		        <i class="fa fa-thumbs-up good-btn-un" aria-hidden="true"></i>
+		          <i class="fa fa-thumbs-up good-btn-un" aria-hidden="true"></i>
             <br>
 		        <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
 		        <%= answer_good_count %>
@@ -49,14 +49,18 @@
           <div class="text-center">
             <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
               <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
-                <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                <div class="answer-btn">
+                  <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
               <%= clip_count %>
             <% else %>
               <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
-                <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                <div class="answer-btn">
+                  <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -66,7 +70,7 @@
         </div>
         <div class="col-xs-2 col-sm-2 col-md-2">
           <div class="text-center">
-  		      <i class="fa fa-thumbs-down bad-btn-un" aria-hidden="true"></i>
+  		        <i class="fa fa-thumbs-down bad-btn-un" aria-hidden="true"></i>
             <br>
   		      <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
   		      <%= answer_bad_count %> 
@@ -86,7 +90,9 @@
             <div class="col-xs-offset-3 col-xs-2 col-sm-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/answers/#{@question.id}/destroy1", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-up good-btn" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
@@ -97,14 +103,18 @@
               <div class="text-center">
                 <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
                   <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
                   <%= clip_count %>
                 <% else %>
                   <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -115,7 +125,9 @@
             <div class="col-xs-2 col-ms-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/likes/#{@question.id}/update2", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-down bad-btn-un" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
@@ -133,7 +145,9 @@
             <div class="col-xs-offset-3 col-xs-2 col-sm-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/answers/#{@question.id}/update1", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-up good-btn-un" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
@@ -144,14 +158,18 @@
               <div class="text-center">
                 <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
                   <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
                   <%= clip_count %>
                 <% else %>
                   <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -162,7 +180,9 @@
             <div class="col-xs-2 col-ms-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/answers/#{@question.id}/destroy2", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-down bad-btn" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
@@ -180,7 +200,9 @@
         <div class="col-xs-offset-3 col-xs-2 col-sm-2 col-md-2">
           <div class="text-center">
             <%= link_to("/answers/#{@question.id}/create1", {method: "post"}) do %>
+            <div class="answer-btn">
               <i class="fa fa-thumbs-up good-btn-un" aria-hidden="true"></i>
+              </div>
             <% end %>
             <br>
             <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
@@ -191,14 +213,18 @@
           <div class="text-center">
             <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
               <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
+              <div class="answer-btn">
                 <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
               <%= clip_count %>
             <% else %>
               <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
+              <div class="answer-btn">
                 <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -209,7 +235,9 @@
         <div class="col-xs-2 col-sm-2 col-md-2">
           <div class="text-center">
             <%= link_to("/answers/#{@question.id}/create2", {method: "post"}) do %>
+            <div class="answer-btn">
               <i class="fa fa-thumbs-down bad-btn-un" aria-hidden="true"></i>
+              </div>
             <% end %> 
             <br> 
             <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
@@ -235,7 +263,9 @@
             <div class="col-xs-offset-3 col-xs-2 col-sm-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/answers/#{@question.id}/destroy1", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-up good-btn" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
@@ -246,14 +276,18 @@
               <div class="text-center">
                 <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
                   <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
                   <%= clip_count %>
                 <% else %>
                   <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -264,7 +298,9 @@
             <div class="col-xs-2 col-ms-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/likes/#{@question.id}/update2", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-down bad-btn-un" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
@@ -281,7 +317,9 @@
             <div class="col-xs-offset-3 col-xs-2 col-sm-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/answers/#{@question.id}/update1", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-up good-btn-un" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
@@ -292,14 +330,18 @@
               <div class="text-center">
                 <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
                   <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
                   <%= clip_count %>
                 <% else %>
                   <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
+                  <div class="answer-btn">
                     <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                    </div>
                   <% end %>
                   <br>
                   <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -310,7 +352,9 @@
             <div class="col-xs-2 col-sm-2 col-md-2">
               <div class="text-center">
                 <%= link_to("/answers/#{@question.id}/destroy2", {method: "post"}) do %>
+                <div class="answer-btn">
                   <i class="fa fa-thumbs-down bad-btn" aria-hidden="true"></i>
+                  </div>
                 <% end %>
                 <br>
                 <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
@@ -328,7 +372,9 @@
         <div class="col-xs-offset-3 col-xs-2 col-sm-2 col-md-2">
           <div class="text-center">
             <%= link_to("/answers/#{@question.id}/create1", {method: "post"}) do %>
+            <div class="answer-btn">
               <i class="fa fa-thumbs-up good-btn-un" aria-hidden="true"></i>
+              </div>
             <% end %>
             <br>
             <% answer_good_count = Answer.where(question_id: @question.id, kind: 1).count %>
@@ -339,14 +385,18 @@
           <div class="text-center">
             <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
               <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
+              <div class="answer-btn">
                 <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
               <%= clip_count %>
             <% else %>
               <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
+              <div class="answer-btn">
                 <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -357,7 +407,9 @@
         <div class="col-xs-2 col-sm-2 col-md-2">
           <div class="text-center">
             <%= link_to("/answers/#{@question.id}/create2", {method: "post"}) do %>
+            <div class="answer-btn">
               <i class="fa fa-thumbs-down bad-btn-un" aria-hidden="true"></i>
+              </div>
             <% end %>  
             <br>
             <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
@@ -386,14 +438,18 @@
           <div class="text-center">
             <% if Clip.find_by(user_id: current_user.id, question_id: @question.id) %>
               <%= link_to("/clips/#{@question.id}/destroy", {method: "post"}) do %>
+              <div class="answer-btn">
                 <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
               <%= clip_count %>
             <% else %>
               <%= link_to("/clips/#{@question.id}/create", {method: "post"}) do %>
+              <div class="answer-btn">
                 <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+                </div>
               <% end %>
               <br>
               <% clip_count = Clip.where(question_id: @question.id).count %>
@@ -404,6 +460,7 @@
         <div class="col-xs-2 col-sm-2 col-md-2">
           <div class="text-center">
 		        <i class="fa fa-thumbs-down bad-btn-un" aria-hidden="true"></i>
+            <div class="answer-btn">
             <br>
 		        <% answer_bad_count = Answer.where(question_id: @question.id, kind: 2).count %>
 		        <%= answer_bad_count %> 
