@@ -6,6 +6,7 @@ class TagsController < ApplicationController
 
   def index
     @spots = params[:tag].present? ? Spot.tagged_with(params[:tag]) : Spot.all
+    @tag = params[:tag]
   end
 
 end

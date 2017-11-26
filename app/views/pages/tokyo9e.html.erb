@@ -6,15 +6,7 @@
 	
 	<div class="panel-body scene-check">
   <%= form_tag(search_tokyo9e_path, method: :get) do %>
-  
-    <% @sceness.each do |scene| %>
-    <label class="checkbox-inline">
-      <%= check_box_tag 'sample_form[scenes][]', scene,nil %>
-      <%= scene %>
-    </label>
-    <% end %>
-  
-  <%= submit_tag "検索", :class => "btn btn-default btn-sm pull-right" %>
+  <%= render "partial/scene" %>
 <% end %>
 </div>
 </div>

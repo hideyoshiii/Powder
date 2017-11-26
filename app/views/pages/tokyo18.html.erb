@@ -12,7 +12,7 @@
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_tokyo18e_path do |f| %>
 	    <div class="panel-body">
-	      	<div class="form-group">
+	      	
 	      		<div class="city-check">
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "五反田", unchecked_value = "" %>五反田　
@@ -33,7 +33,7 @@
 		        <%= f.submit "検索", class: "btn btn-default btn-sm" %>
 		        </div>
 	        </div>
-	    </div> 
+	    
 		<% end %>
 	</div>
 </div>

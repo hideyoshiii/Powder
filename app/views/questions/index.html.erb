@@ -8,8 +8,10 @@
 	
 <%= search_form_for @q, url: questions_path do |f| %>
     <div class="panel-body">
-      	<div class="form-group">
-      		<div class="city-check">
+      	<p class="form-title">
+          シーン
+        </p>
+      <div class="city-check">
 	    <label class="checkbox-inline">
 			 <%= f.check_box :category_eq_any, { multiple: true },checked_value = "誘う", unchecked_value = "" %>誘う
 			</label>
@@ -28,16 +30,21 @@
 			<label class="checkbox-inline">
 			  <%= f.check_box :category_eq_any, { multiple: true },checked_value = "その他", unchecked_value = "" %>その他
 			</label>
+      </div>  
       <hr>
+      <p class="form-title">
+        性別
+      </p>
+      <div class="city-check">
       <label class="checkbox-inline">
         <%= f.check_box :sex_eq_any, { multiple: true },checked_value = "男", unchecked_value = "" %>男性
       </label>
       <label class="checkbox-inline">
         <%= f.check_box :sex_eq_any, { multiple: true },checked_value = "女", unchecked_value = "" %>女性
       </label>
-	     </div>	
+	     </div>  
           <%= f.submit "検索", class: "btn btn-default btn-sm pull-right" %>
-      </div>
+      
     
 
     

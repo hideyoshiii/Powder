@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<div class="text-center">
-						<span style="font-size:24px;">デートスポットを作る</span>
+						<span style="font-size:20px;">デートスポットを投稿する</span>
 					</div>
 				</div>
 
@@ -54,7 +54,28 @@
                                 <label>scene</label>
                                 <br>
                                 
-								    <% @scenes.each do |scene| %>
+								    <% ["記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ドライブ"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>
+								    <br>ーーーーーーーーーーーー<br>
+								    <% ["ショッピング", "癒し", "夜景", "イルミネーション", "テーマパーク", "美術館", "フォトジェニック", "ホテル・旅館"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>
+								    <br>ーーーーーーーーーーーー<br>
+								    <% ["ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>
+								    <br>ーーーーーーーーーーーー<br>
+								    <% ["クリスマス","春", "夏", "秋", "冬"].each do |scene| %>
 								    <label>
 								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
 								      <%= scene %>
@@ -66,15 +87,15 @@
 						</div>
 						<br>
 
-            <div class="row">
-              <div class="col-md-12 select">
-                <div class="field">
-                  <%= f.label :label_list, "tag" %><br>
-                  <%= text_field_tag 'spot[label_list]', @spot.label_list.join(','), "data-role" => "tagsinput" %>
-                </div>
-              </div>
-            </div>
-            <br>
+			            <div class="row">
+			              <div class="col-md-12 select">
+			                <div class="field">
+			                  <%= f.label :label_list, "tag" %><br>
+			                  <%= text_field_tag 'spot[label_list]', @spot.label_list.join(','), "data-role" => "tagsinput" %>
+			                </div>
+			              </div>
+			            </div>
+			            <br>
 
 						<div class="row">
 							<div class="col-md-12 select">

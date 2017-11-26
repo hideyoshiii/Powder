@@ -1,0 +1,32 @@
+<p class="form-title">
+   シーンを絞る
+  </p>
+    <% ["記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ドライブ"].each do |scene| %>
+      <label>
+        <%= check_box_tag 'sample_form[scenes][]', scene,nil %>
+        <%= scene %>&nbsp;&nbsp;&nbsp;
+      </label>
+    <% end %>
+    <hr>
+    <% ["ショッピング", "癒し", "夜景", "イルミネーション", "テーマパーク", "美術館", "フォトジェニック", "ホテル・旅館"].each do |scene| %>
+      <label>
+        <%= check_box_tag 'sample_form[scenes][]', scene,nil %>
+        <%= scene %>&nbsp;&nbsp;&nbsp;
+      </label>
+    <% end %>
+    <hr>
+    <% ["ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き"].each do |scene| %>
+      <label>
+        <%= check_box_tag 'sample_form[scenes][]', scene,nil %>
+        <%= scene %>&nbsp;&nbsp;&nbsp;
+      </label>
+    <% end %>
+    <hr>
+    <% ["クリスマス","春", "夏", "秋", "冬"].each do |scene| %>
+      <label>
+        <%= check_box_tag 'sample_form[scenes][]', scene,nil %>
+        <%= scene %>&nbsp;&nbsp;&nbsp;
+      </label>
+    <% end %>
+    <br>
+  <%= submit_tag "検索", :class => "btn btn-default btn-sm pull-right" %>
