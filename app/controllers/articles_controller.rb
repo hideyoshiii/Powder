@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
-    @spots = Article.order('id DESC').limit(50)
+    @articles = Article.order('id DESC').limit(50)
   end
 
 
@@ -34,7 +34,11 @@ class ArticlesController < ApplicationController
   end
 
   def show1
-    
+    @article = Article.find(1)
+  end
+
+  def show2
+    @article = Article.find(2)
   end
 
   private

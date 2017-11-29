@@ -1,15 +1,15 @@
 <header class="">
-  <div class="navbar navbar-default navbar-fixed-top visible-xs">
+  <div class="navbar navbar-default visible-xs">
     <button type="button" class="navbar-toggle collapsed">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="/" class="navbar-brand">Powder<span style="font-size: 14px;">&nbsp;&nbsp;みんなのデートスポット</span></a>
+    <a href="/" class="navbar-brand">Powder<span style="font-size: 14px;"></span></a>
   </div>
 
-  <nav class="sidebar">
+  <nav class="sidebar home">
     <div class="navbar-collapse" id="navbar-collapse">
       <div class="site-header hidden-xs">
           <a class="site-brand" href="/" title="">
@@ -18,32 +18,13 @@
               Powder
             </h2>
           </a>
-        <p style="font-weight: bold;">みんなのデートスポット</p>
+        
       </div>
       <ul class="nav">
         <% if (user_signed_in?) %>
-        <%= link_to "Videoへ", articles_path, :class =>'btn btn-success btn-sm' %>
-        <br><br>
-        
-        
-        <li>
-          <%= link_to search_prefecture_path do %>
-          <i class="fa fa-map-marker stastion-btn" aria-hidden="true"></i> エリアから探す
-          <% end %>
-        </li>
-        
-        <li>
-          <%= link_to search_tags_path do %>
-          <i class="fa fa-tag tag-btn" aria-hidden="true"></i> タグから探す
-          <% end %>
-        </li>
-
-        <li>
-          <%= link_to new_spot_path do %>
-          <i class="fa fa-plus-circle plus-btn" aria-hidden="true"></i> <span style="font-size: 12px;">デートスポットを投稿する</span>
-          <% end %>
-        </li>
-
+        <br>
+        <li><%= link_to "Videoへ", articles_path %></li>
+        <li><%= link_to "デートスポットへ", spots_path %></li>
         <% end %>
 
       </ul>
@@ -80,6 +61,7 @@
             <i class="fa fa-twitter"></i>
           </a>
         </p>
+       
       </nav>  
     </div> 
   </nav>

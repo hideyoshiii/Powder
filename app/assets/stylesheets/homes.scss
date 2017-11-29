@@ -1,0 +1,12 @@
+.homes {
+ background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 161, .8)) fixed, url(http://www.webcreatorbox.com/sample/images/bg-cherrybrossam.jpg) fixed;
+  background-size: cover;
+
+}
+
+@media only screen and (max-width: 768px) {
+.homes {
+  background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 161, .8)) fixed, url(home01.jpg) fixed;
+  background-size: cover;
+}
+}

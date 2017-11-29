@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   
+  root :to => 'homes#index'
+
   resources :spots
 
   resources :articles, only: [:index, :new, :create, :edit, :update]
   get "articles/1" => "articles#show1"
+  get "articles/2" => "articles#show2"
 
 
   get "questions/men" => "questions#men"
@@ -11,7 +14,7 @@ Rails.application.routes.draw do
   resources :questions
   
 
-  root :to => 'pages#index'
+  
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks",:registrations => 'registrations' }
 
