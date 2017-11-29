@@ -1,7 +1,7 @@
 <div class="hidden-xs col-sm-4 col-md-4">
 			<div class="row">
-				<div class="col-sm-offset-1 col-sm-11 col-md-offset-1  col-md-11">
-					<h4>Powderおすすめ</h4>
+				<div class="col-sm-offset-1 col-sm-11 col-md-offset-1 col-md-11 article-title-show">
+					<div style="font-size:20px;">Powderおすすめ</div>
 				</div>
 			</div>
 
@@ -10,12 +10,12 @@
 			<% a = Article.find(1) %>
 			<%= link_to "/articles/1" do %>
 			<div class="row">
-				<div class="col-sm-offset-1 col-sm-4 col-md-offset-1  col-md-4">
+				<div class="col-sm-offset-1 col-sm-11 col-md-offset-1 col-md-4">
 					<div class="img-show">
 						<%= image_tag a.photo.url, :class =>'img-article-reccomend text-center' %>
 					</div>
 				</div>
-				<div class="col-sm-7 col-md-7">
+				<div class="col-sm-offset-1 col-sm-11 col-md-6">
 					<p class="black"><%= a.title %></p>
 				</div>
 			</div>
@@ -26,12 +26,12 @@
 			<% b = Article.find(2) %>
 			<%= link_to "/articles/2" do %>
 			<div class="row">
-				<div class="col-sm-offset-1 col-sm-4 col-md-offset-1  col-md-4">
+				<div class="col-sm-offset-1 col-sm-11 col-md-offset-1 col-md-4">
 					<div class="img-show">
 						<%= image_tag b.photo.url, :class =>'img-article-reccomend text-center' %>
 					</div>
 				</div>
-				<div class="col-sm-7 col-md-7">
+				<div class="col-sm-offset-1 col-sm-11 col-md-6">
 					<p class="black"><%= b.title %></p>
 				</div>
 			</div>
@@ -42,12 +42,12 @@
 			<% c = Article.find(3) %>
 			<%= link_to "/articles/3" do %>
 			<div class="row">
-				<div class="col-sm-offset-1 col-sm-4 col-md-offset-1  col-md-4">
+				<div class="col-sm-offset-1 col-sm-11 col-md-offset-1 col-md-4">
 					<div class="img-show">
 						<%= image_tag c.photo.url, :class =>'img-article-reccomend text-center' %>
 					</div>
 				</div>
-				<div class="col-sm-7 col-md-7">
+				<div class="col-sm-offset-1 col-sm-11 col-md-6">
 					<p class="black"><%= c.title %></p>
 				</div>
 			</div>

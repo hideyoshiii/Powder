@@ -7,26 +7,38 @@
 				<div class="col-xs-12 col-sm-12 col-md-12">
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 article-title-show">
-							<h4 class=""><%= @article.title %></h4>
+							<div style="font-size:22px;"><%= @article.title %></div>
 						</div>
 						<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; width:100%; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BbfWXa9FBMT/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">This pink Cadillac floats on water. 😎 #insidertravel</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">INSIDER travelさん(@insidertravel)がシェアした投稿 - <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-11-14T20:55:47+00:00">2017 11月 14 12:55午後 PST</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
 					</div>
 					<br>
-					<h4 class="">この動画に含まれるスポット</h4>
-					<br>
+
+
+
 					<div class="row">
-						<div class="col-xs-4 col-sm-4 col-md-4">
-							<%= link_to article_path(@article) do %>
+						<div class="col-xs-12 col-sm-12 col-md-12 article-title-show">
+							<div style="font-size:20px;">この動画に含まれるスポット</div>
+							</div>	
+						</div>
+					<br>
+					<% a = Spot.find(1) %>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-4">
+							<%= link_to spot_path(a) do %>
 								<div class="img-show">
-									<%= image_tag @article.photo.url, :class =>'img-article-index' %>
+									<%= image_tag a.photo.url, :class =>'img-article-index' %>
 								</div>
-								<h4 class="black img-show title-font-index"><%= @article.title %></h4>
+								<h4 class="black img-show title-font-index"><%= a.title %></h4>
 							<% end %>
 							<div class="img-show prefecture-font-index">
-					          <span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @article.prefecture %></span>
+					          <span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= a.prefecture %></span>
 					        </div>
 						</div>	
 					</div>
+
+
+
+
 				</div>
 			</div>
 		</div>

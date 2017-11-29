@@ -6,7 +6,8 @@
 
 <div class="panel panel-default">
     <div class="panel-body">
-    	<h4>タグ一覧</h4>	
+    	<div style="font-size:22px;">タグ一覧</div>	
+      <br>
 <% @tags.each do |tag| %>
 <%= link_to search_tags_index_path(tag: tag.name) do %>
 <i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag.name %></span><span style="color: #8899a6;">(<%= tag.taggings_count %>)</span>　
