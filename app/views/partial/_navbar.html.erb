@@ -25,9 +25,24 @@
         <%= link_to "Q&Aへ", questions_path, :class =>'btn btn-success btn-sm' %>
         <br><br>
         <li><%= link_to "デートスポット一覧", spots_path %></li> 
-        <li><%= link_to "エリアから探す", search_prefecture_path %></li>
-        <li><%= link_to "タグから探す", search_tags_path %></li>
-        <li><%= link_to "デートスポットを投稿する", new_spot_path %></li>
+        
+        <li>
+          <%= link_to search_prefecture_path do %>
+          <i class="fa fa-map-marker stastion-btn" aria-hidden="true"></i> エリアから探す
+          <% end %>
+        </li>
+        
+        <li>
+          <%= link_to search_tags_path do %>
+          <i class="fa fa-tag tag-btn" aria-hidden="true"></i> タグから探す
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to new_spot_path do %>
+          <i class="fa fa-plus-circle plus-btn" aria-hidden="true"></i> <span style="font-size: 12px;">デートスポットを投稿する</span>
+          <% end %>
+        </li>
 
         <% end %>
 
