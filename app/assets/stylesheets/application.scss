@@ -365,6 +365,12 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 }
 
 
+.top{background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, .8, 161, .8));}
+
+@media only screen and (min-width: 768px) {
+.side{background: linear-gradient(-45deg, rgba(246, 255, 0, .6), rgba(255, 0, 161, .6));}
+}
+
 
 
 
