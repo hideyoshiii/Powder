@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125110541) do
+ActiveRecord::Schema.define(version: 20171129062219) do
+
+  create_table "airticles", force: :cascade do |t|
+    t.string "title"
+    t.string "prefecture"
+    t.string "city"
+    t.string "station"
+    t.integer "price"
+    t.text "scenes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.integer "kind"
@@ -21,6 +32,21 @@ ActiveRecord::Schema.define(version: 20171125110541) do
     t.integer "question_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.string "prefecture"
+    t.string "city"
+    t.string "station"
+    t.text "scenes"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.integer "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "clips", force: :cascade do |t|

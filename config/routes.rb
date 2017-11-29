@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
   resources :spots
 
+  resources :articles, only: [:index, :new, :create, :edit, :update]
+  get "articles/1" => "articles#show1"
+
+
   get "questions/men" => "questions#men"
   get "questions/women" => "questions#women"
   resources :questions

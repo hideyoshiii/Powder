@@ -3,7 +3,6 @@ class Spot < ApplicationRecord
 
   validates :title, presence: true
   validates :prefecture, presence: true
-  validates :scenes, presence: true
 
   serialize :scenes
 
