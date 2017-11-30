@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129062219) do
+ActiveRecord::Schema.define(version: 20171130210307) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 20171129062219) do
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
     t.string "station"
+    t.string "address"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 

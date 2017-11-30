@@ -122,6 +122,14 @@
 <div class="fl_inst2"><i class="fa fa-instagram" aria-hidden="true"></i><span>&nbsp;&nbsp;instagramで見る</span></div>
   <% end %>
 </div>
+<br>
+<% end %>
+<% if @spot.address %>
+<div class="img-show">
+  <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="square_btn">
+    <i class="fa fa-map-o" aria-hidden="true"></i> 地図を開く
+  </a>
+</div>
 <br><br>
 <% end %>
 <div class="img-show">
