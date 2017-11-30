@@ -22,25 +22,32 @@
       </div>
       <ul class="nav">
         <% if (user_signed_in?) %>
-        <%= link_to "Videoへ", articles_path, :class =>'btn btn-success btn-sm' %>
-        <br><br>
+
+        
+          
         
         
         <li>
+          <%= link_to search_tokyo98_path do %>
+          <i class="fa fa-building" aria-hidden="true"></i> 東京で探す
+          <% end %>
+        </li>
+
+        <li>
           <%= link_to search_prefecture_path do %>
-          <i class="fa fa-map-marker stastion-btn" aria-hidden="true"></i> エリアから探す
+          <i class="fa fa-map-marker" aria-hidden="true"></i> エリアから探す
           <% end %>
         </li>
         
         <li>
           <%= link_to search_tags_path do %>
-          <i class="fa fa-tag tag-btn" aria-hidden="true"></i> タグから探す
+          <i class="fa fa-tag" aria-hidden="true"></i> タグから探す
           <% end %>
         </li>
 
         <li>
           <%= link_to new_spot_path do %>
-          <i class="fa fa-plus-circle plus-btn" aria-hidden="true"></i> <span style="font-size: 12px;">デートスポットを投稿する</span>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
           <% end %>
         </li>
 
@@ -50,7 +57,9 @@
 
       <nav class="nav-footer">
         <% if (user_signed_in?) %>
-        
+        <input type="checkbox" id="switch1" value="/articles" onclick="location.href=this.value" class='switch'>
+          <label for="switch1"></label>
+          <br><br>
         <%= link_to user_path(current_user) do %>
         <%= image_tag current_user.image, :class => "img-circle profile-4" %>
         &nbsp;&nbsp;<%= current_user.nickname %>
@@ -68,13 +77,13 @@
         
         
         <p class="nav-footer-social-buttons">
-          <a class="fa-icon" href="https://www.instagram.com/myi.no1/" target="_blank">
+          <a class="fa-icon" href="https://www.instagram.com/powder.date/" target="_blank">
             <i class="fa fa-instagram"></i>
           </a>
-          <a class="fa-icon" href="https://www.facebook.com/myi.no1/" target="_blank">
+          <a class="fa-icon" href="/" target="_blank">
             <i class="fa fa-facebook" aria-hidden="true"></i>
           </a>
-          <a class="fa-icon" href="https://twitter.com/myi_no1/" target="_blank">
+          <a class="fa-icon" href="/" target="_blank">
             <i class="fa fa-twitter"></i>
           </a>
         </p>
