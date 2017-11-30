@@ -33,11 +33,9 @@
         <% if (user_signed_in?) %>
         
         <%= link_to user_path(current_user) do %>
-        <%= image_tag current_user.image, :class => "img-circle profile-0" %>
+        <%= image_tag current_user.image, :class => "img-circle profile-4" %>
         &nbsp;&nbsp;<%= current_user.nickname %>
         <% end %>
-        <br>
-        <%= link_to "プロフィール編集", edit_user_registration_path(current_user) %>
         <br>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         <br>

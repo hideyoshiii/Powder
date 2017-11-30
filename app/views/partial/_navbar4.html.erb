@@ -24,24 +24,15 @@
         <% if (user_signed_in?) %>
         <%= link_to "Videoへ", articles_path, :class =>'btn btn-success btn-sm' %>
         <br><br>
+        <%= link_to "デートスポットへ", spots_path, :class =>'btn btn-primary btn-sm' %>
+        <br><br>
         
         
-        <li>
-          <%= link_to search_prefecture_path do %>
-          <i class="fa fa-map-marker stastion-btn" aria-hidden="true"></i> エリアから探す
-          <% end %>
-        </li>
-        
-        <li>
-          <%= link_to search_tags_path do %>
-          <i class="fa fa-tag tag-btn" aria-hidden="true"></i> タグから探す
-          <% end %>
-        </li>
 
         <li>
-          <%= link_to new_spot_path do %>
-          <i class="fa fa-plus-circle plus-btn" aria-hidden="true"></i> <span style="font-size: 12px;">デートスポットを投稿する</span>
-          <% end %>
+        <%= link_to edit_user_registration_path(current_user) do %>
+        <i class="fa fa-cog" aria-hidden="true"></i> プロフィール編集
+        <% end %>
         </li>
 
         <% end %>
