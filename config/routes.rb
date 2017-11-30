@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root :to => 'homes#index'
 
   resources :spots
+  post "/spots/:id/destroy" => "spots#destroy"
 
   resources :articles, only: [:index, :new, :create, :edit, :update]
   get "articles/1" => "articles#show1"

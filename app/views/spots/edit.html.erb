@@ -19,7 +19,7 @@
           <div class="row">
           <div class="col-md-12 select">
               <div class="form-group">
-                <label>photo&nbsp;<span style="color: red;">※画像を変更する場合のみ選択してください</span></label>
+                <label>photo&nbsp;<span style="color:red;font-size:10px;">※画像を変更する場合のみ選択してください</span></label>
             <div class="field">
               <%= f.file_field :photo %>
             </div>
@@ -102,7 +102,7 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>description&nbsp;※もしあれば</label>
+                                <label>description</label>
                                 <%= f.text_area :description, rows: 7, placeholder: "説明", class: "form-control" %>
                             </div> 
 							</div>
@@ -113,8 +113,13 @@
 
 						
 
-						<div class="actions">
-							<%= f.submit "Save", class: "btn btn-danger" %>
+						<div class="pull-left">
+							<%= f.submit "更新", class: "btn btn-primary" %>
+						</div>
+						<div class="pull-right btn btn-default btn-sm">
+							<%= link_to("/spots/#{@spot.id}/destroy", {method: "post"}) do %>
+							<span style="color:red;">投稿を削除</span>
+							<% end %>
 						</div>
 					<% end %>
 				</div>
