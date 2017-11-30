@@ -1,36 +1,71 @@
 <%= render "partial/navbar3" %>
 <main class="" id="main-collapse">
-<div class="row">
-	<div class="col-xs-12 col-sm-8 col-md-8 article-title-show">
-		<div style="font-size:22px;">新着記事</div>
-	</div>
-</div>
-<br>
-	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-md-8">
-			<div class="row">
-				<% @articles.each do |article| %>
-					<div class="col-xs-6 col-sm-6 col-md-6">
-						<%= link_to article_path(article) do %>
-							<div class="img-show">
-								<div class="example">
-									<%= image_tag article.photo.url, :class =>'img-article-index' %>
-									<p><i class="fa fa-play-circle-o play-btn fa-3x" aria-hidden="true"></i></p>
-								</div>
-							</div>
-							<h4 class="black img-show title-font-index"><%= article.title %></h4>
-						<% end %>
-						<div class="img-show prefecture-font-index">
-				          <span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= article.prefecture %></span>
-				        </div>
-				        <br>
-					</div>
-				<% end %>
-			</div>
-		</div>
 
-		<%= render "partial/sidebar" %>
+<div class="row">
+		<div class="col-xs-12 col-sm-offset-2  col-sm-8 col-md-offset-2 col-md-8">
+			<div style="font-size: 20px;">新着動画</div>
+  			<br>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 article-title-show">
+							<div class="row">
+								<div class="col-xs-10 col-sm-10 col-md-10 article-title-index">
+									名物は可愛いラテアートと王様モンブラン。二条のケーキ屋さん「crème×plus」
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2">
+									
+								</div>	
+							</div>
+						</div>
+						<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; width:100%; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BbfWXa9FBMT/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">This pink Cadillac floats on water. 😎 #insidertravel</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">INSIDER travelさん(@insidertravel)がシェアした投稿 - <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-11-14T20:55:47+00:00">2017 11月 14 12:55午後 PST</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 article-title-show">
+							<div class="row">
+								<div class="col-xs-10 col-sm-10 col-md-10 article-title-index">
+									世界最高峰のバリスタが淹れる一杯。溜池山王「WHY NOT」のハンドドリップコーヒー
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2">
+									
+								</div>	
+							</div>
+						</div>
+						<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; width:100%; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BcGEtNclOyl/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Via @thisisinsider: What’s in your happy place? Ours is full of Instagrammable installations. 🌈Footage courtesy of @hangrydiary #insidertravel @wearehappyplace</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">INSIDER travelさん(@insidertravel)がシェアした投稿 - <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-11-29T21:51:51+00:00">2017 11月 29 1:51午後 PST</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 article-title-show">
+							<div class="row">
+								<div class="col-xs-10 col-sm-10 col-md-10 article-title-index">
+									極上の甘さがとろける「資生堂パーラー 銀座本店ショップ」のクリスマスケーキ
+								</div>
+								<div class="col-xs-2 col-sm-2 col-md-2">
+									
+								</div>	
+							</div>
+						</div>
+						<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; width:100%; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BbP2pryFEVf/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Via @thisisinsiderfitness: Below the Cachoeira do Mutum you can find natural swimming holes. 🏊 #insidertravel</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">INSIDER travelさん(@insidertravel)がシェアした投稿 - <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-11-08T20:30:03+00:00">2017 11月 8 12:30午後 PST</time></p></div></blockquote> <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+					</div>
+				</div>
+			</div>
+			<br>
+
+		</div>	
 	</div>
+ 
  
 </main>
 

@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
-    @articles = Article.order('id DESC').limit(50)
   end
 
 

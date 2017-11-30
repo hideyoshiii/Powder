@@ -322,7 +322,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 }
 
 .article-title-show{
-	background-color:#F2EADA;
+	background-color:#fcf5f5;
 }
 
 .img-article-reccomend{
@@ -397,6 +397,34 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 	color:#fff;
 	opacity:0.8;
 }
+
+
+
+
+.article-title-index{font-size:22px;font-weight:bold;}
+
+@media only screen and (max-width: 768px) {
+.article-title-index{font-size:15px;font-weight:bold;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
