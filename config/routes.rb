@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :new, :create, :edit, :update]
   get "articles/1" => "articles#show1"
   get "articles/2" => "articles#show2"
+  get "articles1" => "articles#index1"
 
 
   get "questions/men" => "questions#men"
