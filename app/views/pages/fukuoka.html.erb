@@ -2,6 +2,10 @@
 
 <main class="" id="main-collapse">
 
+	<div class="row">
+
+<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+
 <div class="panel panel-default">
 	
 	<%= search_form_for @q, url: search_fukuoka1_path do |f| %>
@@ -21,7 +25,7 @@
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "西新・百道・その他早良区", unchecked_value = "" %>西新・百道・その他早良区　
 			</label>
 			<label class="checkbox-inline">
-			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "太宰府・春日・筑紫野", unchecked_value = "" %>秋田・潟上・男鹿　
+			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "太宰府・春日・筑紫野", unchecked_value = "" %>太宰府・春日・筑紫野　
 			</label>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "中洲・香椎・その他東区", unchecked_value = "" %>中洲・香椎・その他東区　
@@ -51,6 +55,8 @@
       
     <br>  
 <% end %>
+</div>
+</div>
 </div>
  
 </main>
