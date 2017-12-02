@@ -1,12 +1,26 @@
 <%= render "partial/navbar4" %>
 <main class="" id="main-collapse">
 
-<div class="img-show">
-  <%= image_tag @user.image, :class => "img-circle profile-1" %>
-  <br>
-  <%= @user.nickname %>
-  <br>
-</div>
+<% if @user == current_user %>
+  <%= link_to edit_user_registration_path(current_user) do %>
+    <div class="img-show black">
+      <%= image_tag @user.image, :class => "img-circle profile-1" %>
+    <br>
+    <%= @user.nickname %>
+    </div>
+  <% end %>
+<% else %>
+  <div class="img-show">
+    <%= image_tag @user.image, :class => "img-circle profile-1" %>
+    <br>
+    <%= @user.nickname %>
+  </div>
+<% end %>
+
+<br>
+
+
+
 
 <% want_count = Like.where(user_id: @user.id, kind: 1).count %>
 <% done_count = Like.where(user_id: @user.id, kind: 2).count %>
