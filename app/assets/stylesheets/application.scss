@@ -53,7 +53,15 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 }
 
 .black:hover{
-	color:#ff6360
+	color:#ff6360;
+	}
+
+.white{
+	color:white;
+}
+
+.white:hover{
+	color:black;
 	}
 
 .show-element{
@@ -322,7 +330,9 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 }
 
 .article-title-show{
-	background-color:#fcf5f5;
+	background: #fcf5f5;
+	border-radius:0spx;
+	box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 5px 0 rgba(0,0,0,0.15);
 }
 
 .img-article-reccomend{

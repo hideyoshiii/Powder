@@ -41,6 +41,10 @@ class ArticlesController < ApplicationController
     @article = Article.find(2)
   end
 
+  def show3
+    @article = Article.find(3)
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :prefecture, :city, :station, :price, :photo, scenes:[])

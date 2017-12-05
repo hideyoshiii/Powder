@@ -23,10 +23,17 @@
       <ul class="nav">
         <% if (user_signed_in?) %>
         <br>
-        <li><%= link_to "looking by movie", articles_path %></li>
-        <li><%= link_to "looking by photo", spots_path %></li>
+        <li>
+          <%= link_to articles_path do %>
+          <i class="fa fa-play" aria-hidden="true"></i>&nbsp;&nbsp;looking by movie
+          <% end %> 
+        </li>
+        <li>
+          <%= link_to spots_path do %>
+          <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;&nbsp;looking by photo
+          <% end %> 
+        </li>
         <% end %>
-
       </ul>
 
       <nav class="nav-footer">
