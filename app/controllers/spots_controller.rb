@@ -5,6 +5,10 @@ class SpotsController < ApplicationController
     @spots = Spot.order('id DESC').limit(50)
   end
 
+  def rank
+    @ranks = Spot.find(Like.group(:spot_id).order('count(spot_id) desc').limit(50).pluck(:spot_id))
+  end
+
   def show
     @spot = Spot.find(params[:id])
     @tags = @spot.label_list

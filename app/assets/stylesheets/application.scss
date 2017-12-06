@@ -43,9 +43,9 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 	text-align:center;
 }
 
-.pc { max-width:60%;height:auto; }
+.pc { max-width:60%;height:auto;border-radius: 10px; }
 @media only screen and (max-width: 1000px) {
-.pc { max-width:90%;height:auto; }
+.pc { max-width:90%;height:auto;border-radius: 10px }
 }
 
 .black{
@@ -414,7 +414,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .article-title-index{font-size:22px;font-weight:bold;}
 
 @media only screen and (max-width: 768px) {
-.article-title-index{font-size:15px;font-weight:bold;}
+.article-title-index{font-size:18px;font-weight:bold;}
 }
 
 
@@ -577,15 +577,22 @@ input[type=checkbox].switch{
     display: inline-block;
     padding: 0.3em 1em;
     text-decoration: none;
-    color: #999999;
-    border: solid 2px #999999;
-    border-radius: 3px;
+    color: white;
+    border: solid 1px #0f9ada;
+    border-radius: 4px;
     transition: .4s;
+    background: #03A9F4;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    text-shadow: 0 1px 0 rgba(0,0,0,0.2);
+    
+
 }
 
 .square_btn:hover {
-    background: #CCCCCC;
+    border: solid 1px #03A9F4;
     color: white;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 

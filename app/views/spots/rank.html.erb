@@ -2,20 +2,19 @@
 <main class="" id="main-collapse">
 
 
-  
-  
-  <span style="color:black; font-size:18px;border-bottom: solid 2px black;">new</span>
-  &nbsp;&nbsp;
-  <%= link_to spots_rank_path do %>
-  <span class="black" style="font-size:18px;">rank</span>
+  <%= link_to spots_path do %>
+  <span class="black" style="font-size:18px;">new</span>
   <% end %>
+  &nbsp;&nbsp;
+  <span style="color:black; font-size:18px;border-bottom: solid 2px black;">rank</span>
   <br><br>
+
 
   <div class="hero-full-wrapper">
   <div class="grid">
   <div class="gutter-sizer"></div>
     <div class="grid-sizer"></div>
-    <% @spots.each do |spot| %>
+    <% @ranks.each do |spot| %>
     <div class="grid-item iii">
       <%= link_to spot_path(spot) do %>
       <%= image_tag spot.photo.url, :class =>'img-responsive' %>
