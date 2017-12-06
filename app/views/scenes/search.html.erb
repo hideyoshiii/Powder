@@ -4,6 +4,9 @@
 
 <div class="panel panel-default">
 <div class="panel-body scene-check">
+	<div style="font-size:22px;">シーンを絞る</div> 
+	<br>
+
   <%= form_tag(search_scenes_index_path, method: :get) do %>
   <% ["記念日・誕生日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ドライブ"].each do |scene| %>
       <label>
