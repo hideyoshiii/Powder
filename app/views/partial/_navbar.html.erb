@@ -12,7 +12,7 @@
   <nav class="sidebar side">
     <div class="navbar-collapse" id="navbar-collapse">
       <div class="site-header hidden-xs">
-          <a class="site-brand" href="spots" title="">
+          <a class="site-brand" href="/spots" title="">
             <h2>
               <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
               Powder
@@ -36,6 +36,12 @@
         <li>
           <%= link_to search_prefecture_path do %>
           <i class="fa fa-map-marker" aria-hidden="true"></i> エリアから探す
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to search_scenes_path do %>
+          <i class="fa fa-area-chart" aria-hidden="true"></i> 場面から探す
           <% end %>
         </li>
         

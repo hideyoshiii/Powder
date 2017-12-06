@@ -132,9 +132,12 @@
 </div>
 <br><br>
 <% end %>
-<div class="img-show">
+<div class="img-show form_conf">
 <% @spot.scenes.each do |scene| %>
-<p class="btn btn-default btn-sm"><%= scene %></p>
+<%= form_tag(search_scenes_index_path, method: :get) do %>
+<%= hidden_field_tag 'sample_form[scenes][]', scene %>
+<%= submit_tag scene, :class => "btn btn-default btn-sm" %>
+<% end %>
 <% end %>
 </div>
 <br>

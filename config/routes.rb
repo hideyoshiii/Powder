@@ -50,6 +50,9 @@ Rails.application.routes.draw do
   get "search/tags" => "tags#search"
   get "search/tags/index" => "tags#index"
 
+  get "search/scenes" => "scenes#search"
+  get "search/scenes/index" => "scenes#index"
+
 
   get "search/prefecture" => "pages#prefecture"
 
