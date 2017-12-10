@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130210307) do
+ActiveRecord::Schema.define(version: 20171210182836) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171130210307) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.text "content"
   end
 
   create_table "clips", force: :cascade do |t|

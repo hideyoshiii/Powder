@@ -383,7 +383,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .top{background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, .8, 161, .8));}
 
 @media only screen and (min-width: 768px) {
-.side{background: linear-gradient(-45deg, rgba(246, 255, 0, .6), rgba(255, 0, 161, .6));}
+.side{background: linear-gradient(-45deg, rgba(246, 255, 0, .6), rgba(255, 0, 161, .8));}
 }
 
 
@@ -416,6 +416,23 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 @media only screen and (max-width: 768px) {
 .article-title-index{font-size:18px;font-weight:bold;}
 }
+
+.article-title-index-sub{font-size:20px;color:#999999;}
+
+
+.article-content-index{font-size:14px;color:#999999;}
+
+@media only screen and (max-width: 768px) {
+.article-content-index{font-size:12px;color:#999999;}
+}
+
+.article-city-index{font-size:10px;color:#999999;}
+
+@media only screen and (max-width: 768px) {
+.article-content-index{font-size:8px;color:#999999;}
+}
+
+
 
 
 .btn-facebook {
