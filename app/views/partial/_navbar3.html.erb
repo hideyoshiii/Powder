@@ -23,8 +23,14 @@
       <ul class="nav">
         <% if (user_signed_in?) %>
 
+          <% if current_user.authority == "manager" %>
+            <li>
+            <%= link_to new_article_path do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i> 動画記事を投稿する
+            <% end %>
+          </li>
+          <% end %>
 
-        
         <% end %>
 
         
