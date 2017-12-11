@@ -6,12 +6,12 @@
 </div>
 <br>
 
+
 <div class="img-show">
 
 <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
 
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
 
 <a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
 <%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
@@ -19,7 +19,7 @@
 </div>
 
 
-<br>
+<br><br>
 	<div class="like-font-show">
       <% if Like.find_by(user_id: current_user.id, spot_id: @spot.id) %>
         <% if Like.find_by(user_id: current_user.id, spot_id: @spot.id, kind: 1) %>
@@ -127,26 +127,31 @@
 
 <p class="show-element"><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
 <br><br>
+
+
 <% if @spot.description %>
 <p class="show-element"><%= @spot.description %></p>
 <br><br>
 <% end %>
-<% if @spot.introduction %>
+
+
 <div class="img-show">
+<% if @spot.introduction %>
   <%= link_to "#{@spot.introduction}", :target=>["_blank"] do %>
 <div class="fl_inst2"><i class="fa fa-instagram" aria-hidden="true"></i><span>&nbsp;&nbsp;instagramで見る</span></div>
   <% end %>
-</div>
-<br>
 <% end %>
+
+
 <% if @spot.address %>
-<div class="img-show">
   <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="square_btn">
     <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;地図を開く
   </a>
-</div>
 <br><br>
 <% end %>
+</div>
+
+
 <div class="img-show form_conf">
 <% @spot.scenes.each do |scene| %>
 <%= form_tag(search_scenes_index_path, method: :get) do %>
