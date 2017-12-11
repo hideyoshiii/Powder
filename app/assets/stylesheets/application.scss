@@ -700,7 +700,7 @@ $switch_red-theme: rgb(244, 67, 54);
 input[type=checkbox].switch + label{
   width: 68px;
   height: 28px;
-  background: rgba($switch_red-theme, 0.05);
+  background: rgba($switch_red-theme, 0.5);
   display: inline-block;
   border-radius: 20px;
   position: relative;
@@ -716,7 +716,7 @@ input[type=checkbox].switch + label{
     border-radius: 50%;
     position: absolute;
     top: -6px;
-    left: 0;
+    left: -5px;
     transition: all .2s;
   }
   &:after{
@@ -734,7 +734,7 @@ input[type=checkbox].switch + label{
 input[type=checkbox].switch{
   display: none;
   &:checked + label{
-    background: rgba($switch_red-theme, 0.05);
+    background: rgba($switch_red-theme, 0.5);
     &:before,
     &:after{
       left: 30px;

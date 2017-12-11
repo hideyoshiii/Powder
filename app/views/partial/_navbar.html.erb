@@ -65,6 +65,8 @@
         <% if (user_signed_in?) %>
         <input type="checkbox" id="switch1" value="/articles" onclick="location.href=this.value" class='switch'>
           <label for="switch1"></label>
+          <br>
+          <span style="color:rgb(244, 67, 54);">&nbsp;&nbsp;looking by photo now</span>
           <br><br>
         <%= link_to user_path(current_user) do %>
         <%= image_tag current_user.image, :class => "img-circle profile-4" %>
