@@ -70,6 +70,16 @@
 
 						<div class="row">
 							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>content</label>
+                                <%= f.text_area :content, rows: 5, placeholder: "説明", class: "form-control" %>
+                            </div> 
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
 								<div class="field">
 								  <%= f.label :price %><br />
 								  およそ<%= f.number_field :price, min:0 %>円
