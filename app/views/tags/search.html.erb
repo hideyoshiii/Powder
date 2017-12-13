@@ -1,5 +1,3 @@
-
-
 <%= render "partial/navbar" %>
 
 <main class="" id="main-collapse">
@@ -43,7 +41,7 @@
   <div class="col-xs-12 col-sm-12 col-md-12">
     <% @tags.each do |tag| %>
       <%= link_to search_tags_index_path(tag: tag.name) do %>
-        <div class="btn btn-default btn-sm">
+        <div class="btn btn-default btn-sm tag-btn-btn">
           <i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag.name %></span><span style="color: #8899a6;">(<%= tag.taggings_count %>)</span>
         </div>
       <% end %>

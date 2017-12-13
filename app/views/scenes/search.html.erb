@@ -2,11 +2,16 @@
 
 <main class="" id="main-collapse">
 
-<div class="panel panel-default">
-<div class="panel-body scene-check">
-	<div style="font-size:22px;">シーンを絞る</div> 
-	<br>
+<br><br>
+<div class="row">
+<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-3 col-md-6">
+  
+<div class="title-content">
+  シーンを絞る
+</div>
+<hr class="style1">
 
+<div class="scene-check">
   <%= form_tag(search_scenes_index_path, method: :get) do %>
   <% ["記念日・誕生日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ドライブ"].each do |scene| %>
       <label>
@@ -40,7 +45,6 @@
 <% end %>
 </div>
 </div>
-
  
 </main>
 
