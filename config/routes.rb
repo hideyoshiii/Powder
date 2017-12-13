@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   post "likes/:spot_id/destroy1" => "likes#destroy1"
   post "likes/:spot_id/destroy2" => "likes#destroy2"
 
+
   post "answers/:question_id/create1" => "answers#create1"
   post "answers/:question_id/create2" => "answers#create2"
   post "answers/:question_id/update1" => "answers#update1"

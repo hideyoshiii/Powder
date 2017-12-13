@@ -4,6 +4,13 @@
               エリアを選ぶ
             </p>
             <div class="city-check">
+                  <%= link_to search_tokyo1_path do %>
+                  <div class="black station-font">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>  東京のすべてのエリアで探す
+                  </div>
+                  <% end %>
+                  <br>
+
                   <p class="city-category">
                     都心部
                   </p>
@@ -224,12 +231,6 @@
                   </div>
                   <% end %>
 
-                  <br>
-                  <%= link_to search_tokyo1_path do %>
-                  <div class="black station-font">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i>  すべてのエリアで探す
-                  </div>
-                  <% end %>
         </div>
     </div>
 </div>

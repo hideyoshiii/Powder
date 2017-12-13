@@ -19,6 +19,11 @@ class Spot < ApplicationRecord
   acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
 
 
+  def like_user(user_id)
+   likes.find_by(user_id: user_id)
+  end
+
+
 
 
   

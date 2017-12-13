@@ -1,0 +1,111 @@
+<div class="like-font-index">
+	<% if user_signed_in? %>
+	    <% if Like.find_by(user_id: current_user.id, spot_id: spot.id) %>
+	      <% if Like.find_by(user_id: current_user.id, spot_id: spot.id, kind: 1) %>
+	        <div class="row">
+	          <div class="col-xs-6 col-sm-6 col-md-6">
+	            <div class="text-center">&nbsp;&nbsp;
+	              <%= link_to "/likes/#{spot.id}/destroy1", method: :post, id: "like-button", remote: true do %>
+	                <i class="fa fa-gratipay want-btn fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">want</span>
+	              <% end %>
+	              <br>
+	              <div class="count">
+	                <% want_count = Like.where(spot_id: spot.id, kind: 1).count %>
+	    			<%= want_count %>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="col-xs-6 col-ms-6 col-md-6">
+	            <div class="text-center">
+	              <%= link_to "/likes/#{spot.id}/update2", method: :post, id: "like-button", remote: true do %>
+	              <i class="fa fa-check-circle done-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">done</span>
+	              <% end %>
+	              <br>
+	              <div class="count">
+	                <% done_count = Like.where(spot_id: spot.id, kind: 2).count %>
+	    			<%= done_count %>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      <% else %>
+	        <div class="row">
+	          <div class="col-xs-6 col-sm-6 col-md-6">
+	            <div class="text-center">&nbsp;&nbsp;
+	              <%= link_to "/likes/#{spot.id}/update1", method: :post, id: "like-button", remote: true do %>
+	                <i class="fa fa-gratipay want-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">want</span>
+	              <% end %>
+	              <br>
+	              <div class="count">
+	                <% want_count = Like.where(spot_id: spot.id, kind: 1).count %>
+	    			<%= want_count %>
+	              </div>
+	            </div>
+	          </div>
+	          <div class="col-xs-6 col-sm-6 col-md-6">
+	            <div class="text-center">
+	              <%= link_to "/likes/#{spot.id}/destroy2", method: :post, id: "like-button", remote: true do %>
+	                <i class="fa fa-check-circle done-btn fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">done</span>
+	              <% end %>
+	              <br>
+	              <div class="count">
+	                <% done_count = Like.where(spot_id: spot.id, kind: 2).count %>
+	    			<%= done_count %>
+	              </div>
+	            </div>
+	          </div>
+	        </div>
+	      <% end %>
+	    <% else %>
+		    <div class="row">
+		      <div class="col-xs-6 col-sm-6 col-md-6">
+		        <div class="text-center">&nbsp;&nbsp;
+		          <%= link_to "/likes/#{spot.id}/create1", method: :post, id: "like-button", remote: true do %>
+		            <i class="fa fa-gratipay want-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">want</span>
+		          <% end %>
+		          <br>
+		          <div class="count">
+		            <% want_count = Like.where(spot_id: spot.id, kind: 1).count %>
+		    		<%= want_count %>
+		          </div>
+		        </div>
+		      </div>
+		      <div class="col-xs-6 col-sm-6 col-md-6">
+		        <div class="text-center">
+		          <%= link_to "/likes/#{spot.id}/create2", method: :post, id: "like-button", remote: true do %>
+		            <i class="fa fa-check-circle done-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">done</span>
+		          <% end %>  
+		          <br>
+		          <div class="count">
+		            <% done_count = Like.where(spot_id: spot.id, kind: 2).count %>
+		    		<%= done_count %>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		<% end %>
+	<% else %>
+		<div class="row">
+	      <div class="col-xs-6 col-sm-6 col-md-6">
+	        <div class="text-center">&nbsp;&nbsp;
+	            <i class="fa fa-gratipay want-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">want</span>
+	          <br>
+	          <div class="count">
+	            <% want_count = Like.where(spot_id: spot.id, kind: 1).count %>
+	    		<%= want_count %>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="col-xs-6 col-sm-6 col-md-6">
+	        <div class="text-center">
+	            <i class="fa fa-check-circle done-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">done</span>
+	          <br>
+	          <div class="count">
+	            <% done_count = Like.where(spot_id: spot.id, kind: 2).count %>
+	    		<%= done_count %>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	<% end %>
+</div>

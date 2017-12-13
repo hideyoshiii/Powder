@@ -3,145 +3,44 @@
 <main class="" id="main-collapse">
 
 <div class="panel panel-default">
-<div class="panel-body scene-check">
-  <%= form_tag(search_tokyo99e_path, method: :get) do %>
-  <%= render "partial/scene" %>
-<% end %>
-</div>
+  <div class="panel-body scene-check">
+    <%= form_tag(search_tokyo99e_path, method: :get) do %>
+      <%= render "partial/scene" %>
+    <% end %>
+  </div>
 </div>
 <br>
 
-  <div class="hero-full-wrapper">
+<div class="hero-full-wrapper">
   <div class="grid">
-  <div class="gutter-sizer"></div>
+    <div class="gutter-sizer"></div>
     <div class="grid-sizer"></div>
     <% if @arrlistings  %>
-	<% @arrlistings.each do |spot| %>
-		<% a = spot.scenes & @scenes %>
-		<% if !a.blank? %>
-    <div class="grid-item iii">
-      <%= link_to spot_path(spot) do %>
-      <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+      <% @arrlistings.each do |spot| %>
+        <% a = spot.scenes & @scenes %>
+        <% if !a.blank? %>
+          <div class="grid-item iii">
+
+            <%= link_to spot_path(spot) do %>
+              <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+              <h4 class="black img-show title-font-index"><%= spot.title %></h4>
+              <div class="img-show prefecture-font-index"><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %></span>
+              </div>
+            <% end %>
+          
+            <span id="like-of-<%= spot.id %>">
+              <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
+            </span>
       
-      <h4 class="black img-show title-font-index"><%= spot.title %></h4>
-      <% end %>
-        <div class="img-show prefecture-font-index">
-          <span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %></span>
-        </div>
-      
-      <div class="like-font-index">
-        <% if Like.find_by(user_id: current_user.id, spot_id: spot.id) %>
-          <% if Like.find_by(user_id: current_user.id, spot_id: spot.id, kind: 1) %>
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="text-center">&nbsp;&nbsp;
-                  <%= link_to("/likes/#{spot.id}/destroy1", {method: "post"}) do %>
-                    <i class="fa fa-gratipay want-btn fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">したい</span>
-                  <% end %>
-                  <br>
-                  <div class="count">
-                    <% want_male_count = Like.where(spot_id: spot.id, kind: 1, sex: "男").count %>
-                    <i class="fa fa-male male" aria-hidden="true"></i>&nbsp;<%= want_male_count %>
-                    &nbsp;&nbsp;&nbsp;
-                    <% want_female_count = Like.where(spot_id: spot.id, kind: 1, sex: "女").count %>
-                    <i class="fa fa-female female" aria-hidden="true"></i>&nbsp;<%= want_female_count %>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-6 col-ms-6 col-md-6">
-                <div class="text-center">
-                  <%= link_to("/likes/#{spot.id}/update2", {method: "post"}) do %>
-                  <i class="fa fa-check-circle done-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">した</span>
-                  <% end %>
-                  <br>
-                  <div class="count">
-                    <% done_male_count = Like.where(spot_id: spot.id, kind: 2, sex: "男").count %>
-                    <i class="fa fa-male male" aria-hidden="true"></i>&nbsp;<%= done_male_count %>
-                    &nbsp;&nbsp;&nbsp;
-                    <% done_female_count = Like.where(spot_id: spot.id, kind: 2, sex: "女").count %>
-                    <i class="fa fa-female female" aria-hidden="true"></i>&nbsp;<%= done_female_count %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% else %>
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="text-center">&nbsp;&nbsp;
-                  <%= link_to("/likes/#{spot.id}/update1", {method: "post"}) do %>
-                    <i class="fa fa-gratipay want-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">したい</span>
-                  <% end %>
-                  <br>
-                  <div class="count">
-                    <% want_male_count = Like.where(spot_id: spot.id, kind: 1, sex: "男").count %>
-                    <i class="fa fa-male male" aria-hidden="true"></i>&nbsp;<%= want_male_count %>
-                    &nbsp;&nbsp;&nbsp;
-                    <% want_female_count = Like.where(spot_id: spot.id, kind: 1, sex: "女").count %>
-                    <i class="fa fa-female female" aria-hidden="true"></i>&nbsp;<%= want_female_count %>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <div class="text-center">
-                  <%= link_to("/likes/#{spot.id}/destroy2", {method: "post"}) do %>
-                    <i class="fa fa-check-circle done-btn fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">した</span>
-                  <% end %>
-                  <br>
-                  <div class="count">
-                    <% done_male_count = Like.where(spot_id: spot.id, kind: 2, sex: "男").count %>
-                    <i class="fa fa-male male" aria-hidden="true"></i>&nbsp;<%= done_male_count %>
-                    &nbsp;&nbsp;&nbsp;
-                    <% done_female_count = Like.where(spot_id: spot.id, kind: 2, sex: "女").count %>
-                    <i class="fa fa-female female" aria-hidden="true"></i>&nbsp;<%= done_female_count %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% else %>
-        <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6">
-            <div class="text-center">&nbsp;&nbsp;
-              <%= link_to("/likes/#{spot.id}/create1", {method: "post"}) do %>
-                <i class="fa fa-gratipay want-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">したい</span>
-              <% end %>
-              <br>
-              <div class="count">
-                <% want_male_count = Like.where(spot_id: spot.id, kind: 1, sex: "男").count %>
-                <i class="fa fa-male male" aria-hidden="true"></i>&nbsp;<%= want_male_count %>
-                &nbsp;&nbsp;&nbsp;
-                <% want_female_count = Like.where(spot_id: spot.id, kind: 1, sex: "女").count %>
-                <i class="fa fa-female female" aria-hidden="true"></i>&nbsp;<%= want_female_count %>
-              </div>
-            </div>
           </div>
-          <div class="col-xs-6 col-sm-6 col-md-6">
-            <div class="text-center">
-              <%= link_to("/likes/#{spot.id}/create2", {method: "post"}) do %>
-                <i class="fa fa-check-circle done-btn-un fa-2x" aria-hidden="true"></i><span style="color:black;font-size:10px;">した</span>
-              <% end %>  
-              <br>
-              <div class="count">
-                <% done_male_count = Like.where(spot_id: spot.id, kind: 2, sex: "男").count %>
-                <i class="fa fa-male male" aria-hidden="true"></i>&nbsp;<%= done_male_count %>
-                &nbsp;&nbsp;&nbsp;
-                <% done_female_count = Like.where(spot_id: spot.id, kind: 2, sex: "女").count %>
-                <i class="fa fa-female female" aria-hidden="true"></i>&nbsp;<%= done_female_count %>
-              </div>
-            </div>
-          </div>
-        </div>
+          <br>
+
+        <% end %>
       <% end %>
-    </div>
-    
-    <br>
-      
-    </div>
     <% end %>
-    <% end %>
-   <% end %>  
   </div>
 </div>
+
 
 
 <script>

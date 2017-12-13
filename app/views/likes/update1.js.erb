@@ -1,1 +1,1 @@
-update1.js.erb
+$("#like-of-<%= @spot.id %>").html("<%= j(render partial: 'likes/like', locals: { spot: @spot}) %>")
