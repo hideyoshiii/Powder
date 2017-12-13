@@ -1,15 +1,15 @@
 <header class="">
-  <div class="navbar navbar-default navbar-fixed-top visible-xs top">
+  <div class="navbar navbar-default navbar-fixed-top visible-xs top1">
     <button type="button" class="navbar-toggle collapsed">
       <span class="sr-only">Toggle navigation</span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="/spots" class="navbar-brand">Powder<span style="font-size: 14px;">&nbsp;&nbsp;あなたのデートに彩りを</span></a>
+    <a href="/spots" class="navbar-brand">Powder</a>
   </div>
 
-  <nav class="sidebar side">
+  <nav class="sidebar">
     <div class="navbar-collapse" id="navbar-collapse">
       <div class="site-header hidden-xs">
           <a class="site-brand" href="/spots" title="">
@@ -66,7 +66,7 @@
         <input type="checkbox" id="switch1" value="/articles" onclick="location.href=this.value" class='switch'>
           <label for="switch1"></label>
           <br>
-          <span style="color:rgb(244, 67, 54);">&nbsp;&nbsp;looking by photo now</span>
+          <span style="color:black;">&nbsp;&nbsp;looking by photo now</span>
           <br><br>
         <%= link_to user_path(current_user) do %>
         <%= image_tag current_user.image, :class => "img-circle profile-4" %>

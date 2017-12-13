@@ -383,6 +383,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 .top{background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, .8, 161, .8));}
 
+.top1{background: white;}
+
 @media only screen and (min-width: 768px) {
 .side{background: linear-gradient(-45deg, rgba(246, 255, 0, .8), rgba(255, 0, 161, .8));}
 }
@@ -705,7 +707,7 @@ $switch_red-theme: rgb(244, 67, 54);
 input[type=checkbox].switch + label{
   width: 68px;
   height: 28px;
-  background: rgba($switch_red-theme, 0.5);
+  background: rgba(black, 0.1);
   display: inline-block;
   border-radius: 20px;
   position: relative;
@@ -722,7 +724,7 @@ input[type=checkbox].switch + label{
     position: absolute;
     top: -6px;
     left: -5px;
-    transition: all .2s;
+    transition: all .1s;
   }
   &:after{
     box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
@@ -797,6 +799,16 @@ hr.style1{
 @media only screen and (max-width: 768px) {
 .title-content{font-size:18px;}
 }
+
+.brand{background: -webkit-linear-gradient(-45deg,  rgba(255, .8, 161, 1), rgba(246, 255, 0, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;}
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 768px) {
