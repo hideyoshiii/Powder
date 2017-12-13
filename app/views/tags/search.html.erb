@@ -4,69 +4,52 @@
 
 <main class="" id="main-collapse">
 
-<div style="font-size:22px;">オススメのタグ</div> 
-<br>
+<div class="title-content">
+  オススメのタグ
+</div> 
+<hr class="style1">
 
 <div class="row">
-<div class="col-xs-12 col-sm-12 col-md-6">
-<div class="panel panel-default">
-<div class="panel-heading like-font-user-show">
-  <%= link_to search_tags_index_path(tag: "散歩") do %>
-  <div class="black">
-  <i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black">散歩</span><span style="color: #8899a6;"></span>
-  <div class="pull-right">
-    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+  <div class="col-xs-6 col-sm-4 col-md-3">
+    <div class="panel panel-default">
+      <%= link_to search_tags_index_path(tag: "散歩") do %>
+        <%= image_tag "hokkaido.jpg", :class =>'img-tag' %>
+        <div class="black text-center tag-search">
+          <span style="color: #666666;">散歩</span>
+        </div>
+      <% end %>
+    </div>
   </div>
+  <div class="col-xs-6 col-sm-4 col-md-3">
+    <div class="panel panel-default">
+      <%= link_to search_tags_index_path(tag: "BAR") do %>
+        <%= image_tag "tokyo.jpg", :class =>'img-tag' %>
+        <div class="black text-center tag-search">
+          <span style="color:#666666;">BAR</span>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-</div>
-<% @spots1.each do |spot| %>
-<%= link_to spot_path(spot) do %>
-<%= image_tag spot.photo.url, :class =>'like-img-user-show' %>
-<% end %>
-<% end %>
-</div>
 </div>
 
-
-
-<div class="col-xs-12 col-sm-12 col-md-6">
-<div class="panel panel-default">
-<div class="panel-heading like-font-user-show">
-  <%= link_to search_tags_index_path(tag: "BAR") do %>
-  <div class="black">
-  <i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black">BAR</span><span style="color: #8899a6;"></span>
-  <div class="pull-right">
-    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-  </div>
-  </div>
-  <% end %>
-</div>
-<% @spots2.each do |spot| %>
-<%= link_to spot_path(spot) do %>
-<%= image_tag spot.photo.url, :class =>'like-img-user-show' %>
-<% end %>
-<% end %>
-</div>
-</div>
-</div>
 
 <br><br>
-<div style="font-size:20px;">タグ一覧</div>
-<br> 
+<div class="title-content">
+  タグ一覧
+</div>
+<hr class="style1">
 
 <div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12">
-<div class="panel panel-default">
-<div class="panel-body">
-<% @tags.each do |tag| %>
-<%= link_to search_tags_index_path(tag: tag.name) do %>
-<i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag.name %></span><span style="color: #8899a6;">(<%= tag.taggings_count %>)</span>　
-<% end %>
-<% end %>
-</div>
-</div>
-</div>
+  <div class="col-xs-12 col-sm-12 col-md-12">
+    <% @tags.each do |tag| %>
+      <%= link_to search_tags_index_path(tag: tag.name) do %>
+        <div class="btn btn-default btn-sm">
+          <i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag.name %></span><span style="color: #8899a6;">(<%= tag.taggings_count %>)</span>
+        </div>
+      <% end %>
+      &nbsp;
+    <% end %>
+  </div>
 </div>
 
 </main>
