@@ -156,7 +156,7 @@
 <% @spot.scenes.each do |scene| %>
 <%= form_tag(search_scenes_index_path, method: :get) do %>
 <%= hidden_field_tag 'sample_form[scenes][]', scene %>
-<%= submit_tag scene, :class => "btn btn-default btn-sm" %>
+<%= submit_tag scene, :class => "btn btn-default btn-sm scene-btn" %>
 <% end %>
 <% end %>
 </div>
