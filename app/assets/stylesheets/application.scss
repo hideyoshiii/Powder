@@ -294,6 +294,56 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 }
 
 
+.fl_inst3{/*ボタンの下地*/
+  color: #FFF;/*文字・アイコン色*/
+  border-radius: 7px;/*角丸に*/
+  position: relative;
+  display: inline-block;
+  height: 35px;/*高さ*/
+  width: 150px;/*幅*/
+  text-align: center;/*中身を中央寄せ*/
+  font-size: 15px;/*文字のサイズ*/
+  line-height: 35px;/*高さと合わせる*/
+  vertical-align: middle;/*垂直中央寄せ*/
+  background: #00d2ff;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  overflow: hidden;/*はみ出た部分を隠す*/
+  text-decoration:none;/*下線は消す*/
+}
+
+.fl_inst3:before{/*グラデーション②*/
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;/*全体を覆う*/
+  height: 100%;/*全体を覆う*/
+  background: #00d2ff;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.fl_inst3 .fa-map-marker{/*アイコン*/
+  font-size: 25px;/*アイコンサイズ*/
+  position: relative;
+  top: 4px;/*アイコン位置の微調整*/
+}
+
+.fl_inst3 span {/*テキスト*/
+  display:inline-block;
+  position: relative;
+  transition: .5s}
+
+.fl_inst3:hover span{/*ホバーで一周回転*/
+  -webkit-transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+
+
 .answer-btn{
   display: inline-block;
   text-decoration: none;
@@ -482,7 +532,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   text-decoration: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 11%;
 }
 .facebook:hover {
   background-color: #354F84;
@@ -504,7 +554,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   text-decoration: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 10%;
 }
 .twitter:active {
   top: 2px;
@@ -526,7 +576,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   text-decoration: none;
   color: white;
   border-radius: 5px;
-  padding: 14px 80px;
+  padding: 14px 12%;
 }
 .line:active {
   top: 2px;

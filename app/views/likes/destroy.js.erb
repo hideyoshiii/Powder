@@ -1,1 +1,3 @@
 $("#like-of-<%= @spot.id %>").html("<%= j(render partial: 'likes/like', locals: { spot: @spot}) %>")
+
+$("#show-of-<%= @spot.id %>").html("<%= j(render partial: 'likes/show', locals: { spot: @spot}) %>")
