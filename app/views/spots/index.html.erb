@@ -1,6 +1,5 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
-<br>
 
   <span style="color:black; font-size:18px;border-bottom: solid 2px black;">new</span>
   &nbsp;&nbsp;
@@ -18,12 +17,16 @@
 
       <%= link_to spot_path(spot) do %>
       <%= image_tag spot.photo.url, :class =>'img-responsive' %>
-      <h4 class="black img-show title-font-index"><%= spot.title %></h4>
+      <div class="black title-font-index">
+        &nbsp;<%= spot.title %>
+      </div>
+      <div class="prefecture-font-index">
+        &nbsp;<i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
+      </div>
       <% end %>
 
-      <div class="img-show prefecture-font-index">
-        <span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %></span>
-      </div>
+      
+
 
       <span id="like-of-<%= spot.id %>">
         <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>

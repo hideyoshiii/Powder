@@ -143,9 +143,9 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .like-font-index{font-size:18px;}
 }
 
-.count{font-size:14px;}
+.count{font-size:14px;color:black;}
 @media only screen and (min-width: 768px) {
-.count{font-size:18px;}
+.count{font-size:18px;color:black;}
 }
 .like-font-show{font-size:22px;}
 @media only screen and (min-width: 768px) {
@@ -156,13 +156,14 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .scene-check{font-size:16px;}
 }
 
+.title-font-index{font-size:18px;font-weight:bold;margin-top:5px;}.prefecture-font{font-size:10px;}
 @media only screen and (max-width: 768px) {
-.title-font-index{font-size:15px;}.prefecture-font{font-size:10px;}
+.title-font-index{font-size:14px;font-weight:bold;margin-top:5px;}.prefecture-font{font-size:10px;}
 }
 
-.prefecture-font-index{font-size:14px;}
+.prefecture-font-index{font-size:14px;color: #CCCCCC;margin-top:0px;margin-bottom:15px;}
 @media only screen and (max-width: 768px) {
-.prefecture-font-index{font-size:12px;}
+.prefecture-font-index{font-size:12px;color: #CCCCCC;margin-top:0px;margin-bottom:15px;}
 }
 
 .like-img-user-show{width:100px;height:100px;margin:0px -2px;}
