@@ -16,13 +16,13 @@
     <div class="grid-item iii">
 
       <%= link_to spot_path(spot) do %>
-      <%= image_tag spot.photo.url, :class =>'img-responsive' %>
-      <div class="black title-font-index">
-        &nbsp;<%= spot.title %>
-      </div>
-      <div class="prefecture-font-index">
-        &nbsp;<i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
-      </div>
+        <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+        <div class="black title-font-index">
+          <%= spot.title %>
+        </div>
+        <div class="prefecture-font-index">
+          <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
+        </div>
       <% end %>
 
       

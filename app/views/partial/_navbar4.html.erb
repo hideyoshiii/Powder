@@ -55,13 +55,19 @@
         &nbsp;&nbsp;<%= current_user.nickname %>
         <% end %>
         <br>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト
+          <% end %>
         <br>
         <% else %>
-        <%= link_to "アカウント作成", new_user_registration_path %>
+        <%= link_to new_user_registration_path do %>
+          <i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成
+          <% end %>
         <br>
-          <%= link_to "ログイン", new_user_session_path %>
-          <br>
+          <%= link_to new_user_session_path do %>
+          <i class="fa fa-sign-in" aria-hidden="true"></i> ログイン
+          <% end %>
+        <br>
         <% end %>
 
         
