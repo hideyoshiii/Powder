@@ -9,6 +9,6 @@ class Article < ApplicationRecord
 	# ファイルの拡張子を指定（これがないとエラーが発生する）
 	validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
-	acts_as_taggable_on :articles # post.label_list が追加される
-  	acts_as_taggable            # acts_as_taggable_on :tags のエイリアス
+	acts_as_taggable_on :movies # post.label_list が追加される
+  	
 end

@@ -1,4 +1,4 @@
-<%= render "partial/navbar" %>
+<%= render "partial/navbar3" %>
 <main class="" id="main-collapse">
 
 	<div class="container">
@@ -73,7 +73,7 @@
 							<div class="col-md-12 select">
 								<div class="form-group">
                                 <label>content</label>
-                                <%= f.text_area :content, rows: 5, placeholder: "説明", class: "form-control" %>
+                                <%= f.text_area :content, rows: 5, placeholder: "見出し説明", class: "form-control" %>
                             </div> 
 							</div>
 						</div>
@@ -127,6 +127,16 @@
 							</div>
 						</div>
 						<br>
+
+						<div class="row">
+			              <div class="col-md-12 select">
+			                <div class="field">
+			                  <%= f.label :movie_list, "tag" %><br>
+			                  <%= text_field_tag 'article[movie_list]', @article.movie_list.join(','), "data-role" => "tagsinput" %>
+			                </div>
+			              </div>
+			            </div>
+			            <br>
 
 
 
