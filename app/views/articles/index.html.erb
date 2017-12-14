@@ -20,14 +20,14 @@
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<% a = Article.find_by(id: 1) %>
 									<%= link_to "/articles/1" do %>
-										<div class="text-center black article-title-index">
-											<%= a.title %>
-										</div>
-										<div class="text-center article-content-index">
+										<div class="black title-font-index">
+								        	<%= a.title %>
+								        </div>
+								        <div class="prefecture-font-index">
+								           	<i class="fa fa-map-marker" aria-hidden="true"></i><%= a.prefecture %> > <%= a.city %>
+								        </div>
+										<div class="article-content-index">
 											<%= a.content %>
-										</div>
-										<div class="text-center article-city-index">
-											<i class="fa fa-map-marker" aria-hidden="true"></i> <%= a.prefecture %> > <%= a.city %>
 										</div>
 									<% end %>
 								</div>
@@ -41,14 +41,14 @@
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<% b = Article.find_by(id: 2) %>
 									<%= link_to "/articles/2" do %>
-										<div class="text-center black article-title-index">
-											<%= b.title %>
-										</div>
-										<div class="text-center article-content-index">
+										<div class="black title-font-index">
+								        	<%= b.title %>
+								        </div>
+								        <div class="prefecture-font-index">
+								           	<i class="fa fa-map-marker" aria-hidden="true"></i><%= b.prefecture %> > <%= b.city %>
+								        </div>
+										<div class="article-content-index">
 											<%= b.content %>
-										</div>
-										<div class="text-center article-city-index">
-											<i class="fa fa-map-marker" aria-hidden="true"></i> <%= b.prefecture %> > <%= b.city %>
 										</div>
 									<% end %>
 								</div>
@@ -62,14 +62,14 @@
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<% c = Article.find_by(id: 3) %>
 									<%= link_to "/articles/3" do %>
-										<div class="text-center black article-title-index">
-											<%= c.title %>
-										</div>
-										<div class="text-center article-content-index">
+										<div class="black title-font-index">
+								        	<%= c.title %>
+								        </div>
+								        <div class="prefecture-font-index">
+								           	<i class="fa fa-map-marker" aria-hidden="true"></i><%= c.prefecture %> > <%= c.city %>
+								        </div>
+										<div class="article-content-index">
 											<%= c.content %>
-										</div>
-										<div class="text-center article-city-index">
-											<i class="fa fa-map-marker" aria-hidden="true"></i> <%= c.prefecture %> > <%= c.city %>
 										</div>
 									<% end %>
 								</div>
@@ -83,14 +83,14 @@
 								<div class="col-xs-12 col-sm-12 col-md-12">
 									<% d = Article.find_by(id: 4) %>
 									<%= link_to "/articles/4" do %>
-										<div class="text-center black article-title-index">
-											<%= d.title %>
-										</div>
-										<div class="text-center article-content-index">
+										<div class="black title-font-index">
+								        	<%= d.title %>
+								        </div>
+								        <div class="prefecture-font-index">
+								           	<i class="fa fa-map-marker" aria-hidden="true"></i><%= d.prefecture %> > <%= d.city %>
+								        </div>
+										<div class="article-content-index">
 											<%= d.content %>
-										</div>
-										<div class="text-center article-city-index">
-											<i class="fa fa-map-marker" aria-hidden="true"></i> <%= d.prefecture %> > <%= d.city %>
 										</div>
 									<% end %>
 								</div>

@@ -16,15 +16,18 @@
     <div class="grid-sizer"></div>
     <% @articles.each do |article| %>
       <div class="grid-item">
-        <%= image_tag article.photo.url, :class =>'img-responsive' %>
         <%= link_to article_path(article) do %>
-        <div class="black title-font-index">
-          <%= article.title %>
+        <div class="example">
+          <%= image_tag article.photo.url, :class =>'img-responsive' %>
+          <p><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></p> 
         </div>
-        <div class="prefecture-font-index">
-          <i class="fa fa-map-marker" aria-hidden="true"></i><%= article.prefecture %>
-        </div>
-      <% end %>
+          <div class="black title-font-index">
+            <%= article.title %>
+          </div>
+          <div class="prefecture-font-index">
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= article.prefecture %>
+          </div>
+        <% end %>
 
         
 
