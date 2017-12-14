@@ -4,7 +4,7 @@
 
 
 <div class="title-content">
-  <i class="fa fa-tag tag-btn" aria-hidden="true"></i><%= @tag %>&nbsp;&nbsp;のスポット
+  <i class="fa fa-tag tag-btn" aria-hidden="true"></i><%= @tag %>&nbsp;&nbsp;の記事
 </div> 
 <hr class="style1">
   
@@ -15,19 +15,20 @@
     <div class="gutter-sizer"></div>
     <div class="grid-sizer"></div>
     <% @articles.each do |article| %>
-      <div class="grid-item iii">
-        <%= link_to spot_path(article) do %>
-          <%= image_tag article.photo.url, :class =>'img-responsive' %>
-          <h4 class="black img-show title-font-index"><%= article.title %></h4>
-        <% end %>
-
-        <div class="img-show prefecture-font-index">
-          <span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= article.prefecture %></span>
+      <div class="grid-item">
+        <%= image_tag article.photo.url, :class =>'img-responsive' %>
+        <%= link_to article_path(article) do %>
+        <div class="black title-font-index">
+          <%= article.title %>
         </div>
+        <div class="prefecture-font-index">
+          <i class="fa fa-map-marker" aria-hidden="true"></i><%= article.prefecture %>
+        </div>
+      <% end %>
 
         
 
-        <br>
+        
 
       </div>
     <% end %>  
