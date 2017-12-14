@@ -23,6 +23,12 @@
       <ul class="nav">
         <% if (user_signed_in?) %>
 
+          <li>
+            <%= link_to search_articles_tags_path do %>
+              <i class="fa fa-tag" aria-hidden="true"></i> タグから探す
+            <% end %>
+          </li>
+
           <% if current_user.authority == "manager" %>
             <li>
             <%= link_to new_article_path do %>
