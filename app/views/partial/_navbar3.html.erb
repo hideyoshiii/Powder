@@ -24,6 +24,12 @@
         <% if (user_signed_in?) %>
 
           <li>
+          <%= link_to search_articles_scenes_path do %>
+          <i class="fa fa-film" aria-hidden="true"></i> シーンから探す
+          <% end %>
+        </li>
+
+          <li>
             <%= link_to search_articles_tags_path do %>
               <i class="fa fa-tag" aria-hidden="true"></i> タグから探す
             <% end %>

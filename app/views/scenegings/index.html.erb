@@ -3,35 +3,35 @@
 <main class="" id="main-collapse">
 
 
-<div class="title-content">
-  <i class="fa fa-tag tag-btn" aria-hidden="true"></i><%= @tag %>&nbsp;&nbsp;の記事
-</div> 
-<hr class="style1">
-  
-
-
 <div class="hero-full-wrapper">
-  <div class="grid">
-    <div class="gutter-sizer"></div>
-    <div class="grid-sizer"></div>
-    <% @articles.each do |article| %>
-      <div class="grid-item">
-        <%= link_to article_path(article) do %>
-        <div class="example">
-          <%= image_tag article.photo.url, :class =>'img-responsive' %>
-          <p><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></p> 
-        </div>
-          <div class="black title-font-index">
-            <%= article.title %>
-          </div>
-          <div class="prefecture-font-index">
-            <i class="fa fa-map-marker" aria-hidden="true"></i><%= article.prefecture %>
-          </div>
-        <% end %>
+	<div class="grid">
+	  <div class="gutter-sizer"></div>
+	  <div class="grid-sizer"></div>
+	  <% if @arrlistings  %>
+	      <% @arrlistings.each do |article| %>
+		      <% a = article.scenes & @scenes %>
+	        <% if !a.blank? %>
+	        <div class="grid-item">
+	          <%= link_to article_path(article) do %>
+	            <div class="example">
+		          <%= image_tag article.photo.url, :class =>'img-responsive' %>
+		          <p><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></p> 
+		        </div>
+	            <div class="black title-font-index">
+	              <%= article.title %>
+	            </div>
+	            <div class="prefecture-font-index">
+	              <i class="fa fa-map-marker" aria-hidden="true"></i><%= article.prefecture %>
+	            </div>
+	          <% end %>
 
-      </div>
-    <% end %>  
-  </div>
+	          <br>
+
+	        </div>
+	      <% end %>
+	    <% end %>
+	  <% end %>  
+	</div>
 </div>
 
 
@@ -64,3 +64,5 @@ document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 
 --> <script type="text/javascript" src="./main.85741bff.js"></script></body>
+
+
