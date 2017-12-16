@@ -1,38 +1,38 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
 
-  <span style="color:black; font-size:18px;border-bottom: solid 2px black;">new</span>
-  &nbsp;&nbsp;
-  <%= link_to spots_rank_path do %>
-    <span class="black" style="font-size:18px;">rank</span>
-  <% end %>
-  <br><br>
+<span style="color:black; font-size:18px;border-bottom: solid 2px black;">new</span>
+&nbsp;&nbsp;
+<%= link_to spots_rank_path do %>
+  <span class="black" style="font-size:18px;">rank</span>
+<% end %>
+<br><br>
 
-  <div class="hero-full-wrapper">
-    <div class="grid">
-      <div class="gutter-sizer"></div>
-      <div class="grid-sizer"></div>
-      <% @spots.each do |spot| %>
-        <div class="grid-item iii">
-          <%= link_to spot_path(spot) do %>
-            <%= image_tag spot.photo.url, :class =>'img-responsive' %>
-            <div class="black title-font-index">
-              <%= spot.title %>
-            </div>
-            <div class="prefecture-font-index">
-              <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
-            </div>
-          <% end %>
+<div class="hero-full-wrapper">
+  <div class="grid">
+    <div class="gutter-sizer"></div>
+    <div class="grid-sizer"></div>
+    <% @spots.each do |spot| %>
+      <div class="grid-item iii">
+        <%= link_to spot_path(spot) do %>
+          <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+          <div class="black title-font-index">
+            <%= spot.title %>
+          </div>
+          <div class="prefecture-font-index">
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
+          </div>
+        <% end %>
 
-          <span id="like-of-<%= spot.id %>">
-            <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
-          </span>
-          <br>
-      
-        </div>
-      <% end %>  
-    </div>
+        <span id="like-of-<%= spot.id %>">
+          <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
+        </span>
+        <br>
+    
+      </div>
+    <% end %>  
   </div>
+</div>
 
 
 <script>

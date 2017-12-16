@@ -23,18 +23,20 @@
 
             <%= link_to spot_path(spot) do %>
               <%= image_tag spot.photo.url, :class =>'img-responsive' %>
-              <h4 class="black img-show title-font-index"><%= spot.title %></h4>
-              <div class="img-show prefecture-font-index"><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %></span>
+              <div class="black title-font-index">
+                <%= spot.title %>
+              </div>
+              <div class="prefecture-font-index">
+                <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
               </div>
             <% end %>
           
             <span id="like-of-<%= spot.id %>">
               <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
             </span>
-      
-          </div>
-          <br>
+            <br>
 
+          </div>    
         <% end %>
       <% end %>
     <% end %>

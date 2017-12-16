@@ -8,9 +8,10 @@
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_tottori1_path do |f| %>
 	    <div class="panel-body">
-	      	<p class="form-title">
-		      さらに絞り込む
-		    </p>
+	      	<div class="form-title">
+              エリアを絞る
+        </div> 
+        <hr class="style1">
 	      		<div class="city-check">
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "鳥取県西部", unchecked_value = "" %>鳥取県西部　
