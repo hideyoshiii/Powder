@@ -2,7 +2,7 @@ class TaggingsController < ApplicationController
   
   def search
     @tags = ActsAsTaggableOn::Tag.most_used(30)
-    @tags = Article.all_tags
+    @tags = Article.all_tags.most_used(50)
     @articles1 = Article.tagged_with("サンプル").limit(7)
     @articles2 = Article.tagged_with("ちんすこう").limit(7)
   end

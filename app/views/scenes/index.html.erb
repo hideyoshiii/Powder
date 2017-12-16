@@ -2,7 +2,17 @@
 
 <main class="" id="main-collapse">
 
-
+<div class="title-content">
+  <% if params[:sample_form].nil? %>
+  (すべて)のスポット
+  <% else %>
+  <% @scenes.each do |scene| %>
+  (<%= scene %>)
+  <% end %>
+  &nbsp;&nbsp;のスポット
+  <% end %>
+</div> 
+<hr class="style1">
 
 
   <div class="hero-full-wrapper">
