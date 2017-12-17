@@ -1,0 +1,119 @@
+<header class="">
+  <div class="navbar navbar-default navbar-fixed-top visible-xs top1">
+    <button type="button" class="navbar-toggle collapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a href="/spots" class="navbar-brand navbar-brand-center">Powder</a>
+  </div>
+
+  <nav class="sidebar">
+    <div class="navbar-collapse" id="navbar-collapse">
+      <div class="site-header hidden-xs">
+          <a class="site-brand" href="/spots" title="">
+            <h2>
+              <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
+              Powder
+            </h2>
+          </a>
+        <p style="font-weight: bold;">あなたのデートに彩りを</p>
+      </div>
+      <ul class="nav">
+        <% if (user_signed_in?) %>
+
+        <div class="row">
+        <div class="col-xs-10 col-sm-10 col-md-10">      
+          <%= search_form_for(@q, url:spots_result_path) do |f| %>
+            <dl class="search1">
+              <dt><%= f.search_field :title_cont, placeholder: "Search" %></dt>
+              <dd><span><%= button_tag :type => "submit" do %>
+                <i class="fa fa-search"></i>
+              <% end %></span></dd>
+            </dl>
+          <% end %>
+        </div>
+        </div>
+        
+        <li>
+          <%= link_to search_tokyo98_path do %>
+          <i class="fa fa-building" aria-hidden="true"></i> 東京で探す
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to search_prefecture_path do %>
+          <i class="fa fa-map-marker" aria-hidden="true"></i> 都道府県から探す
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to search_scenes_path do %>
+          <i class="fa fa-film" aria-hidden="true"></i> シーンから探す
+          <% end %>
+        </li>
+        
+        <li>
+          <%= link_to search_tags_path do %>
+          <i class="fa fa-tag" aria-hidden="true"></i> タグから探す
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to new_spot_path do %>
+          <i class="fa fa-plus-circle" aria-hidden="true"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
+          <% end %>
+        </li>
+
+        <% end %>
+
+      </ul>
+
+      <nav class="nav-footer">
+        <% if (user_signed_in?) %>
+        <input type="checkbox" id="switch1" value="/articles" onclick="location.href=this.value" class='switch'>
+          <label for="switch1"></label>
+          <br>
+          <span style="color:black;">&nbsp;&nbsp;looking by photo now</span>
+          <br><br>
+        <%= link_to user_path(current_user) do %>
+        <%= image_tag current_user.image, :class => "img-circle profile-4" %>
+        &nbsp;&nbsp;<%= current_user.nickname %>
+        <% end %>
+        <br>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト
+          <% end %>
+        <br>
+        <% else %>
+        <%= link_to new_user_registration_path do %>
+          <i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成
+          <% end %>
+        <br>
+          <%= link_to new_user_session_path do %>
+          <i class="fa fa-sign-in" aria-hidden="true"></i> ログイン
+          <% end %>
+        <br>
+        <% end %>
+
+        
+        <br>
+        <p class="nav-footer-social-buttons">
+          <a class="fa-icon" href="https://www.instagram.com/powder.date/" target="_blank">
+            <i class="fa fa-instagram"></i>
+          </a>
+          <a class="fa-icon" href="/" target="_blank">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </a>
+          <a class="fa-icon" href="/" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a class="fa-icon" href="/" target="_blank">
+            <i class="fa fa-pinterest" aria-hidden="true"></i>
+          </a>
+        </p>
+      </nav>  
+    </div> 
+  </nav>
+</header>

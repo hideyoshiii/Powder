@@ -1,12 +1,21 @@
 class SpotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
+  def result
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(distinct: true)
+  end
+
   def index
     @spots = Spot.order('id DESC').limit(50)
+    @q = Spot.ransack(params[:q])
+    
   end
 
   def rank
     @ranks = Spot.find(Like.group(:spot_id).order('count(spot_id) desc').limit(50).pluck(:spot_id))
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(distinct: true)
   end
 
   def show
@@ -53,6 +62,10 @@ class SpotsController < ApplicationController
   private
   def spot_params
     params.require(:spot).permit(:title, :prefecture, :price, :description, :photo, :label_list, scenes:[])
+  end
+
+  def search_params
+    params.require(:q).permit(:title_cont)
   end
 
 end

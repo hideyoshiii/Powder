@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root :to => 'homes#index'
 
+  get "spots/result" => "spots#result"
   get "spots/rank" => "spots#rank"
   resources :spots
   post "spots/:id/destroy" => "spots#destroy"

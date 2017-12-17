@@ -950,6 +950,51 @@ hr.style1{
 
 
 
+dl.search1{
+	position:relative;
+	background-color:#fff;
+	border:1px solid #aaa;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	-o-border-radius:6px;
+	-ms-border-radius:6px;
+	border-radius:6px;
+}
+dl.search1 dt{
+	margin-right:40px;
+	padding:0px 0 3px 3px;
+}
+dl.search1 dt input{
+	width:100%;
+	height:24px;
+	line-height:24px;
+	background:none;
+	border:none;
+}
+dl.search1 dd{
+	position:absolute;
+	top:0;
+	right:0;
+}
+dl.search1 dd button{
+	display:block;
+	padding:0px 3px 0px 0px;
+	background:none;
+	border:none;
+}
+dl.search1 dd span{
+	display:block;
+	width:px;
+	height:20px;
+	
+}
+
+dl.search1 dd span:hover{
+	color:red;
+}
+
+
+
 @media only screen and (max-width: 768px) {
 body { padding-top: 50px; }
 .homes {
