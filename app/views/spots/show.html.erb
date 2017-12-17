@@ -1,116 +1,252 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
+<br>
 
 <div class="row">
-  <div class="col-xs-12 col-md-6">
-    <%= image_tag @spot.photo.url, :class =>'img-responsive' %>
-    <br><br><br>
-    <span id="show-of-<%= @spot.id %>">
-    <%= render partial: 'likes/show', locals: { spot: @spot, likes: @likes } %>
-  	</span>
+  	<div class="hidden-xs hidden-sm col-md-6">
+	    <%= image_tag @spot.photo.url, :class =>'img-responsive' %>
+	    <br><br><br>
+	    <span id="show-of-<%= @spot.id %>">
+	    	<%= render partial: 'likes/show', locals: { spot: @spot, likes: @likes } %>
+	  	</span>
 
 
-  	<% if @spot.user == current_user %>
-	<br><br>
-		<div class="row">
-			<div class="col-xs-6 col-sm-6 col-md-6">
+	  	<% if @spot.user == current_user %>
+		<br><br>
+			<div class="row">
+				<div class="col-md-6">
+					<%= link_to user_path(@spot.user) do %>
+						<div class="black pull-right">
+							<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
+							&nbsp;&nbsp;<%= @spot.user.nickname %>
+						</div>
+					<% end %>
+				</div>
+				<div class="col-md-6">
+					<div class="pull-left">
+						<%= link_to "編集する", edit_spot_path(@spot), :class => "btn btn-default btn-sm" %>
+					</div>
+				</div>
+			</div>
+		
+		<% else %>
+	  	<br><br>
+			<div class="img-show">
 				<%= link_to user_path(@spot.user) do %>
-					<div class="black pull-right">
+					<div class="black">
 						<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
 						&nbsp;&nbsp;<%= @spot.user.nickname %>
 					</div>
 				<% end %>
 			</div>
-			<div class="col-xs-6 col-sm-6 col-md-6">
-				<div class="pull-left">
-					<%= link_to "編集する", edit_spot_path(@spot), :class => "btn btn-default btn-sm" %>
+
+		<% end %>
+
+
+	  	<br><br><br>
+	  	<div class="img-show">
+
+		    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
+
+			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+			<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
+			<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
+			</div>
+			<br><br>
+
+	  	</div>
+
+	  	<div class="hidden-xs hidden-sm col-md-6">
+	    	<h2><%= @spot.title %></h2>
+	    
+	    	<p><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
+	    
+	    	<br>
+	    	<h4>Description</h4>
+
+	    	<% if @spot.description %>
+	    		<p><%= @spot.description %></p>
+	    	<% end %>
+
+	    	<br><br>
+	    	<h4>Scenes</h4>
+	    
+			<div class="form_conf">
+				<% @spot.scenes.each do |scene| %>
+					<%= form_tag(search_scenes_index_path, method: :get) do %>
+						<%= hidden_field_tag 'sample_form[scenes][]', scene %>
+						<%= submit_tag scene, :class => "btn btn-default btn-sm scene-btn" %>
+					<% end %>
+				<% end %>
+			</div>
+
+
+	    	<br><br>
+	    	<h4>Tags</h4>
+
+	    	<% @tags.each do |tag| %>
+				<%= link_to search_tags_index_path(tag: tag) do %>
+					<i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag %></span>
+				<% end %>
+				&nbsp;
+			<% end %>
+
+			<br><br><br>
+	    	<h4>More</h4>
+
+	    	<% if @spot.introduction %>
+		  		<%= link_to "#{@spot.introduction}", :target=>["_blank"] do %>
+					<div class="fl_inst2">
+						<i class="fa fa-instagram" aria-hidden="true"></i><span>&nbsp;&nbsp;Instagram</span>
+					</div>
+		  		<% end %>
+			<% end %>
+
+			<% if @spot.retty %>
+		  		<a href="<%= @spot.retty %>" target="_blank">
+					<div class="fl_inst4">
+						<i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;&nbsp;Retty</span>
+					</div>
+		  		</a>
+			<% end %>
+
+			<% if @spot.address %>
+		  		<a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="">
+		  		<div class="fl_inst3">
+		    		<i class="fa fa-map-marker" aria-hidden="true"></i><span>&nbsp;&nbsp;地図</span>
+		    	</div>
+		  		</a>
+			<% end %>
+
+ 	</div>
+
+
+
+
+
+
+ 	<div class="visible-xs col-xs-12 visible-sm co-sm-12">
+	    <%= image_tag @spot.photo.url, :class =>'img-responsive' %>
+	    <br>
+
+
+	    <h4><%= @spot.title %></h4>
+	    
+	    	<p><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
+	    
+	    	<br>
+
+	    <span id="show-of-<%= @spot.id %>">
+	    	<%= render partial: 'likes/show', locals: { spot: @spot, likes: @likes } %>
+	  	</span>
+
+
+	  	<% if @spot.user == current_user %>
+		<br><br>
+			<div class="row">
+				<div class="col-xs-6 col-sm-6">
+					<%= link_to user_path(@spot.user) do %>
+						<div class="black pull-right">
+							<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
+							&nbsp;&nbsp;<%= @spot.user.nickname %>
+						</div>
+					<% end %>
+				</div>
+				<div class="col-xs-6 col-sm-6">
+					<div class="pull-left">
+						<%= link_to "編集する", edit_spot_path(@spot), :class => "btn btn-default btn-sm" %>
+					</div>
 				</div>
 			</div>
-		</div>
-	
-	<% else %>
-  	<br><br>
-		<div class="img-show">
-			<%= link_to user_path(@spot.user) do %>
-				<div class="black">
-					<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
-					&nbsp;&nbsp;<%= @spot.user.nickname %>
-				</div>
+		
+		<% else %>
+	  	<br><br>
+			<div class="img-show">
+				<%= link_to user_path(@spot.user) do %>
+					<div class="black">
+						<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
+						&nbsp;&nbsp;<%= @spot.user.nickname %>
+					</div>
+				<% end %>
+			</div>
+
+		<% end %>
+
+
+	  	<br><br><br>
+	  	<div class="img-show">
+
+		    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
+
+			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+			<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
+			<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
+			</div>
+			<br><br>
+
+	  	
+
+	  	
+	    	
+	    	<h4>Description</h4>
+
+	    	<% if @spot.description %>
+	    		<p><%= @spot.description %></p>
+	    	<% end %>
+
+	    	<br>
+	    	<h4>Scenes</h4>
+	    
+			<div class="form_conf">
+				<% @spot.scenes.each do |scene| %>
+					<%= form_tag(search_scenes_index_path, method: :get) do %>
+						<%= hidden_field_tag 'sample_form[scenes][]', scene %>
+						<%= submit_tag scene, :class => "btn btn-default btn-sm scene-btn" %>
+					<% end %>
+				<% end %>
+			</div>
+
+
+	    	<br>
+	    	<h4>Tags</h4>
+
+	    	<% @tags.each do |tag| %>
+				<%= link_to search_tags_index_path(tag: tag) do %>
+					<i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag %></span>
+				<% end %>
+				&nbsp;
 			<% end %>
-		</div>
 
-	<% end %>
+			<br><br>
+	    	<h4>More</h4>
 
+	    	<% if @spot.introduction %>
+		  		<%= link_to "#{@spot.introduction}", :target=>["_blank"] do %>
+					<div class="fl_inst2">
+						<i class="fa fa-instagram" aria-hidden="true"></i><span>&nbsp;&nbsp;Instagram</span>
+					</div>
+		  		<% end %>
+			<% end %>
 
-  	<br><br><br>
-  	<div class="img-show">
-    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
+			<% if @spot.retty %>
+		  		<a href="<%= @spot.retty %>" target="_blank">
+					<div class="fl_inst4">
+						<i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;&nbsp;Retty</span>
+					</div>
+		  		</a>
+			<% end %>
 
-	<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<% if @spot.address %>
+		  		<a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="">
+		  		<div class="fl_inst3">
+		    		<i class="fa fa-map-marker" aria-hidden="true"></i><span>&nbsp;&nbsp;地図</span>
+		    	</div>
+		  		</a>
+			<% end %>
 
-	<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
-	<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
-	</div>
-	<br><br>
-
-  </div>
-
-  <div class="col-xs-12 col-md-6">
-    <h2><%= @spot.title %></h2>
-    
-    <p><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
-    
-    <br>
-    <h4>Description</h4>
-
-    <% if @spot.description %>
-    <p><%= @spot.description %></p>
-    <% end %>
-
-    <br><br>
-    <h4>Scenes</h4>
-    
-    <div class="form_conf">
-	<% @spot.scenes.each do |scene| %>
-	<%= form_tag(search_scenes_index_path, method: :get) do %>
-	<%= hidden_field_tag 'sample_form[scenes][]', scene %>
-	<%= submit_tag scene, :class => "btn btn-default btn-sm scene-btn" %>
-	<% end %>
-	<% end %>
-	</div>
-
-
-    <br><br>
-    <h4>Tags</h4>
-
-    <% @tags.each do |tag| %>
-	<%= link_to search_tags_index_path(tag: tag) do %>
-	<i class="fa fa-tag tag-btn" aria-hidden="true"></i><span class="black"><%= tag %></span>
-	<% end %>
-	&nbsp;
-	<% end %>
-
-	<br><br><br>
-    <h4>More</h4>
-
-    <% if @spot.introduction %>
-	  <%= link_to "#{@spot.introduction}", :target=>["_blank"] do %>
-	<div class="fl_inst2">
-		<i class="fa fa-instagram" aria-hidden="true"></i><span>&nbsp;&nbsp;instagramで見る</span>
-	</div>
-	  <% end %>
-	<% end %>
-
-	<% if @spot.address %>
-	  <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="">
-	  	<div class="fl_inst3">
-	    <i class="fa fa-map-marker" aria-hidden="true"></i><span>&nbsp;&nbsp;地図を開く</span>
-	    </div>
-	  </a>
-	<% end %>
-
-
- </div>
+ 	</div>
 </div>
 
 

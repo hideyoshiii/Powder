@@ -161,9 +161,9 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .title-font-index{font-size:13px;font-weight:bold;margin:5px 5px 0px 5px;}.prefecture-font{font-size:10px;}
 }
 
-.prefecture-font-index{font-size:14px;color: #CCCCCC;margin:0px 5px 15px 5px;}
+.prefecture-font-index{font-size:14px;color: #808080;margin:0px 5px 15px 5px;}
 @media only screen and (max-width: 768px) {
-.prefecture-font-index{font-size:12px;color: #CCCCCC;margin:0px 5px 15px 5px;}
+.prefecture-font-index{font-size:12px;color: #808080;margin:0px 5px 15px 5px;}
 }
 
 .like-img-user-show{width:100px;height:100px;margin:0px -2px;}
@@ -254,7 +254,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   position: relative;
   display: inline-block;
   height: 35px;/*高さ*/
-  width: 190px;/*幅*/
+  width: 120px;/*幅*/
   text-align: center;/*中身を中央寄せ*/
   font-size: 15px;/*文字のサイズ*/
   line-height: 35px;/*高さと合わせる*/
@@ -300,7 +300,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   position: relative;
   display: inline-block;
   height: 35px;/*高さ*/
-  width: 150px;/*幅*/
+  width: 103px;/*幅*/
   text-align: center;/*中身を中央寄せ*/
   font-size: 15px;/*文字のサイズ*/
   line-height: 35px;/*高さと合わせる*/
@@ -338,6 +338,54 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
   transition: .5s}
 
 .fl_inst3:hover span{/*ホバーで一周回転*/
+  -webkit-transform: rotateX(360deg);
+  -ms-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+
+
+.fl_inst4{/*ボタンの下地*/
+  color: #573611;/*文字・アイコン色*/
+  border-radius: 7px;/*角丸に*/
+  position: relative;
+  display: inline-block;
+  height: 35px;/*高さ*/
+  width: 103px;/*幅*/
+  text-align: center;/*中身を中央寄せ*/
+  font-size: 18px;/*文字のサイズ*/
+  line-height: 35px;/*高さと合わせる*/
+  vertical-align: middle;/*垂直中央寄せ*/
+  background: #fc4a1a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fc4a1a, #f7b733); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fc4a1a, #f7b733); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  overflow: hidden;/*はみ出た部分を隠す*/
+  text-decoration:none;/*下線は消す*/
+}
+
+.fl_inst4:before{/*グラデーション②*/
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;/*全体を覆う*/
+  height: 100%;/*全体を覆う*/
+  background: #fc4a1a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fc4a1a, #f7b733); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fc4a1a, #f7b733); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.fl_inst4 .fa-cutlery{/*アイコン*/
+  font-size: 18px;/*アイコンサイズ*/
+  position: relative;
+  top: 0px;/*アイコン位置の微調整*/
+}
+
+.fl_inst4 span {/*テキスト*/
+  display:inline-block;
+  position: relative;
+  transition: .5s}
+
+.fl_inst4:hover span{/*ホバーで一周回転*/
   -webkit-transform: rotateX(360deg);
   -ms-transform: rotateX(360deg);
   transform: rotateX(360deg);
@@ -477,10 +525,10 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
 .article-title-index-sub{font-size:12px;font-weight:bold;}
 }
 
-.article-content-index{font-size:14px;color:#999999;}
+.article-content-index{font-size:14px;color:#808080;margin:0px 5px 0px 5px}
 
 @media only screen and (max-width: 768px) {
-.article-content-index{font-size:12px;color:#999999;}
+.article-content-index{font-size:12px;color:#808080;margin:0px 5px 15px 5px}
 }
 
 .article-city-index{font-size:10px;color:#999999;}
