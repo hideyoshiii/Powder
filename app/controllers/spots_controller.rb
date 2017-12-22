@@ -59,6 +59,12 @@ class SpotsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def pictures
+    @spot = Spot.find(params[:id])
+    @picture = Picture.new
+  end
+
+
   private
   def spot_params
     params.require(:spot).permit(:title, :prefecture, :price, :description, :photo, :label_list, scenes:[])

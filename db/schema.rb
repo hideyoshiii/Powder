@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171216134056) do
+ActiveRecord::Schema.define(version: 20171222231559) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -80,6 +80,19 @@ ActiveRecord::Schema.define(version: 20171216134056) do
     t.string "sex"
     t.index ["spot_id"], name: "index_likes_on_spot_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer "spot_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer "user_id"
+    t.index ["spot_id"], name: "index_pictures_on_spot_id"
+    t.index ["user_id"], name: "index_pictures_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|

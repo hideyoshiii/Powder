@@ -4,8 +4,12 @@ Rails.application.routes.draw do
 
   get "spots/result" => "spots#result"
   get "spots/rank" => "spots#rank"
-  resources :spots
+  get 'spots/:id/pictures' => 'spots#pictures'
   post "spots/:id/destroy" => "spots#destroy"
+  resources :spots
+  
+
+  resources :pictures, only: [:create, :destroy]
   
 
   resources :articles, only: [:index, :new, :create, :edit, :update]
