@@ -21,6 +21,7 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @tags = @spot.label_list
+    @pictures = @spot.pictures
   end
 
   def new
@@ -29,13 +30,21 @@ class SpotsController < ApplicationController
   end
 
   def create
+    if params[:spot][:image]
+
     @spot = current_user.spots.build(spot_params)
 
-    if @spot.save
-      redirect_to user_path(current_user)
-    else
-      redirect_to new_spot_path
-    end
+      if @spot.save
+        @picture = Picture.new(image: params[:spot][:image], spot_id: @spot.id, user_id: current_user.id)
+        @picture.save
+        redirect_to user_path(current_user)
+      else
+        redirect_to new_spot_path
+      end
+
+      else
+        redirect_to new_spot_path
+      end
   end
 
   def edit
@@ -63,6 +72,12 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
     @picture = Picture.new
   end
+
+  def tags
+    @spot = Spot.find(params[:id])
+  end
+
+  
 
 
   private

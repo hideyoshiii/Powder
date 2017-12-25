@@ -7,6 +7,14 @@
   <i class="fa fa-tag " aria-hidden="true"></i><%= @tag %>&nbsp;&nbsp;のスポット
 </div> 
 <hr class="style1">
+
+<%= form_tag(search_tags_index_path, method: :get) do %>
+  <%= hidden_field_tag :tag, @tag %>
+  都道府県を絞る=>
+  <%= select_tag :prefecture, options_for_select(["北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島", "茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川", "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", "静岡", "愛知", "三重", "滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山", "鳥取", "島根", "岡山", "広島", "山口", "徳島", "香川", "愛媛", "高知", "福岡", "福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄", "海外"]), {prompt:"選択してください"} %>
+<%= submit_tag "検索", :class => "" %>
+<% end %>
+<br>
   
 
 
@@ -15,6 +23,8 @@
     <div class="gutter-sizer"></div>
     <div class="grid-sizer"></div>
     <% @spots.each do |spot| %>
+    <% if !params[:prefecture].nil? %>
+    <% if spot.prefecture == params[:prefecture] %>
       <div class="grid-item iii">
         <%= link_to spot_path(spot) do %>
           <%= image_tag spot.photo.url, :class =>'img-responsive' %>
@@ -32,6 +42,26 @@
         <br>
     
       </div>
+    <% end %> 
+    <% else %>
+      <div class="grid-item iii">
+        <%= link_to spot_path(spot) do %>
+          <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+          <div class="black title-font-index">
+            <%= spot.title %>
+          </div>
+          <div class="prefecture-font-index">
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
+          </div>
+        <% end %>
+
+        <span id="like-of-<%= spot.id %>">
+          <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
+        </span>
+        <br>
+    
+      </div>
+    <% end %>  
     <% end %>  
   </div>
 </div>

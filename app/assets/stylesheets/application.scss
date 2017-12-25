@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "dropzone/dropzone";
+
 
 
 @import url(https://fonts.googleapis.com/css?family=Cabin:400,700|Source+Sans+Pro:400,700);
@@ -894,6 +896,13 @@ hr.style1{
 	border-top: 2px solid #8c8b8b;
 }
 
+hr.style2{
+	margin:5px 0px 10px;
+	text-align:left;
+	width:60%;
+	border-top: 2px solid #8c8b8b;
+}
+
 .title-content{font-size:20px;}
 @media only screen and (max-width: 768px) {
 .title-content{font-size:18px;}
@@ -992,6 +1001,60 @@ dl.search1 dd span{
 dl.search1 dd span:hover{
 	color:red;
 }
+
+.carousel {
+    border-radius: 10px 10px 10px 0px;
+    overflow: hidden;
+    background-color: #777;
+}
+
+.youtube-container {
+  position:relative;
+  overflow:hidden;
+  border-radius: 10px;
+}
+
+.part_line{
+    position: relative;
+    display: inline-block;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    border-bottom: solid 1px black;
+    border-left: solid 1px black;
+    color: #black;
+    transition: .4s;
+    }
+
+.part_line:hover {
+    padding-left: 0.7em;
+    padding-right: 0.3em;
+}
+
+.prefecture-search{
+	font-size:18px;
+	font-weight:bold;
+}
+
+.prefecture-search1{
+	font-size:24px;
+	font-weight:bold;
+}
+
+.img-prefecture{width:100%;height:auto;border-radius: 10px;display: inline-block; 
+    box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.8);margin-bottom:10px;}
+
+
+
+.margin-btn{
+	margin-bottom:10px;
+}
+
+.fa-border {
+  padding: 1px 3px;
+  border: solid 1px #eeeeee;
+  border-radius: 50%;
+}
+
 
 
 

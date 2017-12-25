@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "hyogo.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">兵庫</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_hyogo1_path do |f| %>
 	    <div class="panel-body">
@@ -16,33 +23,43 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "三田・篠山・西脇", unchecked_value = "" %>三田・篠山・西脇　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "垂水区・西区・北区", unchecked_value = "" %>垂水区・西区・北区　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "西宮・芦屋・尼崎", unchecked_value = "" %>西宮・芦屋・尼崎　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "灘・東灘", unchecked_value = "" %>灘・東灘　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "姫路・加古川・たつの", unchecked_value = "" %>姫路・加古川・たつの　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "兵庫区・長田区・須磨区", unchecked_value = "" %>兵庫区・長田区・須磨区　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "宝塚・伊丹・川西", unchecked_value = "" %>宝塚・伊丹・川西　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "豊岡・朝来", unchecked_value = "" %>豊岡・朝来　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "明石・三木・稲美", unchecked_value = "" %>明石・三木・稲美　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "神戸", unchecked_value = "" %>神戸　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "淡路島", unchecked_value = "" %>淡路島　
 				</label>

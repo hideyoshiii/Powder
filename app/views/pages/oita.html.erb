@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "oita.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">大分</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_oita1_path do |f| %>
 	    <div class="panel-body">
@@ -16,12 +23,15 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "佐伯・津久見", unchecked_value = "" %>佐伯・津久見　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "大分・臼杵・佐伯", unchecked_value = "" %>大分・臼杵・佐伯　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "湯布院・別府・国東半島", unchecked_value = "" %>湯布院・別府・国東半島　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "中津・宇佐・日田", unchecked_value = "" %>中津・宇佐・日田　
 				</label>

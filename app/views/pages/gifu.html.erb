@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "gifu.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">岐阜</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_gifu1_path do |f| %>
 	    <div class="panel-body">
@@ -16,15 +23,19 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "岐阜・各務原", unchecked_value = "" %>岐阜・各務原　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "西濃", unchecked_value = "" %>西濃　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "中濃", unchecked_value = "" %>中濃　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "東濃", unchecked_value = "" %>東濃　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "飛騨高山", unchecked_value = "" %>飛騨高山　
 				</label>

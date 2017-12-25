@@ -8,8 +8,15 @@ class TagsController < ApplicationController
   end
 
   def index
-    @spots = params[:tag].present? ? Spot.tagged_with(params[:tag]) : Spot.all
-    @tag = params[:tag]
+
+    if params[:prefecture].nil?
+      @spots = params[:tag].present? ? Spot.tagged_with(params[:tag]) : Spot.all
+      @tag = params[:tag]
+    else
+      @spots = params[:tag].present? ? Spot.tagged_with(params[:tag]) : Spot.all
+      @spots = @spots.where(prefecture: params[:prefecture])
+      @tag = params[:tag]
+    end
   end
 
 end

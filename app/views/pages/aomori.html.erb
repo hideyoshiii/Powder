@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-  <div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+  <div class="col-s-12 col-sm-12 col-md-5">
+    <div class="example">
+          <%= image_tag "aomori.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">青森</p> 
+        </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,12 +26,15 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "弘前・中津軽・南津軽", unchecked_value = "" %>弘前・中津軽・南津軽　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "上北・下北", unchecked_value = "" %>上北・下北　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "青森・東津軽", unchecked_value = "" %>青森・東津軽　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "八戸・三沢・十和田", unchecked_value = "" %>八戸・三沢・十和田　
 			</label>

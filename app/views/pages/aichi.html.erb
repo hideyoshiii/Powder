@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "aichi.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">愛知</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_aichi1_path do |f| %>
 	    <div class="panel-body">
@@ -16,33 +23,43 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "一宮・稲沢・弥富", unchecked_value = "" %>一宮・稲沢・弥富　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "刈谷・安城・西尾", unchecked_value = "" %>刈谷・安城・西尾　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "天白区・瑞穂区・昭和区・熱田区", unchecked_value = "" %>天白区・瑞穂区・昭和区・熱田区　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "春日井・大山・小牧", unchecked_value = "" %>神春日井・大山・小牧　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "大府・常滑・南知多", unchecked_value = "" %>大府・常滑・南知多　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "長久手・日進・瀬戸", unchecked_value = "" %>長久手・日進・瀬戸　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "東区・千種区・名東区", unchecked_value = "" %>東区・千種区・名東区　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "豊橋・蒲郡・豊川", unchecked_value = "" %>豊橋・蒲郡・豊川　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "豊田・岡崎", unchecked_value = "" %>豊田・岡崎　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "名古屋", unchecked_value = "" %>名古屋　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "緑区・中川区・南区・港区", unchecked_value = "" %>緑区・中川区・南区・港区　
 				</label>

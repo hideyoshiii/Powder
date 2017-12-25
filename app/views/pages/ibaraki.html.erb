@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-  <div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+  <div class="col-s-12 col-sm-12 col-md-5">
+    <div class="example">
+          <%= image_tag "ibaraki.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">茨城</p> 
+        </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,15 +26,19 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "鹿島・行方・鹿行地域", unchecked_value = "" %>鹿島・行方・鹿行地域　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "水戸・ひたちなか・県央地域", unchecked_value = "" %>水戸・ひたちなか・県央地域　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "筑西・下妻・県西地域", unchecked_value = "" %>筑西・下妻・県西地域　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "土浦・つくば・県南地域", unchecked_value = "" %>土浦・つくば・県南地域　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "日立・常陸大宮・県北地域", unchecked_value = "" %>日立・常陸大宮・県北地域　
 			</label>

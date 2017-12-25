@@ -4,6 +4,14 @@
 
 <div class="row">
 
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "saga.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">佐賀</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 <div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_saga1_path do |f| %>
@@ -16,9 +24,11 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "武雄・嬉野・鹿島", unchecked_value = "" %>武雄・嬉野・鹿島　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "佐賀・鳥栖", unchecked_value = "" %>佐賀・鳥栖　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "唐津・伊万里・有田", unchecked_value = "" %>唐津・伊万里・有田　
 				</label>

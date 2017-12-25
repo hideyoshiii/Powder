@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "miyagi.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">宮城</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,18 +26,23 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "松島・塩窯", unchecked_value = "" %>松島・塩窯　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "石巻・気仙沼", unchecked_value = "" %>石巻・気仙沼　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "蔵王・白石・角田", unchecked_value = "" %>蔵王・白石・角田　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "大崎・登米", unchecked_value = "" %>大崎・登米　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "名取・岩沼", unchecked_value = "" %>名取・岩沼　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "仙台市", unchecked_value = "" %>仙台市　
 			</label>

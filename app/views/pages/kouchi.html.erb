@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "kouchi.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">高知</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_kouchi1_path do |f| %>
 	    <div class="panel-body">
@@ -16,9 +23,11 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "安芸・高知東部", unchecked_value = "" %>安芸・高知東部　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "高知市・土佐・高知中部", unchecked_value = "" %>高知市・土佐・高知中部　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "四万十・高知西部", unchecked_value = "" %>四万十・高知西部　
 				</label>

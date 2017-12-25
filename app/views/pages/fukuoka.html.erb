@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "fukuoka.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">福岡</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,30 +26,39 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "久留米・大牟田・筑後", unchecked_value = "" %>久留米・大牟田・筑後　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "糸島・姪浜・福岡市西区", unchecked_value = "" %>糸島・姪浜・福岡市西区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "住吉・呉服・その他博多区", unchecked_value = "" %>住吉・呉服・その他博多区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "西新・百道・その他早良区", unchecked_value = "" %>西新・百道・その他早良区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "太宰府・春日・筑紫野", unchecked_value = "" %>太宰府・春日・筑紫野　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "中洲・香椎・その他東区", unchecked_value = "" %>中洲・香椎・その他東区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "飯塚・宗像・筑豊", unchecked_value = "" %>飯塚・宗像・筑豊　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "北九州", unchecked_value = "" %>北九州　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "薬院・今泉・平尾", unchecked_value = "" %>薬院・今泉・平尾　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "六本松・桜坂・大濠", unchecked_value = "" %>六本松・桜坂・大濠　
 			</label>

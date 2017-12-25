@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "shizuoka.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">静岡</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_shizuoka1_path do |f| %>
 	    <div class="panel-body">
@@ -16,54 +23,71 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "熱海", unchecked_value = "" %>熱海　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "伊東", unchecked_value = "" %>伊東　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "下田・南伊豆", unchecked_value = "" %>下田・南伊豆　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "伊豆高原・城ヶ崎", unchecked_value = "" %>伊豆高原・城ヶ崎　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "伊豆長岡・修善寺・天城", unchecked_value = "" %>伊豆長岡・修善寺・天城　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "東伊豆・河津", unchecked_value = "" %>東伊豆・河津　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "西伊豆・松崎", unchecked_value = "" %>西伊豆・松崎　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "富士・富士宮", unchecked_value = "" %>富士・富士宮　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "沼津", unchecked_value = "" %>沼津　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "湖西・三ヶ日・浜名湖", unchecked_value = "" %>湖西・三ヶ日・浜名湖　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "浜松", unchecked_value = "" %>浜松　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "御殿場・裾野", unchecked_value = "" %>御殿場・裾野　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "清水・由比", unchecked_value = "" %>清水・由比　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "島田・牧之原・御前崎", unchecked_value = "" %>島田・牧之原・御前崎　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "静岡市", unchecked_value = "" %>静岡市　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "焼津・藤枝", unchecked_value = "" %>焼津・藤枝　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "三島・駿東・田方", unchecked_value = "" %>三島・駿東・田方　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "磐田・袋井", unchecked_value = "" %>磐田・袋井　
 				</label>

@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "miyazaki.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">宮崎</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_miyazaki1_path do |f| %>
 	    <div class="panel-body">
@@ -16,15 +23,19 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "延岡・日向・臼杵郡", unchecked_value = "" %>延岡・日向・臼杵郡　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "宮崎・東諸県部", unchecked_value = "" %>宮崎・東諸県部　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "西部・児湯郡", unchecked_value = "" %>西部・児湯郡　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "都城・小林", unchecked_value = "" %>都城・小林　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "日南・串間", unchecked_value = "" %>日南・串間　
 				</label>

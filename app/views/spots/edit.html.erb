@@ -8,7 +8,7 @@
 
 	<div class="panel-body">	
 	<div class="title-content">
-	  デートスポットを投稿編集する
+	  デートスポットを編集する
 	</div> 
 	<hr class="style1">		
 					<!-- ここからフォーム -->
@@ -31,7 +31,7 @@
 							<div class="col-md-12 select">
 								<div class="form-group">
                                 <label>title</label>
-                                <%= f.text_field :title, placeholder: "名前", class: "form-control", required: "true" %>
+                                <%= f.text_field :title, placeholder: "スポットの名称", class: "form-control", required: "true" %>
                             	</div>
 							</div>
 						</div>
@@ -58,44 +58,7 @@
 			            <br>
 
 
-						<div class="row">
-							<div class="col-md-12 select">
-								<div class="form-group">
-                                <label>scene</label>
-                                <br>
-                                
-								    <% ["記念日・誕生日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ドライブ"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								    <br>ーーーーーーーーーーーー<br>
-								    <% ["ショッピング", "癒し", "夜景", "イルミネーション", "テーマパーク", "美術館", "フォトジェニック", "ホテル・旅館"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								    <br>ーーーーーーーーーーーー<br>
-								    <% ["ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								    <br>ーーーーーーーーーーーー<br>
-								    <% ["クリスマス","春", "夏", "秋", "冬"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								  
-                            	</div>
-							</div>
-						</div>
-						<br>
+						
 						
 
 						<div class="row">

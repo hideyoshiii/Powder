@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "kanagawa.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">神奈川</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,27 +26,35 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "海老名・厚木・伊勢原・秦野", unchecked_value = "" %>海老名・厚木・伊勢原・秦野　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "横浜", unchecked_value = "" %>横浜　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "港南区・戸塚区・栄区", unchecked_value = "" %>港南区・戸塚区・栄区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "港北区", unchecked_value = "" %>港北区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "横須賀・三浦・逗子・葉山", unchecked_value = "" %>横須賀・三浦・逗子・葉山　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "小田原・箱根・真鶴・湯河原", unchecked_value = "" %>小田原・箱根・真鶴・湯河原
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "湘南・鎌倉", unchecked_value = "" %>湘南・鎌倉　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "青葉区・都筑区", unchecked_value = "" %>青葉区・都筑区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "相模原・大和", unchecked_value = "" %>相模原・大和　
 			</label>

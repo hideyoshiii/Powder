@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "niigata.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">新潟</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_niigata1_path do |f| %>
 	    <div class="panel-body">
@@ -16,15 +23,19 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "新潟市", unchecked_value = "" %>新潟市　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "新発田・胎内", unchecked_value = "" %>新発田・胎内　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "湯沢・十日町", unchecked_value = "" %>湯沢・十日町　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "長岡・柏崎", unchecked_value = "" %>長岡・柏崎　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "上越・糸魚川・妙高", unchecked_value = "" %>上越・糸魚川・妙高　
 				</label>

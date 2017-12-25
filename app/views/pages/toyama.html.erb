@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "toyama.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">富山</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_toyama1_path do |f| %>
 	    <div class="panel-body">
@@ -16,9 +23,11 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "魚津・黒部・滑川", unchecked_value = "" %>魚津・黒部・滑川　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "高岡・射水・氷見", unchecked_value = "" %>高岡・射水・氷見　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "砺波・南砺", unchecked_value = "" %>砺波・南砺　
 				</label>

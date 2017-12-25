@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "hiroshima.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">広島</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_hiroshima1_path do |f| %>
 	    <div class="panel-body">
@@ -16,18 +23,23 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "広島市", unchecked_value = "" %>広島市　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "甘日市・宮島", unchecked_value = "" %>甘日市・宮島　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "福山・尾道・三原", unchecked_value = "" %>福山・尾道・三原　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "広島南", unchecked_value = "" %>広島南　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "呉・東広島・竹原", unchecked_value = "" %>呉・東広島・竹原　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "三吹・北広島・県北", unchecked_value = "" %>三吹・北広島・県北　
 				</label>

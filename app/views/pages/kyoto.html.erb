@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "kyoto.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">京都</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,36 +26,47 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "亀岡・南丹", unchecked_value = "" %>亀岡・南丹　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "久御山・八幡", unchecked_value = "" %>久御山・八幡　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "京都府北部", unchecked_value = "" %>京都府北部　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "向日・長岡京", unchecked_value = "" %>向日・長岡京　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "左京区", unchecked_value = "" %>左京区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "中京区・下京区・東山区・山科区", unchecked_value = "" %>中京区・下京区・東山区・山科区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "城陽・京田辺", unchecked_value = "" %>城陽・京田辺　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "西京区・右京区", unchecked_value = "" %>西京区・右京区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "京都駅周辺・伏見区・宇治", unchecked_value = "" %>京都駅周辺・伏見区・宇治　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "福知山・綾部・京丹波", unchecked_value = "" %>福知山・綾部・京丹波　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "上京区", unchecked_value = "" %>上京区　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "木津川・京都府南部", unchecked_value = "" %>木津川・京都府南部　
 			</label>

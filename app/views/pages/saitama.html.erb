@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "saitama.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">埼玉</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,24 +26,31 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "熊谷・深谷・本庄・行田", unchecked_value = "" %>熊谷・深谷・本庄・行田　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "春日部・越谷・草加", unchecked_value = "" %>春日部・越谷・草加　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "上尾・久嬉・鴻巣", unchecked_value = "" %>上尾・久嬉・鴻巣　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "川越・ふじみ野・東松山", unchecked_value = "" %>川越・ふじみ野・東松山　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "川口・蕨・戸田", unchecked_value = "" %>川口・蕨・戸田　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "秩父・長瀞・小川", unchecked_value = "" %>秩父・長瀞・小川
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "さいたま市", unchecked_value = "" %>さいたま市　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "所沢・飯能", unchecked_value = "" %>所沢・飯能　
 			</label>

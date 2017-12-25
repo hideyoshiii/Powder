@@ -4,7 +4,14 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "kumamoto.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">熊本</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 	<div class="panel panel-default">
 		<%= search_form_for @q, url: search_kumamoto1_path do |f| %>
 	    <div class="panel-body">
@@ -16,15 +23,19 @@
 		        <label class="checkbox-inline">
 				 <%= f.check_box :station_eq_any, { multiple: true },checked_value = "玉名・山鹿・菊池", unchecked_value = "" %>玉名・山鹿・菊池　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "熊本・宇土・宇城", unchecked_value = "" %>熊本・宇土・宇城　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "八代・人吉・水俣", unchecked_value = "" %>八代・人吉・水俣　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "阿蘇", unchecked_value = "" %>阿蘇　
 				</label>
+				<br>
 				<label class="checkbox-inline">
 				  <%= f.check_box :station_eq_any, { multiple: true },checked_value = "天草", unchecked_value = "" %>天草　
 				</label>

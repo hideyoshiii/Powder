@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "spots/result" => "spots#result"
   get "spots/rank" => "spots#rank"
   get 'spots/:id/pictures' => 'spots#pictures'
+  get 'spots/:id/tags' => 'spots#tags'
   post "spots/:id/destroy" => "spots#destroy"
   resources :spots
   

@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+  <div class="col-s-12 col-sm-12 col-md-5">
+    <div class="example">
+          <%= image_tag "iwate.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">岩手</p> 
+        </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,18 +26,23 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "奥州・一関", unchecked_value = "" %>奥州・一関　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "釜石・大船渡", unchecked_value = "" %>釜石・大船渡　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "久慈・二戸", unchecked_value = "" %>久慈・二戸　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "宮古・岩泉", unchecked_value = "" %>宮古・岩泉　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "盛岡・八幡平・雫石", unchecked_value = "" %>盛岡・八幡平・雫石　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "花巻・北上・遠野", unchecked_value = "" %>花巻・北上・遠野　
 			</label>

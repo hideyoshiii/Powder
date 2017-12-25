@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "osaka.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">大阪</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,33 +26,43 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "京橋・OBP", unchecked_value = "" %>京橋・OBP　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "新大阪・西中島・十三", unchecked_value = "" %>新大阪・西中島・十三　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "西天満・南森・天満橋", unchecked_value = "" %>西天満・南森・天満橋　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "泉北", unchecked_value = "" %>泉北　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "大阪キタ", unchecked_value = "" %>大阪キタ　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "大阪ベイエリア", unchecked_value = "" %>大阪ベイエリア　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "大阪ミナミ", unchecked_value = "" %>大阪ミナミ　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "谷町・上本町・鶴橋", unchecked_value = "" %>谷町・上本町・鶴橋　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "淀屋橋・本町・北浜", unchecked_value = "" %>淀屋橋・本町・北浜　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "北大阪・千里中央", unchecked_value = "" %>北大阪・千里中央　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "北河内・東大阪", unchecked_value = "" %>北河内・東大阪　
 			</label>

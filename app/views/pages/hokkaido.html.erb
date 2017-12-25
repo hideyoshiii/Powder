@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+	<div class="col-s-12 col-sm-12 col-md-5">
+		<div class="example">
+          <%= image_tag "hokkaido.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">北海道</p> 
+        </div>
+	</div>
+
+	<div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -20,27 +27,35 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "旭川・富良野・美瑛", unchecked_value = "" %>旭川・富良野・美瑛　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "釧路・根室", unchecked_value = "" %>釧路・根室　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "札幌", unchecked_value = "" %>札幌　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "小樽・ニセコ・洞爺湖", unchecked_value = "" %>小樽・ニセコ・洞爺湖　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "夕張・石狩・石見沢", unchecked_value = "" %>夕張・石狩・石見沢　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "苫小牧・千歳・登別", unchecked_value = "" %>苫小牧・千歳・登別　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "道南", unchecked_value = "" %>道南　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "北見・網走・紋別", unchecked_value = "" %>北見・網走・紋別　
 			</label>
+			<br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "帯広・十勝", unchecked_value = "" %>帯広・十勝　
 			</label>

@@ -2,9 +2,16 @@
 
 <main class="" id="main-collapse">
 
-	<div class="row">
+<div class="row">
 
-<div class="col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+  <div class="col-s-12 col-sm-12 col-md-5">
+    <div class="example">
+          <%= image_tag "tochigi.jpg", :class =>'img-prefecture' %>
+          <p class="prefecture-search1">栃木</p> 
+        </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-4">
 
 <div class="panel panel-default">
 	
@@ -19,18 +26,23 @@
 	        <label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "宇都宮・鹿沼・下野", unchecked_value = "" %>宇都宮・鹿沼・下野　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "太田原・那須塩原", unchecked_value = "" %>太田原・那須塩原　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "栃木・小山・佐野・足利", unchecked_value = "" %>栃木・小山・佐野・足利　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "那珂川・真岡・益子", unchecked_value = "" %>那珂川・真岡・益子　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			 <%= f.check_box :city_eq_any, { multiple: true },checked_value = "日光", unchecked_value = "" %>日光　
 			</label>
+      <br>
 			<label class="checkbox-inline">
 			  <%= f.check_box :city_eq_any, { multiple: true },checked_value = "矢板・さくら・塩谷", unchecked_value = "" %>矢板・さくら・塩谷
 			</label>
