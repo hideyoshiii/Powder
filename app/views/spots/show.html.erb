@@ -28,7 +28,7 @@
       <% if @pictures %>             
         <% @pictures.each do |picture| %>
           <div class="item <%= 'active' if picture.id == @pictures[0].id %>">          
-            <%= image_tag picture.image.url(),style: "height:auto; width:100%; overflow:hidden; border-radius:10px;" %>
+            <%= image_tag picture.image.url(),style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
           </div>
         <% end %>   
       <% end %>
