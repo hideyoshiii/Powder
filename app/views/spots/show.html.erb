@@ -204,7 +204,6 @@
 	    <%= image_tag @spot.photo.url, :class =>'img-responsive' %>
 	    <br><br>
 
-	    <div style="overflow:hidden;">
 	    <!-- カルーセル -->
 	  <div id="yourCarousel" class="carousel slide" data-ride="carousel">           
 	    <!-- リストの点 -->
@@ -220,7 +219,7 @@
 	      <% if @pictures %>             
 	        <% @pictures.each do |picture| %>
 	          <div class="item <%= 'active' if picture.id == @pictures[0].id %>">          
-	            <%= image_tag picture.image.url(),style: "height:250px; width:100%; position: relative; overflow:hidden; border-radius:10px;" %>
+	            <%= image_tag picture.image.url(),style: "height:250px; width:100%; overflow:hidden; border-radius:0px;" %>
 	          </div>
 	        <% end %>   
 	      <% end %>
@@ -237,7 +236,6 @@
 	        <span class="sr-only">Next</span>
 	      </a>
 	    <% end %>
-	  </div>
 	  </div>
 
 	  	<%= link_to "/spots/#{@spot.id}/pictures" do %>
