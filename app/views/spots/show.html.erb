@@ -200,8 +200,7 @@
 
  	<%#スマホ・タブレット%>
  	<div class="visible-xs col-xs-12 visible-sm co-sm-12">
-	    <%= image_tag @spot.photo.url, :class =>'img-responsive' %>
-	    <br><br>
+	    
 
 	    <!-- カルーセル -->
 	  <div id="yourCarousel" class="carousel slide" data-ride="carousel">           
@@ -218,7 +217,7 @@
 	      <% if @pictures %>             
 	        <% @pictures.each do |picture| %>
 	          <div class="item <%= 'active' if picture.id == @pictures[0].id %>">          
-	            <%= image_tag picture.image.url(),style: "height:auto; width:100%; overflow:hidden; border-radius:0px;" %>
+	            <%= image_tag picture.image.url(),style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
 	          </div>
 	        <% end %>   
 	      <% end %>

@@ -1002,10 +1002,12 @@ dl.search1 dd span:hover{
 	color:red;
 }
 
-.carousel {
-    border-radius: 10px 10px 10px 10px;
-    overflow: hidden;
-    background-color:rgba(255,255,255,0.3);
+
+
+.carousel-control {
+	overflow: hidden;
+    border-radius: 10px 10px 10px 0px;
+    background-color:rgba(255,255,255,0);
 }
 
 .youtube-container {
@@ -1083,6 +1085,7 @@ dl.search1 dd span:hover{
   padding: 30px;
   box-sizing: border-box;
 }
+
 
 
 
