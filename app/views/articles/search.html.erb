@@ -96,26 +96,24 @@
 
   <script>
   	$(function() {
-  // スクロールのオフセット値
-  var offsetY = -10;
-  // スクロールにかかる時間
-  var time = 500;
-
-  // ページ内リンクのみを取得
-  $('a[href^=#]').click(function() {
-    // 移動先となる要素を取得
-    var target = $(this.hash);
-    if (!target.length) return ;
-    // 移動先となる値
-    var targetY = target.offset().top+offsetY;
-    // スクロールアニメーション
-    $('html,body').animate({scrollTop: targetY}, time, 'swing');
-    // ハッシュ書き換えとく
-    window.history.pushState(null, null, this.hash);
-    // デフォルトの処理はキャンセル
-    return false;
-  });
+	$("body").on("click", "a", function(e) {
+		var _this = $(this);
+		var _href = _this.attr("href");
+	
+		if (_href.charAt(0,1) == "#") {
+			e.preventDefault();
+			var _target  = $(_href == "#" || _href == "" ? $("html") : _href);
+			if (_target.length == "0") _target = $("html");
+			var position = _target.offset().top;
+			var _scroll  = _this.data("scroll");
+			if (_scroll !== undefined) position = position + Number(_scroll);
+			if (position <= 0) position = 1;	//Android2系でスクロールのバグ対策
+			$("html, body").animate({scrollTop : position} ,500, "swing");
+			return false;
+		}
+	});
 });
+
   </script>
 
 
