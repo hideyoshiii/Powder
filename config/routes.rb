@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :pictures, only: [:create, :destroy]
   
   get "articles/search" => "articles#search"
+  get "articles/result" => "articles#result"
   resources :articles, only: [:index, :new, :create, :edit, :update]
   get "articles/1" => "articles#show1"
   get "articles/2" => "articles#show2"

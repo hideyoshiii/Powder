@@ -1,7 +1,7 @@
 <%= render "partial/navbar3" %>
 <main class="" id="main-collapse">
 
-<%= form_tag(search_tags_index_path, method: :get) do %>
+<%= form_tag(articles_result_path, method: :get) do %>
  
 
 <div class="page">
@@ -21,11 +21,11 @@
 	  	<div>
 	  		  <h4>時間帯</h4>	
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'rails_base' %>サンプル
+			  <%= radio_button_tag :timezone, 1 %> 11時~
 			  </label>
 			  <br>
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'ruby_base' %>サンプル
+			  <%= radio_button_tag :timezone, 2 %> 19時~ 
 			  </label>
 			  <br>
 	  	</div>
@@ -38,19 +38,19 @@
 	  	<div>
 	  		  <h4>予算</h4>	
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'rails_base' %>サンプル
+			  <%= radio_button_tag :price, 1 %> ¥
 			  </label>
 			  <br>
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'ruby_base' %>サンプル
+			  <%= radio_button_tag :price, 2 %> ¥¥
 			  </label>
 			  <br>
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'ruby_base' %>サンプル
+			  <%= radio_button_tag :price, 3 %> ¥¥¥
 			  </label>
 			  <br>
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'ruby_base' %>サンプル
+			  <%= radio_button_tag :price, 4 %> ¥¥¥¥
 			  </label>
 			  <br>
 	  	</div>
@@ -63,19 +63,19 @@
 	  	<div>
 	  		  <h4>何回目</h4>	
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'rails_base' %>サンプル
+			  <%= radio_button_tag :number, 1 %> 1回目
 			  </label>
 			  <br>
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'ruby_base' %>サンプル
+			  <%= radio_button_tag :number, 2 %> 2回目
 			  </label>
 			  <br>
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'ruby_base' %>サンプル
+			  <%= radio_button_tag :number, 3 %> 3回目以降
 			  </label>
 			  <br>
 			  <label>
-			  <%= radio_button_tag 'page[category]', 'ruby_base' %>サンプル
+			  <%= radio_button_tag :number, 4 %> 特別なデート
 			  </label>
 			  <br>
 	  	</div>

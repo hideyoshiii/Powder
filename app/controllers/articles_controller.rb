@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
   def search
   end
 
+  def result
+    @article = Article.where(prefecture: params[:prefecture], timezone: params[:timezone].to_i, price: params[:price].to_i, number: params[:number].to_i).order("RANDOM()").first
+  end
+
   def index
   end
 
