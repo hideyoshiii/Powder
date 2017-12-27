@@ -9,8 +9,7 @@
   		
 
 	    
-  	<%= image_tag @spot.photo.url, :class =>'img-responsive' %>
-  	<br><br>
+  	
 
 
   <!-- カルーセル -->
@@ -219,7 +218,7 @@
 	      <% if @pictures %>             
 	        <% @pictures.each do |picture| %>
 	          <div class="item <%= 'active' if picture.id == @pictures[0].id %>">          
-	            <%= image_tag picture.image.url(),style: "height:250px; width:100%; overflow:hidden; border-radius:0px;" %>
+	            <%= image_tag picture.image.url(),style: "height:auto; width:100%; overflow:hidden; border-radius:0px;" %>
 	          </div>
 	        <% end %>   
 	      <% end %>

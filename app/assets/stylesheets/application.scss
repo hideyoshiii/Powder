@@ -1056,6 +1056,34 @@ dl.search1 dd span:hover{
 }
 
 
+.box {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 30px;
+  box-sizing: border-box;
+}
+
 
 
 @media only screen and (max-width: 768px) {
