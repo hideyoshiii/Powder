@@ -1,5 +1,7 @@
 <% if @article %>
+<%= link_to articles_show_path do %>
 <%= image_tag @article.photo.url(:medium) %>
+<% end %>
 <% else %>
 該当するデートコースはありません
 <% end %>
