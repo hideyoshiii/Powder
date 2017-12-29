@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   
   get "articles/search" => "articles#search"
   get "articles/result" => "articles#result"
+  get "articles/show" => "articles#show"
   resources :articles, only: [:index, :new, :create, :edit, :update]
   get "articles/1" => "articles#show1"
   get "articles/2" => "articles#show2"

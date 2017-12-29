@@ -9,6 +9,9 @@ class ArticlesController < ApplicationController
     @article = Article.where(prefecture: params[:prefecture], timezone: params[:timezone].to_i, price: params[:price].to_i, number: params[:number].to_i).order("RANDOM()").first
   end
 
+  def show  
+  end
+
   def index
   end
 
@@ -57,7 +60,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :prefecture, :city, :station, :content, :price, :photo, :movie_list, scenes:[])
+    params.require(:article).permit(:title, :prefecture, :city, :station, :content, :price, :timezone, :number, :photo, :movie_list, scenes:[])
   end
 
 end

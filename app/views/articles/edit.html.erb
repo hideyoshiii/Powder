@@ -81,9 +81,15 @@
 
 						<div class="row">
 							<div class="col-md-12 select">
-								<div class="field">
-								  <%= f.label :price %><br />
-								  およそ<%= f.number_field :price, min:0 %>円
+								<div class="form-group">
+								  <%= f.label :timezone %><br />
+								  <label>
+								  <%= f.radio_button :timezone, 1 %> 11時〜
+								  </label>
+								  &nbsp;&nbsp;
+								  <label>
+								  <%= f.radio_button :timezone, 2 %> 12時〜
+								  </label>
 								</div>
 							</div>
 						</div>
@@ -92,38 +98,47 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>scene</label>
-                                <br>
-                                
-								    <% ["記念日", "サプライズ", "初デート", "お家デート", "アウトドア", "雨の日", "ドライブ"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								    <br>ーーーーーーーーーーーー<br>
-								    <% ["ショッピング", "癒し", "夜景", "イルミネーション", "テーマパーク", "美術館", "フォトジェニック", "ホテル・旅館"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								    <br>ーーーーーーーーーーーー<br>
-								    <% ["ランチ", "ディナー", "カフェ", "バー", "居酒屋", "スイーツ", "食べ歩き"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								    <br>ーーーーーーーーーーーー<br>
-								    <% ["クリスマス","春", "夏", "秋", "冬"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>
-								  
-                            	</div>
+								  <%= f.label :price %><br />
+								  <label>
+								  <%= f.radio_button :price, 1 %> ¥
+								  </label>
+								  &nbsp;&nbsp;
+								  <label>
+								  <%= f.radio_button :price, 2 %> ¥¥ 
+								  </label>
+								  &nbsp;&nbsp;
+								  <label>
+								  <%= f.radio_button :price, 3 %> ¥¥¥
+								  </label>
+								  &nbsp;&nbsp;
+								  <label>
+								  <%= f.radio_button :price, 4 %> ¥¥¥¥ 
+								  </label>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+								  <%= f.label :number %><br />
+								  <label>
+								  <%= f.radio_button :number, 1 %> 1回目
+								  </label>
+								  &nbsp;&nbsp;
+								  <label>
+								  <%= f.radio_button :number, 2 %> 2回目 
+								  </label>
+								  &nbsp;&nbsp;
+								  <label>
+								  <%= f.radio_button :number, 3 %> 3回目以降
+								  </label>
+								  &nbsp;&nbsp;
+								  <label>
+								  <%= f.radio_button :number, 4 %> 特別な日 
+								  </label>
+								</div>
 							</div>
 						</div>
 						<br>
