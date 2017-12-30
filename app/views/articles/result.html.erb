@@ -4,7 +4,7 @@
 
 <% if @article %>
 <%= link_to articles_show_path do %>
-<%= image_tag @article.photo.url(:medium) %>
+<%= image_tag @article.photo.url, :class =>'img-responsive' %>
 <% end %>
 <form>
 <input type="button"  value="Change" onclick="koshin()">
