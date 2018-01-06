@@ -1166,8 +1166,8 @@ dl.search1 dd span:hover{
   min-height: 100vh;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(city02.jpg) fixed;
-  background-size: cover;
-  
+  background-size:contain;
+  background-position: center;
 
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1195,8 +1195,8 @@ dl.search1 dd span:hover{
   min-height: 100vh;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(timezone02.jpg) fixed;
-  background-size: cover;
-  
+  background-size:contain;
+  background-position: center;
 
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1224,8 +1224,8 @@ dl.search1 dd span:hover{
   min-height: 100vh;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(price02.jpg) fixed;
-  background-size: cover;
-  
+  background-size:contain;
+  background-position: center;
 
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1243,7 +1243,7 @@ dl.search1 dd span:hover{
   -webkit-flex-direction: column;
   align-items: center;
 
-  padding: 20px;
+  padding: 15px;
   box-sizing: border-box;
 }
 
@@ -1253,8 +1253,8 @@ dl.search1 dd span:hover{
   min-height: 100vh;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(number02.jpg) fixed;
-  background-size: cover;
-  
+  background-size:contain;
+  background-position: center;
 
   display: -webkit-box;
   display: -ms-flexbox;
