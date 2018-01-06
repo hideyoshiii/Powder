@@ -103,6 +103,12 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 }
 
+
+.ii{
+	background-color:#F4F5F7;
+	
+}
+
 .male {
   color: #89C3EB;
 }
@@ -1418,7 +1424,7 @@ article h2 {
 	padding: 0em 1.25em .5em;
 	font-size: 150%;
 	border-bottom: 4px solid #53331c;
-	background: #fff;
+	background: #F4F5F7;
 	
 }
 article h3 {
@@ -1432,7 +1438,7 @@ article h4 {
 	font-size: 120%;
 	border-top: solid 2px #53331c;
 	border-bottom: solid 2px #53331c;
-	background: #f4f4f4;
+	background: #F4F5F7;
 	line-height: 1.4;
 	padding: 0.4em 0.5em;
 	margin: 4em 0 1em;
@@ -1689,7 +1695,7 @@ footer p {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 120px 120px 120px;
+  grid-template-rows: 125px 125px 125px;
   margin-bottom:10px;
 }
 .item {
@@ -1707,7 +1713,7 @@ footer p {
   display: grid;
   grid-gap: 3px;
   grid-template-columns: 1fr 1fr 1fr ;
-  grid-template-rows: 100px 100px 100px;
+  grid-template-rows: 105px 105px 105px;
   margin-bottom:10px;
 }
 .item {
@@ -1835,7 +1841,7 @@ footer p {
 }
 .scroll_item_info {
     white-space: normal;
-    padding: 2px;
+    padding: 0px 5px;
 }
 .scroll_item_ttl {
     font-size: 12px;
@@ -1882,7 +1888,7 @@ footer p {
 }
 .scroll_item_info {
     white-space: normal;
-    padding: 2px;
+    padding: 0px 5px;
 }
 .scroll_item_ttl {
     font-size: 12px;
