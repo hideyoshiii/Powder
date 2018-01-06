@@ -1,12 +1,73 @@
 <%= render "partial/navbar3" %>
 <main class="" id="main-collapse">
 
+  <div>
+    <span class="article-title-show">デートコースのタイトル</span>
+  </div>
+
+  <div class="horizontal_scroll_wrap">
+   <ul class="scroll_lst">
+       <li class="scroll_item">
+           <a href="#spot1" class="scroll_item_inr">
+               <div class="scroll_item_thum">
+                   <%= image_tag "tokyo.jpg", :class =>'img-scroll' %>
+               </div>
+               <div class="scroll_item_info">
+                   <h4 class="scroll_item_ttl"><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h4>
+               </div>
+           </a>
+       </li>
+      <li class="scroll_item">
+           <a href="#spot2" class="scroll_item_inr">
+               <div class="scroll_item_thum">
+                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll' %>
+               </div>
+               <div class="scroll_item_info">
+                   <h4 class="scroll_item_ttl"><i class="fa fa-subway article-icon" aria-hidden="true"></i>&nbsp;&nbsp;銀座駅A4出口</h4>
+               </div>
+           </a>
+       </li>
+      <li class="scroll_item">
+           <a href="#spot3" class="scroll_item_inr">
+               <div class="scroll_item_thum">
+                   <%= image_tag "kyoto.jpg", :class =>'img-scroll' %>
+               </div>
+               <div class="scroll_item_info">
+                   <h4 class="scroll_item_ttl"><i class="fa fa-cutlery article-icon" aria-hidden="true"></i>&nbsp;&nbsp;飲食店</h2></h4>
+               </div>
+           </a>
+       </li>
+      <li class="scroll_item">
+           <a href="#spot4" class="scroll_item_inr">
+               <div class="scroll_item_thum">
+                   <%= image_tag "osaka.jpg", :class =>'img-scroll' %>
+               </div>
+               <div class="scroll_item_info">
+                   <h4 class="scroll_item_ttl"><i class="fa fa-glass article-icon" aria-hidden="true"></i>&nbsp;&nbsp;バー</h4>
+               </div>
+           </a>
+       </li>
+      <li class="scroll_item">
+           <a href="" class="scroll_item_inr">
+               <div class="scroll_item_thum">
+                   <%= image_tag "kumamoto.jpg", :class =>'img-scroll' %>
+               </div>
+               <div class="scroll_item_info">
+                   <h4 class="scroll_item_ttl">スポット名</h4>
+               </div>
+           </a>
+       </li>
+</ul>
+</div>
+
 
 <div id="contents" class="clearfix">
   <div id="main">
   <article>
     <div class="panel panel-default">
+      <div id="spot1">
       <h2><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h2>
+      </div>
     <div class="panel-body">
   
   <div id="map"></div>
@@ -14,7 +75,9 @@
   </div>
 
   <div class="panel panel-default">
+    <div id="spot2">
     <h2><i class="fa fa-subway article-icon" aria-hidden="true"></i>&nbsp;&nbsp;銀座駅A4出口</h2>
+    </div>  
     <div class="panel-body">
   
   <div class="container6">
@@ -32,7 +95,9 @@
   </div>
   
   <div class="panel panel-default">
+    <div id="spot3">
     <h2><i class="fa fa-cutlery article-icon" aria-hidden="true"></i>&nbsp;&nbsp;飲食店</h2>
+    </div>
     <div class="panel-body">
 
   <div class="container6">
@@ -58,7 +123,9 @@
   </div>
 
   <div class="panel panel-default">
+    <div id="spot4">
     <h2><i class="fa fa-glass article-icon" aria-hidden="true"></i>&nbsp;&nbsp;バー</h2>
+    </div>
     <div class="panel-body">
 
       <div class="container6">
@@ -132,6 +199,31 @@ function initMap() {
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
+
+
+<script>
+    $(function() {
+  $("body").on("click", "a", function(e) {
+    var _this = $(this);
+    var _href = _this.attr("href");
+  
+    if (_href.charAt(0,1) == "#") {
+      e.preventDefault();
+      var _target  = $(_href == "#" || _href == "" ? $("html") : _href);
+      if (_target.length == "0") _target = $("html");
+      var position = _target.offset().top;
+      var _scroll  = _this.data("scroll");
+      if (_scroll !== undefined) position = position + Number(_scroll);
+      if (position <= 0) position = 1;  //Android2系でスクロールのバグ対策
+      $("html, body").animate({scrollTop : position} ,500, "swing");
+      return false;
+    }
+  });
+});
+
+  </script>
+
+
 
 </main>
 
