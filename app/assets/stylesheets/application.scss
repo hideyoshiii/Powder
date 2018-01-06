@@ -487,11 +487,11 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
 .example h3 {
   position: absolute;
   top: 90%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-30%,-90%);
-  margin:0 0 0 -100px;
+  left: 60%;
+  -ms-transform: translate(-70%,-90%);
+  -webkit-transform: translate(-70%,-90%);
+  transform: translate(-70%,-90%);
+  margin:0;
   margin:0;
   padding:0;
   color:white;
@@ -505,11 +505,11 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
 .example h3 {
   position: absolute;
   top: 95%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-30%,-90%);
-  margin:0 0 0 -100px;
+  left: 0%;
+  -ms-transform: translate(0%,-90%);
+  -webkit-transform: translate(0%,-90%);
+  transform: translate(0%,-90%);
+  margin:0px;
   padding:0;
   color:white;
   font-size:15px;
