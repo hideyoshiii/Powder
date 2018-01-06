@@ -1693,13 +1693,13 @@ footer p {
   margin-bottom:10px;
 }
 .item {
-  background: #ddd;
+  background: #F4F5F7;
   border-radius: 8px;
 }
 .box-big1 {
   grid-column: 1 / 3;
   grid-row: 1 / 3;
-  background: #fc2;
+  background: #F4F5F7;
 }
 
 @media (max-width: 1200px){
@@ -1711,13 +1711,13 @@ footer p {
   margin-bottom:10px;
 }
 .item {
-  background: #ddd;
+  background: #F4F5F7;
   border-radius: 7px;
 }
 .box-big1 {
   grid-column: 1 / 3;
   grid-row: 1 / 3;
-  background: #fc2;
+  background: #F4F5F7;
   
 }
 }
@@ -1727,17 +1727,17 @@ footer p {
   display: grid;
   grid-gap: 3px;
   grid-template-columns: 1fr 1fr 1fr ;
-  grid-template-rows: 60px 60px 60px;
+  grid-template-rows: 70px 70px 70px;
   margin-bottom:10px;
 }
 .item {
-  background: #ddd;
+  background: #F4F5F7;
   border-radius: 5px;
 }
 .box-big1 {
   grid-column: 1 / 3;
   grid-row: 1 / 3;
-  background: #fc2;
+  background: #F4F5F7;
   
 }
 }
