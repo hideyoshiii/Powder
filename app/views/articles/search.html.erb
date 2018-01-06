@@ -4,83 +4,77 @@
 <%= form_tag(articles_result_path, method: :get) do %>
  
 
-<div class="page">
+
 
   	<div class="box" id='top'> 
   		<div>
-  			  <h4>エリア</h4>
+  			<p>質問にこたえて、スグわかる！</p>
+  			<h4>デートコースシミュレーター</h4>
+  			<p>あなたにあったデートコースを30秒で提案します</p>
+  		</div>
+  		<br>
+  		<div>
+	    	<a href='#section1' class="btn btn-default">start→</a>
+	    </div>
+    </div>
+
+    <div class="box1" id='section1'> 
+  		<div>
+  			  <h3 style="color:white;">エリアは？</h4>
 			  <%= select_tag :prefecture, options_for_select(["北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島", "茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川", "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", "静岡", "愛知", "三重", "滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山", "鳥取", "島根", "岡山", "広島", "山口", "徳島", "香川", "愛媛", "高知", "福岡", "福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄", "海外"]), {prompt:"選択してください"} %>
 			  <br><br>
   		</div>
   		<div>
-	    	<a href='#section2' class="btn btn-default">NEXT</a>
+	    	<a href='#section2' class="btn btn-default">NEXT→</a>
 	    </div>
     </div>
 
-	  <div class="box" id='section2'> 
-	  	<div>
-	  		  <h4>時間帯</h4>	
-			  <label>
-			  <%= radio_button_tag :timezone, 1 %> 11時~
-			  </label>
-			  <br>
-			  <label>
-			  <%= radio_button_tag :timezone, 2 %> 19時~ 
-			  </label>
-			  <br>
+	  <div class="box2" id='section2'> 
+	  	<div class="article_radio">
+	  		  <h3 style="color:white;">時間帯は？</h4>	
+			  	<%= radio_button_tag(:timezone, 1, true) %>
+				<%= label_tag(:timezone_1, "11時~") %>
+			  	<%= radio_button_tag(:timezone, 2) %>
+				<%= label_tag(:timezone_2, "19時~ ") %>  
+			  <br><br>
 	  	</div>
 	  	<div>
-  			<a href='#section3' class="btn btn-default">NEXT</a>
+  			<a href='#section3' class="btn btn-default">NEXT→</a>
   		</div>
 	  </div>
 
-	  <div class="box" id='section3'>
-	  	<div>
-	  		  <h4>予算</h4>	
-			  <label>
-			  <%= radio_button_tag :price, 1 %> ¥
-			  </label>
-			  <br>
-			  <label>
-			  <%= radio_button_tag :price, 2 %> ¥¥
-			  </label>
-			  <br>
-			  <label>
-			  <%= radio_button_tag :price, 3 %> ¥¥¥
-			  </label>
-			  <br>
-			  <label>
-			  <%= radio_button_tag :price, 4 %> ¥¥¥¥
-			  </label>
-			  <br>
+	  <div class="box3" id='section3'>
+	  	<div class="article_radio">
+	  		  <h3 style="color:white;">予算は？</h4>	
+			  	<%= radio_button_tag(:price, 1, true) %>
+				<%= label_tag(:price_1, "¥") %>
+			  	<%= radio_button_tag(:price, 2) %>
+				<%= label_tag(:price_2, "¥¥") %>  
+			  	<%= radio_button_tag(:price, 3) %>
+				<%= label_tag(:price_3, "¥¥¥") %>
+				<%= radio_button_tag(:price, 4) %>
+				<%= label_tag(:price_4, "¥¥¥¥") %>
+			  <br><br>
 	  	</div>
 	  	<div>
-  			<a href='#section4' class="btn btn-default">NEXT</a>
+  			<a href='#section4' class="btn btn-default">NEXT→</a>
   		</div>
 	  </div>
 
-	  <div class="box" id='section4'>
-	  	<div>
-	  		  <h4>何回目</h4>	
-			  <label>
-			  <%= radio_button_tag :number, 1 %> 1回目
-			  </label>
-			  <br>
-			  <label>
-			  <%= radio_button_tag :number, 2 %> 2回目
-			  </label>
-			  <br>
-			  <label>
-			  <%= radio_button_tag :number, 3 %> 3回目以降
-			  </label>
-			  <br>
-			  <label>
-			  <%= radio_button_tag :number, 4 %> 特別なデート
-			  </label>
-			  <br>
+	  
+	  <div class="box4" id='section4'>
+	  	<div class="article_radio">
+  		  <h3 style="color:white;">何回目のデート？</h4>	
+		 	<%= radio_button_tag(:number, 1, true) %>
+			<%= label_tag(:number_1, "1回目") %>
+		  	<%= radio_button_tag(:number, 2) %>
+			<%= label_tag(:number_2, "2回目") %>  
+		  	<%= radio_button_tag(:number, 3) %>
+			<%= label_tag(:number_3, "3回目") %>
+		  <br><br>
 	  	</div>
 	  	<div>
-  			<a href='#section5' class="btn btn-default">NEXT</a>
+  			<a href='#section5' class="btn btn-default">NEXT→</a>
   		</div>
 	  </div>
 
@@ -89,7 +83,7 @@
 			<%= submit_tag "検索", :class => "btn btn-default" %>
 		</div>
 	  </div>
-</div>
+
 
 
 <% end %>
