@@ -505,7 +505,7 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
 .example h3 {
   position: absolute;
   top: 95%;
-  left: 0%;
+  left: 2%;
   -ms-transform: translate(0%,-90%);
   -webkit-transform: translate(0%,-90%);
   transform: translate(0%,-90%);
@@ -1511,6 +1511,7 @@ letter-spacing: 0.05em;
   }
 
 article p {
+	margin-top:1em;
 	margin-bottom:2em;
 	line-height:1.5;
 }
