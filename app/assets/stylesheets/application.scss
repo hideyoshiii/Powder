@@ -1165,8 +1165,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(city02.jpg) fixed;
-  background-size:contain;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(city02.jpg) ;
+  background-size: cover;
   background-position: center;
 
   display: -webkit-box;
@@ -1194,8 +1194,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(timezone02.jpg) fixed;
-  background-size:contain;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(timezone02.jpg) ;
+  background-size: cover;
   background-position: center;
 
   display: -webkit-box;
@@ -1223,8 +1223,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(price02.jpg) fixed;
-  background-size:contain;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(price02.jpg) ;
+  background-size: cover;
   background-position: center;
 
   display: -webkit-box;
@@ -1252,8 +1252,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(number02.jpg) fixed;
-  background-size:contain;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(number02.jpg) ;
+  background-size: cover;
   background-position: center;
 
   display: -webkit-box;
