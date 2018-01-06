@@ -856,11 +856,11 @@ $(function() {
 		
 		// ウィンドウ幅・人気記事を取得
 		var w = window.innerWidth;
-		var mainH = $('#main').height();
+		var mainsH = $('#mains').height();
 		var sideH = $('#side').height();
 		var fixedElm = '';
 		
-		if(mainH > sideH) { // サイドバーより長ければ
+		if(mainsH > sideH) { // サイドバーより長ければ
 		
 			fixedElm = $('.mokuji');
 							
