@@ -14,16 +14,6 @@
 
   <div class="horizontal_scroll_wrap">
    <ul class="scroll_lst">
-       <li class="scroll_item">
-           <a href="#spot1" class="scroll_item_inr">
-               <div class="scroll_item_thum">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll' %>
-               </div>
-               <div class="scroll_item_info">
-                   <h4 class="scroll_item_ttl"><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h4>
-               </div>
-           </a>
-       </li>
       <li class="scroll_item">
            <a href="#spot2" class="scroll_item_inr">
                <div class="scroll_item_thum">
@@ -33,6 +23,11 @@
                    <h4 class="scroll_item_ttl"><i class="fa fa-subway article-icon" aria-hidden="true"></i>&nbsp;&nbsp;銀座駅A4出口</h4>
                </div>
            </a>
+       </li>
+       <li class="scroll_item_table">
+         <div class="scroll_item_table2">
+            <%= image_tag "walk.png", :class =>'img-walk' %><br>2min<br>&nbsp;<br>&nbsp;
+         </div>
        </li>
       <li class="scroll_item">
            <a href="#spot3" class="scroll_item_inr">
@@ -44,6 +39,11 @@
                </div>
            </a>
        </li>
+       <li class="scroll_item_table">
+         <div class="scroll_item_table2">
+            <%= image_tag "walk.png", :class =>'img-walk' %><br>5min<br>&nbsp;<br>&nbsp;
+         </div>
+       </li>
       <li class="scroll_item">
            <a href="#spot4" class="scroll_item_inr">
                <div class="scroll_item_thum">
@@ -54,6 +54,21 @@
                </div>
            </a>
        </li>
+       <li class="scroll_item_table">
+         <div class="scroll_item_table2">
+            <%= image_tag "map.png", :class =>'img-walk' %><br>map<br>&nbsp;<br>&nbsp;
+         </div>
+       </li>
+       <li class="scroll_item">
+           <a href="#coursemap" class="scroll_item_inr">
+               <div class="scroll_item_thum">
+                   <%= image_tag "tokyo.jpg", :class =>'img-scroll' %>
+               </div>
+               <div class="scroll_item_info">
+                   <h4 class="scroll_item_ttl"><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h4>
+               </div>
+           </a>
+       </li>
 </ul>
 </div>
 
@@ -61,15 +76,7 @@
 <div id="contents" class="clearfix">
   <div id="mains">
   <article>
-    <div class="panel panel-default ii">
-      <div id="spot1">
-      <h2><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h2>
-      </div>
-    <div class="panel-body">
-  
-  <div id="map"></div>
-  </div>  
-  </div>
+    
 
   <div class="panel panel-default ii">
     <div id="spot2">
@@ -86,6 +93,7 @@
                    <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
                </div>
                <div class="scroll_item_info_content">
+                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
                </div>
            </a>
@@ -429,6 +437,16 @@
   夢の広場から綺麗に見えるので、ぜひ立ち寄ってみてください♡</p>
   </div>  
   </div>
+
+<coursemap>
+  <div class="panel panel-default ii">
+      <div id="coursemap">
+      <h2><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h2>
+      </div>
+    
+  <div id="map"></div>
+  </div>
+</coursemap>
 
   </article>
   <!-- #mains --></div>
