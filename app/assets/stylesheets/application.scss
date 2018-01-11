@@ -1508,7 +1508,7 @@ dl.search1 dd span:hover{
   -webkit-flex-direction: column;
   align-items: center;
 
-  padding: 30px;
+  padding: 20px;
   margin-top:-50px;
   box-sizing: border-box;
 }
@@ -2651,11 +2651,10 @@ display: inline-block;
   background-color: #53331c;
   color: #cab261;
   text-shadow: 1px 1px 2px black;
-  font-size: 22px;
+  font-size: 18px;
   line-height: 1;
   text-decoration: none;
-  letter-spacing: 0.05em;/*字間*/
-  padding: 5px 22px;/*ボタン内の余白*/
+  padding: 10px 36px;/*ボタン内の余白*/
   border-radius: 5px;/*角の丸み*/
     cursor: pointer;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);/*影*/
