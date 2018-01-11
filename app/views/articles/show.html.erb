@@ -4,464 +4,335 @@
 
 <mains class="" id="main-collapse">
 
-
+<%# アイキャッチとタイトル %>
 <div class="frame">
   <%= image_tag "city01.jpg", :class =>'img-article-show' %>
   <h3>まったりできるお洒落な神楽坂デート。オススメカフェと美味しい紅茶で心もあたたまる。</h3> 
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i>渋谷・恵比寿・目黒・中目黒</h4>
 </div>
   
-
-  <div class="horizontal_scroll_wrap">
-   <ul class="scroll_lst">
-      <li class="scroll_item">
-           <a href="#spot2" class="scroll_item_inr">
-               <div class="scroll_item_thum">
-                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll' %>
-               </div>
-               <div class="scroll_item_info">
-                   <h4 class="scroll_item_ttl"><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h4>
-               </div>
-           </a>
-       </li>
-       <li class="scroll_item_table">
-         <div class="scroll_item_table2">
-            <%= image_tag "walk.png", :class =>'img-walk' %><br>2min<br>&nbsp;<br>&nbsp;
-         </div>
-       </li>
-      <li class="scroll_item">
-           <a href="#spot3" class="scroll_item_inr">
-               <div class="scroll_item_thum">
-                   <%= image_tag "kyoto.jpg", :class =>'img-scroll' %>
-               </div>
-               <div class="scroll_item_info">
-                   <h4 class="scroll_item_ttl"><span class="article-icon">❷</span>&nbsp;飲食店</h2></h4>
-               </div>
-           </a>
-       </li>
-       <li class="scroll_item_table">
-         <div class="scroll_item_table2">
-            <%= image_tag "walk.png", :class =>'img-walk' %><br>5min<br>&nbsp;<br>&nbsp;
-         </div>
-       </li>
-      <li class="scroll_item">
-           <a href="#spot4" class="scroll_item_inr">
-               <div class="scroll_item_thum">
-                   <%= image_tag "osaka.jpg", :class =>'img-scroll' %>
-               </div>
-               <div class="scroll_item_info">
-                   <h4 class="scroll_item_ttl"><span class="article-icon">❸</span>&nbsp;バー</h4>
-               </div>
-           </a>
-       </li>
-       <li class="scroll_item_table">
-         <div class="scroll_item_table2">
-            <%= image_tag "map.png", :class =>'img-walk' %><br>map<br>&nbsp;<br>&nbsp;
-         </div>
-       </li>
-       <li class="scroll_item">
-           <a href="#coursemap" class="scroll_item_inr">
-               <div class="scroll_item_thum">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll' %>
-               </div>
-               <div class="scroll_item_info">
-                   <h4 class="scroll_item_ttl"><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h4>
-               </div>
-           </a>
-       </li>
-</ul>
+<%# 横スクロール目次 %>
+<div class="horizontal_scroll_table">
+  <ul class="scroll_lst_table">
+    <li class="scroll_item_table">
+      <a href="#spot2" class="scroll_item_inr_table">
+        <div class="scroll_item_thum_table">
+          <%= image_tag "kanagawa.jpg", :class =>'img-scroll_table' %>
+        </div>
+        <div class="scroll_item_info_table">
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h4>
+        </div>
+      </a>
+    </li>
+    <li class="scroll_item_icon_table">
+      <div class="scroll_item_icons_table">
+        <%= image_tag "walk.png", :class =>'img-icon_table' %><br>2min<br>&nbsp;<br>&nbsp;
+      </div>
+    </li>
+    <li class="scroll_item_table">
+      <a href="#spot3" class="scroll_item_inr_table">
+        <div class="scroll_item_thum_table">
+          <%= image_tag "kyoto.jpg", :class =>'img-scroll_table' %>
+        </div>
+        <div class="scroll_item_info_table">
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❷</span>&nbsp;飲食店</h4>
+        </div>
+      </a>
+    </li>
+    <li class="scroll_item_icon_table">
+      <div class="scroll_item_icons_table">
+        <%= image_tag "walk.png", :class =>'img-icon_table' %><br>5min<br>&nbsp;<br>&nbsp;
+      </div>
+    </li>
+    <li class="scroll_item_table">
+      <a href="#spot4" class="scroll_item_inr_table">
+        <div class="scroll_item_thum_table">
+          <%= image_tag "osaka.jpg", :class =>'img-scroll_table' %>
+        </div>
+        <div class="scroll_item_info_table">
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❸</span>&nbsp;バー</h4>
+        </div>
+      </a>
+    </li>
+    <li class="scroll_item_icon_table">
+      <div class="scroll_item_icons_table">
+        <%= image_tag "map.png", :class =>'img-icon_table' %><br>map<br>&nbsp;<br>&nbsp;
+      </div>
+    </li>
+    <li class="scroll_item_table">
+      <a href="#coursemap" class="scroll_item_inr_table">
+        <div class="scroll_item_thum_table">
+          <%= image_tag "tokyo.jpg", :class =>'img-scroll_table' %>
+        </div>
+        <div class="scroll_item_info_table">
+          <h4 class="scroll_item_ttl_table"><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h4>
+        </div>
+      </a>
+    </li>
+  </ul>
 </div>
 
 
 <div id="contents" class="clearfix">
   <div id="mains">
-  <article>
-    
+    <article>
 
-  <div class="panel panel-default ii">
-    <div id="spot2">
-    <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
-    </div>  
-    <div class="panel-body">
-  
-  
-  <div class="horizontal_scroll_wrap_content">
-   <ul class="scroll_lst_content">
-       <li class="scroll_item_content">
-           <a href="#spot1" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot2" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot3" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot4" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-</ul>
-</div>
-
-  
-  <br><br>
-  <p>15:50 お台場に集合！</p>
-
-  <p>りんかい線東京テレポート駅にて待ち合わせをしました。 
-  今日は、キラキラしているロマンチックな場所に連れて行ってくれるそうです。 
-  どこに行くのか楽しみ♪ 
-  お台場は空が広くて気持ちが良いです♡</p>
-  </div>  
-  </div>
-  
-  <div class="panel panel-default ii">
-    <div id="spot3">
-    <h2><span class="article-icon">❷</span>&nbsp;飲食店</h2>
-    </div>
-    <div class="panel-body">
-
-  <div class="horizontal_scroll_wrap_content">
-   <ul class="scroll_lst_content">
-       <li class="scroll_item_content">
-           <a href="#spot1" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot2" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot3" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot4" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-</ul>
-</div>
-
-  <p>16:00 ヴィーナスフォートで室内イルミネーション！</p>
-
-  <p>駅から徒歩5分ほどで、ヨーロッパの街並みのようなおしゃれな館内。 
-  噴水広場でプロジェクションマッピングが始まりました！</p>
-
-  <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
-  サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-
-  
-
-  <p>【開催期間】2017年11月2日（木）～2018年3月中旬 
-  ※休館日（2018年2月26日・27日）を除く 
-  【開催時間】 11：00～23：00（プログラム内容により異なる） 
-  【詳細】http://www.venusfort.co.jp/vflumina/</p>
-
-  <h3>スポットのスポット①</h3>
-  <div class="horizontal_scroll_wrap_content">
-   <ul class="scroll_lst_content">
-       <li class="scroll_item_content">
-           <a href="#spot1" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot2" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot3" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot4" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-</ul>
-</div>
-  <p>駅から徒歩5分ほどで、ヨーロッパの街並みのようなおしゃれな館内。 
-  噴水広場でプロジェクションマッピングが始まりました！</p>
-
-  <h4>スポットのスポットのスポット①</h4>
-  <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
-  サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-
-  <h4>スポットのスポットのスポット②</h4>
-  <div class="horizontal_scroll_wrap_content">
-   <ul class="scroll_lst_content">
-       <li class="scroll_item_content">
-           <a href="#spot1" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot2" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot3" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot4" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-</ul>
-</div>
-  <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
-  サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-
-  <h4>スポットのスポットのスポット③</h4>
-  <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
-  サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-
-  <h3>スポットのスポット②</h3>
-  <div class="horizontal_scroll_wrap_content">
-   <ul class="scroll_lst_content">
-       <li class="scroll_item_content">
-           <a href="#spot1" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot2" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot3" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot4" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-</ul>
-</div>
-  <p>駅から徒歩5分ほどで、ヨーロッパの街並みのようなおしゃれな館内。 
-  噴水広場でプロジェクションマッピングが始まりました！</p>
-  </div>  
-  </div>
-
-  <div class="panel panel-default ii">
-    <div id="spot4">
-    <h2><span class="article-icon">❸</span>&nbsp;バー</h2>
-    </div>
-    <div class="panel-body">
-
-  <div class="horizontal_scroll_wrap_content">
-   <ul class="scroll_lst_content">
-       <li class="scroll_item_content">
-           <a href="#spot1" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot2" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot3" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-      <li class="scroll_item_content">
-           <a href="#spot4" class="scroll_item_inr_content">
-               <div class="scroll_item_thum_content">
-                   <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
-               </div>
-               <div class="scroll_item_info_content">
-                   <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
-               </div>
-           </a>
-       </li>
-</ul>
-</div>
-  
-  <p>17:00 パレットタウンのクリスマスが点灯！</p>
-
-  <p>パレットプラザに約13mの大きなツリーがあります。 
-  偏光フィルムを張ったアクリル版の集合体で作られているので、お昼は太陽の光、夜はイルミネーションで輝きます♪</p>
-
-  <p>とても幻想的でますます良い雰囲気に♡</p>
-
-  <p>【開催期間】2017年11月5日(日)〜2017年12月25日(月) 
-  【開催日時】17:00～23:00 (予定)</p>
-
-  <h3>スポットのスポット①</h3>
-  <p>お台場のシンボルでもある、大観覧車。 
-  夜景がキレイなクリスマスの時こそ、ぜひ乗ってみてください♪</p>
-
-  <p>1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます。</p>
-
-  <h3>スポットのスポット②</h3>
-  <p>大観覧車の満足はこれだけじゃない！ 
-    なんと冬限定のイルミネーションが開催中。</p>
-
-  <p>雪の結晶は色々な形に変わっていき、見ていて飽きないです。 
-  夢の広場から綺麗に見えるので、ぜひ立ち寄ってみてください♡</p>
-  </div>  
-  </div>
-
-<coursemap>
-  <div class="panel panel-default ii">
-      <div id="coursemap">
-      <h2><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h2>
+      <%# スポット %>
+      <div class="panel panel-default ii">
+        <div id="spot2">
+          <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
+        </div>  
+        <a href="https://www.instagram.com/explore/locations/3003327/tokyo-tower/?hl=ja" target="_blank" class="fl_inst pull-right">
+          <span class="insta"><i class="fa fa-instagram icon"></i></span>
+        </a>
+        <a href="https://tabelog.com/tokyo/A1307/A130704/13144857/" target="_blank" class="fl_inst pull-right">
+          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+        </a>
+        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('〒105-0011 東京都港区芝公園４丁目２−８'));return false;" href="javascript:;" class="fl_inst pull-right">
+          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+        </a>
+        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-right">
+          <span class="insta"><i class="fa fa-globe icon"></i></span>
+        </a>
+        <div class="panel-body">
+          <%# 横スクロールコンテンツ %>
+          <div class="horizontal_scroll_wrap_content">
+            <ul class="scroll_lst_content">
+              <li class="scroll_item_content">
+                <a href="#spot1" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot2" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot3" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot4" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <%# 本文あれば %>
+          <p>15:50 お台場に集合！</p>
+          <p>りんかい線東京テレポート駅にて待ち合わせをしました。 
+          今日は、キラキラしているロマンチックな場所に連れて行ってくれるそうです。 
+          どこに行くのか楽しみ♪ 
+          お台場は空が広くて気持ちが良いです♡</p>
+        </div>  
       </div>
-    
-  <div id="map"></div>
-  </div>
-</coursemap>
+  
+      <%# スポット %>
+      <div class="panel panel-default ii">
+        <div id="spot3">
+          <h2><span class="article-icon">❷</span>&nbsp;飲食店</h2>
+        </div>
+        <div class="panel-body">
+          <%# 横スクロールコンテンツ %>
+          <div class="horizontal_scroll_wrap_content">
+            <ul class="scroll_lst_content">
+              <li class="scroll_item_content">
+                <a href="#spot1" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+               </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot2" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot3" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot4" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <%# 本文あれば %>
+          <p>16:00 ヴィーナスフォートで室内イルミネーション！</p>
+          <p>駅から徒歩5分ほどで、ヨーロッパの街並みのようなおしゃれな館内。 
+          噴水広場でプロジェクションマッピングが始まりました！</p>
+          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
+          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+          <p>【開催期間】2017年11月2日（木）～2018年3月中旬 
+          ※休館日（2018年2月26日・27日）を除く 
+          【開催時間】 11：00～23：00（プログラム内容により異なる） 
+          【詳細】http://www.venusfort.co.jp/vflumina/</p>
+          <%# スポットのスポット %>
+          <h3>スポットのスポット①</h3>
+          <p>駅から徒歩5分ほどで、ヨーロッパの街並みのようなおしゃれな館内。 
+          噴水広場でプロジェクションマッピングが始まりました！</p>
+          <%# チェックポイント %>
+          <h4>スポットのスポットのスポット①</h4>
+          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
+          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+          <%# チェックポイント %>
+          <h4>スポットのスポットのスポット②</h4>
+          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
+          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+          <%# チェックポイント %>
+          <h4>スポットのスポットのスポット③</h4>
+          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
+          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+          <%# スポットのスポット %>
+          <h3>スポットのスポット②</h3>
+          <p>駅から徒歩5分ほどで、ヨーロッパの街並みのようなおしゃれな館内。 
+          噴水広場でプロジェクションマッピングが始まりました！</p>
+        </div>  
+      </div>
 
-  </article>
-  <!-- #mains --></div>
+
+      <%# スポット %>
+      <div class="panel panel-default ii">
+        <div id="spot4">
+          <h2><span class="article-icon">❸</span>&nbsp;バー</h2>
+        </div>
+        <div class="panel-body">
+          <%# 横スクロールコンテンツ %>
+          <div class="horizontal_scroll_wrap_content">
+            <ul class="scroll_lst_content">
+              <li class="scroll_item_content">
+                <a href="#spot1" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+               </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot2" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot3" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot4" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">テキストテキストテキストテキストテキストテキスト</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <%# 本文あれば %>
+          <p>17:00 パレットタウンのクリスマスが点灯！</p>
+          <p>パレットプラザに約13mの大きなツリーがあります。 
+          偏光フィルムを張ったアクリル版の集合体で作られているので、お昼は太陽の光、夜はイルミネーションで輝きます♪</p>
+          <p>とても幻想的でますます良い雰囲気に♡</p>
+          <p>【開催期間】2017年11月5日(日)〜2017年12月25日(月) 
+          【開催日時】17:00～23:00 (予定)</p>
+
+          <%# スポットのスポット %>
+          <h3>スポットのスポット①</h3>
+          <p>お台場のシンボルでもある、大観覧車。 
+          夜景がキレイなクリスマスの時こそ、ぜひ乗ってみてください♪</p>
+          <p>1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます。</p>
+          <%# スポットのスポット %>
+          <h3>スポットのスポット②</h3>
+          <p>大観覧車の満足はこれだけじゃない！
+            なんと冬限定のイルミネーションが開催中。</p>
+          <p>雪の結晶は色々な形に変わっていき、見ていて飽きないです。 
+          夢の広場から綺麗に見えるので、ぜひ立ち寄ってみてください♡</p>
+        </div>  
+      </div>
+
+      <%# スポット(map) %>
+      <coursemap>
+        <div class="panel panel-default ii">
+          <div id="coursemap">
+            <h2><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h2>
+          </div>  
+          <div id="map"></div>
+        </div>
+      </coursemap>
+
+    </article>
+  </div><!-- #mains -->
   
   <div id="side">
-  <div class="mokuji">
-  <!-- .mokuji --></div>
-  <!-- #side --></div>
-  
-  <!-- /.contents --></div>
+    <div class="mokuji">
+    </div><!-- .mokuji -->
+  </div><!-- #side -->
 
+</div><!-- /.contents -->
+
+<%# フッター %>
 <footer>
-  
 </footer>
 
+<%# googlemapのJS %>
 <script>
 function initMap() {
     // ルート検索の条件
@@ -503,7 +374,7 @@ function initMap() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
 
-
+<%# ページ内スクロールリンクのJS %>
 <script>
     $(function() {
   $("body").on("click", "a", function(e) {
