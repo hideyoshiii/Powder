@@ -1010,6 +1010,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
+  position: relative;
+
   background-size: cover;
   background-position: center;
 
@@ -1037,6 +1039,8 @@ dl.search1 dd span:hover{
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(city01.jpg) fixed;
   background-size: cover;
@@ -1067,6 +1071,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
+  position: relative;
+
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(timezone01.jpg) fixed;
   background-size: cover;
   background-position: center;
@@ -1095,6 +1101,8 @@ dl.search1 dd span:hover{
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(price01.jpg) fixed;
   background-size: cover;
@@ -1125,6 +1133,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
+  position: relative;
+
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(number01.jpg) fixed;
   background-size: cover;
   background-position: center;
@@ -1149,6 +1159,102 @@ dl.search1 dd span:hover{
   box-sizing: border-box;
 }
 
+.box5 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.box h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box1 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box2 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box3 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box4 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box5 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
 
 @media only screen and (max-width: 1200px) {
 
@@ -1156,6 +1262,8 @@ dl.search1 dd span:hover{
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background-size: cover;
   background-position: center;
@@ -1185,6 +1293,8 @@ dl.search1 dd span:hover{
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(city01.jpg) ;
   background-size: cover;
@@ -1215,6 +1325,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
+  position: relative;
+
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(timezone01.jpg) ;
   background-size: cover;
   background-position: center;
@@ -1243,6 +1355,8 @@ dl.search1 dd span:hover{
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(price01.jpg) ;
   background-size: cover;
@@ -1273,6 +1387,8 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
+  position: relative;
+
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(number01.jpg) ;
   background-size: cover;
   background-position: center;
@@ -1297,6 +1413,37 @@ dl.search1 dd span:hover{
   box-sizing: border-box;
 }
 
+.box5 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+
 }
 
 
@@ -1307,6 +1454,9 @@ dl.search1 dd span:hover{
   height: auto;
   min-height: 100vh;
 
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(search02.jpg);
   background-size: cover;
   background-position: center;
 
@@ -1331,11 +1481,27 @@ dl.search1 dd span:hover{
   box-sizing: border-box;
 }
 
+.box p{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+	padding:0;
+	margin:0;
+}
+
+.box h4{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+    font-weight: 700;
+    padding:0;
+	margin:30px;
+}
 
 	.box1 {
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(city02.jpg) ;
   background-size: cover;
@@ -1361,10 +1527,13 @@ dl.search1 dd span:hover{
   box-sizing: border-box;
 }
 
+
 .box2 {
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(timezone02.jpg) ;
   background-size: cover;
@@ -1390,10 +1559,13 @@ dl.search1 dd span:hover{
   box-sizing: border-box;
 }
 
+
 .box3 {
   width: 100%;
   height: auto;
   min-height: 100vh;
+
+  position: relative;
 
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(price02.jpg) ;
   background-size: cover;
@@ -1419,12 +1591,46 @@ dl.search1 dd span:hover{
   box-sizing: border-box;
 }
 
+
 .box4 {
   width: 100%;
   height: auto;
   min-height: 100vh;
 
+  position: relative;
+
   background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(number02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+
+.box5 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
   background-size: cover;
   background-position: center;
 
