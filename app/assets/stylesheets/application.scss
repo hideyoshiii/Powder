@@ -1012,6 +1012,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(search01.jpg) fixed;
   background-size: cover;
   background-position: center;
 
@@ -1033,6 +1034,21 @@ dl.search1 dd span:hover{
 
   padding: 30px;
   box-sizing: border-box;
+}
+
+.box p{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+	padding:0;
+	margin:0;
+}
+
+.box h4{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+    font-weight: 700;
+    padding:0;
+	margin:30px;
 }
 
 .box1 {
@@ -1265,6 +1281,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) fixed, url(search01.jpg) fixed;
   background-size: cover;
   background-position: center;
 
@@ -1286,6 +1303,21 @@ dl.search1 dd span:hover{
 
   padding: 30px;
   box-sizing: border-box;
+}
+
+.box p{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+	padding:0;
+	margin:0;
+}
+
+.box h4{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+    font-weight: 700;
+    padding:0;
+	margin:30px;
 }
 
 
