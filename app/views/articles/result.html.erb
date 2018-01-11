@@ -3,12 +3,34 @@
 
 
 <% if @article %>
-<%= link_to articles_show_path do %>
-<%= image_tag @article.photo.url, :class =>'img-responsive' %>
-<% end %>
-<form>
-<input type="button"  value="Change" onclick="koshin()">
-</form>
+<div class="hidden-xs">
+<div class="frame">
+  <%= image_tag @article.photo.url, :class =>'img-article-result' %>
+  <%= link_to articles_show_path do %>
+  <h3>まったりできるお洒落な神楽坂デート。オススメカフェと美味しい紅茶で心もあたたまる。</h3> 
+  <h4><i class="fa fa-map-marker" aria-hidden="true"></i>渋谷・恵比寿・目黒・中目黒</h4>
+  <% end %>
+  <h1 class="change">
+  <a href="javascript:;" onclick="koshin()" id="fab">
+  <i class="fa fa-refresh"></i>
+  </a>
+  </h1>
+</div>
+</div>
+<div class="visible-xs">
+<div class="frame">
+  <%= image_tag "city02.jpg", :class =>'img-article-result' %>
+  <%= link_to articles_show_path do %>
+  <h3>まったりできるお洒落な神楽坂デート。オススメカフェと美味しい紅茶で心もあたたまる。</h3> 
+  <h4><i class="fa fa-map-marker" aria-hidden="true"></i>渋谷・恵比寿・目黒・中目黒</h4>
+  <% end %>
+  <h1 class="change">
+  <a href="javascript:;" onclick="koshin()" id="fab">
+  <i class="fa fa-refresh"></i>
+  </a>
+  </h1>
+</div>
+</div>
 <% else %>
 該当するデートコースはありません
 <% end %>
