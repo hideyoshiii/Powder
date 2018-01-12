@@ -9,41 +9,11 @@
   		<br>
 
   		
-  <!-- カルーセル -->
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">           
-    <!-- リストの点 -->
-    <% if @pictures.length > 1 %>
-      <ol class="carousel-indicators">
-        <% @pictures.each do |picture| %>
-            <li data-target="#myCarousel" data-slide-to="<%= picture.id %>"></li>
-        <% end %>   
-      </ol>             
-    <% end %>     
-
-    <div class="carousel-inner" role="listbox">
-      <% if @pictures %>             
-        <% @pictures.each do |picture| %>
-          <div class="item <%= 'active' if picture.id == @pictures[0].id %>">          
-            <%= image_tag picture.image.url(),style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
-          </div>
-        <% end %>   
-      <% end %>
-    </div>
-      
-    <!-- 左右の矢印 -->
-    <% if @pictures.length > 1%>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    <% end %>
-  </div>
-
   	<%= link_to "/spots/#{@spot.id}/pictures" do %>
+    	<%= image_tag @spot.pictures[0].image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
+    <% end %>
+
+  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
 	  	<div class="part_line black">
 			<i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
 		</div>
@@ -201,42 +171,11 @@
  	<div class="visible-xs col-xs-12 visible-sm co-sm-12">
 	    
  		
-
-	    <!-- カルーセル -->
-	  <div id="yourCarousel" class="carousel slide" data-ride="carousel">           
-	    <!-- リストの点 -->
-	    <% if @pictures.length > 1 %>
-	      <ol class="carousel-indicators">
-	        <% @pictures.each do |picture| %>
-	            <li data-target="#myCarousel" data-slide-to="<%= picture.id %>"></li>
-	        <% end %>   
-	      </ol>             
-	    <% end %>     
-
-	    <div class="carousel-inner" role="listbox">
-	      <% if @pictures %>             
-	        <% @pictures.each do |picture| %>
-	          <div class="item <%= 'active' if picture.id == @pictures[0].id %>">          
-	            <%= image_tag picture.image.url(),style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
-	          </div>
-	        <% end %>   
-	      <% end %>
-	    </div>
-	      
-	    <!-- 左右の矢印 -->
-	    <% if @pictures.length > 1%>
-	      <a class="left carousel-control" href="#yourCarousel" role="button" data-slide="prev">
-	        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	        <span class="sr-only">Previous</span>
-	      </a>
-	      <a class="right carousel-control" href="#yourCarousel" role="button" data-slide="next">
-	        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	        <span class="sr-only">Next</span>
-	      </a>
+ 		<%= link_to "/spots/#{@spot.id}/pictures" do %>
+	    <%= image_tag @spot.pictures[0].image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
 	    <% end %>
-	  </div>
 
-	  	<%= link_to "/spots/#{@spot.id}/pictures" do %>
+	  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
 		  	<div class="part_line black">
 				<i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
 			</div>

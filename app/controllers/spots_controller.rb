@@ -68,13 +68,18 @@ class SpotsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
-  def pictures
+  def addpictures
     @spot = Spot.find(params[:id])
     @picture = Picture.new
   end
 
   def tags
     @spot = Spot.find(params[:id])
+  end
+
+  def pictures
+    @spot = Spot.find(params[:id])
+    @pictures = @spot.pictures
   end
 
   
