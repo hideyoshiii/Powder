@@ -51,16 +51,6 @@
 
       <nav class="nav-footer">
         <% if (user_signed_in?) %>
-        <input type="checkbox" id="switch1" checked/ value="/spots" onclick="location.href=this.value" class='switch'>
-        <label for="switch1"></label>
-        <br>
-        <span style="color:black;">&nbsp;&nbsp;course nowing</span>
-        <br><br>
-        <%= link_to user_path(current_user) do %>
-        <%= image_tag current_user.image, :class => "img-circle profile-4" %>
-        &nbsp;&nbsp;<%= current_user.nickname %>
-        <% end %>
-        <br>
         <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト
           <% end %>
