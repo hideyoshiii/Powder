@@ -2628,8 +2628,8 @@ display: inline-block;
 //いいねボタン
 .fab1 {/*円*/
   	display:block;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background: #8899a6;
     text-align: center;
     border-radius: 50%;
@@ -2648,15 +2648,15 @@ display: inline-block;
   transition: 0.2s;
 }
 
-.fab1:hover i {/*ホバーでアイコン回転*/
-  -webkit-transform: rotate(120deg);
-  transform: rotate(120deg);
-}
+.fab1:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+
 
 .fab2 {/*円*/
   	display:block;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background: #FA7A0A;
     text-align: center;
     border-radius: 50%;
@@ -2675,15 +2675,15 @@ display: inline-block;
   transition: 0.2s;
 }
 
-.fab2:hover i {/*ホバーでアイコン回転*/
-  -webkit-transform: rotate(120deg);
-  transform: rotate(120deg);
-}
+.fab2:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+
 
 .fab3 {/*円*/
   	display:block;
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     background: #0ECC3E;
     text-align: center;
     border-radius: 50%;
@@ -2702,10 +2702,10 @@ display: inline-block;
   transition: 0.2s;
 }
 
-.fab3:hover i {/*ホバーでアイコン回転*/
-  -webkit-transform: rotate(120deg);
-  transform: rotate(120deg);
-}
+.fab3:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+
 
 
 //resultの写真
@@ -2743,8 +2743,10 @@ display: inline-block;
 }
 
 
-
-
+//いいねボタンの下の余白
+.like-box{
+	margin-bottom:5px;
+}
 
 
 
