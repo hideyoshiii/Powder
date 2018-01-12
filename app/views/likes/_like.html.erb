@@ -1,38 +1,42 @@
-<div class="like-font-index">
+
 	<% if user_signed_in? %>
 	    <% if Like.find_by(user_id: current_user.id, spot_id: spot.id) %>
 	      <% if Like.find_by(user_id: current_user.id, spot_id: spot.id, kind: 1) %>
 	        <div class="row">
 	          <div class="col-xs-6 col-sm-6 col-md-6">
-	            <div class="pull-right">
+	            <div class="text-center">
 	              <%= link_to "/likes/#{spot.id}/destroy1", method: :post, id: "like-button", remote: true do %>
-	                <i class="fa fa-gratipay want-btn fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
+	                <i class="fa fa-gratipay want-btn fa-2x fa-border" aria-hidden="true"></i>
 	              <% end %>
+	              <% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
 	              <br>
 	            </div>
 	          </div>
 	          <div class="col-xs-6 col-ms-6 col-md-6">
-	            <div class="pull-left">
+	            <div class="text-center">
 	              <%= link_to "/likes/#{spot.id}/update2", method: :post, id: "like-button", remote: true do %>
-	              <i class="fa fa-check-circle done-btn-un fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
+	              <i class="fa fa-check-circle done-btn-un fa-2x fa-border" aria-hidden="true"></i>
 	              <% end %>
+	              <% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
 	            </div>
 	          </div>
 	        </div>
 	      <% else %>
 	        <div class="row">
 	          <div class="col-xs-6 col-sm-6 col-md-6">
-	            <div class="pull-right">
+	            <div class="text-center">
 	              <%= link_to "/likes/#{spot.id}/update1", method: :post, id: "like-button", remote: true do %>
-	                <i class="fa fa-gratipay want-btn-un fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
+	                <i class="fa fa-gratipay want-btn-un fa-2x fa-border" aria-hidden="true"></i>
 	              <% end %>
+	              <% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
 	            </div>
 	          </div>
 	          <div class="col-xs-6 col-sm-6 col-md-6">
-	            <div class="pull-left">
+	            <div class="text-center">
 	              <%= link_to "/likes/#{spot.id}/destroy2", method: :post, id: "like-button", remote: true do %>
-	                <i class="fa fa-check-circle done-btn fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
+	                <i class="fa fa-check-circle done-btn fa-2x fa-border" aria-hidden="true"></i>
 	              <% end %>
+	              <% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
 	            </div>
 	          </div>
 	        </div>
@@ -40,17 +44,19 @@
 	    <% else %>
 		    <div class="row">
 		      <div class="col-xs-6 col-sm-6 col-md-6">
-		        <div class="pull-right">
+		        <div class="text-center">
 		          <%= link_to "/likes/#{spot.id}/create1", method: :post, id: "like-button", remote: true do %>
-		            <i class="fa fa-gratipay want-btn-un fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
+		            <i class="fa fa-gratipay want-btn-un fa-2x fa-border" aria-hidden="true"></i>
 		          <% end %>
+		          <% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
 		        </div>
 		      </div>
 		      <div class="col-xs-6 col-sm-6 col-md-6">
-		        <div class="pull-left">
+		        <div class="text-center">
 		          <%= link_to "/likes/#{spot.id}/create2", method: :post, id: "like-button", remote: true do %>
-		            <i class="fa fa-check-circle done-btn-un fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
+		            <i class="fa fa-check-circle done-btn-un fa-2x fa-border" aria-hidden="true"></i>
 		          <% end %>  
+		          <% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
 		        </div>
 		      </div>
 		    </div>
@@ -58,15 +64,16 @@
 	<% else %>
 		<div class="row">
 	      <div class="col-xs-6 col-sm-6 col-md-6">
-	        <div class="pull-right">
-	            <i class="fa fa-gratipay want-btn-un fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
+	        <div class="text-center">
+	            <i class="fa fa-gratipay want-btn-un fa-2x fa-border" aria-hidden="true"></i>
 	        </div>
+	        <% want_count = Like.where(spot_id: spot.id, kind: 1).count %><span class="count"><%= want_count %></span>&nbsp;<span style="color:black;font-size:9px;">want</span>
 	      </div>
 	      <div class="col-xs-6 col-sm-6 col-md-6">
-	        <div class="pull-left">
-	            <i class="fa fa-check-circle done-btn-un fa-2x fa-border" aria-hidden="true"></i>&nbsp;<% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
+	        <div class="text-center">
+	            <i class="fa fa-check-circle done-btn-un fa-2x fa-border" aria-hidden="true"></i>
 	        </div>
+	        <% done_count = Like.where(spot_id: spot.id, kind: 2).count %><span class="count"><%= done_count %></span>&nbsp;<span style="color:black;font-size:9px;">done</span>
 	      </div>
 	    </div>
 	<% end %>
-</div>
