@@ -6,13 +6,13 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="/articles" class="navbar-brand navbar-brand-center">A.Date</a>
+    <a href="/" class="navbar-brand navbar-brand-center">A.Date</a>
   </div>
 
   <nav class="sidebar">
     <div class="navbar-collapse" id="navbar-collapse">
       <div class="site-header hidden-xs">
-          <a class="site-brand" href="/articles" title="">
+          <a class="site-brand" href="/" title="">
             <h2>
               <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
               <span class="site-title">A.Date</span>
@@ -23,11 +23,7 @@
       <ul class="nav">
         <% if (user_signed_in?) %>
 
-          <li>
-          <%= link_to articles_search_path do %>
-          <i class="fa fa-search" aria-hidden="true"></i> 10秒サーチ
-          <% end %>
-        </li>
+          
 
           <li>
             <%= link_to search_articles_tags_path do %>
@@ -51,6 +47,11 @@
 
       <nav class="nav-footer">
         <% if (user_signed_in?) %>
+        <%= link_to user_path(current_user) do %>
+        <%= image_tag current_user.image, :class => "img-circle profile-4" %>
+        &nbsp;&nbsp;<%= current_user.nickname %>
+        <% end %>
+        <br>
         <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト
           <% end %>

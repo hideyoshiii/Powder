@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  root :to => 'homes#index'
+  root :to => 'articles#search'
+
+  get "/homes" => "homes#index"
 
   get "spots/result" => "spots#result"
   get "spots/rank" => "spots#rank"
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
 
   resources :pictures, only: [:create, :destroy]
   
-  get "articles/search" => "articles#search"
   get "articles/result" => "articles#result"
   get "articles/show" => "articles#show"
   resources :articles, only: [:index, :new, :create, :edit, :update]
