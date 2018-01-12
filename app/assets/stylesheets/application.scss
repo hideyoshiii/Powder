@@ -2794,18 +2794,22 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
     left:0;
     background:#FAFAFA;
     width:100%;
-    height:40px;
+    height:50px;
 }
 
 .sticky-menu{
-	font-size:24px;
+	font-size:30px;
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
 	text-shadow: 1px 1px 2px silver;
 }
 
+.sticky-icon{
+	color:black;
+}
+
 .main-collapse {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 }
