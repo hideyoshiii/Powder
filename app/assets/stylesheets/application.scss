@@ -466,7 +466,7 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
-  /*文字の装飾は省略*/
+  color:white;
   }
 
   
@@ -2731,7 +2731,7 @@ body { background-color:#F4F5F7;font-family: 游ゴシック体, 'Yu Gothic', Yu
 
 
 @media only screen and (max-width: 768px) {
-body { padding-top: 50px; }
+body { padding-top: 50px;margin-bottom: 50px; }
 .homes {
   padding-top: 0px; 
 }
@@ -2804,14 +2804,31 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 
 .site-title{font-family: georgia,'times new roman',serif;}
 
+//pcの時のメニューバー
+.button-menu{
+	margin:-10px 0px 50px -10px;
+}
 
+.btn-menu{
+	font-size:25px;
+	margin: 0px 12px;
+	padding: 0px;
+	color:#666666;
+	text-shadow: 1px 1px 2px silver;
+	transition: .3s ease-out;/*変化を緩やかに*/
+}
 
-@media only screen and (max-width: 768px) {
+.btn-menu:hover{
+	color:black;
+	text-shadow: 1px 1px 2px silver;
+	}
+
+//下の固定バー
 .sticky-bar {
     position: fixed;
     bottom: 0;
     left:0;
-    background:#FAFAFA;
+    background:#F4F5F7;
     width:100%;
     height:50px;
 }
@@ -2828,7 +2845,5 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 	color:#CCCCCC;
 }
 
-.main-collapse {
-    margin-bottom: 50px;
-}
-}
+
+

@@ -28,42 +28,42 @@
     <%= yield %>
 
     <div class="visible-xs">
-    <div class="sticky-bar">
-    <div class="col-xs-3">
-    <div class="sticky-menu">
-      <%= link_to root_path do %>
-      <i class="fa fa-home sticky-icon" aria-hidden="true"></i>
-      <% end %>
-    </div>
-    </div>
-    <div class="col-xs-3">
-    <div class="sticky-menu">
-      <%= link_to "/spots" do %>
-      <i class="fa fa-map-marker sticky-icon" aria-hidden="true"></i>
-      <% end %>
-    </div>
-    </div>
-    <div class="col-xs-3">
-    <div class="sticky-menu">
-      <% if (user_signed_in?) %>
-      <%= link_to user_path(current_user) do %>
-      <i class="fa fa-user sticky-icon" aria-hidden="true"></i>
-      <% end %>
-      <% else %>
-      <%= link_to new_user_session_path do %>
-      <i class="fa fa-sign-in sticky-icon" aria-hidden="true"></i>
-      <% end %>
-      <% end %>
-    </div>
-    </div>
-    <div class="col-xs-3">
-    <div class="sticky-menu">
-      <a href='#main-collapse'>
-      <i class="fa fa-level-up sticky-icon" aria-hidden="true"></i>
-      </a>
-    </div>
-    </div>
-    </div>
+      <div class="sticky-bar">
+        <div class="col-xs-3">
+          <div class="sticky-menu">
+            <%= link_to root_path do %>
+              <i class="fa fa-home sticky-icon" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="sticky-menu">
+            <%= link_to "/spots" do %>
+              <i class="fa fa-map-marker sticky-icon" aria-hidden="true"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="sticky-menu">
+            <% if (user_signed_in?) %>
+              <%= link_to user_path(current_user) do %>
+                <i class="fa fa-user sticky-icon" aria-hidden="true"></i>
+              <% end %>
+            <% else %>
+              <%= link_to new_user_session_path do %>
+                <i class="fa fa-sign-in sticky-icon" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div class="sticky-menu">
+            <a href='#main-collapse'>
+              <i class="fa fa-level-up sticky-icon" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
   </body>

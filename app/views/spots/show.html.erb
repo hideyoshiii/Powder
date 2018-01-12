@@ -3,15 +3,12 @@
 
 
 <div class="row">
+
+	<%# PCの時 %>
   	<div class="hidden-xs hidden-sm col-md-6">
   		<br>
 
   		
-
-	    
-  	
-
-
   <!-- カルーセル -->
   <div id="myCarousel" class="carousel slide" data-ride="carousel">           
     <!-- リストの点 -->
@@ -159,29 +156,31 @@
 			<br><br><br>
 	    	<h4>More</h4>
 
-	    	<% if @spot.introduction %>
-		  		<%= link_to "#{@spot.introduction}", :target=>["_blank"] do %>
-					<div class="fl_inst2">
-						<i class="fa fa-instagram" aria-hidden="true"></i><span>&nbsp;&nbsp;Instagram</span>
-					</div>
-		  		<% end %>
-			<% end %>
+	    	<a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-weixin icon"></i></span>
+	        </a>
+	        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-globe icon"></i></span>
+	        </a>
+	        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-phone icon"></i></span>
+	        </a>
+	        <% if @spot.address %>
+		        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+		        </a>
+	        <% end %>
+	        <% if @spot.retty %>
+		        <a href="<%= @spot.retty %>" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+		        </a>
+	        <% end %>
+	        <% if @spot.introduction %>
+		        <a href="<%= @spot.introduction %>" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-instagram icon"></i></span>
+		        </a>
+	        <% end %>
 
-			<% if @spot.retty %>
-		  		<a href="<%= @spot.retty %>" target="_blank">
-					<div class="fl_inst4">
-						<i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;&nbsp;Retty</span>
-					</div>
-		  		</a>
-			<% end %>
-
-			<% if @spot.address %>
-		  		<a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="">
-		  		<div class="fl_inst3">
-		    		<i class="fa fa-map-marker" aria-hidden="true"></i><span>&nbsp;&nbsp;地図</span>
-		    	</div>
-		  		</a>
-			<% end %>
 
 			<% if @spot.price %>
 			<br><br><br>
@@ -198,7 +197,7 @@
 
 
 
- 	<%#スマホ・タブレット%>
+ 	<%# スマホ・タブレットの時 %>
  	<div class="visible-xs col-xs-12 visible-sm co-sm-12">
 	    
  		
@@ -339,29 +338,30 @@
 			<br><br>
 	    	<h4>More</h4>
 
-	    	<% if @spot.introduction %>
-		  		<%= link_to "#{@spot.introduction}", :target=>["_blank"] do %>
-					<div class="fl_inst2">
-						<i class="fa fa-instagram" aria-hidden="true"></i><span>&nbsp;&nbsp;Instagram</span>
-					</div>
-		  		<% end %>
-			<% end %>
-
-			<% if @spot.retty %>
-		  		<a href="<%= @spot.retty %>" target="_blank">
-					<div class="fl_inst4">
-						<i class="fa fa-cutlery" aria-hidden="true"></i><span>&nbsp;&nbsp;Retty</span>
-					</div>
-		  		</a>
-			<% end %>
-
-			<% if @spot.address %>
-		  		<a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="">
-		  		<div class="fl_inst3">
-		    		<i class="fa fa-map-marker" aria-hidden="true"></i><span>&nbsp;&nbsp;地図</span>
-		    	</div>
-		  		</a>
-			<% end %>
+	    	<a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-weixin icon"></i></span>
+	        </a>
+	        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-globe icon"></i></span>
+	        </a>
+	        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-phone icon"></i></span>
+	        </a>
+	        <% if @spot.address %>
+		        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+		        </a>
+	        <% end %>
+	        <% if @spot.retty %>
+		        <a href="<%= @spot.retty %>" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+		        </a>
+	        <% end %>
+	        <% if @spot.introduction %>
+		        <a href="<%= @spot.introduction %>" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-instagram icon"></i></span>
+		        </a>
+	        <% end %>
 
 			<% if @spot.price %>
 			<br><br><br>

@@ -20,20 +20,45 @@
           </a>
         <p style="font-weight: bold;">あなたのデートに彩りを</p>
       </div>
+
+      <div class="hidden-xs">
+        <p class="button-menu">
+          <%= link_to root_path do %>
+            <i class="fa fa-home btn-menu"></i>
+          <% end %>
+          <%= link_to "/spots" do %>
+            <i class="fa fa-map-marker btn-menu" aria-hidden="true"></i>
+          <% end %>
+          <% if (user_signed_in?) %>
+            <%= link_to user_path(current_user) do %>
+              <i class="fa fa-user btn-menu"></i>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <i class="fa fa-sign-in btn-menu" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <a href='#main-collapse'>
+            <i class="fa fa-level-up btn-menu" aria-hidden="true"></i>
+          </a>
+        </p>
+      </div>
+
+
+
       <ul class="nav">
-        <% if (user_signed_in?) %>
 
         <div class="row">
-        <div class="col-xs-10 col-sm-10 col-md-10">      
-          <%= search_form_for(@q, url:spots_result_path) do |f| %>
-            <dl class="search1">
-              <dt><%= f.search_field :title_cont, placeholder: "Search" %></dt>
-              <dd><span><%= button_tag :type => "submit" do %>
-                <i class="fa fa-search"></i>
-              <% end %></span></dd>
-            </dl>
-          <% end %>
-        </div>
+          <div class="col-xs-10 col-sm-10 col-md-10">      
+            <%= search_form_for(@q, url:spots_result_path) do |f| %>
+              <dl class="search1">
+                <dt><%= f.search_field :title_cont, placeholder: "Search" %></dt>
+                <dd><span><%= button_tag :type => "submit" do %>
+                  <i class="fa fa-search"></i>
+                <% end %></span></dd>
+              </dl>
+            <% end %>
+          </div>
         </div>
         
         <li>
@@ -41,25 +66,23 @@
           <i class="fa fa-building" aria-hidden="true"></i> 東京で探す
           <% end %>
         </li>
-
         <li>
           <%= link_to search_prefecture_path do %>
           <i class="fa fa-map-marker" aria-hidden="true"></i> 都道府県から探す
           <% end %>
-        </li>
-        
+        </li> 
         <li>
           <%= link_to search_tags_path do %>
           <i class="fa fa-tag" aria-hidden="true"></i> タグから探す
           <% end %>
         </li>
 
+        <% if (user_signed_in?) %>
         <li>
           <%= link_to new_spot_path do %>
           <i class="fa fa-plus-circle" aria-hidden="true"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
           <% end %>
         </li>
-
         <% end %>
 
       </ul>
