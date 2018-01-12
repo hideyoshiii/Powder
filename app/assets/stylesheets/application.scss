@@ -2707,6 +2707,86 @@ display: inline-block;
   }
 
 
+.fab1-show {/*円*/
+  	display:block;
+    width: 40px;
+    height: 40px;
+    background: #8899a6;
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    margin:0 auto;
+
+}
+
+
+.fab1-show i {/*アイコン*/
+  color: white;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.fab1-show:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+
+.fab2-show {/*円*/
+  	display:block;
+    width: 40px;
+    height: 40px;
+    background: #FA7A0A;
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    margin:0 auto;
+
+}
+
+
+.fab2-show i {/*アイコン*/
+  color: white;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.fab2-show:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+
+
+.fab3-show {/*円*/
+  	display:block;
+    width: 40px;
+    height: 40px;
+    background: #0ECC3E;
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    margin:0 auto;
+
+}
+
+
+.fab3-show i {/*アイコン*/
+  color: white;
+  line-height: 40px;
+  vertical-align: middle;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.fab3-show:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+
+
 
 //resultの写真
 .img-article-result{width:100%;height: 100vh;display: inline-block; 
