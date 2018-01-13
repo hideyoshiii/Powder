@@ -77,34 +77,52 @@
   <div id="mains">
     <article>
 
-      <%# スポット %>
+      <%# スポット1 %>
+      <%# スポット1を定義 %>
+      <% @spot1 = Spot.find_by(id: 1) %>
       <div class="panel panel-default ii">
         <div id="spot2">
           <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
         </div>  
         <%# 諸情報、リンク等 %>
+        <%# LINEボタン %>
         <div class="visible-xs">
-        <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
-          <span class="insta"><i class="fa fa-weixin icon"></i></span>
-        </a>
+          <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+            <span class="insta"><i class="fa fa-weixin icon"></i></span>
+          </a>
         </div>
-        <a href="https://www.instagram.com/explore/locations/3003327/tokyo-tower/?hl=ja" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-instagram icon"></i></span>
-        </a>
-        <a href="https://tabelog.com/tokyo/A1307/A130704/13144857/" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-        </a>
-        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('〒105-0011 東京都港区芝公園４丁目２−８'));return false;" href="javascript:;" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-        </a>
+        <%# Instagramボタン %>
+        <% if @spot1.introduction %>
+          <a href="<%= @spot1.introduction %>"" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-instagram icon"></i></span>
+          </a>
+        <% end %>
+        <%# Rettyボタン %>
+        <% if @spot1.retty %>
+          <a href="<%= @spot1.retty %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+          </a>
+        <% end %>
+        <%# GoogleMapボタン %>
+        <% if @spot1.address %>
+          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+          </a>
+        <% end %>
+        <%# 電話ボタン %>
         <div class="visible-xs">
-        <a href="tel:0334335111" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-phone icon"></i></span>
-        </a>
+          <% if @spot1.phone %>
+            <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-right">
+              <span class="insta"><i class="fa fa-phone icon"></i></span>
+            </a>
+          <% end %>
         </div>
-        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-globe icon"></i></span>
-        </a>
+        <%# 公式サイトボタン %>
+        <% if @spot1.browser %>
+          <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-globe icon"></i></span>
+          </a>
+        <% end %>
         <div class="panel-body">
           <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
@@ -112,7 +130,8 @@
               <li class="scroll_item_content">
                 <a href="#spot1" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures[0].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。</p>
@@ -122,7 +141,8 @@
               <li class="scroll_item_content">
                 <a href="#spot2" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures[1].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -132,7 +152,8 @@
               <li class="scroll_item_content">
                 <a href="#spot3" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures[2].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。</p>
@@ -142,7 +163,8 @@
               <li class="scroll_item_content">
                 <a href="#spot4" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures[4].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -154,34 +176,52 @@
         </div>  
       </div>
   
-      <%# スポット %>
+      <%# スポット2 %>
+      <%# スポット2を定義 %>
+      <% @spot2 = Spot.find_by(id: 2) %>
       <div class="panel panel-default ii">
-        <div id="spot3">
-          <h2><span class="article-icon">❷</span>&nbsp;飲食店</h2>
-        </div>
+        <div id="spot2">
+          <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
+        </div>  
         <%# 諸情報、リンク等 %>
+        <%# LINEボタン %>
         <div class="visible-xs">
-        <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
-          <span class="insta"><i class="fa fa-weixin icon"></i></span>
-        </a>
+          <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+            <span class="insta"><i class="fa fa-weixin icon"></i></span>
+          </a>
         </div>
-        <a href="https://www.instagram.com/explore/locations/3003327/tokyo-tower/?hl=ja" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-instagram icon"></i></span>
-        </a>
-        <a href="https://tabelog.com/tokyo/A1307/A130704/13144857/" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-        </a>
-        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('〒105-0011 東京都港区芝公園４丁目２−８'));return false;" href="javascript:;" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-        </a>
+        <%# Instagramボタン %>
+        <% if @spot2.introduction %>
+          <a href="<%= @spot2.introduction %>"" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-instagram icon"></i></span>
+          </a>
+        <% end %>
+        <%# Rettyボタン %>
+        <% if @spot2.retty %>
+          <a href="<%= @spot2.retty %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+          </a>
+        <% end %>
+        <%# GoogleMapボタン %>
+        <% if @spot2.address %>
+          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+          </a>
+        <% end %>
+        <%# 電話ボタン %>
         <div class="visible-xs">
-        <a href="tel:0334335111" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-phone icon"></i></span>
-        </a>
+          <% if @spot2.phone %>
+            <a href="tel:<%= @spot2.phone %>" target="_blank" class="fl_inst pull-right">
+              <span class="insta"><i class="fa fa-phone icon"></i></span>
+            </a>
+          <% end %>
         </div>
-        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-globe icon"></i></span>
-        </a>
+        <%# 公式サイトボタン %>
+        <% if @spot2.browser %>
+          <a href="<%= @spot2.browser %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-globe icon"></i></span>
+          </a>
+        <% end %>
         <div class="panel-body">
           <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
@@ -189,7 +229,8 @@
               <li class="scroll_item_content">
                 <a href="#spot1" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot2.pictures[0].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -199,7 +240,8 @@
               <li class="scroll_item_content">
                 <a href="#spot2" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot2.pictures[1].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -209,7 +251,8 @@
               <li class="scroll_item_content">
                 <a href="#spot3" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot2.pictures[2].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -219,7 +262,8 @@
               <li class="scroll_item_content">
                 <a href="#spot4" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot2.pictures[3].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -236,34 +280,52 @@
       </div>
 
 
-      <%# スポット %>
+      <%# スポット3 %>
+      <%# スポット3を定義 %>
+      <% @spot4 = Spot.find_by(id: 4) %>
       <div class="panel panel-default ii">
-        <div id="spot4">
-          <h2><span class="article-icon">❸</span>&nbsp;バー</h2>
-        </div>
+        <div id="spot2">
+          <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
+        </div>  
         <%# 諸情報、リンク等 %>
+        <%# LINEボタン %>
         <div class="visible-xs">
-        <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
-          <span class="insta"><i class="fa fa-weixin icon"></i></span>
-        </a>
+          <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+            <span class="insta"><i class="fa fa-weixin icon"></i></span>
+          </a>
         </div>
-        <a href="https://www.instagram.com/explore/locations/3003327/tokyo-tower/?hl=ja" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-instagram icon"></i></span>
-        </a>
-        <a href="https://tabelog.com/tokyo/A1307/A130704/13144857/" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-        </a>
-        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('〒105-0011 東京都港区芝公園４丁目２−８'));return false;" href="javascript:;" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-        </a>
+        <%# Instagramボタン %>
+        <% if @spot4.introduction %>
+          <a href="<%= @spot4.introduction %>"" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-instagram icon"></i></span>
+          </a>
+        <% end %>
+        <%# Rettyボタン %>
+        <% if @spot4.retty %>
+          <a href="<%= @spot4.retty %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+          </a>
+        <% end %>
+        <%# GoogleMapボタン %>
+        <% if @spot4.address %>
+          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot4.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+          </a>
+        <% end %>
+        <%# 電話ボタン %>
         <div class="visible-xs">
-        <a href="tel:0334335111" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-phone icon"></i></span>
-        </a>
+          <% if @spot4.phone %>
+            <a href="tel:<%= @spot4.phone %>" target="_blank" class="fl_inst pull-right">
+              <span class="insta"><i class="fa fa-phone icon"></i></span>
+            </a>
+          <% end %>
         </div>
-        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-right">
-          <span class="insta"><i class="fa fa-globe icon"></i></span>
-        </a>
+        <%# 公式サイトボタン %>
+        <% if @spot4.browser %>
+          <a href="<%= @spot4.browser %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-globe icon"></i></span>
+          </a>
+        <% end %>
         <div class="panel-body">
           <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
@@ -271,7 +333,8 @@
               <li class="scroll_item_content">
                 <a href="#spot1" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "tokyo.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot4.pictures[0].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -282,7 +345,8 @@
               <li class="scroll_item_content">
                 <a href="#spot2" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "kanagawa.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot4.pictures[1].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -293,7 +357,8 @@
               <li class="scroll_item_content">
                 <a href="#spot3" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "kyoto.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot4.pictures[2].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -304,7 +369,8 @@
               <li class="scroll_item_content">
                 <a href="#spot4" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%= image_tag "osaka.jpg", :class =>'img-scroll_content' %>
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot4.pictures[3].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
