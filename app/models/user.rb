@@ -4,13 +4,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  has_many :spots
+  has_many :spots, dependent: :destroy
+  has_many :articles, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :questions
   has_many :answers, dependent: :destroy
   has_many :clips, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :pictures, dependent: :destroy
+  has_many :snaps, dependent: :destroy
 
   has_attached_file :image, :styles => { :medium => "400x400", :thumb => "100x100>" }, :default_url => "avatar-default.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/

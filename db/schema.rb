@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171227022318) do
+ActiveRecord::Schema.define(version: 20180113102312) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20171227022318) do
     t.text "content"
     t.integer "timezone"
     t.integer "number"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
   create_table "clips", force: :cascade do |t|
@@ -109,6 +111,19 @@ ActiveRecord::Schema.define(version: 20171227022318) do
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
     t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
+  create_table "snaps", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["article_id"], name: "index_snaps_on_article_id"
+    t.index ["user_id"], name: "index_snaps_on_user_id"
   end
 
   create_table "spots", force: :cascade do |t|

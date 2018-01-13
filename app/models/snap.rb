@@ -1,5 +1,5 @@
-class Picture < ApplicationRecord
-  belongs_to :spot
+class Snap < ApplicationRecord
+  belongs_to :article
   belongs_to :user
 
   has_attached_file :image, styles: { medium: "400x400", thumb: "100x100>" }, default_url: "missing.png"

@@ -14,9 +14,12 @@ Rails.application.routes.draw do
   
 
   resources :pictures, only: [:create, :destroy]
+
+  resources :snaps, only: [:create, :destroy]
   
   get "articles/result" => "articles#result"
   get "articles/show" => "articles#show"
+  get 'articles/:id/snaps/add' => 'articles#addsnaps'
   resources :articles, only: [:index, :new, :create, :edit, :update]
   get "articles/1" => "articles#show1"
   get "articles/2" => "articles#show2"
