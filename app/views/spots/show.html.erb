@@ -11,7 +11,9 @@
   		
   	<%= link_to "/spots/#{@spot.id}/pictures" do %>
   		<div class="example2">
-    	<%= image_tag @spot.photo.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
+    	<%= image_tag @spot.pictures[0].image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
+    	<% pictures_count = Picture.where(spot_id: @spot.id).count %>
+    	<p><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %></p> 
     	</div>
     <% end %>
 
@@ -47,7 +49,7 @@
 			</div>
 			<br><br>
 
-			
+			<% if current_user.authority == "manager" %>
 			<% if @spot.user == current_user %>
 				<br><br>
 				<div class="row">
@@ -82,7 +84,7 @@
 					<% end %>
 				</div>
 			<% end %>
-			
+			<% end %>
 
 	  	</div>
 
@@ -171,7 +173,9 @@
  		
  		<%= link_to "/spots/#{@spot.id}/pictures" do %>
  		<div class="example2">
-    	<%= image_tag @spot.photo.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
+	    <%= image_tag @spot.pictures[0].image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
+	    <% pictures_count = Picture.where(spot_id: @spot.id).count %>
+    	<p><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %></p> 
     	</div>
 	    <% end %>
 
