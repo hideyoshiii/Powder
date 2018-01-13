@@ -10,31 +10,36 @@
   <br><br>
 
 
-  <div class="hero-full-wrapper">
-    <div class="grid">
-      <div class="gutter-sizer"></div>
-      <div class="grid-sizer"></div>
-      <% @ranks.each do |spot| %>
-        <div class="grid-item iii">
-          <%= link_to spot_path(spot) do %>
-            <%= image_tag spot.photo.url, :class =>'img-responsive' %>
-            <div class="black title-font-index">
-              <%= spot.title %>
-            </div>
-            <div class="prefecture-font-index">
-              <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
-            </div>
-          <% end %>
-
-          <span id="like-of-<%= spot.id %>">
-            <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
-          </span>
-          <br>
-      
-        </div>
-      <% end %>  
-    </div>
+<div class="hero-full-wrapper">
+  <div class="grid">
+    <div class="gutter-sizer"></div>
+    <div class="grid-sizer"></div>
+    <% @ranks.each do |spot| %>
+      <div class="grid-item iii">
+        <%= link_to spot_path(spot) do %>
+        <% if spot.article_id %>
+          <div class="index-movie">
+          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
+          <p><i class="fa fa-play-circle-o" aria-hidden="true"></i></p> 
+          </div>
+        <% else %>
+          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
+        <% end %>
+          <div class="black title-font-index">
+            <%= spot.title %>
+          </div>
+          <div class="prefecture-font-index">
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
+          </div>
+        <% end %>
+        <%# wantdoneボタン %>
+        <span id="like-of-<%= spot.id %>">
+          <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
+        </span>
+      </div>
+    <% end %>  
   </div>
+</div>
 
 
 <script>

@@ -118,11 +118,7 @@
 
 					
 			
-			<%= link_to "/spots/#{@spot.id}/tags" do %>
-				<div class="btn btn-default btn-sm">
-				<i class="fa fa-tag" aria-hidden="true"></i> タグを追加する
-				</div>
-			<% end %>
+			
 			
 					
 				
@@ -191,11 +187,13 @@
 	  	<br><br>
 
 
-	    <h4><%= @spot.title %></h4>
+	    <div class="title-spot-show"><%= @spot.title %></div>
 	    
-	    	<p><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
+	    <div class="prefecture-spot-show">
+	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]
+	    </div>
 	    
-	    	<br>
+	    <br>
 
 	    <span id="show-of-<%= @spot.id %>">
 	    	<%= render partial: 'likes/show', locals: { spot: @spot, likes: @likes } %>
@@ -242,11 +240,7 @@
 
 					
 			
-			<%= link_to "/spots/#{@spot.id}/tags" do %>
-				<div class="btn btn-default btn-sm margin-btn">
-				<i class="fa fa-tag" aria-hidden="true"></i> タグを追加する
-				</div>
-			<% end %>
+			
 
 			<br><br>
 	    	<h4>More</h4>

@@ -27,7 +27,7 @@
     <% if spot.prefecture == params[:prefecture] %>
       <div class="grid-item iii">
         <%= link_to spot_path(spot) do %>
-          <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
           <div class="black title-font-index">
             <%= spot.title %>
           </div>
@@ -35,18 +35,16 @@
             <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
           </div>
         <% end %>
-
+        <%# wantdoneボタン %>
         <span id="like-of-<%= spot.id %>">
           <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
         </span>
-        <br>
-    
       </div>
     <% end %> 
     <% else %>
       <div class="grid-item iii">
         <%= link_to spot_path(spot) do %>
-          <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
           <div class="black title-font-index">
             <%= spot.title %>
           </div>
@@ -54,12 +52,10 @@
             <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
           </div>
         <% end %>
-
+        <%# wantdoneボタン %>
         <span id="like-of-<%= spot.id %>">
           <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
         </span>
-        <br>
-    
       </div>
     <% end %>  
     <% end %>  

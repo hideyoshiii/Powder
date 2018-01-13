@@ -2,26 +2,20 @@
 
 <main class="" id="main-collapse">
 
-<div class="panel panel-default">
-  <div class="panel-body scene-check">
-    <%= form_tag(search_yamanashi1_path, method: :get) do %>
-      <%= render "partial/scene" %>
-    <% end %>
-  </div>
-</div>
-
-
-<div class="title-content">
-  <% if params[:sample_form].nil? %>
-  (すべて)のスポット
+<span class="title-content">
+  <% if params[:tag].nil? %>
+    [山梨]のスポット
   <% else %>
-  <% @scenes.each do |scene| %>
-  (<%= scene %>)
+    [山梨]<%= [@tag] %>のスポット
   <% end %>
-  &nbsp;&nbsp;のスポット
-  <% end %>
-</div> 
+</span> 
 <hr class="style1">
+
+<%= form_tag(search_yamaguchi1_path, method: :get) do %>
+  タグを絞る=><%= text_field_tag :tag %>
+  <%= submit_tag "検索", :class => "" %>
+<% end %>
+<br>
 
 <div class="hero-full-wrapper">
   <div class="grid">
@@ -32,9 +26,15 @@
         <% a = spot.scenes & @scenes %>
         <% if !a.blank? %>
           <div class="grid-item iii">
-
             <%= link_to spot_path(spot) do %>
-              <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+            <% if spot.article_id %>
+              <div class="index-movie">
+              <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
+              <p><i class="fa fa-play-circle-o" aria-hidden="true"></i></p> 
+              </div>
+            <% else %>
+              <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
+            <% end %>
               <div class="black title-font-index">
                 <%= spot.title %>
               </div>
@@ -42,12 +42,10 @@
                 <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
               </div>
             <% end %>
-          
+            <%# wantdoneボタン %>
             <span id="like-of-<%= spot.id %>">
               <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
             </span>
-            <br>
-
           </div>    
         <% end %>
       <% end %>

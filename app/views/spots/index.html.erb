@@ -17,12 +17,12 @@
       <div class="grid-item iii">
         <%= link_to spot_path(spot) do %>
         <% if spot.article_id %>
-          <div class="example">
-          <%= image_tag spot.photo.url, :class =>'img-responsive' %>
-          <p><i class="fa fa-play-circle-o fa-2x" aria-hidden="true"></i></p> 
+          <div class="index-movie">
+          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
+          <p><i class="fa fa-play-circle-o" aria-hidden="true"></i></p> 
           </div>
         <% else %>
-          <%= image_tag spot.photo.url, :class =>'img-responsive' %>
+          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
         <% end %>
           <div class="black title-font-index">
             <%= spot.title %>
@@ -31,12 +31,10 @@
             <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
           </div>
         <% end %>
-
+        <%# wantdoneボタン %>
         <span id="like-of-<%= spot.id %>">
           <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
         </span>
-        
-    
       </div>
     <% end %>  
   </div>

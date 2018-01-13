@@ -162,14 +162,14 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .scene-check{font-size:16px;}
 }
 
-.title-font-index{font-size:15px;font-weight:bold;margin:5px 5px 0px 5px;}.prefecture-font{font-size:10px;}
+.title-font-index{font-size:15px;font-weight:600;margin:5px 5px 0px 5px;line-height:17px}.prefecture-font{font-size:10px;}
 @media only screen and (max-width: 768px) {
-.title-font-index{font-size:13px;font-weight:bold;margin:5px 5px 0px 5px;}.prefecture-font{font-size:10px;}
+.title-font-index{font-size:13px;font-weight:600;margin:5px 5px 0px 5px;line-height:15px}.prefecture-font{font-size:10px;}
 }
 
-.prefecture-font-index{font-size:14px;color: #808080;margin:0px 5px 15px 5px;}
+.prefecture-font-index{font-size:13px;color: #808080;margin:0px 5px 15px 5px;}
 @media only screen and (max-width: 768px) {
-.prefecture-font-index{font-size:12px;color: #808080;margin:0px 5px 15px 5px;}
+.prefecture-font-index{font-size:11px;color: #808080;margin:0px 5px 15px 5px;}
 }
 
 .like-img-user-show{width:100px;height:100px;margin:0px -2px;}
@@ -482,6 +482,25 @@ background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, F
   color:white;
   opacity:0.8;
   font-size:15px;
+  }
+
+
+  //indexのビデオマーク
+  .index-movie {
+  position: relative;
+  }
+
+.index-movie p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color:white;
+  font-size:20px;
   }
 
   
@@ -2847,9 +2866,21 @@ display: inline-block;
 }
 
 
+//spotのshowのタイトル
+.title-spot-show{
+	font-size:20px;
+	font-weight: 250;
+	margin:0;
+	padding:0;
+	color:black;
+}
 
-
-
+//spotのshowの都道府県
+.prefecture-spot-show{
+	color: #CCCCCC;
+	margin:0;
+	padding:0;
+}
 
 
 
