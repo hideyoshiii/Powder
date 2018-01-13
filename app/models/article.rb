@@ -14,5 +14,11 @@ class Article < ApplicationRecord
 	validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
 
 	acts_as_taggable_on :movies # post.label_list が追加される
+
+
+	def clip_user(user_id)
+	   clips.find_by(user_id: user_id)
+	  end
+
   	
 end

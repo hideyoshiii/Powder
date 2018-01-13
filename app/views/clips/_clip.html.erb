@@ -1,0 +1,9 @@
+<% if Clip.find_by(user_id: current_user.id, article_id: @article.id) %>
+  <%= link_to "/clips/#{@article.id}/destroy", method: :post, id: "clip-button", remote: true do %>
+    <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+  <% end %>
+<% else %>
+  <%= link_to "/clips/#{@article.id}/create", method: :post, id: "clip-button", remote: true do %>
+    <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+  <% end %>
+<% end %>

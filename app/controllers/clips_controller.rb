@@ -1,16 +1,20 @@
 class ClipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_article
 
   def create 	
-    @clip = Clip.new(user_id: current_user.id, question_id: params[:question_id], sex: current_user.sex)
+    @clip = Clip.new(user_id: current_user.id, article_id: params[:article_id], sex: current_user.sex)
     @clip.save
-    redirect_back(fallback_location: root_path) 
   end
 
   def destroy	
-    @clip = Clip.find_by(user_id: current_user.id, question_id: params[:question_id])
+    @clip = Clip.find_by(user_id: current_user.id, article_id: params[:article_id])
     @clip.destroy
-    redirect_back(fallback_location: root_path)
+  end
+
+  private
+  def set_article
+  @article = Article.find(params[:article_id])
   end
 
 end
