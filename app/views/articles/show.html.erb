@@ -4,6 +4,15 @@
 
 <mains class="" id="main-collapse">
 
+<%# スポット1を定義 %>
+<% @spot1 = Spot.find_by(title: "恵比寿ガーデンプレイス　ウィンターイルミネーション 2017") %>
+<%# スポット2を定義 %>
+<% @spot2 = Spot.find_by(title: "恵比寿ガーデンプレイス　ウィンターイルミネーション 2017") %>
+<%# スポット2を定義 %>") %>
+<%# スポット3を定義 %>
+<% @spot3 = Spot.find_by(title: "恵比寿ガーデンプレイス　ウィンターイルミネーション 2017") %>
+<%# スポット2を定義 %>y") %>
+
 <%# アイキャッチとタイトル %>
 <div class="frame">
   <%= image_tag "city01.jpg", :class =>'img-article-show' %>
@@ -78,8 +87,6 @@
     <article>
 
       <%# スポット1 %>
-      <%# スポット1を定義 %>
-      <% @spot1 = Spot.find_by(title: "恵比寿ガーデンプレイス　ウィンターイルミネーション 2017") %>
       <div class="panel panel-default ii">
         <div id="spot2">
           <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
@@ -177,8 +184,6 @@
       </div>
   
       <%# スポット2 %>
-      <%# スポット2を定義 %>
-      <% @spot2 = Spot.find_by(title: "青の洞窟　SHIBUYA 2017") %>
       <div class="panel panel-default ii">
         <div id="spot2">
           <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
@@ -281,8 +286,6 @@
 
 
       <%# スポット3 %>
-      <%# スポット3を定義 %>
-      <% @spot4 = Spot.find_by(title: "OMOTESANDO HILLS CHRISTMAS 2017 with Panasonic Beauty") %>
       <div class="panel panel-default ii">
         <div id="spot2">
           <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
@@ -295,34 +298,34 @@
           </a>
         </div>
         <%# Instagramボタン %>
-        <% if @spot4.introduction %>
-          <a href="<%= @spot4.introduction %>"" target="_blank" class="fl_inst pull-right">
+        <% if @spot3.introduction %>
+          <a href="<%= @spot3.introduction %>"" target="_blank" class="fl_inst pull-right">
             <span class="insta"><i class="fa fa-instagram icon"></i></span>
           </a>
         <% end %>
         <%# Rettyボタン %>
-        <% if @spot4.retty %>
-          <a href="<%= @spot4.retty %>" target="_blank" class="fl_inst pull-right">
+        <% if @spot3.retty %>
+          <a href="<%= @spot3.retty %>" target="_blank" class="fl_inst pull-right">
             <span class="insta"><i class="fa fa-cutlery icon"></i></span>
           </a>
         <% end %>
         <%# GoogleMapボタン %>
-        <% if @spot4.address %>
-          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot4.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
+        <% if @spot3.address %>
+          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot3.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
             <span class="insta"><i class="fa fa-map-marker icon"></i></span>
           </a>
         <% end %>
         <%# 電話ボタン %>
         <div class="visible-xs">
-          <% if @spot4.phone %>
-            <a href="tel:<%= @spot4.phone %>" target="_blank" class="fl_inst pull-right">
+          <% if @spot3.phone %>
+            <a href="tel:<%= @spot3.phone %>" target="_blank" class="fl_inst pull-right">
               <span class="insta"><i class="fa fa-phone icon"></i></span>
             </a>
           <% end %>
         </div>
         <%# 公式サイトボタン %>
-        <% if @spot4.browser %>
-          <a href="<%= @spot4.browser %>" target="_blank" class="fl_inst pull-right">
+        <% if @spot3.browser %>
+          <a href="<%= @spot3.browser %>" target="_blank" class="fl_inst pull-right">
             <span class="insta"><i class="fa fa-globe icon"></i></span>
           </a>
         <% end %>
@@ -334,7 +337,7 @@
                 <a href="#spot1" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot4.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures[0].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -346,7 +349,7 @@
                 <a href="#spot2" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot4.pictures[1].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures[1].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -358,7 +361,7 @@
                 <a href="#spot3" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot4.pictures[2].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures[2].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -370,7 +373,7 @@
                 <a href="#spot4" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot4.pictures[3].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures[3].image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
