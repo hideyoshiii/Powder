@@ -20,31 +20,41 @@
           </a>
         <p style="font-weight: bold;">あなたのデートに彩りを</p>
       </div>
+
+
+      <div class="hidden-xs">
+        <p class="button-menu">
+          <%= link_to root_path do %>
+            <i class="fa fa-home btn-menu"></i>
+          <% end %>
+          <%= link_to "/spots" do %>
+            <i class="fa fa-map-marker btn-menu" aria-hidden="true"></i>
+          <% end %>
+          <% if (user_signed_in?) %>
+            <%= link_to user_path(current_user) do %>
+              <i class="fa fa-user btn-menu"></i>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <i class="fa fa-sign-in btn-menu" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <a href='#main-collapse'>
+            <i class="fa fa-level-up btn-menu" aria-hidden="true"></i>
+          </a>
+        </p>
+      </div>
+
+
+      
       <ul class="nav">
         <% if (user_signed_in?) %>
-        <br>
-        <li>
-          <%= link_to articles_path do %>
-          <i class="fa fa-play" aria-hidden="true"></i>&nbsp;&nbsp;course
-          <% end %> 
-        </li>
-        <li>
-          <%= link_to spots_path do %>
-          <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;&nbsp;spot
-          <% end %> 
-        </li>
-        <br>
-        
-        
-
-        <li>
-        <%= link_to edit_user_registration_path(current_user) do %>
-        <i class="fa fa-cog" aria-hidden="true"></i> プロフィール編集
+          <li>
+          <%= link_to edit_user_registration_path(current_user) do %>
+          <i class="fa fa-cog" aria-hidden="true"></i> プロフィール編集
+          <% end %>
+          </li>
         <% end %>
-        </li>
-
-        <% end %>
-
       </ul>
 
       <nav class="nav-footer">

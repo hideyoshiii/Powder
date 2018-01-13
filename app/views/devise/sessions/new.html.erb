@@ -1,4 +1,4 @@
-<%= render "partial/navbar" %>
+<%= render "partial/navbar4" %>
 <main class="" id="main-collapse">
 
 <div class="text-center">
@@ -32,7 +32,7 @@
             remember me?
             </label>
           </div>
-        <% end -%>
+        <% end %>
 
         <div class="actions">
           <%= f.submit "Log in",class:"btn btn-default" %>
@@ -40,8 +40,15 @@
       <% end %>
 
 
-      <br><br>
+      <br>
       <%= link_to "facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn btn-facebook" %>
+
+      <br><br>
+      <%= link_to new_user_registration_path do %>
+        <div class="black">
+          <i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成
+        </div>
+      <% end %>
 
       
     </div>
