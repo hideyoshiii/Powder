@@ -2541,7 +2541,7 @@ display: inline-block;
   @media only screen and (max-width: 768px) {
 .frame h3 {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 5%;
   -ms-transform: translate(0%,-50%);
   -webkit-transform: translate(0%,-50%);
@@ -2555,7 +2555,7 @@ display: inline-block;
   }
   .frame h4 {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -2570,7 +2570,7 @@ display: inline-block;
 
   .frame h1 {
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 90%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
