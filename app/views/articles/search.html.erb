@@ -20,7 +20,7 @@
     <div class="box1" id='section1'> 
   		<div>
   			  <h3 style="color:white;">エリアは？</h4>
-			  <%= select_tag :prefecture, options_for_select(["北海道", "青森", "岩手", "宮城", "秋田", "山形", "福島", "茨城", "栃木", "群馬", "埼玉", "千葉", "東京", "神奈川", "新潟", "富山", "石川", "福井", "山梨", "長野", "岐阜", "静岡", "愛知", "三重", "滋賀", "京都", "大阪", "兵庫", "奈良", "和歌山", "鳥取", "島根", "岡山", "広島", "山口", "徳島", "香川", "愛媛", "高知", "福岡", "福岡", "佐賀", "長崎", "熊本", "大分", "宮崎", "鹿児島", "沖縄", "海外"]), {prompt:"選択してください"} %>
+			  <%= select_tag :city, options_for_select(["渋谷・恵比寿・中目黒・目黒"]), {prompt:"選択してください"} %>
 			  <br><br>
   		</div>
   		<div>
@@ -51,8 +51,6 @@
 				<%= label_tag(:price_2, "¥¥") %>  
 			  	<%= radio_button_tag(:price, 3) %>
 				<%= label_tag(:price_3, "¥¥¥") %>
-				<%= radio_button_tag(:price, 4) %>
-				<%= label_tag(:price_4, "¥¥¥¥") %>
 			  <br><br>
 	  	</div>
 	  	<div>
@@ -69,7 +67,7 @@
 		  	<%= radio_button_tag(:number, 2) %>
 			<%= label_tag(:number_2, "2回目") %>  
 		  	<%= radio_button_tag(:number, 3) %>
-			<%= label_tag(:number_3, "3回目") %>
+			<%= label_tag(:number_3, "3回以降") %>
 		  <br><br>
 	  	</div>
 	  	<div>

@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
   end
 
   def result
-    @article = Article.where(prefecture: params[:prefecture], timezone: params[:timezone].to_i, price: params[:price].to_i, number: params[:number].to_i).order("RANDOM()").first
+    @article = Article.where(city: params[:city], timezone: params[:timezone].to_i, price: params[:price].to_i, number: params[:number].to_i).order("RANDOM()").first
   end
 
   def show  
