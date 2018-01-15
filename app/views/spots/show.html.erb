@@ -129,12 +129,16 @@
 	    	<a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
 	          <span class="insta"><i class="fa fa-weixin icon"></i></span>
 	        </a>
-	        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-globe icon"></i></span>
-	        </a>
-	        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-phone icon"></i></span>
-	        </a>
+	        <% if @spot.browser %>
+		        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-globe icon"></i></span>
+		        </a>
+	        <% end %>
+	        <% if @spot.phone %>
+		        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-phone icon"></i></span>
+		        </a>
+	        <% end %>
 	        <% if @spot.address %>
 		        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
 		          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
@@ -248,12 +252,16 @@
 	    	<a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
 	          <span class="insta"><i class="fa fa-weixin icon"></i></span>
 	        </a>
-	        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-globe icon"></i></span>
-	        </a>
-	        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-phone icon"></i></span>
-	        </a>
+	        <% if @spot.browser %>
+		        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-globe icon"></i></span>
+		        </a>
+		    <% end %>
+	        <% if @spot.phone %>
+		        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
+		          <span class="insta"><i class="fa fa-phone icon"></i></span>
+		        </a>
+	        <% end %>
 	        <% if @spot.address %>
 		        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
 		          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
