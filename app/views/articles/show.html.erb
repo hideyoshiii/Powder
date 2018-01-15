@@ -24,7 +24,7 @@
     <li class="scroll_item_table">
       <a href="#spot2" class="scroll_item_inr_table">
         <div class="scroll_item_thum_table">
-          <%= image_tag "kanagawa.jpg", :class =>'img-scroll_table' %>
+          <%= image_tag @spot1.pictures.first.image.url, :class =>'img-scroll_table' %>
         </div>
         <div class="scroll_item_info_table">
           <h4 class="scroll_item_ttl_table"><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h4>
@@ -39,7 +39,7 @@
     <li class="scroll_item_table">
       <a href="#spot3" class="scroll_item_inr_table">
         <div class="scroll_item_thum_table">
-          <%= image_tag "kyoto.jpg", :class =>'img-scroll_table' %>
+          <%= image_tag @spot2.pictures.first.image.url, :class =>'img-scroll_table' %>
         </div>
         <div class="scroll_item_info_table">
           <h4 class="scroll_item_ttl_table"><span class="article-icon">❷</span>&nbsp;飲食店<span class="pull-right">¥4,500&nbsp;</span></h4>
@@ -54,7 +54,7 @@
     <li class="scroll_item_table">
       <a href="#spot4" class="scroll_item_inr_table">
         <div class="scroll_item_thum_table">
-          <%= image_tag "osaka.jpg", :class =>'img-scroll_table' %>
+          <%= image_tag @spot3.pictures.first.image.url, :class =>'img-scroll_table' %>
         </div>
         <div class="scroll_item_info_table">
           <h4 class="scroll_item_ttl_table"><span class="article-icon">❸</span>&nbsp;バー<span class="pull-right">¥3,800&nbsp;</span></h4>
@@ -69,7 +69,7 @@
     <li class="scroll_item_table">
       <a href="#coursemap" class="scroll_item_inr_table">
         <div class="scroll_item_thum_table">
-          <%= image_tag "tokyo.jpg", :class =>'img-scroll_table' %>
+          <%= image_tag "map.jpg", :class =>'img-scroll_table' %>
         </div>
         <div class="scroll_item_info_table">
           <h4 class="scroll_item_ttl_table"><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h4>
@@ -136,7 +136,7 @@
                 <a href="#spot1" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot1.pictures.first.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。</p>
@@ -147,7 +147,7 @@
                 <a href="#spot2" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot1.pictures.second.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -158,7 +158,7 @@
                 <a href="#spot3" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot1.pictures.third.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。</p>
@@ -169,7 +169,7 @@
                 <a href="#spot4" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot1.pictures.fourth.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -233,7 +233,7 @@
                 <a href="#spot1" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot2.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot2.pictures.first.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -244,7 +244,7 @@
                 <a href="#spot2" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot2.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot2.pictures.second.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -255,7 +255,7 @@
                 <a href="#spot3" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot2.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot2.pictures.third.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -266,7 +266,7 @@
                 <a href="#spot4" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot2.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot2.pictures.fourth.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
@@ -335,7 +335,7 @@
                 <a href="#spot1" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot3.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures.first.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -347,7 +347,7 @@
                 <a href="#spot2" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot3.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures.second.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -359,7 +359,7 @@
                 <a href="#spot3" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot3.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures.third.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 
@@ -371,7 +371,7 @@
                 <a href="#spot4" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot3.pictures[0].image.url, :class =>'img-scroll_content' %>
+                    <%= image_tag @spot3.pictures.fourth.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
                     <p class="scroll_item_ttl_content">また、オリーブ広場では、巨大ランプシェードによる光の演出。 

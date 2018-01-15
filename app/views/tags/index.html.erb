@@ -27,7 +27,7 @@
     <% if spot.prefecture == params[:prefecture] %>
       <div class="grid-item iii">
         <%= link_to spot_path(spot) do %>
-          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
+          <%= image_tag spot.pictures.first.image.url, :class =>'img-responsive' %>
           <div class="black title-font-index">
             <%= spot.title %>
           </div>
@@ -44,7 +44,7 @@
     <% else %>
       <div class="grid-item iii">
         <%= link_to spot_path(spot) do %>
-          <%= image_tag spot.pictures[0].image.url, :class =>'img-responsive' %>
+          <%= image_tag spot.pictures.first.image.url, :class =>'img-responsive' %>
           <div class="black title-font-index">
             <%= spot.title %>
           </div>
