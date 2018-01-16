@@ -9,7 +9,7 @@
 <%# アイキャッチとタイトル %>
 <div class="frame">
   <%= image_tag @article.snaps.second.image.url, :class =>'img-article-show' %>
-  <h3><%= @article.title  %></h3>
+  <h3><%= @article.title %></h3>
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @article.city %></h4>
 </div>
 
@@ -17,7 +17,7 @@
 <div class="horizontal_scroll_table">
   <ul class="scroll_lst_table">
     <li class="scroll_item_table">
-      <a href="#spot2" class="scroll_item_inr_table">
+      <a href="#station" class="scroll_item_inr_table">
         <div class="scroll_item_thum_table">
           <%= image_tag @article.snaps.third.image.url, :class =>'img-scroll_table' %>
         </div>
@@ -35,7 +35,7 @@
       </div>
     </li>
     <li class="scroll_item_table">
-      <a href="#spot3" class="scroll_item_inr_table">
+      <a href="#spot1" class="scroll_item_inr_table">
         <div class="scroll_item_thum_table">
           <%= image_tag @spot1.pictures.first.image.url, :class =>'img-scroll_table' %>
         </div>
@@ -72,7 +72,7 @@ map
 
       <%# 駅 %>
       <div class="panel panel-default ii">
-        <div id="spot2">
+        <div id="statios">
           <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
         </div>
         <%# 諸情報、リンク等 %>
@@ -102,7 +102,7 @@ map
 
       <%# スポット1%>
       <div class="panel panel-default ii">
-        <div id="spot2">
+        <div id="spot1">
           <h2><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %></h2>
         </div>
         <%# 諸情報、リンク等 %>
