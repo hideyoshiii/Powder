@@ -2,14 +2,13 @@
 
 <mains class="" id="main-collapse">
 
-<%# スポット1を定義 %>
+<%# $$$スポット1を定義 %>
 <% @spot1 = Spot.find_by(title: "Sacra(サクラ)") %>
-
 
 <%# アイキャッチとタイトル %>
 <div class="frame">
   <%= image_tag @article.snaps.second.image.url, :class =>'img-article-show' %>
-  <h3><%= @article.title %></h3>
+  <h3><%= @article.title %></h3> 
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @article.city %></h4>
 </div>
 
@@ -22,16 +21,13 @@
           <%= image_tag @article.snaps.third.image.url, :class =>'img-scroll_table' %>
         </div>
         <div class="scroll_item_info_table">
-          <h4 class="scroll_item_ttl_table"><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h4>
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❶</span>&nbsp;<%# $$$駅出口を記入 %>恵比寿駅西口</h4>
         </div>
       </a>
     </li>
     <li class="scroll_item_icon_table">
       <div class="scroll_item_icons_table">
-        <%= image_tag "walk.png", :class =>'img-icon_table' %>
-2min
-&nbsp;
-&nbsp;
+        <%= image_tag "walk.png", :class =>'img-icon_table' %><br>2min<br>&nbsp;<br>&nbsp;
       </div>
     </li>
     <li class="scroll_item_table">
@@ -40,16 +36,13 @@
           <%= image_tag @spot1.pictures.first.image.url, :class =>'img-scroll_table' %>
         </div>
         <div class="scroll_item_info_table">
-          <h4 class="scroll_item_ttl_table"><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %><span class="pull-right">¥4,500&nbsp;</span></h4>
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %><span class="pull-right"><%# $$$予算を記入 %>¥4,500&nbsp;</span></h4>
         </div>
       </a>
     </li>
     <li class="scroll_item_icon_table">
       <div class="scroll_item_icons_table">
-        <%= image_tag "map.png", :class =>'img-icon_table' %>
-map
-&nbsp;
-&nbsp;
+        <%= image_tag "map.png", :class =>'img-icon_table' %><br>map<br>&nbsp;<br>&nbsp;
       </div>
     </li>
     <li class="scroll_item_table">
@@ -72,39 +65,39 @@ map
 
       <%# 駅 %>
       <div class="panel panel-default ii">
-        <div id="statios">
-          <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
-        </div>
+        <div id="station">
+          <h2><span class="article-icon">❶</span>&nbsp;<%# $$$駅出口を記入 %>恵比寿駅西口</h2>
+        </div>  
         <%# 諸情報、リンク等 %>
         <%# GoogleMapボタン %>
-          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @article.station %>駅'));return false;" href="javascript:;" class="fl_inst pull-right">
-            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-          </a>
+        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @article.station %>駅'));return false;" href="javascript:;" class="fl_inst pull-right">
+          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+        </a>
         <div class="panel-body">
           <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
               <li class="scroll_item_content">
-                <a href="#spot1" class="scroll_item_inr_content">
+                <a href="#" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# 駅の写真 %>
                     <%= image_tag @article.snaps.third.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
-                    <p class="scroll_item_ttl_content">恵比寿駅西口待ち合わせ</p>
+                    <p class="scroll_item_ttl_content"><%# $$$写真の説明 %>恵比寿駅西口待ち合わせ</p>
                   </div>
                 </a>
               </li>
             </ul>
           </div>
-        </div>
+        </div>  
       </div>
-
-      <%# スポット1%>
+  
+      <%# スポット2 %>
       <div class="panel panel-default ii">
         <div id="spot1">
           <h2><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %></h2>
-        </div>
+        </div>  
         <%# 諸情報、リンク等 %>
         <%# LINEボタン %>
         <div class="visible-xs">
@@ -149,84 +142,41 @@ map
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
               <li class="scroll_item_content">
-                <a href="#spot1" class="scroll_item_inr_content">
+                <a href="#" class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
-                    <%# spotから利用する写真を番号で指定 %>
+                    <%# $$$spotから利用する写真をfitstなどでで指定 %>
                     <%= image_tag @spot1.pictures.first.image.url, :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content">
-                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
+                    <p class="scroll_item_ttl_content">
+                    <%# $$$写真の説明 %>
+                    1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
                   </div>
                </a>
               </li>
-              <li class="scroll_item_content">
-                <a href="#spot1" class="scroll_item_inr_content">
-                  <div class="scroll_item_thum_content">
-                    <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures.second.image.url, :class =>'img-scroll_content' %>
-                  </div>
-                  <div class="scroll_item_info_content">
-                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
-                  </div>
-                </a>
-              </li>
-              <li class="scroll_item_content">
-                <a href="#spot3" class="scroll_item_inr_content">
-                  <div class="scroll_item_thum_content">
-                    <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures.third.image.url, :class =>'img-scroll_content' %>
-                  </div>
-                  <div class="scroll_item_info_content">
-                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
-                  </div>
-                </a>
-              </li>
-              <li class="scroll_item_content">
-                <a href="#spot4" class="scroll_item_inr_content">
-                  <div class="scroll_item_thum_content">
-                    <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures.fourth.image.url, :class =>'img-scroll_content' %>
-                  </div>
-                  <div class="scroll_item_info_content">
-                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
-                  </div>
-                </a>
-              </li>
-              <li class="scroll_item_content">
-                <a href="#spot4" class="scroll_item_inr_content">
-                  <div class="scroll_item_thum_content">
-                    <%# spotから利用する写真を番号で指定 %>
-                    <%= image_tag @spot1.pictures.fifth.image.url, :class =>'img-scroll_content' %>
-                  </div>
-                  <div class="scroll_item_info_content">
-                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
-                  </div>
-                </a>
-              </li>
             </ul>
           </div>
-          <%# チェックポイント %>
+          <%# $$$チェックポイント %>
           <h4>スポットのスポットのスポット①</h4>
-          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。
+          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
           サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-        </div>
+        </div>  
       </div>
-
-
+      
 
       <%# スポット(map) %>
       <coursemap>
         <div class="panel panel-default ii">
           <div id="coursemap">
             <h2><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h2>
-          </div>
+          </div>  
           <div id="map"></div>
         </div>
       </coursemap>
 
     </article>
   </div><!-- #mains -->
-
+  
   <div id="side">
     <div class="mokuji">
     </div><!-- .mokuji -->
@@ -255,4 +205,55 @@ function initMap() {
             { location: new google.maps.LatLng(34.97171,138.38884) },
             { location: new google.maps.LatLng(34.769758,138.014928) },
         ],
-        tra
+        travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
+    };
+
+    // マップの生成
+    var map = new google.maps.Map(document.getElementById("map"), {
+        center: new google.maps.LatLng(35.681382,139.766084), // マップの中心
+        zoom: 15 // ズームレベル
+    });
+
+    var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
+    var r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+        map: map, // 描画先の地図
+        preserveViewport: true, // 描画後に中心点をずらさない
+    });
+    // ルート検索
+    d.route(request, function(result, status){
+        // OKの場合ルート描画
+        if (status == google.maps.DirectionsStatus.OK) {
+            r.setDirections(result);
+        }
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
+
+
+
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>
+
