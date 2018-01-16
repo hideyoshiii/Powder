@@ -1,3 +1,258 @@
-<span id="clip-of-<%= @article.id %>">
-      <%= render partial: 'clips/clip', locals: { article: @article, clips: @clips } %>
-    </span>
+<%= render "partial/navbar3" %>
+
+<mains class="" id="main-collapse">
+
+<%# スポット1を定義 %>
+<% @spot1 = Spot.find_by(title: "Sacra(サクラ)") %>
+
+
+<%# アイキャッチとタイトル %>
+<div class="frame">
+  <%= image_tag @article.snaps.secound.image.url, :class =>'img-article-show' %>
+  <h3><%= @article.title  %></h3>
+  <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @article.city %></h4>
+</div>
+
+<%# 横スクロール目次 %>
+<div class="horizontal_scroll_table">
+  <ul class="scroll_lst_table">
+    <li class="scroll_item_table">
+      <a href="#spot2" class="scroll_item_inr_table">
+        <div class="scroll_item_thum_table">
+          <%= image_tag @article.snaps.third.image.url, :class =>'img-scroll_table' %>
+        </div>
+        <div class="scroll_item_info_table">
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h4>
+        </div>
+      </a>
+    </li>
+    <li class="scroll_item_icon_table">
+      <div class="scroll_item_icons_table">
+        <%= image_tag "walk.png", :class =>'img-icon_table' %>
+2min
+&nbsp;
+&nbsp;
+      </div>
+    </li>
+    <li class="scroll_item_table">
+      <a href="#spot3" class="scroll_item_inr_table">
+        <div class="scroll_item_thum_table">
+          <%= image_tag @spot1.pictures.first.image.url, :class =>'img-scroll_table' %>
+        </div>
+        <div class="scroll_item_info_table">
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %><span class="pull-right">¥4,500&nbsp;</span></h4>
+        </div>
+      </a>
+    </li>
+    <li class="scroll_item_icon_table">
+      <div class="scroll_item_icons_table">
+        <%= image_tag "map.png", :class =>'img-icon_table' %>
+map
+&nbsp;
+&nbsp;
+      </div>
+    </li>
+    <li class="scroll_item_table">
+      <a href="#coursemap" class="scroll_item_inr_table">
+        <div class="scroll_item_thum_table">
+          <%= image_tag "map.jpg", :class =>'img-scroll_table' %>
+        </div>
+        <div class="scroll_item_info_table">
+          <h4 class="scroll_item_ttl_table"><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h4>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<div id="contents" class="clearfix">
+  <div id="mains">
+    <article>
+
+      <%# 駅 %>
+      <div class="panel panel-default ii">
+        <div id="spot2">
+          <h2><span class="article-icon">❶</span>&nbsp;銀座駅A4出口</h2>
+        </div>
+        <%# 諸情報、リンク等 %>
+        <%# GoogleMapボタン %>
+          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @article.station %>駅'));return false;" href="javascript:;" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+          </a>
+        <div class="panel-body">
+          <%# 横スクロールコンテンツ %>
+          <div class="horizontal_scroll_wrap_content">
+            <ul class="scroll_lst_content">
+              <li class="scroll_item_content">
+                <a href="#spot1" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%# 駅の写真 %>
+                    <%= image_tag @article.snaps.third.image.url, :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">恵比寿駅西口待ち合わせ</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <%# スポット1%>
+      <div class="panel panel-default ii">
+        <div id="spot2">
+          <h2><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %></h2>
+        </div>
+        <%# 諸情報、リンク等 %>
+        <%# LINEボタン %>
+        <div class="visible-xs">
+          <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+            <span class="insta"><i class="fa fa-weixin icon"></i></span>
+          </a>
+        </div>
+        <%# Instagramボタン %>
+        <% if @spot1.introduction %>
+          <a href="<%= @spot1.introduction %>"" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-instagram icon"></i></span>
+          </a>
+        <% end %>
+        <%# Rettyボタン %>
+        <% if @spot1.retty %>
+          <a href="<%= @spot1.retty %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+          </a>
+        <% end %>
+        <%# GoogleMapボタン %>
+        <% if @spot1.address %>
+          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+          </a>
+        <% end %>
+        <%# 電話ボタン %>
+        <div class="visible-xs">
+          <% if @spot1.phone %>
+            <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-right">
+              <span class="insta"><i class="fa fa-phone icon"></i></span>
+            </a>
+          <% end %>
+        </div>
+        <%# 公式サイトボタン %>
+        <% if @spot1.browser %>
+          <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-right">
+            <span class="insta"><i class="fa fa-globe icon"></i></span>
+          </a>
+        <% end %>
+        <div class="panel-body">
+          <%# 横スクロールコンテンツ %>
+          <div class="horizontal_scroll_wrap_content">
+            <ul class="scroll_lst_content">
+              <li class="scroll_item_content">
+                <a href="#spot1" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures.first.image.url, :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
+                  </div>
+               </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot1" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures.second.image.url, :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot3" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures.third.image.url, :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot4" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures.fourth.image.url, :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
+                  </div>
+                </a>
+              </li>
+              <li class="scroll_item_content">
+                <a href="#spot4" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%# spotから利用する写真を番号で指定 %>
+                    <%= image_tag @spot1.pictures.fifth.image.url, :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content">
+                    <p class="scroll_item_ttl_content">1周は約15分間で、東京名所の東京タワーやスカイツリー、東京ゲートブリッジとレインボーブリッジなどが一望できます</p>
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <%# チェックポイント %>
+          <h4>スポットのスポットのスポット①</h4>
+          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。
+          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+        </div>
+      </div>
+
+
+
+      <%# スポット(map) %>
+      <coursemap>
+        <div class="panel panel-default ii">
+          <div id="coursemap">
+            <h2><i class="fa fa-map article-icon" aria-hidden="true"></i>&nbsp;デートマップ</h2>
+          </div>
+          <div id="map"></div>
+        </div>
+      </coursemap>
+
+    </article>
+  </div><!-- #mains -->
+
+  <div id="side">
+    <div class="mokuji">
+    </div><!-- .mokuji -->
+  </div><!-- #side -->
+
+</div><!-- /.contents -->
+
+<%# フッター %>
+<footer>
+</footer>
+
+<%# googlemapのJS %>
+<script>
+function initMap() {
+    // ルート検索の条件
+    var request = {
+        origin: new google.maps.LatLng(35.681382,139.766084), // 出発地
+        destination: new google.maps.LatLng(34.73348,135.500109), // 目的地
+        waypoints: [ // 経由地点(指定なしでも可)
+            { location: new google.maps.LatLng(35.630152,139.74044) },
+            { location: new google.maps.LatLng(35.507456,139.617585) },
+            { location: new google.maps.LatLng(35.25642,139.154904) },
+            { location: new google.maps.LatLng(35.103217,139.07776) },
+            { location: new google.maps.LatLng(35.127152,138.910627) },
+            { location: new google.maps.LatLng(35.142365,138.663199) },
+            { location: new google.maps.LatLng(34.97171,138.38884) },
+            { location: new google.maps.LatLng(34.769758,138.014928) },
+        ],
+        tra
