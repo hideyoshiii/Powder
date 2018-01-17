@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get "articles/10" => "articles#show10"
   get "articles/11" => "articles#show11"
   get "articles/12" => "articles#show12"
+  get "articles/13" => "articles#show13"
+  get "articles/14" => "articles#show14"
 
 
   get "questions/men" => "questions#men"
