@@ -35,7 +35,7 @@
     </li>
     <li class="scroll_item_icon_table">
       <div class="scroll_item_icons_table">
-        <%= image_tag "walk.png", :class =>'img-icon_table' %><br>2min<br>&nbsp;<br>&nbsp;
+        <%= image_tag "walk.png", :class =>'img-icon_table' %><br><%# $$$移動時間を記入 %>2min<br>&nbsp;<br>&nbsp;
       </div>
     </li>
     <li class="scroll_item_table">
@@ -48,13 +48,18 @@
         </div>
       </a>
     </li>
+    <li class="scroll_item_icon_table">
+      <div class="scroll_item_icons_table">
+        <%= image_tag "walk.png", :class =>'img-icon_table' %><br><%# $$$移動時間を記入 %>2min<br>&nbsp;<br>&nbsp;
+      </div>
+    </li>
     <li class="scroll_item_table">
       <a href="#spot2" class="scroll_item_inr_table">
         <div class="scroll_item_thum_table">
           <%= image_tag @spot2.pictures.first.image.url, :class =>'img-scroll_table' %>
         </div>
         <div class="scroll_item_info_table">
-          <h4 class="scroll_item_ttl_table"><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %><span class="pull-right"><%# $$$予算を記入 %>¥4,500&nbsp;</span></h4>
+          <h4 class="scroll_item_ttl_table"><span class="article-icon">❷</span>&nbsp;<%= @spot2.title %><span class="pull-right"><%# $$$予算を記入 %>¥4,500&nbsp;</span></h4>
         </div>
       </a>
     </li>
