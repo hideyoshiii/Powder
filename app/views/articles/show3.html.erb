@@ -10,6 +10,12 @@
   <%= image_tag @article.snaps.second.image.url, :class =>'img-article-show' %>
   <h3><%= @article.title %></h3> 
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @article.city %></h4>
+  <%# クリップボタン %>
+  <h2>
+  <span id="clip-of-<%= @article.id %>">
+    <%= render partial: 'clips/clip', locals: { article: @article, clips: @clips } %>
+  </span>
+  </h2>
 </div>
 
 <%# 横スクロール目次 %>
@@ -101,7 +107,7 @@
         <%# 諸情報、リンク等 %>
         <%# LINEボタン %>
         <div class="visible-xs">
-          <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+          <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="fl_inst pull-left">
             <span class="insta"><i class="fa fa-weixin icon"></i></span>
           </a>
         </div>

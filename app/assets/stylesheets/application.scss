@@ -203,14 +203,6 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
     color: #6161F2;
 }
 
-.clip-btn{
-	color: #24B324;
-}
-
-.clip-btn-un{
-	color: #8899a6;
-}
-
 
 
 .strftime{
@@ -2509,6 +2501,22 @@ display: inline-block;
   opacity: 0.7;
   }
 
+  .frame h2 {
+  position: absolute;
+  top: 85%;
+  left: 90%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0px -90px 0px;
+  color:white;
+  font-size:21px;
+  font-weight: 300;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  opacity: 0.8;
+  }
+
   @media only screen and (max-width: 1200px) {
 .frame h3 {
   position: absolute;
@@ -2586,6 +2594,7 @@ display: inline-block;
   font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   opacity: 0.8;
   }
+
 }
 
 
@@ -2741,6 +2750,7 @@ display: inline-block;
   }
 
 
+//showページのいいねボタン
 .fab1-show {/*円*/
   	display:block;
     width: 40px;
@@ -2829,6 +2839,64 @@ display: inline-block;
 @media (max-width: 768px){
   	.img-article-result{width:100%;height: 100vh;display: inline-block; margin-top:-50px;
     box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.8);}
+}
+
+
+//クリップボタン
+#fab4 {/*円*/
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: #FAFAFA;
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.3);
+}
+
+#fab4:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.8), 0 1px 10px 0 rgba(0,0,0,.8), 0 2px 4px -1px rgba(0,0,0,.8);}
+
+
+#fab4 i {/*アイコン*/
+  color: #53331c;
+  line-height: 50px;
+  vertical-align: middle;
+  font-size: 24px;
+  transition: 0.2s;
+}
+
+#fab4:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+}
+
+#fab5 {/*円*/
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: #53331c;
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.3);
+}
+
+#fab5:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.8), 0 1px 10px 0 rgba(0,0,0,.8), 0 2px 4px -1px rgba(0,0,0,.8);}
+
+
+#fab5 i {/*アイコン*/
+  color: white;
+  line-height: 50px;
+  vertical-align: middle;
+  font-size: 24px;
+  transition: 0.2s;
+}
+
+#fab5:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
 }
 
 

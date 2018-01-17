@@ -1,9 +1,13 @@
 <% if Clip.find_by(user_id: current_user.id, article_id: @article.id) %>
   <%= link_to "/clips/#{@article.id}/destroy", method: :post, id: "clip-button", remote: true do %>
-    <i class="fa fa-paperclip clip-btn " aria-hidden="true"></i>
+  	<div id="fab5">
+    <i class="fa fa-paperclip " aria-hidden="true"></i>
+    </div>
   <% end %>
 <% else %>
   <%= link_to "/clips/#{@article.id}/create", method: :post, id: "clip-button", remote: true do %>
-    <i class="fa fa-paperclip clip-btn-un " aria-hidden="true"></i>
+  	<div id="fab4">
+    <i class="fa fa-paperclip " aria-hidden="true"></i>
+    </div>
   <% end %>
 <% end %>

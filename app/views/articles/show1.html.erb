@@ -10,6 +10,12 @@
   <%= image_tag @article.snaps.second.image.url, :class =>'img-article-show' %>
   <h3><%= @article.title %></h3> 
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @article.city %></h4>
+  <%# クリップボタン %>
+  <h2>
+  <span id="clip-of-<%= @article.id %>">
+    <%= render partial: 'clips/clip', locals: { article: @article, clips: @clips } %>
+  </span>
+  </h2>
 </div>
 
 <%# 横スクロール目次 %>
@@ -101,7 +107,7 @@
         <%# 諸情報、リンク等 %>
         <%# LINEボタン %>
         <div class="visible-xs">
-          <a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
+          <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="fl_inst pull-left">
             <span class="insta"><i class="fa fa-weixin icon"></i></span>
           </a>
         </div>
@@ -193,25 +199,18 @@
 function initMap() {
     // ルート検索の条件
     var request = {
-        origin: new google.maps.LatLng(35.681382,139.766084), // 出発地
-        destination: new google.maps.LatLng(34.73348,135.500109), // 目的地
+        origin: new google.maps.LatLng(35.654985,139.744002), // 出発地
+        destination: new google.maps.LatLng(35.658581,139.745433), // 目的地
         waypoints: [ // 経由地点(指定なしでも可)
-            { location: new google.maps.LatLng(35.630152,139.74044) },
-            { location: new google.maps.LatLng(35.507456,139.617585) },
-            { location: new google.maps.LatLng(35.25642,139.154904) },
-            { location: new google.maps.LatLng(35.103217,139.07776) },
-            { location: new google.maps.LatLng(35.127152,138.910627) },
-            { location: new google.maps.LatLng(35.142365,138.663199) },
-            { location: new google.maps.LatLng(34.97171,138.38884) },
-            { location: new google.maps.LatLng(34.769758,138.014928) },
+            { location: new google.maps.LatLng(35.657424,139.748208) },
         ],
         travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
     };
 
     // マップの生成
     var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(35.681382,139.766084), // マップの中心
-        zoom: 15 // ズームレベル
+        center: new google.maps.LatLng(35.654985,139.744002), // マップの中心
+        zoom: 16 // ズームレベル
     });
 
     var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
