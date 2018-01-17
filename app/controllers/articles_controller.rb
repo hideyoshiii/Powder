@@ -58,6 +58,11 @@ class ArticlesController < ApplicationController
     @snap = Snap.new
   end
 
+  def snaps
+    @article = Article.find(params[:id])
+    @snaps = @article.snaps
+  end
+
   def show1
     @article = Article.find(1)
   end

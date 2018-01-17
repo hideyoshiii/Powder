@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   resources :snaps, only: [:create, :destroy]
   
   get "articles/result" => "articles#result"
-  get "articles/show" => "articles#show"
+  get 'articles/:id/snaps' => 'articles#snaps'
   get 'articles/:id/snaps/add' => 'articles#addsnaps'
   resources :articles, only: [:index, :new, :create, :edit, :update]
+  get "articles/show" => "articles#show"
   get "articles/1" => "articles#show1"
   get "articles/2" => "articles#show2"
   get "articles/3" => "articles#show3"
@@ -41,6 +42,8 @@ Rails.application.routes.draw do
   get "users/:id/want" => "users#want"
   get "users/:id/done" => "users#done"
   get "users/:id/spot" => "users#spot"
+  get "users/:id/clip" => "users#clip"
+  get "users/:id/article" => "users#article"
 
 
   post "likes/:spot_id/create1" => "likes#create1"

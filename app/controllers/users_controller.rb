@@ -21,4 +21,14 @@ class UsersController < ApplicationController
     @spots = Spot.where(user_id: @user.id)
   end
 
+  def clip
+    @user = User.find(params[:id]) 
+    @clips = Clip.where(user_id: @user.id)
+  end
+
+  def article 
+    @user = User.find(params[:id]) 
+    @articles = Article.where(user_id: @user.id)
+  end
+
 end

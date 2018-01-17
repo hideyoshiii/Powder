@@ -6,14 +6,12 @@
   <%= link_to edit_user_registration_path(current_user) do %>
     <div class="img-show black">
       <%= image_tag @user.image, :class => "img-circle profile-1" %>
-    <br>
     <%= @user.nickname %>
     </div>
   <% end %>
 <% else %>
   <div class="img-show">
     <%= image_tag @user.image, :class => "img-circle profile-1" %>
-    <br>
     <%= @user.nickname %>
   </div>
 <% end %>
@@ -25,82 +23,193 @@
 
 <% want_count = Like.where(user_id: @user.id, kind: 1).count %>
 <% done_count = Like.where(user_id: @user.id, kind: 2).count %>
-<% add_count = Spot.where(user_id: @user.id).count %>
+<% spot_count = Spot.where(user_id: @user.id).count %>
+<% clip_count = Clip.where(user_id: @user.id).count %>
+<% article_count = Article.where(user_id: @user.id).count %>
 
 
-<div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading like-font-user-show">
-        <%= link_to "/users/#{@user.id}/want" do %>
-        <div class="black">
-          <i class="fa fa-gratipay want-btn" aria-hidden="true"></i> <%= want_count %> want
-            <div class="pull-right">
-              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+
+
+
+
+
+<%# デモ %>
+<div class="hidden-xs hidden-sm">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <div class="row">
+        <div class="col-md-6">
+          <%= link_to "/users/#{@user.id}/want" do %>
+            <div class="box17">
+              <p>
+                <div class="fab2">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </div>
+              </p>
+              <p class="black"><%= want_count %>want</p>
             </div>
+          <% end %>
         </div>
-        <% end %>
+        <div class="col-md-6">
+          <%= link_to "/users/#{@user.id}/done" do %>
+            <div class="box17">
+              <p>
+                <div class="fab3">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                </div>
+              </p>
+              <p class="black"><%= done_count %>done</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xs-6">
+          <%= link_to "/users/#{@user.id}/spot" do %>
+            <div class="box17">
+              <p>
+                <div class="fab1">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+              </p>
+              <p class="black"><%= spot_count %>addspot</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <%= link_to "/users/#{@user.id}/clip" do %>
+            <div class="box17">
+              <p>
+                <div class="fab1">
+                  <i class="fa fa-paperclip" aria-hidden="true"></i>
+                </div>
+              </p>
+              <p class="black"><%= clip_count %>clip</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <%= link_to "/users/#{@user.id}/article" do %>
+            <div class="box17">
+              <p>
+                <div class="fab1">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+              </p>
+              <p class="black"><%= article_count %>addarticle</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="">
+            <div class="box17">
+              <p>
+                <%= image_tag "eagle.png", :class =>'img-eagle' %>
+              </p>
+              <p class="black">ワッシー</p>
+            </div>
+          </a>
+        </div>
       </div>
-      <% @wants.each do |want| %>
-      <% spot = Spot.find_by(id: want.spot_id) %>
-      <%= link_to spot_path(spot) do %>
-      <%= image_tag spot.photo.url, :class =>'like-img-user-show' %>
-      <% end %>
-      <% end %>
     </div>
   </div>
 </div>
 
-<br>
+<div class="visible-xs visible-sm">
+  <div class="row">
+    <div class="col-xs-6 col-sm-6">
+      <%= link_to "/users/#{@user.id}/want" do %>
+        <div class="box17">
+          <p>
+            <div class="fab2">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            </div>
+          </p>
+          <p class="black"><%= want_count %>want</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <%= link_to "/users/#{@user.id}/done" do %>
+        <div class="box17">
+          <p>
+            <div class="fab3">
+              <i class="fa fa-check" aria-hidden="true"></i>
+            </div>
+          </p>
+          <p class="black"><%= done_count %>done</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <%= link_to "/users/#{@user.id}/spot" do %>
+        <div class="box17">
+          <p>
+            <div class="fab1">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </p>
+          <p class="black"><%= spot_count %>addspot</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <%= link_to "/users/#{@user.id}/clip" do %>
+        <div class="box17">
+          <p>
+            <div class="fab1">
+              <i class="fa fa-paperclip" aria-hidden="true"></i>
+            </div>
+          </p>
+          <p class="black"><%= clip_count %>clip</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <%= link_to "/users/#{@user.id}/article" do %>
+        <div class="box17">
+          <p>
+            <div class="fab1">
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            </div>
+          </p>
+          <p class="black"><%= article_count %>addarticle</p>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-6 col-sm-6">
+      <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="">
+        <div class="box17">
+          <p>
+            <%= image_tag "eagle.png", :class =>'img-eagle' %>
+          </p>
+          <p class="black">ワッシー</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
 <div class="row">
-<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8">
-<div class="panel panel-default">
-<div class="panel-heading like-font-user-show">
-  <%= link_to "/users/#{@user.id}/done" do %>
-  <div class="black">
-  <i class="fa fa-check-circle done-btn" aria-hidden="true"></i> <%= done_count %> done
-  <div class="pull-right">
-    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+  <div class="text-center">
+    <div class="black">
+      
+    </div>
+    <div class="black">
+      A.Dateとは
+    </div>
+    <div class="black">
+      ワッシーの使い方
+    </div>
+    <div class="black">
+      利用規約
+    </div>
+    <div class="black">
+      プライバシーポリシー
+    </div>
+    <div class="black">
+      お問い合わせ
+    </div>
   </div>
-  </div>
-  <% end %>
 </div>
-<% @dones.each do |done| %>
-<% spot = Spot.find_by(id: done.spot_id) %>
-<%= link_to spot_path(spot) do %>
-<%= image_tag spot.photo.url, :class =>'like-img-user-show' %>
-<% end %>
-<% end %>
-</div>
-</div>
-</div>
-
-<br>
-
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8">
-<div class="panel panel-default">
-<div class="panel-heading like-font-user-show">
-  <%= link_to "/users/#{@user.id}/spot" do %>
-  <div class="black">
-  <i class="fa fa-plus-circle plus-btn" aria-hidden="true"></i> <%= add_count %> add
-  <div class="pull-right">
-    <i class="fa fa-chevron-right" aria-hidden="true"></i>
-  </div>
-  </div>
-  <% end %>
-</div>
-<% @spots.each do |spot| %>
-<%= link_to spot_path(spot) do %>
-<%= image_tag spot.photo.url, :class =>'like-img-user-show' %>
-<% end %>
-<% end %>
-</div>
-</div>
-</div>
-
-<br>
 
 
  
