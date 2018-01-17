@@ -3,9 +3,9 @@
 <mains class="" id="main-collapse">
 
 <%# $$$使うスポットの名前を入力してスポットを定義 %>
-<% @spot1 = Spot.find_by(title: "アナログ カフェ ラウンジ トーキョー") %>
+<% @spot1 = Spot.find_by(title: "恵比寿ガーデンプレイス") %>
 <%# $$$使うスポットの名前を入力してスポットを定義 %>
-<% @spot2 = Spot.find_by(title: "Bar風木") %>
+<% @spot2 = Spot.find_by(title: "恵比寿ガーデンプレイス") %>
 
 <%# アイキャッチとタイトル %>
 <div class="frame">
@@ -64,8 +64,10 @@
       </a>
     </li>
     <li class="scroll_item_icon_table">
-      <div class="scroll_item_icons_table">
-        <%= image_tag "map.png", :class =>'img-icon_table' %><br>map<br>&nbsp;<br>&nbsp;
+      <div class="scroll_item_inr_table">
+        <div class="scroll_item_icons_table">
+          <%= image_tag "map.png", :class =>'img-icon_table' %><br>map<br>&nbsp;<br>&nbsp;
+        </div>
       </div>
     </li>
     <li class="scroll_item_table">

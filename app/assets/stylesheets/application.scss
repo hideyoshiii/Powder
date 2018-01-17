@@ -2108,7 +2108,8 @@ footer p {
 }
 
 .scroll_item_inr_table {
-    display: block;
+    display: inline-block; /* インラインブロック化 */
+    vertical-align: top;   /* 上端を揃える */
 }
 
 .scroll_item_info_table {
@@ -2124,7 +2125,7 @@ footer p {
 }
 
 .scroll_item_icon_table {
-	margin-left: -30px;
+	margin-left: 0px;
     margin-right: 0px;
     display: inline-block;
     width: 60px;
@@ -2132,6 +2133,7 @@ footer p {
 }
 
 .scroll_item_icons_table {
+	padding:40px 0px;
     text-align: center;
     font-size:15px;
 }
@@ -2176,7 +2178,8 @@ footer p {
 }
 
 .scroll_item_inr_table {
-    display: block;
+    display: inline-block; /* インラインブロック化 */
+    vertical-align: top;   /* 上端を揃える */
 }
 .scroll_item_info_table {
     white-space: normal;
@@ -2190,7 +2193,7 @@ footer p {
 }
 
 .scroll_item_icon_table {
-	margin-left: -20px;
+	margin-left: 0px;
     margin-right: 0px;
     display: inline-block;
     width: 50px;
@@ -2198,6 +2201,7 @@ footer p {
 }
 
 .scroll_item_icons_table {
+	padding:40px 0px;
     text-align: center;
     font-size:13px;
 }
@@ -2243,7 +2247,8 @@ footer p {
 }
 
 .scroll_item_inr_table {
-    display: block;
+    display: inline-block; /* インラインブロック化 */
+    vertical-align: top;   /* 上端を揃える */
 }
 .scroll_item_info_table {
     white-space: normal;
@@ -2257,7 +2262,7 @@ footer p {
 }
 
 .scroll_item_icon_table {
-	margin-left: -20px;
+	margin-left: 0px;
     margin-right: 0px;
     display: inline-block;
     width: 50px;
@@ -2265,6 +2270,7 @@ footer p {
 }
 
 .scroll_item_icons_table {
+	padding:40px 0px;
     text-align: center;
     font-size:13px;
 }
