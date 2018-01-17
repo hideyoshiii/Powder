@@ -1,3 +1,5 @@
 $("#like-of-<%= @spot.id %>").html("<%= j(render partial: 'likes/like', locals: { spot: @spot}) %>")
 
-$("#show-of-<%= @spot.id %>").html("<%= j(render partial: 'likes/show', locals: { spot: @spot}) %>")
+$("#pc-of-<%= @spot.id %>").html("<%= j(render partial: 'likes/pc', locals: { spot: @spot}) %>")
+
+$("#sp-of-<%= @spot.id %>").html("<%= j(render partial: 'likes/sp', locals: { spot: @spot}) %>")
