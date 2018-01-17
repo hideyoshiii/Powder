@@ -16,9 +16,11 @@
       <div class="grid-item iii">
         <%= link_to article_path(article) do %>
           <%= image_tag article.snaps.second.image.url, :class =>'img-responsive' %>
-          <h4 class="black img-show title-font-index"><%= article.title %></h4>
-          <div class="img-show prefecture-font-index">
-            <span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= article.city %></span>
+          <div class="black title-font-index">
+            <%= article.title %>
+          </div>
+          <div class="prefecture-font-index">
+            <i class="fa fa-map-marker" aria-hidden="true"></i><%= article.city %>
           </div>
         <% end %> 
       </div>
