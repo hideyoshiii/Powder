@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
+  get "/adate" => "details#adate"
+  get "/eagle" => "details#eagle"
+  get "/terms" => "details#terms"
+  get "/policy" => "details#policy"
+
   get "spots/result" => "spots#result"
   get "spots/rank" => "spots#rank"
   get 'spots/:id/pictures' => 'spots#pictures'

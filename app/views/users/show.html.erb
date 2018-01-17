@@ -193,21 +193,31 @@
     <div class="black">
       
     </div>
-    <div class="black">
-      A.Dateとは
-    </div>
-    <div class="black">
-      ワッシーの使い方
-    </div>
-    <div class="black">
-      利用規約
-    </div>
-    <div class="black">
-      プライバシーポリシー
-    </div>
-    <div class="black">
-      お問い合わせ
-    </div>
+    <%= link_to adate_path do %>
+      <div class="black">
+        A.Dateとは
+      </div>
+    <% end %>
+    <%= link_to eagle_path do %>
+      <div class="black">
+        ワッシーの使い方
+      </div>
+    <% end %>
+    <%= link_to terms_path do %>
+      <div class="black">
+        利用規約
+      </div>
+    <% end %>
+    <%= link_to policy_path do %>
+      <div class="black">
+        プライバシーポリシー
+      </div>
+    <% end %>
+    <a href="mailto:powder.date@gmail.com?subject=お問い合わせ">
+      <div class="black">
+        お問い合わせ
+      </div>
+    </a>
   </div>
 </div>
 
