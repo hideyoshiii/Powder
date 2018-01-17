@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get "articles/6" => "articles#show6"
   get "articles/7" => "articles#show7"
   get "articles/8" => "articles#show8"
+  get "articles/9" => "articles#show9"
 
 
   get "questions/men" => "questions#men"
