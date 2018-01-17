@@ -14,7 +14,7 @@
     <% @articles.each do |article| %>
       <div class="grid-item iii">
         <%= link_to "/articles/#{article.id}/snaps" do %>
-          <%= image_tag article.snaps.second.image.url, :class =>'img-responsive' %>
+          <%= image_tag article.snaps.first.image.url, :class =>'img-responsive' %>
           <div class="black title-font-index">
             <%= article.title %>
           </div>
