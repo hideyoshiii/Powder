@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "articles/3" => "articles#show3"
   get "articles/4" => "articles#show4"
   get "articles/5" => "articles#show5"
+  get "articles/6" => "articles#show6"
 
 
   get "questions/men" => "questions#men"
