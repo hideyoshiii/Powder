@@ -6,166 +6,156 @@
 
 	<%# PCの時 %>
   	<div class="hidden-xs hidden-sm col-md-6">
-  		<br>
-
-  		
-  	<%= link_to "/spots/#{@spot.id}/pictures" do %>
-  		<div class="example2">
-    	<%= image_tag @spot.pictures.first.image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
-    	<% pictures_count = Picture.where(spot_id: @spot.id).count %>
-    	<p><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %></p> 
-    	</div>
-    <% end %>
-
-  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
-	  	<div class="part_line black">
-			<i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
-		</div>
-	<% end %>
-  	<br><br><br>
-
-
-
-
-
-
+  	<br>
+		<%# 写真 %>
+	  	<%= link_to "/spots/#{@spot.id}/pictures" do %>
+	  		<div class="example2">
+	    	<%= image_tag @spot.pictures.first.image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
+	    	<% pictures_count = Picture.where(spot_id: @spot.id).count %>
+	    	<p><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %></p> 
+	    	</div>
+	    <% end %>
+	    <%# 写真を追加するへのリンク %>
+	  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
+		  	<div class="part_line black">
+				<i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
+			</div>
+		<% end %>
+	  	<br><br><br>
+	  	<%# wantdoneボタン %>
 	    <span id="pc-of-<%= @spot.id %>">
 	    	<%= render partial: 'likes/pc', locals: { spot: @spot, likes: @likes } %>
 	  	</span>
 
-
-	  	
-
-
 	  	<br><br>
 	  	<div class="img-show">
-
+	  		<%# facebookボタン %>
 		    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
-
+		    <%# twitterボタン %>
 			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+			<%# lineボタン %>
 			<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
 			<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
-			</div>
-			<br><br>
-
+		</div>
+		<br><br>
+		<%# 投稿者 %>
+		<% if (user_signed_in?) %>
 			<% if current_user.authority == "manager" %>
-			<% if @spot.user == current_user %>
-				<br><br>
-				<div class="row">
-					<div class="col-md-6">
-						<%= link_to user_path(@spot.user) do %>
-							<div class="black pull-right">
-								<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
-								&nbsp;&nbsp;<%= @spot.user.nickname %>
-							</div>
-						<% end %>
-					</div>
-					<div class="col-md-6">
-						<div class="pull-left">
-							<%= link_to edit_spot_path(@spot) do %>
-							<div class="btn btn-default btn-sm">
-							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>  編集する
-							</div>
+				<% if @spot.user == current_user %>
+					<br><br><br>
+					<div class="row">
+						<div class="col-md-6">
+							<%= link_to user_path(@spot.user) do %>
+								<div class="black pull-right">
+									<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
+									&nbsp;&nbsp;<%= @spot.user.nickname %>
+								</div>
 							<% end %>
 						</div>
+						<div class="col-md-6">
+							<div class="pull-left">
+								<%= link_to edit_spot_path(@spot) do %>
+								<div class="btn btn-default btn-sm">
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>  編集する
+								</div>
+								<% end %>
+							</div>
+						</div>
 					</div>
-				</div>
-			<% else %>
-		  	<br><br>
-				<div class="text-center">		
-					<%= link_to user_path(@spot.user) do %>
-						
-							<span style="color:black;font-size:12px;">post by&nbsp;&nbsp;</span>
-						<span class="black">
-							<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
-							&nbsp;&nbsp;<%= @spot.user.nickname %>
-						</span>
-					<% end %>
-				</div>
-			<% end %>
-			<% end %>
-
-	  	</div>
-
-	  	<div class="hidden-xs hidden-sm col-md-6">
-	    	<h2><%= @spot.title %></h2>
-	    
-	    	<p><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
-	    
-	    	<br>
-	    	<h4>Description</h4>
-
-	    	<% if @spot.description %>
-	    		<p><%= @spot.description %></p>
-	    	<% end %>
-
-	    	
-
-
-	    	<br><br>
-	    	<h4>Tags</h4>
-
-	    	<% @tags.each do |tag| %>
-				<%= link_to search_tags_index_path(tag: tag) do %>
-					<div class="btn btn-default btn-sm margin-btn">
-					<%= tag %>
+				<% else %>
+			  	<br><br><br>
+					<div class="text-center">		
+						<%= link_to user_path(@spot.user) do %>
+							
+								<span style="color:black;font-size:12px;">post by&nbsp;&nbsp;</span>
+							<span class="black">
+								<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
+								&nbsp;&nbsp;<%= @spot.user.nickname %>
+							</span>
+						<% end %>
 					</div>
 				<% end %>
-				&nbsp;
 			<% end %>
-
-
-					
-			
-			
-			
-					
-				
-
-			<br><br><br>
-	    	<h4>More</h4>
-
-	    	<a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-weixin icon"></i></span>
-	        </a>
-	        <% if @spot.browser %>
-		        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-globe icon"></i></span>
-		        </a>
-	        <% end %>
-	        <% if @spot.phone %>
-		        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-phone icon"></i></span>
-		        </a>
-	        <% end %>
-	        <% if @spot.address %>
-		        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-		        </a>
-	        <% end %>
-	        <% if @spot.retty %>
-		        <a href="<%= @spot.retty %>" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-		        </a>
-	        <% end %>
-	        <% if @spot.introduction %>
-		        <a href="<%= @spot.introduction %>" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-instagram icon"></i></span>
-		        </a>
-	        <% end %>
-
-
-			<% if @spot.price %>
-			<br><br><br>
-	    	<h4>Movie</h4>
-		  		<div class="youtube-container">
-				  <iframe width=100% height="315" src="<%= "https://www.youtube.com/embed/#{@spot.price}?rel=0&amp;showinfo=0" %>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+		<% end %>
+  	</div>
+  	<%# 右側コンテンツ %>
+  	<div class="hidden-xs hidden-sm col-md-6">
+  		<%# タイトル %>
+    	<h2><%= @spot.title %></h2>
+    	<%# 都道府県、エリア %>
+    	<p><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
+    	<br>
+    	<%# 説明 %>
+    	<h4>Description</h4>
+    	<% if @spot.description %>
+    		<p><%= @spot.description %></p>
+    	<% end %>
+    	<br><br>
+    	<%# タグ %>
+    	<h4>Tags</h4>
+    	<% @tags.each do |tag| %>
+			<%= link_to search_tags_index_path(tag: tag) do %>
+				<div class="btn btn-default btn-sm margin-btn">
+				<%= tag %>
 				</div>
 			<% end %>
+			&nbsp;
+		<% end %>	
+		<br><br><br>
+		<%# more %>
+    	<h4>More</h4>
+    	<%# more %>
+    	<%# 公式サイト %>
+        <% if @spot.browser %>
+	        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-globe icon"></i></span>
+	        </a>
+        <% end %>
+        <%# 電話番号 %>
+        <% if @spot.phone %>
+	        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-phone icon"></i></span>
+	        </a>
+        <% end %>
+        <%# googlemap %>
+        <% if @spot.address %>
+	        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+	        </a>
+        <% end %>
+        <%# 食べログ %>
+        <% if @spot.retty %>
+	        <a href="<%= @spot.retty %>" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+	        </a>
+        <% end %>
+        <%# instagram %>
+        <% if @spot.introduction %>
+	        <a href="<%= @spot.introduction %>" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-instagram icon"></i></span>
+	        </a>
+        <% end %>
+        <%# 動画 %>
+		<% if @spot.price %>
+		<br><br><br>
+    	<h4>Movie</h4>
+	  		<div class="youtube-container">
+			  <iframe width=100% height="315" src="<%= "https://www.youtube.com/embed/#{@spot.price}?rel=0&amp;showinfo=0" %>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+			</div>
+		<% end %>
+	</div>
 
 
- 	</div>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -173,8 +163,7 @@
 
  	<%# スマホ・タブレットの時 %>
  	<div class="visible-xs col-xs-12 visible-sm co-sm-12">
-	    
- 		
+	    <%# 写真 %>
  		<%= link_to "/spots/#{@spot.id}/pictures" do %>
  		<div class="example2">
 	    <%= image_tag @spot.pictures.first.image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
@@ -182,145 +171,129 @@
     	<p><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %></p> 
     	</div>
 	    <% end %>
-
+	    <%# 写真を追加するへのリンク %>
 	  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
 		  	<div class="part_line black">
 				<i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
 			</div>
 		<% end %>
 	  	<br><br>
-
-
+	  	<%# タイトル %>
 	    <div class="title-spot-show"><%= @spot.title %></div>
-	    
+	    <%# 都道府県、エリア %>
 	    <div class="prefecture-spot-show">
 	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]
-	    </div>
-	    
+	    </div> 
 	    <br>
-
+	    <%# wantdoneボタン %>
 	    <span id="sp-of-<%= @spot.id %>">
 	    	<%= render partial: 'likes/sp', locals: { spot: @spot, likes: @likes } %>
 	  	</span>
-
-
-
-
 	  	<br><br>
 	  	<div class="img-show">
-
+	  		<%# facebookボタン %>
 		    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
-
+		    <%# twitterボタン %>
 			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
+			<%# lineボタン %>
 			<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
 			<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
-			</div>
-			<br><br>
-
-	  	
-
-	  	
-	    	
-	    	<h4>Description</h4>
-
-	    	<% if @spot.description %>
-	    		<p><%= @spot.description %></p>
-	    	<% end %>
-
-
-	    	<br>
-	    	<h4>Tags</h4>
-
-	    	<% @tags.each do |tag| %>
-				<%= link_to search_tags_index_path(tag: tag) do %>
-					<div class="btn btn-default btn-sm margin-btn">
-					<%= tag %>
-					</div>
-				<% end %>
-				&nbsp;
-			<% end %>
-
-
-					
-			
-			
-
-			<br><br>
-	    	<h4>More</h4>
-
-	    	<a href="http://line.me/ti/p/%40iwr5009y" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-weixin icon"></i></span>
-	        </a>
-	        <% if @spot.browser %>
-		        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-globe icon"></i></span>
-		        </a>
-		    <% end %>
-	        <% if @spot.phone %>
-		        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-phone icon"></i></span>
-		        </a>
-	        <% end %>
-	        <% if @spot.address %>
-		        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-		        </a>
-	        <% end %>
-	        <% if @spot.retty %>
-		        <a href="<%= @spot.retty %>" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-		        </a>
-	        <% end %>
-	        <% if @spot.introduction %>
-		        <a href="<%= @spot.introduction %>" target="_blank" class="fl_inst pull-left">
-		          <span class="insta"><i class="fa fa-instagram icon"></i></span>
-		        </a>
-	        <% end %>
-
-			<% if @spot.price %>
-			<br><br><br>
-	    	<h4>Movie</h4>
-		  		<div class="youtube-container">
-				  <iframe width=100% height="250px" src="<%= "https://www.youtube.com/embed/#{@spot.price}?rel=0&amp;showinfo=0" %>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+		</div>
+		<br><br>
+    	<%# 説明 %>
+    	<h4>Description</h4>
+    	<% if @spot.description %>
+    		<p><%= @spot.description %></p>
+    	<% end %>
+    	<br>
+    	<%# タグ %>
+    	<h4>Tags</h4>
+    	<% @tags.each do |tag| %>
+			<%= link_to search_tags_index_path(tag: tag) do %>
+				<div class="btn btn-default btn-sm margin-btn">
+				<%= tag %>
 				</div>
 			<% end %>
-
+			&nbsp;
+		<% end %>
+		<br><br>
+		<%# more %>
+    	<h4>More</h4>
+    	<%# 公式サイト %>
+        <% if @spot.browser %>
+	        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-globe icon"></i></span>
+	        </a>
+	    <% end %>
+	    <%# 電話番号 %>
+        <% if @spot.phone %>
+	        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-phone icon"></i></span>
+	        </a>
+        <% end %>
+        <%# googlemap %>
+        <% if @spot.address %>
+	        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+	        </a>
+        <% end %>
+        <%# 食べログ %>
+        <% if @spot.retty %>
+	        <a href="<%= @spot.retty %>" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+	        </a>
+        <% end %>
+        <%# instagram %>
+        <% if @spot.introduction %>
+	        <a href="<%= @spot.introduction %>" target="_blank" class="fl_inst pull-left">
+	          <span class="insta"><i class="fa fa-instagram icon"></i></span>
+	        </a>
+        <% end %>
+        <%# 動画 %>
+		<% if @spot.price %>
+		<br><br><br>
+    	<h4>Movie</h4>
+	  		<div class="youtube-container">
+			  <iframe width=100% height="250px" src="<%= "https://www.youtube.com/embed/#{@spot.price}?rel=0&amp;showinfo=0" %>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+			</div>
+		<% end %>
+		<%# 投稿者 %>
+		<% if (user_signed_in?) %>
 			<% if current_user.authority == "manager" %>
-			<% if @spot.user == current_user %>
-				<br><br>
-				<div class="row">
-					<div class="col-xs-6 col-sm-6">
+				<% if @spot.user == current_user %>
+					<br><br>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6">
+							<%= link_to user_path(@spot.user) do %>
+								<div class="black pull-right">
+									<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
+									&nbsp;&nbsp;<%= @spot.user.nickname %>
+								</div>
+							<% end %>
+						</div>
+						<div class="col-xs-6 col-md-6">
+							<div class="pull-left">
+								<%= link_to edit_spot_path(@spot) do %>
+								<div class="btn btn-default btn-sm">
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>  編集する
+								</div>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				<% else %>
+			  	<br><br>
+					<div class="img-show">
 						<%= link_to user_path(@spot.user) do %>
-							<div class="black pull-right">
+							<div class="black">
 								<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
 								&nbsp;&nbsp;<%= @spot.user.nickname %>
 							</div>
 						<% end %>
 					</div>
-					<div class="col-xs-6 col-md-6">
-						<div class="pull-left">
-							<%= link_to edit_spot_path(@spot) do %>
-							<div class="btn btn-default btn-sm">
-							<i class="fa fa-pencil-square-o" aria-hidden="true"></i>  編集する
-							</div>
-							<% end %>
-						</div>
-					</div>
-				</div>
-			<% else %>
-		  	<br><br>
-				<div class="img-show">
-					<%= link_to user_path(@spot.user) do %>
-						<div class="black">
-							<%= image_tag @spot.user.image, :class => "img-circle profile-2" %>
-							&nbsp;&nbsp;<%= @spot.user.nickname %>
-						</div>
-					<% end %>
-				</div>
+				<% end %>
 			<% end %>
-			<% end %>
-
+		<% end %>
  	</div>
 </div>
 
