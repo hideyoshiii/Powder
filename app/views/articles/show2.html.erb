@@ -106,7 +106,11 @@
       <%# スポット1 %>
       <div class="panel panel-default ii">
         <div id="spot1">
-          <h2><span class="article-icon">❷</span>&nbsp;<%= @spot1.title %></h2>
+          <h2>
+            <%= link_to spot_path(@spot1) do %>
+              <span class="article-icon">❷</span> <span class="black"><%= @spot1.title %></span>
+            <% end %>
+          </h2>
         </div>  
         <%# 諸情報、リンク等 %>
         <%# LINEボタン %>
