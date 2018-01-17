@@ -1,13 +1,19 @@
-<% if Clip.find_by(user_id: current_user.id, article_id: @article.id) %>
-  <%= link_to "/clips/#{@article.id}/destroy", method: :post, id: "clip-button", remote: true do %>
-  	<div id="fab5">
-    <i class="fa fa-paperclip " aria-hidden="true"></i>
-    </div>
+<% if user_signed_in? %>
+  <% if Clip.find_by(user_id: current_user.id, article_id: @article.id) %>
+    <%= link_to "/clips/#{@article.id}/destroy", method: :post, id: "clip-button", remote: true do %>
+    	<div id="fab5">
+      <i class="fa fa-paperclip " aria-hidden="true"></i>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to "/clips/#{@article.id}/create", method: :post, id: "clip-button", remote: true do %>
+    	<div id="fab4">
+      <i class="fa fa-paperclip " aria-hidden="true"></i>
+      </div>
+    <% end %>
   <% end %>
 <% else %>
-  <%= link_to "/clips/#{@article.id}/create", method: :post, id: "clip-button", remote: true do %>
-  	<div id="fab4">
+  <div id="fab5">
     <i class="fa fa-paperclip " aria-hidden="true"></i>
-    </div>
-  <% end %>
+  </div>
 <% end %>
