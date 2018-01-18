@@ -189,17 +189,7 @@
 	    <span id="sp-of-<%= @spot.id %>">
 	    	<%= render partial: 'likes/sp', locals: { spot: @spot, likes: @likes } %>
 	  	</span>
-	  	<br><br>
-	  	<div class="img-show">
-	  		<%# facebookボタン %>
-		    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
-		    <%# twitterボタン %>
-			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			<%# lineボタン %>
-			<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
-			<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
-		</div>
-		<br><br>
+	  	<br>
     	<%# 説明 %>
     	<h4>Description</h4>
     	<% if @spot.description %>
@@ -257,11 +247,22 @@
 			  <iframe width=100% height="250px" src="<%= "https://www.youtube.com/embed/#{@spot.price}?rel=0&amp;showinfo=0" %>" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 			</div>
 		<% end %>
+		<br><br>
+		<%# シェアボタン %>
+		<h4>Share</h4>
+  		<%# facebookボタン %>
+	    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
+	    <%# twitterボタン %>
+		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<%# lineボタン %>
+		<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
+		<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
+		<br><br>
 		<%# 投稿者 %>
 		<% if (user_signed_in?) %>
 			<% if current_user.authority == "manager" %>
 				<% if @spot.user == current_user %>
-					<br><br>
+					<br><br><br>
 					<div class="row">
 						<div class="col-xs-6 col-sm-6">
 							<%= link_to user_path(@spot.user) do %>
@@ -282,7 +283,7 @@
 						</div>
 					</div>
 				<% else %>
-			  	<br><br>
+			  	<br><br><br>
 					<div class="img-show">
 						<%= link_to user_path(@spot.user) do %>
 							<div class="black">
