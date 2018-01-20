@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
+  get "courses/search" => "courses#search"
+  get "courses/result" => "courses#result"
+
   get "/adate" => "details#adate"
   get "/eagle" => "details#eagle"
   get "/terms" => "details#terms"
