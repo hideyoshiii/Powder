@@ -59,38 +59,38 @@
           <%# 諸情報、リンク等 %>
           <hr class="more">
           <div style="color:black;">More</div>
-        <%# Instagramボタン %>
-        <% if @spot1.introduction %>
-          <a href="<%= @spot1.introduction %>"" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-instagram icon"></i></span>
-          </a>
-        <% end %>
-        <%# Rettyボタン %>
-        <% if @spot1.retty %>
-          <a href="<%= @spot1.retty %>" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-          </a>
-        <% end %>
-        <%# GoogleMapボタン %>
-        <% if @spot1.address %>
-          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-          </a>
-        <% end %>
-        <%# 電話ボタン %>
-        <div class="visible-xs">
-          <% if @spot1.phone %>
-            <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-left">
-              <span class="insta"><i class="fa fa-phone icon"></i></span>
-            </a>
-          <% end %>
-        </div>
-        <%# 公式サイトボタン %>
-        <% if @spot1.browser %>
-          <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-globe icon"></i></span>
-          </a>
-        <% end %>
+          <%# 公式サイトボタン %>
+	        <% if @spot1.browser %>
+	          <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-safari icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# 電話ボタン %>
+	        <div class="visible-xs">
+	          <% if @spot1.phone %>
+	            <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-left">
+	              <span class="insta"><i class="fa fa-phone icon"></i></span>
+	            </a>
+	          <% end %>
+	        </div>
+	      <%# GoogleMapボタン %>
+	        <% if @spot1.address %>
+	          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# Rettyボタン %>
+	        <% if @spot1.retty %>
+	          <a href="<%= @spot1.retty %>" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# Instagramボタン %>
+	        <% if @spot1.introduction %>
+	          <a href="<%= @spot1.introduction %>"" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-instagram icon"></i></span>
+	          </a>
+	        <% end %>
         </div>  
       </div>
       
@@ -175,38 +175,38 @@
           <%# 諸情報、リンク等 %>
           <hr class="more">
           <div style="color:black;">More</div>
-        <%# Instagramボタン %>
-        <% if @spot1.introduction %>
-          <a href="<%= @spot1.introduction %>"" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-instagram icon"></i></span>
-          </a>
-        <% end %>
-        <%# Rettyボタン %>
-        <% if @spot1.retty %>
-          <a href="<%= @spot1.retty %>" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-          </a>
-        <% end %>
-        <%# GoogleMapボタン %>
-        <% if @spot1.address %>
-          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-          </a>
-        <% end %>
-        <%# 電話ボタン %>
-        <div class="visible-xs">
-          <% if @spot1.phone %>
-            <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-left">
-              <span class="insta"><i class="fa fa-phone icon"></i></span>
-            </a>
-          <% end %>
-        </div>
-        <%# 公式サイトボタン %>
-        <% if @spot1.browser %>
-          <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-safari icon"></i></span>
-          </a>
-        <% end %>
+          <%# 公式サイトボタン %>
+	        <% if @spot1.browser %>
+	          <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-safari icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# 電話ボタン %>
+	        <div class="visible-xs">
+	          <% if @spot1.phone %>
+	            <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-left">
+	              <span class="insta"><i class="fa fa-phone icon"></i></span>
+	            </a>
+	          <% end %>
+	        </div>
+	      <%# GoogleMapボタン %>
+	        <% if @spot1.address %>
+	          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# Rettyボタン %>
+	        <% if @spot1.retty %>
+	          <a href="<%= @spot1.retty %>" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# Instagramボタン %>
+	        <% if @spot1.introduction %>
+	          <a href="<%= @spot1.introduction %>"" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-instagram icon"></i></span>
+	          </a>
+	        <% end %>
         </div>  
       </div>
 
@@ -249,38 +249,38 @@
           <%# 諸情報、リンク等 %>
           <hr class="more">
           <div style="color:black;">More</div>
-        <%# Instagramボタン %>
-        <% if @spot2.introduction %>
-          <a href="<%= @spot2.introduction %>"" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-instagram icon"></i></span>
-          </a>
-        <% end %>
-        <%# Rettyボタン %>
-        <% if @spot2.retty %>
-          <a href="<%= @spot2.retty %>" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-          </a>
-        <% end %>
-        <%# GoogleMapボタン %>
-        <% if @spot2.address %>
-          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-          </a>
-        <% end %>
-        <%# 電話ボタン %>
-        <div class="visible-xs">
-          <% if @spot2.phone %>
-            <a href="tel:<%= @spot2.phone %>" target="_blank" class="fl_inst pull-left">
-              <span class="insta"><i class="fa fa-phone icon"></i></span>
-            </a>
-          <% end %>
-        </div>
-        <%# 公式サイトボタン %>
-        <% if @spot2.browser %>
-          <a href="<%= @spot2.browser %>" target="_blank" class="fl_inst pull-left">
-            <span class="insta"><i class="fa fa-globe icon"></i></span>
-          </a>
-        <% end %>
+          <%# 公式サイトボタン %>
+	        <% if @spot2.browser %>
+	          <a href="<%= @spot2.browser %>" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-safari icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# 電話ボタン %>
+	        <div class="visible-xs">
+	          <% if @spot2.phone %>
+	            <a href="tel:<%= @spot2.phone %>" target="_blank" class="fl_inst pull-left">
+	              <span class="insta"><i class="fa fa-phone icon"></i></span>
+	            </a>
+	          <% end %>
+	        </div>
+	      <%# GoogleMapボタン %>
+	        <% if @spot2.address %>
+	          <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-map-marker icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# Rettyボタン %>
+	        <% if @spot2.retty %>
+	          <a href="<%= @spot2.retty %>" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-cutlery icon"></i></span>
+	          </a>
+	        <% end %>
+	      <%# Instagramボタン %>
+	        <% if @spot2.introduction %>
+	          <a href="<%= @spot2.introduction %>"" target="_blank" class="fl_inst pull-left">
+	            <span class="insta"><i class="fa fa-instagram icon"></i></span>
+	          </a>
+	        <% end %>
         </div>  
       </div>
       
