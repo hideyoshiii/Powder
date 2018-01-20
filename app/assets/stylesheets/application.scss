@@ -1711,7 +1711,7 @@ dl.search1 dd span:hover{
   -webkit-flex-direction: column;
   align-items: center;
 
-  padding: 0;
+  padding: 30px;
   box-sizing: border-box;
 }
 
@@ -3249,6 +3249,17 @@ display: inline-block;
 }
 
 
+.scroll_item_info_content_quote {
+    white-space: normal;
+    margin: 0px 5px;
+}
+.scroll_item_ttl_content_quote {
+    font-size: 10px;
+    color: #CCCCCC;
+    line-height: 1.0;
+    
+}
+
 
 
 
@@ -3360,7 +3371,7 @@ h4 {
 }
 
 p {
-	letter-spacing:-0.1em
+	letter-spacing:-0.05em
 }
 
 mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear;padding:0px;height:100%}@media (min-width:768px){mains{margin-left:240px}}@media (min-width:992px){mains{padding:0px}}
