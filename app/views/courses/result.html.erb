@@ -12,13 +12,11 @@
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %></h4>
 </div>
 <div id="map"></div>
-<div class="text-center">
-<dir class="btn btn-default">
-	↓
-</dir>
+<div class="text-center more-btn">
+<a href='#start' class="raised">more↓</a>
 </div>
 
-
+<div id="start"></div>
 <div id="contents" class="clearfix">
   <div id="mains">
     <article>
@@ -90,27 +88,6 @@
           <h4>オススメポイント</h4>
           <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
           サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-          <%# $$$飲食店ならワッシーリンク %>
-          <% if @spot1.retty %>
-            <div class="visible-xs">
-              <div class="text-center">
-                <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="raised1">
-                  <%= image_tag "eagle.png", :class =>'img-eagle' %>ワッシーに予約を頼む
-                </a>
-                <%= link_to eagle_path do %>
-                  <div class="black">
-                    ワッシーとは？
-                  </div>  
-                <% end %>
-              </div>
-              <%# お店情報URL %>
-              <br>
-              ワッシー連絡用URL<br>
-              <a href="<%= @spot1.retty %>" target="_blank" class="blue">
-                <%= @spot1.title %>/食べログ
-              </a>
-            </div>  
-          <% end %>
         </div>  
       </div>
       
@@ -143,17 +120,15 @@
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %></h4>
 </div>
 <div id="map"></div>
-<div class="text-center">
-<dir class="btn btn-default">
-	↓
-</dir>
+<div class="text-center more-btn">
+<a href='#start' class="raised">more↓</a>
 </div>
 
-
+<div id="start"></div>
 <div id="contents" class="clearfix">
   <div id="mains">
     <article>
-
+    
   
       <%# スポット1 %>
       <div class="panel panel-default ii">
@@ -221,27 +196,6 @@
           <h4>オススメポイント</h4>
           <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
           サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-          <%# $$$飲食店ならワッシーリンク %>
-          <% if @spot1.retty %>
-            <div class="visible-xs">
-              <div class="text-center">
-                <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="raised1">
-                  <%= image_tag "eagle.png", :class =>'img-eagle' %>ワッシーに予約を頼む
-                </a>
-                <%= link_to eagle_path do %>
-                  <div class="black">
-                    ワッシーとは？
-                  </div>  
-                <% end %>
-              </div>
-              <%# お店情報URL %>
-              <br>
-              ワッシー連絡用URL<br>
-              <a href="<%= @spot1.retty %>" target="_blank" class="blue">
-                <%= @spot1.title %>/食べログ
-              </a>
-            </div>  
-          <% end %>
         </div>  
       </div>
 
@@ -312,27 +266,6 @@
           <h4>オススメポイント</h4>
           <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
           サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
-          <%# $$$飲食店ならワッシーリンク %>
-          <% if @spot2.retty %>
-            <div class="visible-xs">
-              <div class="text-center">
-                <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="raised1">
-                  <%= image_tag "eagle.png", :class =>'img-eagle' %>ワッシーに予約を頼む
-                </a>
-                <%= link_to eagle_path do %>
-                  <div class="black">
-                    ワッシーとは？
-                  </div>  
-                <% end %>
-              </div>
-              <%# お店情報URL %>
-              <br>
-              ワッシー連絡用URL<br>
-              <a href="<%= @spot2.retty %>" target="_blank" class="blue">
-                <%= @spot2.title %>/食べログ
-              </a>
-            </div>  
-          <% end %>
         </div>  
       </div>
       
@@ -377,8 +310,8 @@ function initMap() {
     // マップの生成
     var map = new google.maps.Map(document.getElementById("map"), {
         <%# $$$出発地と同じ緯度経度を記入 %>
-        center: new google.maps.LatLng(35.654985,139.744002), // マップの中心
-        zoom: 16 // ズームレベル
+        center: new google.maps.LatLng(35.657424,139.748208), // マップの中心
+        zoom: 14 // ズームレベル
     });
 
     var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
