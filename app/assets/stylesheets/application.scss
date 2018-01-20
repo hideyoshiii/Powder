@@ -1763,7 +1763,7 @@ article h4 {
 	background: #FAFAFA;
 	line-height: 1.4;
 	padding: 0.25em 0.2em;
-	margin: 4em 0 1.5em;
+	margin: 3em 0 1.5em;
 }
 
 article h4:after {/*タブ*/
@@ -1774,7 +1774,7 @@ background: #53331c;
 color: #cab261;
 left: 0px;
 bottom: 100%;
-border-radius: 5px 5px 0 0;
+border-radius: 2px 2px 0 0;
 padding: 5px 7px 3px;
 font-size: 0.7em;
 line-height: 1;
@@ -2768,7 +2768,7 @@ display: inline-block;
   display: inline-block;
   text-align: center;
   text-decoration: none;
-  margin :0px 5px 15px 5px;
+  margin :5px 5px 15px 5px;
   }
 
 .fl_inst .insta{
@@ -3177,6 +3177,8 @@ display: inline-block;
 }
 
 
+
+
 //10秒サーチ結果のファーストUI
 .frame-course {
   	position: relative;
@@ -3204,7 +3206,7 @@ display: inline-block;
   -webkit-transform: translate(0%,0%);
   transform: translate(0%,0%);
   margin:0;
-  padding:2px;
+  padding:5px;
   color:white;
   font-size:18px;
   font-weight: 300;
@@ -3220,7 +3222,7 @@ display: inline-block;
   -webkit-transform: translate(0%,0%);
   transform: translate(0%,0%);
   margin:0;
-  padding:2px;
+  padding:5px;
   color:white;
   font-size:14px;
   font-weight: 200;
@@ -3231,17 +3233,19 @@ display: inline-block;
 .img-course-result{
 	width:100%;
 	height: auto;
+	margin-top:-20%;
     }
 
 @media (max-width: 768px){
   	.img-course-result{
   		width:100%;
   		height:auto;
+  		margin-top:-20%;
     	}
 }
 
 .more-btn{
-	margin-top:10px;
+	margin-top:25px;
 }
 
 
@@ -3353,6 +3357,10 @@ h3 {
 
 h4 {
   font-weight: 250;
+}
+
+p {
+	letter-spacing:-0.1em
 }
 
 mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear;padding:0px;height:100%}@media (min-width:768px){mains{margin-left:240px}}@media (min-width:992px){mains{padding:0px}}

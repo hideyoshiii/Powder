@@ -62,8 +62,7 @@
             <span class="insta"><i class="fa fa-globe icon"></i></span>
           </a>
         <% end %>
-        <div class="panel-body">
-          <%# 横スクロールコンテンツ %>
+        <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
               <%# 横スクロールコンテンツ %>
@@ -84,10 +83,12 @@
               <% end %>  
             </ul>
           </div>
+        <div class="panel-body">
           <%# $$$チェックポイント %>
-          <h4>オススメポイント</h4>
-          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
-          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+          <% if @spot1.description %>
+          <h4>Description</h4>
+          <p><%= @spot1.description %></p>
+          <% end %>
         </div>  
       </div>
       
@@ -167,11 +168,10 @@
         <%# 公式サイトボタン %>
         <% if @spot1.browser %>
           <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-right">
-            <span class="insta"><i class="fa fa-globe icon"></i></span>
+            <span class="insta"><i class="fa fa-safari icon"></i></span>
           </a>
         <% end %>
-        <div class="panel-body">
-          <%# 横スクロールコンテンツ %>
+        <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
               <%# 横スクロールコンテンツ %>
@@ -192,10 +192,12 @@
               <% end %>  
             </ul>
           </div>
+        <div class="panel-body">
           <%# $$$チェックポイント %>
-          <h4>オススメポイント</h4>
-          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
-          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+          <% if @spot1.description %>
+          <h4>Description</h4>
+          <p><%= @spot1.description %></p>
+          <% end %>
         </div>  
       </div>
 
@@ -240,8 +242,7 @@
             <span class="insta"><i class="fa fa-globe icon"></i></span>
           </a>
         <% end %>
-        <div class="panel-body">
-          <%# 横スクロールコンテンツ %>
+        <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
               <%# 横スクロールコンテンツ %>
@@ -262,10 +263,12 @@
               <% end %>  
             </ul>
           </div>
+        <div class="panel-body">
           <%# $$$チェックポイント %>
-          <h4>オススメポイント</h4>
-          <p>また、オリーブ広場では、巨大ランプシェードによる光の演出。 
-          サウスアヴェニューやノースアヴェニューでは、ランプシェードによるイルミネーションが行われています。</p>
+          <% if @spot2.description %>
+          <h4>Description</h4>
+          <p><%= @spot2.description %></p>
+          <% end %>
         </div>  
       </div>
       
