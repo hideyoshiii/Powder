@@ -104,7 +104,11 @@
 
 <%# フッター %>
 <footer>
+	<div class="text-center more-btn">
+<a href="javascript:;" onclick="koshin()" class="raised"><i class="fa fa-refresh"></i>&nbsp;別のコースを見る</a>
+</div>
 </footer>
+
 
 
 <% else %>
@@ -286,6 +290,9 @@
 
 <%# フッター %>
 <footer>
+<div class="text-center more-btn">
+<a href="javascript:;" onclick="koshin()" class="raised"><i class="fa fa-refresh"></i>&nbsp;別のコースを見る</a>
+</div>
 </footer>
 
 
@@ -335,7 +342,15 @@ function initMap() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
 
+<script>
+//更新
+function koshin(){
+	$('body,html').animate({
+  scrollTop: 0},0);
 
+  location.reload();
+}
+</script>
 
 
 </main>

@@ -1958,8 +1958,15 @@ footer p {
 	display:none;
 	}
 	#contents {
-	margin:30px auto 0px;
-}
+	margin:30px auto 0px;	
+	}
+	footer {
+	position:relative;
+	margin-top:-10px;
+	margin-botomm:20px;
+	background: #F4F5F7;
+	z-index:2;
+	}
 }
 
 
