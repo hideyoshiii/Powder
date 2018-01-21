@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180120055044) do
+ActiveRecord::Schema.define(version: 20180121054641) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -96,6 +96,8 @@ ActiveRecord::Schema.define(version: 20180120055044) do
     t.integer "image_file_size"
     t.datetime "image_updated_at"
     t.integer "user_id"
+    t.string "quote"
+    t.string "url"
     t.index ["spot_id"], name: "index_pictures_on_spot_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end

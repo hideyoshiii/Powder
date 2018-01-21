@@ -8,6 +8,20 @@ class PicturesController < ApplicationController
         end
     end
 
+    def edit
+    @picture = Picture.find(params[:id])
+    if !(current_user == @picture.user)
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @picture = Picture.find(params[:id])
+    if @picture.update(picture_params)
+      redirect_to user_path(current_user)
+    end
+  end
+
     def destroy
         @picture = Picture.find(params[:id])
         if @picture.destroy
@@ -16,6 +30,15 @@ class PicturesController < ApplicationController
             render json: { message: @picture.errors.full_messages.join(", ") }
         end
     end
+
+    def destroy2
+        @picture = Picture.find(params[:id])
+        if @picture.destroy
+            redirect_to user_path(current_user)
+        else
+            redirect_back(fallback_location: root_path) 
+        end
+  end
 
     def list
         spot = Spot.find(params[:spot_id])
@@ -36,7 +59,7 @@ class PicturesController < ApplicationController
 
     private
     def picture_params
-        params.require(:picture).permit(:image,:spot_id,:user_id)
+        params.require(:picture).permit(:image,:spot_id,:user_id,:quote,:url)
     end
 end
 

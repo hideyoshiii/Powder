@@ -12,7 +12,9 @@
     <div class="grid-sizer"></div>
     <% @pictures.each do |picture| %>
     	<div class="grid-item">
-    		<%= image_tag picture.image.url(), :class =>'img-responsive' %> 
+        <%= link_to edit_picture_path(picture) do %>
+    		  <%= image_tag picture.image.url(), :class =>'img-responsive' %> 
+        <% end %>
     	</div>   
     <% end %>  
   </div>
