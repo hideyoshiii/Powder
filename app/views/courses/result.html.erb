@@ -2,8 +2,12 @@
 
 <mains class="" id="main-collapse">
 
+<%# スポットが１つの時 %>
 <% if @spot1 %>
+<% if @pictures1 %>
 <% if !@spot2 %>
+<% if params[:large].to_i == 0 %>
+
 
 <%# アイキャッチとタイトル %>
 <div class="frame-course">
@@ -111,9 +115,12 @@
 </div>
 </footer>
 
-
-
 <% else %>
+  該当するデートコースはありません
+<% end %>
+<%# スポットが２つの時 %>
+<% else %>
+<% if @pictures2 %>
 
 <%# アイキャッチとタイトル %>
 <div class="frame-course">
@@ -303,8 +310,8 @@
 
 
 
-
-
+<% end %>
+<% end %>
 <% end %>
 <% else %>
 	該当するデートコースはありません
