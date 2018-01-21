@@ -66,6 +66,16 @@
                             	</div>
 							</div>
 						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>price</label>
+									<%= f.select :price, [["~4,000円","1"], ["~6,000円","2"], ["~8,000円","3"], ["~10,000円","4"], ["10,000円~","5"]], {prompt:"選択してください"}, {required: 'true', autofocus: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
 						<br>	
 
 			            <div class="row">
