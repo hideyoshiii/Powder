@@ -135,6 +135,23 @@
 						</div>
 						<br>
 
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>scene</label>
+                                <br>   
+								    <% ["ランチ", "ディナー", "バー", "カフェ", "その他"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+
 
             
 						<div class="pull-left btn btn-default btn-sm">
