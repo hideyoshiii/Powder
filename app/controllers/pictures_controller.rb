@@ -18,7 +18,7 @@ class PicturesController < ApplicationController
   def update
     @picture = Picture.find(params[:id])
     if @picture.update(picture_params)
-      redirect_to user_path(current_user)
+      redirect_to "/spots/#{@picture.spot_id}/pictures"
     end
   end
 
