@@ -15,7 +15,6 @@
   <h3><%= @spot1.title %></h3> 
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %></h4>
 </div>
-<div id="map"></div>
 <div class="text-center more-btn">
 <a href='#start' class="raised">more↓</a>
 </div>
@@ -30,7 +29,7 @@
       <div class="panel panel-default ii">
         <div id="spot1">
           <%= link_to spot_path(@spot1) do %>
-            <h2><span class="article-icon">①</span> <span class="black"><%= @spot1.title %></span></h2>
+            <h2><span class="article-icon">②</span> <span class="black"><%= @spot1.title %></span></h2>
           <% end %>
         </div>  
         <%# 横スクロールコンテンツ %>
@@ -133,7 +132,6 @@
   <h3><%= @spot2.title %></h3> 
   <h4><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %></h4>
 </div>
-<div id="map"></div>
 <div class="text-center more-btn">
 <a href='#start' class="raised">more↓</a>
 </div>
@@ -317,43 +315,6 @@
 	該当するデートコースはありません
 <% end %>
 
-
-<%# googlemapのJS %>
-<%# $$$マップの出発地、目的地、経由地の緯度経度を記入 %>
-<script>
-function initMap() {
-    // ルート検索の条件
-    var request = {
-        origin: new google.maps.LatLng(35.654985,139.744002), // 出発地
-        destination: new google.maps.LatLng(35.658581,139.745433), // 目的地
-        waypoints: [ // 経由地点(指定なしでも可)
-            { location: new google.maps.LatLng(35.657424,139.748208) },
-        ],
-        travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
-    };
-
-    // マップの生成
-    var map = new google.maps.Map(document.getElementById("map"), {
-        <%# $$$出発地と同じ緯度経度を記入 %>
-        center: new google.maps.LatLng(35.657424,139.748208), // マップの中心
-        zoom: 14 // ズームレベル
-    });
-
-    var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
-    var r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
-        map: map, // 描画先の地図
-        preserveViewport: true, // 描画後に中心点をずらさない
-    });
-    // ルート検索
-    d.route(request, function(result, status){
-        // OKの場合ルート描画
-        if (status == google.maps.DirectionsStatus.OK) {
-            r.setDirections(result);
-        }
-    });
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
 
 <script>
 //更新
