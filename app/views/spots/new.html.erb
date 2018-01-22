@@ -37,6 +37,22 @@
 						</div>
 						<br>
 
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>scene</label>
+                                <br>   
+								    <% ["ランチ", "ディナー", "バー", "カフェ", "その他"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
 
 						<div class="row">
 							<div class="col-md-12 select">
@@ -111,28 +127,27 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>address</label>
-                                <%= f.text_field :address, placeholder: "住所", class: "form-control" %>
+                                <label>tabelog</label>
+                                <%= f.text_field :tabelog, placeholder: "食べログのURL", class: "form-control" %>
                             	</div>
 							</div>
 						</div>
 						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>Retty</label>
+                                <%= f.text_field :retty, placeholder: "RettyのURL", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
 
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
                                 <label>instagram</label>
                                 <%= f.text_field :introduction, placeholder: "インスタグラムのURL", class: "form-control" %>
-                            	</div>
-							</div>
-						</div>
-						<br>
-
-						<div class="row">
-							<div class="col-md-12 select">
-								<div class="form-group">
-                                <label>taberogu</label>
-                                <%= f.text_field :retty, placeholder: "食べログのURL", class: "form-control" %>
                             	</div>
 							</div>
 						</div>
@@ -151,28 +166,18 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>phone</label>
-                                <%= f.text_field :phone, placeholder: "電話番号(半角ハイフンなし)", class: "form-control" %>
+                                <label>address</label>
+                                <%= f.text_field :address, placeholder: "住所", class: "form-control" %>
                             	</div>
 							</div>
 						</div>
 						<br>
 
-
-
-
-
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>scene</label>
-                                <br>   
-								    <% ["ランチ", "ディナー", "バー", "カフェ", "その他"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>	  
+                                <label>phone</label>
+                                <%= f.text_field :phone, placeholder: "電話番号(半角ハイフンなし)", class: "form-control" %>
                             	</div>
 							</div>
 						</div>
