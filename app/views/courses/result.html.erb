@@ -3,9 +3,9 @@
 <mains class="" id="main-collapse">
 
 <%# スポットが１つの時 %>
-<% if @spot1 %>
-<% if @pictures1 %>
-<% if !@spot2 %>
+<% if !@spot1.nil? %>
+<% if !@pictures1.nil? %>
+<% if @spot2.nil? %>
 <% if params[:large].to_i == 0 %>
 
 
@@ -125,7 +125,7 @@
 <% end %>
 <%# スポットが２つの時 %>
 <% else %>
-<% if @pictures2 %>
+<% if !@pictures2.nil? %>
 
 <%# アイキャッチとタイトル %>
 <div class="frame-course">
