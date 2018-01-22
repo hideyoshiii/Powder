@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121131650) do
+ActiveRecord::Schema.define(version: 20180122194912) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(version: 20180121131650) do
     t.string "large"
     t.string "small"
     t.text "heading"
+    t.string "tabelog"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 

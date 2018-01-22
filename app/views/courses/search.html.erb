@@ -17,7 +17,7 @@
     <div class="box1" id='section1'> 
     	<h3 style="color:white;text-shadow: 1px 1px 2px black;">エリアは？</h3>
   		<div>
-			<%= select_tag :city, options_for_select(["恵比寿・代官山・中目黒"]), {prompt:"選択してください"} %>
+			<%= select_tag :city, options_for_select(["恵比寿・代官山・中目黒","渋谷"]), {prompt:"選択してください"} %>
   		</div>
   		<br><br>
   		<div>
@@ -43,7 +43,9 @@
 		  	<%= radio_button_tag(:price, 1, true) %>
 			<%= label_tag(:price_1, "~4,000円/人") %>
 		  	<%= radio_button_tag(:price, 2) %>
-			<%= label_tag(:price_2, "~6,000円/人") %>  
+			<%= label_tag(:price_2, "~6,000円/人") %> 
+			<%= radio_button_tag(:price, 3) %>
+			<%= label_tag(:price_3, "~8,000円/人") %>  
 	  	</div>
 	  	<br><br>
 	  	<div>
