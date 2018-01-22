@@ -38,17 +38,17 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>city</label>
-                                <%= f.text_field :city, placeholder: "エリア", class: "form-control", required: "true" %>
-                            	</div>
+									<label>city</label>
+									<%= f.select :city, [["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"]], {prompt:"選択してください"}, {required: 'true', class: 'form-control'} %>
+								</div>
 							</div>
 						</div>
-						<br>
+						<br>	
 
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>statiopn</label>
+                                <label>station</label>
                                 <%= f.text_field :station, placeholder: "最寄駅", class: "form-control" %>
                             	</div>
 							</div>
@@ -59,7 +59,7 @@
 							<div class="col-md-12 select">
 								<div class="form-group">
 									<label>price</label>
-									<%= f.select :price, [["~4,000円","1"], ["~6,000円","2"], ["~8,000円","3"], ["~10,000円","4"], ["10,000円~","5"]], {prompt:"選択してください"}, {required: 'true', class: 'form-control'} %>
+									<%= f.select :price, [["~4,000円","1"], ["~6,000円","2"], ["~8,000円","3"], ["~10,000円","4"], ["10,000円~","5"]], {prompt:"選択してください"}, { class: 'form-control'} %>
 								</div>
 							</div>
 						</div>
