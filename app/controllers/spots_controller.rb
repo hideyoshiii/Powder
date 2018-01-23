@@ -7,7 +7,7 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.order('id DESC').limit(50)
+    @spots = Spot.order('id DESC')
     @q = Spot.ransack(params[:q])
     
   end
