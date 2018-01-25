@@ -8,17 +8,17 @@ class UsersController < ApplicationController
 
   def want
   	@user = User.find(params[:id]) 
-  	@wants = Like.where(user_id: @user.id, kind: 1)
+  	@wants = Like.where(user_id: @user.id, kind: 1).order('id DESC')
   end
 
   def done
   	@user = User.find(params[:id]) 
-  	@dones = Like.where(user_id: @user.id, kind: 2)
+  	@dones = Like.where(user_id: @user.id, kind: 2).order('id DESC')
   end
 
   def spot 
     @user = User.find(params[:id]) 
-    @spots = Spot.where(user_id: @user.id)
+    @spots = Spot.where(user_id: @user.id).order('id DESC')
   end
 
   def clip

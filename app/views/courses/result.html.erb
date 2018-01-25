@@ -79,17 +79,40 @@
             </ul>
           </div>
         <div class="panel-body">
-          <%# $$$チェックポイント %>
-          <% unless @spot1.description.blank? %>
-          <p class="aaa">Description</p>
-          <p><%= @spot1.description %></p>
+          <%# 見出し %>
+          <% if @spot1.heading.blank? %>
+            <p class="aaa">川のほとりの一軒家で静かなディナーを</p>
+          <% else %>
+            <p class="aaa"><%= @spot1.heading %></p>
           <% end %>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>暗め照明のメリットを最大限享受するため、場所は絶対に地下を予約しよう。座り心地の悪い椅子もあるので、「座り心地の良い椅子で！」とリクエストをするのがおすすめ。</p>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>ここではお食事をせず、お酒と景色を楽しみましょう。テラス席からは東京タワーが見えるので、お店の人にテラス席に案内してもらいましょう。ただ、お天気が曇りだと遠くまでの景色が見えない場合があるので、お天気はこまめにチェックするのが大切です。</p>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>ヒルトップ カシータの屋上テラスは人気のため、テラス席が満席なことがあります。その場合は、下の階でテラス席が空くまでお食事やお酒を飲み、お腹いっぱいにしとこう。</p>
+          <%# Description %>
+          <% if @spot1.description.blank? %>
+            <p>ラグジュアリーなリゾートを彷彿させるテラスが有名なメキシコ料理点。きらびやかな空間で飲むお酒に気分も上がる。</p>
+          <% else %>
+            <p><%= @spot1.description %></p>
+          <% end %>
+          <%# ポイント1 %>
+          <% if @spot1.point1.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>暗め照明のメリットを最大限享受するため、場所は絶対に地下を予約しよう。座り心地の悪い椅子もあるので、「座り心地の良い椅子で！」とリクエストをするのがおすすめ。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot1.point1 %></p>
+          <% end %>
+          <%# ポイント2 %>
+          <% if @spot1.point2.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>ここではお食事をせず、お酒と景色を楽しもう。テラス席からは東京タワーが見えるので、お店の人にテラス席に案内してもらおう。ただ、お天気が曇りだと遠くまでの景色が見えない場合があるので、お天気はこまめにチェックするのが大切。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot1.point2 %></p>
+          <% end %>
+          <%# ポイント3 %>
+          <% if @spot1.point3.blank? %>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot1.point3 %></p>
+          <% end %>
           <hr class="more">
           <%# 食べログ、rettyボタン %>
           <% unless @spot1.tabelog.blank? %>
@@ -145,6 +168,7 @@
 <div class="text-center more-btn">
 <a href='#start' class="raised">MORE&nbsp;<i class="fa fa-long-arrow-down" aria-hidden="true"></i></a>
 </div>
+
 
 <div id="start"></div>
 <div id="contents" class="clearfix">
@@ -208,17 +232,40 @@
             </ul>
           </div>
         <div class="panel-body">
-          <%# $$$チェックポイント %>
-          <% unless @spot1.description.blank? %>
-          <p class="aaa">川のほとりの一軒家で静かなディナーを。</p>
-          <p><%= @spot1.description %></p>
+          <%# 見出し %>
+          <% if @spot1.heading.blank? %>
+            <p class="aaa">川のほとりの一軒家で静かなディナーを</p>
+          <% else %>
+            <p class="aaa"><%= @spot1.heading %></p>
           <% end %>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>暗め照明のメリットを最大限享受するため、場所は絶対に地下を予約しよう。座り心地の悪い椅子もあるので、「座り心地の良い椅子で！」とリクエストをするのがおすすめ。</p>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>ここではお食事をせず、お酒と景色を楽しみましょう。テラス席からは東京タワーが見えるので、お店の人にテラス席に案内してもらいましょう。ただ、お天気が曇りだと遠くまでの景色が見えない場合があるので、お天気はこまめにチェックするのが大切です。</p>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>ヒルトップ カシータの屋上テラスは人気のため、テラス席が満席なことがあります。その場合は、下の階でテラス席が空くまでお食事やお酒を飲み、お腹いっぱいにしとこう。</p>
+          <%# Description %>
+          <% if @spot1.description.blank? %>
+            <p>ラグジュアリーなリゾートを彷彿させるテラスが有名なメキシコ料理点。きらびやかな空間で飲むお酒に気分も上がる。</p>
+          <% else %>
+            <p><%= @spot1.description %></p>
+          <% end %>
+          <%# ポイント1 %>
+          <% if @spot1.point1.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>暗め照明のメリットを最大限享受するため、場所は絶対に地下を予約しよう。座り心地の悪い椅子もあるので、「座り心地の良い椅子で！」とリクエストをするのがおすすめ。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot1.point1 %></p>
+          <% end %>
+          <%# ポイント2 %>
+          <% if @spot1.point2.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>ここではお食事をせず、お酒と景色を楽しもう。テラス席からは東京タワーが見えるので、お店の人にテラス席に案内してもらおう。ただ、お天気が曇りだと遠くまでの景色が見えない場合があるので、お天気はこまめにチェックするのが大切。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot1.point2 %></p>
+          <% end %>
+          <%# ポイント3 %>
+          <% if @spot1.point3.blank? %>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot1.point3 %></p>
+          <% end %>
           <hr class="more">
           <%# 食べログ、rettyボタン %>
           <% unless @spot1.tabelog.blank? %>
@@ -295,15 +342,40 @@
             </ul>
           </div>
         <div class="panel-body">
-          <%# $$$チェックポイント %>
-          <% unless @spot2.description.blank? %>
-          <p class="aaa">照明を極限まで落とした店内でゆっくりとお話を</p>
-          <p><%= @spot2.description %></p>
+          <%# 見出し %>
+          <% if @spot2.heading.blank? %>
+            <p class="aaa">川のほとりの一軒家で静かなディナーを</p>
+          <% else %>
+            <p class="aaa"><%= @spot2.heading %></p>
           <% end %>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>壁にはワインセラーがあり、ムーディーな暗さの落ち着いた雰囲気の店内。騒がしい訳ではないけれど、適度に賑やかな空間が心地よいです</p>
-          <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-          <p>ふんわりとした間接照明で優しい空気が流れる空間。地味なオフィス街と侮るなかれ！外国人観光客も多く、異国情緒漂う雰囲気に思わず、都会の喧騒を忘れてウットリしてしまいます。</p>
+          <%# Description %>
+          <% if @spot2.description.blank? %>
+            <p>ラグジュアリーなリゾートを彷彿させるテラスが有名なメキシコ料理点。きらびやかな空間で飲むお酒に気分も上がる。</p>
+          <% else %>
+            <p><%= @spot2.description %></p>
+          <% end %>
+          <%# ポイント1 %>
+          <% if @spot2.point1.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>1軒めから2軒めへは徒歩で簡単に移動できますが、少し駅から離れています。しかし明治通り沿いにあるのでそこからの2人の移動はかならず「タクシー」で。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot2.point1 %></p>
+          <% end %>
+          <%# ポイント2 %>
+          <% if @spot2.point2.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>いくら穴場と言えど、金曜日や土曜日の夜は比較的に混み合っていることが多いので必ず予約をして欲しい。できれば横並びを席を取ってもらおう。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot2.point2 %></p>
+          <% end %>
+          <%# ポイント3 %>
+          <% if @spot2.point3.blank? %>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot2.point3 %></p>
+          <% end %>
           <hr class="more">
           <%# 食べログ、rettyボタン %>
           <% unless @spot2.tabelog.blank? %>

@@ -79,7 +79,7 @@ class SpotsController < ApplicationController
 
   def pictures
     @spot = Spot.find(params[:id])
-    @pictures = @spot.pictures
+    @pictures = @spot.pictures.order(id: "ASC")
   end
 
   

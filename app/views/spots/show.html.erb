@@ -182,11 +182,14 @@
 	    	<%= render partial: 'likes/sp', locals: { spot: @spot, likes: @likes } %>
 	  	</span>
 	  	<br>
-    	<%# 説明 %>
-    	<h4>Description</h4>
-    	<% if @spot.description %>
-    		<p><%= @spot.description %></p>
-    	<% end %>
+    	<%# 見出し %>
+          <% unless @spot.heading.blank? %>
+            <h4><%= @spot.heading %></h4>
+          <% end %>
+          <%# Description %>
+          <% unless @spot.description.blank? %>
+            <p><%= @spot.description %></p>
+          <% end %>
     	<br>
     	<%# タグ %>
     	<h4>Tags</h4>
