@@ -2,7 +2,7 @@
 
 <mains class="" id="main-collapse">
 
-<%= form_tag(demos_second_path, method: :get) do %>
+<%= form_tag(demos_search2_path, method: :get) do %>
 
 <% @spots.each do |spot| %>
 <div class="radio-city1">	
@@ -15,9 +15,19 @@
 <% end %>
 
 <div class="dinner-box">
-<a href="javascript:;" onclick="koshin()" class="btn btn-default"><i class="fa fa-refresh"></i>&nbsp;Cange</a>
-<%= submit_tag "確定", :class => "btn btn-default" %>
-<a href='#section4' class="btn btn-default">２軒目も</a>
+<div class="text-center change-btn">
+<a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Cange</a>
+</div>
+<div class="col-xs-6">
+<div class="text-center">
+<%= submit_tag "コースを確定する", :class => "btn btn-default" %>
+</div>
+</div>	
+<div class="col-xs-6">
+<div class="text-center">
+<a href='#section4' class="btn btn-default">２軒目を選ぶ</a>
+</div>
+</div>	
 </div>
 
 <div class="box5" id='section4'>

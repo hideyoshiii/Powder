@@ -2,7 +2,6 @@
 
 <mains class="" id="main-collapse">
 
-<%= @spot1.title %>
 
 <% if !@spots.blank? %>
 
@@ -21,9 +20,16 @@
 <% end %>
 
 <div class="dinner-box">
-<a href="javascript:;" onclick="koshin()" class="btn btn-default"><i class="fa fa-refresh"></i>&nbsp;Cange</a>
-<%= submit_tag "確定", :class => "btn btn-default" %>
+<div class="text-center change-btn">
+<a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Cange</a>
 </div>
+<div class="col-xs-12">
+<div class="text-center">
+<%= submit_tag "コースを確定する", :class => "btn btn-default" %>
+</div>
+</div>		
+</div>
+
 
 <% end %>
 

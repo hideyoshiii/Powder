@@ -13,6 +13,15 @@ class DemosController < ApplicationController
   end
 
   def search2
+  	@scene = params[:large]
+  	@spot1 = Spot.find(params[:spot1])
+  	if @spot1
+	    @pictures1 = @spot1.pictures.order(id: "ASC")
+	  	@spots = Spot.where.not(title: @spot1.title)
+	  	@spots = @spots.where("scenes like '%#{@scene}%'")
+	  	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(3)
+	end
+
   	if params[:large] == "２軒目なし"
   		render :action => "result"
   	else
@@ -30,8 +39,14 @@ class DemosController < ApplicationController
 
   def result
     @spot1 = Spot.find(params[:spot1])
+    if @spot1
+	    @pictures1 = @spot1.pictures.order(id: "ASC")
+	end
     if params[:spot2]
     	@spot2 = Spot.find(params[:spot2])
+    	if @spot2
+			@pictures2 = @spot2.pictures.order(id: "ASC")
+		end
     end
   end
 
