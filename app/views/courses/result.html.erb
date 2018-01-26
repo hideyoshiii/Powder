@@ -14,7 +14,7 @@
   <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
   <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
 </div>
-<div class="text-center more-btn">
+<div class="text-center more-btn0">
 <a href='#start' class="raised">MORE&nbsp;<i class="fa fa-long-arrow-down" aria-hidden="true"></i></a>
 </div>
 
@@ -31,32 +31,6 @@
             <h2><span class="article-icon">②</span> <span class="black"><%= @spot1.title %></span></h2>
           <% end %>
         </div>  
-        <%# Instagramボタン %>
-          <% unless @spot1.introduction.blank? %>
-            <a href="<%= @spot1.introduction %>" target="_blank" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-instagram icon"></i></span>
-            </a>
-          <% end %>
-        <%# GoogleMapボタン %>
-          <% unless @spot1.address.blank? %>
-            <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-            </a>
-          <% end %>
-          <%# 電話ボタン %>
-          <div class="visible-xs">
-            <% unless @spot1.phone.blank? %>
-              <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-right">
-                <span class="insta"><i class="fa fa-phone icon"></i></span>
-              </a>
-            <% end %>
-          </div>
-          <%# 公式サイトボタン %>
-          <% unless @spot1.browser.blank? %>
-            <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-safari icon"></i></span>
-            </a>
-          <% end %>
         <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
@@ -115,20 +89,120 @@
           <% end %>
           <hr class="more">
           <%# 食べログ、rettyボタン %>
-          <% unless @spot1.tabelog.blank? %>
-            <div class="col-xs-6">
-              <div class="text-center">
-                <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+          <div class="row">
+            <% unless @spot1.tabelog.blank? %>
+              <div class="col-xs-6">
+                <div class="text-center">
+                  <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+                </div>
+              </div>
+            <% end %>
+            <% unless @spot1.retty.blank? %>
+              <div class="col-xs-6">
+                <div class="text-center">
+                  <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <hr class="more">
+          <%# 諸情報プルダウン %> 
+          <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
+            <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
+          </div>
+          <div id="open" style="display:none;clear:both;">
+            <br>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                営業時間
+              </div>
+              <div class="col-xs-9">
+                月&nbsp;&nbsp;9:30am~10:00pm<br>
+                火&nbsp;&nbsp;CLOSED<br>
+                水&nbsp;&nbsp;9:30am~10:00pm<br>
+                木&nbsp;&nbsp;9:30am~10:00pm<br>
+                金&nbsp;&nbsp;9:30am~10:00pm<br>
+                土&nbsp;&nbsp;9:30am~10:00pm<br>
+                日&nbsp;&nbsp;9:30am~10:00pm<br>
+                祝&nbsp;&nbsp;9:30am~10:00pm
               </div>
             </div>
-          <% end %>
-          <% unless @spot1.retty.blank? %>
-            <div class="col-xs-6">
-              <div class="text-center">
-                <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                アクセス
+              </div>
+              <div class="col-xs-9">
+                東急東横線代官山駅より徒歩3分
               </div>
             </div>
-          <% end %>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                予算
+              </div>
+              <div class="col-xs-9">
+                ランチ&nbsp;&nbsp;1000~2000円<br>
+                ディナー&nbsp;&nbsp;3000~4000円
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                支払い
+              </div>
+              <div class="col-xs-9">
+                カード可&nbsp;&nbsp;（VISA、MASTER、AMEX）
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                サービス料
+              </div>
+              <div class="col-xs-9">
+                なし
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                チャージ
+              </div>
+              <div class="col-xs-9">
+                ディナータイムのみコペルト（パン代、席料）として、300円/人
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                禁煙・喫煙
+              </div>
+              <div class="col-xs-9">
+                完全禁煙&nbsp;&nbsp;同施設内に喫煙所あり。
+              </div>
+            </div>
+          </div>
+          <div class="info-box">
+            <%# 公式サイトボタン %>
+            <% unless @spot1.browser.blank? %>
+              <a href="<%= @spot1.browser %>" target="_blank" class="info_btn">
+                <i class="fa fa-safari"></i>&nbsp;公式サイト
+              </a>
+            <% end %>
+            <%# 電話ボタン %>
+            <% unless @spot1.phone.blank? %>
+              <a href="tel:<%= @spot1.phone %>" target="_blank" class="info_btn">
+                <i class="fa fa-phone"></i>&nbsp;電話
+              </a>
+            <% end %>
+            <%# GoogleMapボタン %>
+            <% unless @spot1.address.blank? %>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn">
+                <i class="fa fa-map-marker"></i>&nbsp;地図
+              </a>
+            <% end %>
+            <%# Instagramボタン %>
+            <% unless @spot1.introduction.blank? %>
+              <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
+                <i class="fa fa-instagram"></i>&nbsp;instagram
+              </a>
+            <% end %>
+          </div> 
         </div>  
       </div>
       
@@ -144,7 +218,7 @@
 
 <%# フッター %>
 <footer>
-	<div class="text-center more-btn">
+	<div class="text-center more-btn0">
 <a href="javascript:;" onclick="koshin()" class="raised"><i class="fa fa-refresh"></i>&nbsp;別のコースを見る</a>
 </div>
 </footer>
@@ -165,7 +239,7 @@
   <%= image_tag @spot2.pictures.first.image.url, :class =>'img-course-result' %>
   <h3><%= @spot2.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
 </div>
-<div class="text-center more-btn">
+<div class="text-center more-btn0">
 <a href='#start' class="raised">MORE&nbsp;<i class="fa fa-long-arrow-down" aria-hidden="true"></i></a>
 </div>
 
@@ -183,32 +257,6 @@
             <h2><span class="article-icon">①</span> <span class="black"><%= @spot1.title %></span></h2>
           <% end %>
         </div>  
-        <%# Instagramボタン %>
-          <% unless @spot1.introduction.blank? %>
-            <a href="<%= @spot1.introduction %>" target="_blank" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-instagram icon"></i></span>
-            </a>
-          <% end %>
-        <%# GoogleMapボタン %>
-          <% unless @spot1.address.blank? %>
-            <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-            </a>
-          <% end %>
-          <%# 電話ボタン %>
-          <div class="visible-xs">
-            <% unless @spot1.phone.blank? %>
-              <a href="tel:<%= @spot1.phone %>" target="_blank" class="fl_inst pull-right">
-                <span class="insta"><i class="fa fa-phone icon"></i></span>
-              </a>
-            <% end %>
-          </div>
-          <%# 公式サイトボタン %>
-          <% unless @spot1.browser.blank? %>
-            <a href="<%= @spot1.browser %>" target="_blank" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-safari icon"></i></span>
-            </a>
-          <% end %>
         <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
@@ -266,22 +314,121 @@
             <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
             <p><%= @spot1.point3 %></p>
           <% end %>
-          <hr class="more">
           <%# 食べログ、rettyボタン %>
-          <% unless @spot1.tabelog.blank? %>
-            <div class="col-xs-6">
-              <div class="text-center">
-                <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+          <div class="row">
+            <% unless @spot1.tabelog.blank? %>
+              <div class="col-xs-6">
+                <div class="text-center">
+                  <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+                </div>
+              </div>
+            <% end %>
+            <% unless @spot1.retty.blank? %>
+              <div class="col-xs-6">
+                <div class="text-center">
+                  <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <hr class="more">
+          <%# 諸情報プルダウン %> 
+          <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
+            <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
+          </div>
+          <div id="open" style="display:none;clear:both;">
+            <br>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                営業時間
+              </div>
+              <div class="col-xs-9">
+                月&nbsp;&nbsp;9:30am~10:00pm<br>
+                火&nbsp;&nbsp;CLOSED<br>
+                水&nbsp;&nbsp;9:30am~10:00pm<br>
+                木&nbsp;&nbsp;9:30am~10:00pm<br>
+                金&nbsp;&nbsp;9:30am~10:00pm<br>
+                土&nbsp;&nbsp;9:30am~10:00pm<br>
+                日&nbsp;&nbsp;9:30am~10:00pm<br>
+                祝&nbsp;&nbsp;9:30am~10:00pm
               </div>
             </div>
-          <% end %>
-          <% unless @spot1.retty.blank? %>
-            <div class="col-xs-6">
-              <div class="text-center">
-                <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                アクセス
+              </div>
+              <div class="col-xs-9">
+                東急東横線代官山駅より徒歩3分
               </div>
             </div>
-          <% end %>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                予算
+              </div>
+              <div class="col-xs-9">
+                ランチ&nbsp;&nbsp;1000~2000円<br>
+                ディナー&nbsp;&nbsp;3000~4000円
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                支払い
+              </div>
+              <div class="col-xs-9">
+                カード可&nbsp;&nbsp;（VISA、MASTER、AMEX）
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                サービス料
+              </div>
+              <div class="col-xs-9">
+                なし
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                チャージ
+              </div>
+              <div class="col-xs-9">
+                ディナータイムのみコペルト（パン代、席料）として、300円/人
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                禁煙・喫煙
+              </div>
+              <div class="col-xs-9">
+                完全禁煙&nbsp;&nbsp;同施設内に喫煙所あり。
+              </div>
+            </div>
+          </div>
+          <div class="info-box">
+            <%# 公式サイトボタン %>
+            <% unless @spot1.browser.blank? %>
+              <a href="<%= @spot1.browser %>" target="_blank" class="info_btn">
+                <i class="fa fa-safari"></i>&nbsp;公式サイト
+              </a>
+            <% end %>
+            <%# 電話ボタン %>
+            <% unless @spot1.phone.blank? %>
+              <a href="tel:<%= @spot1.phone %>" target="_blank" class="info_btn">
+                <i class="fa fa-phone"></i>&nbsp;電話
+              </a>
+            <% end %>
+            <%# GoogleMapボタン %>
+            <% unless @spot1.address.blank? %>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn">
+                <i class="fa fa-map-marker"></i>&nbsp;地図
+              </a>
+            <% end %>
+            <%# Instagramボタン %>
+            <% unless @spot1.introduction.blank? %>
+              <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
+                <i class="fa fa-instagram"></i>&nbsp;instagram
+              </a>
+            <% end %>
+          </div> 
         </div>  
       </div>
 
@@ -293,32 +440,6 @@
             <h2><span class="article-icon">②</span> <span class="black"><%= @spot2.title %></span></h2>
           <% end %>
         </div>  
-        <%# Instagramボタン %>
-          <% unless @spot2.introduction.blank? %>
-            <a href="<%= @spot2.introduction %>" target="_blank" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-instagram icon"></i></span>
-            </a>
-          <% end %>
-        <%# GoogleMapボタン %>
-          <% unless @spot2.address.blank? %>
-            <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-            </a>
-          <% end %>
-          <%# 電話ボタン %>
-          <div class="visible-xs">
-            <% unless @spot2.phone.blank? %>
-              <a href="tel:<%= @spot2.phone %>" target="_blank" class="fl_inst pull-right">
-                <span class="insta"><i class="fa fa-phone icon"></i></span>
-              </a>
-            <% end %>
-          </div>
-          <%# 公式サイトボタン %>
-          <% unless @spot2.browser.blank? %>
-            <a href="<%= @spot2.browser %>" target="_blank" class="fl_inst pull-right">
-              <span class="insta"><i class="fa fa-safari icon"></i></span>
-            </a>
-          <% end %>
         <%# 横スクロールコンテンツ %>
           <div class="horizontal_scroll_wrap_content">
             <ul class="scroll_lst_content">
@@ -378,20 +499,120 @@
           <% end %>
           <hr class="more">
           <%# 食べログ、rettyボタン %>
-          <% unless @spot2.tabelog.blank? %>
-            <div class="col-xs-6">
-              <div class="text-center">
-                <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+          <div class="row">
+            <% unless @spot2.tabelog.blank? %>
+              <div class="col-xs-6">
+                <div class="text-center">
+                  <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+                </div>
+              </div>
+            <% end %>
+            <% unless @spot2.retty.blank? %>
+              <div class="col-xs-6">
+                <div class="text-center">
+                  <a href="<%= @spot2.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <hr class="more">
+          <%# 諸情報プルダウン %> 
+          <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
+            <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
+          </div>
+          <div id="open" style="display:none;clear:both;">
+            <br>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                営業時間
+              </div>
+              <div class="col-xs-9">
+                月&nbsp;&nbsp;9:30am~10:00pm<br>
+                火&nbsp;&nbsp;CLOSED<br>
+                水&nbsp;&nbsp;9:30am~10:00pm<br>
+                木&nbsp;&nbsp;9:30am~10:00pm<br>
+                金&nbsp;&nbsp;9:30am~10:00pm<br>
+                土&nbsp;&nbsp;9:30am~10:00pm<br>
+                日&nbsp;&nbsp;9:30am~10:00pm<br>
+                祝&nbsp;&nbsp;9:30am~10:00pm
               </div>
             </div>
-          <% end %>
-          <% unless @spot2.retty.blank? %>
-            <div class="col-xs-6">
-              <div class="text-center">
-                <a href="<%= @spot2.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                アクセス
+              </div>
+              <div class="col-xs-9">
+                東急東横線代官山駅より徒歩3分
               </div>
             </div>
-          <% end %>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                予算
+              </div>
+              <div class="col-xs-9">
+                ランチ&nbsp;&nbsp;1000~2000円<br>
+                ディナー&nbsp;&nbsp;3000~4000円
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                支払い
+              </div>
+              <div class="col-xs-9">
+                カード可&nbsp;&nbsp;（VISA、MASTER、AMEX）
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                サービス料
+              </div>
+              <div class="col-xs-9">
+                なし
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                チャージ
+              </div>
+              <div class="col-xs-9">
+                ディナータイムのみコペルト（パン代、席料）として、300円/人
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                禁煙・喫煙
+              </div>
+              <div class="col-xs-9">
+                完全禁煙&nbsp;&nbsp;同施設内に喫煙所あり。
+              </div>
+            </div>
+          </div>
+          <div class="info-box">
+            <%# 公式サイトボタン %>
+            <% unless @spot2.browser.blank? %>
+              <a href="<%= @spot2.browser %>" target="_blank" class="info_btn">
+                <i class="fa fa-safari"></i>&nbsp;公式サイト
+              </a>
+            <% end %>
+            <%# 電話ボタン %>
+            <% unless @spot2.phone.blank? %>
+              <a href="tel:<%= @spot2.phone %>" target="_blank" class="info_btn">
+                <i class="fa fa-phone"></i>&nbsp;電話
+              </a>
+            <% end %>
+            <%# GoogleMapボタン %>
+            <% unless @spot2.address.blank? %>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="info_btn">
+                <i class="fa fa-map-marker"></i>&nbsp;地図
+              </a>
+            <% end %>
+            <%# Instagramボタン %>
+            <% unless @spot2.introduction.blank? %>
+              <a href="<%= @spot2.introduction %>" target="_blank" class="info_btn">
+                <i class="fa fa-instagram"></i>&nbsp;instagram
+              </a>
+            <% end %>
+          </div> 
         </div>  
       </div>
       
@@ -407,7 +628,7 @@
 
 <%# フッター %>
 <footer>
-<div class="text-center more-btn">
+<div class="text-center more-btn0">
 <a href="javascript:;" onclick="koshin()" class="raised"><i class="fa fa-refresh"></i>&nbsp;別のコースを見る</a>
 </div>
 </footer>

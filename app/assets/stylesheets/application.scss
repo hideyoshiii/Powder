@@ -3211,8 +3211,12 @@ display: inline-block;
     	}
 }
 
-.more-btn{
+.more-btn0{
 	margin-top:25px;
+}
+
+.more-btn{
+	margin-top:30px;
 }
 
 
@@ -3423,6 +3427,34 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 }
 
 
+//諸情報ボタン②
+.info_btn {
+    display: inline-block;
+    padding: 0.3em 0.5em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    transition: .4s;
+    font-size:12px;
+    margin:0px 2px;
+}
 
+.info_btn:hover {
+    background: #67c5ff;
+    color: black;
+}
+
+//諸情報ボタンの枠
+.info-box{
+	margin:15px 0px 15px 15px;
+}
+
+
+
+//moreのコンテンツ
+.more-content{
+	margin:15px 0px;
+}
 
 

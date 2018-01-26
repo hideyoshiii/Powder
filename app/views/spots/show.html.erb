@@ -85,11 +85,14 @@
     	<%# 都道府県、エリア %>
     	<p><span style="color: #CCCCCC;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]</span></p>
     	<br>
-    	<%# 説明 %>
-    	<h4>Description</h4>
-    	<% if @spot.description %>
-    		<p><%= @spot.description %></p>
-    	<% end %>
+    	<%# 見出し %>
+          <% unless @spot.heading.blank? %>
+            <h4><%= @spot.heading %></h4>
+          <% end %>
+          <%# Description %>
+          <% unless @spot.description.blank? %>
+            <p><%= @spot.description %></p>
+          <% end %>
     	<br><br>
     	<%# タグ %>
     	<h4>Tags</h4>
