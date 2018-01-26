@@ -2,9 +2,12 @@
 <mains class="" id="main-collapse">
 
 <%= form_tag(demos_dinner_path, method: :get) do %>
+
+<%= hidden_field_tag :city, params[:city] %>
+
  
 
-	  <div class="box3" id='section3'>
+	  <div class="box98" id='section3'>
 	  	<h3 style="color:white;text-shadow: 1px 1px 2px black;">ディナーの予算は？</h3>
 	  	<div class="article_radio">
 		  	<%= radio_button_tag(:price, 1, true) %>

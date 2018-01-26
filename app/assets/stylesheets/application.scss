@@ -1686,7 +1686,7 @@ dl.search1 dd span:hover{
 
 }
 
-
+//デモ
 .box99 {
   width: 100%;
   height: auto;
@@ -1745,6 +1745,49 @@ dl.search1 dd span:hover{
 }
 
 .bo99 h1 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box98 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(price02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:-50px;
+  box-sizing: border-box;
+}
+
+.box98 h1 {
   position: absolute;
   top: 70%;
   left: 50%;
@@ -2151,6 +2194,7 @@ footer p {
 }
 
 //10秒サーチのエリアのラジオボタン 
+//10秒サーチのエリアのラジオボタン 
 .radio-city input{
     display: none;
 }
@@ -2176,6 +2220,54 @@ footer p {
     transition:0.1s;
     background:#CCCCCC;
 }
+
+
+.radio-city1 {
+  	position: relative;
+  	width:100%;
+    height:20vh;
+    overflow:hidden;
+    border-bottom:1px solid #FAFAFA;
+  }
+
+.radio-city1 input{
+    display: none;
+}
+.radio-city1 label {
+    position: relative;
+    transition:0.1s;
+}
+.radio-city1 input[type="radio"]:checked + label {
+    position: relative;
+    transition:0.1s;
+}
+
+.radio-city1 input[type="radio"]:checked + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4); /* カラーを重ねる */
+}
+
+.radio-city1 h3 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  -ms-transform: translate(0%,0%);
+  -webkit-transform: translate(0%,0%);
+  transform: translate(0%,0%);
+  margin:0;
+  padding:5px;
+  color:white;
+  font-size:18px;
+  font-weight: 300;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  opacity:.9;
+  }
+
 
 
 
@@ -3399,6 +3491,27 @@ display: inline-block;
         border-bottom: 1px solid #ccc;
         font-weight: 500;
 }
+
+
+
+
+
+//dinnerのボタンのと
+.dinner-box{
+	position: relative;
+  	width:100%;
+    height:40vh;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
