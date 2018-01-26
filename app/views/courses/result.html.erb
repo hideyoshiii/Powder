@@ -87,30 +87,25 @@
             <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
             <p><%= @spot1.point3 %></p>
           <% end %>
-          <hr class="more">
           <%# 食べログ、rettyボタン %>
-          <div class="row">
+          <hr class="more">
+          <div class="more-btn" style="font-size:15px;font-weight:bold;color:#4D4D4D;">
+            For your infomation
+          </div>
+          <div class="info-box1">
             <% unless @spot1.tabelog.blank? %>
-              <div class="col-xs-6">
-                <div class="text-center">
-                  <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
-                </div>
-              </div>
+              <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
             <% end %>
             <% unless @spot1.retty.blank? %>
-              <div class="col-xs-6">
-                <div class="text-center">
-                  <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
-                </div>
-              </div>
+              <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
             <% end %>
           </div>
           <hr class="more">
           <%# 諸情報プルダウン %> 
-          <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
+          <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
             <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
           </div>
-          <div id="open" style="display:none;clear:both;">
+          <div id="open1" style="display:none;clear:both;">
             <br>
             <div class="row more-content">
               <div class="col-xs-3">
@@ -315,28 +310,24 @@
             <p><%= @spot1.point3 %></p>
           <% end %>
           <%# 食べログ、rettyボタン %>
-          <div class="row">
+          <hr class="more">
+          <div class="more-btn" style="font-size:15px;font-weight:bold;color:#4D4D4D;">
+            For your infomation
+          </div>
+          <div class="info-box1">
             <% unless @spot1.tabelog.blank? %>
-              <div class="col-xs-6">
-                <div class="text-center">
-                  <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
-                </div>
-              </div>
+              <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
             <% end %>
             <% unless @spot1.retty.blank? %>
-              <div class="col-xs-6">
-                <div class="text-center">
-                  <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
-                </div>
-              </div>
+              <a href="<%= @spot1.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
             <% end %>
           </div>
           <hr class="more">
           <%# 諸情報プルダウン %> 
-          <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
+          <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
             <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
           </div>
-          <div id="open" style="display:none;clear:both;">
+          <div id="open1" style="display:none;clear:both;">
             <br>
             <div class="row more-content">
               <div class="col-xs-3">
@@ -497,30 +488,25 @@
             <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
             <p><%= @spot2.point3 %></p>
           <% end %>
-          <hr class="more">
           <%# 食べログ、rettyボタン %>
-          <div class="row">
+          <hr class="more">
+          <div class="more-btn" style="font-size:15px;font-weight:bold;color:#4D4D4D;">
+            For your infomation
+          </div>
+          <div class="info-box1">
             <% unless @spot2.tabelog.blank? %>
-              <div class="col-xs-6">
-                <div class="text-center">
-                  <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
-                </div>
-              </div>
+              <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
             <% end %>
             <% unless @spot2.retty.blank? %>
-              <div class="col-xs-6">
-                <div class="text-center">
-                  <a href="<%= @spot2.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
-                </div>
-              </div>
+              <a href="<%= @spot2.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
             <% end %>
           </div>
           <hr class="more">
           <%# 諸情報プルダウン %> 
-          <div onclick="obj=document.getElementById('open').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
+          <div onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
             <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
           </div>
-          <div id="open" style="display:none;clear:both;">
+          <div id="open2" style="display:none;clear:both;">
             <br>
             <div class="row more-content">
               <div class="col-xs-3">

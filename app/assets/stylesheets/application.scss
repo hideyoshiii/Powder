@@ -900,7 +900,7 @@ hr.style2{
 }
 
 hr.more{
-	margin:5px 0px 5px;
+	margin:15px 0px 5px;
 }
 	
 
@@ -3054,7 +3054,7 @@ display: inline-block;
   -webkit-tap-highlight-color: transparent;
   transition: .3s ease-out;/*変化を緩やかに*/
   border: solid 1px #53331c;
-  margin:15px 0px;
+  margin:0px 2px;
 }
 
 .raised2:hover{
@@ -3077,7 +3077,7 @@ display: inline-block;
   background: #fc4a1a; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #fc4a1a, #f7b733); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #fc4a1a, #f7b733); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-   margin:15px 0px;
+   margin:0px 2px;
 }
 
 .raised3:hover{
@@ -3446,6 +3446,11 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 }
 
 //諸情報ボタンの枠
+.info-box1{
+	margin:15px 0px 35px 15px;
+}
+
+
 .info-box{
 	margin:15px 0px 15px 15px;
 }
