@@ -1687,6 +1687,76 @@ dl.search1 dd span:hover{
 }
 
 
+.box99 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(search02.jpg);
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:-50px;
+  box-sizing: border-box;
+}
+
+.box99 p{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+	padding:0;
+	margin:0;
+}
+
+.box99 h4{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+    font-weight: 700;
+    padding:0;
+	margin-bottom:10px;
+	font-size:22px;
+}
+
+.box99 h3{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+    font-weight: 500;
+    padding:0;
+	margin-bottom:5px;
+	font-size:18px;
+}
+
+.bo99 h1 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+
+
 
 /* 目次リンクスクロール */
 #contents {
@@ -2080,6 +2150,32 @@ footer p {
 	margin-top:60%;
 }
 
+//10秒サーチのエリアのラジオボタン 
+.radio-city input{
+    display: none;
+}
+.radio-city label {
+    position: relative;
+    padding: 0.3em 0.5em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:14px;
+    transition:0.1s;
+    background:white;
+}
+.radio-city input[type="radio"]:checked + label {
+    position: relative;
+    padding: 0.3em 0.5em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:14px;
+    transition:0.1s;
+    background:#CCCCCC;
+}
 
 
 
@@ -2525,6 +2621,50 @@ footer p {
 }
 
 }
+
+
+//10秒サーチ横スクロール
+.horizontal_scroll_search{
+    background-color: rgba(0,0,0,0);
+    width:100%;
+    height: auto;
+    overflow-y: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.scroll_lst_search {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll_lst_search::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll_item_search {
+    margin-right: 5px;
+    display: inline-block;
+    width: auto;
+    background-color: rgba(0,0,0,0);
+    border-radius:0px;
+}
+
+.scroll_item_search:first-child {
+    margin-left: 0px;
+}
+
+.scroll_item_search:last-child {
+    margin-right: 40px;
+}
+
+
+
+
 
 
 
@@ -3007,6 +3147,7 @@ display: inline-block;
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: .3s ease-out;/*変化を緩やかに*/
+  border: 1px solid black;
 }
 
 .raised:hover{

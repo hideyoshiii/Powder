@@ -7,6 +7,13 @@ Rails.application.routes.draw do
   get "courses/search" => "courses#search"
   get "courses/result" => "courses#result"
 
+  get "demos/search" => "demos#search"
+  get "demos/search1" => "demos#search1"
+  get "demos/dinner" => "demos#dinner"
+  get "demos/search2" => "demos#search2"
+  get "demos/second" => "demos#second"
+  get "demos/result" => "demos#result"
+
   get "/adate" => "details#adate"
   get "/eagle" => "details#eagle"
   get "/terms" => "details#terms"
