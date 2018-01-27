@@ -2213,19 +2213,19 @@ footer p {
     position: relative;
     padding: 0.3em 0.5em;
     text-decoration: none;
-    color: black;
+    color: #cab261;
     border: solid 1px black;
     border-radius: 5px;
     font-size:14px;
     transition:0.1s;
-    background:#CCCCCC;
+    background:#53331c;
 }
 
 
 .radio-city1 {
   	position: relative;
   	width:100%;
-    height:18vh;
+    height:25vh;
     overflow:hidden;
     border-bottom:1px solid #FAFAFA;
   }
@@ -2242,6 +2242,16 @@ footer p {
     transition:0.1s;
 }
 
+.radio-city1 input[type="radio"] + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7); /* カラーを重ねる */
+}
+
 .radio-city1 input[type="radio"]:checked + label:before {
 	position: absolute;
 	content: "";
@@ -2249,7 +2259,7 @@ footer p {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.5); /* カラーを重ねる */
+	background: rgba(0, 0, 0, 0); /* カラーを重ねる */
 }
 
 .radio-city1 h3 {
@@ -2271,7 +2281,7 @@ footer p {
 
 .radio-city1 h4 {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 90%;
   -ms-transform: translate(-50%,-90%);
   -webkit-transform: translate(-50%,-90%);

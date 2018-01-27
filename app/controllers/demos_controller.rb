@@ -8,18 +8,20 @@ class DemosController < ApplicationController
   end
 
   def dinner
+  	@n = 0
   	@spots = Spot.where("scenes like '%ディナー%'")
-   	@spots = @spots.where(city: params[:city], price: params[:price]).order("RANDOM()").limit(3)
+   	@spots = @spots.where(city: params[:city], price: params[:price]).order("RANDOM()").limit(2)
   end
 
   def search2
+  	@n = 0
   	@scene = params[:large]
   	@spot1 = Spot.find(params[:spot1])
   	if @spot1
 	    @pictures1 = @spot1.pictures.order(id: "ASC")
 	  	@spots = Spot.where.not(title: @spot1.title)
 	  	@spots = @spots.where("scenes like '%#{@scene}%'")
-	  	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(3)
+	  	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(2)
 	end
 
   	if params[:large] == "２軒目なし"
@@ -30,11 +32,12 @@ class DemosController < ApplicationController
   end
 
   def second
+  	@n = 0
   	@scene = params[:large]
   	@spot1 = Spot.find(params[:spot1])
   	@spots = Spot.where.not(title: @spot1.title)
   	@spots = @spots.where("scenes like '%#{@scene}%'")
-  	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(3)
+  	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(2)
   end
 
   def result
