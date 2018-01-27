@@ -6,10 +6,10 @@
 
 <% @spots.each do |spot| %>
 <div class="radio-city1">	
-<%= radio_button_tag(:spot1, spot.id) %>
+<%= radio_button_tag(:spot1, spot.id, true) %>
 <label for="spot1_<%= spot.id %>">
   <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
-  <h3><%= spot.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span></h3> 
+  <h3><%= spot.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span></h3> 
   <%= link_to spot_path(spot) do %>
 	  <h4>
 	  	<i class="fa fa-info-circle" aria-hidden="true"></i>
