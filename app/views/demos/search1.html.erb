@@ -11,15 +11,28 @@
 	  	<h4 style="color:white;text-shadow: 1px 1px 2px black;">まずはディナーのお店を決めよう。</h4>
 	  	<br>
 	  	<h3 style="color:white;text-shadow: 1px 1px 2px black;">予算はどのくらい？</h3>
-	  	<div class="article_radio">
-		  	<%= radio_button_tag(:price, 1, true) %>
-			<%= label_tag(:price_1, "~4,000円/人") %>
-		  	<%= radio_button_tag(:price, 2) %>
-			<%= label_tag(:price_2, "~6,000円/人") %> 
-			<%= radio_button_tag(:price, 3) %>
-			<%= label_tag(:price_3, "~8,000円/人") %>  
-	  	</div>
-	  	<br><br>
+	  	<div class="horizontal_scroll_search">
+			  <ul class="scroll_lst_search">
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:price, 1, true) %>
+						<%= label_tag(:price_1, "~4,000円/人") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:price, 2) %>
+						<%= label_tag(:price_2, "~6,000円/人") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:price, 3) %>
+						<%= label_tag(:price_3, "~8,000円/人") %>
+					</span>
+			    </li>
+			  </ul>
+			</div>
 	  	<div>
   			<h1><%= submit_tag "SEARCH", :class => "btn btn-default" %></h1>
   		</div>
