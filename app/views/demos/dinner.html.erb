@@ -4,7 +4,7 @@
 
 <%= form_tag(demos_search2_path, method: :get) do %>
 
-<h3 class="text-center" style="margin-top:5px;">どっちのお店にする？</h3>	
+<h3 class="text-center" style="margin-top:10px;">どっちのお店にする？</h3>	
 
 
 <% @spots.each do |spot| %>
@@ -27,21 +27,17 @@
 </div>
 <% end %>
 
-<div class="dinner-box">
-<div class="text-center change-btn">
-<a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Cange</a>
-</div>	
+<div class="dinner-box change-btn">	
 <div class="col-xs-12">
 <div class="text-center">
+<a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Cange</a>&nbsp;&nbsp;
 <a href='#section4' class="btn btn-default">次へ進む</a>
 </div>
 </div>	
 </div>
 
 <div class="box5" id='section4'>
-		<div class="text-center">
 	  	<h3 style="color:white;text-shadow: 1px 1px 2px black;">この後どうする？</h3>
-	  	</div>
 	  	<div class="row radio-box">
 	  	<div class="col-xs-4 col-sm-4 col-md-4">
 	  	<div class="text-center">
