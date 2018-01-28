@@ -2801,6 +2801,7 @@ footer p {
     padding: 0;
     margin: 0;
     -webkit-overflow-scrolling: touch;
+    font-size:0px;
 }
 .scroll_item_result {
     display: inline-block;
@@ -2808,10 +2809,14 @@ footer p {
     background: white;
 }
 
-.scroll_item_thum_result{
+.scroll_item_inr_result{
+	display: inline-block; /* インラインブロック化 */
+    vertical-align: top;   /* 上端を揃える */
 	padding: 0;
     margin: 0;
+    font-size:15px;
 }
+
 
 
 
