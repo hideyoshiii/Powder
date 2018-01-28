@@ -171,7 +171,7 @@
                     <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content_quote">
-                    <p class="scroll_item_ttl_content_quote pull-right">
+                    <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
                     <i class="fa fa-instagram"></i>&nbsp;instagram&nbsp;&nbsp;https://www.instagram.com/p/BdLrLMpnxU3
                     </p>
                   </div>
@@ -188,11 +188,13 @@
 	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.city %>&nbsp;&nbsp;[<%= @spot.station %>]
 	    </div> 
 	    <br>
+	</div> 
 	    <%# wantdoneボタン %>
 	    <span id="sp-of-<%= @spot.id %>">
 	    	<%= render partial: 'likes/sp', locals: { spot: @spot, likes: @likes } %>
 	  	</span>
 	  	<br>
+	<div class="panel-body">
     	<%# 見出し %>
           <% if @spot.heading.blank? %>
             <p class="aaa">川のほとりの一軒家で静かなディナーを</p>

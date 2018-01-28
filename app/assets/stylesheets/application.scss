@@ -3103,8 +3103,8 @@ display: inline-block;
 //showページのいいねボタン
 .fab1-show {/*円*/
   	display:block;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background: #8899a6;
     text-align: center;
     border-radius: 50%;
@@ -3117,9 +3117,9 @@ display: inline-block;
 
 .fab1-show i {/*アイコン*/
   color: white;
-  line-height: 40px;
+  line-height: 35px;
   vertical-align: middle;
-  font-size: 18px;
+  font-size: 15px;
   transition: 0.2s;
 }
 
@@ -3129,8 +3129,8 @@ display: inline-block;
 
 .fab2-show {/*円*/
   	display:block;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background: #FA7A0A;
     text-align: center;
     border-radius: 50%;
@@ -3143,9 +3143,9 @@ display: inline-block;
 
 .fab2-show i {/*アイコン*/
   color: white;
-  line-height: 40px;
+  line-height: 35px;
   vertical-align: middle;
-  font-size: 18px;
+  font-size: 15px;
   transition: 0.2s;
 }
 
@@ -3156,8 +3156,8 @@ display: inline-block;
 
 .fab3-show {/*円*/
   	display:block;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background: #0ECC3E;
     text-align: center;
     border-radius: 50%;
@@ -3170,9 +3170,9 @@ display: inline-block;
 
 .fab3-show i {/*アイコン*/
   color: white;
-  line-height: 40px;
+  line-height: 35px;
   vertical-align: middle;
-  font-size: 18px;
+  font-size: 15px;
   transition: 0.2s;
 }
 
@@ -3363,7 +3363,7 @@ display: inline-block;
 //spotのshowの都道府県
 .prefecture-spot-show{
 	color: #CCCCCC;
-	margin-top:-10px;
+	margin-top:-7px;
 	padding:0;
 }
 
@@ -3575,7 +3575,35 @@ display: inline-block;
 
 
 
+//spotのshowの横スクロールのp
+.spot-show-p{
+	margin-top:1em;
+	margin-bottom:1em;
+	line-height:1.5;
+}
 
+//spotのshowの横スクロール
+.horizontal_scroll_wrap_content{
+    background: #F4F5F7;
+    width:100%;
+    height: auto;
+    max-height: 460px;
+    overflow-y: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.want-box{
+	background: #f0f0f0;
+	padding:10px 0px 7px;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.done-box{
+	background: #f0f0f0;
+	padding:10px 0px 7px;
+	border-radius: 5px 5px 5px 5px;
+}
 
 
 

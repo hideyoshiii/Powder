@@ -21,7 +21,7 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @tags = @spot.label_list
-    @pictures = @spot.pictures
+    @pictures = @spot.pictures.order(id: "ASC")
   end
 
   def new
