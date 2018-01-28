@@ -1,8 +1,8 @@
 <%= render "partial/navbar" %>
-<main class="" id="main-collapse">
+<mains class="" id="main-collapse">
 
 
-<div class="row">
+
 
 	<%# PCの時 %>
   	<div class="hidden-xs hidden-sm col-md-6">
@@ -158,26 +158,34 @@
 
  	<%# スマホ・タブレットの時 %>
  	<div class="visible-xs col-xs-12 visible-sm co-sm-12">
-	    <%# 写真 %>
- 		<%= link_to "/spots/#{@spot.id}/pictures" do %>
- 		<div class="example2">
-	    <%= image_tag @spot.pictures.first.image.url,style: "height:auto; width:100%; overflow:hidden; border-radius:10px 10px 10px 0px;" %>
-	    <% pictures_count = Picture.where(spot_id: @spot.id).count %>
-    	<p><i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %></p> 
-    	</div>
-	    <% end %>
-	    <%# 写真を追加するへのリンク %>
-	  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
-		  	<div class="part_line black">
-				<i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
-			</div>
-		<% end %>
-	  	<br><br>
+ 	<br>
+ 		<%# 横スクロール写真 %>
+          <div class="horizontal_scroll_wrap_content">
+            <ul class="scroll_lst_content">
+              <%# 横スクロールコンテンツ %>
+              <% @pictures.each do |picture| %>
+              <li class="scroll_item_content">
+                <a href="#" class="scroll_item_inr_content">
+                  <div class="scroll_item_thum_content">
+                    <%# $$$spotから利用する写真をfitstなどで指定 %>
+                    <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                  </div>
+                  <div class="scroll_item_info_content_quote">
+                    <p class="scroll_item_ttl_content_quote pull-right">
+                    <i class="fa fa-instagram"></i>&nbsp;instagram&nbsp;&nbsp;https://www.instagram.com/p/BdLrLMpnxU3
+                    </p>
+                  </div>
+               </a>
+              </li>
+              <% end %>  
+            </ul>
+          </div>
+    <div class="panel-body">
 	  	<%# タイトル %>
 	    <div class="title-spot-show"><%= @spot.title %></div>
 	    <%# 都道府県、エリア %>
 	    <div class="prefecture-spot-show">
-	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.prefecture %>&nbsp;&nbsp;[<%= @spot.city %>]
+	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.city %>&nbsp;&nbsp;[<%= @spot.station %>]
 	    </div> 
 	    <br>
 	    <%# wantdoneボタン %>
@@ -186,57 +194,151 @@
 	  	</span>
 	  	<br>
     	<%# 見出し %>
-          <% unless @spot.heading.blank? %>
-            <h4><%= @spot.heading %></h4>
+          <% if @spot.heading.blank? %>
+            <p class="aaa">川のほとりの一軒家で静かなディナーを</p>
+          <% else %>
+            <p class="aaa"><%= @spot.heading %></p>
           <% end %>
           <%# Description %>
-          <% unless @spot.description.blank? %>
+          <% if @spot.description.blank? %>
+            <p>ラグジュアリーなリゾートを彷彿させるテラスが有名なメキシコ料理点。きらびやかな空間で飲むお酒に気分も上がる。</p>
+          <% else %>
             <p><%= @spot.description %></p>
           <% end %>
-    	<br>
-    	<%# タグ %>
-    	<h4>Tags</h4>
-    	<% @tags.each do |tag| %>
-			<%= link_to search_tags_index_path(tag: tag) do %>
-				<div class="btn btn-default btn-sm margin-btn">
-				<%= tag %>
-				</div>
-			<% end %>
-			&nbsp;
-		<% end %>
-		<br>
-		<%# more %>
-    	<h4>More</h4>
-    	<%# 公式サイト %>
-        <% if @spot.browser %>
-	        <a href="https://www.tokyotower.co.jp" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-globe icon"></i></span>
-	        </a>
-	    <% end %>
-	    <%# 電話番号 %>
-        <% if @spot.phone %>
-	        <a href="tel:0334335111" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-phone icon"></i></span>
-	        </a>
-        <% end %>
-        <%# googlemap %>
-        <% if @spot.address %>
-	        <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-map-marker icon"></i></span>
-	        </a>
-        <% end %>
-        <%# 食べログ %>
-        <% if @spot.retty %>
-	        <a href="<%= @spot.retty %>" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-cutlery icon"></i></span>
-	        </a>
-        <% end %>
-        <%# instagram %>
-        <% if @spot.introduction %>
-	        <a href="<%= @spot.introduction %>" target="_blank" class="fl_inst pull-left">
-	          <span class="insta"><i class="fa fa-instagram icon"></i></span>
-	        </a>
-        <% end %>
+          <br>
+          <%# ポイント1 %>
+          <% if @spot.point1.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>暗め照明のメリットを最大限享受するため、場所は絶対に地下を予約しよう。座り心地の悪い椅子もあるので、「座り心地の良い椅子で！」とリクエストをするのがおすすめ。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot.point1 %></p>
+          <% end %>
+          <%# ポイント2 %>
+          <% if @spot.point2.blank? %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p>ここではお食事をせず、お酒と景色を楽しもう。テラス席からは東京タワーが見えるので、お店の人にテラス席に案内してもらおう。ただ、お天気が曇りだと遠くまでの景色が見えない場合があるので、お天気はこまめにチェックするのが大切。</p>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot.point2 %></p>
+          <% end %>
+          <%# ポイント3 %>
+          <% if @spot.point3.blank? %>
+          <% else %>
+            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
+            <p><%= @spot.point3 %></p>
+          <% end %>
+          <%# 食べログ、rettyボタン %>
+          <hr class="more">
+          <div class="more-btn" style="font-size:15px;font-weight:bold;color:#4D4D4D;">
+            For your infomation
+          </div>
+          <div class="info-box1">
+            <% unless @spot.tabelog.blank? %>
+              <a href="<%= @spot.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+            <% end %>
+            <% unless @spot.retty.blank? %>
+              <a href="<%= @spot.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+            <% end %>
+          </div>
+          <hr class="more">
+          <%# 諸情報プルダウン %> 
+          <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
+            <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
+          </div>
+          <div id="open1" style="display:none;clear:both;">
+            <br>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                営業時間
+              </div>
+              <div class="col-xs-9">
+                月&nbsp;&nbsp;9:30am~10:00pm<br>
+                火&nbsp;&nbsp;CLOSED<br>
+                水&nbsp;&nbsp;9:30am~10:00pm<br>
+                木&nbsp;&nbsp;9:30am~10:00pm<br>
+                金&nbsp;&nbsp;9:30am~10:00pm<br>
+                土&nbsp;&nbsp;9:30am~10:00pm<br>
+                日&nbsp;&nbsp;9:30am~10:00pm<br>
+                祝&nbsp;&nbsp;9:30am~10:00pm
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                アクセス
+              </div>
+              <div class="col-xs-9">
+                東急東横線代官山駅より徒歩3分
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                予算
+              </div>
+              <div class="col-xs-9">
+                ランチ&nbsp;&nbsp;1000~2000円<br>
+                ディナー&nbsp;&nbsp;3000~4000円
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                支払い
+              </div>
+              <div class="col-xs-9">
+                カード可&nbsp;&nbsp;（VISA、MASTER、AMEX）
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                サービス料
+              </div>
+              <div class="col-xs-9">
+                なし
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                チャージ
+              </div>
+              <div class="col-xs-9">
+                ディナータイムのみコペルト（パン代、席料）として、300円/人
+              </div>
+            </div>
+            <div class="row more-content">
+              <div class="col-xs-3">
+                禁煙・喫煙
+              </div>
+              <div class="col-xs-9">
+                完全禁煙&nbsp;&nbsp;同施設内に喫煙所あり。
+              </div>
+            </div>
+          </div>
+          <div class="info-box">
+            <%# 公式サイトボタン %>
+            <% unless @spot.browser.blank? %>
+              <a href="<%= @spot.browser %>" target="_blank" class="info_btn">
+                <i class="fa fa-safari"></i>&nbsp;公式サイト
+              </a>
+            <% end %>
+            <%# 電話ボタン %>
+            <% unless @spot.phone.blank? %>
+              <a href="tel:<%= @spot.phone %>" target="_blank" class="info_btn">
+                <i class="fa fa-phone"></i>&nbsp;電話
+              </a>
+            <% end %>
+            <%# GoogleMapボタン %>
+            <% unless @spot.address.blank? %>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="info_btn">
+                <i class="fa fa-map-marker"></i>&nbsp;地図
+              </a>
+            <% end %>
+            <%# Instagramボタン %>
+            <% unless @spot.introduction.blank? %>
+              <a href="<%= @spot.introduction %>" target="_blank" class="info_btn">
+                <i class="fa fa-instagram"></i>&nbsp;instagram
+              </a>
+            <% end %>
+          </div>
 		<br><br><br>
 		<%# シェアボタン %>
 		<h4>Share</h4>
@@ -270,6 +372,20 @@
 	          </a>
 	        </div>  
 	      <% end %>
+	      <br><br>
+	    <%# 写真を追加するへのリンク %>
+	    <% pictures_count = Picture.where(spot_id: @spot.id).count %>
+	  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
+		  	<div class="part_line black">
+				<i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %>  写真を追加する
+			</div>
+		<% end %>
+	  	<%# 写真を追加するへのリンク %>
+	  	<%= link_to "/spots/#{@spot.id}/pictures" do %>
+		  	<div class="part_line black">
+				<i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %>  写真一覧へ
+			</div>
+		<% end %>
 		<%# 投稿者 %>
 		<% if (user_signed_in?) %>
 			<% if current_user.authority == "manager" %>
@@ -307,8 +423,9 @@
 				<% end %>
 			<% end %>
 		<% end %>
+	</div>	
  	</div>
-</div>
+
 
 
 </main>
