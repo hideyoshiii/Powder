@@ -157,7 +157,7 @@
 
 
  	<%# スマホ・タブレットの時 %>
- 	<div class="visible-xs col-xs-12 visible-sm co-sm-12">
+ 	<div class="visible-xs visible-sm">
  	<br>
  		<%# 横スクロール写真 %>
           <div class="horizontal_scroll_wrap_content_spot">
@@ -188,13 +188,11 @@
 	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.city %>&nbsp;&nbsp;[<%= @spot.station %>]
 	    </div> 
 	    <br>
-	</div> 
 	    <%# wantdoneボタン %>
 	    <span id="sp-of-<%= @spot.id %>">
 	    	<%= render partial: 'likes/sp', locals: { spot: @spot, likes: @likes } %>
 	  	</span>
 	  	<br>
-	<div class="panel-body">
     	<%# 見出し %>
           <% if @spot.heading.blank? %>
             <p class="aaa">川のほとりの一軒家で静かなディナーを</p>

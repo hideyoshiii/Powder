@@ -11,15 +11,35 @@
 <br>
 
 <%# アイキャッチとタイトル %>
-<div class="frame-course">
-  <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
-  <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-  <%= link_to spot_path(@spot1) do %>
-    <h4>
-      <i class="fa fa-info-circle" aria-hidden="true"></i>
-    </h4>
-  <% end %>
-</div>
+<%# 横スクロールコンテンツ %>
+          <div class="horizontal_scroll_wrap_result">
+            <ul class="scroll_lst_result">
+              <%# 横スクロールコンテンツ %>
+              <li class="scroll_item_result">
+                  <div class="scroll_item_thum_result">
+                    <div class="frame-demo">
+                      <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
+                      <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
+                      <%= link_to spot_path(@spot1) do %>
+                        <h4>
+                          <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        </h4>
+                      <% end %>
+                    </div>
+                  </div>
+              </li>
+              <li class="scroll_item_result">
+                  <div class="scroll_item_thum_result">
+                    <div id="map"></div>
+                  </div>
+              </li>
+              <li class="scroll_item_result">
+                  <div class="scroll_item_thum_result">
+                    諸情報
+                  </div>
+              </li>
+            </ul>
+          </div>
 
 <h3 class="text-center">位置関係はこんな感じ！</h3>	
 <br>
