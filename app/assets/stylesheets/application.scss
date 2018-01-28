@@ -2713,7 +2713,7 @@ footer p {
     display: inline-block;
     width: 93%;
     background: white;
-    border-radius:10px;
+    border-radius:2px;
 }
 .scroll_item_content:first-child {
     margin-left: 5px;
@@ -3455,6 +3455,22 @@ display: inline-block;
   opacity:.9;
   }
 
+  .frame-course h4 {
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  -ms-transform: translate(-50%,-90%);
+  -webkit-transform: translate(-50%,-90%);
+  transform: translate(-50%,-90%);
+  margin:0;
+  padding:0;
+  color:white;
+  font-size:22px;
+  opacity: 0.8;
+  text-shadow: 1px 1px 2px black;
+  }
+
+
   
 
 .img-course-result{
@@ -3583,7 +3599,7 @@ display: inline-block;
 }
 
 //spotのshowの横スクロール
-.horizontal_scroll_wrap_content{
+.horizontal_scroll_wrap_content_spot{
     background: #F4F5F7;
     width:100%;
     height: auto;
