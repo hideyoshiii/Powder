@@ -30,7 +30,43 @@
               </li>
               <li class="scroll_item_result">
                   <div class="scroll_item_inr_result">
-                    諸情報
+                    <%# 食べログ、rettyボタン %>
+                    <div style="font-size:15px;color:#4D4D4D;margin:15px 0px 5px 2px;">
+                      For your infomation
+                    </div>
+                    <% unless @spot1.tabelog.blank? %>
+                      <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+                    <% end %>
+                    <% unless @spot1.retty.blank? %>
+                      <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+                    <% end %>
+                    <div style="font-size:15px;color:#4D4D4D;margin:15px 0px 5px 2px;">
+                      more
+                    </div>
+                    <%# 公式サイトボタン %>
+                    <% unless @spot1.browser.blank? %>
+                      <a href="<%= @spot1.browser %>" target="_blank" class="info_btn">
+                        <i class="fa fa-safari"></i>&nbsp;公式サイト
+                      </a>
+                    <% end %>
+                    <%# 電話ボタン %>
+                    <% unless @spot1.phone.blank? %>
+                      <a href="tel:<%= @spot1.phone %>" target="_blank" class="info_btn">
+                        <i class="fa fa-phone"></i>&nbsp;電話
+                      </a>
+                    <% end %>
+                    <%# GoogleMapボタン %>
+                    <% unless @spot1.address.blank? %>
+                      <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn">
+                        <i class="fa fa-map-marker"></i>&nbsp;地図
+                      </a>
+                    <% end %>
+                    <%# Instagramボタン %>
+                    <% unless @spot1.introduction.blank? %>
+                      <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
+                        <i class="fa fa-instagram"></i>&nbsp;instagram
+                      </a>
+                    <% end %>
                   </div>
               </li>
               <li class="scroll_item_result">
