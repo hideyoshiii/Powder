@@ -3320,6 +3320,27 @@ display: inline-block;
 
 }
 
+//食べログで見るボタン(result)
+.raise2-result{
+  display: inline-block;
+  background-color: white;
+  color: #53331c;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 5px 5px;/*ボタン内の余白*/
+  border-radius: 30px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;/*変化を緩やかに*/
+  border: solid 1px #53331c;
+  margin:0px 2px;
+}
+
+.raised2-result:hover{
+
+}
+
 
 //rettyで見るボタン
 .raise3{
@@ -3340,6 +3361,28 @@ display: inline-block;
 }
 
 .raised3:hover{
+
+}
+
+//rettyで見るボタン(result)
+.raise3-result{
+  display: inline-block;
+  color: #53331c;
+  font-size: 12px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 7px 10px;/*ボタン内の余白*/
+  border-radius: 30px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;/*変化を緩やかに*/
+  background: #fc4a1a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fc4a1a, #f7b733); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fc4a1a, #f7b733); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   margin:0px 2px;
+}
+
+.raised3-result:hover{
 
 }
 
@@ -3455,7 +3498,43 @@ display: inline-block;
   opacity:.9;
   }
 
-  .frame-course h4 {
+  //10秒サーチ結果のファーストUI(demo)
+.frame-demo {
+  	position: relative;
+  	width:100%;
+    height:30vh;
+    overflow:hidden;
+    border-bottom:1px solid #FAFAFA;
+  }
+
+.frame-demo:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3); /* カラーを重ねる */
+}
+
+
+.frame-demo h3 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  -ms-transform: translate(0%,0%);
+  -webkit-transform: translate(0%,0%);
+  transform: translate(0%,0%);
+  margin:0;
+  padding:5px;
+  color:white;
+  font-size:18px;
+  font-weight: 300;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  opacity:.9;
+  }
+
+  .frame-demo h4 {
   position: absolute;
   top: 90%;
   left: 90%;
@@ -3465,10 +3544,12 @@ display: inline-block;
   margin:0;
   padding:0;
   color:white;
-  font-size:22px;
+  font-size:24px;
   opacity: 0.8;
   text-shadow: 1px 1px 2px black;
   }
+
+
 
 
   

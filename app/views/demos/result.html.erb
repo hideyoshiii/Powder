@@ -43,7 +43,7 @@
 <br>
 
 <%# アイキャッチとタイトル %>
-<div class="frame-course">
+<div class="frame-demo">
   <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
   <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
   <%= link_to spot_path(@spot1) do %>
@@ -52,7 +52,7 @@
     </h4>
   <% end %>
 </div>
-<div class="frame-course">
+<div class="frame-demo">
   <%= image_tag @spot2.pictures.first.image.url, :class =>'img-course-result' %>
   <h3><%= @spot2.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
   <%= link_to spot_path(@spot2) do %>
@@ -131,6 +131,7 @@ function initMap() {
 
 
 </main>
+<%= render "partial/footer" %>
 
 <script>
 document.addEventListener("DOMContentLoaded", function (event) {
