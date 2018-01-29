@@ -42,6 +42,7 @@ gem 'ransack'
 gem 'acts-as-taggable-on', github: 'mbleigh/acts-as-taggable-on', branch: 'master'
 gem "figaro", "~> 1.0.0"
 gem 'aws-sdk', '~> 2.3'
+gem 'geocoder'
 
 
 group :production do 

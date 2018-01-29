@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180123082429) do
+ActiveRecord::Schema.define(version: 20180129000628) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -158,6 +158,8 @@ ActiveRecord::Schema.define(version: 20180123082429) do
     t.text "point1"
     t.text "point2"
     t.text "point3"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
