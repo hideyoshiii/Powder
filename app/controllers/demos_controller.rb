@@ -55,6 +55,7 @@ class DemosController < ApplicationController
 
   def change1
     @n = 0
+    @scene = params[:large]
     @spot1 = Spot.find(params[:spot1])
     @spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.where("scenes like '%ディナー%'")
