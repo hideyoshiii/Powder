@@ -41,6 +41,32 @@
 						</div>
 						<br>
 
+						<div class="row">
+							<div class="col-md-4 select">
+								<div class="form-group">
+                                <label>ランチ</label>
+                                ~<%= f.number_field :price_lunch, min:0, max:50000 %>円
+                            	</div>
+							</div>
+							<div class="col-md-4 select">
+								<div class="form-group">
+                                <label>ディナー</label>
+                                ~<%= f.number_field :price_dinner, min:0, max:50000 %>円
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>price</label>
+									<%= f.select :price, [["~4,000円","1"], ["~6,000円","2"], ["~8,000円","3"], ["~10,000円","4"], ["10,000円~","5"]], {prompt:"選択してください"}, {class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+
 
 						<div class="row">
 							<div class="col-md-12 select">
@@ -68,16 +94,6 @@
                                 <label>station</label>
                                 <%= f.text_field :station, placeholder: "最寄駅", class: "form-control" %>
                             	</div>
-							</div>
-						</div>
-						<br>
-
-						<div class="row">
-							<div class="col-md-12 select">
-								<div class="form-group">
-									<label>price</label>
-									<%= f.select :price, [["~4,000円","1"], ["~6,000円","2"], ["~8,000円","3"], ["~10,000円","4"], ["10,000円~","5"]], {prompt:"選択してください"}, {class: 'form-control'} %>
-								</div>
 							</div>
 						</div>
 						<br>	
