@@ -53,5 +53,30 @@ class DemosController < ApplicationController
     end
   end
 
+  def change1
+    @n = 0
+    @spot1 = Spot.find(params[:spot1])
+    @spots = Spot.where.not(title: @spot1.title)
+    @spots = @spots.where("scenes like '%ディナー%'")
+    @spots = @spots.where(station: @spot1.station, price: @spot1.price).order("RANDOM()").limit(3)
+
+    if !params[:spot2].blank?
+      @spot2 = Spot.find(params[:spot2])
+    end
+  end
+
+  def change2
+    @n = 0
+    @scene = params[:large]
+    @spot2 = Spot.find(params[:spot2])
+    @spots = Spot.where.not(title: @spot2.title)
+    @spots = @spots.where("scenes like '%#{@scene}%'")
+    @spots = @spots.where(station: @spot2.station).order("RANDOM()").limit(3)
+
+    if !params[:spot1].blank?
+      @spot1 = Spot.find(params[:spot1])
+    end
+  end
+
   
 end

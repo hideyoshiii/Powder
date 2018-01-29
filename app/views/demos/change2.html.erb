@@ -7,8 +7,12 @@
 
 <%= form_tag(demos_result_path, method: :get) do %>
 
+<% if !@spot1.blank? %>
 <%= hidden_field_tag :spot1, @spot1.id %>
+<% end %>
+<% if !params[:large].blank? %>
 <%= hidden_field_tag :large, params[:large] %>
+<% end %>
 
 <h4 class="text-center" style="margin-top:20px;">どの<%= @scene %>にする？</h4>	
 
@@ -37,7 +41,7 @@
 <div class="col-xs-12">
 <div class="text-center">
 <a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Cange</a>&nbsp;&nbsp;
-<%= submit_tag "コースを確定する", :class => "btn btn-default" %></div>
+<%= submit_tag "変更を確定する", :class => "btn btn-default" %></div>
 </div>	
 </div>
 

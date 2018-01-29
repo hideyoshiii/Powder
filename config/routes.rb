@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "demos/search2" => "demos#search2"
   get "demos/second" => "demos#second"
   get "demos/result" => "demos#result"
+  get "demos/change1" => "demos#change1"
+  get "demos/change2" => "demos#change2"
 
   get "/adate" => "details#adate"
   get "/eagle" => "details#eagle"

@@ -7,8 +7,12 @@
 
 <%= form_tag(demos_result_path, method: :get) do %>
 
-<%= hidden_field_tag :spot1, @spot1.id %>
+<% if !@spot2.blank? %>
+<%= hidden_field_tag :spot2, @spot2.id %>
+<% end %>
+<% if !params[:large].blank? %>
 <%= hidden_field_tag :large, params[:large] %>
+<% end %>
 
 <h4 class="text-center" style="margin-top:20px;">どの<%= @scene %>にする？</h4>	
 
@@ -17,11 +21,11 @@
 <div class="radio-city1">	
 <% @n = @n + 1 %>
 <% if @n == 1 %>	
-<%= radio_button_tag(:spot2, spot.id, true) %>
+<%= radio_button_tag(:spot1, spot.id, true) %>
 <% else %>
-<%= radio_button_tag(:spot2, spot.id) %>
+<%= radio_button_tag(:spot1, spot.id) %>
 <% end %>
-<label for="spot2_<%= spot.id %>">
+<label for="spot1_<%= spot.id %>">
   <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
   <h3><%= spot.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span></h3> 
   <%= link_to spot_path(spot) do %>
@@ -37,7 +41,7 @@
 <div class="col-xs-12">
 <div class="text-center">
 <a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Cange</a>&nbsp;&nbsp;
-<%= submit_tag "コースを確定する", :class => "btn btn-default" %></div>
+<%= submit_tag "変更を確定する", :class => "btn btn-default" %></div>
 </div>	
 </div>
 
