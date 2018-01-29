@@ -257,10 +257,10 @@
 
 <script type="text/javascript">
   (function(){
-    var latlng = new google.maps.LatLng(34.687298, 135.526226);
+    var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
     var myOptions = {
         gestureHandling: 'greedy',
-        zoom: 15
+        zoom: 16
       , center: latlng
       , mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -274,10 +274,10 @@
     });
 
 
-    var latlng = new google.maps.LatLng(34.651312, 135.510388);
+    var latlng = new google.maps.LatLng(<%= @spot2.latitude %>, <%= @spot1.longitude %>);
     var myOptions = {
         gestureHandling: 'greedy',
-        zoom: 15
+        zoom: 16
       , center: latlng
       , mapTypeId: google.maps.MapTypeId.ROADMAP
     };
