@@ -255,6 +255,30 @@
 
 
 
+
+<% if @spot2.nil? %>
+<script type="text/javascript">
+  (function(){
+    var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
+    var myOptions = {
+        gestureHandling: 'greedy',
+        zoom: 16
+      , center: latlng
+      , mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map_01 = new google.maps.Map(
+        document.getElementById("map_canvas_01")
+      , myOptions
+    );
+    var marker = new google.maps.Marker({ 
+        position: latlng, 
+        map: map_01
+    });
+
+
+  }());
+  </script>
+<% else %>
 <script type="text/javascript">
   (function(){
     var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
@@ -293,6 +317,7 @@
 
   }());
   </script>
+<% end %>
 
 
 
