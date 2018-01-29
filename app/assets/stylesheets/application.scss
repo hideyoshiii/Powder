@@ -2806,7 +2806,7 @@ footer p {
 .scroll_item_result {
     display: inline-block;
     width: 100%;
-    background: white;
+    background: #FAFAFA;
 }
 
 .scroll_item_inr_result{
@@ -3966,6 +3966,6 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 }
 
 
-#map1,
-#map2,
+#map_canvas_01,
+#map_canvas_02,
  {width: 100%; height: 30vh;}
