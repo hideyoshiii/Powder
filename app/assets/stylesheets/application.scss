@@ -2809,12 +2809,24 @@ footer p {
     background: #FAFAFA;
 }
 
+.scroll_item_result_map {
+    display: inline-block;
+    width: 80%;
+    background: #FAFAFA;
+}
+
+.scroll_item_result_maps {
+    display: inline-block;
+    width: 20%;
+    background: #333333;
+}
+
 .scroll_item_inr_result{
 	display: inline-block; /* インラインブロック化 */
     vertical-align: top;   /* 上端を揃える */
 	padding: 0;
     margin: 0;
-    font-size:15px;
+    font-size:15px; 
 }
 
 .scroll_item_thum_result{
@@ -2822,6 +2834,12 @@ footer p {
     margin: 0;
 }
 
+.scroll_item_thum_result_maps{
+	padding: 13vh 1vh 12.5vh 1vh;
+    margin: 0;
+    font-size:2.5vh;
+    color:white; 
+}
 
 
 
@@ -3367,10 +3385,10 @@ display: inline-block;
   display: inline-block;
   background-color: white;
   color: #53331c;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
   text-decoration: none;
-  padding: 5px 5px;/*ボタン内の余白*/
+  padding: 7px 5px;/*ボタン内の余白*/
   border-radius: 30px;/*角の丸み*/
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -3410,10 +3428,10 @@ display: inline-block;
 .raise3-result{
   display: inline-block;
   color: #53331c;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1;
   text-decoration: none;
-  padding: 7px 10px;/*ボタン内の余白*/
+  padding: 9px 12px;/*ボタン内の余白*/
   border-radius: 30px;/*角の丸み*/
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -3704,14 +3722,21 @@ display: inline-block;
 }
 
 //諸情報ボタンの枠
+.info-box{
+	margin:15px 0px 15px 15px;
+}
+
 .info-box1{
 	margin:15px 0px 35px 15px;
 }
 
-
-.info-box{
-	margin:15px 0px 15px 15px;
+.info-box2{
+	margin:40px 0px 30px 5px;
 }
+
+
+
+
 
 
 
