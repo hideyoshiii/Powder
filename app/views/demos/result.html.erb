@@ -115,7 +115,6 @@
 <h4 class="text-center">あなたのデートコースはこれ！</h4>	
 
 
-<%# アイキャッチとタイトル %>
 <%# 横スクロールアイキャッチ %>
 <div class="horizontal_scroll_wrap_result">
   <ul class="scroll_lst_result">
@@ -127,27 +126,38 @@
             <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
             <%= link_to spot_path(@spot1) do %>
               <h4>
-                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <i class="fa fa-refresh"></i>
               </h4>
             <% end %>
           </div>
         </div>
     </li>
-    <li class="scroll_item_result">
+    <li class="scroll_item_result_maps">
+      <div class="scroll_item_inr_result">
+          <div class="scroll_item_thum_result_maps">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+          </div>
+      </div>
+    </li>
+    <li class="scroll_item_result_map">
         <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result">
+            <%# スポット情報ボタン %>
+              <%= link_to spot_path(@spot1) do %>
+                <div class="info-box3">
+                  <div class="btn btn-default btn-sm">
+                    スポット情報を見る
+                  </div>
+                </div>
+              <% end %>
             <%# 食べログ、rettyボタン %>
-            <div style="font-size:15px;color:#4D4D4D;margin:15px 0px 5px 2px;">
-              For your infomation
-            </div>
+            <div class="info-box2">
             <% unless @spot1.tabelog.blank? %>
               <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
             <% end %>
             <% unless @spot1.retty.blank? %>
               <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
             <% end %>
-            <div style="font-size:15px;color:#4D4D4D;margin:15px 0px 5px 2px;">
-              more
             </div>
             <%# 公式サイトボタン %>
             <% unless @spot1.browser.blank? %>
@@ -176,7 +186,14 @@
           </div>
         </div>
     </li>
-    <li class="scroll_item_result">
+    <li class="scroll_item_result_maps">
+      <div class="scroll_item_inr_result">
+          <div class="scroll_item_thum_result_maps">
+            <i class="fa fa-map-marker"></i>&nbsp;Map
+          </div>
+      </div>
+    </li>
+    <li class="scroll_item_result_map">
       <%# googlemap %>
       <div id="map_canvas_01" class="scroll_item_inr_result"></div>
     </li>
@@ -193,27 +210,38 @@
             <h3><%= @spot2.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
             <%= link_to spot_path(@spot2) do %>
               <h4>
-                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <i class="fa fa-refresh"></i>
               </h4>
             <% end %>
           </div>
         </div>
     </li>
-    <li class="scroll_item_result">
+    <li class="scroll_item_result_maps">
+      <div class="scroll_item_inr_result">
+          <div class="scroll_item_thum_result_maps">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+          </div>
+      </div>
+    </li>
+    <li class="scroll_item_result_map">
         <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result">
+            <%# スポット情報ボタン %>
+              <%= link_to spot_path(@spot2) do %>
+                <div class="info-box3">
+                  <div class="btn btn-default btn-sm">
+                    スポット情報を見る
+                  </div>
+                </div>
+              <% end %>
             <%# 食べログ、rettyボタン %>
-            <div style="font-size:15px;color:#4D4D4D;margin:15px 0px 5px 2px;">
-              For your infomation
-            </div>
+            <div class="info-box2">
             <% unless @spot2.tabelog.blank? %>
               <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
             <% end %>
             <% unless @spot2.retty.blank? %>
               <a href="<%= @spot2.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
             <% end %>
-            <div style="font-size:15px;color:#4D4D4D;margin:15px 0px 5px 2px;">
-              more
             </div>
             <%# 公式サイトボタン %>
             <% unless @spot2.browser.blank? %>
@@ -242,7 +270,14 @@
           </div>
         </div>
     </li>
-    <li class="scroll_item_result">
+    <li class="scroll_item_result_maps">
+      <div class="scroll_item_inr_result">
+          <div class="scroll_item_thum_result_maps">
+            <i class="fa fa-map-marker"></i>&nbsp;Map
+          </div>
+      </div>
+    </li>
+    <li class="scroll_item_result_map">
       <%# googlemap %>
       <div id="map_canvas_02" class="scroll_item_inr_result"></div>
     </li>
