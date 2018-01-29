@@ -33,7 +33,7 @@
     </li>
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_maps">
+          <div class="scroll_item_thum_result_info">
             <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
           </div>
       </div>
@@ -70,12 +70,6 @@
                 <i class="fa fa-phone"></i>&nbsp;電話
               </a>
             <% end %>
-            <%# GoogleMapボタン %>
-            <% unless @spot1.address.blank? %>
-              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn">
-                <i class="fa fa-map-marker"></i>&nbsp;地図
-              </a>
-            <% end %>
             <%# Instagramボタン %>
             <% unless @spot1.introduction.blank? %>
               <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
@@ -89,6 +83,13 @@
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_maps">
             <i class="fa fa-map-marker"></i>&nbsp;Map
+            <%# GoogleMapボタン %>
+            <% unless @spot1.address.blank? %>
+              <br>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn_map">
+                GoogleMapを開く
+              </a>
+            <% end %>
           </div>
       </div>
     </li>
@@ -142,7 +143,7 @@
     </li>
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_maps">
+          <div class="scroll_item_thum_result_info">
             <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
           </div>
       </div>
@@ -179,12 +180,6 @@
                 <i class="fa fa-phone"></i>&nbsp;電話
               </a>
             <% end %>
-            <%# GoogleMapボタン %>
-            <% unless @spot1.address.blank? %>
-              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn">
-                <i class="fa fa-map-marker"></i>&nbsp;地図
-              </a>
-            <% end %>
             <%# Instagramボタン %>
             <% unless @spot1.introduction.blank? %>
               <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
@@ -198,6 +193,13 @@
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_maps">
             <i class="fa fa-map-marker"></i>&nbsp;Map
+            <%# GoogleMapボタン %>
+            <% unless @spot1.address.blank? %>
+              <br>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn_map">
+                GoogleMapを開く
+              </a>
+            <% end %>
           </div>
       </div>
     </li>
@@ -231,7 +233,7 @@
     </li>
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_maps">
+          <div class="scroll_item_thum_result_info">
             <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
           </div>
       </div>
@@ -268,12 +270,6 @@
                 <i class="fa fa-phone"></i>&nbsp;電話
               </a>
             <% end %>
-            <%# GoogleMapボタン %>
-            <% unless @spot2.address.blank? %>
-              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="info_btn">
-                <i class="fa fa-map-marker"></i>&nbsp;地図
-              </a>
-            <% end %>
             <%# Instagramボタン %>
             <% unless @spot2.introduction.blank? %>
               <a href="<%= @spot2.introduction %>" target="_blank" class="info_btn">
@@ -287,6 +283,13 @@
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_maps">
             <i class="fa fa-map-marker"></i>&nbsp;Map
+            <%# GoogleMapボタン %>
+            <% unless @spot2.address.blank? %>
+              <br>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="info_btn_map">
+                GoogleMapを開く
+              </a>
+            <% end %>
           </div>
       </div>
     </li>
