@@ -22,7 +22,7 @@
             <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
             <%= link_to spot_path(@spot1) do %>
               <h4>
-                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <i class="fa fa-refresh"></i>
               </h4>
             <% end %>
           </div>
@@ -38,6 +38,14 @@
     <li class="scroll_item_result_map">
         <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result">
+            <%# スポット情報ボタン %>
+              <%= link_to spot_path(@spot1) do %>
+                <div class="info-box3">
+                  <div class="btn btn-default btn-sm">
+                    スポット情報を見る
+                  </div>
+                </div>
+              <% end %>
             <%# 食べログ、rettyボタン %>
             <div class="info-box2">
             <% unless @spot1.tabelog.blank? %>
