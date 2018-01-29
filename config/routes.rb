@@ -70,6 +70,7 @@ Rails.application.routes.draw do
   get "users/:id/spot" => "users#spot"
   get "users/:id/clip" => "users#clip"
   get "users/:id/article" => "users#article"
+  get "users/:id/course" => "users#course"
 
 
   post "likes/:spot_id/create1" => "likes#create1"
@@ -81,6 +82,9 @@ Rails.application.routes.draw do
 
   post "clips/:article_id/create" => "clips#create"
   post "clips/:article_id/destroy" => "clips#destroy"
+
+  post "courses/:id/destroy" => "courses#destroy"
+  resources :courses, only: [:create]
 
   post "answers/:question_id/create1" => "answers#create1"
   post "answers/:question_id/create2" => "answers#create2"

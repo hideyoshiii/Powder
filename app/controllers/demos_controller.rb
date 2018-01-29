@@ -22,7 +22,7 @@ class DemosController < ApplicationController
 	  	@spots = Spot.where.not(title: @spot1.title)
 	  	@spots = @spots.where("scenes like '%#{@scene}%'")
 	  	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(3)
-	end
+	  end
 
   	if params[:large] == "２軒目なし"
   		render :action => "result"

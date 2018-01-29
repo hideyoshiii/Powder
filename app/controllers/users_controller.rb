@@ -31,4 +31,10 @@ class UsersController < ApplicationController
     @articles = Article.where(user_id: @user.id)
   end
 
+  def course
+    @n = 0
+    @user = User.find(params[:id]) 
+    @courses = Course.where(user_id: @user.id).order('id DESC')
+  end
+
 end

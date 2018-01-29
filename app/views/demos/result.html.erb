@@ -100,11 +100,37 @@
   </ul>
 </div>
 
+<%# コースを保存 %>
 <br>
-<h4 class="text-center">よかったらシェアしてね！</h4>	
-
+<h4 class="text-center">コースを保存できるよ！</h4> 
 <div class="text-center">
-<div class="btn btn-facebook">Facebookでシェア</div>
+  <% if user_signed_in? %>
+    <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: nil) %>
+      <% @course = Course.find_by(user_id: current_user.id, spot1_id: @spot1.id) %>
+      <%= link_to("/courses/#{@course.id}/destroy", {method: "post"}) do %>
+        コースを削除する
+      <% end %>
+    <% else %>
+      <%= form_tag(courses_path, method: :post) do %>
+        <%= hidden_field_tag :spot1_id, @spot1.id %>
+        <%= submit_tag "コースを保存する", :class => "btn btn-default" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="btn btn-default">
+      コースを保存する
+    </div>
+    ※ログインしてね!
+  <% end %>
+</div>
+
+<%# シェア %>
+<br>
+<h4 class="text-center">よかったらシェアしてね！</h4> 
+<div class="text-center">
+  <div class="btn btn-facebook">
+    Facebookでシェア
+  </div>
 </div>
 <br>
 
@@ -300,11 +326,38 @@
   </ul>
 </div>
 
+<%# コースを保存 %>
 <br>
-<h4 class="text-center">よかったらシェアしてね！</h4>	
-
+<h4 class="text-center">コースを保存できるよ！</h4> 
 <div class="text-center">
-<div class="btn btn-facebook">Facebookでシェア</div>
+  <% if user_signed_in? %>
+    <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: @spot2.id) %>
+      <% @course = Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: @spot2.id) %>
+      <%= link_to("/courses/#{@course.id}/destroy", {method: "post"}) do %>
+        コースを削除する
+      <% end %>
+    <% else %>
+      <%= form_tag(courses_path, method: :post) do %>
+        <%= hidden_field_tag :spot1_id, @spot1.id %>
+        <%= hidden_field_tag :spot2_id, @spot2.id %>
+        <%= submit_tag "コースを保存する", :class => "btn btn-default" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <div class="btn btn-default">
+      コースを保存する
+    </div>
+    ※ログインしてね!
+  <% end %>
+</div>
+
+<%# シェア %>
+<br>
+<h4 class="text-center">よかったらシェアしてね！</h4> 
+<div class="text-center">
+  <div class="btn btn-facebook">
+    Facebookでシェア
+  </div>
 </div>
 <br>
 

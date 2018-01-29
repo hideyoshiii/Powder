@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
 
 
   def search
@@ -27,6 +28,36 @@ class CoursesController < ApplicationController
         	end
 
         end
+  end
+
+
+
+  def create
+    if !params[:spot1_id].blank?
+      if params[:spot2_id].blank?
+        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i)
+      else
+        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i, spot2_id: params[:spot2_id].to_i)
+      end
+    end
+
+    if @course.save
+      redirect_back(fallback_location: root_path) 
+    else
+      redirect_back(fallback_location: root_path) 
+    end
+
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    @course.destroy
+    redirect_back(fallback_location: root_path) 
+  end
+
+  private
+  def course_params
+    params.require(:course).permit(:spot1_id, :spot2_id, :spot3_id, :spot4_id)
   end
 
   
