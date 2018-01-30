@@ -2801,6 +2801,18 @@ footer p {
 
 }
 
+//インスタ引用部分
+.scroll_item_info_content_quote {
+    white-space: normal;
+    margin: 0px 5px;
+}
+.scroll_item_ttl_content_quote {
+    font-size: 10px;
+    color: #CCCCCC;
+    line-height: 1.0;
+    
+}
+
 
 //10秒サーチ横スクロール
 .horizontal_scroll_search{
@@ -2911,6 +2923,79 @@ footer p {
 
 
 
+//コース一覧スクロール
+.horizontal_scroll_wrap_coures{
+    background: white;
+    width:100%;
+    height: auto;
+    max-height: 460px;
+    overflow-y: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+.scroll_lst_coures {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+}
+.scroll_item_coures {
+    margin-right: 10px;
+    margin-top: 20px;
+    display: inline-block;
+    width: 45%;
+    background: white;
+    border-radius:5px;
+}
+.scroll_item_coures:first-child {
+    margin-left: 10px;
+}
+
+.scroll_item_inr_coures {
+    display: inline-block; /* インラインブロック化 */
+    vertical-align: top;   /* 上端を揃える */
+}
+.scroll_item_info_coures {
+    white-space: normal;
+    margin: 0px 5px;
+}
+.scroll_item_ttl_coures {
+    font-size: 14px;
+    color: #484848;
+    line-height: 1.0;
+    
+}
+
+.img-scroll_coures{
+	width:100%;height:auto;max-height:400px;border-radius: 5px;box-shadow: 0px 2px 2px -2px rgba(0, 0, 0, 0.8);
+}
+
+.scroll_item_info_coures_quote {
+    white-space: normal;
+    margin: 0px 5px;
+}
+.scroll_item_ttl_coures_quote {
+    font-size: 10px;
+    color: #CCCCCC;
+    line-height: 1.0;
+    
+}
+
+//コース一覧のタイトル
+.course-title-box{
+	background: white;
+    width:100%;
+    height: 30px;
+}
+
+.course-title{
+	padding:10px 10px 10px 10px;
+	font-size:18px;
+	letter-spacing:-0.08em;
+	color:black;
+}
 
 
 
@@ -3713,16 +3798,6 @@ display: inline-block;
 }
 
 
-.scroll_item_info_content_quote {
-    white-space: normal;
-    margin: 0px 5px;
-}
-.scroll_item_ttl_content_quote {
-    font-size: 10px;
-    color: #CCCCCC;
-    line-height: 1.0;
-    
-}
 
 .aaa {
 	margin-top:-0.2em;
@@ -3839,8 +3914,8 @@ display: inline-block;
 
 //spotのshowの横スクロールのp
 .spot-show-p{
-	margin-top:1em;
-	margin-bottom:1em;
+	margin-top:0.7em;
+	margin-bottom:0.7em;
 	line-height:1.5;
 }
 
