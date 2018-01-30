@@ -172,7 +172,17 @@
                   </div>
                   <div class="scroll_item_info_content_quote">
                     <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
-                    <i class="fa fa-instagram"></i>&nbsp;instagram&nbsp;&nbsp;https://www.instagram.com/p/BdLrLMpnxU3
+                      <% if picture.url %>
+                        <% if picture.quote %>
+                          <a href="<%= picture.url %>" target="_blank" class="gray">
+                            <%= picture.quote %> <%= picture.url %>
+                          </a>
+                        <% else %> 
+                          <a href="<%= picture.url %>" target="_blank" class="gray">
+                            <%= picture.url %>
+                          </a>
+                        <% end %> 
+                      <% end %>  
                     </p>
                   </div>
                </a>
