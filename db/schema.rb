@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130023700) do
+ActiveRecord::Schema.define(version: 20180130100914) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -112,6 +112,16 @@ ActiveRecord::Schema.define(version: 20180130023700) do
     t.string "url"
     t.index ["spot_id"], name: "index_pictures_on_spot_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.integer "spot_id"
+    t.integer "course_id"
+    t.string "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_points_on_course_id"
+    t.index ["spot_id"], name: "index_points_on_spot_id"
   end
 
   create_table "questions", force: :cascade do |t|

@@ -8,7 +8,7 @@
 <% if @spot2.nil? %>
 
 <br>
-<h4 class="text-center">あなたのデートコースはこれ！</h4>	
+<h4 class="text-center"><%= @course.title %></h4>	
 
 
 <%# 横スクロールアイキャッチ %>
@@ -20,15 +20,6 @@
           <div class="frame-demo">
             <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
             <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-            <%= form_tag(demos_change1_path, method: :get) do %>
-            <%= hidden_field_tag :spot1, @spot1.id %>
-            <%= hidden_field_tag :large, params[:large] %>
-              <h4>
-                <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                  <i class="fa fa-refresh"></i>
-                <% end %>
-              </h4>
-            <% end %>
           </div>
         </div>
     </li>
@@ -101,39 +92,16 @@
   </ul>
 </div>
 
-<%# コースを保存 %>
+<%# シェア %>
 <br>
-<h4 class="text-center">コースを保存できるよ！</h4> 
+<h4 class="text-center">よかったらシェアしてね！</h4> 
 <div class="text-center">
-  <% if user_signed_in? %>
-    <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: nil) %>
-      <% @course = Course.find_by(user_id: current_user.id, spot1_id: @spot1.id) %>
-      <%= link_to("/courses/#{@course.id}/destroy", {method: "post"}) do %>
-        <%= @course.title %>のコースを削除する
-      <% end %>
-    <% else %>
-      <%= form_tag(courses_path, method: :post) do %>
-        <%= hidden_field_tag :spot1_id, @spot1.id %>
-        <div class="col-xs-6">
-          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-        </div>
-        <div class="col-xs-6">
-          <%= submit_tag "保存する", :class => "btn btn-primary" %>
-        </div>
-      <% end %>
-    <% end %>
-  <% else %>
-    <div class="col-xs-6">
-      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-    </div>
-    <div class="col-xs-6">
-      <div class="btn btn-primary">
-        保存する
-      </div>
-      ※ログインしてね!
-    </div>
-  <% end %>
+  <div class="btn btn-facebook">
+    Facebookでシェア
+  </div>
 </div>
+<br>
+
 
 
 
@@ -142,7 +110,7 @@
 <% if !@pictures2.nil? %>
 
 <br>
-<h4 class="text-center">あなたのデートコースはこれ！</h4>	
+<h4 class="text-center"><%= @course.title %></h4>	
 
 
 <%# 横スクロールアイキャッチ %>
@@ -154,16 +122,6 @@
           <div class="frame-demo">
             <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
             <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-            <%= form_tag(demos_change1_path, method: :get) do %>
-            <%= hidden_field_tag :spot1, @spot1.id %>
-            <%= hidden_field_tag :spot2, @spot2.id %>
-            <%= hidden_field_tag :large, params[:large] %>
-              <h4>
-                <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                  <i class="fa fa-refresh"></i>
-                <% end %>
-              </h4>
-            <% end %>
           </div>
         </div>
     </li>
@@ -244,16 +202,6 @@
           <div class="frame-demo">
             <%= image_tag @spot2.pictures.first.image.url, :class =>'img-demo-result' %>
             <h3><%= @spot2.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
-            <%= form_tag(demos_change2_path, method: :get) do %>
-            <%= hidden_field_tag :spot1, @spot1.id %>
-            <%= hidden_field_tag :spot2, @spot2.id %>
-            <%= hidden_field_tag :large, params[:large] %>
-              <h4>
-                <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                  <i class="fa fa-refresh"></i>
-                <% end %>
-              </h4>
-            <% end %>
           </div>
         </div>
     </li>
@@ -326,41 +274,17 @@
   </ul>
 </div>
 
-<%# コースを保存 %>
-<br>
-<h4 class="text-center">コースを保存できるよ！</h4> 
+<%# シェア %>
+<br><br>
+<h4 class="text-center">よかったらシェアしてね！</h4> 
 <div class="text-center">
-  <% if user_signed_in? %>
-    <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: @spot2.id) %>
-      <% @course = Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: @spot2.id) %>
-      <%= link_to("/courses/#{@course.id}/destroy", {method: "post"}) do %>
-        <%= @course.title %>のコースを削除する
-      <% end %>
-    <% else %>
-      <%= form_tag(courses_path, method: :post) do %>
-        <%= hidden_field_tag :spot1_id, @spot1.id %>
-        <%= hidden_field_tag :spot2_id, @spot2.id %>
-        <div class="col-xs-6">
-          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-        </div>
-        <div class="col-xs-6">
-          <%= submit_tag "保存する", :class => "btn btn-primary" %>
-        </div>
-      <% end %>
-    <% end %>
-  <% else %>
-    <div class="col-xs-6">
-      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-    </div>
-    <div class="col-xs-6">
-      <div class="btn btn-primary">
-        保存する
-      </div>
-      ※ログインしてね!
-    </div>
-  <% end %>
+  <div class="btn btn-facebook">
+    Facebookでシェア
+  </div>
 </div>
-<br><br><br>
+<br>
+
+
 
 
 <% else %>

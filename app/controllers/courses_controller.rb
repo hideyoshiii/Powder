@@ -35,24 +35,62 @@ class CoursesController < ApplicationController
   def create
     if !params[:spot1_id].blank?
       if params[:spot2_id].blank?
-        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i, title: params[:title])
+        @course = Course.new(user_id: current_user.id, title: params[:title])
+          if @course.save
+            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id)
+            if @point1.save
+              redirect_to course_path(@course) #保存完了
+            else
+              redirect_back(fallback_location: root_path) #ポイント1が保存できなかった
+            end
+          else
+            redirect_back(fallback_location: root_path) #保存できなっかた
+          end
       else
-        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i, spot2_id: params[:spot2_id].to_i, title: params[:title])
+        @course = Course.new(user_id: current_user.id, title: params[:title])
+        if @course.save
+            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id)
+            if @point1.save
+              @point2 = Point.new(spot_id: params[:spot2_id].to_i, course_id: @course.id)
+              if @point2.save
+                redirect_to course_path(@course) #保存完了
+              else
+                redirect_back(fallback_location: root_path) #ポイント2が保存できなかった
+              end      
+            else
+              redirect_back(fallback_location: root_path) #ポイント1が保存できなかった
+            end
+          else
+            redirect_back(fallback_location: root_path) #保存できなっかた
+          end
       end
     end
-
-    if @course.save
-      redirect_back(fallback_location: root_path) 
-    else
-      redirect_back(fallback_location: root_path) 
-    end
-
   end
 
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
     redirect_back(fallback_location: root_path) 
+  end
+
+  def show
+    @course = Course.find(params[:id])
+
+    @point1 = Point.where(course_id: @course.id).order(id: "ASC").first
+    if @point1
+      @spot1 = Spot.find(@point1.spot_id)
+      if @spot1
+        @pictures1 = @spot1.pictures.order(id: "ASC")
+      end
+    end
+
+    @point2 = Point.where(course_id: @course.id).order(id: "ASC").second
+    if @point2
+      @spot2 = Spot.find(@point2.spot_id)
+      if @spot2
+        @pictures2 = @spot2.pictures.order(id: "ASC")
+      end
+    end
   end
 
   private

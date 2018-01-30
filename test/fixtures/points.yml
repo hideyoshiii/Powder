@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spot: one
+  course: one
+  memo: MyString
+
+two:
+  spot: two
+  course: two
+  memo: MyString
