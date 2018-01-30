@@ -1756,7 +1756,7 @@ dl.search1 dd span:hover{
 
 .box99 h1 {
   position: absolute;
-  top: 80%;
+  top: 75%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -1799,7 +1799,7 @@ dl.search1 dd span:hover{
 
 .box98 h1 {
   position: absolute;
-  top: 80%;
+  top: 75%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -1842,7 +1842,7 @@ dl.search1 dd span:hover{
 
 .box97 h1 {
   position: absolute;
-  top: 80%;
+  top: 75%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -1851,6 +1851,14 @@ dl.search1 dd span:hover{
   padding:0;
   }
 
+//要素を少し上に
+.box-top{
+	margin-top:-40px;
+}
+
+.box-top1{
+	margin-top:-70px;
+}
 
 
 
