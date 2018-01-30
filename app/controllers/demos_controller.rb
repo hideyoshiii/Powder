@@ -10,12 +10,14 @@ class DemosController < ApplicationController
   def dinner
   	@n = 0
   	@spots = Spot.where("scenes like '%ディナー%'")
+    @price_start = params[:price].to_i - 1999
+    @price_end = params[:price].to_i
     if params[:small] == "指定しない"
-   	  @spots = @spots.where(city: params[:city], price_dinner: -Float::INFINITY..params[:price].to_i).order("RANDOM()").limit(3)
+   	  @spots = @spots.where(city: params[:city], price_dinner: @price_start..@price_end).order("RANDOM()").limit(3)
     else
       @small = params[:small]
       @spots = Spot.where("small like '%@small%'")
-      @spots = @spots.where(city: params[:city], price_dinner: -Float::INFINITY..params[:price].to_i).order("RANDOM()").limit(3)
+      @spots = @spots.where(city: params[:city], price_dinner: @price_start..@price_end).order("RANDOM()").limit(3)
     end
   end
 
@@ -47,7 +49,6 @@ class DemosController < ApplicationController
   end
 
   def result
-    @word = "コース①"
     @spot1 = Spot.find(params[:spot1])
     if @spot1
 	    @pictures1 = @spot1.pictures.order(id: "ASC")
