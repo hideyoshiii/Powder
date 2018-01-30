@@ -9,7 +9,7 @@ class DemosController < ApplicationController
 
   def dinner
   	@n = 0
-  	@spots = Spot.where("scenes like '%ディナー%'")
+  	@spots = Spot.where("large like '%ディナー%'")
     @price_start = params[:price].to_i - 1999
     @price_end = params[:price].to_i
     if params[:small] == "指定しない"
@@ -23,12 +23,12 @@ class DemosController < ApplicationController
 
   def search2
   	@n = 0
-  	@scene = params[:large]
+  	@large = params[:large]
   	@spot1 = Spot.find(params[:spot1])
   	if @spot1
 	    @pictures1 = @spot1.pictures.order(id: "ASC")
 	  	@spots = Spot.where.not(title: @spot1.title)
-	  	@spots = @spots.where("scenes like '%#{@scene}%'")
+	  	@spots = @spots.where("large like '%#{@large}%'")
 	  	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(3)
 	  end
 
@@ -41,10 +41,10 @@ class DemosController < ApplicationController
 
   def second
   	@n = 0
-  	@scene = params[:large]
+  	@large = params[:large]
   	@spot1 = Spot.find(params[:spot1])
   	@spots = Spot.where.not(title: @spot1.title)
-  	@spots = @spots.where("scenes like '%#{@scene}%'")
+  	@spots = @spots.where("large like '%#{@large}%'")
   	@spots = @spots.where(station: @spot1.station).order("RANDOM()").limit(3)
   end
 
@@ -63,10 +63,10 @@ class DemosController < ApplicationController
 
   def change1
     @n = 0
-    @scene = params[:large]
+    @large = params[:large]
     @spot1 = Spot.find(params[:spot1])
     @spots = Spot.where.not(title: @spot1.title)
-    @spots = @spots.where("scenes like '%ディナー%'")
+    @spots = @spots.where("large like '%ディナー%'")
     @spots = @spots.where(station: @spot1.station, price: @spot1.price).order("RANDOM()").limit(3)
 
     if !params[:spot2].blank?
@@ -76,10 +76,10 @@ class DemosController < ApplicationController
 
   def change2
     @n = 0
-    @scene = params[:large]
+    @large = params[:large]
     @spot2 = Spot.find(params[:spot2])
     @spots = Spot.where.not(title: @spot2.title)
-    @spots = @spots.where("scenes like '%#{@scene}%'")
+    @spots = @spots.where("large like '%#{@large}%'")
     @spots = @spots.where(station: @spot2.station).order("RANDOM()").limit(3)
 
     if !params[:spot1].blank?

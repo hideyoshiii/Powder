@@ -40,22 +40,6 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>scene</label>
-                                <br>   
-								    <% ["ランチ", "ディナー", "バー", "カフェ", "その他"].each do |scene| %>
-								    <label>
-								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
-								      <%= scene %>
-								    </label>
-								    <% end %>	  
-                            	</div>
-							</div>
-						</div>
-						<br>
-
-						<div class="row">
-							<div class="col-md-12 select">
-								<div class="form-group">
                                 <label>大カテゴリー</label>
                                 <br>   
 								    <% ["ランチ", "ディナー", "バー", "夜カフェ", "その他"].each do |large| %>
@@ -104,12 +88,12 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-									<label>price</label>
-									<%= f.select :price, [["~4,000円","1"], ["~6,000円","2"], ["~8,000円","3"], ["~10,000円","4"], ["10,000円~","5"]], {prompt:"選択してください"}, {class: 'form-control'} %>
-								</div>
+                                <label>price</label>
+                                <%= f.text_area :price, rows: 2, placeholder: "料金について", class: "form-control" %>
+                            </div> 
 							</div>
 						</div>
-						<br>	
+						<br>
 
 
 						<div class="row">
