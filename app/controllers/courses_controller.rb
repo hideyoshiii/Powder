@@ -35,9 +35,9 @@ class CoursesController < ApplicationController
   def create
     if !params[:spot1_id].blank?
       if params[:spot2_id].blank?
-        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i)
+        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i, title: params[:title])
       else
-        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i, spot2_id: params[:spot2_id].to_i)
+        @course = Course.new(user_id: current_user.id, spot1_id: params[:spot1_id].to_i, spot2_id: params[:spot2_id].to_i, title: params[:title])
       end
     end
 
