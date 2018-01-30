@@ -87,7 +87,7 @@ class SpotsController < ApplicationController
 
   private
   def spot_params
-    params.require(:spot).permit(:title, :prefecture, :city, :station, :price, :price_lunch, :price_dinner, :description, :address, :introduction, :retty, :browser, :phone, :large, :small, :heading, :tabelog, :point1, :point2, :point3, :photo, :label_list, scenes:[])
+    params.require(:spot).permit(:title, :prefecture, :city, :station, :price, :price_lunch, :price_dinner, :description, :address, :introduction, :retty, :browser, :phone, :heading, :tabelog, :point1, :point2, :point3, :photo, :label_list, scenes:[], large:[], small:[])
   end
 
   def search_params

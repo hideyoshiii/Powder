@@ -7,7 +7,7 @@
 
  
 
-	  <div class="box98" id='section3'>
+	  <div class="box98" id=''>
 	  	<h4 style="color:white;text-shadow: 1px 1px 2px black;">まずはディナーのお店を決めよう。</h4>
 	  	<br>
 	  	<h3 style="color:white;text-shadow: 1px 1px 2px black;">予算はどのくらい？</h3>
@@ -15,20 +15,97 @@
 			  <ul class="scroll_lst_search">
 			    <li class="scroll_item_search">
 			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price, 1, true) %>
-						<%= label_tag(:price_1, "~4,000円/人") %>
+					 	<%= radio_button_tag(:price, 4000, true) %>
+						<%= label_tag(:price_4000, "~4,000円/人") %>
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price, 2) %>
-						<%= label_tag(:price_2, "~6,000円/人") %>
+					 	<%= radio_button_tag(:price, 6000) %>
+						<%= label_tag(:price_6000, "~6,000円/人") %>
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price, 3) %>
-						<%= label_tag(:price_3, "~8,000円/人") %>
+					 	<%= radio_button_tag(:price, 8000) %>
+						<%= label_tag(:price_8000, "~8,000円/人") %>
+					</span>
+			    </li>
+			  </ul>
+			</div>
+	  	<div>
+  			<h1><a href='#section1' class="btn btn-default">NEXT</a></h1>
+  		</div>
+	  </div>
+
+	  <div class="box97" id='section1'>
+	  	<h3 style="color:white;text-shadow: 1px 1px 2px black;">ジャンルを指定する？</h3>
+	  	<div class="horizontal_scroll_search">
+			  <ul class="scroll_lst_search">
+			  	<li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "指定しない", true) %>
+						<%= label_tag('small_指定しない', "指定しない") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "和食") %>
+						<%= label_tag('small_和食', "和食") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "焼肉・ホルモン") %>
+						<%= label_tag('small_焼肉・ホルモン', "焼肉・ホルモン") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "ステーキ・ハンバーグ") %>
+						<%= label_tag('small_ステーキ・ハンバーグ', "ステーキ・ハンバーグ") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "鍋") %>
+						<%= label_tag('small_鍋', "鍋") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "フレンチ") %>
+						<%= label_tag('small_フレンチ', "フレンチ") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "イタリアン") %>
+						<%= label_tag('small_イタリアン', "イタリアン") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "西洋各国料理") %>
+						<%= label_tag('small_西洋各国料理', "西洋各国料理") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "中華料理") %>
+						<%= label_tag('small_中華料理', "中華料理") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "アジア・エスニック") %>
+						<%= label_tag('small_アジア・エスニック', "アジア・エスニック") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="radio-city">	
+					 	<%= radio_button_tag(:small, "その他") %>
+						<%= label_tag('small_その他', "その他") %>
 					</span>
 			    </li>
 			  </ul>

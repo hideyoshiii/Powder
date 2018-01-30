@@ -1798,6 +1798,49 @@ dl.search1 dd span:hover{
   padding:0;
   }
 
+.box97 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(dish02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin:0px;
+  box-sizing: border-box;
+}
+
+.box97 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
 
 
 
@@ -2713,7 +2756,7 @@ footer p {
     display: inline-block;
     width: 93%;
     background: white;
-    border-radius:2px;
+    border-radius:5px;
 }
 .scroll_item_content:first-child {
     margin-left: 5px;

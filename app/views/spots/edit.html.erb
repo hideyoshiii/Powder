@@ -42,6 +42,38 @@
 						<br>
 
 						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>大カテゴリー</label>
+                                <br>   
+								    <% ["ランチ", "ディナー", "バー", "夜カフェ", "その他"].each do |large| %>
+								    <label>
+								      <%= f.check_box :large, { multiple: true},large,nil %>
+								      <%= large %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>small</label>
+                                <br>   
+								    <% ["和食", "焼肉・ホルモン", "ステーキ・ハンバーグ", "鍋", "フレンチ", "イタリアン", "西洋各国料理", "中華料理", "アジア・エスニック", "その他"].each do |small| %>
+								    <label>
+								      <%= f.check_box :small, { multiple: true},small,nil %>
+								      <%= small %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
 							<div class="col-md-4 select">
 								<div class="form-group">
                                 <label>ランチ</label>

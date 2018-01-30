@@ -5,6 +5,8 @@ class Spot < ApplicationRecord
   validates :prefecture, presence: true
 
   serialize :scenes
+  serialize :large
+  serialize :small
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?
