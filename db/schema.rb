@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129140645) do
+ActiveRecord::Schema.define(version: 20180130012022) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -173,6 +173,19 @@ ActiveRecord::Schema.define(version: 20180129140645) do
     t.float "longitude"
     t.integer "price_dinner"
     t.integer "price_lunch"
+    t.string "monday"
+    t.string "tuesday"
+    t.string "wednesday"
+    t.string "thursday"
+    t.string "friday"
+    t.string "saturday"
+    t.string "sunday"
+    t.string "holiday"
+    t.string "access"
+    t.string "service"
+    t.string "charge"
+    t.string "smoking"
+    t.string "payment"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
