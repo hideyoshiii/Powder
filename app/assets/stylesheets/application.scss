@@ -909,6 +909,14 @@ hr.style2{
 	border-top: 1px solid #8c8b8b;
 }
 
+hr.style3{
+	margin:0px 0px 10px -15px;
+	text-align:left;
+	width:60%;
+	border-top: 1px solid #8c8b8b;
+}
+
+
 hr.more{
 	margin:15px 0px 5px;
 }
@@ -919,6 +927,9 @@ hr.more{
 @media only screen and (max-width: 768px) {
 .title-content{font-size:18px;font-weight: 550;}
 }
+
+//mainの時
+.title-content3{font-size:18px;font-weight: 550;margin-left:-15px;}
 
 .brand{background: -webkit-linear-gradient(-45deg,  rgba(255, .8, 161, 1), rgba(246, 255, 0, 1));
   -webkit-background-clip: text;
