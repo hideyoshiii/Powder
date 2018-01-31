@@ -95,6 +95,8 @@ class CoursesController < ApplicationController
 
   def edit
     @course = Course.find(params[:id])
+    @points = Point.where(course_id: @course.id).order(id: "ASC")
+
     if !(current_user == @course.user)
       redirect_to root_path
     end

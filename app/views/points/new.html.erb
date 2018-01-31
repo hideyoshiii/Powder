@@ -1,0 +1,79 @@
+<%= render "partial/navbar3" %>
+
+<main class="" id="main-collapse">
+
+<div class="panel-body">
+  <div class="title-content">
+    スポットにコースを追加
+  </div> 
+  <hr class="style2">
+</div>  
+  
+<div class="hero-full-wrapper">
+  <div class="grid">
+    <div class="gutter-sizer"></div>
+    <div class="grid-sizer"></div>
+    <% @likes.each do |like| %>
+    <% spot = Spot.find_by(id: like.spot_id) %>
+    <% point = Point.find_by(spot_id: spot.id, course_id: @course.id) %>
+      <% unless @points.include? point  %> 
+        <div class="grid-item iii">
+          <%= link_to spot_path(spot) do %>
+            <%= image_tag spot.pictures.first.image.url, :class =>'img-responsive' %>
+            <div class="black title-font-index">
+              <%= spot.title %>
+            </div>
+            <div class="prefecture-font-index">
+              <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.prefecture %>
+            </div>
+          <% end %> 
+          <span id="like-of-<%= spot.id %>">
+            <%= render partial: 'likes/like', locals: { spot: spot, likes: @likes } %>
+          </span>
+          <div class="text-center">
+            <%= link_to("/courses/#{@course.id}/spots/#{spot.id}/points/create", {method: "post"}) do %>
+              <div class="btn btn-default">
+                コースに追加する
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>  
+    <% end %>  
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     masonryBuild();
+  });
+</script>
+
+
+ 
+ 
+</main>
+<%= render "partial/footer" %>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>
