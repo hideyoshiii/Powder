@@ -2878,7 +2878,7 @@ footer p {
 }
 .scroll_item_result {
     display: inline-block;
-    width: 100%;
+    width: 80%;
     background: #FAFAFA;
 }
 
@@ -3731,6 +3731,20 @@ display: inline-block;
 	background: rgba(0, 0, 0, 0.3); /* カラーを重ねる */
 }
 
+.frame-demo h2 {
+  position: absolute;
+  top: 90%;
+  left: 10%;
+  -ms-transform: translate(-50%,-90%);
+  -webkit-transform: translate(-50%,-90%);
+  transform: translate(-50%,-90%);
+  margin:0;
+  padding:0;
+  color:white;
+  font-size:24px;
+  opacity: 0.8;
+  text-shadow: 1px 1px 2px black;
+  }
 
 .frame-demo h3 {
   position: absolute;
