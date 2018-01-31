@@ -16,7 +16,7 @@ class DemosController < ApplicationController
    	  @spots = @spots.where(city: params[:city], price_dinner: @price_start..@price_end).order("RANDOM()").limit(3)
     else
       @small = params[:small]
-      @spots = Spot.where("small like '%@small%'")
+      @spots = Spot.where("small like '%#{@small}%'")
       @spots = @spots.where(city: params[:city], price_dinner: @price_start..@price_end).order("RANDOM()").limit(3)
     end
   end

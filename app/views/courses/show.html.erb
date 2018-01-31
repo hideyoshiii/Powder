@@ -4,10 +4,17 @@
 
 <br>
 <div class="panel-body">
-	<h4 class="pull-left"><%= @course.title %></h4>	
-	<%= link_to edit_course_path(@course) do %>
-		<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
-	<% end %>
+	<div class="col-xs-9">	
+		<div class="title-content4">
+	  		<%= @course.title %>
+		</div> 
+		<hr class="style4">
+	</div>
+	<div class="col-xs-3">
+		<%= link_to edit_course_path(@course) do %>
+			<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
+		<% end %>
+	</div>
 </div>
 
 <% @points.each do |point| %>
