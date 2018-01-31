@@ -74,23 +74,9 @@ class CoursesController < ApplicationController
   end
 
   def show
+    @n = 0
     @course = Course.find(params[:id])
-
-    @point1 = Point.where(course_id: @course.id).order(id: "ASC").first
-    if @point1
-      @spot1 = Spot.find(@point1.spot_id)
-      if @spot1
-        @pictures1 = @spot1.pictures.order(id: "ASC")
-      end
-    end
-
-    @point2 = Point.where(course_id: @course.id).order(id: "ASC").second
-    if @point2
-      @spot2 = Spot.find(@point2.spot_id)
-      if @spot2
-        @pictures2 = @spot2.pictures.order(id: "ASC")
-      end
-    end
+    @points = Point.where(course_id: @course.id).order(id: "ASC")
   end
 
   def edit

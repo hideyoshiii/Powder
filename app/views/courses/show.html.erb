@@ -2,11 +2,6 @@
 
 <mains class="" id="main-collapse">
 
-<%# スポットが１つの時 %>
-<% if !@spot1.nil? %>
-<% if !@pictures1.nil? %>
-<% if @spot2.nil? %>
-
 <br>
 <div class="panel-body">
 	<h4 class="pull-left"><%= @course.title %></h4>	
@@ -14,6 +9,12 @@
 		<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
 	<% end %>
 </div>
+
+<% @points.each do |point| %>
+<% @n = @n + 1 %>
+<% @spot1 = Spot.find(point.spot_id) %>
+<% @pictures1 = @spot1.pictures.order(id: "ASC") %>
+
 
 
 <%# 横スクロールアイキャッチ %>
@@ -92,10 +93,33 @@
     </li>
     <li class="scroll_item_result_map">
       <%# googlemap %>
-      <div id="map_canvas_01" class="scroll_item_inr_result"></div>
+      <div id="map_canvas_0<%= @n %>" class="scroll_item_inr_result"></div>
     </li>
   </ul>
 </div>
+
+<script type="text/javascript">
+  (function(){
+    var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
+    var myOptions = {
+        gestureHandling: 'greedy',
+        zoom: 14
+      , center: latlng
+      , mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map_0<%= @n %> = new google.maps.Map(
+        document.getElementById("map_canvas_0<%= @n %>")
+      , myOptions
+    );
+    var marker = new google.maps.Marker({ 
+        position: latlng, 
+        map: map_0<%= @n %>
+    });
+
+  }());
+  </script>
+
+<% end %>
 
 <%# シェア %>
 <br>
@@ -110,270 +134,10 @@
 
 
 
-<%# スポットが２つの時 %>
-<% else %>
-<% if !@pictures2.nil? %>
-
-<br>
-<div class="panel-body">
-	<h4 class="pull-left"><%= @course.title %></h4>	
-	<%= link_to edit_course_path(@course) do %>
-		<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
-	<% end %>
-
-</div>
-
-
-<%# 横スクロールアイキャッチ %>
-<div class="horizontal_scroll_wrap_result">
-  <ul class="scroll_lst_result">
-    <%# 画像とタイトル %>
-    <li class="scroll_item_result">
-        <div class="scroll_item_inr_result">
-          <div class="frame-demo">
-            <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
-            <h3><%= @spot1.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-          </div>
-        </div>
-    </li>
-    <li class="scroll_item_result_maps">
-      <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_info">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
-          </div>
-      </div>
-    </li>
-    <li class="scroll_item_result_map">
-        <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result">
-            <%# スポット情報ボタン %>
-              <%= link_to spot_path(@spot1) do %>
-                <div class="info-box3">
-                  <div class="btn btn-default btn-sm">
-                    スポット情報を見る
-                  </div>
-                </div>
-              <% end %>
-            <%# 食べログ、rettyボタン %>
-            <div class="info-box2">
-            <% unless @spot1.tabelog.blank? %>
-              <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
-            <% end %>
-            <% unless @spot1.retty.blank? %>
-              <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
-            <% end %>
-            </div>
-            <%# 公式サイトボタン %>
-            <% unless @spot1.browser.blank? %>
-              <a href="<%= @spot1.browser %>" target="_blank" class="info_btn">
-                <i class="fa fa-safari"></i>&nbsp;公式サイト
-              </a>
-            <% end %>
-            <%# 電話ボタン %>
-            <% unless @spot1.phone.blank? %>
-              <a href="tel:<%= @spot1.phone %>" target="_blank" class="info_btn">
-                <i class="fa fa-phone"></i>&nbsp;電話
-              </a>
-            <% end %>
-            <%# Instagramボタン %>
-            <% unless @spot1.introduction.blank? %>
-              <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
-                <i class="fa fa-instagram"></i>&nbsp;instagram
-              </a>
-            <% end %>
-          </div>
-        </div>
-    </li>
-    <li class="scroll_item_result_maps">
-      <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_maps">
-            <i class="fa fa-map-marker"></i>&nbsp;Map
-            <%# GoogleMapボタン %>
-            <% unless @spot1.address.blank? %>
-              <br>
-              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn_map">
-                GoogleMapを開く
-              </a>
-            <% end %>
-          </div>
-      </div>
-    </li>
-    <li class="scroll_item_result_map">
-      <%# googlemap %>
-      <div id="map_canvas_01" class="scroll_item_inr_result"></div>
-    </li>
-  </ul>
-</div>
-<%# 横スクロールアイキャッチ %>
-<div class="horizontal_scroll_wrap_result">
-  <ul class="scroll_lst_result">
-    <%# 画像とタイトル %>
-    <li class="scroll_item_result">
-        <div class="scroll_item_inr_result">
-          <div class="frame-demo">
-            <%= image_tag @spot2.pictures.first.image.url, :class =>'img-demo-result' %>
-            <h3><%= @spot2.title %><br><span style="font-size:14px;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
-          </div>
-        </div>
-    </li>
-    <li class="scroll_item_result_maps">
-      <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_info">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
-          </div>
-      </div>
-    </li>
-    <li class="scroll_item_result_map">
-        <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result">
-            <%# スポット情報ボタン %>
-              <%= link_to spot_path(@spot2) do %>
-                <div class="info-box3">
-                  <div class="btn btn-default btn-sm">
-                    スポット情報を見る
-                  </div>
-                </div>
-              <% end %>
-            <%# 食べログ、rettyボタン %>
-            <div class="info-box2">
-            <% unless @spot2.tabelog.blank? %>
-              <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
-            <% end %>
-            <% unless @spot2.retty.blank? %>
-              <a href="<%= @spot2.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
-            <% end %>
-            </div>
-            <%# 公式サイトボタン %>
-            <% unless @spot2.browser.blank? %>
-              <a href="<%= @spot2.browser %>" target="_blank" class="info_btn">
-                <i class="fa fa-safari"></i>&nbsp;公式サイト
-              </a>
-            <% end %>
-            <%# 電話ボタン %>
-            <% unless @spot2.phone.blank? %>
-              <a href="tel:<%= @spot2.phone %>" target="_blank" class="info_btn">
-                <i class="fa fa-phone"></i>&nbsp;電話
-              </a>
-            <% end %>
-            <%# Instagramボタン %>
-            <% unless @spot2.introduction.blank? %>
-              <a href="<%= @spot2.introduction %>" target="_blank" class="info_btn">
-                <i class="fa fa-instagram"></i>&nbsp;instagram
-              </a>
-            <% end %>
-          </div>
-        </div>
-    </li>
-    <li class="scroll_item_result_maps">
-      <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_maps">
-            <i class="fa fa-map-marker"></i>&nbsp;Map
-            <%# GoogleMapボタン %>
-            <% unless @spot2.address.blank? %>
-              <br>
-              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot2.address %>'));return false;" href="javascript:;" class="info_btn_map">
-                GoogleMapを開く
-              </a>
-            <% end %>
-          </div>
-      </div>
-    </li>
-    <li class="scroll_item_result_map">
-      <%# googlemap %>
-      <div id="map_canvas_02" class="scroll_item_inr_result"></div>
-    </li>
-  </ul>
-</div>
-
-<%# シェア %>
-<br><br>
-<h4 class="text-center">よかったらシェアしてね！</h4> 
-<div class="text-center">
-  <div class="btn btn-facebook">
-    Facebookでシェア
-  </div>
-</div>
-<br>
 
 
 
 
-<% else %>
-	該当するデートコースはありません
-<% end %>
-<% end %>
-<% else %>
-	該当するデートコースはありません
-<% end %>
-<% else %>
-	該当するデートコースはありません
-<% end %>
-
-
-
-
-<% if @spot2.nil? %>
-<script type="text/javascript">
-  (function(){
-    var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
-    var myOptions = {
-        gestureHandling: 'greedy',
-        zoom: 14
-      , center: latlng
-      , mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map_01 = new google.maps.Map(
-        document.getElementById("map_canvas_01")
-      , myOptions
-    );
-    var marker = new google.maps.Marker({ 
-        position: latlng, 
-        map: map_01
-    });
-
-
-  }());
-  </script>
-<% else %>
-<script type="text/javascript">
-  (function(){
-    var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
-    var myOptions = {
-        gestureHandling: 'greedy',
-        zoom: 14
-      , center: latlng
-      , mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map_01 = new google.maps.Map(
-        document.getElementById("map_canvas_01")
-      , myOptions
-    );
-    var marker = new google.maps.Marker({ 
-        position: latlng, 
-        map: map_01
-    });
-
-
-    var latlng = new google.maps.LatLng(<%= @spot2.latitude %>, <%= @spot1.longitude %>);
-    var myOptions = {
-        gestureHandling: 'greedy',
-        zoom: 14
-      , center: latlng
-      , mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map_02 = new google.maps.Map(
-        document.getElementById("map_canvas_02")
-      , myOptions
-    );
-    var marker = new google.maps.Marker({ 
-        position: latlng, 
-        map: map_02
-    });
-  
-
-  }());
-  </script>
-<% end %>
 
 
 
