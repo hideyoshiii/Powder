@@ -10,7 +10,9 @@
 <br>
 <div class="panel-body">
 	<h4 class="pull-left"><%= @course.title %></h4>	
-	<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
+	<%= link_to edit_course_path(@course) do %>
+		<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
+	<% end %>
 </div>
 
 
@@ -115,7 +117,10 @@
 <br>
 <div class="panel-body">
 	<h4 class="pull-left"><%= @course.title %></h4>	
-	<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
+	<%= link_to edit_course_path(@course) do %>
+		<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
+	<% end %>
+
 </div>
 
 

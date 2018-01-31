@@ -1,0 +1,14 @@
+<%= form_for @course do |f| %>
+
+	<div class="pull-left btn btn-default btn-sm">
+		<%= link_to("/courses/#{@course.id}/destroy", {method: "post"}) do %>
+		<span style="color:red;">コースを削除</span>
+		<% end %>
+	</div>
+						
+
+	<div class="actions">
+		<%= f.submit "保存", class: "btn btn-primary pull-right" %>
+	</div>	
+	
+<% end %>

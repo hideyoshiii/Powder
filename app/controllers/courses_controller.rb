@@ -70,7 +70,7 @@ class CoursesController < ApplicationController
   def destroy
     @course = Course.find(params[:id])
     @course.destroy
-    redirect_back(fallback_location: root_path) 
+    redirect_to user_path(current_user)
   end
 
   def show
@@ -90,6 +90,13 @@ class CoursesController < ApplicationController
       if @spot2
         @pictures2 = @spot2.pictures.order(id: "ASC")
       end
+    end
+  end
+
+  def edit
+    @course = Course.find(params[:id])
+    if !(current_user == @course.user)
+      redirect_to root_path
     end
   end
 

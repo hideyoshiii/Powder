@@ -13,6 +13,7 @@ class Spot < ApplicationRecord
 
   has_many :likes, dependent: :destroy
   has_many :pictures, dependent: :destroy
+  has_many :points, dependent: :destroy
   
 
   
