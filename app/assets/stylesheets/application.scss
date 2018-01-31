@@ -903,10 +903,10 @@ hr.style1{
 }
 
 hr.style2{
-	margin:5px 0px 10px;
+	margin:0px 0px 10px;
 	text-align:left;
 	width:60%;
-	border-top: 2px solid #8c8b8b;
+	border-top: 1px solid #8c8b8b;
 }
 
 hr.more{
@@ -917,7 +917,7 @@ hr.more{
 
 .title-content{font-size:20px;}
 @media only screen and (max-width: 768px) {
-.title-content{font-size:18px;}
+.title-content{font-size:18px;font-weight: 550;}
 }
 
 .brand{background: -webkit-linear-gradient(-45deg,  rgba(255, .8, 161, 1), rgba(246, 255, 0, 1));
@@ -1738,11 +1738,11 @@ dl.search1 dd span:hover{
 
 .box99 h4{
 	color:white;
-	text-shadow: 1px 1px 2px black;
-    font-weight: 700;
+	text-shadow: 2px 2px 4px black;
+    font-weight: 450;
     padding:0;
 	margin-bottom:10px;
-	font-size:22px;
+	font-size:24px;
 }
 
 .box99 h3{
