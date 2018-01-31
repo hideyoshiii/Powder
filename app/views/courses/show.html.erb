@@ -79,6 +79,32 @@
     </li>
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
+          <div class="scroll_item_thum_result_info">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>&nbsp;Memo
+          </div>
+      </div>
+    </li>
+    <li class="scroll_item_result_map">
+        <div class="scroll_item_inr_result">
+          <div class="scroll_item_thum_result">
+            <div class="memo-box">
+            	 <% if point.memo.blank? %>
+            	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
+			          メモを追加する
+			        <% end %>
+            	 <% else %>
+            	 	<%= point.memo %>
+            	 	<br>
+            	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
+			          メモを編集する
+			        <% end %>
+            	 <% end %>
+            </div>
+          </div>
+        </div>
+    </li>
+    <li class="scroll_item_result_maps">
+      <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_maps">
             <i class="fa fa-map-marker"></i>&nbsp;Map
             <%# GoogleMapボタン %>
@@ -97,6 +123,8 @@
     </li>
   </ul>
 </div>
+
+
 
 <script type="text/javascript">
   (function(){

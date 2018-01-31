@@ -86,8 +86,10 @@ Rails.application.routes.draw do
   post "courses/:id/destroy" => "courses#destroy"
   resources :courses, only: [:create, :show, :edit]
 
-  post "courses/:id/points/new" => "points#new"
+  get "courses/:id/points/new" => "points#new"
   post "courses/:id/spots/:spot_id/points/create" => "points#create"
+  get "points/:id/memo" => "points#memo"
+  post "points/:id/update" => "points#update"
   post "points/:id/destroy" => "points#destroy"
 
   post "answers/:question_id/create1" => "answers#create1"

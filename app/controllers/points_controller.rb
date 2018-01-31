@@ -29,6 +29,19 @@ class PointsController < ApplicationController
         end
   	end
 
+    def memo
+      @point = Point.find(params[:id])
+      @memo = @point.memo
+    end
+
+    def update
+      @point = Point.find(params[:id])
+      @course = Course.find(@point.course_id)
+    if @point.update(memo: params[:memo])
+      redirect_to course_path(@course)
+    end
+    end
+
 end
 
 

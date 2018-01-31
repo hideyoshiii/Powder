@@ -32,7 +32,7 @@
 	      </div>
 	    <% end %>  
 	    <div class="grid-item iii">
-		    <%= link_to("/courses/#{@course.id}/points/new", {method: "post"}) do %>
+		    <%= link_to("/courses/#{@course.id}/points/new", {method: "get"}) do %>
 	          <%= image_tag "plus.png", :class =>'img-plus' %>
 	        <% end %>
 	    </div>
