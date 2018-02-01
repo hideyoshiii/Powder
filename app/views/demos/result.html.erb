@@ -112,20 +112,16 @@
     <% else %>
       <%= form_tag(courses_path, method: :post) do %>
         <%= hidden_field_tag :spot1_id, @spot1.id %>
-        <div class="col-xs-6">
-          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-        </div>
-        <div class="col-xs-6">
-          <%= submit_tag "保存する", :class => "btn btn-primary" %>
+        <div class="text-center">
+          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
+          <%= submit_tag "保存する", :class => "raised4" %>
         </div>
       <% end %>
     <% end %>
   <% else %>
-    <div class="col-xs-6">
-      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-    </div>
-    <div class="col-xs-6">
-      <div class="btn btn-primary">
+    <div class="text-center">
+      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
+      <div class="raised4">
         保存する
       </div>
       <br>
@@ -339,23 +335,19 @@
       <%= form_tag(courses_path, method: :post) do %>
         <%= hidden_field_tag :spot1_id, @spot1.id %>
         <%= hidden_field_tag :spot2_id, @spot2.id %>
-        <div class="col-xs-6">
-          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-        </div>
-        <div class="col-xs-6">
-          <%= submit_tag "保存する", :class => "btn btn-primary" %>
+        <div class="text-center">
+          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
+          <%= submit_tag "保存する", :class => "raised4" %>
         </div>
       <% end %>
     <% end %>
   <% else %>
-    <div class="col-xs-6">
-      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "form-control", required: "true" %>
-    </div>
-    <div class="col-xs-6">
-      <div class="btn btn-primary">
+    <div class="text-center">
+      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
+      <div class="raised4">
         保存する
       </div>
-      <br>  
+      <br>
       ※ログインしてね!
     </div>
   <% end %>

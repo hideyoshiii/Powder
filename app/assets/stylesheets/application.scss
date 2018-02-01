@@ -3627,6 +3627,38 @@ display: inline-block;
 
 }
 
+//コースを保存ボタン
+.raised4{
+  display: inline-block;
+  background-color: #53331c;
+  color: #cab261;
+  text-shadow: 1px 1px 2px black;
+  font-size: 14px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 11px 20px;/*ボタン内の余白*/
+  border-radius: 5px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;/*変化を緩やかに*/
+  border: 1px solid black;
+}
+
+.raised4:hover{
+	color: #FFF;
+	text-shadow: 1px 1px 2px black;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
+}
+
+
+
+
+
+
+
+
+
+
 
 //いいねボタンの下の余白
 .like-box{
@@ -3947,6 +3979,16 @@ display: inline-block;
 	margin:20px 0px 20px 2px;
 }
 
+//コースのポイントの削除ボタンのボックス
+.point-destroy-box{
+	margin:5px 0px 12px;
+}
+
+//コースのポイントの追加ボタンのボックス
+.point-add-box{
+	margin:5px 0px 10px;
+}
+
 
 
 
@@ -4002,8 +4044,13 @@ display: inline-block;
 
 
 
-
-
+//コースを保存するのテキストフィールド
+.input-course-title{
+	width:200px;
+	height:40px;
+	display: inline-block;
+	padding-left:10px;
+}
 
 
 
