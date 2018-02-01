@@ -1,53 +1,27 @@
 <%= render "partial/navbar3" %>
 <mains class="" id="main-collapse">
 
-<%= form_tag(demos_search1_path, method: :get) do %>
- 
   	<div class="box99" id=''> 
   		<div>
-  			<h4 class="text-center box-top1">Coolなデートコースを10秒で</h4>	
+  			<h4 class="text-center box-top1">Coolなデートコースを10秒で</h4>
+  			<p class="text-center">提案するのは厳選したデートコースのみ</p>
+  			<p class="text-center">私たちが完璧なデートへのハードルをお下げします</p>
   		</div>
   		<div class="box-top">
-  			<h3 class="text-center">Time</h3>
-  			<span class="radio-city">	
-  			<%= radio_button_tag(:large, 1) %>
-			<%= label_tag(:large_1, "ランチから") %>
-		 	<%= radio_button_tag(:large, 2, true) %>
-			<%= label_tag(:large_2, "ディナーから") %>
-			</span>    
-	    </div>
-	    <div>
-	    	<h3 class="text-center">City</h3>
-	    </div>
-	    <div class="horizontal_scroll_search">
-			  <ul class="scroll_lst_search">
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:city, "恵比寿・代官山・中目黒", true) %>
-						<%= label_tag('city_恵比寿・代官山・中目黒', "恵比寿・代官山・中目黒") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:city, "渋谷") %>
-						<%= label_tag('city_渋谷', "渋谷") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:city, "原宿・表参道・青山") %>
-						<%= label_tag('city_原宿・表参道・青山', "原宿・表参道・青山") %>
-					</span>
-			    </li>
-			  </ul>
-			</div>
-  		<div>
-  			<h1><%= submit_tag "コースを作る", :class => "btn btn-default" %></h1>
+  			<h1 class="text-center">
+  				<%= link_to demos_search1_path do %>
+	  				<span class="raised5">
+	  					ランチから
+	  				</span>
+  				<% end %>
+  				<%= link_to demos_search1_path do %>
+	  				<span class="raised5">
+	  					ディナーから
+	  				</span>
+  				<% end %>
+  			</h1>   
 	    </div>
     </div>
-
-
-<% end %>
 
   <script>
   	$(function() {

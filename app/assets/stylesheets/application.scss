@@ -1330,8 +1330,9 @@ dl.search1 dd span:hover{
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
-  margin:0 -20px;
+  margin:0 0px;
   padding:0px;
+  width:100%;
   }
 
 
@@ -1788,6 +1789,7 @@ dl.search1 dd span:hover{
   transform: translate(-50%,-50%);
   margin:0;
   padding:0;
+  width: 100%;
   }
 
 .box98 {
@@ -1797,7 +1799,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(price02.jpg) ;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(city02.jpg) ;
   background-size: cover;
   background-position: center;
 
@@ -1840,7 +1842,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(dish02.jpg) ;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(price02.jpg) ;
   background-size: cover;
   background-position: center;
 
@@ -1876,6 +1878,51 @@ dl.search1 dd span:hover{
   padding:0;
   }
 
+.box96 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(dish02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin:0px;
+  box-sizing: border-box;
+}
+
+.box96 h1 {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+
+
 //要素を少し上に
 .box-top{
 	margin-top:-40px;
@@ -1884,7 +1931,6 @@ dl.search1 dd span:hover{
 .box-top1{
 	margin-top:-70px;
 }
-
 
 
 /* 目次リンクスクロール */
@@ -3645,6 +3691,30 @@ display: inline-block;
 }
 
 .raised4:hover{
+	color: #FFF;
+	text-shadow: 1px 1px 2px black;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
+}
+
+//10秒サーチのランチディナーボタン(デモ)
+//10秒サーチページのボタン
+.raised5{
+  background-color: #53331c;
+  color: #cab261;
+  text-shadow: 1px 1px 2px black;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 10px 20px;/*ボタン内の余白*/
+  margin:0px 5px;
+  border-radius: 5px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;/*変化を緩やかに*/
+  border: 1px solid black;
+}
+
+.raised5:hover{
 	color: #FFF;
 	text-shadow: 1px 1px 2px black;
     box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
