@@ -7,8 +7,7 @@
 <% if !@pictures1.nil? %>
 <% if @spot2.nil? %>
 
-<br>
-<h4 class="text-center">あなたのデートコースはこれ！</h4>	
+<h4 class="text-center" style="margin:30px 0px 10px;">あなたのデートコースはこれ！</h4> 
 
 
 <%# 横スクロールアイキャッチ %>
@@ -35,7 +34,7 @@
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_info">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+            Info&nbsp;<i class="fa fa-angle-double-right"></i>
           </div>
       </div>
     </li>
@@ -83,7 +82,7 @@
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_maps">
-            <i class="fa fa-map-marker"></i>&nbsp;Map
+            Map&nbsp;<i class="fa fa-angle-double-right"></i>
             <%# GoogleMapボタン %>
             <% unless @spot1.address.blank? %>
               <br>
@@ -102,8 +101,7 @@
 </div>
 
 <%# コースを保存 %>
-<br>
-<h4 class="text-center">コースを保存できるよ！</h4> 
+<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できるよ！</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
     <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: nil) %>
@@ -142,8 +140,9 @@
 <% else %>
 <% if !@pictures2.nil? %>
 
+
+<h4 class="text-center" style="margin:30px 0px 10px;">あなたのデートコースはこれ！</h4>	
 <br>
-<h4 class="text-center">あなたのデートコースはこれ！</h4>	
 
 
 <%# 横スクロールアイキャッチ %>
@@ -171,7 +170,7 @@
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_info">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+            Info&nbsp;<i class="fa fa-angle-double-right"></i>
           </div>
       </div>
     </li>
@@ -219,7 +218,7 @@
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_maps">
-            <i class="fa fa-map-marker"></i>&nbsp;Map
+            Map&nbsp;<i class="fa fa-angle-double-right"></i>
             <%# GoogleMapボタン %>
             <% unless @spot1.address.blank? %>
               <br>
@@ -261,7 +260,7 @@
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_info">
-            <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+            Info&nbsp;<i class="fa fa-angle-double-right"></i>
           </div>
       </div>
     </li>
@@ -309,7 +308,7 @@
     <li class="scroll_item_result_maps">
       <div class="scroll_item_inr_result">
           <div class="scroll_item_thum_result_maps">
-            <i class="fa fa-map-marker"></i>&nbsp;Map
+            Map&nbsp;<i class="fa fa-angle-double-right"></i>
             <%# GoogleMapボタン %>
             <% unless @spot2.address.blank? %>
               <br>
@@ -328,8 +327,7 @@
 </div>
 
 <%# コースを保存 %>
-<br>
-<h4 class="text-center">コースを保存できるよ！</h4> 
+<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できるよ！</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
     <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: @spot2.id) %>

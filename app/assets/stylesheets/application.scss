@@ -2949,7 +2949,7 @@ footer p {
 
 //コース一覧スクロール
 .horizontal_scroll_wrap_coures{
-    background: white;
+    background: #FAFAFA;
     width:100%;
     height: auto;
     max-height: 460px;
@@ -2970,7 +2970,7 @@ footer p {
     margin-top: 20px;
     display: inline-block;
     width: 45%;
-    background: white;
+    background: #FAFAFA;
     border-radius:5px;
 }
 .scroll_item_coures:first-child {
@@ -3010,9 +3010,10 @@ footer p {
 
 //コース一覧のタイトル
 .course-title-box{
-	background: white;
+	background: #FAFAFA;
     width:100%;
     height: 30px;
+    border-top: 1px solid #53331c;
 }
 
 .course-title{
