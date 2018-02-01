@@ -4275,10 +4275,12 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
     background:#F4F5F7;
     width:100%;
     height:50px;
+    border-top:1px solid #CCCCCC;
+
 }
 
 .sticky-menu{
-	font-size:30px;
+	font-size:20px;
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
@@ -4286,7 +4288,13 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 }
 
 .sticky-icon{
-	color:#CCCCCC;
+	color:#b8b8b8;
+}
+
+.sticky-title{
+	color:#b8b8b8;
+	font-size:11px;
+	margin-top:-8px;
 }
 
 .fotter-box{
