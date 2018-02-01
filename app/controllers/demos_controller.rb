@@ -49,6 +49,7 @@ class DemosController < ApplicationController
   end
 
   def result
+    flash[:notice] = "コースが作成されました"
     @spot1 = Spot.find(params[:spot1])
     if @spot1
 	    @pictures1 = @spot1.pictures.order(id: "ASC")

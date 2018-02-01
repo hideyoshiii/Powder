@@ -39,7 +39,7 @@ class CoursesController < ApplicationController
           if @course.save
             @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id)
             if @point1.save
-              redirect_to course_path(@course) #保存完了
+              redirect_to course_path(@course), notice: "コースを保存しました" #保存完了
             else
               redirect_back(fallback_location: root_path) #ポイント1が保存できなかった
             end
@@ -53,7 +53,7 @@ class CoursesController < ApplicationController
             if @point1.save
               @point2 = Point.new(spot_id: params[:spot2_id].to_i, course_id: @course.id)
               if @point2.save
-                redirect_to course_path(@course) #保存完了
+                redirect_to course_path(@course), notice: "コースを保存しました" #保存完了
               else
                 redirect_back(fallback_location: root_path) #ポイント2が保存できなかった
               end      

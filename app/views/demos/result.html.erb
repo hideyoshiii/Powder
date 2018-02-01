@@ -18,7 +18,7 @@
         <div class="scroll_item_inr_result">
           <div class="frame-demo">
             <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
-            <h3>1,&nbsp;<%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
+            <h3><%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
             <%= form_tag(demos_change1_path, method: :get) do %>
             <%= hidden_field_tag :spot1, @spot1.id %>
             <%= hidden_field_tag :large, params[:large] %>
