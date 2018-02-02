@@ -4123,10 +4123,37 @@ display: inline-block;
 }
 
 
+//コースマップのボックス
+.map-box{
+	width:100%;
+	height:50vh;
+}
+
+.map-title-box{
+	width:19%;
+	height:50vh;
+	display:inline-block;
+	vertical-align: top;   /* 上端を揃える */
+	background: #333333;
+	margin:0;
+	padding:0;
+}
+
+.map-content-box{
+	width:80%;
+	height:50vh;
+	display:inline-block;
+	vertical-align: top;   /* 上端を揃える */
+	margin:0;
+	padding:0;
+}
 
 
-
-
+.map-title{
+	color:white;
+	margin-top:22vh;
+	padding-left:5px;
+}
 
 
 
@@ -4385,4 +4412,6 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 #sample {
  width: 100%;
  height: 50vh;
+ margin:0;
+	padding:0;
 }
