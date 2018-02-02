@@ -4127,10 +4127,12 @@ display: inline-block;
 .map-box{
 	width:100%;
 	height:50vh;
+	margin:0;
+	padding:0;
 }
 
 .map-title-box{
-	width:19%;
+	width:18%;
 	height:50vh;
 	display:inline-block;
 	vertical-align: top;   /* 上端を揃える */
