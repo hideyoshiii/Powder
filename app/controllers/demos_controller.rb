@@ -28,7 +28,7 @@ class DemosController < ApplicationController
   	if @spot1
 	    @pictures1 = @spot1.pictures.order(id: "ASC")
 	  	@spots = Spot.where.not(title: @spot1.title)
-      @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km)
+      @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km, :order => false)
 	  	@spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(3)
 	  end
 
@@ -45,7 +45,7 @@ class DemosController < ApplicationController
   	@large = params[:large]
   	@spot1 = Spot.find(params[:spot1])
   	@spots = Spot.where.not(title: @spot1.title)
-    @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km)
+    @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km, :order => false)
   	@spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(3)
   end
 
