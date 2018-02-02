@@ -97,7 +97,18 @@
   </ul>
 </div>
 
-<%# コースを保存 %>
+<div class="map-box">
+  <div class="map-title-box">
+    <div class="map-title">
+      Map&nbsp;<i class="fa fa-angle-double-right"></i>
+    </div>
+  </div>
+  <div class="map-content-box">
+    <div id="sample"></div>
+  </div>
+</div>
+
+<%# コースを保存 %><br><br>
 <h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できるよ！</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
@@ -314,7 +325,18 @@
   </ul>
 </div>
 
-<%# コースを保存 %>
+<div class="map-box">
+  <div class="map-title-box">
+    <div class="map-title">
+      Map&nbsp;<i class="fa fa-angle-double-right"></i>
+    </div>
+  </div>
+  <div class="map-content-box">
+    <div id="sample"></div>
+  </div>
+</div>
+
+<%# コースを保存 %><br><br>
 <h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できるよ！</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
@@ -361,68 +383,69 @@
 
 
 
+<script type="text/javascript">
+  var map;
+var marker = [];
+var infoWindow = [];
+var markerData = [ // マーカーを立てる場所名・緯度・経度
+
 <% if @spot2.nil? %>
-<script type="text/javascript">
-  (function(){
-    var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
-    var myOptions = {
-        gestureHandling: 'greedy',
-        zoom: 14
-      , center: latlng
-      , mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map_01 = new google.maps.Map(
-        document.getElementById("map_canvas_01")
-      , myOptions
-    );
-    var marker = new google.maps.Marker({ 
-        position: latlng, 
-        map: map_01
-    });
-
-
-  }());
-  </script>
+  {
+       name: "<%= @spot1.title %>",
+       lat: <%= @spot1.latitude %>,
+        lng: <%= @spot1.longitude %>,
+  }, 
 <% else %>
-<script type="text/javascript">
-  (function(){
-    var latlng = new google.maps.LatLng(<%= @spot1.latitude %>, <%= @spot1.longitude %>);
-    var myOptions = {
-        gestureHandling: 'greedy',
-        zoom: 14
-      , center: latlng
-      , mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map_01 = new google.maps.Map(
-        document.getElementById("map_canvas_01")
-      , myOptions
-    );
-    var marker = new google.maps.Marker({ 
-        position: latlng, 
-        map: map_01
-    });
-
-
-    var latlng = new google.maps.LatLng(<%= @spot2.latitude %>, <%= @spot1.longitude %>);
-    var myOptions = {
-        gestureHandling: 'greedy',
-        zoom: 14
-      , center: latlng
-      , mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map_02 = new google.maps.Map(
-        document.getElementById("map_canvas_02")
-      , myOptions
-    );
-    var marker = new google.maps.Marker({ 
-        position: latlng, 
-        map: map_02
-    });
-  
-
-  }());
-  </script>
+  {
+       name: "<%= @spot1.title %>",
+       lat: <%= @spot1.latitude %>,
+        lng: <%= @spot1.longitude %>,
+  }, 
+  {
+       name: "<%= @spot2.title %>",
+       lat: <%= @spot2.latitude %>,
+        lng: <%= @spot2.longitude %>,
+  }, 
 <% end %>
+
+];
+ 
+function initMap() {
+ // 地図の作成
+    var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
+   map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+    gestureHandling: 'greedy',
+     center: mapLatLng, // 地図の中心を指定
+      zoom: 15 // 地図のズームを指定
+   });
+ 
+ // マーカー毎の処理
+ for (var i = 0; i < markerData.length; i++) {
+        markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+        marker[i] = new google.maps.Marker({ // マーカーの追加
+         position: markerLatLng, // マーカーを立てる位置を指定
+            map: map // マーカーを立てる地図を指定
+       });
+ 
+     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+         content: '<div class="sample">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
+       });
+ 
+     markerEvent(i); // マーカーにクリックイベントを追加
+ }
+ 
+   
+}
+ 
+// マーカーにクリックイベントを追加
+function markerEvent(i) {
+    marker[i].addListener('click', function() { // マーカーをクリックしたとき
+      infoWindow[i].open(map, marker[i]); // 吹き出しの表示
+  });
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
 
 
 
