@@ -9,7 +9,7 @@
     <%= hidden_field_tag :spot1, @spot1.id %>
     <%= hidden_field_tag :large, params[:large] %>
     <div class="pull-right">
-      <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2],["100km以内", 100]], params[:distance].to_f) %>
+      <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance].to_f) %>
       <%= submit_tag "距離を絞る", :class => "" %>
     </div>
     <br>
