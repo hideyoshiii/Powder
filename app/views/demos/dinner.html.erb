@@ -5,6 +5,7 @@
 <% if !@spots.blank? %>	
 
 	<%= form_tag(demos_search2_path, method: :get) do %>
+	<%= hidden_field_tag :distance, 1.0 %>
 
 		<h4 class="text-center" style="margin-top:20px;">どのお店にする？</h4>	
 

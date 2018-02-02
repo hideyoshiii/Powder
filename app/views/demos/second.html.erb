@@ -5,6 +5,16 @@
 
 <% if !@spots.blank? %>
 
+  <%= form_tag(demos_second_path, method: :get) do %>
+    <%= hidden_field_tag :spot1, @spot1.id %>
+    <%= hidden_field_tag :large, params[:large] %>
+    <div class="pull-right">
+      <%= select_tag :distance, options_for_select([["1km以内", 1.0], ["500m以内", 0.50], ["200m以内", 0.20],["100km以内", 100.0]], params[:distance].to_f) %>
+      <%= submit_tag "距離を絞る", :class => "" %>
+    </div>
+    <br>
+  <% end %>
+
   <%= form_tag(demos_result_path, method: :get) do %>
     <%= hidden_field_tag :spot1, @spot1.id %>
     <%= hidden_field_tag :large, params[:large] %>
