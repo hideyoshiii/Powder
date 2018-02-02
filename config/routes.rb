@@ -92,6 +92,8 @@ Rails.application.routes.draw do
   post "points/:id/update" => "points#update"
   post "points/:id/destroy" => "points#destroy"
 
+  resources :timelines, only: [:index]
+
   post "answers/:question_id/create1" => "answers#create1"
   post "answers/:question_id/create2" => "answers#create2"
   post "answers/:question_id/update1" => "answers#update1"

@@ -1,20 +1,15 @@
 <%= render "partial/navbar3" %>
 <mains class="" id="main-collapse">
-	
-<div class="panel-body">
-	<div class="title-content">
-	  マイコース
-	</div> 
-	<hr class="style2">
-</div>	
-  
+		
+<% unless @timelines.blank? %>
 
-<% @courses.each do |course| %>
+<% @timelines.each do |timeline| %>
+<% course = Course.find(timeline.course_id) %>
 <% @points = Point.where(course_id: course.id).order(id: "ASC") %>
 <%= link_to course_path(course) do %>
-	<div class="course-title-box">
-		<div class="course-title">
-			<%= course.title %>
+	<div class="timeline-title-box">
+		<div class="timeline-title">
+			<%= image_tag "male.png", :class =>'img-circle profile-0' %>(<%= course.user.age %>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="dinner_btn"><span style="color:;"><i class="fas fa-moon"></i></span>ディナー</span>&nbsp;<%= timeline.city_dinner %>/~<%= timeline.price_dinner %>円/<%= timeline.small_dinner %>
 		</div>
 	</div>
 	<div class="horizontal_scroll_wrap_coures">
@@ -39,7 +34,10 @@
 	</div>
 	<br>
 <% end %>  
+<% end %> 
+
 <% end %>  
+
 
 </main>
 <%= render "partial/footer" %>

@@ -6,6 +6,9 @@
 <% if !@spots.blank? %>
 
   <%= form_tag(demos_second_path, method: :get) do %>
+    <%= hidden_field_tag :city_dinner, params[:city_dinner] %>
+    <%= hidden_field_tag :price_dinner, params[:price_dinner] %>
+    <%= hidden_field_tag :small_dinner, params[:small_dinner] %>
     <%= hidden_field_tag :spot1, @spot1.id %>
     <%= hidden_field_tag :large, params[:large] %>
     <div class="pull-right">
@@ -16,6 +19,9 @@
   <% end %>
 
   <%= form_tag(demos_result_path, method: :get) do %>
+    <%= hidden_field_tag :city_dinner, params[:city_dinner] %>
+    <%= hidden_field_tag :price_dinner, params[:price_dinner] %>
+    <%= hidden_field_tag :small_dinner, params[:small_dinner] %>
     <%= hidden_field_tag :spot1, @spot1.id %>
     <%= hidden_field_tag :large, params[:large] %>
 

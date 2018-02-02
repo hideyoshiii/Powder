@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course: one
+  city_dinner: MyString
+  price_dinner: 1
+  small_dinner: MyString
+  city_lunch: MyString
+  price_lunch: MyString
+  small_lunch: MyString
+
+two:
+  course: two
+  city_dinner: MyString
+  price_dinner: 1
+  small_dinner: MyString
+  city_lunch: MyString
+  price_lunch: MyString
+  small_lunch: MyString

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130100914) do
+ActiveRecord::Schema.define(version: 20180202180125) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -223,6 +223,19 @@ ActiveRecord::Schema.define(version: 20180130100914) do
     t.string "name"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "timelines", force: :cascade do |t|
+    t.integer "course_id"
+    t.string "city_dinner"
+    t.integer "price_dinner"
+    t.string "small_dinner"
+    t.string "city_lunch"
+    t.integer "price_lunch"
+    t.string "small_lunch"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_timelines_on_course_id"
   end
 
   create_table "users", force: :cascade do |t|

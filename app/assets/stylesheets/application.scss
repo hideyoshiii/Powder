@@ -3071,6 +3071,21 @@ footer p {
 	color:black;
 }
 
+//タイムラインの検索情報
+.timeline-title-box{
+	background: #FAFAFA;
+    width:100%;
+    height: 30px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.timeline-title{
+	padding:10px 10px 10px 10px;
+	font-size:12px;
+	letter-spacing:-0.08em;
+	color:black;
+}
+
 
 
 
@@ -4138,6 +4153,18 @@ display: inline-block;
 
 
 
+
+//タイムラインのディナーランチボタン
+.dinner_btn {
+    display: inline-block;
+    padding: 0.2em 0.7em;
+    text-decoration: none;
+    color: #003399;
+    border: solid 1px #003399;
+    border-radius: 30px;
+    font-size:8px;
+    
+}
 
 
 
