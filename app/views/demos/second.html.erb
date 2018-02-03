@@ -5,13 +5,15 @@
 
 <% if !@spots.blank? %>
 
+  <h4 class="text-center" style="margin-top:20px;">どの<%= @large %>にする？</h4> 
+
   <%= form_tag(demos_second_path, method: :get) do %>
     <%= hidden_field_tag :city_dinner, params[:city_dinner] %>
     <%= hidden_field_tag :price_dinner, params[:price_dinner] %>
     <%= hidden_field_tag :small_dinner, params[:small_dinner] %>
     <%= hidden_field_tag :spot1, @spot1.id %>
     <%= hidden_field_tag :large, params[:large] %>
-    <div class="pull-right">
+    <div class="text-center">
       <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance].to_f) %>
       <%= submit_tag "距離を絞る", :class => "" %>
     </div>
@@ -24,8 +26,6 @@
     <%= hidden_field_tag :small_dinner, params[:small_dinner] %>
     <%= hidden_field_tag :spot1, @spot1.id %>
     <%= hidden_field_tag :large, params[:large] %>
-
-    <h4 class="text-center" style="margin-top:20px;">どの<%= @large %>にする？</h4>	
 
     <% @spots.each do |spot| %>
       <div class="radio-city1">	
