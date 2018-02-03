@@ -10,6 +10,14 @@
     </div>
     <div class="col-xs-3">
       <div class="sticky-menu">
+        <%= link_to "/timelines" do %>
+          <i class="fa fa-align-justify sticky-icon" aria-hidden="true"></i>
+          <div class="sticky-title">タイムライン</div >
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-3">
+      <div class="sticky-menu">
         <%= link_to "/spots" do %>
           <i class="fa fa-map-marker sticky-icon" aria-hidden="true"></i>
           <div class="sticky-title">スポット</div >
@@ -29,14 +37,6 @@
             <div class="sticky-title">ログイン</div >
           <% end %>
         <% end %>
-      </div>
-    </div>
-    <div class="col-xs-3">
-      <div class="sticky-menu">
-        <a href='#main-collapse'>
-          <i class="fa fa-level-up sticky-icon" aria-hidden="true"></i>
-          <div class="sticky-title">上へ</div >
-        </a>
       </div>
     </div>
   </div>

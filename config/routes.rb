@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   
-  root :to => 'articles#search'
+  root :to => 'demos#search'
 
   get "/homes" => "homes#index"
 
   get "courses/search" => "courses#search"
   get "courses/result" => "courses#result"
 
-  get "demos/search" => "demos#search"
   get "demos/search1" => "demos#search1"
   get "demos/dinner" => "demos#dinner"
   get "demos/search2" => "demos#search2"
@@ -34,6 +33,7 @@ Rails.application.routes.draw do
 
   resources :snaps, only: [:create, :destroy]
   
+  get "articles/search" => "articles#search"
   get "articles/result" => "articles#result"
   get 'articles/:id/snaps' => 'articles#snaps'
   get 'articles/:id/snaps/add' => 'articles#addsnaps'
