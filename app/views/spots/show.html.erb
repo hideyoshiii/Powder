@@ -289,14 +289,15 @@
                 営業時間
               </div>
               <div class="col-xs-9">
-                月&nbsp;&nbsp;9:30am~10:00pm<br>
-                火&nbsp;&nbsp;CLOSED<br>
-                水&nbsp;&nbsp;9:30am~10:00pm<br>
-                木&nbsp;&nbsp;9:30am~10:00pm<br>
-                金&nbsp;&nbsp;9:30am~10:00pm<br>
-                土&nbsp;&nbsp;9:30am~10:00pm<br>
-                日&nbsp;&nbsp;9:30am~10:00pm<br>
-                祝&nbsp;&nbsp;9:30am~10:00pm
+
+                月&nbsp;&nbsp;<% unless @spot.monday.blank? %><%= @spot.monday %><% end %><br>
+                火&nbsp;&nbsp;<% unless @spot.tuesday.blank? %><%= @spot.tuesday %><% end %><br>
+                水&nbsp;&nbsp;<% unless @spot.wednesday.blank? %><%= @spot.wednesday %><% end %><br>
+                木&nbsp;&nbsp;<% unless @spot.thursday.blank? %><%= @spot.thursday %><% end %><br>
+                金&nbsp;&nbsp;<% unless @spot.friday.blank? %><%= @spot.friday %><% end %><br>
+                土&nbsp;&nbsp;<% unless @spot.saturday.blank? %><%= @spot.saturday %><% end %><br>
+                日&nbsp;&nbsp;<% unless @spot.sunday.blank? %><%= @spot.sunday %><% end %><br>
+                祝&nbsp;&nbsp;<% unless @spot.holiday.blank? %><%= @spot.holiday %><% end %><br>
               </div>
             </div>
             <div class="row more-content">
@@ -304,7 +305,9 @@
                 アクセス
               </div>
               <div class="col-xs-9">
-                東急東横線代官山駅より徒歩3分
+                <% unless @spot.access.blank? %>
+                  <%= @spot.access %>
+                <% end %>
               </div>
             </div>
             <div class="row more-content">
@@ -312,8 +315,12 @@
                 予算
               </div>
               <div class="col-xs-9">
-                ランチ&nbsp;&nbsp;1000~2000円<br>
-                ディナー&nbsp;&nbsp;3000~4000円
+                <% unless @spot.price_lunch.blank? %>
+                  ランチ&nbsp;&nbsp;~<%= @spot.price_lunch %>円
+                <% end %>
+                <% unless @spot.price_dinner.blank? %>
+                  ディナー&nbsp;&nbsp;~<%= @spot.price_dinner %>円
+                <% end %>
               </div>
             </div>
             <div class="row more-content">
@@ -321,7 +328,9 @@
                 支払い
               </div>
               <div class="col-xs-9">
-                カード可&nbsp;&nbsp;（VISA、MASTER、AMEX）
+                <% unless @spot.payment.blank? %>
+                  <%= @spot.payment %>
+                <% end %>
               </div>
             </div>
             <div class="row more-content">
@@ -329,7 +338,9 @@
                 サービス料
               </div>
               <div class="col-xs-9">
-                なし
+                <% unless @spot.service.blank? %>
+                  <%= @spot.service %>
+                <% end %>
               </div>
             </div>
             <div class="row more-content">
@@ -337,7 +348,9 @@
                 チャージ
               </div>
               <div class="col-xs-9">
-                ディナータイムのみコペルト（パン代、席料）として、300円/人
+                <% unless @spot.charge.blank? %>
+                  <%= @spot.charge %>
+                <% end %>
               </div>
             </div>
             <div class="row more-content">
@@ -345,7 +358,9 @@
                 禁煙・喫煙
               </div>
               <div class="col-xs-9">
-                完全禁煙&nbsp;&nbsp;同施設内に喫煙所あり。
+                <% unless @spot.smoking.blank? %>
+                  <%= @spot.smoking %>
+                <% end %>
               </div>
             </div>
           </div>
