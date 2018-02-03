@@ -2,20 +2,25 @@
 
 <mains class="" id="main-collapse">
 
-<br>
-<div class="panel-body">
-	<div class="col-xs-9">	
-		<div class="title-content4">
-	  		<%= @course.title %>
-		</div> 
-		<hr class="style4">
-	</div>
-	<div class="col-xs-3">
-		<%= link_to edit_course_path(@course) do %>
-			<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
-		<% end %>
-	</div>
-</div>
+<%# タイトルと編集ボタン %>
+<% if (user_signed_in?) %>
+  <% if @course.user_id == current_user.id %>
+    <br>
+    <div class="panel-body">
+    	<div class="col-xs-9">	
+    		<div class="title-content4">
+    	  		<%= @course.title %>
+    		</div> 
+    		<hr class="style4">
+    	</div>
+    	<div class="col-xs-3">
+    		<%= link_to edit_course_path(@course) do %>
+    			<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
+    		<% end %>
+    	</div>
+    </div>
+  <% end %>
+<% end %>
 
 <% @points.each do |point| %>
 <% @n = @n + 1 %>
@@ -84,46 +89,105 @@
           </div>
         </div>
     </li>
-    <li class="scroll_item_result_maps">
-      <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_info">
-            Memo&nbsp;<i class="fa fa-angle-double-right"></i>
+    <%# メモ機能 %>
+    <% if (user_signed_in?) %>
+      <% if @course.user_id == current_user.id %>
+        <li class="scroll_item_result_maps">
+          <div class="scroll_item_inr_result">
+              <div class="scroll_item_thum_result_info">
+                Memo&nbsp;<i class="fa fa-angle-double-right"></i>
+              </div>
           </div>
-      </div>
-    </li>
-    <li class="scroll_item_result_map">
-        <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result">
-            <div class="memo-box">
-            	 <% if point.memo.blank? %>
-            	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
-			          メモを追加する
-			        <% end %>
-            	 <% else %>
-            	 	<%= point.memo %>
-            	 	<br>
-            	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
-			          メモを編集する
-			        <% end %>
-            	 <% end %>
+        </li>
+        <li class="scroll_item_result_map">
+          <div class="scroll_item_inr_result">
+            <div class="scroll_item_thum_result">
+              <div class="memo-box">
+              	 <% if point.memo.blank? %>
+              	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
+  			          メモを追加する
+  			        <% end %>
+              	 <% else %>
+              	 	<%= point.memo %>
+              	 	<br>
+              	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
+  			          メモを編集する
+  			        <% end %>
+              	 <% end %>
+              </div>
             </div>
           </div>
-        </div>
-    </li>
+        </li>
+      <% end %>
+    <% end %>
   </ul>
 </div>
 
 <% end %>
 
+<% if user_signed_in? %>
+  <% if @course.user_id != current_user.id %>
+    <h4 class="text-center" style="margin:30px 0px 30px;">コースを複製できるよ！</h4> 
+    <div class="text-center">
+      <%= form_tag(timelines_copy_path, method: :post) do %>
+        <% @points.each do |point| %>
+        <% @i = @i + 1 %>
+          <% if @i == 1 %>
+            <%= hidden_field_tag :spot1_id, point.spot.id %>
+          <% end %>
+          <% if @i == 2 %>
+            <%= hidden_field_tag :spot2_id, point.spot.id %>
+          <% end %>
+          <% if @i == 3 %>
+            <%= hidden_field_tag :spot3_id, point.spot.id %>
+          <% end %>
+          <% if @i == 4 %>
+            <%= hidden_field_tag :spot4_id, point.spot.id %>
+          <% end %>
+          <% if @i == 5 %>
+            <%= hidden_field_tag :spot5_id, point.spot.id %>
+          <% end %>
+          <% if @i == 6 %>
+            <%= hidden_field_tag :spot6_id, point.spot.id %>
+          <% end %>
+        <% end %>
+        <div class="text-center">
+          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
+          <%= submit_tag "保存する", :class => "raised4" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% else %>
+  <h4 class="text-center" style="margin:30px 0px 30px;">コースを複製できるよ！</h4> 
+    <div class="text-center">
+      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
+      <div class="raised4">
+        保存する
+      </div>
+      <br>
+      ※ログインしてね!
+    </div>
+<% end %>
+
+
+
+
+
+
 <%# シェア %>
-<br><br>
-<h4 class="text-center" style="margin-bottom:30px;">よかったらシェアしてね！</h4> 
+<h4 class="text-center" style="margin:50px 0px 30px">よかったらシェアしてね！</h4> 
 <div class="text-center">
-  <a href="http://twitter.com/share?url=<%= url_for(only_path: false) %>&text=A.Date,あなたのデートに彩りを" target="_blank" class="tweet-btn"><i class="fa fa-twitter"></i> <span>Tweetする</span></a>
+  <a href="http://twitter.com/share?url=<%= url_for(only_path: false) %>&text=A.Date/あなたのデートに彩りを" target="_blank" class="tweet-btn"><i class="fa fa-twitter"></i> <span>Tweetする</span></a>
 </div>
-<div class="text-center" style="margin-top:10px;"">
-  ※タイトルやメモ、ユーザーなどは公開されません
-</div>
+<% if (user_signed_in?) %>
+  <% if @course.user_id == current_user.id %>
+    <div class="text-center" style="margin-top:10px;"">
+      ※タイトルやメモ、ユーザーなどは公開されません
+    </div>
+  <% end %>
+<% end %>
+
 
 <div class="map-title-box">
   <div class="map-title">

@@ -29,6 +29,10 @@
     <% if (user_signed_in?) %>
       <% if current_user.authority == "manager" %>
         <%= yield %>
+      <% else %>
+        <div class="visible-xs">
+        <%= yield %>
+      </div>
       <% end %>
     <% else %>
       <div class="hidden-xs">

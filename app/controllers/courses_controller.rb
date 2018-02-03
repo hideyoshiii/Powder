@@ -85,6 +85,7 @@ class CoursesController < ApplicationController
 
   def show
     @n = 0
+    @i = 0
     @course = Course.find(params[:id])
     @points = Point.where(course_id: @course.id).order(id: "ASC")
   end
