@@ -6,7 +6,7 @@
 <% @timelines.each do |timeline| %>
 <% course = Course.find(timeline.course_id) %>
 <% @points = Point.where(course_id: course.id).order(id: "ASC") %>
-<%= link_to course_path(course) do %>
+<%= link_to timeline_path(timeline) do %>
 	<div class="timeline-title-box">
 		<div class="timeline-title">
 			<%= image_tag "male.png", :class =>'img-circle profile-0' %>&nbsp;(<%= course.user.age %>)
@@ -54,7 +54,7 @@
 <% end %>  
 
 
-</main>
+</mains>
 <%= render "partial/footer" %>
 
 <script>
