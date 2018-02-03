@@ -48,11 +48,13 @@
       <ul class="nav">               
 
         <% if (user_signed_in?) %>
-        <li>
-          <%= link_to new_spot_path do %>
-          <i class="fa fa-plus-circle" aria-hidden="true"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
+          <% if current_user.authority == "manager" %>
+            <li>
+              <%= link_to new_spot_path do %>
+                <i class="fa fa-plus-circle" aria-hidden="true"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
+              <% end %>
+            </li>
           <% end %>
-        </li>
         <% end %>
       </ul>
 

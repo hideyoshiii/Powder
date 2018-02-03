@@ -28,17 +28,17 @@
 
     <% if (user_signed_in?) %>
       <% if current_user.authority == "manager" %>
-          <%= yield %>
+        <%= yield %>
       <% end %>
     <% else %>
       <div class="hidden-xs">
         <%= render "partial/navbar00" %>
         <main class="" id="main-collapse">
-          A.DateはまだPC版は対応しておりません。<br>スマホ版でご利用ください。
+          A.DateはまだPC版に対応しておりません。<br>スマホ版でご利用ください。
         </main>
       </div>
       <div class="visible-xs">
-      <%= yield %>
+        <%= yield %>
       </div>
     <% end %>
 
