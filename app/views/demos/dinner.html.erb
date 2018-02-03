@@ -53,24 +53,24 @@
 	  			<div class="col-xs-4 col-sm-4 col-md-4">
 	  				<div class="text-center">
 	  					<span class="img_radio1">	
-		 					<%= radio_button_tag(:large, "バー", true) %>
-							<%= label_tag('large_バー', "バー") %>
+		 					<%= radio_button_tag(:large, "バー", true, {:id => "bar"}) %>
+							<%= label_tag('bar', "バー") %>
 						</span>
 					</div>
 				</div>
 				<div class="col-xs-4 col-sm-4 col-md-4">
 					<div class="text-center">
 						<span class="img_radio2">	
-				  			<%= radio_button_tag(:large, "夜カフェ") %>
-							<%= label_tag('large_夜カフェ', "夜カフェ") %> 
+				  			<%= radio_button_tag(:large, "夜カフェ", false, {:id => "cafe"}) %>
+							<%= label_tag('cafe', "夜カフェ") %> 
 						</span>
 					</div>
 				</div>
 				<div class="col-xs-4 col-sm-4 col-md-4">
 					<div class="text-center">
 						<span class="img_radio0">	
-							<%= radio_button_tag(:large, "２軒目なし") %>
-							<%= label_tag('large_２軒目なし', "２軒目なし") %> 
+							<%= radio_button_tag(:large, "２軒目なし", false, {:id => "not"}) %>
+							<%= label_tag('not', "２軒目なし") %> 
 						</span>
 					</div>
 				</div>
