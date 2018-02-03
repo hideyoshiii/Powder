@@ -251,10 +251,36 @@
               <a href="<%= @spot.retty %>" target="_blank" class="raise3"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
             <% end %>
           </div>
+          <div class="info-box">
+            <%# 公式サイトボタン %>
+            <% unless @spot.browser.blank? %>
+              <a href="<%= @spot.browser %>" target="_blank" class="info_btn">
+                <i class="fa fa-safari"></i>&nbsp;公式サイト
+              </a>
+            <% end %>
+            <%# 電話ボタン %>
+            <% unless @spot.phone.blank? %>
+              <a href="tel:<%= @spot.phone %>" target="_blank" class="info_btn">
+                <i class="fa fa-phone"></i>&nbsp;電話
+              </a>
+            <% end %>
+            <%# GoogleMapボタン %>
+            <% unless @spot.address.blank? %>
+              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="info_btn">
+                <i class="fa fa-map-marker"></i>&nbsp;地図
+              </a>
+            <% end %>
+            <%# Instagramボタン %>
+            <% unless @spot.introduction.blank? %>
+              <a href="<%= @spot.introduction %>" target="_blank" class="info_btn">
+                <i class="fa fa-instagram"></i>&nbsp;instagram
+              </a>
+            <% end %>
+          </div>
           <hr class="more">
           <%# 諸情報プルダウン %> 
           <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';" class="more-btn">
-            <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ more</a>
+            <a style="cursor:pointer;font-size:15px;font-weight:bold;color:#4D4D4D;">▼ 詳細情報</a>
           </div>
           <div id="open1" style="display:none;clear:both;">
             <br>
@@ -323,32 +349,6 @@
               </div>
             </div>
           </div>
-          <div class="info-box">
-            <%# 公式サイトボタン %>
-            <% unless @spot.browser.blank? %>
-              <a href="<%= @spot.browser %>" target="_blank" class="info_btn">
-                <i class="fa fa-safari"></i>&nbsp;公式サイト
-              </a>
-            <% end %>
-            <%# 電話ボタン %>
-            <% unless @spot.phone.blank? %>
-              <a href="tel:<%= @spot.phone %>" target="_blank" class="info_btn">
-                <i class="fa fa-phone"></i>&nbsp;電話
-              </a>
-            <% end %>
-            <%# GoogleMapボタン %>
-            <% unless @spot.address.blank? %>
-              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot.address %>'));return false;" href="javascript:;" class="info_btn">
-                <i class="fa fa-map-marker"></i>&nbsp;地図
-              </a>
-            <% end %>
-            <%# Instagramボタン %>
-            <% unless @spot.introduction.blank? %>
-              <a href="<%= @spot.introduction %>" target="_blank" class="info_btn">
-                <i class="fa fa-instagram"></i>&nbsp;instagram
-              </a>
-            <% end %>
-          </div>
 		<br>
 		<%# シェアボタン %>
 		<h4>Share</h4>
@@ -359,22 +359,28 @@
 		<%# lineボタン %>
 		<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
 		<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
-		<br><br><br><br><br><br>
-      <div class="text-center">
-        <%# 写真を追加するへのリンク %>
-  	    <% pictures_count = Picture.where(spot_id: @spot.id).count %>
-  	  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
-  		  	<div class="part_line black">
-  				  <i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
-  			  </div>
-  		  <% end %>
-  	  	<%# 写真を追加するへのリンク %>
-  	  	<%= link_to "/spots/#{@spot.id}/pictures" do %>
-  		  	<div class="part_line black">
-  				  <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %>  写真一覧へ
-  			  </div>
-  		  <% end %>
-      </div>
+    <br><br><br>
+    <%# 写真関連 %>
+    <% if (user_signed_in?) %>
+      <% if current_user.authority == "manager" %>
+  		  <br><br><br>
+        <div class="text-center">
+          <%# 写真を追加するへのリンク %>
+    	    <% pictures_count = Picture.where(spot_id: @spot.id).count %>
+    	  	<%= link_to "/spots/#{@spot.id}/pictures/add" do %>
+    		  	<div class="part_line black">
+    				  <i class="fa fa-camera" aria-hidden="true"></i>  写真を追加する
+    			  </div>
+    		  <% end %>
+    	  	<%# 写真を追加するへのリンク %>
+    	  	<%= link_to "/spots/#{@spot.id}/pictures" do %>
+    		  	<div class="part_line black">
+    				  <i class="fa fa-camera" aria-hidden="true"></i>&nbsp;<%= pictures_count %>  写真一覧へ
+    			  </div>
+    		  <% end %>
+        </div>
+      <% end %>
+    <% end %>
 		<%# 投稿者 %>
 		<% if (user_signed_in?) %>
 			<% if current_user.authority == "manager" %>
