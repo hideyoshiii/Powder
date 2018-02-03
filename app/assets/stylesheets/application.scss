@@ -4195,6 +4195,38 @@ display: inline-block;
 
 
 
+//コースのshowのtweetボタン
+
+
+.tweet-btn{
+  background-color: #1da1f3;
+  color: #FFF;
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border: 1px solid #FFF;
+  transition: .5s;
+}
+
+.tweet-btn:hover{
+	color: #FFF;
+	text-shadow: 1px 1px 2px black;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+}
+
+.tweet-btn .fa-twitter {
+    text-shadow: 2px 2px 0px #4287d6;
+    font-size: 24px;
+}
+
+
+
+
+
 
 
 
