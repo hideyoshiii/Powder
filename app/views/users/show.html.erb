@@ -5,8 +5,7 @@
 <% if @user == current_user %>
   <%= link_to edit_user_registration_path(current_user) do %>
     <div class="img-show black">
-      <%= image_tag @user.image, :class => "img-circle profile-1" %>
-    <%= @user.nickname %>
+      <%= image_tag @user.image, :class => "img-circle profile-1" %>&nbsp;&nbsp;<%= @user.nickname %>
     </div>
   <% end %>
 <% else %>
@@ -26,6 +25,7 @@
 <% spot_count = Spot.where(user_id: @user.id).count %>
 <% clip_count = Clip.where(user_id: @user.id).count %>
 <% article_count = Article.where(user_id: @user.id).count %>
+<% course_count = Course.where(user_id: @user.id).count %>
 
 
 
@@ -152,53 +152,20 @@
       <% end %>
     </div>
     <div class="col-xs-6 col-sm-6">
-      <%= link_to "/users/#{@user.id}/clip" do %>
+      <%= link_to "/users/#{@user.id}/course" do %>
         <div class="box17">
           <p>
             <div class="fab1">
-              <i class="fa fa-paperclip" aria-hidden="true"></i>
+              <i class="fa fa-location-arrow" aria-hidden="true"></i>
             </div>
           </p>
-          <p class="black"><%= clip_count %>clip</p>
+          <p class="black"><%= course_count %>course</p>
         </div>
       <% end %>
-    </div>
-    <div class="col-xs-6 col-sm-6">
-      <%= link_to "/users/#{@user.id}/article" do %>
-        <div class="box17">
-          <p>
-            <div class="fab1">
-              <i class="fa fa-plus-circle" aria-hidden="true"></i>
-            </div>
-          </p>
-          <p class="black"><%= article_count %>addarticle</p>
-        </div>
-      <% end %>
-    </div>
-    <div class="col-xs-6 col-sm-6">
-      <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="">
-        <div class="box17">
-          <p>
-            <%= image_tag "eagle.png", :class =>'img-eagle' %>
-          </p>
-          <p class="black">ワッシー</p>
-        </div>
-      </a>
     </div>
   </div>
 </div>
 
-
-<div class="row">
-  <div class="text-center">
-    <%= link_to "/users/#{@user.id}/course" do %>
-      <div class="black">
-        保存したコース
-      </div>
-    <% end %>
-  </div>
-</div>
-<br>
 
 <div class="row">
   <div class="text-center">
