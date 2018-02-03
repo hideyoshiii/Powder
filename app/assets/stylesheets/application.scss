@@ -3086,6 +3086,21 @@ footer p {
 	color:black;
 }
 
+.timeline-terms-box{
+	background: #FAFAFA;
+    width:100%;
+    height: auto;
+    padding:15px 0px 0px 0px;
+    margin-bottom:-10px;
+}
+
+.timeline-terms{
+	padding:0px 8px 5px 8px;
+	font-size:12px;
+	letter-spacing:-0.08em;
+	color:black;
+}
+
 
 
 
@@ -4161,6 +4176,17 @@ display: inline-block;
     text-decoration: none;
     color: #003399;
     border: solid 1px #003399;
+    border-radius: 30px;
+    font-size:8px;
+    
+}
+
+.lunch_btn {
+    display: inline-block;
+    padding: 0.2em 0.7em;
+    text-decoration: none;
+    color: #ff6600;
+    border: solid 1px #ff6600;
     border-radius: 30px;
     font-size:8px;
     

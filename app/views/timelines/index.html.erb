@@ -9,8 +9,23 @@
 <%= link_to course_path(course) do %>
 	<div class="timeline-title-box">
 		<div class="timeline-title">
-			<%= image_tag "male.png", :class =>'img-circle profile-0' %>(<%= course.user.age %>)&nbsp;&nbsp;&nbsp;&nbsp;<span class="dinner_btn"><span style="color:;"><i class="fas fa-moon"></i></span>ディナー</span>&nbsp;<%= timeline.city_dinner %>/~<%= timeline.price_dinner %>円/<%= timeline.small_dinner %>
+			<%= image_tag "male.png", :class =>'img-circle profile-0' %>&nbsp;(<%= course.user.age %>)
+			<div class="pull-right">
+				<span style="color:#808080;"><i class="fa fa-copy"></i>&nbsp;8コピー</span>
+			</div>
 		</div>
+	</div>
+	<div class="timeline-terms-box">
+		<% unless timeline.price_dinner.blank? %>
+			<div class="timeline-terms">
+				<span class="dinner_btn"><span style="color:;"><i class="fa fa-moon"></i></span>ディナー</span>&nbsp;<%= timeline.city_dinner %>/~<%= timeline.price_dinner %>円/<%= timeline.small_dinner %>
+			</div>
+		<% end %>  
+		<% unless timeline.price_lunch.blank? %>
+			<div class="timeline-terms">
+				<span class="lunch_btn"><span style="color:;"><i class="fa fa-sun"></i></span>ランチ</span>&nbsp;<%= timeline.city_dinner %>/~<%= timeline.price_dinner %>円/<%= timeline.small_dinner %>
+			</div>
+		<% end %> 
 	</div>
 	<div class="horizontal_scroll_wrap_coures">
 	<ul class="scroll_lst_coures">
