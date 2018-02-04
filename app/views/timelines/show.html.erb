@@ -5,7 +5,7 @@
 <% @points.each do |point| %>
 <% @n = @n + 1 %>
 <% @spot1 = Spot.find(point.spot_id) %>
-<% @pictures1 = @spot1.pictures.order(number: "ASC") %>
+<% @pictures1 = @spot1.pictures.order('id  ASC') %>
 
 
 

@@ -133,7 +133,7 @@ class TimelinesController < ApplicationController
 		@i = 0
 		@timeline = Timeline.find(params[:id])
     	@course = Course.find(@timeline.course_id)
-    	@points = Point.where(course_id: @course.id).order(id: "ASC")	
+    	@points = Point.where(course_id: @course.id).order(number: "ASC")
 	end
 
 	def copy
