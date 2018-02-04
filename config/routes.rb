@@ -91,6 +91,7 @@ Rails.application.routes.draw do
   get "points/:id/memo" => "points#memo"
   post "points/:id/update" => "points#update"
   post "points/:id/destroy" => "points#destroy"
+  post "points/number" => "points#number"
 
   post "timelines/copy" => "timelines#copy"
   get "timelines/search" => "timelines#search"

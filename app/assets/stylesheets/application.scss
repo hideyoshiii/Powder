@@ -4333,7 +4333,78 @@ display: inline-block;
 
 
 
+.sss-box{
+	background-color: #FAFAFA;
+	width:100%;
+	height:15vh;
+	border-top:1px solid #C8C8C8;
+	margin-bottom:1px;
+}
 
+.sss-select{
+	background-color: #FAFAFA;
+	height:15vh;
+	width:10%;
+	float: left;
+	padding:10px;
+	padding-top:6vh;
+	text-align: center;
+}
+
+.sss-img{
+	background-color: #FAFAFA;
+	height:15vh;
+	width:30%;
+	float: left;
+	
+}
+
+.sss-title{
+	background-color: #FAFAFA;
+	height:15vh;
+	width:45%;
+	float: left;
+	padding:10px;
+	font-size:14px;
+	letter-spacing:-0.08em;
+}
+
+.sss-destroy{
+	background-color: #DD0000;
+	height:15vh;
+	width:15%;
+	float: left;
+	padding-top:6vh;
+	text-align: center;
+	color:white;
+}
+
+.img-sss{
+	width:100%;height:100%;
+    }
+
+
+.sss-plus-box{
+	background-color: #FAFAFA;
+	width:100%;
+	height:15vh;
+	border-top:1px solid #C8C8C8;
+}
+
+.sss-plus-in-box{
+	background-color: #FAFAFA;
+	width:100%;
+	height:15vh;
+	float: left;
+	text-align: center;
+	color:#CCCCCC;
+	font-size:18px;
+	border-bottom:1px solid #C8C8C8;
+}
+
+.img-plus-sss{
+	width:auto;height:100%;
+    }
 
 
 

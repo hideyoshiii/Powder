@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180203190845) do
+ActiveRecord::Schema.define(version: 20180204185817) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -129,6 +129,7 @@ ActiveRecord::Schema.define(version: 20180203190845) do
     t.string "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number"
     t.index ["course_id"], name: "index_points_on_course_id"
     t.index ["spot_id"], name: "index_points_on_spot_id"
   end

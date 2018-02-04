@@ -1,64 +1,87 @@
 <%= render "partial/navbar" %>
-<main class="" id="main-collapse">
+<mains class="" id="main-collapse">
 
 <div class="panel-body">
-	<div class="title-content3">
+	<div class="title-content2">
 	  コースを編集
 	  <%= link_to course_path(@course) do %>
 		<h4 class="pull-right btn btn-default btn-sm">完了</h4>	
 　　　　<% end %>
 	</div> 
-	<hr class="style3">
+	<hr class="style2">
 </div>	
+
+<%= form_tag(points_number_path, method: :post) do %>
 	
-	<div class="hero-full-wrapper">
-	  <div class="grid">
-	    <div class="gutter-sizer"></div>
-	    <div class="grid-sizer"></div>
-	    <% @points.each do |point| %>
-	      <div class="grid-item iii">
-	          <%= image_tag point.spot.pictures.first.image.url, :class =>'img-responsive' %>
-	          <div class="black title-font-index">
-	            <%= point.spot.title %>
-	          </div>
-	          <div class="text-center">
-	          	<%= link_to("/points/#{point.id}/destroy", {method: "post"}) do %>
-		          	<div class="point-destroy-box">
-		          		削除
-		          	</div>
-	          	<% end %>
-	          </div>
-	      </div>
-	    <% end %>  
-	    <div class="grid-item iii">
-		    <%= link_to("/courses/#{@course.id}/points/new", {method: "get"}) do %>
-	          <%= image_tag "plus.png", :class =>'img-plus' %>
-	        <% end %>
-	    </div>
-
-	  </div>
-	</div>
-
 	<br>
-
-	<div class="pull-left btn btn-default btn-sm">
-		<%= link_to("/courses/#{@course.id}/destroy", {method: "post"}) do %>
-		<span style="color:red;">コースを削除</span>
+	<% @points.each do |point| %>
+	<div class="sss-box">
+		<div class="sss-select">
+			<label>
+				<%= check_box_tag 'sample_form[colors][]', point.id, false, {:onclick => "check(this)"} %>
+			</label>
+		</div>
+		<div class="sss-img">
+			<%= image_tag point.spot.pictures.first.image.url, :class =>'img-sss' %>
+		</div>
+		<div class="sss-title">
+			<%= point.spot.title %>
+			<br>
+			<span style="font-size:12px;color:#808080;"><%= point.spot.station %></span>
+		</div>	
+		<%= link_to("/points/#{point.id}/destroy", {method: "post"}) do %>
+			<div class="sss-destroy">
+		      	削除
+			</div>
 		<% end %>
 	</div>
-						
+	<% end %> 
 
-	<br><br>
+	<%= link_to("/courses/#{@course.id}/points/new", {method: "get"}) do %>
+		<div class="sss-plus-box">
+			<span class="sss-plus-in-box">
+				<%= image_tag "plus.png", :class =>'img-plus-sss' %>
+				スポットを追加
+			</span>
+		</div>
+	<% end %>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function (event) {
-     masonryBuild();
-  });
-</script>
+	<div class="text-center" style="margin:40px 10px 20px;">
+		<%= submit_tag "入れ替える", :class => "btn btn-default" %>
+		<br>
+		<span style="font-size:12px;">
+			※２つ選択するとスポットの順番を入れ替えることができます
+		</span>
+	</div>
+		
+	<div class="text-center" style="margin:40px 0px 50px;">
+		<div class="btn btn-default btn-sm">
+			<%= link_to("/courses/#{@course.id}/destroy", {method: "post"}) do %>
+			<span style="color:red;">コースを削除</span>
+			<% end %>
+		</div>
+	</div>
 
+<% end %>
 
+<script language="JavaScript"><!--
+chmax=2;        //最大チェック数
+//--------------------------
+function check(chobj){
+if(!chobj.checked)return;
+chname1=chobj.name;    
+chint=0;
+elementleng=document.forms[0].elements[chname1].length;
+for(i=0;i<elementleng;i++){
+if(document.forms[0].elements[chname1][i].checked){
+chint++;
+if(chint>chmax){chobj.checked=false;break;}
+}
+}
+}/*himajin.moo.jp*/
+// --></script>
 
-</main>
+</mains>
 <%= render "partial/footer" %>
 
 <script>
