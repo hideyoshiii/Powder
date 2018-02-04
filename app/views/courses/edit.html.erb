@@ -16,10 +16,9 @@
 	<br>
 	<% @points.each do |point| %>
 	<div class="sss-box">
+		<label>
 		<div class="sss-select">
-			<label>
-				<%= check_box_tag 'sample_form[colors][]', point.id, false, {:onclick => "check(this)"} %>
-			</label>
+			<%= check_box_tag 'sample_form[colors][]', point.id, false, {:onclick => "check(this)"} %>
 		</div>
 		<div class="sss-img">
 			<%= image_tag point.spot.pictures.first.image.url, :class =>'img-sss' %>
@@ -28,6 +27,7 @@
 			<%= point.spot.title %>
 			<br>
 			<span style="font-size:12px;color:#808080;"><%= point.spot.station %></span>
+		</label>
 		</div>	
 		<%= link_to("/points/#{point.id}/destroy", {method: "post"}) do %>
 			<div class="sss-destroy">
