@@ -2433,22 +2433,22 @@ footer p {
 }
 .radio-timeline label {
     position: relative;
-    padding: 0.2em 0.5em;
+    padding: 0.3em 0.5em;
     text-decoration: none;
     color: black;
     border: solid 1px black;
     border-radius: 5px;
-    font-size:12px;  
+    font-size:13px;  
     background:white;
 }
 .radio-timeline input[type="radio"]:checked + label {
     position: relative;
-    padding: 0.2em 0.5em;
+    padding: 0.3em 0.5em;
     text-decoration: none;
     color: #cab261;
     border: solid 1px black;
     border-radius: 5px;
-    font-size:12px;
+    font-size:13px;
     background:#53331c;
 }
 
@@ -2458,22 +2458,22 @@ footer p {
 }
 .radio-timeline-time label {
     position: relative;
-    padding: 0.2em 0.5em;
+    padding: 0.3em 0.5em;
     text-decoration: none;
     color: black;
     border: solid 1px black;
     border-radius: 5px;
-    font-size:12px;  
+    font-size:13px;  
     background:white;
 }
 .radio-timeline-time input[type="radio"]:checked + label {
     position: relative;
-    padding: 0.2em 0.5em;
+    padding: 0.3em 0.5em;
     text-decoration: none;
     color: #cab261;
     border: solid 1px black;
     border-radius: 5px;
-    font-size:12px;
+    font-size:13px;
     background:#53331c;
 }
 
@@ -3190,7 +3190,7 @@ footer p {
 	padding:10px 10px 10px 10px;
 	font-size:12px;
 	letter-spacing:-0.08em;
-	color:black;
+	color:#808080;
 }
 
 .timeline-terms-box{
@@ -3203,7 +3203,7 @@ footer p {
 
 .timeline-terms{
 	padding:0px 8px 5px 8px;
-	font-size:12px;
+	font-size:14px;
 	letter-spacing:-0.08em;
 	color:black;
 }

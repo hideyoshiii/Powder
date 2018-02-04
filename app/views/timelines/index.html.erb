@@ -148,7 +148,7 @@
 	  </ul>
 	</div>
 
-	<div class="text-center" style="margin:0px 0px 20px;">
+	<div class="text-center" style="margin:20px 0px 20px;">
 		<%= submit_tag "SEARCH", :class => "btn btn-default btn-sm" %>
 	</div>
 <% end %>  
@@ -163,10 +163,10 @@
 	<div class="timeline-title-box">
 		<div class="timeline-title">
 			<% if course.user.sex == "男" %>
-				<%= image_tag "male.png", :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)がコースを作成しました。
+				<%= image_tag "male.png", :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)&nbsp;がコースを作成しました。
 			<% end %>
 			<% if course.user.sex == "女" %>
-				<%= image_tag "female.png", :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)がコースを作成しました。
+				<%= image_tag "female.png", :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)&nbsp;がコースを作成しました。
 			<% end %>
 			<div class="pull-right">
 				<% copy_count = Copy.where(course_id: course.id).count %>
