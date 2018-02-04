@@ -2452,6 +2452,31 @@ footer p {
     background:#53331c;
 }
 
+//タイムラインサーチラジオボタン 
+.radio-timeline-time input{
+    display: none;
+}
+.radio-timeline-time label {
+    position: relative;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:12px;  
+    background:white;
+}
+.radio-timeline-time input[type="radio"]:checked + label {
+    position: relative;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
+    color: #cab261;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:12px;
+    background:#53331c;
+}
+
 
 
 .article-icon{
@@ -3039,10 +3064,10 @@ footer p {
     -webkit-overflow-scrolling: touch;
 }
 .scroll_item_coures {
-    margin-right: 10px;
+    margin-right: 5px;
     margin-top: 20px;
     display: inline-block;
-    width: 45%;
+    width: 43%;
     background: #FAFAFA;
     border-radius:5px;
 }

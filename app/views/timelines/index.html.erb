@@ -11,13 +11,7 @@
 	        <i class="fa fa-map-marker"></i>時間帯
 	    </li>
 	    <li class="scroll_item_timeline">
-	        <span class="radio-timeline">	
-			 	<%= radio_button_tag(:time, "ランチ", false, {:id => "lunch", :disabled => true}) %>
-				<%= label_tag('lunch', "ランチから") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_timeline">
-	        <span class="radio-timeline">	
+	        <span class="radio-timeline-time">	
 			 	<%= radio_button_tag(:time, "ディナー", true, {:id => "dinner"}) %>
 				<%= label_tag('dinner', "ディナーから") %>
 			</span>
@@ -217,6 +211,19 @@
 <% end %> 
 
 <% end %>  
+
+<script>
+  $(function () {
+    $('.radio-timeline').on('click', function(event) {
+      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
+      event.preventDefault();
+      
+      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
+      var $input = $(this).find('input');
+      $input.prop('checked', !$input.prop('checked'));
+    });
+  });
+</script>
 
 
 </mains>
