@@ -5,6 +5,86 @@ class TimelinesController < ApplicationController
 	end
 
 	def search
+		@ebisu = false
+		@shibuya = false
+		@harajuku = false
+		@shinjuku = false
+		if !params[:city_dinner].blank?
+			if params[:city_dinner] == "恵比寿・代官山・中目黒"
+				@ebisu = true
+			end
+			if params[:city_dinner] == "渋谷"
+				@shibuya = true
+			end
+			if params[:city_dinner] == "原宿・表参道・青山"
+				@harajuku = true
+			end
+			if params[:city_dinner] == "新宿"
+				@shinjuku = true
+			end
+		end
+
+		@n4000 = false
+		@n6000 = false
+		@n8000 = false
+		if !params[:price_dinner].blank?
+			if params[:price_dinner].to_i == 4000
+				@n4000 = true
+			end
+			if params[:price_dinner].to_i == 6000
+				@n6000 = true
+			end
+			if params[:price_dinner].to_i == 8000
+				@n8000 = true
+			end
+		end
+
+		@not = false
+		@japanese = false
+		@yakiniku = false
+		@steak = false
+		@pot = false
+		@french = false
+		@italian = false
+		@western = false
+		@chinese = false
+		@asia = false
+		@otherwise = false
+		if !params[:small_dinner].blank?
+			if params[:small_dinner] == "指定しない"
+				@not = true
+			end
+			if params[:small_dinner] == "和食"
+				@japanese = true
+			end
+			if params[:small_dinner] == "焼肉・ホルモン"
+				@yakiniku = true
+			end
+			if params[:small_dinner] == "ステーキ・ハンバーグ"
+				@steak = true
+			end
+			if params[:small_dinner] == "鍋"
+				@pot = true
+			end
+			if params[:small_dinner] == "フレンチ"
+				@french = true
+			end
+			if params[:small_dinner] == "イタリアン"
+				@italian = true
+			end
+			if params[:small_dinner] == "西洋各国料理"
+				@western = true
+			end
+			if params[:small_dinner] == "中華料理"
+				@chinese = true
+			end
+			if params[:small_dinner] == "アジア・エスニック"
+				@asia = true
+			end
+			if params[:small_dinner] == "その他"
+				@otherwise = true
+			end
+		end
 
 	    if !params[:city_dinner].blank? && !params[:price_dinner].blank? && !params[:small_dinner].blank?
 	    	@timelines = Timeline.where(city_dinner: params[:city_dinner], price_dinner: params[:price_dinner], small_dinner: params[:small_dinner]).order(id: "DESC")
