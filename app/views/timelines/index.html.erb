@@ -8,6 +8,25 @@
 	<div class="horizontal_scroll_timeline">
 	  <ul class="scroll_lst_timeline">
 	  	<li class="scroll_item_timeline">
+	        <i class="fa fa-map-marker"></i>時間帯
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= radio_button_tag(:time, "ランチ", false, {:id => "lunch", :disabled => true}) %>
+				<%= label_tag('lunch', "ランチから") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= radio_button_tag(:time, "ディナー", true, {:id => "dinner"}) %>
+				<%= label_tag('dinner', "ディナーから") %>
+			</span>
+	    </li>
+	  </ul>
+	</div>
+	<div class="horizontal_scroll_timeline">
+	  <ul class="scroll_lst_timeline">
+	  	<li class="scroll_item_timeline">
 	        <i class="fa fa-map-marker"></i>エリア
 	    </li>
 	    <li class="scroll_item_timeline">
@@ -149,7 +168,12 @@
 <%= link_to timeline_path(timeline) do %>
 	<div class="timeline-title-box">
 		<div class="timeline-title">
-			<%= image_tag "male.png", :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)がコースを作成しました。
+			<% if course.user.sex == "男" %>
+				<%= image_tag "male.png", :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)がコースを作成しました。
+			<% end %>
+			<% if course.user.sex == "女" %>
+				<%= image_tag "female.png", :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)がコースを作成しました。
+			<% end %>
 			<div class="pull-right">
 				<% copy_count = Copy.where(course_id: course.id).count %>
 				<span style="color:#808080;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー</span>
