@@ -6,12 +6,18 @@
 <%= form_tag(timelines_search_path, method: :get) do %>
 	<% if params[:city_dinner].blank? %>
 		<%= select_tag :city_dinner, options_for_select([["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"],["原宿・表参道・青山","原宿・表参道・青山"],["新宿","新宿"]]), {prompt:"選択してください"} %>
+	<% else %>
+		<%= select_tag :city_dinner, options_for_select([["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"],["原宿・表参道・青山","原宿・表参道・青山"],["新宿","新宿"]]), {:selected => params[:city_dinner]} %>
 	<% end %> 
 	<% if params[:price_dinner].blank? %>
 		<%= select_tag :price_dinner, options_for_select([["~4000円/人",4000],["~6000円/人",6000],["~8000円/人",8000]]), {prompt:"選択してください"} %>
+	<% else %>
+		<%= select_tag :price_dinner, options_for_select([["~4000円/人",4000],["~6000円/人",6000],["~8000円/人",8000]]), {:selected => params[:price_dinner]} %>
 	<% end %>
 	<% if params[:small_dinner].blank? %>
-	<%= select_tag :small_dinner, options_for_select([["和食","和食"],["焼肉・ホルモン","焼肉・ホルモン"],["ステーキ・ハンバーグ","ステーキ・ハンバーグ"],["鍋","鍋"],["フレンチ","フレンチ"],["イタリアン","イタリアン"],["西洋各国料理","西洋各国料理"],["中華料理","中華料理"],["アジア・エスニック","アジア・エスニック"],["その他","その他"]]), {prompt:"選択してください"} %>
+		<%= select_tag :small_dinner, options_for_select([["和食","和食"],["焼肉・ホルモン","焼肉・ホルモン"],["ステーキ・ハンバーグ","ステーキ・ハンバーグ"],["鍋","鍋"],["フレンチ","フレンチ"],["イタリアン","イタリアン"],["西洋各国料理","西洋各国料理"],["中華料理","中華料理"],["アジア・エスニック","アジア・エスニック"],["その他","その他"]]), {prompt:"選択してください"} %>
+	<% else %>
+		<%= select_tag :small_dinner, options_for_select([["和食","和食"],["焼肉・ホルモン","焼肉・ホルモン"],["ステーキ・ハンバーグ","ステーキ・ハンバーグ"],["鍋","鍋"],["フレンチ","フレンチ"],["イタリアン","イタリアン"],["西洋各国料理","西洋各国料理"],["中華料理","中華料理"],["アジア・エスニック","アジア・エスニック"],["その他","その他"]]), {:selected => params[:small_dinner]} %>
 	<% end %>
 	<%= submit_tag "SEARCH", :class => "btn btn-default btn-sm" %>
 <% end %>  

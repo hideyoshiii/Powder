@@ -4,6 +4,50 @@ class TimelinesController < ApplicationController
 	    @timelines = Timeline.order('id DESC')
 	end
 
+	def search
+
+	    if !params[:city_dinner].blank? && !params[:price_dinner].blank? && !params[:small_dinner].blank?
+	    	@timelines = Timeline.where(city_dinner: params[:city_dinner], price_dinner: @price_start..@price_end, small_dinner: params[:small_dinner]).order(id: "DESC")
+	    end
+	    if params[:city_dinner].blank?
+	    	if  !params[:price_dinner].blank? && !params[:small_dinner].blank?
+	    		@timelines = Timeline.where(price_dinner: params[:price_dinner], small_dinner: params[:small_dinner]).order(id: "DESC")
+	    	end
+	    	if params[:price_dinner].blank? && !params[:small_dinner].blank?
+	    		@timelines = Timeline.where(small_dinner: params[:small_dinner]).order(id: "DESC")
+	    	end
+	    	if !params[:price_dinner].blank? && params[:small_dinner].blank?
+	    		@timelines = Timeline.where(price_dinner: params[:price_dinner]).order(id: "DESC")
+	    	end
+	    end
+	    if params[:price_dinner].blank?
+	    	if  !params[:city_dinner].blank? && !params[:small_dinner].blank?
+	    		@timelines = Timeline.where(city_dinner: params[:city_dinner], small_dinner: params[:small_dinner]).order(id: "DESC")
+	    	end
+	    	if  params[:city_dinner].blank? && !params[:small_dinner].blank?
+	    		@timelines = Timeline.where(small_dinner: params[:small_dinner]).order(id: "DESC")
+	    	end
+	    	if  !params[:city_dinner].blank? && params[:small_dinner].blank?
+	    		@timelines = Timeline.where(city_dinner: params[:city_dinner]).order(id: "DESC")
+	    	end
+	    end
+	    if params[:small_dinner].blank?
+	    	if !params[:city_dinner].blank? && !params[:price_dinner].blank?
+	    		@timelines = Timeline.where(city_dinner: params[:city_dinner], price_dinner: params[:price_dinner]).order(id: "DESC")
+	    	end
+	    	if params[:city_dinner].blank? && !params[:price_dinner].blank?
+	    		@timelines = Timeline.where(price_dinner: params[:price_dinner]).order(id: "DESC")
+	    	end
+	    	if !params[:city_dinner].blank? && params[:price_dinner].blank?
+	    		@timelines = Timeline.where(city_dinner: params[:city_dinner]).order(id: "DESC")
+	    	end
+	    end
+	    if params[:city_dinner].blank? && params[:price_dinner].blank? && params[:small_dinner].blank?
+	    	@timelines = Timeline.order('id DESC')
+	    end
+
+	end
+
 	def show
 		@n = 0
 		@i = 0
