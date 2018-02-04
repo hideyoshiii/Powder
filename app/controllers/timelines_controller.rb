@@ -7,7 +7,7 @@ class TimelinesController < ApplicationController
 	def search
 
 	    if !params[:city_dinner].blank? && !params[:price_dinner].blank? && !params[:small_dinner].blank?
-	    	@timelines = Timeline.where(city_dinner: params[:city_dinner], price_dinner: @price_start..@price_end, small_dinner: params[:small_dinner]).order(id: "DESC")
+	    	@timelines = Timeline.where(city_dinner: params[:city_dinner], price_dinner: params[:price_dinner], small_dinner: params[:small_dinner]).order(id: "DESC")
 	    end
 	    if params[:city_dinner].blank?
 	    	if  !params[:price_dinner].blank? && !params[:small_dinner].blank?
