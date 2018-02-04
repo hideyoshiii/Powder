@@ -11,8 +11,10 @@ class PointsController < ApplicationController
 
   	def create
   		@course = Course.find(params[:id])
+      @point_end = Point.where(course_id: @course.id).order(number: "ASC").last
+      @number = @point_end.number + 1
         @spot = Spot.find(params[:spot_id])
-        @point = Point.new(spot_id: @spot.id, course_id: @course.id)
+        @point = Point.new(spot_id: @spot.id, course_id: @course.id, number: @number)
         if @point.save
               redirect_to edit_course_path(@course) #保存完了
             else

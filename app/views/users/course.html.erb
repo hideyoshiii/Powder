@@ -10,7 +10,7 @@
   
 
 <% @courses.each do |course| %>
-<% @points = Point.where(course_id: course.id).order(id: "ASC") %>
+<% @points = Point.where(course_id: course.id).order(number: "ASC") %>
 <%= link_to course_path(course) do %>
 	<div class="course-title-box">
 		<div class="course-title">

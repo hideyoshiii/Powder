@@ -158,7 +158,7 @@
 
 <% @timelines.each do |timeline| %>
 <% course = Course.find(timeline.course_id) %>
-<% @points = Point.where(course_id: course.id).order(id: "ASC") %>
+<% @points = Point.where(course_id: course.id).order(number: "ASC") %>
 <%= link_to timeline_path(timeline) do %>
 	<div class="timeline-title-box">
 		<div class="timeline-title">

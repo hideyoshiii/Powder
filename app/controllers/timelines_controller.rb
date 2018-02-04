@@ -140,7 +140,7 @@ class TimelinesController < ApplicationController
     if !params[:spot1_id].blank?
         @course = Course.new(user_id: current_user.id, title: params[:title])
           if @course.save
-            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id)
+            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if params[:spot2_id].blank?
 	            if @point1.save
 	            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
@@ -151,7 +151,7 @@ class TimelinesController < ApplicationController
 	            end
 	        else
 	        	if @point1.save
-	                @point2 = Point.new(spot_id: params[:spot2_id].to_i, course_id: @course.id)
+	                @point2 = Point.new(spot_id: params[:spot2_id].to_i, course_id: @course.id, number: 2)
 	                if params[:spot3_id].blank?
 			            if @point2.save
 			            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
@@ -162,7 +162,7 @@ class TimelinesController < ApplicationController
 			            end
 			        else
 			        	if @point2.save
-			                @point3 = Point.new(spot_id: params[:spot3_id].to_i, course_id: @course.id)
+			                @point3 = Point.new(spot_id: params[:spot3_id].to_i, course_id: @course.id, number: 3)
 			                if params[:spot4_id].blank?
 					            if @point3.save
 					            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
@@ -173,7 +173,7 @@ class TimelinesController < ApplicationController
 					            end
 					        else
 					        	if @point3.save
-					                @point4 = Point.new(spot_id: params[:spot4_id].to_i, course_id: @course.id)
+					                @point4 = Point.new(spot_id: params[:spot4_id].to_i, course_id: @course.id, number: 4)
 					                if params[:spot5_id].blank?
 							            if @point4.save
 							            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
@@ -184,7 +184,7 @@ class TimelinesController < ApplicationController
 							            end
 							        else
 							        	if @point4.save
-							                @point5 = Point.new(spot_id: params[:spot5_id].to_i, course_id: @course.id)
+							                @point5 = Point.new(spot_id: params[:spot5_id].to_i, course_id: @course.id, number: 5)
 							                if params[:spot6_id].blank?
 									            if @point5.save
 									                redirect_to course_path(@course), notice: "コースを複製しました" #保存完了
@@ -195,7 +195,7 @@ class TimelinesController < ApplicationController
 									        	if @point5.save
 									        		@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
 	            									@copy.save
-									                @point6 = Point.new(spot_id: params[:spot6_id].to_i, course_id: @course.id)
+									                @point6 = Point.new(spot_id: params[:spot6_id].to_i, course_id: @course.id, number: 6)
 										            if @point6.save
 										            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
 	            										@copy.save

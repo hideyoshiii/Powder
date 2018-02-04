@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
       if params[:spot2_id].blank?
         @course = Course.new(user_id: current_user.id, title: params[:title])
           if @course.save
-            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id)
+            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if @point1.save
               @timeline = Timeline.new(course_id: @course.id, city_dinner: params[:city_dinner], price_dinner: params[:price_dinner].to_i, small_dinner: params[:small_dinner])
               if @timeline.save
@@ -54,9 +54,9 @@ class CoursesController < ApplicationController
       else
         @course = Course.new(user_id: current_user.id, title: params[:title])
         if @course.save
-            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id)
+            @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if @point1.save
-              @point2 = Point.new(spot_id: params[:spot2_id].to_i, course_id: @course.id)
+              @point2 = Point.new(spot_id: params[:spot2_id].to_i, course_id: @course.id, number: 2)
               if @point2.save
                 @timeline = Timeline.new(course_id: @course.id, city_dinner: params[:city_dinner], price_dinner: params[:price_dinner].to_i, small_dinner: params[:small_dinner])
                 if @timeline.save
@@ -87,7 +87,7 @@ class CoursesController < ApplicationController
     @n = 0
     @i = 0
     @course = Course.find(params[:id])
-    @points = Point.where(course_id: @course.id).order(id: "ASC")
+    @points = Point.where(course_id: @course.id).order(number: "ASC")
   end
 
   def edit
