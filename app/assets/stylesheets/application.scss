@@ -2325,7 +2325,7 @@ footer p {
 	margin-top:60%;
 }
 
-//10秒サーチのエリアのラジオボタン 
+
 //10秒サーチのエリアのラジオボタン 
 .radio-city input{
     display: none;
@@ -2426,6 +2426,31 @@ footer p {
   text-shadow: 1px 1px 2px black;
   }
 
+
+//タイムラインサーチラジオボタン 
+.radio-timeline input{
+    display: none;
+}
+.radio-timeline label {
+    position: relative;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:12px;  
+    background:white;
+}
+.radio-timeline input[type="radio"]:checked + label {
+    position: relative;
+    padding: 0.2em 0.5em;
+    text-decoration: none;
+    color: #cab261;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:12px;
+    background:#53331c;
+}
 
 
 
@@ -3055,6 +3080,62 @@ footer p {
     letter-spacing:-0.05em;
     
 }
+
+
+//タイムラインのサーチ横スクロール
+.horizontal_scroll_timeline{
+    background-color: rgba(0,0,0,0);
+    width:100%;
+    height: auto;
+    overflow-y: hidden;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+.scroll_lst_timeline {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll_lst_timeline::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll_item_timeline {
+    margin-right: 5px;
+    display: inline-block;
+    width: auto;
+    background-color: rgba(0,0,0,0);
+    border-radius:0px;
+}
+
+.scroll_item_timeline:first-child {
+    margin-left: 0;
+}
+
+.scroll_item_timeline:last-child {
+    margin-right: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //コース一覧のタイトル
 .course-title-box{
