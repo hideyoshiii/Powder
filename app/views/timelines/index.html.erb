@@ -11,7 +11,8 @@
 		<div class="timeline-title">
 			<%= image_tag "male.png", :class =>'img-circle profile-0' %>&nbsp;(<%= course.user.age %>)
 			<div class="pull-right">
-				<span style="color:#808080;"><i class="fa fa-copy"></i>&nbsp;8コピー</span>
+				<% copy_count = Copy.where(course_id: course.id).count %>
+				<span style="color:#808080;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー</span>
 			</div>
 		</div>
 	</div>

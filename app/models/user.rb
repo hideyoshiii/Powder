@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :pictures, dependent: :destroy
   has_many :snaps, dependent: :destroy
   has_many :courses, dependent: :destroy
+  has_many :copies, dependent: :destroy
 
   has_attached_file :image, :styles => { :medium => "400x400", :thumb => "100x100>" }, :default_url => "avatar-default.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/

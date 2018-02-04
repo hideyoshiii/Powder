@@ -77,36 +77,41 @@
 <% if user_signed_in? %>
   <% if @course.user_id == current_user.id %>
   <% else %>
-    <h4 class="text-center" style="margin:30px 0px 30px;">コースを複製できるよ！</h4> 
-    <div class="text-center">
-      <%= form_tag(timelines_copy_path, method: :post) do %>
-        <% @points.each do |point| %>
-        <% @i = @i + 1 %>
-          <% if @i == 1 %>
-            <%= hidden_field_tag :spot1_id, point.spot.id %>
+    <% if Copy.where(user_id: current_user.id, course_id: @course.id).blank? %>
+      <h4 class="text-center" style="margin:30px 0px 30px;">コースを複製できるよ！</h4> 
+      <div class="text-center">
+        <%= form_tag(timelines_copy_path, method: :post) do %>
+          <%= hidden_field_tag :course_id, @course.id %>
+          <% @points.each do |point| %>
+          <% @i = @i + 1 %>
+            <% if @i == 1 %>
+              <%= hidden_field_tag :spot1_id, point.spot.id %>
+            <% end %>
+            <% if @i == 2 %>
+              <%= hidden_field_tag :spot2_id, point.spot.id %>
+            <% end %>
+            <% if @i == 3 %>
+              <%= hidden_field_tag :spot3_id, point.spot.id %>
+            <% end %>
+            <% if @i == 4 %>
+              <%= hidden_field_tag :spot4_id, point.spot.id %>
+            <% end %>
+            <% if @i == 5 %>
+              <%= hidden_field_tag :spot5_id, point.spot.id %>
+            <% end %>
+            <% if @i == 6 %>
+              <%= hidden_field_tag :spot6_id, point.spot.id %>
+            <% end %>
           <% end %>
-          <% if @i == 2 %>
-            <%= hidden_field_tag :spot2_id, point.spot.id %>
-          <% end %>
-          <% if @i == 3 %>
-            <%= hidden_field_tag :spot3_id, point.spot.id %>
-          <% end %>
-          <% if @i == 4 %>
-            <%= hidden_field_tag :spot4_id, point.spot.id %>
-          <% end %>
-          <% if @i == 5 %>
-            <%= hidden_field_tag :spot5_id, point.spot.id %>
-          <% end %>
-          <% if @i == 6 %>
-            <%= hidden_field_tag :spot6_id, point.spot.id %>
-          <% end %>
+          <div class="text-center">
+            <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
+            <%= submit_tag "保存する", :class => "raised4" %>
+          </div>
         <% end %>
-        <div class="text-center">
-          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
-          <%= submit_tag "保存する", :class => "raised4" %>
-        </div>
-      <% end %>
-    </div>
+      </div>
+    <% else %>
+      <h4 class="text-center" style="margin:30px 0px 30px;">(コース複製済み)</h4> 
+    <% end %>
   <% end %>
 <% else %>
   <h4 class="text-center" style="margin:30px 0px 30px;">コースを複製できるよ！</h4> 
