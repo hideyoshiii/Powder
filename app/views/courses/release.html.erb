@@ -1,6 +1,8 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
+<h4 class="text-center">コースレビュー</h4>
+
 <% @points.each do |point| %>
 	<div class="sss-box">
 		<div class="ss-img">
@@ -32,6 +34,83 @@
 	</span>
 </div>
 <br>
+
+<div class="panel-body">
+	<div class="text-center">
+		<label>タイトルが公開されます</label>
+		<%= f.text_field :title, placeholder: "コースを一言で表すなら？", class: "form-control", required: "true" %>
+	</div>
+	<br><br>
+</div>
+
+	<div class="text-center">
+        <label>実際にどれくらのお金を使いましたか？</label>
+        <div class="horizontal_scroll_timeline">
+	  <ul class="scroll_lst_timeline">
+	  	<li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 2000) %>
+				<%= f.label(:price_used_2000, "~2,000円/人") %>
+			</span>
+	    </li>
+	  	<li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 4000) %>
+				<%= f.label(:price_used_4000, "~4,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 6000) %>
+				<%= f.label(:price_used_6000, "~6,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 8000) %>
+				<%= f.label(:price_used_8000, "~8,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 10000) %>
+				<%= f.label(:price_used_10000, "~10,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 12000) %>
+				<%= f.label(:price_used_12000, "~12,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 14000) %>
+				<%= f.label(:price_used_14000, "~14,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 16000) %>
+				<%= f.label(:price_used_16000, "~16,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 18000) %>
+				<%= f.label(:price_used_18000, "~18,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:price_used, 20000) %>
+				<%= f.label(:price_used_20000, "~20,000円/人") %>
+			</span>
+	    </li>
+	  </ul>
+	</div>
+    </div>
+    <br><br>
 
 <div class="panel-body">
 	<div class="text-center">
@@ -152,30 +231,15 @@
   </li>
 </ul>
 </div>
-<br>
+<br><br>
 
 <div class="panel-body">
 
 	<div class="text-center">
-		<label>タイトルが公開されます</label>
-		<%= f.text_field :title, placeholder: "コースを一言で表すなら？", class: "form-control", required: "true" %>
-	</div>
-	<br><br>
-
-	<div class="text-center">
-        <label>実際にどれくらのお金を使いましたか？</label>
-        <br>
-        <%= f.number_field :price_used, min:0, max:100000 %>円程度
-    </div>
-    <br><br>
-	
-	<div class="text-center">
     <label>このコースについて</label>
-    	<%= f.text_area :good_point, rows: 5, placeholder: "実際にこのコースでデートしてみてどうでしたか？", class: "form-control" %>
+    	<%= f.text_area :good_point, rows: 8, placeholder: "実際にこのコースでデートしてみてどうでしたか？", class: "form-control" %>
 	</div>
 	<br><br><br>
-
-
 
 	<div class="text-center">
 		<%= f.submit "保存", class: "btn btn-primary" %>
