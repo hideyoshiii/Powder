@@ -83,6 +83,7 @@ Rails.application.routes.draw do
   post "clips/:article_id/create" => "clips#create"
   post "clips/:article_id/destroy" => "clips#destroy"
 
+  get "courses/:id/release" => "courses#release"
   post "courses/:id/destroy" => "courses#destroy"
   resources :courses, only: [:create, :show, :edit]
 

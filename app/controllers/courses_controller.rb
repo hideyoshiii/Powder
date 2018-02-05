@@ -99,6 +99,10 @@ class CoursesController < ApplicationController
     end
   end
 
+  def release
+    
+  end
+
   private
   def course_params
     params.require(:course).permit(:spot1_id, :spot2_id, :spot3_id, :spot4_id)

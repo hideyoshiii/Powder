@@ -259,7 +259,15 @@ function markerEvent(i) {
 
 
 
+<div class="visible-xs">
+  <%= link_to "/courses/#{@course.id}/release" do %>
+    <div class="sticky-bar-release">  
+      
+    </div>
+  <% end %>
+</div>
 
+<div class="fotter-box"></div>
 
 
 
@@ -268,7 +276,7 @@ function markerEvent(i) {
 
 
 </mains>
-<%= render "partial/footer" %>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function (event) {

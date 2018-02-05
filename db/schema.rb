@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204185817) do
+ActiveRecord::Schema.define(version: 20180205003107) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -94,6 +94,11 @@ ActiveRecord::Schema.define(version: 20180204185817) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
+    t.boolean "release", default: false, null: false
+    t.integer "price_used"
+    t.text "good_point"
+    t.text "bad_point"
+    t.string "went"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
@@ -119,6 +124,8 @@ ActiveRecord::Schema.define(version: 20180204185817) do
     t.integer "user_id"
     t.string "quote"
     t.string "url"
+    t.integer "course_id"
+    t.index ["course_id"], name: "index_pictures_on_course_id"
     t.index ["spot_id"], name: "index_pictures_on_spot_id"
     t.index ["user_id"], name: "index_pictures_on_user_id"
   end

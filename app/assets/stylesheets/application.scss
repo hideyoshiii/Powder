@@ -4645,6 +4645,18 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 	margin-bottom: 50px;
 }
 
+//コースの公開ボタン(フッター)
+.sticky-bar-release {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    background:#53331c;
+    width:100%;
+    height:50px;
+    border-top:1px solid #CCCCCC;
+
+}
+
 
 #map_canvas_01,
 #map_canvas_02,
