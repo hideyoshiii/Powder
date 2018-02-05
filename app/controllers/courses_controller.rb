@@ -100,12 +100,61 @@ class CoursesController < ApplicationController
   end
 
   def release
+    @n1 = 0
+    @n2 = 0
+    @n3 = 0
+    @n4 = 0
+    @course = Course.find(params[:id])
+    @points = Point.where(course_id: @course.id)
+    if !(current_user == @course.user)
+      redirect_to root_path
+    end
+  end
+
+  def update
+    @n = 0
+    @course = Course.find(params[:id])
     
+      if @course.update(course_params)
+
+        # 画像のアップロード対応
+        if params[:course][:images]
+          
+
+          # 代わりに今回アップする画像に差し替え
+          params[:course][:images].each do |image|
+            @n = @n +1
+            if @n == 1
+              @picture = Picture.new(image: image, spot_id: params[:spot1], course_id: @course.id, user_id: current_user.id)
+            end
+            if @n == 2
+              @picture = Picture.new(image: image, spot_id: params[:spot2], course_id: @course.id, user_id: current_user.id)
+            end
+            if @n == 3
+              @picture = Picture.new(image: image, spot_id: params[:spot3], course_id: @course.id, user_id: current_user.id)
+            end
+            if @n == 4
+              @picture = Picture.new(image: image, spot_id: params[:spot4], course_id: @course.id, user_id: current_user.id)
+            end
+            @picture.save
+          end
+          redirect_to root_path
+        else
+          redirect_back(fallback_location: root_path)
+        end
+        
+      else
+        redirect_back(fallback_location: root_path)
+      end
   end
 
   private
   def course_params
-    params.require(:course).permit(:spot1_id, :spot2_id, :spot3_id, :spot4_id)
+    params.require(:course).permit(:went, :price_used, :good_point, :bad_point)
+  end
+
+  def picture_params
+    params.require(:course).permit(:went, :price_used, :good_point, :bad_point, images:[])
   end
 
   
