@@ -16,6 +16,8 @@
 
 <%= form_for @course, :html => { multipart: true } do |f| %>
 
+
+
 <br>
 <div class="text-center">
 	<label>このコースを公開しますか？</label>
@@ -31,30 +33,6 @@
 </div>
 <br>
 
-<div class="panel-body">
-
-	<div class="text-center">
-		<label>タイトルが公開されます</label>
-		<%= f.text_field :title, placeholder: "コースを一言で表すなら？", class: "form-control", required: "true" %>
-	</div>
-	<br><br>
-
-	<div class="text-center">
-        <label>実際にどれくらのお金を使いましたか？</label>
-        <br>
-        <%= f.number_field :price_used, min:0, max:100000 %>円程度
-    </div>
-    <br><br>
-	
-	<div class="text-center">
-    <label>このコースについて</label>
-    	<%= f.text_area :good_point, rows: 5, placeholder: "実際にこのコースでデートしてみてどうでしたか？", class: "form-control" %>
-	</div>
-	<br><br>
-
-</div>
-
-	
 <div class="panel-body">
 	<div class="text-center">
 		<label>写真を４枚まで追加できます</label>
@@ -174,11 +152,30 @@
   </li>
 </ul>
 </div>
-
-
-<br><br>
+<br>
 
 <div class="panel-body">
+
+	<div class="text-center">
+		<label>タイトルが公開されます</label>
+		<%= f.text_field :title, placeholder: "コースを一言で表すなら？", class: "form-control", required: "true" %>
+	</div>
+	<br><br>
+
+	<div class="text-center">
+        <label>実際にどれくらのお金を使いましたか？</label>
+        <br>
+        <%= f.number_field :price_used, min:0, max:100000 %>円程度
+    </div>
+    <br><br>
+	
+	<div class="text-center">
+    <label>このコースについて</label>
+    	<%= f.text_area :good_point, rows: 5, placeholder: "実際にこのコースでデートしてみてどうでしたか？", class: "form-control" %>
+	</div>
+	<br><br><br>
+
+
 
 	<div class="text-center">
 		<%= f.submit "保存", class: "btn btn-primary" %>
