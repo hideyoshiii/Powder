@@ -1,10 +1,25 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
+<% @points.each do |point| %>
+	<div class="sss-box">
+		<div class="ss-img">
+			<%= image_tag point.spot.pictures.first.image.url, :class =>'img-sss' %>
+		</div>
+		<div class="ss-title">
+			<%= point.spot.title %>
+			<br>
+			<span style="font-size:12px;color:#808080;"><%= point.spot.station %></span>
+		</div>	
+	</div>
+	<% end %> 
+
 <%= form_for @course, :html => { multipart: true } do |f| %>
 
 <br>
 <div class="text-center">
+	<label>このコースを公開しますか？</label>
+	<br>
 	<span class="radio-city">	
 	 	<%= f.radio_button(:went, "公開する", {:checked => true, :id => "yes"}) %>
 		<%= label_tag('yes', "公開する") %>
@@ -16,7 +31,36 @@
 </div>
 <br>
 
+<div class="panel-body">
+
+	<div class="text-center">
+		<label>タイトルが公開されます</label>
+		<%= f.text_field :title, placeholder: "コースを一言で表すなら？", class: "form-control", required: "true" %>
+	</div>
+	<br><br>
+
+	<div class="text-center">
+        <label>実際にどれくらのお金を使いましたか？</label>
+        <br>
+        <%= f.number_field :price_used, min:0, max:100000 %>円程度
+    </div>
+    <br><br>
 	
+	<div class="text-center">
+    <label>このコースについて</label>
+    	<%= f.text_area :good_point, rows: 5, placeholder: "実際にこのコースでデートしてみてどうでしたか？", class: "form-control" %>
+	</div>
+	<br><br>
+
+</div>
+
+	
+<div class="panel-body">
+	<div class="text-center">
+		<label>写真を４枚まで追加できます</label>
+	</div>
+</div>
+
 <div class="horizontal_scroll_wrap_pic">
 <ul class="scroll_lst_pic">
   <%# 横スクロールコンテンツ %>
@@ -135,27 +179,6 @@
 <br><br>
 
 <div class="panel-body">
-
-	<div class="text-center">
-        <label>実際に使ったお金</label>
-        <%= f.number_field :price_used, min:0, max:100000 %>円程度
-    </div>
-    <br>
-
-    
-		
-	<div class="text-center">
-    <label>Good point</label>
-    	<%= f.text_area :good_point, rows: 4, placeholder: "good point", class: "form-control" %>
-	</div>
-	<br>
-
-	<div class="text-center">
-        <label>Bad point</label>
-        <%= f.text_area :bad_point, rows: 4, placeholder: "bad point", class: "form-control" %>
-    </div>
-	<br>
-
 
 	<div class="text-center">
 		<%= f.submit "保存", class: "btn btn-primary" %>
