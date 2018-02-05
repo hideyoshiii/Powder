@@ -1,7 +1,11 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
-<h4 class="text-center">コースレビュー</h4>
+<% if @course.went.blank? %>
+	<h4 class="text-center">レビューする</h4>
+<% else %>
+	<h4 class="text-center">レビューを編集する</h4>
+ <% end %>
 
 <% @points.each do |point| %>
 	<div class="sss-box">
@@ -150,115 +154,195 @@
 
 <div class="horizontal_scroll_wrap_pic">
 <ul class="scroll_lst_pic">
-  <%# 横スクロールコンテンツ %>
-  <li class="scroll_item_pic">
-    <div class="scroll_item_inr_pic">
-	    <span class="form1">
-		<label>
-	    <%= f.file_field :images, multiple: true %>
-	    <span class="preview"></span>
-	    </label>
-		</span>
-      <div class="scroll_item_info_pic_quote">
-    	<% @points.each do |point| %>
-    	<% @n1 = @n1 + 1 %>
-    		<p class="scroll_item_ttl_pic_quote">
-				<% @spot = Spot.find(point.spot_id) %>
-				<% if @n1 == 1 %>
-        			<label>
-          				<%= radio_button_tag :spot1, @spot.id, true %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% else %>  
-					<label>
-          				<%= radio_button_tag :spot1, @spot.id, false %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% end %>  		
-			</p>	
-		<% end %>  
-      </div>
-   </div>
-  </li>
-  <li class="scroll_item_pic">
-    <div class="scroll_item_inr_pic">
-        <span class="form2">
-		<label>
-	    <%= f.file_field :images, multiple: true %>
-	    <span class="preview2"></span>
-	    </label>
-		</span>
-      <div class="scroll_item_info_pic_quote">
-        <% @points.each do |point| %>
-    	<% @n2 = @n2 + 1 %>
-    		<p class="scroll_item_ttl_pic_quote">
-				<% @spot = Spot.find(point.spot_id) %>
-				<% if @n2 == 1 %>
-        			<label>
-          				<%= radio_button_tag :spot2, @spot.id, true %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% else %>  
-					<label>
-          				<%= radio_button_tag :spot2, @spot.id, false %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% end %>  		
-			</p>	
-		<% end %>  
-      </div>
-   </div>
-  </li>
-  <li class="scroll_item_pic">
-    <div class="scroll_item_inr_pic">
-	    <span class="form3">
-		<label>
-	    <%= f.file_field :images, multiple: true %>
-	    <span class="preview3"></span>
-	    </label>
-		</span>
-      <div class="scroll_item_info_pic_quote">
-    	<% @points.each do |point| %>
-    	<% @n3 = @n3 + 1 %>
-    		<p class="scroll_item_ttl_pic_quote">
-				<% @spot = Spot.find(point.spot_id) %>
-				<% if @n3 == 1 %>
-        			<label>
-          				<%= radio_button_tag :spot3, @spot.id, true %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% else %>  
-					<label>
-          				<%= radio_button_tag :spot3, @spot.id, false %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% end %>  		
-			</p>	
-		<% end %>  
-      </div>
-   </div>
-  </li>
-  <li class="scroll_item_pic">
-    <div class="scroll_item_inr_pic">
-	    <span class="form4">
-		<label>
-	    <%= f.file_field :images, multiple: true %>
-	    <span class="preview4"></span>
-	    </label>
-		</span>
-      <div class="scroll_item_info_pic_quote">
-    	<% @points.each do |point| %>
-    	<% @n4 = @n4 + 1 %>
-    		<p class="scroll_item_ttl_pic_quote">
-				<% @spot = Spot.find(point.spot_id) %>
-				<% if @n4 == 1 %>
-        			<label>
-          				<%= radio_button_tag :spot4, @spot.id, true %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% else %>  
-					<label>
-          				<%= radio_button_tag :spot4, @spot.id, false %>&nbsp;<%= @spot.title %>
-					<label>	
-				<% end %>  		
-			</p>	
-		<% end %>  
-      </div>
-   </div>
-  </li>
+  	<%# 横スクロールコンテンツ %>
+  	<% if @picture1 = Picture.where(course_id: @course.id).order(id: "ASC").first %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+			    <%= image_tag @picture1.image.url, :class =>'img-pic' %>
+		      	<div class="scroll_item_info_pic_quote">
+		      		<div class="text-center">
+			    		<p class="scroll_item_ttl_pic_quote">
+			    			<%= @picture1.spot.title %>
+						</p>
+						<div class="btn btn-default btn-sm" style="margin:10px 0px;">
+							<%= link_to("/pictures/#{@picture1.id}/destroy3", {method: "post"}) do %>
+								<span style="color:red;">削除</span>
+							<% end %>
+						</div>	
+					</div>
+		      	</div>
+		   </div>
+		</li>
+  	<% else %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+			    <span class="form1">
+				<label>
+			    <%= f.file_field :images, multiple: true %>
+			    <span class="preview"></span>
+			    </label>
+				</span>
+		      <div class="scroll_item_info_pic_quote">
+		    	<% @points.each do |point| %>
+		    	<% @n1 = @n1 + 1 %>
+		    		<p class="scroll_item_ttl_pic_quote">
+						<% @spot = Spot.find(point.spot_id) %>
+						<% if @n1 == 1 %>
+		        			<label>
+		          				<%= radio_button_tag :spot1, @spot.id, true %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% else %>  
+							<label>
+		          				<%= radio_button_tag :spot1, @spot.id, false %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% end %>  		
+					</p>	
+				<% end %>  
+		      </div>
+		   	</div>
+	  	</li>
+  	<% end %>
+  	<% if @picture2 = Picture.where(course_id: @course.id).order(id: "ASC").second %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+			    <%= image_tag @picture2.image.url, :class =>'img-pic' %>
+		      	<div class="scroll_item_info_pic_quote">
+		      		<div class="text-center">
+			    		<p class="scroll_item_ttl_pic_quote">
+			    			<%= @picture2.spot.title %>
+						</p>
+						<div class="btn btn-default btn-sm" style="margin:10px 0px;">
+							<%= link_to("/pictures/#{@picture2.id}/destroy3", {method: "post"}) do %>
+								<span style="color:red;">削除</span>
+							<% end %>
+						</div>	
+					</div>
+		      	</div>
+		   </div>
+		</li>
+  	<% else %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+		        <span class="form2">
+				<label>
+			    <%= f.file_field :images, multiple: true %>
+			    <span class="preview2"></span>
+			    </label>
+				</span>
+		      <div class="scroll_item_info_pic_quote">
+		        <% @points.each do |point| %>
+		    	<% @n2 = @n2 + 1 %>
+		    		<p class="scroll_item_ttl_pic_quote">
+						<% @spot = Spot.find(point.spot_id) %>
+						<% if @n2 == 1 %>
+		        			<label>
+		          				<%= radio_button_tag :spot2, @spot.id, true %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% else %>  
+							<label>
+		          				<%= radio_button_tag :spot2, @spot.id, false %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% end %>  		
+					</p>	
+				<% end %>  
+		      </div>
+		   	</div>
+	  	</li>
+	<% end %>
+	<% if @picture3 = Picture.where(course_id: @course.id).order(id: "ASC").third %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+			    <%= image_tag @picture3.image.url, :class =>'img-pic' %>
+		      	<div class="scroll_item_info_pic_quote">
+		      		<div class="text-center">
+			    		<p class="scroll_item_ttl_pic_quote">
+			    			<%= @picture3.spot.title %>
+						</p>
+						<div class="btn btn-default btn-sm" style="margin:10px 0px;">
+							<%= link_to("/pictures/#{@picture3.id}/destroy3", {method: "post"}) do %>
+								<span style="color:red;">削除</span>
+							<% end %>
+						</div>	
+					</div>
+		      	</div>
+		   </div>
+		</li>
+  	<% else %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+			    <span class="form3">
+				<label>
+			    <%= f.file_field :images, multiple: true %>
+			    <span class="preview3"></span>
+			    </label>
+				</span>
+		      <div class="scroll_item_info_pic_quote">
+		    	<% @points.each do |point| %>
+		    	<% @n3 = @n3 + 1 %>
+		    		<p class="scroll_item_ttl_pic_quote">
+						<% @spot = Spot.find(point.spot_id) %>
+						<% if @n3 == 1 %>
+		        			<label>
+		          				<%= radio_button_tag :spot3, @spot.id, true %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% else %>  
+							<label>
+		          				<%= radio_button_tag :spot3, @spot.id, false %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% end %>  		
+					</p>	
+				<% end %>  
+		      </div>
+		   	</div>
+	  	</li>
+  	<% end %>
+  	<% if @picture4 = Picture.where(course_id: @course.id).order(id: "ASC").fourth %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+			    <%= image_tag @picture4.image.url, :class =>'img-pic' %>
+		      	<div class="scroll_item_info_pic_quote">
+		      		<div class="text-center">
+			    		<p class="scroll_item_ttl_pic_quote">
+			    			<%= @picture4.spot.title %>
+						</p>
+						<div class="btn btn-default btn-sm" style="margin:10px 0px;">
+							<%= link_to("/pictures/#{@picture4.id}/destroy3", {method: "post"}) do %>
+								<span style="color:red;">削除</span>
+							<% end %>
+						</div>	
+					</div>
+		      	</div>
+		   </div>
+		</li>
+  	<% else %>
+	  	<li class="scroll_item_pic">
+		    <div class="scroll_item_inr_pic">
+			    <span class="form4">
+				<label>
+			    <%= f.file_field :images, multiple: true %>
+			    <span class="preview4"></span>
+			    </label>
+				</span>
+		      <div class="scroll_item_info_pic_quote">
+		    	<% @points.each do |point| %>
+		    	<% @n4 = @n4 + 1 %>
+		    		<p class="scroll_item_ttl_pic_quote">
+						<% @spot = Spot.find(point.spot_id) %>
+						<% if @n4 == 1 %>
+		        			<label>
+		          				<%= radio_button_tag :spot4, @spot.id, true %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% else %>  
+							<label>
+		          				<%= radio_button_tag :spot4, @spot.id, false %>&nbsp;<%= @spot.title %>
+							<label>	
+						<% end %>  		
+					</p>	
+				<% end %>  
+		      </div>
+		   	</div>
+	  	</li>
+  	<% end %>
 </ul>
 </div>
 <br><br>

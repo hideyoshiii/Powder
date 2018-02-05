@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post "spots/:id/destroy" => "spots#destroy"
   resources :spots
   
+  post "pictures/:id/destroy3" => "pictures#destroy3"
   post "pictures/:id/destroy2" => "pictures#destroy2"
   resources :pictures, only: [:create, :destroy, :edit, :update]
 

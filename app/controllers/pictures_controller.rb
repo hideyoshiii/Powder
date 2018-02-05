@@ -38,7 +38,17 @@ class PicturesController < ApplicationController
         else
             redirect_back(fallback_location: root_path) 
         end
-  end
+    end
+
+    def destroy3
+        @picture = Picture.find(params[:id])
+        if @picture.destroy
+            redirect_back(fallback_location: root_path) 
+        else
+            redirect_back(fallback_location: root_path) 
+        end
+    end
+
 
     def list
         spot = Spot.find(params[:spot_id])

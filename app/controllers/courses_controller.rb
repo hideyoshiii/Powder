@@ -120,7 +120,6 @@ class CoursesController < ApplicationController
         # 画像のアップロード対応
         if params[:course][:images]
           
-
           # 代わりに今回アップする画像に差し替え
           params[:course][:images].each do |image|
             @n = @n +1
@@ -138,9 +137,10 @@ class CoursesController < ApplicationController
             end
             @picture.save
           end
-          redirect_to root_path
+          redirect_to "/users/#{current_user.id}/course"
+
         else
-          redirect_back(fallback_location: root_path)
+          redirect_to "/users/#{current_user.id}/course"
         end
         
       else
