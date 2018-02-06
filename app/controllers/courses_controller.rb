@@ -35,7 +35,7 @@ class CoursesController < ApplicationController
   def create
     if !params[:spot1_id].blank?
       if params[:spot2_id].blank?
-        @course = Course.new(user_id: current_user.id, title: params[:title])
+        @course = Course.new(user_id: current_user.id, title: params[:title], city: params[:city_dinner])
           if @course.save
             @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if @point1.save
@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
             redirect_back(fallback_location: root_path) #保存できなっかた
           end
       else
-        @course = Course.new(user_id: current_user.id, title: params[:title])
+        @course = Course.new(user_id: current_user.id, title: params[:title], city: params[:city_dinner])
         if @course.save
             @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if @point1.save
@@ -151,11 +151,11 @@ class CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:title, :release, :went, :price_used, :good_point, :bad_point)
+    params.require(:course).permit(:title, :city, :release, :went, :price_used, :good_point, :bad_point)
   end
 
   def picture_params
-    params.require(:course).permit(:title, :release, :went, :price_used, :good_point, :bad_point, images:[])
+    params.require(:course).permit(:title, :city, :release, :went, :price_used, :good_point, :bad_point, images:[])
   end
 
   

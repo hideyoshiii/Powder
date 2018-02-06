@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205003107) do
+ActiveRecord::Schema.define(version: 20180206124821) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 20180205003107) do
     t.text "good_point"
     t.text "bad_point"
     t.string "went"
+    t.string "city"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
