@@ -54,7 +54,7 @@ class CoursesController < ApplicationController
           @courses = Course.where(city: params[:city], release: true).order(id: "ASC")
         end
           if !params[:city].blank? && !params[:price].blank?
-            @courses = Course.where(city: params[:city], price_used: params[:price_dinner], release: true).order(id: "ASC")
+            @courses = Course.where(city: params[:city], price_used: params[:price], release: true).order(id: "ASC")
           end
       end
 

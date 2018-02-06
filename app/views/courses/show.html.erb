@@ -21,14 +21,18 @@
         <%= @course.title %>
       </div>
       <%# 都道府県、エリア %>
-      <div class="prefecture-spot-show">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;恵比寿・代官山・中目黒
-      </div> 
-      <br>
+      <% unless @course.city.blank? %>
+        <div>
+          <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;<%= @course.city %>
+        </div> 
+      <% end %>
       <%# 実際に使った値段 %>
       <% unless @course.price_used.blank? %>
-        <p><i class="fa fa-yen"></i>&nbsp;&nbsp;~<%= @course.price_used %>円程度</p>
+        <div>
+          <i class="fa fa-yen"></i>&nbsp;&nbsp;~<%= @course.price_used %>円程度
+        </div>
       <% end %>
+      <br><br>
       <%# Description %>
       <% unless @course.good_point.blank? %>
         <p><%= @course.good_point %></p>
@@ -169,7 +173,7 @@
           <%# 横スクロールコンテンツ %>
           <% @pictures.each do |picture| %>
           <li class="scroll_item_content">
-            <a href="#" class="scroll_item_inr_content">
+            <div class="scroll_item_inr_content">
               <div class="scroll_item_thum_content">
                 <%# $$$spotから利用する写真をfitstなどで指定 %>
                 <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
@@ -187,7 +191,7 @@
                   <% end %>  
                 </p>
               </div>
-           </a>
+           </div>
           </li>
           <% end %>  
         </ul>
@@ -293,14 +297,18 @@
             <%= @course.title %>
           </div>
           <%# 都道府県、エリア %>
-          <div class="prefecture-spot-show">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;恵比寿・代官山・中目黒
-          </div> 
-          <br>
+          <% unless @course.city.blank? %>
+            <div>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;<%= @course.city %>
+            </div> 
+          <% end %>
           <%# 実際に使った値段 %>
           <% unless @course.price_used.blank? %>
-            <p><i class="fa fa-yen"></i>&nbsp;&nbsp;~<%= @course.price_used %>円程度</p>
+            <div>
+              <i class="fa fa-yen"></i>&nbsp;&nbsp;~<%= @course.price_used %>円程度
+            </div>
           <% end %>
+          <br>
           <%# Description %>
           <% unless @course.good_point.blank? %>
             <p><%= @course.good_point %></p>
@@ -441,7 +449,7 @@
               <%# 横スクロールコンテンツ %>
               <% @pictures.each do |picture| %>
               <li class="scroll_item_content">
-                <a href="#" class="scroll_item_inr_content">
+                <div class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# $$$spotから利用する写真をfitstなどで指定 %>
                     <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
@@ -459,7 +467,7 @@
                       <% end %>  
                     </p>
                   </div>
-               </a>
+               </div>
               </li>
               <% end %>  
             </ul>

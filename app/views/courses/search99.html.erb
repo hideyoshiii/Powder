@@ -68,14 +68,20 @@
 	    </li>
 	    <li class="scroll_item_timeline">
 	        <span class="radio-timeline">	
-			 	<%= radio_button_tag(:price_dinner, 6000) %>
+			 	<%= radio_button_tag(:price, 6000) %>
 				<%= label_tag(:price_6000, "~6,000円/人") %>
 			</span>
 	    </li>
 	    <li class="scroll_item_timeline">
 	        <span class="radio-timeline">	
-			 	<%= radio_button_tag(:price_dinner, 8000) %>
+			 	<%= radio_button_tag(:price, 8000) %>
 				<%= label_tag(:price_8000, "~8,000円/人") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= radio_button_tag(:price, 10000) %>
+				<%= label_tag(:price_10000, "~10,000円/人") %>
 			</span>
 	    </li>
 	  </ul>
@@ -94,7 +100,7 @@
 <%= link_to course_path(course) do %>
 	<div class="timeline-title-box">
 		<div class="timeline-title">
-				<%= image_tag course.user.image, :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)
+				<%= image_tag course.user.image, :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>
 			<div class="pull-right">
 				<% copy_count = Copy.where(course_id: course.id).count %>
 				<span style="color:#808080;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー</span>
