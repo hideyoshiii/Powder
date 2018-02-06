@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
-      @courses = Course.where(release: true).order('id DESC')
+      @courses = Course.where(release: true).order('id ASC')
   end
 
   def search99
@@ -44,14 +44,18 @@ class CoursesController < ApplicationController
       end
     end
 
-      if params[:city].blank?
-          @courses = Course.where(price_used: params[:price]).order(id: "DESC")
-      end
-      if params[:price].blank?
-          @courses = Course.where(city: params[:city]).order(id: "DESC")
-      end
-      unless params[:city].blank? && params[:price].blank?
-          @courses = Course.where(city: params[:city], price_used: params[:price_dinner]).order(id: "DESC")
+      if params[:city].blank? && params[:price].blank?
+        @courses = Course.where(release: true).order('id ASC')
+      else
+        if params[:city].blank?
+          @courses = Course.where(price_used: params[:price], release: true).order(id: "ASC")
+        end
+        if params[:price].blank?
+          @courses = Course.where(city: params[:city], release: true).order(id: "ASC")
+        end
+          if !params[:city].blank? && !params[:price].blank?
+            @courses = Course.where(city: params[:city], price_used: params[:price_dinner], release: true).order(id: "ASC")
+          end
       end
 
   end

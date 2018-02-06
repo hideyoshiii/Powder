@@ -94,7 +94,7 @@
 <%= link_to course_path(course) do %>
 	<div class="timeline-title-box">
 		<div class="timeline-title">
-				<%= image_tag current_user.image, :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)
+				<%= image_tag course.user.image, :class =>'img-circle profile-0' %>&nbsp;<%= course.user.nickname %>(<%= course.user.age %>)
 			<div class="pull-right">
 				<% copy_count = Copy.where(course_id: course.id).count %>
 				<span style="color:#808080;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー</span>
