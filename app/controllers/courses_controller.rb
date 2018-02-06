@@ -1,6 +1,60 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
+  def index
+      @courses = Course.where(release: true).order('id DESC')
+  end
+
+  def search99
+    @ebisu = false
+    @shibuya = false
+    @harajuku = false
+    @shinjuku = false
+    if !params[:city].blank?
+      if params[:city] == "恵比寿・代官山・中目黒"
+        @ebisu = true
+      end
+      if params[:city] == "渋谷"
+        @shibuya = true
+      end
+      if params[:city] == "原宿・表参道・青山"
+        @harajuku = true
+      end
+      if params[:city] == "新宿"
+        @shinjuku = true
+      end
+    end
+
+    @n2000 = false
+    @n4000 = false
+    @n6000 = false
+    @n8000 = false
+    if !params[:price].blank?
+      if params[:price].to_i == 2000
+        @n2000 = true
+      end
+      if params[:price].to_i == 4000
+        @n4000 = true
+      end
+      if params[:price].to_i == 6000
+        @n6000 = true
+      end
+      if params[:price].to_i == 8000
+        @n8000 = true
+      end
+    end
+
+      if params[:city].blank?
+          @courses = Course.where(price_used: params[:price]).order(id: "DESC")
+      end
+      if params[:price].blank?
+          @courses = Course.where(city: params[:city]).order(id: "DESC")
+      end
+      unless params[:city].blank? && params[:price].blank?
+          @courses = Course.where(city: params[:city], price_used: params[:price_dinner]).order(id: "DESC")
+      end
+
+  end
 
   def search
   end

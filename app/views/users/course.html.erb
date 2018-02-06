@@ -27,9 +27,11 @@
 		<%= link_to course_path(course) do %>
 			<div class="course-title-box">
 				<div class="course-title">
+					<div class="pull-right">
+						<% copy_count = Copy.where(course_id: course.id).count %>
+						<span style="color:#808080; font-size:12px;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー&nbsp;&nbsp;</span>
+					</div>
 					<%= course.title %>
-					<% copy_count = Copy.where(course_id: course.id).count %>
-					<span class="pull-right" style="color:#808080; font-size:12px;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー&nbsp;&nbsp;</span>
 				</div>
 			</div>
 			<div class="horizontal_scroll_wrap_coures">
@@ -64,9 +66,12 @@
 		<%= link_to course_path(course) do %>
 			<div class="course-title-box">
 				<div class="course-title">
+					<div class="pull-right">
+						<% copy_count = Copy.where(course_id: course.id).count %>
+						<span style="color:#808080; font-size:12px;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー&nbsp;&nbsp;</span>
+					</div>
 					<%= course.title %>
-					<% copy_count = Copy.where(course_id: course.id).count %>
-					<span class="pull-right" style="color:#808080; font-size:12px;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー&nbsp;&nbsp;</span>
+
 				</div>
 			</div>
 			<div class="horizontal_scroll_wrap_coures">

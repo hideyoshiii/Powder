@@ -50,6 +50,39 @@
 </div>
 
 	<div class="text-center">
+        <label>どのエリアでのデートでしたか？</label>
+        <div class="horizontal_scroll_timeline">
+	  <ul class="scroll_lst_timeline">
+	  	<li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:city, "恵比寿・代官山・中目黒") %>
+				<%= f.label(:city, "恵比寿・代官山・中目黒", value: "恵比寿・代官山・中目黒") %>
+			</span>
+	    </li>
+	  	<li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:city, "渋谷") %>
+				<%= f.label(:city, "渋谷", value: "渋谷") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:city, "原宿・表参道・青山") %>
+				<%= f.label(:city, "原宿・表参道・青山", value: "原宿・表参道・青山") %>
+			</span>
+	    </li>
+	    <li class="scroll_item_timeline">
+	        <span class="radio-timeline">	
+			 	<%= f.radio_button(:city, "新宿") %>
+				<%= f.label(:city, "新宿", value: "新宿") %>
+			</span>
+	    </li>
+	  </ul>
+	</div>
+    </div>
+    <br><br>
+
+	<div class="text-center">
         <label>実際にどれくらのお金を使いましたか？</label>
         <div class="horizontal_scroll_timeline">
 	  <ul class="scroll_lst_timeline">
