@@ -2,31 +2,57 @@
 
 <mains class="" id="main-collapse">
 
-<%# タイトルと編集ボタン %>
-<% if (user_signed_in?) %>
-  <% if @course.user_id == current_user.id %>
+
+
+
+<% if @course.release == true %>
+  <div class="panel-body">
     <br>
-    <div class="panel-body">
-    	<div class="col-xs-9">	
-    		<div class="title-content4">
-    	  		<%= @course.title %>
-    		</div> 
-    		<hr class="style4">
-    	</div>
-    	<div class="col-xs-3">
-    		<%= link_to edit_course_path(@course) do %>
-    			<h4 class="pull-right btn btn-default btn-sm">編集</h4>	
-    		<% end %>
-    	</div>
+    <span class="pull-right btn btn-success btn-sm">公開</span> 
+    <%# タイトル %>
+    <div class="title-spot-show">
+      <%= @course.title %>
     </div>
-  <% end %>
+    <%# 都道府県、エリア %>
+    <div class="prefecture-spot-show">
+      <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;恵比寿・代官山・中目黒
+    </div> 
+    <br>
+    <%# 実際に使った値段 %>
+    <% unless @course.price_used.blank? %>
+      <p><i class="fa fa-yen"></i>&nbsp;&nbsp;~<%= @course.price_used %>円程度</p>
+    <% end %>
+    <%# Description %>
+    <% unless @course.good_point.blank? %>
+      <p><%= @course.good_point %></p>
+    <% end %>
+  </div> 
+<% else %>
+  <div class="panel-body">
+    <br>
+    <% if (user_signed_in?) %>
+      <% if @course.user_id == current_user.id %>   
+        <%= link_to edit_course_path(@course) do %>
+          <span class="pull-right btn btn-default btn-sm">コースを編集</span> 
+        <% end %> 
+        <span class="pull-right btn btn-primary btn-sm">未公開</span> 
+      <% end %>
+    <% end %>
+    <%# タイトル %>
+    <div class="title-spot-show">
+      <%= @course.title %>
+    </div>
+  </div>
 <% end %>
+
+<div class="panel-body">
+  <h3>Course</h3>
+</div>
 
 <% @points.each do |point| %>
 <% @n = @n + 1 %>
 <% @spot1 = Spot.find(point.spot_id) %>
 <% @pictures1 = @spot1.pictures.order(id: "ASC") %>
-
 
 
 <%# 横スクロールアイキャッチ %>
@@ -123,6 +149,40 @@
   </ul>
 </div>
 
+<% end %>
+
+<% if @course.release == true %>
+  <% unless @pictures.blank? %>
+    <div class="panel-body">
+      <h3>Media</h3>
+    </div>
+    <div class="horizontal_scroll_wrap_content_spot">
+      <ul class="scroll_lst_content">
+        <%# 横スクロールコンテンツ %>
+        <% @pictures.each do |picture| %>
+        <li class="scroll_item_content">
+          <a href="#" class="scroll_item_inr_content">
+            <div class="scroll_item_thum_content">
+              <%# $$$spotから利用する写真をfitstなどで指定 %>
+              <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+            </div>
+            <div class="scroll_item_info_content_quote">
+              <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                <% unless picture.spot.blank? %>
+                  <%= link_to spot_path(picture.spot) do %>
+                  <span class="gray" style="font-size:14px;">
+                    <%= picture.spot.title %>
+                  </span>
+                  <% end %> 
+                <% end %>  
+              </p>
+            </div>
+         </a>
+        </li>
+        <% end %>  
+      </ul>
+    </div>
+  <% end %>
 <% end %>
 
 <% if user_signed_in? %>

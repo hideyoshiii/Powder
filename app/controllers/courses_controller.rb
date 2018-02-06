@@ -88,6 +88,7 @@ class CoursesController < ApplicationController
     @i = 0
     @course = Course.find(params[:id])
     @points = Point.where(course_id: @course.id).order(number: "ASC")
+    @pictures = Picture.where(course_id: @course.id).order(id: "ASC")
   end
 
   def edit
