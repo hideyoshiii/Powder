@@ -165,15 +165,15 @@
               <%# 横スクロールコンテンツ %>
               <% @pictures.each do |picture| %>
               <li class="scroll_item_content">
-                <a href="#" class="scroll_item_inr_content">
+                <div class="scroll_item_inr_content">
                   <div class="scroll_item_thum_content">
                     <%# $$$spotから利用する写真をfitstなどで指定 %>
                     <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content_quote">
                     <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
-                      <% if picture.url %>
-                        <% if picture.quote %>
+                      <% if !picture.url.blank? %>
+                        <% if !picture.quote.blank? %>
                           <a href="<%= picture.url %>" target="_blank" class="gray">
                             <%= picture.quote %> <%= picture.url %>
                           </a>
@@ -181,11 +181,13 @@
                           <a href="<%= picture.url %>" target="_blank" class="gray">
                             <%= picture.url %>
                           </a>
-                        <% end %> 
+                        <% end %>
+                      <% else %> 
+                          &nbsp;
                       <% end %>  
                     </p>
                   </div>
-               </a>
+               </div>
               </li>
               <% end %>  
             </ul>

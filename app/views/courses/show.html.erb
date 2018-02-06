@@ -50,107 +50,107 @@
 </div>
 
 <% @points.each do |point| %>
-<% @n = @n + 1 %>
-<% @spot1 = Spot.find(point.spot_id) %>
-<% @pictures1 = @spot1.pictures.order(id: "ASC") %>
+  <% @n = @n + 1 %>
+  <% @spot1 = Spot.find(point.spot_id) %>
+  <% @pictures1 = @spot1.pictures.order(id: "ASC") %>
 
-
-<%# 横スクロールアイキャッチ %>
-<div class="horizontal_scroll_wrap_result">
-  <ul class="scroll_lst_result">
-    <%# 画像とタイトル %>
-    <li class="scroll_item_result">
-        <div class="scroll_item_inr_result">
-          <div class="frame-demo">
-            <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
-            <h3><%= @n %>,&nbsp;<%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-          </div>
-        </div>
-    </li>
-    <li class="scroll_item_result_maps">
-      <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_info">
-            Info&nbsp;<i class="fa fa-angle-double-right"></i>
-          </div>
-      </div>
-    </li>
-    <li class="scroll_item_result_map">
-        <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result">
-            <%# スポット情報ボタン %>
-              <%= link_to spot_path(@spot1) do %>
-                <div class="info-box3">
-                  <div class="btn btn-default btn-sm">
-                    スポット情報を見る
-                  </div>
-                </div>
-              <% end %>
-            <%# 食べログ、rettyボタン %>
-            <div class="info-box2">
-            <% unless @spot1.tabelog.blank? %>
-              <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
-            <% end %>
-            <% unless @spot1.retty.blank? %>
-              <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
-            <% end %>
-            </div>
-            <%# 公式サイトボタン %>
-            <% unless @spot1.browser.blank? %>
-              <a href="<%= @spot1.browser %>" target="_blank" class="info_btn">
-                <i class="fa fa-safari"></i>&nbsp;公式サイト
-              </a>
-            <% end %>
-            <%# 電話ボタン %>
-            <% unless @spot1.phone.blank? %>
-              <a href="tel:<%= @spot1.phone %>" target="_blank" class="info_btn">
-                <i class="fa fa-phone"></i>&nbsp;電話
-              </a>
-            <% end %>
-            <%# Instagramボタン %>
-            <% unless @spot1.introduction.blank? %>
-              <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
-                <i class="fa fa-instagram"></i>&nbsp;instagram
-              </a>
-            <% end %>
-          </div>
-        </div>
-    </li>
-    <%# メモ機能 %>
-    <% if (user_signed_in?) %>
-      <% if @course.user_id == current_user.id %>
-        <li class="scroll_item_result_maps">
+  <%# 横スクロールアイキャッチ %>
+  <div class="horizontal_scroll_wrap_result">
+    <ul class="scroll_lst_result">
+      <%# 画像とタイトル %>
+      <li class="scroll_item_result">
           <div class="scroll_item_inr_result">
-              <div class="scroll_item_thum_result_info">
-                Memo&nbsp;<i class="fa fa-angle-double-right"></i>
-              </div>
+            <div class="frame-demo">
+              <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
+              <h3><%= @n %>,&nbsp;<%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
+            </div>
           </div>
-        </li>
-        <li class="scroll_item_result_map">
+      </li>
+      <li class="scroll_item_result_maps">
+        <div class="scroll_item_inr_result">
+            <div class="scroll_item_thum_result_info">
+              Info&nbsp;<i class="fa fa-angle-double-right"></i>
+            </div>
+        </div>
+      </li>
+      <li class="scroll_item_result_map">
           <div class="scroll_item_inr_result">
             <div class="scroll_item_thum_result">
-              <div class="memo-box">
-              	 <% if point.memo.blank? %>
-              	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
-  			          メモを追加する
-  			        <% end %>
-              	 <% else %>
-              	 	<%= point.memo %>
-              	 	<br>
-              	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
-  			          メモを編集する
-  			        <% end %>
-              	 <% end %>
+              <%# スポット情報ボタン %>
+                <%= link_to spot_path(@spot1) do %>
+                  <div class="info-box3">
+                    <div class="btn btn-default btn-sm">
+                      スポット情報を見る
+                    </div>
+                  </div>
+                <% end %>
+              <%# 食べログ、rettyボタン %>
+              <div class="info-box2">
+              <% unless @spot1.tabelog.blank? %>
+                <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+              <% end %>
+              <% unless @spot1.retty.blank? %>
+                <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+              <% end %>
               </div>
+              <%# 公式サイトボタン %>
+              <% unless @spot1.browser.blank? %>
+                <a href="<%= @spot1.browser %>" target="_blank" class="info_btn">
+                  <i class="fa fa-safari"></i>&nbsp;公式サイト
+                </a>
+              <% end %>
+              <%# 電話ボタン %>
+              <% unless @spot1.phone.blank? %>
+                <a href="tel:<%= @spot1.phone %>" target="_blank" class="info_btn">
+                  <i class="fa fa-phone"></i>&nbsp;電話
+                </a>
+              <% end %>
+              <%# Instagramボタン %>
+              <% unless @spot1.introduction.blank? %>
+                <a href="<%= @spot1.introduction %>" target="_blank" class="info_btn">
+                  <i class="fa fa-instagram"></i>&nbsp;instagram
+                </a>
+              <% end %>
             </div>
           </div>
-        </li>
+      </li>
+      <%# メモ機能 %>
+      <% if (user_signed_in?) %>
+        <% if @course.user_id == current_user.id %>
+          <li class="scroll_item_result_maps">
+            <div class="scroll_item_inr_result">
+                <div class="scroll_item_thum_result_info">
+                  Memo&nbsp;<i class="fa fa-angle-double-right"></i>
+                </div>
+            </div>
+          </li>
+          <li class="scroll_item_result_map">
+            <div class="scroll_item_inr_result">
+              <div class="scroll_item_thum_result">
+                <div class="memo-box">
+                	 <% if point.memo.blank? %>
+                	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
+    			          メモを追加する
+    			        <% end %>
+                	 <% else %>
+                	 	<%= point.memo %>
+                	 	<br>
+                	 	<%= link_to("/points/#{point.id}/memo", {method: "get"}) do %>
+    			          メモを編集する
+    			        <% end %>
+                	 <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
-</div>
+    </ul>
+  </div>
 
 <% end %>
 
+<%# 写真があればメディア %>
 <% if @course.release == true %>
   <% unless @pictures.blank? %>
     <div class="panel-body">
@@ -167,13 +167,15 @@
               <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
             </div>
             <div class="scroll_item_info_content_quote">
-              <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+              <p class="scroll_item_ttl_content_quote spot-show-p pull-left">
                 <% unless picture.spot.blank? %>
                   <%= link_to spot_path(picture.spot) do %>
-                  <span class="gray" style="font-size:14px;">
+                  <span class="black" style="font-size:14px;">
                     <%= picture.spot.title %>
                   </span>
                   <% end %> 
+                <% else %>  
+                  &nbsp;
                 <% end %>  
               </p>
             </div>
@@ -185,6 +187,7 @@
   <% end %>
 <% end %>
 
+<%# コースコピー %>
 <% if user_signed_in? %>
   <% if @course.user_id != current_user.id %>
     <% if Copy.where(user_id: current_user.id, course_id: @course.id).blank? %>
@@ -248,7 +251,7 @@
   <% end %>
 <% end %>
 
-
+<%# マップ %>
 <div class="map-title-box">
   <div class="map-title">
     Map
@@ -258,6 +261,21 @@
 </div>
 <div id="sample"></div>
 
+<%# フッターのレビューボタン %>
+<div class="visible-xs">
+  <%= link_to "/courses/#{@course.id}/release" do %>
+    <div class="sticky-bar-release">  
+      <div class="sticky-title-release">  
+        <% if @course.went.blank? %>
+          <i class="fa fa-edit">&nbsp;</i>レビューする
+        <% else %>
+          <i class="fa fa-edit">&nbsp;</i>レビューを編集する
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="fotter-box"></div>
 
 
 
@@ -315,28 +333,6 @@ function markerEvent(i) {
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
-
-
-
-
-<div class="visible-xs">
-  <%= link_to "/courses/#{@course.id}/release" do %>
-    <div class="sticky-bar-release">  
-      <div class="sticky-title-release">  
-        <% if @course.went.blank? %>
-          <i class="fa fa-edit">&nbsp;</i>レビューする
-        <% else %>
-          <i class="fa fa-edit">&nbsp;</i>レビューを編集する
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-<div class="fotter-box"></div>
-
-
-
 
 
 
