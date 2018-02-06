@@ -2,13 +2,18 @@
 
 <mains class="" id="main-collapse">
 
-
-
-
 <% if @course.release == true %>
   <div class="panel-body">
-    <br>
-    <span class="pull-right btn btn-success btn-sm">公開</span> 
+    <% if (user_signed_in?) %>
+      <% if @course.user_id == current_user.id %>
+      <div class="edit-course-box">
+        <span class="btn btn-success btn-sm">公開</span> 
+        <%= link_to "/courses/#{@course.id}/release" do %>
+          <span class="btn btn-default btn-sm">レビューを編集</span> 
+        <% end %> 
+      </div>   
+      <% end %>
+    <% end %>
     <%# タイトル %>
     <div class="title-spot-show">
       <%= @course.title %>
@@ -29,13 +34,14 @@
   </div> 
 <% else %>
   <div class="panel-body">
-    <br>
     <% if (user_signed_in?) %>
       <% if @course.user_id == current_user.id %>   
+      <div class="edit-course-box">
+        <span class="btn btn-primary btn-sm">未公開</span> 
         <%= link_to edit_course_path(@course) do %>
-          <span class="pull-right btn btn-default btn-sm">コースを編集</span> 
+          <span class="btn btn-default btn-sm">コースを編集</span> 
         <% end %> 
-        <span class="pull-right btn btn-primary btn-sm">未公開</span> 
+      </div>   
       <% end %>
     <% end %>
     <%# タイトル %>
@@ -262,20 +268,18 @@
 <div id="sample"></div>
 
 <%# フッターのレビューボタン %>
-<div class="visible-xs">
-  <%= link_to "/courses/#{@course.id}/release" do %>
-    <div class="sticky-bar-release">  
-      <div class="sticky-title-release">  
-        <% if @course.went.blank? %>
+<% if @course.went.blank? %>
+  <div class="visible-xs">
+    <%= link_to "/courses/#{@course.id}/release" do %>
+      <div class="sticky-bar-release">  
+        <div class="sticky-title-release">  
           <i class="fa fa-edit">&nbsp;</i>レビューする
-        <% else %>
-          <i class="fa fa-edit">&nbsp;</i>レビューを編集する
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
-<div class="fotter-box"></div>
+    <% end %>
+  </div>
+  <div class="fotter-box"></div>
+<% end %>
 
 
 
