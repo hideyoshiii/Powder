@@ -32,9 +32,9 @@
           <i class="fa fa-yen"></i>&nbsp;&nbsp;~<%= @course.price_used %>円程度
         </div>
       <% end %>
-      <br><br>
       <%# Description %>
       <% unless @course.good_point.blank? %>
+        <br><br>
         <p><%= @course.good_point %></p>
       <% end %>
     </div> 
@@ -308,9 +308,9 @@
               <i class="fa fa-yen"></i>&nbsp;&nbsp;~<%= @course.price_used %>円程度
             </div>
           <% end %>
-          <br>
           <%# Description %>
           <% unless @course.good_point.blank? %>
+            <br><br>
             <p><%= @course.good_point %></p>
           <% end %>
         </div> 
