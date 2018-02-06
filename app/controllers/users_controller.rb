@@ -34,7 +34,8 @@ class UsersController < ApplicationController
   def course
     @n = 0
     @user = User.find(params[:id]) 
-    @courses = Course.where(user_id: @user.id).order('id DESC')
+    @courses_go = Course.where(user_id: @user.id, release: false).order('id DESC')
+    @courses_went = Course.where(user_id: @user.id, release: true).order('id DESC')
     
   end
 

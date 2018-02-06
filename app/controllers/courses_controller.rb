@@ -150,11 +150,11 @@ class CoursesController < ApplicationController
 
   private
   def course_params
-    params.require(:course).permit(:title, :went, :price_used, :good_point, :bad_point)
+    params.require(:course).permit(:title, :release, :went, :price_used, :good_point, :bad_point)
   end
 
   def picture_params
-    params.require(:course).permit(:title, :went, :price_used, :good_point, :bad_point, images:[])
+    params.require(:course).permit(:title, :release, :went, :price_used, :good_point, :bad_point, images:[])
   end
 
   

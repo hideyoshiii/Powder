@@ -22,7 +22,9 @@
 
 <%= form_for @course, :html => { multipart: true } do |f| %>
 
-
+<% if @course.release == false %>
+	<%= f.hidden_field :release, :value => true %>
+<% end %>
 
 <br>
 <div class="text-center">

@@ -1,5 +1,5 @@
 <%= render "partial/navbar4" %>
-<mains class="" id="main-collapse">
+<mains class="" id="main-collapse">s
 	
 <div class="panel-body">
 	<div class="title-content">
@@ -7,41 +7,122 @@
 	</div> 
 	<hr class="style2">
 </div>	
+
+
+<!-- タブ -->
+ <div class="panel-body">
+   <ul class="nav nav-pills">
+     <li class="active">
+       <a data-target="#main" data-toggle="tab" id="change-to-access-tab">
+         基本情報
+       </a>
+     </li>
+     <li>
+       <a data-target="#access" data-toggle="tab" id="change-to-main-tab">
+         アクセス
+       </a>
+     </li>
+   </ul>
+ </div>
+
+ <!-- 各タブのなかみ -->
+ <div class="tab-content">
+   <div role="tabpanel" class="tab-pane active fade in" id="main">
+
+    <% @courses_go.each do |course| %>
+		<% @points = Point.where(course_id: course.id).order(number: "ASC") %>
+		<%= link_to course_path(course) do %>
+			<div class="course-title-box">
+				<div class="course-title">
+					<%= course.title %>
+					<% copy_count = Copy.where(course_id: course.id).count %>
+					<span class="pull-right" style="color:#808080; font-size:12px;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー&nbsp;&nbsp;</span>
+				</div>
+			</div>
+			<div class="horizontal_scroll_wrap_coures">
+				<ul class="scroll_lst_coures">
+			  		<%# 横スクロールコンテンツ %>
+			  		<% @points.each do |point| %>
+				  		<li class="scroll_item_coures">
+				    		<div class="scroll_item_inr_coures">
+				      			<div class="scroll_item_thum_coures">
+				        			<%= image_tag point.spot.pictures.first.image.url, :class =>'img-scroll_coures' %>
+				      			</div>
+				      			<div class="scroll_item_info_coures_quote">
+					        		<p class="scroll_item_ttl_coures_quote spot-show-p">
+					      				<%= point.spot.title %>
+					        		</p>
+				      			</div>
+				   			</div>
+				  		</li>
+			  		<% end %>  
+				</ul>
+			</div>
+			<br>
+		<% end %>  
+	<% end %>  
+
+     <button id="change-to-access-tab" class="btn btn-primary">タブを切り替えるボタン</button>
+   </div>
+   <div role="tabpanel" class="tab-pane fade in" id="access">
+
+     <% @courses_went.each do |course| %>
+		<% @points = Point.where(course_id: course.id).order(number: "ASC") %>
+		<%= link_to course_path(course) do %>
+			<div class="course-title-box">
+				<div class="course-title">
+					<%= course.title %>
+					<% copy_count = Copy.where(course_id: course.id).count %>
+					<span class="pull-right" style="color:#808080; font-size:12px;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー&nbsp;&nbsp;</span>
+				</div>
+			</div>
+			<div class="horizontal_scroll_wrap_coures">
+				<ul class="scroll_lst_coures">
+			  		<%# 横スクロールコンテンツ %>
+			  		<% @points.each do |point| %>
+				  		<li class="scroll_item_coures">
+				    		<div class="scroll_item_inr_coures">
+				      			<div class="scroll_item_thum_coures">
+				        			<%= image_tag point.spot.pictures.first.image.url, :class =>'img-scroll_coures' %>
+				      			</div>
+				      			<div class="scroll_item_info_coures_quote">
+					        		<p class="scroll_item_ttl_coures_quote spot-show-p">
+					      				<%= point.spot.title %>
+					        		</p>
+				      			</div>
+				   			</div>
+				  		</li>
+			  		<% end %>  
+				</ul>
+			</div>
+			<br>
+		<% end %>  
+	<% end %>  
+
+   </div>
+ </div>
+
+ <!-- jQuery -->
+ <script>
+ $(function() {
+   // ボタンクリックでタブを切り替え
+   $('#change-to-access-tab').click(function(e) {
+     $('.nav-tabs a[href="#access"]').tab('show');
+   });    
+ });
+ </script>
+
+ <script>
+ $(function() {
+   // ボタンクリックでタブを切り替え
+   $('#change-to-main-tab').click(function(e) {
+     $('.nav-tabs a[href="#main"]').tab('show');
+   });    
+ });
+ </script>
   
 
-<% @courses.each do |course| %>
-<% @points = Point.where(course_id: course.id).order(number: "ASC") %>
-<%= link_to course_path(course) do %>
-	<div class="course-title-box">
-		<div class="course-title">
-			<%= course.title %>
-			<% copy_count = Copy.where(course_id: course.id).count %>
-			<span class="pull-right" style="color:#808080; font-size:12px;"><i class="fa fa-copy"></i>&nbsp;<%= copy_count %>コピー&nbsp;&nbsp;</span>
-		</div>
-	</div>
-	<div class="horizontal_scroll_wrap_coures">
-	<ul class="scroll_lst_coures">
-	  <%# 横スクロールコンテンツ %>
-	  <% @points.each do |point| %>
-	  <li class="scroll_item_coures">
-	    <div class="scroll_item_inr_coures">
-	      <div class="scroll_item_thum_coures">
-	        <%# $$$spotから利用する写真をfitstなどで指定 %>
-	        <%= image_tag point.spot.pictures.first.image.url, :class =>'img-scroll_coures' %>
-	      </div>
-	      <div class="scroll_item_info_coures_quote">
-	        <p class="scroll_item_ttl_coures_quote spot-show-p">
-	      		<%= point.spot.title %>
-	        </p>
-	      </div>
-	   </div>
-	  </li>
-	  <% end %>  
-	</ul>
-	</div>
-	<br>
-<% end %>  
-<% end %>  
+
 
 </main>
 <%= render "partial/footer" %>

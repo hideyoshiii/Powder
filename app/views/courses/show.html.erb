@@ -263,7 +263,11 @@ function markerEvent(i) {
   <%= link_to "/courses/#{@course.id}/release" do %>
     <div class="sticky-bar-release">  
       <div class="sticky-title-release">  
-        <i class="fa fa-edit">&nbsp;</i>レビューする
+        <% if @course.went.blank? %>
+          <i class="fa fa-edit">&nbsp;</i>レビューする
+        <% else %>
+          <i class="fa fa-edit">&nbsp;</i>レビューを編集する
+        <% end %>
       </div>
     </div>
   <% end %>
