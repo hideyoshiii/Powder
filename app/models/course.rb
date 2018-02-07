@@ -3,5 +3,4 @@ class Course < ApplicationRecord
   has_many :points, dependent: :destroy
   has_many :timelines, dependent: :destroy
   has_many :copies, dependent: :destroy
-  has_many :pictures, dependent: :destroy
 end

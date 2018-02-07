@@ -35,7 +35,7 @@ class SpotsController < ApplicationController
     @spot = current_user.spots.build(spot_params)
 
       if @spot.save
-        @picture = Picture.new(image: params[:spot][:image], spot_id: @spot.id, user_id: current_user.id, course_id: 3)
+        @picture = Picture.new(image: params[:spot][:image], spot_id: @spot.id, user_id: current_user.id)
         @picture.save
         redirect_to user_path(current_user)
       else
