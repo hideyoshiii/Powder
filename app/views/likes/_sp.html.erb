@@ -1,4 +1,4 @@
-<div class="like-font-index">
+<div class="">
 	<% if user_signed_in? %>
 	    <% if Like.find_by(user_id: current_user.id, spot_id: spot.id) %>
 	      <% if Like.find_by(user_id: current_user.id, spot_id: spot.id, kind: 1) %>

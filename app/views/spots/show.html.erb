@@ -1,9 +1,6 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
-
-
-
 	<%# PCの時 %>
   	<div class="hidden-xs hidden-sm col-md-6">
   	<br>
@@ -200,43 +197,27 @@
 	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.city %>&nbsp;&nbsp;[<%= @spot.station %>]
 	    </div> 
 	    <br>
-	    <%# wantdoneボタン %>
-	    <span id="sp-of-<%= @spot.id %>">
-	    	<%= render partial: 'likes/sp', locals: { spot: @spot, likes: @likes } %>
-	  	</span>
-	  	<br>
     	<%# 見出し %>
-          <% if @spot.heading.blank? %>
-            <p class="aaa">川のほとりの一軒家で静かなディナーを</p>
-          <% else %>
+          <% unless @spot.heading.blank? %>
             <p class="aaa"><%= @spot.heading %></p>
           <% end %>
           <%# Description %>
-          <% if @spot.description.blank? %>
-            <p>ラグジュアリーなリゾートを彷彿させるテラスが有名なメキシコ料理点。きらびやかな空間で飲むお酒に気分も上がる。</p>
-          <% else %>
+          <% unless @spot.description.blank? %>
             <p><%= @spot.description %></p>
+            <br>
           <% end %>
-          <br>
           <%# ポイント1 %>
-          <% if @spot.point1.blank? %>
-            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-            <p>暗め照明のメリットを最大限享受するため、場所は絶対に地下を予約しよう。座り心地の悪い椅子もあるので、「座り心地の良い椅子で！」とリクエストをするのがおすすめ。</p>
-          <% else %>
+          <% unless @spot.point1.blank? %>
             <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
             <p><%= @spot.point1 %></p>
           <% end %>
           <%# ポイント2 %>
-          <% if @spot.point2.blank? %>
-            <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
-            <p>ここではお食事をせず、お酒と景色を楽しもう。テラス席からは東京タワーが見えるので、お店の人にテラス席に案内してもらおう。ただ、お天気が曇りだと遠くまでの景色が見えない場合があるので、お天気はこまめにチェックするのが大切。</p>
-          <% else %>
+          <% unless @spot.point2.blank? %>
             <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
             <p><%= @spot.point2 %></p>
           <% end %>
           <%# ポイント3 %>
-          <% if @spot.point3.blank? %>
-          <% else %>
+          <% unless @spot.point3.blank? %>
             <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
             <p><%= @spot.point3 %></p>
           <% end %>
@@ -367,16 +348,6 @@
             </div>
           </div>
 		<br>
-		<%# シェアボタン %>
-		<h4>Share</h4>
-  		<%# facebookボタン %>
-	    <a href="http://www.facebook.com/sharer.php?u=<%= url_for(only_path: false) %>&t=Powder/あなたのデートに彩りを。" target="_blank" class="facebook white">Facebook</a>
-	    <%# twitterボタン %>
-		<a href="https://twitter.com/share?ref_src=twsrc%5Etfw&text=Powder/あなたのデートに彩りを。" target="_blank" class="twitter white" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-		<%# lineボタン %>
-		<a href="http://line.me/R/msg/text/? Powder/あなたのデートに彩りを。
-		<%= url_for(only_path: false) %>" target="_blank" class="line white"> LINE</a>
-    <br><br><br>
     <%# 写真関連 %>
     <% if (user_signed_in?) %>
       <% if current_user.authority == "manager" %>
@@ -439,7 +410,17 @@
  	</div>
 
 
+<div class="visible-xs">
+  <div class="sticky-bar-like">
+    <%# wantdoneボタン %>
+      <span id="sp-of-<%= @spot.id %>">
+        <%= render partial: 'likes/sp', locals: { spot: @spot, likes: @likes } %>
+      </span>
+      <br>
+  </div>
+</div>
 
+<div class="fotter-box"></div>
 </main>
 
 <script>
