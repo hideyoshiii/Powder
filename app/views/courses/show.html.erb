@@ -203,7 +203,7 @@
   <%# コースコピー %>
   <% if user_signed_in? %>
     <% if Copy.where(user_id: current_user.id, course_id: @course.id).blank? %>
-      <h4 class="text-center" style="margin:30px 0px 20px;">コースをコピーしてカスタマイズしましょう</h4> 
+      <h4 class="text-center" style="margin:30px 0px 30px;font-size:18px;">コースをコピーしてカスタマイズしましょう</h4> 
       <div class="text-center">
         <%= form_tag(timelines_copy_path, method: :post) do %>
         <%= hidden_field_tag :course_id, @course.id %>
@@ -237,7 +237,7 @@
       <h4 class="text-center" style="margin:30px 0px 30px;">(コースをコピー済み)</h4> 
     <% end %>
   <% else %>
-    <h4 class="text-center" style="margin:30px 0px 30px;">コースをコピーしてカスタマイズしましょう</h4> 
+    <h4 class="text-center" style="margin:30px 0px 30px;font-size:18px;">コースをコピーしてカスタマイズしましょう</h4> 
       <div class="text-center">
         <div class="raised4">
           コピーする
