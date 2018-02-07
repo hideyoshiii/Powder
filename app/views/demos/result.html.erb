@@ -79,24 +79,6 @@
           </div>
         </div>
     </li>
-    <li class="scroll_item_result_maps">
-      <div class="scroll_item_inr_result">
-          <div class="scroll_item_thum_result_maps">
-            Map&nbsp;<i class="fa fa-angle-double-right"></i>
-            <%# GoogleMapボタン %>
-            <% unless @spot1.address.blank? %>
-              <br>
-              <a href="javascript:;" onclick="window.open('http://maps.google.co.jp/maps?q='+encodeURI('<%= @spot1.address %>'));return false;" href="javascript:;" class="info_btn_map">
-                GoogleMapを開く
-              </a>
-            <% end %>
-          </div>
-      </div>
-    </li>
-    <li class="scroll_item_result_map">
-      <%# googlemap %>
-      <div id="map_canvas_01" class="scroll_item_inr_result"></div>
-    </li>
   </ul>
 </div>
 
