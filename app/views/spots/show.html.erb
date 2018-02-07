@@ -193,9 +193,9 @@
 	  	<%# タイトル %>
 	    <div class="title-spot-show"><%= @spot.title %></div>
 	    <%# 都道府県、エリア %>
-	    <div class="prefecture-spot-show">
+	    <p style="color: #CCCCCC;margin-top:5px;">
 	    	<i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot.city %>&nbsp;&nbsp;[<%= @spot.station %>]
-	    </div> 
+	    </p> 
 	    <br>
     	<%# 見出し %>
           <% unless @spot.heading.blank? %>
@@ -204,7 +204,6 @@
           <%# Description %>
           <% unless @spot.description.blank? %>
             <p><%= @spot.description %></p>
-            <br>
           <% end %>
           <%# ポイント1 %>
           <% unless @spot.point1.blank? %>
@@ -221,11 +220,8 @@
             <p class="aaaa"><span class="a5">A.Dateポイント</span></p>
             <p><%= @spot.point3 %></p>
           <% end %>
-          <%# 食べログ、rettyボタン %>
-          <hr class="more">
-          <div class="more-btn" style="font-size:15px;font-weight:bold;color:#4D4D4D;">
-            For your infomation
-          </div>
+          <%# 食べログ、rettyボタン等 %>
+          <h3 style="margin:70px 0px 30px;">For your infomation</h3>
           <div class="info-box1">
             <% unless @spot.tabelog.blank? %>
               <a href="<%= @spot.tabelog %>" target="_blank" class="raise2"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
@@ -260,13 +256,8 @@
               </a>
             <% end %>
           </div>
-          <hr class="more">
-          <%# 諸情報 %> 
-          <div class="more-btn" style="font-size:15px;font-weight:bold;color:#4D4D4D;">
-            More
-          </div>
+          <h3 style="margin:70px 0px 30px;">More</h3>
           <div>
-            <br>
             <div class="row more-content">
               <div class="col-xs-3">
                 営業時間
