@@ -101,7 +101,7 @@
 </div>
 
 <%# コースを保存 %>
-<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できるよ！</h4> 
+<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できます</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
     <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: nil) %>
@@ -128,7 +128,7 @@
         保存する
       </div>
       <br>
-      ※ログインしてね!
+      ※ログインしてください
     </div>
   <% end %>
 </div>
@@ -301,7 +301,7 @@
 </div>
 
 <%# コースを保存 %>
-<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できるよ！</h4> 
+<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できます</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
     <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: @spot2.id) %>
@@ -329,7 +329,7 @@
         保存する
       </div>
       <br>
-      ※ログインしてね!
+      ※ログインしてください
     </div>
   <% end %>
 </div>

@@ -5,7 +5,7 @@
 
 <% if !@spots.blank? %>
   
-  <h4 class="text-center" style="margin-top:20px;">どの<%= @large %>にする？</h4> 
+  <h4 class="text-center" style="margin-top:20px;">どの<%= @large %>にしますか？</h4> 
 
   <%= form_tag(demos_second_path, method: :get) do %>
     <%= hidden_field_tag :city_dinner, params[:city_dinner] %>
