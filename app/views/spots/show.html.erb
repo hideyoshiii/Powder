@@ -261,15 +261,17 @@
             <% end %>
           </div>
           <hr class="more">
-          <%# 諸情報プルダウン %> 
-          <div">
+          <%# 諸情報 %> 
+          <div class="more-btn" style="font-size:15px;font-weight:bold;color:#4D4D4D;">
+            More
+          </div>
+          <div>
             <br>
             <div class="row more-content">
               <div class="col-xs-3">
                 営業時間
               </div>
               <div class="col-xs-9">
-
                 月&nbsp;&nbsp;<% unless @spot.monday.blank? %><%= @spot.monday %><% end %><br>
                 火&nbsp;&nbsp;<% unless @spot.tuesday.blank? %><%= @spot.tuesday %><% end %><br>
                 水&nbsp;&nbsp;<% unless @spot.wednesday.blank? %><%= @spot.wednesday %><% end %><br>
@@ -344,7 +346,7 @@
               </div>
             </div>
           </div>
-		<br>
+		<br><br><br>
     <%# 写真関連 %>
     <% if (user_signed_in?) %>
       <% if current_user.authority == "manager" %>
@@ -390,6 +392,7 @@
 							</div>
 						</div>
 					</div>
+          <br><br>
 				<% else %>
 			  	<br><br><br>
 					<div class="img-show">
@@ -401,6 +404,7 @@
 						<% end %>
 					</div>
 				<% end %>
+        <br><br>
 			<% end %>
 		<% end %>
 	</div>	
