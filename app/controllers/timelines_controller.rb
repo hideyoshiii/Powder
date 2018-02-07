@@ -138,14 +138,14 @@ class TimelinesController < ApplicationController
 
 	def copy
     if !params[:spot1_id].blank?
-        @course = Course.new(user_id: current_user.id, title: params[:title])
+        @course = Course.new(user_id: current_user.id, title: "Untitled(コピー)")
           if @course.save
             @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if params[:spot2_id].blank?
 	            if @point1.save
 	            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
 	            	@copy.save
-	                redirect_to course_path(@course), notice: "コースを複製しました" #保存完了
+	                redirect_to course_path(@course), notice: "コースをコピーしました" #保存完了
 	            else
 	              redirect_back(fallback_location: root_path) #ポイント1が保存できなかった
 	            end
@@ -156,7 +156,7 @@ class TimelinesController < ApplicationController
 			            if @point2.save
 			            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
 	            			@copy.save
-			                redirect_to course_path(@course), notice: "コースを複製しました" #保存完了
+			                redirect_to course_path(@course), notice: "コースをコピーしました" #保存完了
 			            else
 			              redirect_back(fallback_location: root_path) #ポイント2が保存できなかった
 			            end
@@ -167,7 +167,7 @@ class TimelinesController < ApplicationController
 					            if @point3.save
 					            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
 	            					@copy.save
-					                redirect_to course_path(@course), notice: "コースを複製しました" #保存完了
+					                redirect_to course_path(@course), notice: "コースをコピーしました" #保存完了
 					            else
 					              redirect_back(fallback_location: root_path) #ポイント3が保存できなかった
 					            end
@@ -178,7 +178,7 @@ class TimelinesController < ApplicationController
 							            if @point4.save
 							            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
 	            							@copy.save
-							                redirect_to course_path(@course), notice: "コースを複製しました" #保存完了
+							                redirect_to course_path(@course), notice: "コースをコピーしました" #保存完了
 							            else
 							              redirect_back(fallback_location: root_path) #ポイント4が保存できなかった
 							            end
@@ -187,7 +187,7 @@ class TimelinesController < ApplicationController
 							                @point5 = Point.new(spot_id: params[:spot5_id].to_i, course_id: @course.id, number: 5)
 							                if params[:spot6_id].blank?
 									            if @point5.save
-									                redirect_to course_path(@course), notice: "コースを複製しました" #保存完了
+									                redirect_to course_path(@course), notice: "コースをコピーしました" #保存完了
 									            else
 									              redirect_back(fallback_location: root_path) #ポイント5が保存できなかった
 									            end
@@ -199,7 +199,7 @@ class TimelinesController < ApplicationController
 										            if @point6.save
 										            	@copy = Copy.new(user_id: current_user.id, course_id: params[:course_id].to_i)
 	            										@copy.save
-										                redirect_to course_path(@course), notice: "コースを複製しました" #保存完了
+										                redirect_to course_path(@course), notice: "コースをコピーしました" #保存完了
 										            else
 										              redirect_back(fallback_location: root_path) #ポイント6が保存できなかった
 										            end

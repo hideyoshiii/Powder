@@ -101,7 +101,7 @@
 </div>
 
 <%# コースを保存 %>
-<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できます</h4> 
+<h4 class="text-center" style="margin:30px 0px 20px;">コースを保存してカスタマイズしましょう</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
     <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: nil) %>
@@ -116,14 +116,12 @@
       <%= hidden_field_tag :small_dinner, params[:small_dinner] %>
         <%= hidden_field_tag :spot1_id, @spot1.id %>
         <div class="text-center">
-          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
           <%= submit_tag "保存する", :class => "raised4" %>
         </div>
       <% end %>
     <% end %>
   <% else %>
     <div class="text-center">
-      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
       <div class="raised4">
         保存する
       </div>
@@ -301,7 +299,7 @@
 </div>
 
 <%# コースを保存 %>
-<h4 class="text-center" style="margin:30px 0px 30px;">コースを保存できます</h4> 
+<h4 class="text-center" style="margin:30px 0px 20px;">コースを保存してカスタマイズしましょう</h4> 
 <div class="text-center">
   <% if user_signed_in? %>
     <% if Course.find_by(user_id: current_user.id, spot1_id: @spot1.id, spot2_id: @spot2.id) %>
@@ -317,14 +315,12 @@
         <%= hidden_field_tag :spot1_id, @spot1.id %>
         <%= hidden_field_tag :spot2_id, @spot2.id %>
         <div class="text-center">
-          <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
           <%= submit_tag "保存する", :class => "raised4" %>
         </div>
       <% end %>
     <% end %>
   <% else %>
     <div class="text-center">
-      <%= text_field_tag :title, '', placeholder: "名前を付けて保存", class: "input-course-title", required: "true" %>
       <div class="raised4">
         保存する
       </div>

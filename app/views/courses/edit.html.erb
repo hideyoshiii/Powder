@@ -1,15 +1,24 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
-<div class="panel-body">
-	<div class="title-content2">
-	  コースを編集
-	  <%= link_to course_path(@course) do %>
-		<h4 class="pull-right btn btn-default btn-sm">完了</h4>	
-　　　　<% end %>
-	</div> 
-	<hr class="style2">
-</div>	
+<%= form_for @course, :html => { multipart: true } do |f| %>
+
+	<div class="panel-body">
+		<div class="title-content2">
+		  コースを編集
+		  <%= link_to course_path(@course) do %>
+			<h4 class="pull-right"><%= f.submit "保存", class: "btn btn-default btn-sm" %></h4>	
+	　　　　<% end %>
+		</div> 
+		<hr class="style2">
+	</div>	
+
+	<div class="panel-body">
+		<label>タイトル</label>
+		<%= f.text_field :title, placeholder: "タイトル", class: "form-control", required: "true" %>
+	</div>
+
+<% end %>
 
 <%= form_tag(points_number_path, method: :post) do %>
 	

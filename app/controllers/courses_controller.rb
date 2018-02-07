@@ -93,7 +93,7 @@ class CoursesController < ApplicationController
   def create
     if !params[:spot1_id].blank?
       if params[:spot2_id].blank?
-        @course = Course.new(user_id: current_user.id, title: params[:title], city: params[:city_dinner])
+        @course = Course.new(user_id: current_user.id, title: "Untitled", city: params[:city_dinner])
           if @course.save
             @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if @point1.save
@@ -110,7 +110,7 @@ class CoursesController < ApplicationController
             redirect_back(fallback_location: root_path) #保存できなっかた
           end
       else
-        @course = Course.new(user_id: current_user.id, title: params[:title], city: params[:city_dinner])
+        @course = Course.new(user_id: current_user.id, title: "Untitled", city: params[:city_dinner])
         if @course.save
             @point1 = Point.new(spot_id: params[:spot1_id].to_i, course_id: @course.id, number: 1)
             if @point1.save
