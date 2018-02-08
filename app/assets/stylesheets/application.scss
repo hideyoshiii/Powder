@@ -2428,6 +2428,83 @@ footer p {
   }
 
 
+//四択バージョン
+.radio-city2 {
+  	position: relative;
+  	width:50%;
+    height:25vh;
+    overflow:hidden;
+    float: left;
+    border: solid 1px #FAFAFA;
+  }
+
+.radio-city2 input{
+    display: none;
+}
+.radio-city2 label {
+    position: relative;
+    transition:0.1s;
+}
+.radio-city2 input[type="radio"]:checked + label {
+    position: relative;
+    transition:0.1s;
+}
+
+.radio-city2 input[type="radio"] + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.9); /* カラーを重ねる */
+}
+
+.radio-city2 input[type="radio"]:checked + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0); /* カラーを重ねる */
+}
+
+.radio-city2 h3 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  -ms-transform: translate(0%,0%);
+  -webkit-transform: translate(0%,0%);
+  transform: translate(0%,0%);
+  margin:0;
+  padding:5px;
+  color:white;
+  font-size:14px;
+  font-weight: 300;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  opacity:.9;
+  text-shadow: 1px 1px 2px black;
+  }
+
+.radio-city2 h4 {
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  -ms-transform: translate(-50%,-90%);
+  -webkit-transform: translate(-50%,-90%);
+  transform: translate(-50%,-90%);
+  margin:0;
+  padding:0;
+  color:white;
+  font-size:20px;
+  opacity: 0.8;
+  text-shadow: 1px 1px 2px black;
+  }
+
+
+
+
 //タイムラインサーチラジオボタン 
 .radio-timeline input{
     display: none;
@@ -4071,6 +4148,12 @@ display: inline-block;
     	}
 }
 
+//四択バージョン
+.img-course-result2{
+	width:100%;
+	height: auto;
+	
+    }
 
 .img-demo-result{
 	width:100%;

@@ -17,7 +17,6 @@
       <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance].to_f) %>
       <%= submit_tag "距離を絞る", :class => "" %>
     </div>
-    <br>
   <% end %>
 
   <%= form_tag(demos_result_path, method: :get) do %>
@@ -28,7 +27,7 @@
     <%= hidden_field_tag :large, params[:large] %>
 
     <% @spots.each do |spot| %>
-      <div class="radio-city1">	
+      <div class="radio-city2">	
         <% @n = @n + 1 %>
         <% if @n == 1 %>	
           <%= radio_button_tag(:spot2, spot.id, true) %>
@@ -36,9 +35,9 @@
           <%= radio_button_tag(:spot2, spot.id) %>
         <% end %>
         <label for="spot2_<%= spot.id %>">
-          <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
+          <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result2' %>
           <h3>
-            <%= spot.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span>
+            <%= spot.title %><br><span style="font-size:8px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span>
           </h3> 
           <%= link_to spot_path(spot) do %>
         	  <h4>
@@ -52,9 +51,17 @@
     <div class="dinner-box change-btn">	
       <div class="col-xs-12">
         <div class="text-center">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>	
+    </div>
+    <div class="dinner-box change-btn"> 
+      <div class="col-xs-12">
+        <div class="text-center">
           <a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Change</a>&nbsp;&nbsp;
-          <%= submit_tag "コースを確定する", :class => "btn btn-default" %></div>
-        </div>	
+          <%= submit_tag "コースを確定する", :class => "btn btn-default" %>
+        </div>
+      </div>  
     </div>
 
   <% end %>
