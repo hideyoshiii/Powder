@@ -2432,7 +2432,7 @@ footer p {
 .radio-city2 {
   	position: relative;
   	width:50%;
-    height:25vh;
+    height:22vh;
     overflow:hidden;
     float: left;
     border: solid 1px #FAFAFA;
@@ -2440,14 +2440,6 @@ footer p {
 
 .radio-city2 input{
     display: none;
-}
-.radio-city2 label {
-    position: relative;
-    transition:0.1s;
-}
-.radio-city2 input[type="radio"]:checked + label {
-    position: relative;
-    transition:0.1s;
 }
 
 .radio-city2 input[type="radio"] + label:before {
@@ -4151,7 +4143,7 @@ display: inline-block;
 //四択バージョン
 .img-course-result2{
 	width:100%;
-	height: auto;
+	height: 100%;
 	
     }
 
