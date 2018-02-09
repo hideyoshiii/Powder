@@ -15,31 +15,30 @@
 	  <ul class="scroll_lst_search">
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:city_dinner, "恵比寿・代官山・中目黒", true, {:id => "ebisu"}) %>
+			 	<%= radio_button_tag(:city_dinner, "恵比寿・代官山・中目黒", true, {:id => "ebisu", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
 			</span>
 	    </li>
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:city_dinner, "渋谷", false, {:id => "shibuya"}) %>
+			 	<%= radio_button_tag(:city_dinner, "渋谷", false, {:id => "shibuya", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag('shibuya', "渋谷") %>
 			</span>
 	    </li>
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:city_dinner, "原宿・表参道・青山", false, {:id => "harajuku"}) %>
+			 	<%= radio_button_tag(:city_dinner, "原宿・表参道・青山", false, {:id => "harajuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag('harajuku', "原宿・表参道・青山") %>
 			</span>
 	    </li>
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:city_dinner, "新宿", false, {:id => "shinjuku"}) %>
+			 	<%= radio_button_tag(:city_dinner, "新宿", false, {:id => "shinjuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag('shinjuku', "新宿") %>
 			</span>
 	    </li>
 	  </ul>
 	</div>
-	<h1><a href='#section1' class="btn btn-default">NEXT</a></h1>
   </div>
 
   <div class="box97" id='section1'>
@@ -48,25 +47,24 @@
 	  <ul class="scroll_lst_search">
 	  	<li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:price_dinner, 4000, true) %>
+			 	<%= radio_button_tag(:price_dinner, 4000, true, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag(:price_dinner_4000, "~4,000円/人") %>
 			</span>
 	    </li>
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:price_dinner, 6000) %>
+			 	<%= radio_button_tag(:price_dinner, 6000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag(:price_dinner_6000, "~6,000円/人") %>
 			</span>
 	    </li>
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:price_dinner, 8000) %>
+			 	<%= radio_button_tag(:price_dinner, 8000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag(:price_dinner_8000, "~8,000円/人") %>
 			</span>
 	    </li>
 	  </ul>
 	</div>
-	<h1><a href='#section2' class="btn btn-default">NEXT</a></h1>
   </div>
 
   <div class="box96" id='section2'>
@@ -145,10 +143,21 @@
 	    </li>
 	  </ul>
 	</div>
-	<h1><%= submit_tag "SEARCH", :class => "btn btn-default" %></h1>
+	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
   </div>
 
 <% end %>
+
+
+<script>
+//更新
+function scroll(){
+	var n = window.location.href.slice(window.location.href.indexOf('?') + 4);
+    var p = $("section1").offset().top;
+    $('html,body').animate({ scrollTop: p }, 'slow');
+    return false;
+}
+</script>
 
 
 </mains>
