@@ -16,7 +16,7 @@
 			  <ul class="scroll_lst_search">
 			    <li class="scroll_item_search">
 			        <span class="img_radio1">	
-					 	<%= radio_button_tag(:large, "バー", true, {:id => "bar", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large, "バー", false, {:id => "bar", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 							<%= label_tag('bar', "バー") %>
 					</span>
 			    </li>
@@ -48,7 +48,7 @@
 			  <ul class="scroll_lst_search">
 			  	<li class="scroll_item_search">
 			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price_second, 2000, true, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:price_second, 2000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 						<%= label_tag(:price_second_2000, "~2,000円/人") %>
 					</span>
 			    </li>
@@ -74,7 +74,7 @@
 			  <ul class="scroll_lst_search">
 			  	<li class="scroll_item_search">
 			        <span class="radio-city">	
-					 	<%= radio_button_tag(:distance, 1, true) %>
+					 	<%= radio_button_tag(:distance, 1, false) %>
 						<%= label_tag(:distance_1, "1km以内") %>
 					</span>
 			    </li>

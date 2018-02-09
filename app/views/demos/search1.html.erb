@@ -15,7 +15,7 @@
 	  <ul class="scroll_lst_search">
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:city_dinner, "恵比寿・代官山・中目黒", true, {:id => "ebisu", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			 	<%= radio_button_tag(:city_dinner, "恵比寿・代官山・中目黒", false, {:id => "ebisu", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
 			</span>
 	    </li>
@@ -47,7 +47,7 @@
 	  <ul class="scroll_lst_search">
 	  	<li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:price_dinner, 4000, true, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			 	<%= radio_button_tag(:price_dinner, 4000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag(:price_dinner_4000, "~4,000円/人") %>
 			</span>
 	    </li>
@@ -73,7 +73,7 @@
 	  <ul class="scroll_lst_search">
 	  	<li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_dinner, "指定しない", true, {:id => "not"}) %>
+			 	<%= radio_button_tag(:small_dinner, "指定しない", false, {:id => "not"}) %>
 				<%= label_tag('not', "指定しない") %>
 			</span>
 	    </li>
