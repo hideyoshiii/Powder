@@ -10,7 +10,7 @@
 	<%= hidden_field_tag :small_dinner, params[:small_dinner] %>
 	<%= hidden_field_tag :distance, 1 %>
 
-		<h3 class="text-center">どのお店にしますか？</h3>	
+		<h4 class="text-center" style="margin-top:20px;">どのお店にしますか？</h4>	
 
 		<% @spots.each do |spot| %>
 			<% @n = @n + 1 %>
@@ -48,7 +48,7 @@
 		                      <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
 		                    </div>
 		                    <div class="scroll_item_info_content_quote">
-		                      <p class="scroll_item_ttl_content_quote pull-right">
+		                      <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
 		                        <% if !picture.url.blank? %>
 		                          <% if !picture.quote.blank? %>
 		                            <a href="<%= picture.url %>" target="_blank" class="gray">
