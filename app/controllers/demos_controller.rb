@@ -13,11 +13,11 @@ class DemosController < ApplicationController
     @price_start = params[:price_dinner].to_i - 1999
     @price_end = params[:price_dinner].to_i
     if params[:small_dinner] == "指定しない"
-   	  @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(3)
+   	  @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(4)
     else
       @small = params[:small_dinner]
       @spots = Spot.where("small like '%#{@small}%'")
-      @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(3)
+      @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(4)
     end
   end
 
