@@ -5,24 +5,35 @@
 
 <% if !@spots.blank? %>
   
-  <h4 class="text-center" style="margin-top:20px;">どの<%= @large %>にしますか？</h4> 
+  <h4 class="text-center" style="margin:20px 0px;">
+    どの<%= @large %>にしますか？
+    <a href="" data-toggle="modal" data-target="#myModal-distance" class="black">
+      <i class="fa fa-map-pin"></i>&nbsp;(<%= params[:distance] %>km以内)
+    </a>
+  </h4>  
 
-  <%= form_tag(demos_second_path, method: :get) do %>
-    <%= hidden_field_tag :city_dinner, params[:city_dinner] %>
-    <%= hidden_field_tag :price_dinner, params[:price_dinner] %>
-    <%= hidden_field_tag :small_dinner, params[:small_dinner] %>
-    <% if !@spot1.blank? %>
-      <%= hidden_field_tag :spot1, @spot1.id %>
-    <% end %>
-    <% if !params[:large].blank? %>
-      <%= hidden_field_tag :large, params[:large] %>
-    <% end %>
-    <div class="text-center">
-      <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance].to_f) %>
-      <%= submit_tag "距離を絞る", :class => "" %>
+  <div class="modal fade" id="myModal-distance">
+    <div class="modal-dialog">
+      <div style="margin-top:40vh;">
+        <%= form_tag(demos_second_path, method: :get) do %>
+          <%= hidden_field_tag :city_dinner, params[:city_dinner] %>
+          <%= hidden_field_tag :price_dinner, params[:price_dinner] %>
+          <%= hidden_field_tag :small_dinner, params[:small_dinner] %>
+          <% if !@spot1.blank? %>
+            <%= hidden_field_tag :spot1, @spot1.id %>
+          <% end %>
+          <% if !params[:large].blank? %>
+            <%= hidden_field_tag :large, params[:large] %>
+          <% end %>
+          <div class="text-center" style="padding-top:30px;">
+            <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance]) %>
+            <%= submit_tag "距離を絞る", :class => "" %>
+          </div>
+          <br>
+        <% end %>
+      </div>
     </div>
-    <br>
-  <% end %>
+  </div>
 
   <%= form_tag(demos_result_path, method: :get) do %>
   <%= hidden_field_tag :city_dinner, params[:city_dinner] %>

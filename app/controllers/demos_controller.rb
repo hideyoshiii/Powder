@@ -82,14 +82,13 @@ class DemosController < ApplicationController
   def change2
     @n = 0
     @large = params[:large]
+    @spot1 = Spot.find(params[:spot1])
     @spot2 = Spot.find(params[:spot2])
     @spots = Spot.where.not(title: @spot2.title)
+    @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km, :order => false)
     @spots = @spots.where("large like '%#{@large}%'")
     @spots = @spots.where(station: @spot2.station).order("RANDOM()").limit(3)
 
-    if !params[:spot1].blank?
-      @spot1 = Spot.find(params[:spot1])
-    end
   end
 
   
