@@ -3819,9 +3819,6 @@ display: inline-block;
   margin:0px 2px;
 }
 
-.raised2:hover{
-
-}
 
 //食べログで見るボタン(result)
 .raise2-result{
@@ -3840,9 +3837,6 @@ display: inline-block;
   margin:0px 2px;
 }
 
-.raised2-result:hover{
-
-}
 
 
 //rettyで見るボタン
@@ -3863,9 +3857,6 @@ display: inline-block;
    margin:0px 2px;
 }
 
-.raised3:hover{
-
-}
 
 //rettyで見るボタン(result)
 .raise3-result{
@@ -3885,9 +3876,6 @@ display: inline-block;
    margin:0px 2px;
 }
 
-.raised3-result:hover{
-
-}
 
 //コースを保存ボタン
 .raised4{
@@ -3954,6 +3942,16 @@ display: inline-block;
 //spotのshowのタイトル
 .title-spot-show{
 	font-size:20px;
+	font-weight: 250;
+	margin-top:-10px;
+	padding:0;
+	color:black;
+	text-shadow: 1px 1px 2px silver;
+	line-height: 1.2
+}
+
+.title-spot-show-min{
+	font-size:15px;
 	font-weight: 250;
 	margin-top:-10px;
 	padding:0;
@@ -4170,6 +4168,17 @@ display: inline-block;
 
 }
 
+.aaa-min {
+	margin-top:-0.2em;
+	margin-bottom:0.5em;
+	font-size:15px;
+	font-weight: 500;
+	color:black;
+	text-shadow: 1px 1px 2px silver;
+	line-height: 1.5
+
+}
+
 .aaaa {
   margin:3em 0 0.1em;
   color:#53331c;
@@ -4249,6 +4258,10 @@ display: inline-block;
 
 .info-box1{
 	margin:15px 0px 35px 15px;
+}
+
+.info-box1-min{
+	margin:15px 0px 15px 15px;
 }
 
 //食べログretty
