@@ -13,11 +13,11 @@ class DemosController < ApplicationController
     @price_start = params[:price_dinner].to_i - 1999
     @price_end = params[:price_dinner].to_i
     if params[:small_dinner] == "指定しない"
-   	  @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(4)
+   	  @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(2)
     else
       @small = params[:small_dinner]
       @spots = Spot.where("small like '%#{@small}%'")
-      @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(4)
+      @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(2)
     end
   end
 
@@ -32,7 +32,7 @@ class DemosController < ApplicationController
 	    @pictures1 = @spot1.pictures.order(id: "ASC")
 	  	@spots = Spot.where.not(title: @spot1.title)
       @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km, :order => false)
-	  	@spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(4)
+	  	@spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
 	  end
 
   	if params[:large] == "２軒目なし"
@@ -49,7 +49,7 @@ class DemosController < ApplicationController
   	@spot1 = Spot.find(params[:spot1])
   	@spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km, :order => false)
-  	@spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(4)
+  	@spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
   end
 
   def result
