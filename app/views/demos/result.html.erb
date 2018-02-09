@@ -134,8 +134,18 @@
 <% if !@pictures2.nil? %>
 
 <div class="panel-body">
-  <h3>The&nbsp;course&nbsp;you&nbsp;made</h3>
+  <div class="text-center">
+    <h3>The&nbsp;course&nbsp;you&nbsp;made</h3>
+    <span class="btn btn-default btn-sm">
+      合計予算&nbsp;~<%= @price %>円/人
+    </span>
+    <span class="btn btn-default btn-sm">
+      移動距離&nbsp;<%= @distance %>km(約<%= @time %>分)
+    </span>
+  </div>    
 </div>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/distancematrix/json?origins=出発地&destinations=目的地&mode=walking&language=ja&key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A"></script>
 
 <%# 横スクロールアイキャッチ %>
 <div class="horizontal_scroll_wrap_result">
@@ -320,7 +330,6 @@
     </div>
   <% end %>
 </div>
-
 
 <div class="map-title-box">
   <div class="map-title">
