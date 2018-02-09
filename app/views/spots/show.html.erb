@@ -294,6 +294,9 @@
                 <% unless @spot.price_dinner.blank? %>
                   ディナー&nbsp;&nbsp;~<%= @spot.price_dinner %>円
                 <% end %>
+                <% unless @spot.price_spot.blank? %>
+                  その他&nbsp;&nbsp;~<%= @spot.price_spot %>円
+                <% end %>
               </div>
             </div>
             <div class="row more-content">

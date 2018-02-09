@@ -1921,6 +1921,95 @@ dl.search1 dd span:hover{
   padding:0;
   }
 
+.box95 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)) , url(next02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:-50px;
+  box-sizing: border-box;
+}
+
+.box95 h1 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+
+.box94 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(distance02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin:0px;
+  box-sizing: border-box;
+}
+
+.box94 h1 {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+
+
 
 
 //要素を少し上に
@@ -2244,12 +2333,13 @@ footer p {
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
-    width: 100%;
-    height:90px;
+    width: 100px;
+    height:100px;
     color:white;
     border-radius: 5px;
-    margin: 0px 0px;
+    margin: 0px 7px;
     transition:0.1s;
+    text-align:center;
 
 }
 .img_radio0 input[type="radio"]:checked + label {
@@ -2257,10 +2347,6 @@ footer p {
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
-    width: 100%;
-    height:90px;
-    border-radius: 5px;
-    margin: 0px 0px;
 }
 
 
@@ -2273,22 +2359,19 @@ footer p {
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
-    width: 100%;
-    height:90px;
+    width: 100px;
+    height:100px;
     color:white;
     border-radius: 5px;
-    margin: 0px 0px;
+    margin: 0px 7px;
     transition:0.1s;
+    text-align:center;
 }
 .img_radio1 input[type="radio"]:checked + label {
     background: url(bar.jpg) ;
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
-    width: 100%;
-    height:90px;
-    border-radius: 5px;
-    margin: 0px 0px;
 }
 
 
@@ -2302,23 +2385,46 @@ footer p {
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
-    width: 100%;
-    height:90px;
+    width: 100px;
+    height:100px;
     color:white;
     border-radius: 5px;
-    margin: 0px 0px;
+    margin: 0px 7px;
     transition:0.1s;
+    text-align:center;
 }
 .img_radio2 input[type="radio"]:checked + label {
     background: url(cafe.jpg) ;
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
-    width: 100%;
-    height:90px;
-    border-radius: 5px;
-    margin: 0px 0px;
 }
+
+.img_radio3 input{
+    display: none;
+}
+.img_radio3 label {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(night.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio3 input[type="radio"]:checked + label {
+    background: url(night.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
 
 .radio-box{
 	position: absoluto;

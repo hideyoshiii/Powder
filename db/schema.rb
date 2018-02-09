@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206233238) do
+ActiveRecord::Schema.define(version: 20180209080618) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -216,6 +216,7 @@ ActiveRecord::Schema.define(version: 20180206233238) do
     t.string "charge"
     t.string "smoking"
     t.string "payment"
+    t.integer "price_spot"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
