@@ -62,6 +62,9 @@ class DemosController < ApplicationController
     	@spot2 = Spot.find(params[:spot2])
     	if @spot2
 			@pictures2 = @spot2.pictures.order(id: "ASC")
+      @distance = Geocoder::Calculations.distance_between([@spot1.latitude,@spot1.latitude], [@spot2.latitude,@spot2.latitude], :units => :km)
+      @distance = @distance.to_f.round(3) * 100
+      @distance = @distance.to_i
 		end
     end
   end

@@ -133,17 +133,11 @@
 <% else %>
 <% if !@pictures2.nil? %>
 
-<h3 class="text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
-
 <div class="panel-body">
-  <div class="text-center">
-    <span class="btn btn-default btn-sm">
-      合計予算&nbsp;~〇〇円/人
-    </span>
-    <span class="btn btn-default btn-sm">
-      移動距離&nbsp;〇〇km(約〇〇分)
-    </span>
-  </div>    
+  <h3 class="">The&nbsp;course&nbsp;you&nbsp;made</h3>
+  <i class="fa fa-yen"></i>合計予算&nbsp;&nbsp;~<%= @spot1.price_dinner %>円/人
+  <br>
+  <i class="fa fa-map-marker"></i>移動&nbsp;&nbsp;<%= @spot1.title %>→(<%= @distance %>m)→<%= @spot1.title %>
 </div>
 
 <%# 横スクロールアイキャッチ %>
