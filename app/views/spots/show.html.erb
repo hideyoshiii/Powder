@@ -168,15 +168,15 @@
                     <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
                   </div>
                   <div class="scroll_item_info_content_quote">
-                    <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                    <p class="scroll_item_ttl_content_quote">
                       <% if !picture.url.blank? %>
                         <% if !picture.quote.blank? %>
                           <a href="<%= picture.url %>" target="_blank" class="gray">
-                            <%= picture.quote %> <%= picture.url %>
+                            出典&nbsp;<%= picture.quote %>
                           </a>
                         <% else %> 
                           <a href="<%= picture.url %>" target="_blank" class="gray">
-                            <%= picture.url %>
+                            出典&nbsp;
                           </a>
                         <% end %>
                       <% else %> 

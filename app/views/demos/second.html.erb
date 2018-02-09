@@ -67,11 +67,11 @@
                         <% if !picture.url.blank? %>
                           <% if !picture.quote.blank? %>
                             <a href="<%= picture.url %>" target="_blank" class="gray">
-                              <%= picture.quote %> <%= picture.url %>
+                              出典&nbsp;<%= picture.quote %>
                             </a>
                           <% else %> 
                             <a href="<%= picture.url %>" target="_blank" class="gray">
-                              <%= picture.url %>
+                              出典&nbsp;
                             </a>
                           <% end %>
                         <% else %> 
