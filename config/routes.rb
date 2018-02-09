@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "demos/search1" => "demos#search1"
   get "demos/dinner" => "demos#dinner"
+  get "demos/search3" => "demos#search3"
   get "demos/search2" => "demos#search2"
   get "demos/second" => "demos#second"
   get "demos/result" => "demos#result"

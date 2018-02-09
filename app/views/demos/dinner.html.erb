@@ -4,7 +4,7 @@
 
 <% if !@spots.blank? %>	
 
-	<%= form_tag(demos_search2_path, method: :get) do %>
+	<%= form_tag(demos_search3_path, method: :get) do %>
 	<%= hidden_field_tag :city_dinner, params[:city_dinner] %>
 	<%= hidden_field_tag :price_dinner, params[:price_dinner] %>
 	<%= hidden_field_tag :small_dinner, params[:small_dinner] %>
@@ -14,14 +14,14 @@
 
 		<% @spots.each do |spot| %>
 			<% @n = @n + 1 %>
-			<div class="radio-city1">
+			<div class="radio-city2">
 				<% if @n == 1 %>	
 					<%= radio_button_tag(:spot1, spot.id, true) %>
 				<% else %>
 					<%= radio_button_tag(:spot1, spot.id) %>
 				<% end %>
 				<label for="spot1_<%= spot.id %>">
-			  		<%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
+			  		<%= image_tag spot.pictures.first.image.url, :class =>'img-course-result2' %>
 			  		<h3>
 			  			<%= spot.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span>
 			  		</h3> 
@@ -101,51 +101,20 @@
 		      </div>
 		<% end %>
 
-		<div class="dinner-box change-btn">	
-			<div class="col-xs-12">
-				<div class="text-center">
-					<a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Change</a>&nbsp;&nbsp;
-					<a href='#section4' class="btn btn-default">次へ進む</a>
-				</div>
-			</div>	
-		</div>
-
-		<div class="box5" id='section4'>
-	  		<h3 style="color:white;text-shadow: 1px 1px 2px black;">
-	  			<div class="text-center">
-	  				この後はどうしますか？
-	  			</div>
-	  		</h3>
-	  		<div class="row radio-box">
-	  			<div class="col-xs-4 col-sm-4 col-md-4">
-	  				<div class="text-center">
-	  					<span class="img_radio1">	
-		 					<%= radio_button_tag(:large, "バー", true, {:id => "bar"}) %>
-							<%= label_tag('bar', "バー") %>
-						</span>
-					</div>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-4">
-					<div class="text-center">
-						<span class="img_radio2">	
-				  			<%= radio_button_tag(:large, "夜カフェ", false, {:id => "cafe"}) %>
-							<%= label_tag('cafe', "夜カフェ") %> 
-						</span>
-					</div>
-				</div>
-				<div class="col-xs-4 col-sm-4 col-md-4">
-					<div class="text-center">
-						<span class="img_radio0">	
-							<%= radio_button_tag(:large, "２軒目なし", false, {:id => "not"}) %>
-							<%= label_tag('not', "２軒目なし") %> 
-						</span>
-					</div>
-				</div>
-			</div>
-	  		<div>
-				<h1><%= submit_tag "SEARCH", :class => "btn btn-default" %></h1>
-			</div>
-	  </div>
+	　<div class="col-xs-12">
+        <div class="text-center">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>	
+    
+    
+      <div class="col-xs-12">
+        <div class="text-center">
+          <a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Change</a>&nbsp;&nbsp;
+          <%= submit_tag "次へ進む", :class => "btn btn-default" %>
+        </div>
+      </div>  
+		
 	   
 	<% end %>
 

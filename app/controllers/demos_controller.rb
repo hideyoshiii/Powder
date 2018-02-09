@@ -21,6 +21,9 @@ class DemosController < ApplicationController
     end
   end
 
+  def search3
+  end
+
   def search2
   	@n = 0
   	@large = params[:large]
