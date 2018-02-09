@@ -40,12 +40,61 @@
           <h3>
             <%= spot.title %><br><span style="font-size:10px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span>
           </h3> 
-          <%= link_to spot_path(spot) do %>
+          <a href="" data-toggle="modal" data-target="#myModal<%= @n %>">
         	  <h4>
         	  	<i class="fa fa-info-circle" aria-hidden="true"></i>
         	  </h4>
-          <% end %>
+          </a>
         </label>
+      </div>
+      <!-- モーダルウィンドウの中身 -->
+      <div class="modal fade" id="myModal<%= @n %>">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title"><%= spot.title %></h4>
+            </div>
+            <div class="modal-body">
+              <%# 横スクロールs写真 %>
+              <div class="horizontal_scroll_wrap_content_spot">
+                <ul class="scroll_lst_content">
+                  <% @pictures = spot.pictures.order(id: "ASC") %>
+                  <% @pictures.each do |picture| %>
+                    <li class="scroll_item_content">
+                      <div class="scroll_item_inr_content">
+                        <div class="scroll_item_thum_content">
+                          <%# $$$spotから利用する写真をfitstなどで指定 %>
+                          <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                        </div>
+                        <div class="scroll_item_info_content_quote">
+                          <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                            <% if !picture.url.blank? %>
+                              <% if !picture.quote.blank? %>
+                                <a href="<%= picture.url %>" target="_blank" class="gray">
+                                  <%= picture.quote %> <%= picture.url %>
+                                </a>
+                              <% else %> 
+                                <a href="<%= picture.url %>" target="_blank" class="gray">
+                                  <%= picture.url %>
+                                </a>
+                              <% end %>
+                            <% else %> 
+                                &nbsp;
+                            <% end %>  
+                          </p>
+                        </div>
+                     </div>
+                    </li>
+                  <% end %>  
+                </ul>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+            </div>
+          </div>
+        </div>
       </div>
     <% end %>
 
@@ -63,6 +112,11 @@
           <%= submit_tag "コースを確定する", :class => "btn btn-default" %>
         </div>
       </div>  
+
+
+ 
+
+
     
 
   <% end %>
