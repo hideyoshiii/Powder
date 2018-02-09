@@ -8,7 +8,7 @@
   <h4 class="text-center" style="margin:20px 0px;">
     どの<%= @large %>にしますか？
     <a href="" data-toggle="modal" data-target="#myModal-distance" class="black">
-      <i class="fa fa-map-pin"></i>
+      <i class="fa fa-map-pin"></i>&nbsp;(<%= params[:distance] %>km以内)
     </a>
   </h4> 
 
@@ -22,7 +22,7 @@
           <%= hidden_field_tag :spot1, @spot1.id %>
           <%= hidden_field_tag :large, params[:large] %>
           <div class="text-center" style="padding-top:30px;">
-            <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance].to_f) %>
+            <%= select_tag :distance, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance]) %>
             <%= submit_tag "距離を絞る", :class => "" %>
           </div>
           <br>
