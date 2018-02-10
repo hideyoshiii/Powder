@@ -37,6 +37,12 @@
 				<%= label_tag('shinjuku', "新宿") %>
 			</span>
 	    </li>
+	    <li class="scroll_item_search">
+	        <span class="radio-city">	
+			 	<%= radio_button_tag(:city_dinner, "東京・丸の内・日本橋", false, {:id => "tokyo", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+				<%= label_tag('tokyo', "東京・丸の内・日本橋") %>
+			</span>
+	    </li>
 	  </ul>
 	</div>
   </div>
