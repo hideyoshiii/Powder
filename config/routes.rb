@@ -16,6 +16,16 @@ Rails.application.routes.draw do
   get "demos/change1" => "demos#change1"
   get "demos/change2" => "demos#change2"
 
+  get "demos/lunch-search1" => "demos#lunchsearch1"
+  get "demos/lunch" => "demos#lunch"
+  get "demos/lunch-search3" => "demos#lunchsearch3"
+  get "demos/lunch-search2" => "demos#lunchsearch2"
+  get "demos/lunch-second" => "demos#lunchsecond"
+  get "demos/lunch-search4" => "demos#lunchsearch4"
+  get "demos/lunch-search5" => "demos#lunchsearch5"
+  get "demos/lunch-third" => "demos#lunchthird"
+  get "demos/lunch-result" => "demos#lunchresult"
+
   get "/adate" => "details#adate"
   get "/eagle" => "details#eagle"
   get "/terms" => "details#terms"

@@ -2425,6 +2425,181 @@ footer p {
     background-position: center;
 }
 
+.img_radio-cafe input{
+    display: none;
+}
+.img_radio-cafe label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(cafe02.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-cafe input[type="radio"]:checked + label {
+    background: url(cafe02.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-park input{
+    display: none;
+}
+.img_radio-park label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(park.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-park input[type="radio"]:checked + label {
+    background: url(park.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-museum input{
+    display: none;
+}
+.img_radio-museum label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(museum.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-museum input[type="radio"]:checked + label {
+    background: url(museum.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-shop input{
+    display: none;
+}
+.img_radio-shop label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(shop.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-shop input[type="radio"]:checked + label {
+    background: url(shop.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-walk input{
+    display: none;
+}
+.img_radio-walk label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(walkeat.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-walk input[type="radio"]:checked + label {
+    background: url(walkeat.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-active input{
+    display: none;
+}
+.img_radio-active label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(active02.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-active input[type="radio"]:checked + label {
+    background: url(active02.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-recommend input{
+    display: none;
+}
+.img_radio-recommend label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(recommend.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-recommend input[type="radio"]:checked + label {
+    background: url(recommend.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
 
 .radio-box{
 	position: absoluto;

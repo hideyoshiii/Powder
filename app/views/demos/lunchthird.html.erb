@@ -1,0 +1,202 @@
+<%= render "partial/navbar" %>
+
+<mains class="" id="main-collapse">
+
+
+<% if !@spots.blank? %>
+
+  <h4 class="text-center" style="margin:20px 0px;">
+    どちらの<%= @large %>にしますか？
+    <a href="" data-toggle="modal" data-target="#myModal-distance" class="black">
+      <i class="fa fa-map-pin"></i>&nbsp;(<%= params[:distance_third] %>km以内)
+    </a>
+  </h4> 
+
+  <div class="modal fade" id="myModal-distance">
+    <div class="modal-dialog">
+      <div style="margin-top:40vh;">
+        <%= form_tag(demos_lunch_third_path, method: :get) do %>
+          <%= hidden_field_tag :city_lunch, params[:city_lunch] %>
+		  <%= hidden_field_tag :price_lunch, params[:price_lunch] %>
+		  <%= hidden_field_tag :small_lunch, params[:small_lunch] %>
+		  <%= hidden_field_tag :large_second, params[:large_second] %>
+		  <%= hidden_field_tag :price_second, params[:price_second] %>
+		  <%= hidden_field_tag :distance_second, params[:distance_second] %>
+		  <%= hidden_field_tag :spot1, params[:spot1] %>
+		  <%= hidden_field_tag :spot2, params[:spot2] %>
+          <%= hidden_field_tag :large_third, params[:large_third] %>
+		  <%= hidden_field_tag :price_third, params[:price_third] %>
+          <div class="text-center" style="padding-top:30px;">
+            <%= select_tag :distance_third, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance_third]) %>
+            <%= submit_tag "距離を絞る", :class => "" %>
+          </div>
+          <br>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <%= form_tag(demos_lunch_result_path, method: :get) do %>
+    <%= hidden_field_tag :city_lunch, params[:city_lunch] %>
+	<%= hidden_field_tag :price_lunch, params[:price_lunch] %>
+	<%= hidden_field_tag :small_lunch, params[:small_lunch] %>
+	<%= hidden_field_tag :large_second, params[:large_second] %>
+	<%= hidden_field_tag :price_second, params[:price_second] %>
+	<%= hidden_field_tag :distance_second, params[:distance_second] %>
+	<%= hidden_field_tag :spot1, params[:spot1] %>
+	<%= hidden_field_tag :spot2, params[:spot2] %>
+	<%= hidden_field_tag :large_third, params[:large_third] %>
+	<%= hidden_field_tag :price_third, params[:price_third] %>
+	<%= hidden_field_tag :distance_third, params[:distance_third] %>
+
+    <% @spots.each do |spot| %>
+      <div class="radio-city1">	
+        <% @n = @n + 1 %>
+        <% if @n == 1 %>	
+          <%= radio_button_tag(:spot3, spot.id, true) %>
+        <% else %>
+          <%= radio_button_tag(:spot3, spot.id) %>
+        <% end %>
+        <label for="spot2_<%= spot.id %>">
+          <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
+          <h3>
+            <%= spot.title %><br><span style="font-size:10px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span>
+          </h3> 
+          <a href="" data-toggle="modal" data-target="#myModal<%= @n %>">
+        	  <h4>
+        	  	<i class="fa fa-info-circle" aria-hidden="true"></i>
+        	  </h4>
+          </a>
+        </label>
+      </div>
+      <!-- モーダルウィンドウの中身 -->
+      <div class="modal fade" id="myModal<%= @n %>">
+        <div class="modal-dialog">
+          <br>
+          <%# 横スクロール写真 %>
+          <div class="horizontal_scroll_wrap_content_spot">
+            <ul class="scroll_lst_content">
+              <% @pictures = spot.pictures.order(id: "ASC") %>
+              <% @pictures.each do |picture| %>
+                <li class="scroll_item_content">
+                  <div class="scroll_item_inr_content">
+                    <div class="scroll_item_thum_content">
+                      <%# $$$spotから利用する写真をfitstなどで指定 %>
+                      <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                    </div>
+                    <div class="scroll_item_info_content_quote">
+                      <p class="scroll_item_ttl_content_quote pull-right">
+                        <% if !picture.url.blank? %>
+                          <% if !picture.quote.blank? %>
+                            <a href="<%= picture.url %>" target="_blank" class="gray">
+                              出典&nbsp;<%= picture.quote %>
+                            </a>
+                          <% else %> 
+                            <a href="<%= picture.url %>" target="_blank" class="gray">
+                              出典&nbsp;
+                            </a>
+                          <% end %>
+                        <% else %> 
+                            &nbsp;
+                        <% end %>  
+                      </p>
+                    </div>
+                 </div>
+                </li>
+              <% end %>  
+            </ul>
+          </div>
+          <div class="panel-body">
+            <%# タイトル %>
+            <div class="title-spot-show-min"><%= spot.title %></div>
+            <%# 都道府県、エリア %>
+            <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.city %>&nbsp;&nbsp;[<%= spot.station %>]
+            </p> 
+            <%# 見出し %>
+            <% unless spot.heading.blank? %>
+              <p class="aaa-min"><%= spot.heading %></p>
+            <% end %>
+            <%# Description %>
+            <% unless spot.description.blank? %>
+              <p style="font-size:12px"><%= spot.description %></p>
+            <% end %>
+            <%# 食べログ、rettyボタン等 %>
+            <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+            <div class="info-box1-min">
+              <% unless spot.tabelog.blank? %>
+                <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+              <% end %>
+              <% unless spot.retty.blank? %>
+                <a href="<%= spot.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+              <% end %>
+            </div>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+          </div>  
+        </div>
+      </div>
+    <% end %>
+
+    
+      <div class="col-xs-12">
+        <div class="text-center">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+      </div>	
+    
+    
+      <div class="col-xs-12">
+        <div class="text-center">
+          <a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Change</a>&nbsp;&nbsp;
+          <%= submit_tag "コースを確定する", :class => "btn btn-default" %>
+        </div>
+      </div>  
+
+
+ 
+
+
+    
+
+  <% end %>
+
+<% else %>
+  該当するスポットがありません
+<% end %>
+
+<script>
+//更新
+function koshin(){
+	$('body,html').animate({
+  scrollTop: 0},0);
+
+  location.reload();
+}
+</script>
+
+
+</mains>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>
+
