@@ -18,15 +18,15 @@
 		  	</div>
 		  	<div class="horizontal_scroll_search">
 			  <ul class="scroll_lst_search">
-			    <li class="scroll_item_search">
-			        <span class="img_radio-recommend">	
-					 	<%= radio_button_tag(:large_third, "その他", false, {:id => "other", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-							<%= label_tag('other', "その他") %>
+			  	<li class="scroll_item_search">
+			        <span class="img_radio0">	
+					 	<%= radio_button_tag(:large_third, "３軒目なし", false, {:id => "not", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+							<%= label_tag('not', "３軒目なし") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-cafe">	
-					 	<%= radio_button_tag(:large_third, "カフェ", false, {:id => "cafe", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "昼カフェ", false, {:id => "cafe", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 							<%= label_tag('cafe', "カフェ") %>
 					</span>
 			    </li>
@@ -38,8 +38,8 @@
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-museum">	
-					 	<%= radio_button_tag(:large_third, "美術館", false, {:id => "museum", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-							<%= label_tag('museum', "美術館") %> 
+					 	<%= radio_button_tag(:large_third, "ミュージアム", false, {:id => "museum", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+							<%= label_tag('museum', "ミュージアム") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
@@ -56,14 +56,14 @@
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-active">	
-					 	<%= radio_button_tag(:large_third, "アクティブ", false, {:id => "active", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "昼アクティブ", false, {:id => "active", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 							<%= label_tag('active', "アクティブ") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
-			        <span class="img_radio0">	
-					 	<%= radio_button_tag(:large_third, "３軒目なし", false, {:id => "not", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-							<%= label_tag('not', "３軒目なし") %> 
+			        <span class="img_radio-recommend">	
+					 	<%= radio_button_tag(:large_third, "その他", false, {:id => "other", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+							<%= label_tag('other', "その他") %>
 					</span>
 			    </li>
 			  </ul>

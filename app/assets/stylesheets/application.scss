@@ -2350,10 +2350,10 @@ footer p {
 }
 
 
-.img_radio1 input{
+.img_radio-bar input{
     display: none;
 }
-.img_radio1 label {
+.img_radio-bar label {
     position: relative;
     background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(bar.jpg) ;
     background-repeat: no-repeat;
@@ -2367,7 +2367,7 @@ footer p {
     transition:0.1s;
     text-align:center;
 }
-.img_radio1 input[type="radio"]:checked + label {
+.img_radio-bar input[type="radio"]:checked + label {
     background: url(bar.jpg) ;
     background-repeat: no-repeat;
     background-size:cover;
@@ -2375,10 +2375,10 @@ footer p {
 }
 
 
-.img_radio2 input{
+.img_radio-nightcafe input{
     display: none;
 }
-.img_radio2 label {
+.img_radio-nightcafe label {
     position: relative;
     display: inline-block;
     background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(cafe.jpg) ;
@@ -2393,17 +2393,42 @@ footer p {
     transition:0.1s;
     text-align:center;
 }
-.img_radio2 input[type="radio"]:checked + label {
+.img_radio-nightcafe input[type="radio"]:checked + label {
     background: url(cafe.jpg) ;
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
 }
 
-.img_radio3 input{
+.img_radio-nightactive input{
     display: none;
 }
-.img_radio3 label {
+.img_radio-nightactive label {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(active.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-nightactive input[type="radio"]:checked + label {
+    background: url(night.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+.img_radio-night input{
+    display: none;
+}
+.img_radio-night label {
     position: relative;
     display: inline-block;
     background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(night.jpg) ;
@@ -2418,7 +2443,7 @@ footer p {
     transition:0.1s;
     text-align:center;
 }
-.img_radio3 input[type="radio"]:checked + label {
+.img_radio-night input[type="radio"]:checked + label {
     background: url(night.jpg) ;
     background-repeat: no-repeat;
     background-size:cover;

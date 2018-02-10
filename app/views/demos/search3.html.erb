@@ -14,28 +14,34 @@
 		  	</div>
 		  	<div class="horizontal_scroll_search">
 			  <ul class="scroll_lst_search">
+			  	<li class="scroll_item_search">
+			        <span class="img_radio0">	
+					 	<%= radio_button_tag(:large, "２軒目なし", false, {:id => "not", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+							<%= label_tag('not', "２軒目なし") %> 
+					</span>
+			    </li>
 			    <li class="scroll_item_search">
-			        <span class="img_radio1">	
+			        <span class="img_radio-bar">	
 					 	<%= radio_button_tag(:large, "バー", false, {:id => "bar", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 							<%= label_tag('bar', "バー") %>
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
-			        <span class="img_radio2">	
+			        <span class="img_radio-nightcafe">	
 					 	<%= radio_button_tag(:large, "夜カフェ", false, {:id => "cafe", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 							<%= label_tag('cafe', "夜カフェ") %>
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
-			        <span class="img_radio3">	
-					 	<%= radio_button_tag(:large, "夜景", false, {:id => "night", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-							<%= label_tag('night', "夜景") %> 
+			        <span class="img_radio-nightactive">	
+					 	<%= radio_button_tag(:large_second, "夜アクティブ", false, {:id => "active", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+							<%= label_tag('active', "アクティブ") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
-			        <span class="img_radio0">	
-					 	<%= radio_button_tag(:large, "２軒目なし", false, {:id => "not", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-							<%= label_tag('not', "２軒目なし") %> 
+			        <span class="img_radio-night">	
+					 	<%= radio_button_tag(:large, "夜景", false, {:id => "night", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+							<%= label_tag('night', "夜景") %> 
 					</span>
 			    </li>
 			  </ul>
