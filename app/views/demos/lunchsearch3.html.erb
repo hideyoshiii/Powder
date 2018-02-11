@@ -12,6 +12,10 @@
 		  	<div>
 		  		<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">この後はどうしますか？</h3>
 		  	</div>
+		  	<div class="img_radio-home">
+			 	<%= radio_button_tag(:large_second, "おまかせ", false, {:id => "adate", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					<%= label_tag('adate', "A.dateにおまかせ") %> 
+		  	</div>
 		  	<div class="horizontal_scroll_search">
 			  <ul class="scroll_lst_search">
 			  	<li class="scroll_item_search">

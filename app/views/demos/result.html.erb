@@ -110,6 +110,15 @@
       <div class="text-center">
         <a href="http://twitter.com/share?url=<%= url_for(only_path: false) %>&text=A.Date/あなたのデートに彩りを" target="_blank" class="tweet-btn"><i class="fa fa-twitter"></i> <span>Tweetする</span></a>
       </div>
+      <%# コースを作り直す %>
+      <h4 class="text-center" style="margin:50px 0px 30px">コースが気に入りませんでしたか？</h4> 
+      <div class="text-center">
+        <%= link_to root_path do %>
+          <div class="raised4">
+            コースを作り直す
+          </div> 
+        <% end %>
+      </div>
       <%# マップ %>
       <div class="map-title-box">
         <div class="map-title">
@@ -322,6 +331,15 @@
         <h4 class="text-center" style="margin:50px 0px 30px">シェアしていただけると幸いです</h4> 
         <div class="text-center">
           <a href="http://twitter.com/share?url=<%= url_for(only_path: false) %>&text=A.Date/あなたのデートに彩りを" target="_blank" class="tweet-btn"><i class="fa fa-twitter"></i> <span>Tweetする</span></a>
+        </div>
+        <%# コースを作り直す %>
+        <h4 class="text-center" style="margin:50px 0px 30px">コースが気に入りませんでしたか？</h4> 
+        <div class="text-center">
+          <%= link_to root_path do %>
+            <div class="raised4">
+              コースを作り直す
+            </div> 
+          <% end %>
         </div>
         <%# マップ %>
         <div class="map-title-box">

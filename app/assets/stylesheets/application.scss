@@ -1928,7 +1928,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)) , url(next02.jpg) ;
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)) , url(next02.jpg) ;
   background-size: cover;
   background-position: center;
 
@@ -2348,6 +2348,34 @@ footer p {
     background-size:cover;
     background-position: center;
 }
+
+.img_radio-home input{
+    display: none;
+}
+.img_radio-home label {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(home02.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 300px;
+    height:180px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px 20px;
+    transition:0.1s;
+    text-align:center;
+    font-size:18px;
+
+}
+.img_radio-home input[type="radio"]:checked + label {
+    background: url(home02.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
 
 
 .img_radio-bar input{
