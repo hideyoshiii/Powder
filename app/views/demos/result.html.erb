@@ -7,12 +7,39 @@
   <% if !@pictures1.nil? %>
     <% if @spot2.nil? %>
 
-      <div class="panel-body">
-        <h3>The&nbsp;course&nbsp;you&nbsp;made</h3>
-        <i class="fa fa-moon-o"></i>ディナーから
-        <br>
-        <i class="fa fa-yen"></i>合計予算&nbsp;&nbsp;~<%= @spot1.price_dinner %>円/人
+      <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
+      <%# コースの諸情報 %>
+      <div class="result-info-box">
+        <div class="result-info-box-1">
+          <div class="result-info-btn">
+            <i class="fa fa-moon-o"></i>
+          </div>
+          <div class="result-info">
+            ディナーから
+          </div>
+        </div>
+        <div class="result-info-box-1">
+          <div class="result-info-btn">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <div class="result-info">
+            <%= @spot1.city %>付近
+          </div>
+        </div>
+        <div class="result-info-box-1">
+          <div class="result-info-btn">
+            <i class="fa fa-yen"></i>
+          </div>
+          <div class="result-info">
+            ~<%= @spot1.price_dinner %>円/人
+          </div>
+        </div>
       </div>
+      <%# 距離 %>
+      <div class="distance-box">
+        <%= @spot1.title %>
+      </div>
+
       <%# 横スクロールアイキャッチ %>
       <div class="horizontal_scroll_wrap_result">
         <ul class="scroll_lst_result">
@@ -31,14 +58,14 @@
               </div>
           </li>
           <a href="" data-toggle="modal" data-target="#myModal1">
-              <li class="scroll_item_result_maps">
-                <div class="scroll_item_inr_result">     
-                  <div class="scroll_item_thum_result_info">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
-                  </div>           
-                </div>
-              </li>
-            </a>
+            <li class="scroll_item_result_maps">
+              <div class="scroll_item_inr_result">     
+                <div class="scroll_item_thum_result_info">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                </div>           
+              </div>
+            </li>
+          </a>
         </ul>
       </div>
       <!-- モーダルウィンドウの中身 -->
@@ -137,45 +164,40 @@
       <% if !@pictures2.nil? %>
 
         <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
-
-        
-
-        <div class="float-box-0">
-        <div class="float-box-1">
-          <div class="btnn">
-            <i class="fa fa-moon-o"></i>
+        <%# コースの諸情報 %>
+        <div class="result-info-box">
+          <div class="result-info-box-1">
+            <div class="result-info-btn">
+              <i class="fa fa-moon-o"></i>
+            </div>
+            <div class="result-info">
+              ディナーから
+            </div>
           </div>
-          <div class="float-1">
-            ディナーから
+          <div class="result-info-box-1">
+            <div class="result-info-btn">
+              <i class="fa fa-map-marker"></i>
+            </div>
+            <div class="result-info">
+              <%= @spot1.city %>付近
+            </div>
+          </div>
+          <div class="result-info-box-1">
+            <div class="result-info-btn">
+              <i class="fa fa-yen"></i>
+            </div>
+            <div class="result-info">
+              ~<%= @spot1.price_dinner %>円/人
+            </div>
           </div>
         </div>
-        <div class="float-box-1">
-          <div class="btnn">
-            <i class="fa fa-map-marker"></i>
-          </div>
-          <div class="float-1">
-            <%= @spot1.city %>付近
-          </div>
-        </div>
-        <div class="float-box-1">
-          <div class="btnn">
-            <i class="fa fa-yen"></i>
-          </div>
-          <div class="float-1">
-            ~<%= @spot1.price_dinner %>円/人
-          </div>
-        </div>
-        </div>
-        
-
-        <div class="distance">
-          <div>
-            <%= @spot1.title %>
-            <br>
-            <span class="distance0">↓ (<%= @distance %>m)</span>
-            <br>
-            <%= @spot2.title %>
-          </div> 
+        <%# 距離 %>
+        <div class="distance-box">
+          <%= @spot1.title %>
+          <br>
+          <span class="distance">↓ (<%= @distance %>m)</span>
+          <br>
+          <%= @spot2.title %>
         </div>
 
         <%# 横スクロールアイキャッチ %>

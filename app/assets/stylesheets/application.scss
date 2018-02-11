@@ -5019,19 +5019,24 @@ display: inline-block;
 }
 
 
-.float-box-0{
+
+
+
+
+
+.result-info-box{
 	text-align: center;
 	margin:20px 0px 20px;
 }
 
-.float-box-1{
+.result-info-box-1{
 	width:25%;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
 }
 
-.btnn{
+.result-info-btn{
   display: inline-block;
   background: #F4F5F7;
   width: 50px;
@@ -5045,20 +5050,14 @@ display: inline-block;
   border:1px solid black;
 }
 
-.float-1{
+.result-info{
 	text-align: center;
 	font-size:10px;
 	margin:5px 0 0;
 }
 
-.float-2{
-	text-align: center;
-}
 
-
-
-
-.distance{
+.distance-box{
 	line-height: 1.2;
 	font-weight:bold;
 	font-size:16px;
@@ -5066,7 +5065,7 @@ display: inline-block;
 	text-align: center;
 }
 
-.distance0{
+.distance{
 	font-weight:normal;
 	font-size:12px;
 	line-height: 1.4;
