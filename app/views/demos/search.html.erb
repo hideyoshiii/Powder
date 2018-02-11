@@ -7,20 +7,30 @@
   			<p class="text-center">提案するのは厳選したデートコースのみ</p>
   			<p class="text-center">私たちが完璧なデートへのハードルをお下げします</p>
   		</div>
-  		<div class="box-top">
-  			<h1 class="text-center">
+      <h1>
+      <div class="home-box">
+        <div class="home-box-1">
           <%= link_to demos_lunch_search1_path do %>
-    				<span class="raised5">
-    					ランチから
-    				</span>
+            <div class="lunch-btn">
+              <i class="fa fa-sun-o"></i>
+            </div>
+            <div class="lunch-info">
+              ランチから
+            </div>
           <% end %>
-  				<%= link_to demos_search1_path do %>
-	  				<span class="raised5">
-	  					ディナーから
-	  				</span>
-  				<% end %>
-  			</h1>   
-	    </div>
+        </div>
+        <div class="home-box-1">
+          <%= link_to demos_search1_path do %>
+            <div class="dinner-btn">
+              <i class="fa fa-moon-o"></i>
+            </div>
+            <div class="dinner-info">
+              ディナーから
+            </div>
+          <% end %>
+        </div>
+      </div>
+      </h1>
     </div>
 
   <script>
