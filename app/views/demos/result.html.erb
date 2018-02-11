@@ -136,13 +136,46 @@
     <% else %>
       <% if !@pictures2.nil? %>
 
-        <div class="panel-body">
-          <h3 class="">The&nbsp;course&nbsp;you&nbsp;made</h3>
-          <i class="fa fa-moon-o"></i>ディナーから
-          <br>
-          <i class="fa fa-yen"></i>合計予算&nbsp;&nbsp;~<%= @spot1.price_dinner %>円/人
-          <br>
-          <i class="fa fa-map-marker"></i>移動&nbsp;&nbsp;<%= @spot1.title %>→(<%= @distance %>m)→<%= @spot2.title %>
+        <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
+
+        
+
+        <div class="float-box-0">
+        <div class="float-box-1">
+          <div class="btnn">
+            <i class="fa fa-moon-o"></i>
+          </div>
+          <div class="float-1">
+            ディナーから
+          </div>
+        </div>
+        <div class="float-box-1">
+          <div class="btnn">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <div class="float-1">
+            <%= @spot1.city %>付近
+          </div>
+        </div>
+        <div class="float-box-1">
+          <div class="btnn">
+            <i class="fa fa-yen"></i>
+          </div>
+          <div class="float-1">
+            ~<%= @spot1.price_dinner %>円/人
+          </div>
+        </div>
+        </div>
+        
+
+        <div class="distance text-center">
+          <div>
+            <%= @spot1.title %>
+            <br>
+            <span class="distance0">↓ (<%= @distance %>m)</span>
+            <br>
+            <%= @spot2.title %>
+          </div> 
         </div>
 
         <%# 横スクロールアイキャッチ %>
