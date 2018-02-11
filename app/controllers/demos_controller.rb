@@ -25,6 +25,48 @@ class DemosController < ApplicationController
   end
 
   def search2
+    @n2000 = false
+    @n4000 = false
+    @n6000 = false
+    @n8000 = false
+    if !params[:price_second].blank?
+      if params[:price_second].to_i == 2000
+        @n2000 = true
+      end
+      if params[:price_second].to_i == 4000
+        @n4000 = true
+      end
+      if params[:price_second].to_i == 6000
+        @n6000 = true
+      end
+      if params[:price_second].to_i == 8000
+        @n8000 = true
+      end
+    end
+
+    @n1 = false
+    @n08 = false
+    @n05 = false
+    @n02 = false
+    @n01 = false
+    if !params[:distance].blank?
+      if params[:distance].to_f == 1
+        @n1 = true
+      end
+      if params[:distance].to_f == 0.8
+        @n08 = true
+      end
+      if params[:distance].to_f == 0.5
+        @n05 = true
+      end
+      if params[:distance].to_f == 0.2
+        @n02 = true
+      end
+      if params[:distance].to_f == 0.1
+        @n01 = true
+      end
+    end
+    
   	@n = 0
   	@large = params[:large]
   	@spot1 = Spot.find(params[:spot1])
@@ -48,6 +90,48 @@ class DemosController < ApplicationController
   end
 
   def second
+    @n2000 = false
+    @n4000 = false
+    @n6000 = false
+    @n8000 = false
+    if !params[:price_second].blank?
+      if params[:price_second].to_i == 2000
+        @n2000 = true
+      end
+      if params[:price_second].to_i == 4000
+        @n4000 = true
+      end
+      if params[:price_second].to_i == 6000
+        @n6000 = true
+      end
+      if params[:price_second].to_i == 8000
+        @n8000 = true
+      end
+    end
+
+    @n1 = false
+    @n08 = false
+    @n05 = false
+    @n02 = false
+    @n01 = false
+    if !params[:distance].blank?
+      if params[:distance].to_f == 1
+        @n1 = true
+      end
+      if params[:distance].to_f == 0.8
+        @n08 = true
+      end
+      if params[:distance].to_f == 0.5
+        @n05 = true
+      end
+      if params[:distance].to_f == 0.2
+        @n02 = true
+      end
+      if params[:distance].to_f == 0.1
+        @n01 = true
+      end
+    end
+
   	@n = 0
   	@large = params[:large]
   	@spot1 = Spot.find(params[:spot1])
