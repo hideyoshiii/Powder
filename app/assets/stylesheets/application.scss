@@ -3299,7 +3299,7 @@ footer p {
     margin-right: 10px;
     display: inline-block;
     width: 93%;
-    background: white;
+    background: #F4F5F7;
     border-radius:5px;
 }
 .scroll_item_content:first-child {
@@ -3335,7 +3335,7 @@ footer p {
 .scroll_item_ttl_content_quote {
     font-size: 10px;
     color: #CCCCCC;
-    margin-top:0.7em;
+    margin-top:0.3em;
 	margin-bottom:0.7em;
 	line-height:1.5;
     
@@ -3406,7 +3406,7 @@ footer p {
 }
 .scroll_item_result {
     display: inline-block;
-    width: 90%;
+    width: 80%;
     background: #FAFAFA;
 }
 
@@ -3422,11 +3422,6 @@ footer p {
     background: #333333;
 }
 
-.scroll_item_result_mapss {
-    display: inline-block;
-    width: 10%;
-    background: #333333;
-}
 
 .scroll_item_inr_result{
 	display: inline-block; /* インラインブロック化 */

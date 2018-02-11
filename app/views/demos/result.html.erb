@@ -16,13 +16,6 @@
       <%# 横スクロールアイキャッチ %>
       <div class="horizontal_scroll_wrap_result">
         <ul class="scroll_lst_result">
-          <li class="scroll_item_result_mapss">
-              <div class="scroll_item_inr_result">
-                  <div class="scroll_item_thum_result_info">
-                    &nbsp;①
-                  </div>
-              </div>
-            </li>
           <%# 画像とタイトル %>
           <li class="scroll_item_result">
               <div class="scroll_item_inr_result">
@@ -37,6 +30,15 @@
                 </div>
               </div>
           </li>
+          <a href="" data-toggle="modal" data-target="#myModal1">
+              <li class="scroll_item_result_maps">
+                <div class="scroll_item_inr_result">     
+                  <div class="scroll_item_thum_result_info">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                  </div>           
+                </div>
+              </li>
+            </a>
         </ul>
       </div>
       <!-- モーダルウィンドウの中身 -->
@@ -146,27 +148,24 @@
         <%# 横スクロールアイキャッチ %>
         <div class="horizontal_scroll_wrap_result">
           <ul class="scroll_lst_result">
-            <li class="scroll_item_result_mapss">
-              <div class="scroll_item_inr_result">
-                  <div class="scroll_item_thum_result_info">
-                    &nbsp;①
-                  </div>
-              </div>
-            </li>
             <%# 画像とタイトル %>
             <li class="scroll_item_result">
                 <div class="scroll_item_inr_result">
                   <div class="frame-demo">
                     <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
                     <h3><%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-                    <a href="" data-toggle="modal" data-target="#myModal1">
-                      <h4>
-                        <i class="fa fa-info-circle" aria-hidden="true"></i>
-                      </h4>
-                    </a>
                   </div>
                 </div>
             </li>
+            <a href="" data-toggle="modal" data-target="#myModal1">
+              <li class="scroll_item_result_maps">
+                <div class="scroll_item_inr_result">     
+                  <div class="scroll_item_thum_result_info">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                  </div>           
+                </div>
+              </li>
+            </a>
           </ul>
         </div>
         <!-- モーダルウィンドウの中身 -->
@@ -238,27 +237,24 @@
         <%# 横スクロールアイキャッチ %>
         <div class="horizontal_scroll_wrap_result">
           <ul class="scroll_lst_result">
-            <li class="scroll_item_result_mapss">
-              <div class="scroll_item_inr_result">
-                  <div class="scroll_item_thum_result_info">
-                    &nbsp;②
-                  </div>
-              </div>
-            </li>
             <%# 画像とタイトル %>
             <li class="scroll_item_result">
                 <div class="scroll_item_inr_result">
                   <div class="frame-demo">
                     <%= image_tag @spot2.pictures.first.image.url, :class =>'img-demo-result' %>
                     <h3><%= @spot2.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
-                    <a href="" data-toggle="modal" data-target="#myModal2">
-                      <h4>
-                        <i class="fa fa-info-circle" aria-hidden="true"></i>
-                      </h4>
-                    </a>
                   </div>
                 </div>
             </li>
+            <a href="" data-toggle="modal" data-target="#myModal2">
+              <li class="scroll_item_result_maps">
+                <div class="scroll_item_inr_result">     
+                  <div class="scroll_item_thum_result_info">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                  </div>           
+                </div>
+              </li>
+            </a>
           </ul>
         </div>
         <!-- モーダルウィンドウの中身 -->
