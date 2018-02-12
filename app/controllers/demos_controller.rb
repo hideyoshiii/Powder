@@ -33,7 +33,7 @@ class DemosController < ApplicationController
 	  	@spots = Spot.where.not(title: @spot1.title)
       @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km, :order => false)
 	  	if params[:large] == "おまかせ"
-        @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%夜カフェ%", "%夜景%", "%夜アクティブ%", "%その他%").order("RANDOM()").limit(2)
+        @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%夜カフェ%", "%夜景%", "%夜アクティブ%", "%夜その他%").order("RANDOM()").limit(2)
       else
         @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
       end
@@ -96,7 +96,7 @@ class DemosController < ApplicationController
   	@spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance].to_f, :units => :km, :order => false)
     if params[:large] == "おまかせ"
-      @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%夜カフェ%", "%夜景%", "%夜アクティブ%", "%その他%").order("RANDOM()").limit(2)
+      @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%夜カフェ%", "%夜景%", "%夜アクティブ%", "%夜その他%").order("RANDOM()").limit(2)
     else
       @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
     end
@@ -182,7 +182,7 @@ class DemosController < ApplicationController
       @spots = Spot.where.not(title: @spot1.title)
       @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance_second].to_f, :units => :km, :order => false)
       if params[:large_second] == "おまかせ"
-        @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%その他%").order("RANDOM()").limit(2)
+        @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
       else
         @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
       end
@@ -249,7 +249,7 @@ class DemosController < ApplicationController
     @spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance_second].to_f, :units => :km, :order => false)
     if params[:large_second] == "おまかせ"
-      @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%その他%").order("RANDOM()").limit(2)
+      @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
       @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
     end
@@ -275,7 +275,7 @@ class DemosController < ApplicationController
     @spots = @spots.where.not(title: @spot2.title)
     @spots = @spots.near([@spot2.latitude, @spot2.longitude], params[:distance_third].to_f, :units => :km, :order => false)
     if params[:large_third] == "おまかせ"
-      @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%その他%").order("RANDOM()").limit(2)
+      @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
       @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
     end
@@ -344,7 +344,7 @@ class DemosController < ApplicationController
     @spots = @spots.where.not(title: @spot2.title)
     @spots = @spots.near([@spot2.latitude, @spot2.longitude], params[:distance_third].to_f, :units => :km, :order => false)
     if params[:large_third] == "おまかせ"
-      @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%その他%").order("RANDOM()").limit(2)
+      @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
       @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
     end
