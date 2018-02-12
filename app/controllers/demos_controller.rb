@@ -25,48 +25,6 @@ class DemosController < ApplicationController
   end
 
   def search2
-    @n2000 = false
-    @n4000 = false
-    @n6000 = false
-    @n8000 = false
-    if !params[:price_second].blank?
-      if params[:price_second].to_i == 2000
-        @n2000 = true
-      end
-      if params[:price_second].to_i == 4000
-        @n4000 = true
-      end
-      if params[:price_second].to_i == 6000
-        @n6000 = true
-      end
-      if params[:price_second].to_i == 8000
-        @n8000 = true
-      end
-    end
-
-    @n1 = false
-    @n08 = false
-    @n05 = false
-    @n02 = false
-    @n01 = false
-    if !params[:distance].blank?
-      if params[:distance].to_f == 1
-        @n1 = true
-      end
-      if params[:distance].to_f == 0.8
-        @n08 = true
-      end
-      if params[:distance].to_f == 0.5
-        @n05 = true
-      end
-      if params[:distance].to_f == 0.2
-        @n02 = true
-      end
-      if params[:distance].to_f == 0.1
-        @n01 = true
-      end
-    end
-    
   	@n = 0
   	@large = params[:large]
   	@spot1 = Spot.find(params[:spot1])
@@ -239,6 +197,52 @@ class DemosController < ApplicationController
   end
 
   def lunchsecond
+    @n1000 = false
+    @n2000 = false
+    @n3000 = false
+    @n4000 = false
+    @n5000 = false
+    if !params[:price_second].blank?
+      if params[:price_second].to_i == 1000
+        @n1000 = true
+      end
+      if params[:price_second].to_i == 2000
+        @n2000 = true
+      end
+      if params[:price_second].to_i == 3000
+        @n3000 = true
+      end
+      if params[:price_second].to_i == 4000
+        @n4000 = true
+      end
+      if params[:price_second].to_i == 5000
+        @n5000 = true
+      end
+    end
+
+    @n1 = false
+    @n08 = false
+    @n05 = false
+    @n02 = false
+    @n01 = false
+    if !params[:distance_second].blank?
+      if params[:distance_second].to_f == 1
+        @n1 = true
+      end
+      if params[:distance_second].to_f == 0.8
+        @n08 = true
+      end
+      if params[:distance_second].to_f == 0.5
+        @n05 = true
+      end
+      if params[:distance_second].to_f == 0.2
+        @n02 = true
+      end
+      if params[:distance_second].to_f == 0.1
+        @n01 = true
+      end
+    end
+
     @n = 0
     @large = params[:large_second]
     @spot1 = Spot.find(params[:spot1])
@@ -286,6 +290,52 @@ class DemosController < ApplicationController
   end
 
   def lunchthird
+    @n1000 = false
+    @n2000 = false
+    @n3000 = false
+    @n4000 = false
+    @n5000 = false
+    if !params[:price_third].blank?
+      if params[:price_third].to_i == 1000
+        @n1000 = true
+      end
+      if params[:price_third].to_i == 2000
+        @n2000 = true
+      end
+      if params[:price_third].to_i == 3000
+        @n3000 = true
+      end
+      if params[:price_third].to_i == 4000
+        @n4000 = true
+      end
+      if params[:price_third].to_i == 5000
+        @n5000 = true
+      end
+    end
+
+    @n1 = false
+    @n08 = false
+    @n05 = false
+    @n02 = false
+    @n01 = false
+    if !params[:distance_third].blank?
+      if params[:distance_third].to_f == 1
+        @n1 = true
+      end
+      if params[:distance_third].to_f == 0.8
+        @n08 = true
+      end
+      if params[:distance_third].to_f == 0.5
+        @n05 = true
+      end
+      if params[:distance_third].to_f == 0.2
+        @n02 = true
+      end
+      if params[:distance_third].to_f == 0.1
+        @n01 = true
+      end
+    end
+
     @n = 0
     @large = params[:large_third]
     @spot1 = Spot.find(params[:spot1])

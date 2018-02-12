@@ -11,145 +11,71 @@
 	<%= hidden_field_tag :distance_second, params[:distance_second] %>
 	<%= hidden_field_tag :spot1, params[:spot1] %>
 	<%= hidden_field_tag :spot2, params[:spot2] %>
+	<%= hidden_field_tag :distance_third, 1 %>
 
 		<div class="box95" id=''>
 		  	<div>
 		  		<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">この後はどうしますか？</h3>
 		  	</div>
 		  	<div class="img_radio-home">
-			 	<%= radio_button_tag(:large_third, "おまかせ", false, {:id => "adate", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			 	<%= radio_button_tag(:large_third, "おまかせ", true, {:id => "adate"}) %>
 					<%= label_tag('adate', "A.dateにおまかせ") %> 
 		  	</div>
 		  	<div class="horizontal_scroll_search">
 			  <ul class="scroll_lst_search">
 			  	<li class="scroll_item_search">
 			        <span class="img_radio0">	
-					 	<%= radio_button_tag(:large_third, "３軒目なし", false, {:id => "not", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "３軒目なし", false, {:id => "not"}) %>
 							<%= label_tag('not', "３軒目なし") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-cafe">	
-					 	<%= radio_button_tag(:large_third, "昼カフェ", false, {:id => "cafe", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "昼カフェ", false, {:id => "cafe"}) %>
 							<%= label_tag('cafe', "カフェ") %>
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-park">	
-					 	<%= radio_button_tag(:large_third, "公園", false, {:id => "park", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "公園", false, {:id => "park"}) %>
 							<%= label_tag('park', "公園") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-museum">	
-					 	<%= radio_button_tag(:large_third, "ミュージアム", false, {:id => "museum", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "ミュージアム", false, {:id => "museum"}) %>
 							<%= label_tag('museum', "ミュージアム") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-shop">	
-					 	<%= radio_button_tag(:large_third, "ショップ", false, {:id => "shop", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "ショップ", false, {:id => "shop"}) %>
 							<%= label_tag('shop', "ショップ") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-walk">	
-					 	<%= radio_button_tag(:large_third, "食べ歩き", false, {:id => "walk", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "食べ歩き", false, {:id => "walk"}) %>
 							<%= label_tag('walk', "食べ歩き") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-active">	
-					 	<%= radio_button_tag(:large_third, "昼アクティブ", false, {:id => "active", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "昼アクティブ", false, {:id => "active"}) %>
 							<%= label_tag('active', "アクティブ") %> 
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-recommend">	
-					 	<%= radio_button_tag(:large_third, "その他", false, {:id => "other", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+					 	<%= radio_button_tag(:large_third, "その他", false, {:id => "other"}) %>
 							<%= label_tag('other', "その他") %>
 					</span>
 			    </li>
 			  </ul>
 			</div>
-		  </div>
-
-		  <div class="box97" id='section1'>
-		  	<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;font-size:21px">３軒目の予算はいくらにしますか？</h3>
-		  	<div class="horizontal_scroll_search">
-			  <ul class="scroll_lst_search">
-			  	<li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price_third, 1000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-						<%= label_tag(:price_third_1000, "~1,000円/人") %>
-					</span>
-			    </li>
-			  	<li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price_third, 2000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-						<%= label_tag(:price_sthird_2000, "~2,000円/人") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price_third, 3000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-						<%= label_tag(:price_third_3000, "~3,000円/人") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price_third, 4000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-						<%= label_tag(:price_third_4000, "~4,000円/人") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:price_third, 5000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-						<%= label_tag(:price_third_5000, "~5,000円/人") %>
-					</span>
-			    </li>
-			  </ul>
-			</div>
-  		  </div>
-
-  		  <div class="box94" id='section2'>
-		  	<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;font-size:21px">１軒目からの距離はどうしますか？</h3>
-		  	<div class="horizontal_scroll_search">
-			  <ul class="scroll_lst_search">
-			  	<li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:distance_third, 1, false) %>
-						<%= label_tag(:distance_third_1, "1km以内") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:distance_third, 0.8, false, {:id => "point8"}) %>
-						<%= label_tag('point8', "800m以内") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:distance_third, 0.5, false, {:id => "point5"}) %>
-						<%= label_tag('point5', "500m以内") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:distance_third, 0.2, false, {:id => "point2"}) %>
-						<%= label_tag('point2', "200m以内") %>
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="radio-city">	
-					 	<%= radio_button_tag(:distance_third, 0.1, false, {:id => "point1"}) %>
-						<%= label_tag('point1', "100m以内") %>
-					</span>
-			    </li>
-			  </ul>
-			</div>
+			<br>
 			<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
-  		  </div>
+		  </div>
 
 		
 <% end %>

@@ -6,29 +6,101 @@
 <% if !@spots.blank? %>
 
   <h4 class="text-center" style="margin:20px 0px;">
-    どちらの<%= @large %>にしますか？
-    <a href="" data-toggle="modal" data-target="#myModal-distance" class="black">
-      <i class="fa fa-map-pin"></i>&nbsp;(<%= params[:distance_third] %>km以内)
+    どちらにしますか？
+    <a href="" data-toggle="modal" data-target="#myModal-distance">
+      <span style="font-size:12px;">
+      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件を絞る
+      </span>
     </a>
   </h4> 
 
   <div class="modal fade" id="myModal-distance">
     <div class="modal-dialog">
-      <div style="margin-top:40vh;">
+      <div>
         <%= form_tag(demos_lunch_third_path, method: :get) do %>
           <%= hidden_field_tag :city_lunch, params[:city_lunch] %>
-		  <%= hidden_field_tag :price_lunch, params[:price_lunch] %>
-		  <%= hidden_field_tag :small_lunch, params[:small_lunch] %>
-		  <%= hidden_field_tag :large_second, params[:large_second] %>
-		  <%= hidden_field_tag :price_second, params[:price_second] %>
-		  <%= hidden_field_tag :distance_second, params[:distance_second] %>
-		  <%= hidden_field_tag :spot1, params[:spot1] %>
-		  <%= hidden_field_tag :spot2, params[:spot2] %>
+          <%= hidden_field_tag :price_lunch, params[:price_lunch] %>
+          <%= hidden_field_tag :small_lunch, params[:small_lunch] %>
+          <%= hidden_field_tag :large_second, params[:large_second] %>
+          <%= hidden_field_tag :price_second, params[:price_second] %>
+          <%= hidden_field_tag :distance_second, params[:distance_second] %>
+          <%= hidden_field_tag :spot1, params[:spot1] %>
+          <%= hidden_field_tag :spot2, params[:spot2] %>
           <%= hidden_field_tag :large_third, params[:large_third] %>
-		  <%= hidden_field_tag :price_third, params[:price_third] %>
           <div class="text-center" style="padding-top:30px;">
-            <%= select_tag :distance_third, options_for_select([["1km以内", 1], ["500m以内", 0.5], ["200m以内", 0.2], ["100m以内", 0.1],["100km以内", 100]], params[:distance_third]) %>
-            <%= submit_tag "距離を絞る", :class => "" %>
+            <p>３軒目の予算はいくらにしますか？</p>
+            <div class="horizontal_scroll_search">
+              <ul class="scroll_lst_search">
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:price_third, 1000, @n1000, {}) %>
+                  <%= label_tag(:price_third_1000, "~1,000円/人") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:price_third, 2000, @n2000, {}) %>
+                  <%= label_tag(:price_third_2000, "~2,000円/人") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:price_third, 3000, @n3000, {}) %>
+                  <%= label_tag(:price_third_3000, "~3,000円/人") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:price_third, 4000, @n4000, {}) %>
+                  <%= label_tag(:price_third_4000, "~4,000円/人") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:price_third, 5000, @n5000, {}) %>
+                  <%= label_tag(:price_third_5000, "~5,000円/人") %>
+                </span>
+                </li>
+              </ul>
+            </div>
+            <br>
+            <p>２軒目からの距離はどうしますか？</p>
+            <div class="horizontal_scroll_search">
+              <ul class="scroll_lst_search">
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:distance_third, 1, @n1) %>
+                  <%= label_tag(:distance_third_1, "1km以内") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:distance_third, 0.8, @n08, {:id => "point8"}) %>
+                  <%= label_tag('point8', "800m以内") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:distance_third, 0.5, @n05, {:id => "point5"}) %>
+                  <%= label_tag('point5', "500m以内") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:distance_third, 0.2, @n02, {:id => "point2"}) %>
+                  <%= label_tag('point2', "200m以内") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:distance_third, 0.1, @n01, {:id => "point1"}) %>
+                  <%= label_tag('point1', "100m以内") %>
+                </span>
+                </li>
+              </ul>
+            </div>
+            <br>
+            <%= submit_tag "絞る", :class => "btn btn-default" %>
           </div>
           <br>
         <% end %>
