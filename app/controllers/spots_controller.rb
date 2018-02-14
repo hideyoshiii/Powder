@@ -37,7 +37,7 @@ class SpotsController < ApplicationController
       if @spot.save
         @picture = Picture.new(image: params[:spot][:image], spot_id: @spot.id, user_id: current_user.id)
         @picture.save
-        redirect_to user_path(current_user)
+        redirect_to spot_path(@spot)
       else
         redirect_to new_spot_path
       end
@@ -58,7 +58,7 @@ class SpotsController < ApplicationController
   def update
     @spot = Spot.find(params[:id])
     if @spot.update(spot_params)
-      redirect_to user_path(current_user)
+      redirect_to spot_path(@spot)
     end
   end
 
