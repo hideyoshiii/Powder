@@ -56,15 +56,11 @@ class DemosController < ApplicationController
     @price_start = params[:price_dinner].to_i - 1999
     @price_end = params[:price_dinner].to_i
     if params[:small_dinner].blank?
-      @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(2)
+   	  @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(2)
     else
-      if params[:small_dinner].blank?
-     	  @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(2)
-      else
-        @small = params[:small_dinner]
-        @spots = Spot.where("small like '%#{@small}%'")
-        @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(2)
-      end
+      @small = params[:small_dinner]
+      @spots = Spot.where("small like '%#{@small}%'")
+      @spots = @spots.where(city: params[:city_dinner], price_dinner: @price_start..@price_end).order("RANDOM()").limit(2)
     end
   end
 
@@ -181,10 +177,10 @@ class DemosController < ApplicationController
       @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%夜カフェ%", "%夜景%", "%夜アクティブ%", "%夜その他%").order("RANDOM()").limit(2)
     else
       if params[:large] == "その他"
-           @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ?", "%夜景%", "%夜アクティブ%", "%夜その他%").order("RANDOM()").limit(2)
-        else
-          @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
-        end
+        @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ?", "%夜景%", "%夜アクティブ%", "%夜その他%").order("RANDOM()").limit(2)
+      else
+        @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+      end
     end
   end
 
@@ -243,11 +239,54 @@ class DemosController < ApplicationController
   end
 
   def lunch
+    @japanese = false
+    @yakiniku = false
+    @steak = false
+    @pot = false
+    @french = false
+    @italian = false
+    @western = false
+    @chinese = false
+    @asia = false
+    @otherwise = false
+    if !params[:small_lunch].blank?
+      if params[:small_lunch] == "和食"
+        @japanese = true
+      end
+      if params[:small_lunch] == "焼肉・ホルモン"
+        @yakiniku = true
+      end
+      if params[:small_lunch] == "ステーキ・ハンバーグ"
+        @steak = true
+      end
+      if params[:small_lunch] == "鍋"
+        @pot = true
+      end
+      if params[:small_lunch] == "フレンチ"
+        @french = true
+      end
+      if params[:small_lunch] == "イタリアン"
+        @italian = true
+      end
+      if params[:small_lunch] == "西洋各国料理"
+        @western = true
+      end
+      if params[:small_lunch] == "中華料理"
+        @chinese = true
+      end
+      if params[:small_lunch] == "アジア・エスニック"
+        @asia = true
+      end
+      if params[:small_lunch] == "その他"
+        @otherwise = true
+      end
+    end
+
     @n = 0
     @spots = Spot.where("large like '%ランチ%'")
     @price_start = params[:price_lunch].to_i - 999
     @price_end = params[:price_lunch].to_i
-    if params[:small_lunch] == "指定しない"
+    if params[:small_lunch].blank?
       @spots = @spots.where(city: params[:city_lunch], price_lunch: @price_start..@price_end).order("RANDOM()").limit(2)
     else
       @small = params[:small_lunch]
@@ -260,17 +299,51 @@ class DemosController < ApplicationController
   end
 
   def lunchsearch2
+    @cafe = false
+    @park = false
+    @museum = false
+    @shop = false
+    @walk = false
+    @active = false
+    if !params[:large_second].blank?
+      if params[:large_second] == "昼カフェ"
+        @cafe = true
+      end
+      if params[:large_second] == "公園"
+        @park = true
+      end
+      if params[:large_second] == "ミュージアム"
+        @museum = true
+      end
+      if params[:large_second] == "ショップ"
+        @shop = true
+      end
+      if params[:large_second] == "食べ歩き"
+        @walk = true
+      end
+      if params[:large_second] == "昼アクティブ"
+        @active = true
+      end
+
+    end
+
+    @distance = params[:distance_second].to_f / 1000
+
     @n = 0
     @large = params[:large_second]
     @spot1 = Spot.find(params[:spot1])
     if @spot1
       @pictures1 = @spot1.pictures.order(id: "ASC")
       @spots = Spot.where.not(title: @spot1.title)
-      @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance_second].to_f, :units => :km, :order => false)
+      @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
       if params[:large_second] == "おまかせ"
         @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
       else
-        @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+        if params[:large_second] == "その他"
+          @spots = @spots.where("large LIKE ? OR large LIKE ?", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
+        else
+          @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+        end
       end
     end
 
@@ -283,61 +356,48 @@ class DemosController < ApplicationController
   end
 
   def lunchsecond
-    @n1000 = false
-    @n2000 = false
-    @n3000 = false
-    @n4000 = false
-    @n5000 = false
-    if !params[:price_second].blank?
-      if params[:price_second].to_i == 1000
-        @n1000 = true
+    @cafe = false
+    @park = false
+    @museum = false
+    @shop = false
+    @walk = false
+    @active = false
+    if !params[:large_second].blank?
+      if params[:large_second] == "昼カフェ"
+        @cafe = true
       end
-      if params[:price_second].to_i == 2000
-        @n2000 = true
+      if params[:large_second] == "公園"
+        @park = true
       end
-      if params[:price_second].to_i == 3000
-        @n3000 = true
+      if params[:large_second] == "ミュージアム"
+        @museum = true
       end
-      if params[:price_second].to_i == 4000
-        @n4000 = true
+      if params[:large_second] == "ショップ"
+        @shop = true
       end
-      if params[:price_second].to_i == 5000
-        @n5000 = true
+      if params[:large_second] == "食べ歩き"
+        @walk = true
+      end
+      if params[:large_second] == "昼アクティブ"
+        @active = true
       end
     end
 
-    @n1 = false
-    @n08 = false
-    @n05 = false
-    @n02 = false
-    @n01 = false
-    if !params[:distance_second].blank?
-      if params[:distance_second].to_f == 1
-        @n1 = true
-      end
-      if params[:distance_second].to_f == 0.8
-        @n08 = true
-      end
-      if params[:distance_second].to_f == 0.5
-        @n05 = true
-      end
-      if params[:distance_second].to_f == 0.2
-        @n02 = true
-      end
-      if params[:distance_second].to_f == 0.1
-        @n01 = true
-      end
-    end
+    @distance = params[:distance_second].to_f / 1000
 
     @n = 0
     @large = params[:large_second]
     @spot1 = Spot.find(params[:spot1])
     @spots = Spot.where.not(title: @spot1.title)
-    @spots = @spots.near([@spot1.latitude, @spot1.longitude], params[:distance_second].to_f, :units => :km, :order => false)
+    @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
     if params[:large_second] == "おまかせ"
       @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
-      @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+      if params[:large_second] == "その他"
+        @spots = @spots.where("large LIKE ? OR large LIKE ?", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
+      else
+        @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+      end
     end
   end
 
@@ -345,6 +405,35 @@ class DemosController < ApplicationController
   end
 
   def lunchsearch5
+    @cafe = false
+    @park = false
+    @museum = false
+    @shop = false
+    @walk = false
+    @active = false
+    if !params[:large_third].blank?
+      if params[:large_third] == "昼カフェ"
+        @cafe = true
+      end
+      if params[:large_third] == "公園"
+        @park = true
+      end
+      if params[:large_third] == "ミュージアム"
+        @museum = true
+      end
+      if params[:large_third] == "ショップ"
+        @shop = true
+      end
+      if params[:large_third] == "食べ歩き"
+        @walk = true
+      end
+      if params[:large_third] == "昼アクティブ"
+        @active = true
+      end
+    end
+
+    @distance = params[:distance_third].to_f / 1000
+
     @n = 0
     @large = params[:large_third]
     @spot1 = Spot.find(params[:spot1])
@@ -359,11 +448,15 @@ class DemosController < ApplicationController
     @spot2 = Spot.find(params[:spot2])
     @spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.where.not(title: @spot2.title)
-    @spots = @spots.near([@spot2.latitude, @spot2.longitude], params[:distance_third].to_f, :units => :km, :order => false)
+    @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
     if params[:large_third] == "おまかせ"
       @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
-      @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+      if params[:large_third] == "その他"
+        @spots = @spots.where("large LIKE ? OR large LIKE ?", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
+      else
+        @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+      end
     end
     
 
@@ -376,51 +469,35 @@ class DemosController < ApplicationController
   end
 
   def lunchthird
-    @n1000 = false
-    @n2000 = false
-    @n3000 = false
-    @n4000 = false
-    @n5000 = false
-    if !params[:price_third].blank?
-      if params[:price_third].to_i == 1000
-        @n1000 = true
+    @cafe = false
+    @park = false
+    @museum = false
+    @shop = false
+    @walk = false
+    @active = false
+    if !params[:large_third].blank?
+      if params[:large_third] == "昼カフェ"
+        @cafe = true
       end
-      if params[:price_third].to_i == 2000
-        @n2000 = true
+      if params[:large_third] == "公園"
+        @park = true
       end
-      if params[:price_third].to_i == 3000
-        @n3000 = true
+      if params[:large_third] == "ミュージアム"
+        @museum = true
       end
-      if params[:price_third].to_i == 4000
-        @n4000 = true
+      if params[:large_third] == "ショップ"
+        @shop = true
       end
-      if params[:price_third].to_i == 5000
-        @n5000 = true
+      if params[:large_third] == "食べ歩き"
+        @walk = true
+      end
+      if params[:large_third] == "昼アクティブ"
+        @active = true
       end
     end
 
-    @n1 = false
-    @n08 = false
-    @n05 = false
-    @n02 = false
-    @n01 = false
-    if !params[:distance_third].blank?
-      if params[:distance_third].to_f == 1
-        @n1 = true
-      end
-      if params[:distance_third].to_f == 0.8
-        @n08 = true
-      end
-      if params[:distance_third].to_f == 0.5
-        @n05 = true
-      end
-      if params[:distance_third].to_f == 0.2
-        @n02 = true
-      end
-      if params[:distance_third].to_f == 0.1
-        @n01 = true
-      end
-    end
+    @distance = params[:distance_third].to_f / 1000
+
 
     @n = 0
     @large = params[:large_third]
@@ -428,11 +505,15 @@ class DemosController < ApplicationController
     @spot2 = Spot.find(params[:spot2])
     @spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.where.not(title: @spot2.title)
-    @spots = @spots.near([@spot2.latitude, @spot2.longitude], params[:distance_third].to_f, :units => :km, :order => false)
+    @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
     if params[:large_third] == "おまかせ"
       @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
-      @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+      if params[:large_third] == "その他"
+        @spots = @spots.where("large LIKE ? OR large LIKE ?", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
+      else
+        @spots = @spots.where("large like '%#{@large}%'").order("RANDOM()").limit(2)
+      end
     end
   end
 

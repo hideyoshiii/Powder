@@ -59,7 +59,7 @@
             <br>
             <div class="row">
               <div class="col-xs-offset-1 col-xs-10">
-                <input id="price_dinner" name="price_dinner" type="range" value="<%= params[:price_second].to_i %>" min="1" max="8000" step="1" class="search-detail"
+                <input id="price_second" name="price_second" type="range" value="<%= params[:price_second].to_i %>" min="1" max="8000" step="1" class="search-detail"
                   oninput="document.getElementById('output1').value=this.value">
                   <div class="pull-right">
                   <span class="rage-output2">~</span><output id="output1" class="rage-output2"><%= params[:price_second].to_i %></output><span class="rage-output2">円</span>

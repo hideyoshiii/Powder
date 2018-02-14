@@ -28,81 +28,115 @@
           <%= hidden_field_tag :spot2, params[:spot2] %>
           <%= hidden_field_tag :large_third, params[:large_third] %>
           <div class="text-center" style="padding-top:30px;">
-            <p>３軒目の予算はいくらにしますか？</p>
+            <p>ジャンルを指定しますか？</p>
+            <br>
             <div class="horizontal_scroll_search">
               <ul class="scroll_lst_search">
                 <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:price_third, 1000, @n1000, {}) %>
-                  <%= label_tag(:price_third_1000, "~1,000円/人") %>
+                    <span class="img_radio-cafe"> 
+                  <%= radio_button_tag(:large_third, "昼カフェ", @cafe, {:id => "cafe"}) %>
+                    <%= label_tag('cafe', "カフェ") %>
                 </span>
                 </li>
                 <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:price_third, 2000, @n2000, {}) %>
-                  <%= label_tag(:price_third_2000, "~2,000円/人") %>
+                    <span class="img_radio-park"> 
+                  <%= radio_button_tag(:large_third, "公園", @park, {:id => "park"}) %>
+                    <%= label_tag('park', "公園") %> 
                 </span>
                 </li>
                 <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:price_third, 3000, @n3000, {}) %>
-                  <%= label_tag(:price_third_3000, "~3,000円/人") %>
+                    <span class="img_radio-museum"> 
+                  <%= radio_button_tag(:large_third, "ミュージアム", @museum, {:id => "museum"}) %>
+                    <%= label_tag('museum', "ミュージアム") %> 
                 </span>
                 </li>
                 <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:price_third, 4000, @n4000, {}) %>
-                  <%= label_tag(:price_third_4000, "~4,000円/人") %>
+                    <span class="img_radio-shop"> 
+                  <%= radio_button_tag(:large_third, "ショップ", @shop, {:id => "shop"}) %>
+                    <%= label_tag('shop', "ショップ") %> 
                 </span>
                 </li>
                 <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:price_third, 5000, @n5000, {}) %>
-                  <%= label_tag(:price_third_5000, "~5,000円/人") %>
+                    <span class="img_radio-walk"> 
+                  <%= radio_button_tag(:large_third, "食べ歩き", @walk, {:id => "walk"}) %>
+                    <%= label_tag('walk', "食べ歩き") %> 
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="img_radio-active"> 
+                  <%= radio_button_tag(:large_third, "昼アクティブ", @active, {:id => "active"}) %>
+                    <%= label_tag('active', "アクティブ") %> 
                 </span>
                 </li>
               </ul>
             </div>
+            <br><br>
+            <p>２軒目の予算はいくらにしますか？</p>
             <br>
-            <p>２軒目からの距離はどうしますか？</p>
+            <div class="row">
+              <div class="col-xs-offset-1 col-xs-10">
+                <input id="price_third" name="price_third" type="range" value="<%= params[:price_third].to_i %>" min="1" max="8000" step="1" class="search-detail"
+                  oninput="document.getElementById('output1').value=this.value">
+                  <div class="pull-right">
+                  <span class="rage-output2">~</span><output id="output1" class="rage-output2"><%= params[:price_third].to_i %></output><span class="rage-output2">円</span>
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <p>１軒目からの距離はどうしますか？</p>
+            <br>
+            <div class="row">
+              <div class="col-xs-offset-1 col-xs-10">
+                <input id="distance_third" name="distance_third" type="range" value="<%= params[:distance_third].to_i %>" min="1" max="2000" step="1" class="search-detail"
+                  oninput="document.getElementById('output2').value=this.value">
+                  <div class="pull-right">
+                  <span class="rage-output2">~</span><output id="output2" class="rage-output2"><%= params[:distance_third].to_i %></output><span class="rage-output2">m</span>
+                </div>
+              </div>
+            </div>
+            <br>
+            <p>エリアを指定することもできます</p>
+            <br>
             <div class="horizontal_scroll_search">
               <ul class="scroll_lst_search">
                 <li class="scroll_item_search">
                     <span class="radio-city"> 
-                  <%= radio_button_tag(:distance_third, 1, @n1) %>
-                  <%= label_tag(:distance_third_1, "1km以内") %>
+                  <%= radio_button_tag(:city_third, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
+                  <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
                 </span>
                 </li>
                 <li class="scroll_item_search">
                     <span class="radio-city"> 
-                  <%= radio_button_tag(:distance_third, 0.8, @n08, {:id => "point8"}) %>
-                  <%= label_tag('point8', "800m以内") %>
+                  <%= radio_button_tag(:city_third, "渋谷", @shibuya, {:id => "shibuya"}) %>
+                  <%= label_tag('shibuya', "渋谷") %>
                 </span>
                 </li>
                 <li class="scroll_item_search">
                     <span class="radio-city"> 
-                  <%= radio_button_tag(:distance_third, 0.5, @n05, {:id => "point5"}) %>
-                  <%= label_tag('point5', "500m以内") %>
+                  <%= radio_button_tag(:city_third, "原宿・表参道・青山", @harajuku, {:id => "harajuku"}) %>
+                  <%= label_tag('harajuku', "原宿・表参道・青山") %>
                 </span>
                 </li>
                 <li class="scroll_item_search">
                     <span class="radio-city"> 
-                  <%= radio_button_tag(:distance_third, 0.2, @n02, {:id => "point2"}) %>
-                  <%= label_tag('point2', "200m以内") %>
+                  <%= radio_button_tag(:city_third, "新宿", @shinjuku, {:id => "shinjuku"}) %>
+                  <%= label_tag('shinjuku', "新宿") %>
                 </span>
                 </li>
                 <li class="scroll_item_search">
                     <span class="radio-city"> 
-                  <%= radio_button_tag(:distance_third, 0.1, @n01, {:id => "point1"}) %>
-                  <%= label_tag('point1', "100m以内") %>
+                  <%= radio_button_tag(:city_third, "東京・丸の内・日本橋", @tokyo, {:id => "tokyo"}) %>
+                  <%= label_tag('tokyo', "東京・丸の内・日本橋") %>
                 </span>
                 </li>
               </ul>
             </div>
-            <br>
+            <br><br>
             <%= submit_tag "絞る", :class => "btn btn-default" %>
+            <br>
+            <button type="button" style="margin-right:10px;" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+            <br><br>
           </div>
-          <br>
         <% end %>
       </div>
     </div>

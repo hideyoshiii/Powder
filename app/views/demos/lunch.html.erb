@@ -4,12 +4,116 @@
 
 <% if !@spots.blank? %>	
 
+	<h4 class="text-center" style="margin:20px 0px;">
+    どちらにしますか？
+    <a href="" data-toggle="modal" data-target="#myModal-distance">
+      <span style="font-size:12px;">
+      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件を絞る
+      </span>
+    </a>
+    </h4> 
+
+    <div class="modal fade" id="myModal-distance">
+      <div class="modal-dialog">
+        <div>
+          <%= form_tag(demos_lunch_path, method: :get) do %>
+            <%= hidden_field_tag :city_lunch, params[:city_lunch] %>
+            <div class="text-center" style="padding-top:30px;">
+              <p>予算はいくらにしますか？</p>
+              <br>
+              <div class="row">
+                <div class="col-xs-offset-1 col-xs-10">
+                  <input id="price_lunch" name="price_lunch" type="range" value="<%= params[:price_lunch].to_i %>" min="1" max="4000" step="1" class="search-detail"
+                    oninput="document.getElementById('output1').value=this.value">
+                    <div class="pull-right">
+                    <span class="rage-output2">~</span><output id="output1" class="rage-output2"><%= params[:price_lunch].to_i %></output><span class="rage-output2">円</span>
+                  </div>
+                </div>
+              </div>
+              <br><br>
+              <p>ジャンルを指定しますか？</p>
+              <br>
+              <div class="horizontal_scroll_search">
+                <ul class="scroll_lst_search">
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "和食", @japanese, {:id => "japanese"}) %>
+                    <%= label_tag('japanese', "和食") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
+                    <%= label_tag('yakiniku', "焼肉・ホルモン") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
+                    <%= label_tag('steak', "ステーキ・ハンバーグ") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "鍋", @pot, {:id => "pot"}) %>
+                    <%= label_tag('pot', "鍋") %>
+                  </span>
+                  </li>
+                </ul>
+              </div>
+              <div class="horizontal_scroll_search">
+                <ul class="scroll_lst_search">
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "フレンチ", @french, {:id => "french"}) %>
+                    <%= label_tag('french', "フレンチ") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "イタリアン", @italian, {:id => "italian"}) %>
+                    <%= label_tag('italian', "イタリアン") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "西洋各国料理", @western, {:id => "western"}) %>
+                    <%= label_tag('western', "西洋各国料理") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "中華料理", @chinese, {:id => "chinese"}) %>
+                    <%= label_tag('chinese', "中華料理") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "アジア・エスニック", @asia, {:id => "asia"}) %>
+                    <%= label_tag('asia', "アジア・エスニック") %>
+                  </span>
+                  </li>
+                  <li class="scroll_item_search">
+                      <span class="radio-city"> 
+                    <%= radio_button_tag(:small_lunch, "その他", @otherwise, {:id => "otherwise"}) %>
+                    <%= label_tag('otherwise', "その他") %>
+                  </span>
+                  </li>
+                </ul>
+              </div>
+              <br>
+              <%= submit_tag "絞る", :class => "btn btn-default" %>
+            </div>
+            <br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
 	<%= form_tag(demos_lunch_search3_path, method: :get) do %>
 	<%= hidden_field_tag :city_lunch, params[:city_lunch] %>
 	<%= hidden_field_tag :price_lunch, params[:price_lunch] %>
 	<%= hidden_field_tag :small_lunch, params[:small_lunch] %>
-
-		<h4 class="text-center" style="margin:20px 0px;">どちらのお店にしますか？</h4>	
 
 		<% @spots.each do |spot| %>
 			<% @n = @n + 1 %>
@@ -123,6 +227,19 @@ function koshin(){
 
   location.reload();
 }
+</script>
+
+<script>
+  $(function () {
+    $('.radio-city').on('click', function(event) {
+      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
+      event.preventDefault();
+      
+      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
+      var $input = $(this).find('input');
+      $input.prop('checked', !$input.prop('checked'));
+    });
+  });
 </script>
 
 

@@ -49,105 +49,13 @@
 
   <div class="box97" id='section1'>
   	<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h3>
-  	<div class="horizontal_scroll_search">
-	  <ul class="scroll_lst_search">
-	  	<li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:price_lunch, 1000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-				<%= label_tag(:price_lunch_1000, "~1,000円/人") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:price_lunch, 2000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-				<%= label_tag(:price_lunch_2000, "~2,000円/人") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:price_lunch, 3000, false, {:onclick => "$('html,body').animate({scrollTop: $( '#section2' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-				<%= label_tag(:price_lunch_3000, "~3,000円/人") %>
-			</span>
-	    </li>
-	  </ul>
-	</div>
-  </div>
-
-  <div class="box96" id='section2'>
-  	<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">ジャンルを指定しますか？</h3>
-  	<div class="horizontal_scroll_search">
-	  <ul class="scroll_lst_search">
-	  	<li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "指定しない", false, {:id => "not"}) %>
-				<%= label_tag('not', "指定しない") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "和食", false, {:id => "japanese"}) %>
-				<%= label_tag('japanese', "和食") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "焼肉・ホルモン", false, {:id => "yakiniku"}) %>
-				<%= label_tag('yakiniku', "焼肉・ホルモン") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_dlunch, "ステーキ・ハンバーグ", false, {:id => "steak"}) %>
-				<%= label_tag('steak', "ステーキ・ハンバーグ") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "鍋", false, {:id => "pot"}) %>
-				<%= label_tag('pot', "鍋") %>
-			</span>
-	    </li>
-	  </ul>
-	</div>
-	<div class="horizontal_scroll_search">
-	  <ul class="scroll_lst_search">
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "フレンチ", false, {:id => "french"}) %>
-				<%= label_tag('french', "フレンチ") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "イタリアン", false, {:id => "italian"}) %>
-				<%= label_tag('italian', "イタリアン") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "西洋各国料理", false, {:id => "western"}) %>
-				<%= label_tag('western', "西洋各国料理") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "中華料理", false, {:id => "chinese"}) %>
-				<%= label_tag('chinese', "中華料理") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "アジア・エスニック", false, {:id => "asia"}) %>
-				<%= label_tag('asia', "アジア・エスニック") %>
-			</span>
-	    </li>
-	    <li class="scroll_item_search">
-	        <span class="radio-city">	
-			 	<%= radio_button_tag(:small_lunch, "その他", false, {:id => "otherwise"}) %>
-				<%= label_tag('otherwise', "その他") %>
-			</span>
-	    </li>
-	  </ul>
+  	<br>
+  	<div class="col-xs-10">
+		<input id="price_lunch" name="price_lunch" type="range" value="2000" min="1" max="4000" step="1"
+	  	oninput="document.getElementById('output1').value=this.value">
+	  	<div class="pull-right">
+			<span class="rage-output">~</span><output id="output1" class="rage-output">2000</output><span class="rage-output">円</span>
+		</div>
 	</div>
 	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
   </div>
