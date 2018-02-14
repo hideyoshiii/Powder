@@ -7,24 +7,24 @@
 	<%= hidden_field_tag :price_dinner, params[:price_dinner] %>
 	<%= hidden_field_tag :small_dinner, params[:small_dinner] %>
 	<%= hidden_field_tag :spot1, params[:spot1] %>
-	<%= hidden_field_tag :distance, 1 %>
+	<%= hidden_field_tag :distance, 1000 %>
 
 		<div class="box95" id=''>
 		  	<div>
 		  		<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">この後はどうしますか？</h3>
 		  	</div>
-		  	<div class="img_radio-home">
-			 	<%= radio_button_tag(:large, "おまかせ", true, {:id => "adate"}) %>
-					<%= label_tag('adate', "A.dateにおまかせ") %> 
+		  	<div>
+			  	<span class="img_radio-home">
+				 	<%= radio_button_tag(:large, "おまかせ", false, {:id => "adate"}) %>
+						<%= label_tag('adate', "A.dateにおまかせ") %> 
+			  	</span>
+			  	<span class="img_radio-home2">
+				 	<%= radio_button_tag(:large, "２軒目なし", false, {:id => "not"}) %>
+						<%= label_tag('not', "２軒目なし") %> 
+			  	</span>
 		  	</div>
 		  	<div class="horizontal_scroll_search">
 			  <ul class="scroll_lst_search">
-			  	<li class="scroll_item_search">
-			        <span class="img_radio0">	
-					 	<%= radio_button_tag(:large, "２軒目なし", false, {:id => "not"}) %>
-							<%= label_tag('not', "２軒目なし") %> 
-					</span>
-			    </li>
 			    <li class="scroll_item_search">
 			        <span class="img_radio-bar">	
 					 	<%= radio_button_tag(:large, "バー", false, {:id => "bar"}) %>
@@ -38,20 +38,8 @@
 					</span>
 			    </li>
 			    <li class="scroll_item_search">
-			        <span class="img_radio-nightactive">	
-					 	<%= radio_button_tag(:large, "夜アクティブ", false, {:id => "active"}) %>
-							<%= label_tag('active', "アクティブ") %> 
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
-			        <span class="img_radio-night">	
-					 	<%= radio_button_tag(:large, "夜景", false, {:id => "night"}) %>
-							<%= label_tag('night', "夜景") %> 
-					</span>
-			    </li>
-			    <li class="scroll_item_search">
 			        <span class="img_radio-recommend">	
-					 	<%= radio_button_tag(:large, "夜その他", false, {:id => "other"}) %>
+					 	<%= radio_button_tag(:large, "その他", false, {:id => "other"}) %>
 							<%= label_tag('other', "その他") %>
 					</span>
 			    </li>
