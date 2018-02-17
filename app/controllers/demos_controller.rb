@@ -335,7 +335,11 @@ class DemosController < ApplicationController
     if @spot1
       @pictures1 = @spot1.pictures.order(id: "ASC")
       @spots = Spot.where.not(title: @spot1.title)
-      @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
+      if params[:city_second].blank?
+        @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
+      else
+        @spots = @spots.where(city: params[:city_second])
+      end
       if params[:large_second] == "おまかせ"
         @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
       else
@@ -383,13 +387,40 @@ class DemosController < ApplicationController
       end
     end
 
+    @ebisu = false
+    @shibuya = false
+    @harajuku = false
+    @shinjuku = false
+    @tokyo = false
+    if !params[:city_second].blank?
+      if params[:city_second] == "恵比寿・代官山・中目黒"
+        @ebisu = true
+      end
+      if params[:city_second] == "渋谷"
+        @shibuya = true
+      end
+      if params[:city_second] == "原宿・表参道・青山"
+        @harajuku = true
+      end
+      if params[:city_second] == "新宿"
+        @shinjuku = true
+      end
+      if params[:city_second] == "東京・丸の内・日本橋"
+        @tokyo = true
+      end
+    end
+
     @distance = params[:distance_second].to_f / 1000
 
     @n = 0
     @large = params[:large_second]
     @spot1 = Spot.find(params[:spot1])
     @spots = Spot.where.not(title: @spot1.title)
-    @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
+    if params[:city_second].blank?
+      @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
+    else
+      @spots = @spots.where(city: params[:city_second])
+    end
     if params[:large_second] == "おまかせ"
       @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
@@ -448,7 +479,11 @@ class DemosController < ApplicationController
     @spot2 = Spot.find(params[:spot2])
     @spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.where.not(title: @spot2.title)
-    @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
+    if params[:city_third].blank?
+      @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
+    else
+      @spots = @spots.where(city: params[:city_third])
+    end
     if params[:large_third] == "おまかせ"
       @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
@@ -496,6 +531,29 @@ class DemosController < ApplicationController
       end
     end
 
+    @ebisu = false
+    @shibuya = false
+    @harajuku = false
+    @shinjuku = false
+    @tokyo = false
+    if !params[:city_third].blank?
+      if params[:city_third] == "恵比寿・代官山・中目黒"
+        @ebisu = true
+      end
+      if params[:city_third] == "渋谷"
+        @shibuya = true
+      end
+      if params[:city_third] == "原宿・表参道・青山"
+        @harajuku = true
+      end
+      if params[:city_third] == "新宿"
+        @shinjuku = true
+      end
+      if params[:city_third] == "東京・丸の内・日本橋"
+        @tokyo = true
+      end
+    end
+
     @distance = params[:distance_third].to_f / 1000
 
 
@@ -505,7 +563,11 @@ class DemosController < ApplicationController
     @spot2 = Spot.find(params[:spot2])
     @spots = Spot.where.not(title: @spot1.title)
     @spots = @spots.where.not(title: @spot2.title)
-    @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
+    if params[:city_third].blank?
+      @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
+    else
+      @spots = @spots.where(city: params[:city_third])
+    end
     if params[:large_third] == "おまかせ"
       @spots = @spots.where("large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%昼カフェ%", "%公園%", "%ミュージアム%", "%ショップ%", "%昼アクティブ%", "%昼その他%").order("RANDOM()").limit(2)
     else
