@@ -5314,13 +5314,11 @@ display: inline-block;
 //ディナーランチボタン
 .home-box{
 	text-align: center;
-	margin:20px 0px 20px;
 }
 
 .home-box-1{
 	width:30%;
 	display: inline-block;
-	vertical-align: top;
 	text-align: center;
 }
 
@@ -5503,6 +5501,9 @@ input[type="range"].search-detail:focus {
 button.button1 {
     background: rgba(0, 0, 0, 0);
     border:0;
+    margin:0;
+    padding:0;
+    display:inline-block;
 }
 
 
