@@ -7,6 +7,7 @@ class Spot < ApplicationRecord
   serialize :scenes
   serialize :large
   serialize :small
+  serialize :timezone
 
   geocoded_by :address
   after_validation :geocode, :if => :address_changed?

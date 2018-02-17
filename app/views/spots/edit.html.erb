@@ -28,6 +28,38 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
+                                <label>scene</label>
+                                <br>   
+								    <% ["カジュアル", "クール", "ユニーク", "スペシャル"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>timezone</label>
+                                <br>   
+								    <% ["朝", "昼", "夜", "深夜"].each do |timezone| %>
+								    <label>
+								      <%= f.check_box :timezone, { multiple: true},timezone,nil %>
+								      <%= timezone %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
                                 <label>大カテゴリー</label>
                                 <br>   
 								    <% ["ランチ", "ディナー", "バー", "昼カフェ", "夜カフェ", "公園", "ミュージアム", "ショップ", "食べ歩き", "夜景", "昼アクティブ", "夜アクティブ", "昼その他", "夜その他"].each do |large| %>
