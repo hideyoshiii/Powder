@@ -2008,6 +2008,92 @@ dl.search1 dd span:hover{
   padding:0;
   }
 
+.box93 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)) , url(kind.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:-50px;
+  box-sizing: border-box;
+}
+
+.box93 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box92 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)) , url(next02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:0px;
+  box-sizing: border-box;
+}
+
+.box92 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
 
 
 
@@ -2678,6 +2764,132 @@ footer p {
     background-size:cover;
     background-position: center;
 }
+
+
+.img_radio-casual input{
+    display: none;
+}
+.img_radio-casual label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(casual.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-casual input[type="radio"]:checked + label {
+    background: url(casual.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-cool input{
+    display: none;
+}
+.img_radio-cool label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(cool.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-cool input[type="radio"]:checked + label {
+    background: url(cool.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+.img_radio-unique input{
+    display: none;
+}
+.img_radio-unique label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(unique.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-unique input[type="radio"]:checked + label {
+    background: url(unique.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+.img_radio-dinner input{
+    display: none;
+}
+.img_radio-dinner label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(dinner.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-dinner input[type="radio"]:checked + label {
+    background: url(dinner.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+.img_radio-lunch input{
+    display: none;
+}
+.img_radio-lunch label {
+    position: relative;
+    background: linear-gradient(-45deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)) , url(lunch.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    width: 100px;
+    height:100px;
+    color:white;
+    border-radius: 5px;
+    margin: 0px 7px;
+    transition:0.1s;
+    text-align:center;
+}
+.img_radio-lunch input[type="radio"]:checked + label {
+    background: url(lunch.jpg) ;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+
+
+
 
 
 
@@ -5286,6 +5498,12 @@ input[type="range"].search-detail:focus {
 	color:black;
 }
 
+
+//ボタン 
+button.button1 {
+    background: rgba(0, 0, 0, 0);
+    border:0;
+}
 
 
 

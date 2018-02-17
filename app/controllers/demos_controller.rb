@@ -1,5 +1,11 @@
 class DemosController < ApplicationController
 
+  def kind
+  end
+
+  def lunchkind
+  end
+
 
   def search
   end

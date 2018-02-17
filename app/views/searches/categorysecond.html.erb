@@ -1,0 +1,146 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+<%= form_tag(searches_middle_second_path, method: :get) do %>
+　<%= hidden_field_tag :timezone, params[:timezone] %>
+　<%= hidden_field_tag :scene, params[:scene] %>
+  <%= hidden_field_tag :spot1, params[:spot1] %>
+
+  <div class="box95" id=''>
+		  	<div>
+		  		<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">この後はどこに行きますか？</h3>
+		  	</div>
+		  	<div class="horizontal_scroll_search">
+			  <ul class="scroll_lst_search">
+			  	<li class="scroll_item_search">
+			        <span class="img_radio0">	
+					 	<%= radio_button_tag(:large, "２軒目なし", false, {:id => "not"}) %>
+							<%= label_tag('not', "２軒目なし") %>
+					</span>
+			    </li>
+			  	<% if params[:timezone] == "夜" %>
+				  	<li class="scroll_item_search">
+				        <span class="img_radio-dinner">	
+						 	<%= radio_button_tag(:large, "ディナー", false, {:id => "dinner"}) %>
+								<%= label_tag('dinner', "ディナー") %>
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+				        <span class="img_radio-bar">	
+						 	<%= radio_button_tag(:large, "バー", false, {:id => "bar"}) %>
+								<%= label_tag('bar', "バー") %>
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+				        <span class="img_radio-nightcafe">	
+						 	<%= radio_button_tag(:large, "カフェ", false, {:id => "cafe"}) %>
+								<%= label_tag('cafe', "カフェ") %>
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+	                    <span class="img_radio-nightactive">  
+	                  <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
+	                    <%= label_tag('active', "アクティブ") %> 
+	                </span>
+	                </li>
+	                <li class="scroll_item_search">
+	                    <span class="img_radio-night">  
+	                  <%= radio_button_tag(:large, "夜景", @night, {:id => "night"}) %>
+	                    <%= label_tag('night', "夜景") %> 
+	                </span>
+	                </li>
+	            <% end %>
+	            <% if params[:timezone] == "昼" %>
+	                <li class="scroll_item_search">
+				        <span class="img_radio-lunch">	
+						 	<%= radio_button_tag(:large, "ランチ", false, {:id => "lunch"}) %>
+								<%= label_tag('lunch', "ランチ") %>
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+				        <span class="img_radio-cafe">	
+						 	<%= radio_button_tag(:large, "カフェ", false, {:id => "cafe"}) %>
+								<%= label_tag('cafe', "カフェ") %>
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+				        <span class="img_radio-park">	
+						 	<%= radio_button_tag(:large, "公園", false, {:id => "park"}) %>
+								<%= label_tag('park', "公園") %> 
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+				        <span class="img_radio-museum">	
+						 	<%= radio_button_tag(:large, "ミュージアム", false, {:id => "museum"}) %>
+								<%= label_tag('museum', "ミュージアム") %> 
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+				        <span class="img_radio-shop">	
+						 	<%= radio_button_tag(:large, "ショップ", false, {:id => "shop"}) %>
+								<%= label_tag('shop', "ショップ") %> 
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+				        <span class="img_radio-walk">	
+						 	<%= radio_button_tag(:large, "食べ歩き", false, {:id => "walk"}) %>
+								<%= label_tag('walk', "食べ歩き") %> 
+						</span>
+				    </li>
+				    <li class="scroll_item_search">
+	                    <span class="img_radio-active"> 
+	                  <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
+	                    <%= label_tag('active', "アクティブ") %> 
+	                </span>
+	                </li>
+	            <% end %>
+			    <li class="scroll_item_search">
+			        <span class="img_radio-recommend">	
+					 	<%= radio_button_tag(:large, "その他", false, {:id => "other"}) %>
+							<%= label_tag('other', "その他") %>
+					</span>
+			    </li>
+			  </ul>
+			</div>
+			<br>
+			<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
+		  </div>
+
+
+<% end %>
+
+
+<script>
+//更新
+function scroll(){
+	var n = window.location.href.slice(window.location.href.indexOf('?') + 4);
+    var p = $("section1").offset().top;
+    $('html,body').animate({ scrollTop: p }, 'slow');
+    return false;
+}
+</script>
+
+
+</mains>
+
+<script>
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID 
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-XXXXX-X', 'auto');
+  ga('send', 'pageview');
+</script>
+
+--> <script type="text/javascript" src="./main.85741bff.js"></script></body>

@@ -4,6 +4,19 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
+  get "searches/home" => "searches#home"
+  get "searches/kind" => "searches#kind"
+  get "searches/category-first" => "searches#categoryfirst"
+  get "searches/first" => "searches#first"
+  get "searches/category-second" => "searches#categorysecond"
+  get "searches/middle-second" => "searches#middlesecond"
+  get "searches/second" => "searches#second"
+  get "searches/category-third" => "searches#categorythird"
+  get "searches/middle-third" => "searches#middlethird"
+  get "searches/third" => "searches#third"
+  get "searches/result" => "searches#result"
+
+
   get "courses/search" => "courses#search"
   get "courses/result" => "courses#result"
 
@@ -25,6 +38,9 @@ Rails.application.routes.draw do
   get "demos/lunch-search5" => "demos#lunchsearch5"
   get "demos/lunch-third" => "demos#lunchthird"
   get "demos/lunch-result" => "demos#lunchresult"
+
+  get "demos/kind" => "demos#kind"
+  get "demos/lunch-kind" => "demos#lunchkind"
 
   get "/adate" => "details#adate"
   get "/eagle" => "details#eagle"
