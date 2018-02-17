@@ -910,3 +910,11 @@ $(function() {
 });
 
 
+//ナブバーのスライドイベント
+document.addEventListener("DOMContentLoaded", function (event) {
+  navbarToggleSidebar();
+  navActivePage();
+});
+
+
+
