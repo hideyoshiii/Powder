@@ -62,12 +62,19 @@
 								<div class="form-group">
                                 <label>大カテゴリー</label>
                                 <br>   
-								    <% ["ランチ", "ディナー", "バー", "昼カフェ", "夜カフェ", "公園", "ミュージアム", "ショップ", "食べ歩き", "夜景", "昼アクティブ", "夜アクティブ", "昼その他", "夜その他"].each do |large| %>
+								    <% ["ランチ", "ディナー"].each do |large| %>
 								    <label>
 								      <%= f.check_box :large, { multiple: true},large,nil %>
 								      <%= large %>
 								    </label>
-								    <% end %>	  
+								    <% end %>
+								<br>--------------<br>
+								<% ["バー", "カフェ", "公園", "ミュージアム", "ショップ", "食べ歩き", "夜景", "アクティブ", "その他"].each do |large| %>
+								    <label>
+								      <%= f.check_box :large, { multiple: true},large,nil %>
+								      <%= large %>
+								    </label>
+								    <% end %>		  
                             	</div>
 							</div>
 						</div>
