@@ -61,24 +61,9 @@ def middlesecond
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
+  unless @large == "おまかせ"
   	@spots = @spots.where("large like '%#{@large}%'")
-  	if !params[:price].blank?
-	    @price_start = params[:price].to_i - 999
-	    @price_end = params[:price].to_i
-	    if @large == "ディナー"
-	    	@spots = @spots.where(price_dinner: @price_start..@price_end)
-	    else
-		    if @large == "ランチ"
-		    	@spots = @spots.where(price_lunch: @price_start..@price_end)
-		    else
-		    	@spots = @spots.where(price_spot: @price_start..@price_end)
-		    end
-		end
-	end
-    if !params[:small].blank?
-      @small = params[:small]
-      @spots = @spots.where("small like '%#{@small}%'")
-    end
+  end
 
     @spots = @spots.order("RANDOM()").limit(2)
 
@@ -112,24 +97,10 @@ def second
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-  	@spots = @spots.where("large like '%#{@large}%'")
-  	if !params[:price].blank?
-	    @price_start = params[:price].to_i - 999
-	    @price_end = params[:price].to_i
-	    if @large == "ディナー"
-	    	@spots = @spots.where(price_dinner: @price_start..@price_end)
-	    else
-		    if @large == "ランチ"
-		    	@spots = @spots.where(price_lunch: @price_start..@price_end)
-		    else
-		    	@spots = @spots.where(price_spot: @price_start..@price_end)
-		    end
-		end
-	end
-    if !params[:small].blank?
-      @small = params[:small]
-      @spots = @spots.where("small like '%#{@small}%'")
-    end
+  unless @large == "おまかせ"
+    @spots = @spots.where("large like '%#{@large}%'")
+  end
+  	
 
     @spots = @spots.order("RANDOM()").limit(2)
 
@@ -158,25 +129,10 @@ def middlethird
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-  	@spots = @spots.where("large like '%#{@large}%'")
-  	if !params[:price].blank?
-	    @price_start = params[:price].to_i - 999
-	    @price_end = params[:price].to_i
-	    if @large == "ディナー"
-	    	@spots = @spots.where(price_dinner: @price_start..@price_end)
-	    else
-		    if @large == "ランチ"
-		    	@spots = @spots.where(price_lunch: @price_start..@price_end)
-		    else
-		    	@spots = @spots.where(price_spot: @price_start..@price_end)
-		    end
-		end
-	end
-    if !params[:small].blank?
-      @small = params[:small]
-      @spots = @spots.where("small like '%#{@small}%'")
-    end
-
+  unless @large == "おまかせ"
+    @spots = @spots.where("large like '%#{@large}%'")
+  end
+  
     @spots = @spots.order("RANDOM()").limit(2)
 
     if @spot1
@@ -221,26 +177,11 @@ def third
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-  	@spots = @spots.where("large like '%#{@large}%'")
-  	if !params[:price].blank?
-	    @price_start = params[:price].to_i - 999
-	    @price_end = params[:price].to_i
-	    if @large == "ディナー"
-	    	@spots = @spots.where(price_dinner: @price_start..@price_end)
-	    else
-		    if @large == "ランチ"
-		    	@spots = @spots.where(price_lunch: @price_start..@price_end)
-		    else
-		    	@spots = @spots.where(price_spot: @price_start..@price_end)
-		    end
-		end
-	end
-    if !params[:small].blank?
-      @small = params[:small]
-      @spots = @spots.where("small like '%#{@small}%'")
-    end
+  unless @large == "おまかせ"
+    @spots = @spots.where("large like '%#{@large}%'")
+  end
 
-    @spots = @spots.order("RANDOM()").limit(2)
+  @spots = @spots.order("RANDOM()").limit(2)
 
 end
 
@@ -322,6 +263,67 @@ end
       end
     end
 
+    @ebisu = false
+    @shibuya = false
+    @harajuku = false
+    @shinjuku = false
+    @tokyo = false
+    if !params[:city].blank?
+      if params[:city] == "恵比寿・代官山・中目黒"
+        @ebisu = true
+      end
+      if params[:city] == "渋谷"
+        @shibuya = true
+      end
+      if params[:city] == "原宿・表参道・青山"
+        @harajuku = true
+      end
+      if params[:city] == "新宿"
+        @shinjuku = true
+      end
+      if params[:city] == "東京・丸の内・日本橋"
+        @tokyo = true
+      end
+    end
+
+    @bar = false
+    @cafe = false
+    @active = false
+    @night = false
+    @park = false
+    @museum = false
+    @shop = false
+    @walk = false
+    @other = false
+    if !params[:large].blank?
+      if params[:large] == "バー"
+        @bar = true
+      end
+      if params[:large] == "カフェ"
+        @cafe = true
+      end
+      if params[:large] == "アクティブ"
+        @active = true
+      end
+      if params[:large] == "夜景"
+        @night = true
+      end
+      if params[:large] == "公園"
+        @park = true
+      end
+      if params[:large] == "ミュージアム"
+        @museum = true
+      end
+      if params[:large] == "ショップ"
+        @shop = true
+      end
+      if params[:large] == "食べ歩き"
+        @walk = true
+      end
+      if params[:large] == "その他"
+        @other = true
+      end
+    end
 
   end
 
