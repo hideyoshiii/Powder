@@ -13,10 +13,8 @@ end
 def first
 	@n = 0
 	@timezone = params[:timezone]
-	@scene = params[:scene]
 	@large = params[:large]
 	@spots = Spot.where("timezone like '%#{@timezone}%'")
-	@spots = @spots.where("scenes like '%#{@scene}%'")
   	@spots = @spots.where("large like '%#{@large}%'")
   	@spots = @spots.where(city: params[:city])
   	if !params[:price].blank?
@@ -57,10 +55,8 @@ def middlesecond
 
 	@n = 0
 	@timezone = params[:timezone]
-	@scene = params[:scene]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-	@spots = @spots.where("scenes like '%#{@scene}%'")
   	@spots = @spots.where("large like '%#{@large}%'")
   	if !params[:price].blank?
 	    @price_start = params[:price].to_i - 999
@@ -110,10 +106,8 @@ def second
 
 	@n = 0
 	@timezone = params[:timezone]
-	@scene = params[:scene]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-	@spots = @spots.where("scenes like '%#{@scene}%'")
   	@spots = @spots.where("large like '%#{@large}%'")
   	if !params[:price].blank?
 	    @price_start = params[:price].to_i - 999
@@ -158,10 +152,8 @@ def middlethird
 
 	@n = 0
 	@timezone = params[:timezone]
-	@scene = params[:scene]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-	@spots = @spots.where("scenes like '%#{@scene}%'")
   	@spots = @spots.where("large like '%#{@large}%'")
   	if !params[:price].blank?
 	    @price_start = params[:price].to_i - 999
@@ -223,10 +215,8 @@ def third
 
 	@n = 0
 	@timezone = params[:timezone]
-	@scene = params[:scene]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-	@spots = @spots.where("scenes like '%#{@scene}%'")
   	@spots = @spots.where("large like '%#{@large}%'")
   	if !params[:price].blank?
 	    @price_start = params[:price].to_i - 999
