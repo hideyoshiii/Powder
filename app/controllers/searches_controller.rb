@@ -61,7 +61,9 @@ def middlesecond
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-  unless @large == "おまかせ"
+  if @large == "おまかせ"
+    @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%カフェ%", "%夜景%", "%公園%", "%ミュージアム%", "%ショップ%", "%アクティブ%", "%その他%")
+  else
   	@spots = @spots.where("large like '%#{@large}%'")
   end
 
@@ -97,7 +99,9 @@ def second
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-  unless @large == "おまかせ"
+  if @large == "おまかせ"
+    @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%カフェ%", "%夜景%", "%公園%", "%ミュージアム%", "%ショップ%", "%アクティブ%", "%その他%")
+  else
     @spots = @spots.where("large like '%#{@large}%'")
   end
   	
@@ -129,7 +133,9 @@ def middlethird
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-  unless @large == "おまかせ"
+  if @large == "おまかせ"
+    @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%カフェ%", "%夜景%", "%公園%", "%ミュージアム%", "%ショップ%", "%アクティブ%", "%その他%")
+  else
     @spots = @spots.where("large like '%#{@large}%'")
   end
   
@@ -177,7 +183,9 @@ def third
 	@timezone = params[:timezone]
 	@large = params[:large]
 	@spots = @spots.where("timezone like '%#{@timezone}%'")
-  unless @large == "おまかせ"
+  if @large == "おまかせ"
+    @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%カフェ%", "%夜景%", "%公園%", "%ミュージアム%", "%ショップ%", "%アクティブ%", "%その他%")
+  else
     @spots = @spots.where("large like '%#{@large}%'")
   end
 
