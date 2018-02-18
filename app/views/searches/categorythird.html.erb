@@ -3,7 +3,6 @@
 
 <%= form_tag(searches_middle_third_path, method: :get) do %>
 　<%= hidden_field_tag :timezone, params[:timezone] %>
-　<%= hidden_field_tag :scene, params[:scene] %>
   <%= hidden_field_tag :spot1, params[:spot1] %>
   <%= hidden_field_tag :spot2, params[:spot2] %>
   <%= hidden_field_tag :distance, 1000 %>
@@ -14,19 +13,7 @@
 		  	</div>
 		  	<div class="horizontal_scroll_search">
 			  <ul class="scroll_lst_search">
-			  	<li class="scroll_item_search">
-			        <span class="img_radio0">	
-					 	<%= radio_button_tag(:large, "３軒目なし", false, {:id => "not"}) %>
-							<%= label_tag('not', "３軒目なし") %>
-					</span>
-			    </li>
 			  	<% if params[:timezone] == "夜" %>
-				  	<li class="scroll_item_search">
-				        <span class="img_radio-dinner">	
-						 	<%= radio_button_tag(:large, "ディナー", false, {:id => "dinner"}) %>
-								<%= label_tag('dinner', "ディナー") %>
-						</span>
-				    </li>
 				    <li class="scroll_item_search">
 				        <span class="img_radio-bar">	
 						 	<%= radio_button_tag(:large, "バー", false, {:id => "bar"}) %>
@@ -53,12 +40,6 @@
 	                </li>
 	            <% end %>
 	            <% if params[:timezone] == "昼" %>
-	                <li class="scroll_item_search">
-				        <span class="img_radio-lunch">	
-						 	<%= radio_button_tag(:large, "ランチ", false, {:id => "lunch"}) %>
-								<%= label_tag('lunch', "ランチ") %>
-						</span>
-				    </li>
 				    <li class="scroll_item_search">
 				        <span class="img_radio-cafe">	
 						 	<%= radio_button_tag(:large, "カフェ", false, {:id => "cafe"}) %>
@@ -100,6 +81,12 @@
 			        <span class="img_radio-recommend">	
 					 	<%= radio_button_tag(:large, "その他", false, {:id => "other"}) %>
 							<%= label_tag('other', "その他") %>
+					</span>
+			    </li>
+			    <li class="scroll_item_search">
+			        <span class="img_radio0">	
+					 	<%= radio_button_tag(:large, "３軒目なし", false, {:id => "not"}) %>
+							<%= label_tag('not', "３軒目なし") %>
 					</span>
 			    </li>
 			  </ul>

@@ -3,21 +3,30 @@
 
 <%= form_tag(searches_first_path, method: :get) do %>
 　<%= hidden_field_tag :timezone, params[:timezone] %>
-　<%= hidden_field_tag :scene, params[:scene] %>
 
   <div class="box98" id=''>
   	<div>
-  		<h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">まずはエリアを決めましょう。</h4>
+  		<% if params[:timezone] == "昼" %>
+  			<h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">まずはランチのお店を決めましょう。</h4>
+  		<% end %>
+  		<% if params[:timezone] == "夜" %>
+  			<h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">まずはランチのお店を決めましょう。</h4>
+  		<% end %>
   	</div>
   	<br>
   	<div>
-  		<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">どのエリアでデートしますか？</h3>
+  		<% if params[:timezone] == "昼" %>
+  			<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">どこでランチをしますか？</h3>
+  		<% end %>
+  		<% if params[:timezone] == "夜" %>
+  			<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">どこでディナーをしますか？</h3>
+  		<% end %>
   	</div>
   	<div class="horizontal_scroll_search">
 	  <ul class="scroll_lst_search">
 	    <li class="scroll_item_search">
 	        <span class="radio-city">	
-			 	<%= radio_button_tag(:city, "恵比寿・代官山・中目黒", false, {:id => "ebisu", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			 	<%= radio_button_tag(:city, "恵比寿・代官山・中目黒", true, {:id => "ebisu", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 				<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
 			</span>
 	    </li>
@@ -49,99 +58,31 @@
 	</div>
   </div>
 
-  <div class="box92" id='section1'>
-		  	<div>
-		  		<h3 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">まずはどこに行きますか？</h3>
-		  	</div>
-		  	<div class="horizontal_scroll_search">
-			  <ul class="scroll_lst_search">
-			  	<% if params[:timezone] == "夜" %>
-				  	<li class="scroll_item_search">
-				        <span class="img_radio-dinner">	
-						 	<%= radio_button_tag(:large, "ディナー", false, {:id => "dinner"}) %>
-								<%= label_tag('dinner', "ディナー") %>
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-				        <span class="img_radio-bar">	
-						 	<%= radio_button_tag(:large, "バー", false, {:id => "bar"}) %>
-								<%= label_tag('bar', "バー") %>
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-				        <span class="img_radio-nightcafe">	
-						 	<%= radio_button_tag(:large, "カフェ", false, {:id => "cafe"}) %>
-								<%= label_tag('cafe', "カフェ") %>
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-	                    <span class="img_radio-nightactive">  
-	                  <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
-	                    <%= label_tag('active', "アクティブ") %> 
-	                </span>
-	                </li>
-	                <li class="scroll_item_search">
-	                    <span class="img_radio-night">  
-	                  <%= radio_button_tag(:large, "夜景", @night, {:id => "night"}) %>
-	                    <%= label_tag('night', "夜景") %> 
-	                </span>
-	                </li>
-	            <% end %>
-	            <% if params[:timezone] == "昼" %>
-	                <li class="scroll_item_search">
-				        <span class="img_radio-lunch">	
-						 	<%= radio_button_tag(:large, "ランチ", false, {:id => "lunch"}) %>
-								<%= label_tag('lunch', "ランチ") %>
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-				        <span class="img_radio-cafe">	
-						 	<%= radio_button_tag(:large, "カフェ", false, {:id => "cafe"}) %>
-								<%= label_tag('cafe', "カフェ") %>
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-				        <span class="img_radio-park">	
-						 	<%= radio_button_tag(:large, "公園", false, {:id => "park"}) %>
-								<%= label_tag('park', "公園") %> 
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-				        <span class="img_radio-museum">	
-						 	<%= radio_button_tag(:large, "ミュージアム", false, {:id => "museum"}) %>
-								<%= label_tag('museum', "ミュージアム") %> 
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-				        <span class="img_radio-shop">	
-						 	<%= radio_button_tag(:large, "ショップ", false, {:id => "shop"}) %>
-								<%= label_tag('shop', "ショップ") %> 
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-				        <span class="img_radio-walk">	
-						 	<%= radio_button_tag(:large, "食べ歩き", false, {:id => "walk"}) %>
-								<%= label_tag('walk', "食べ歩き") %> 
-						</span>
-				    </li>
-				    <li class="scroll_item_search">
-	                    <span class="img_radio-active"> 
-	                  <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
-	                    <%= label_tag('active', "アクティブ") %> 
-	                </span>
-	                </li>
-	            <% end %>
-			    <li class="scroll_item_search">
-			        <span class="img_radio-recommend">	
-					 	<%= radio_button_tag(:large, "その他", false, {:id => "other"}) %>
-							<%= label_tag('other', "その他") %>
-					</span>
-			    </li>
-			  </ul>
+  <div class="box97" id='section1'>
+  	<% if params[:timezone] == "昼" %>
+	  	<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">ランチの予算はいくらにしますか？</h4>
+	  	<br>
+	  	<div class="col-xs-10">
+			<input id="price" name="price" type="range" value="2000" min="0" max="5000" step="1000"
+		  	oninput="document.getElementById('output1').value=this.value">
+		  	<div class="pull-right">
+				<span class="rage-output">~</span><output id="output1" class="rage-output">4000</output><span class="rage-output">円</span>
 			</div>
-			<br>
-			<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
-		  </div>
+		</div>
+	<% end %>
+	<% if params[:timezone] == "夜" %>
+	  	<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">ディナーの予算はいくらにしますか？</h4>
+	  	<br>
+	  	<div class="col-xs-10">
+			<input id="price" name="price" type="range" value="4000" min="0" max="10000" step="1000"
+		  	oninput="document.getElementById('output1').value=this.value">
+		  	<div class="pull-right">
+				<span class="rage-output">~</span><output id="output1" class="rage-output">4000</output><span class="rage-output">円</span>
+			</div>
+		</div>
+	<% end %>
+	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
+  </div>
 
 
 <% end %>
@@ -159,3 +100,4 @@ function scroll(){
 
 
 </mains>
+

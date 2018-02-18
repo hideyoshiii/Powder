@@ -13,9 +13,13 @@ end
 def first
 	@n = 0
 	@timezone = params[:timezone]
-	@large = params[:large]
-	@spots = Spot.where("timezone like '%#{@timezone}%'")
-  	@spots = @spots.where("large like '%#{@large}%'")
+  if @timezone == "昼"
+	 @large = "ランチ"
+  end
+  if @timezone == "夜"
+   @large = "ディナー"
+  end
+  	@spots = Spot.where("large like '%#{@large}%'")
   	@spots = @spots.where(city: params[:city])
   	if !params[:price].blank?
 	    @price_start = params[:price].to_i - 999

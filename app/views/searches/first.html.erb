@@ -18,23 +18,35 @@
         <div>
           <%= form_tag(searches_first_path, method: :get) do %>
           	<%= hidden_field_tag :timezone, params[:timezone] %>
-　			<%= hidden_field_tag :scene, params[:scene] %>
             <%= hidden_field_tag :city, params[:city] %>
-            <%= hidden_field_tag :large, params[:large] %>
             <div class="text-center" style="padding-top:30px;">
-              <p>予算はいくらにしますか？</p>
-              <br>
-              <div class="row">
-                <div class="col-xs-offset-1 col-xs-10">
-                  <input id="price" name="price" type="range" value="<%= params[:price].to_i %>" min="0" max="10000" step="1000" class="search-detail"
-                    oninput="document.getElementById('output1').value=this.value">
-                    <div class="pull-right">
-                    <span class="rage-output2">~&nbsp;</span><output id="output1" class="rage-output2"><%= params[:price].to_i %></output><span class="rage-output2">円</span> 
+              <% if params[:timezone] == "昼" %>
+                <p>ランチの予算はいくらにしますか？</p>
+                <br>
+                <div class="row">
+                  <div class="col-xs-offset-1 col-xs-10">
+                    <input id="price" name="price" type="range" value="<%= params[:price].to_i %>" min="0" max="50000" step="1000" class="search-detail"
+                      oninput="document.getElementById('output1').value=this.value">
+                      <div class="pull-right">
+                      <span class="rage-output2">~&nbsp;</span><output id="output1" class="rage-output2"><%= params[:price].to_i %></output><span class="rage-output2">円</span> 
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
+              <% if params[:timezone] == "夜" %>
+                <p>ディナーの予算はいくらにしますか？</p>
+                <br>
+                <div class="row">
+                  <div class="col-xs-offset-1 col-xs-10">
+                    <input id="price" name="price" type="range" value="<%= params[:price].to_i %>" min="0" max="10000" step="1000" class="search-detail"
+                      oninput="document.getElementById('output1').value=this.value">
+                      <div class="pull-right">
+                      <span class="rage-output2">~&nbsp;</span><output id="output1" class="rage-output2"><%= params[:price].to_i %></output><span class="rage-output2">円</span> 
+                    </div>
+                  </div>
+                </div>
+              <% end %>
               <br><br>
-              <% if params[:large] == "ディナー" || params[:large] == "ディナー" %>
 	              <p>ジャンルを指定しますか？</p>
 	              <br>
 	              <div class="horizontal_scroll_search">
@@ -106,7 +118,6 @@
 	                </ul>
 	              </div>
 	          <br>
-	          <% end %>
               <%= submit_tag "絞る", :class => "btn btn-default" %>
             </div>
             <br>
@@ -117,7 +128,6 @@
 
     <%= form_tag(searches_category_second_path, method: :get) do %>
     <%= hidden_field_tag :timezone, params[:timezone] %>
-　	<%= hidden_field_tag :scene, params[:scene] %>
 
 		<% @spots.each do |spot| %>
       <div class="radio-city1">	
