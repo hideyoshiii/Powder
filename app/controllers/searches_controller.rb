@@ -22,16 +22,16 @@ def first
   	@spots = Spot.where("large like '%#{@large}%'")
   	@spots = @spots.where(city: params[:city])
   	if !params[:price].blank?
-	    @price_start = params[:price].to_i - 999
-	    @price_end = params[:price].to_i
 	    if @large == "ディナー"
+        @price_start = params[:price].to_i - 1999
+        @price_end = params[:price].to_i
 	    	@spots = @spots.where(price_dinner: @price_start..@price_end)
 	    else
-		    if @large == "ランチ"
-		    	@spots = @spots.where(price_lunch: @price_start..@price_end)
-		    else
-		    	@spots = @spots.where(price_spot: @price_start..@price_end)
-		    end
+	    if @large == "ランチ"
+        @price_start = params[:price].to_i - 999
+        @price_end = params[:price].to_i
+	    	@spots = @spots.where(price_lunch: @price_start..@price_end)
+	    end
 		end
 	end
     if !params[:small].blank?

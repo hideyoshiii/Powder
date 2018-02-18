@@ -2,8 +2,22 @@
 
 <mains class="" id="main-collapse">
 
-<% if !@spots.blank? %>	
+<% if @spots.blank? %>	
 
+  <h4 class="text-center" style="margin:20px 0px;">
+    該当するスポットがありません
+  </h4> 
+
+  <h4 class="text-center" style="margin:20px 0px;">
+    <a href="" data-toggle="modal" data-target="#myModal-distance">
+      <span style="font-size:12px;">
+      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件を絞る
+      </span>
+    </a>
+  </h4> 
+
+<% else %>
+  
 	<h4 class="text-center" style="margin:20px 0px;">
 	    どちらにしますか？
 	    <a href="" data-toggle="modal" data-target="#myModal-distance">
@@ -12,150 +26,6 @@
 	      </span>
 	    </a>
     </h4> 
-
-    <div class="modal fade" id="myModal-distance">
-      <div class="modal-dialog">
-        <div>
-          <%= form_tag(searches_second_path, method: :get) do %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-            <%= hidden_field_tag :large, params[:large] %>
-            <%= hidden_field_tag :spot1, params[:spot1] %>
-            <div class="text-center" style="padding-top:30px;">
-	          <p>１軒目からの距離はどうしますか？</p>
-            <br>
-            <div class="row">
-              <div class="col-xs-offset-1 col-xs-10">
-                <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail"
-                  oninput="document.getElementById('output2').value=this.value">
-                  <div class="pull-right">
-                  <span class="rage-output2">~</span><output id="output2" class="rage-output2"><%= params[:distance].to_i %></output><span class="rage-output2">m</span>
-                </div>
-              </div>
-            </div>
-            <br>
-            <p>エリアを指定することもできます</p>
-            <br>
-            <div class="horizontal_scroll_search">
-              <ul class="scroll_lst_search">
-                <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
-                  <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
-                </span>
-                </li>
-                <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:city, "渋谷", @shibuya, {:id => "shibuya"}) %>
-                  <%= label_tag('shibuya', "渋谷") %>
-                </span>
-                </li>
-                <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:city, "原宿・表参道・青山", @harajuku, {:id => "harajuku"}) %>
-                  <%= label_tag('harajuku', "原宿・表参道・青山") %>
-                </span>
-                </li>
-                <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:city, "新宿", @shinjuku, {:id => "shinjuku"}) %>
-                  <%= label_tag('shinjuku', "新宿") %>
-                </span>
-                </li>
-                <li class="scroll_item_search">
-                    <span class="radio-city"> 
-                  <%= radio_button_tag(:city, "東京・丸の内・日本橋", @tokyo, {:id => "tokyo"}) %>
-                  <%= label_tag('tokyo', "東京・丸の内・日本橋") %>
-                </span>
-                </li>
-              </ul>
-            </div>
-            <br>
-            <p>どこに行きたいですか？</p>
-            <div class="horizontal_scroll_search">
-              <ul class="scroll_lst_search">
-                <% if params[:timezone] == "夜" %>
-                  <li class="scroll_item_search">
-                      <span class="img_radio-bar">  
-                    <%= radio_button_tag(:large, "バー", @bar, {:id => "bar"}) %>
-                      <%= label_tag('bar', "バー") %>
-                  </span>
-                  </li>
-                  <li class="scroll_item_search">
-                      <span class="img_radio-nightcafe">  
-                    <%= radio_button_tag(:large, "カフェ", @cafe, {:id => "cafe"}) %>
-                      <%= label_tag('cafe', "カフェ") %>
-                  </span>
-                  </li>
-                  <li class="scroll_item_search">
-                            <span class="img_radio-nightactive">  
-                          <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
-                            <%= label_tag('active', "アクティブ") %> 
-                        </span>
-                        </li>
-                        <li class="scroll_item_search">
-                            <span class="img_radio-night">  
-                          <%= radio_button_tag(:large, "夜景", @night, {:id => "night"}) %>
-                            <%= label_tag('night', "夜景") %> 
-                        </span>
-                        </li>
-                    <% end %>
-                    <% if params[:timezone] == "昼" %>
-                  <li class="scroll_item_search">
-                      <span class="img_radio-cafe"> 
-                    <%= radio_button_tag(:large, "カフェ", @cafe, {:id => "cafe"}) %>
-                      <%= label_tag('cafe', "カフェ") %>
-                  </span>
-                  </li>
-                  <li class="scroll_item_search">
-                      <span class="img_radio-park"> 
-                    <%= radio_button_tag(:large, "公園", @park, {:id => "park"}) %>
-                      <%= label_tag('park', "公園") %> 
-                  </span>
-                  </li>
-                  <li class="scroll_item_search">
-                      <span class="img_radio-museum"> 
-                    <%= radio_button_tag(:large, "ミュージアム", @museum, {:id => "museum"}) %>
-                      <%= label_tag('museum', "ミュージアム") %> 
-                  </span>
-                  </li>
-                  <li class="scroll_item_search">
-                      <span class="img_radio-shop"> 
-                    <%= radio_button_tag(:large, "ショップ", @shop, {:id => "shop"}) %>
-                      <%= label_tag('shop', "ショップ") %> 
-                  </span>
-                  </li>
-                  <li class="scroll_item_search">
-                      <span class="img_radio-walk"> 
-                    <%= radio_button_tag(:large, "食べ歩き", @walk, {:id => "walk"}) %>
-                      <%= label_tag('walk', "食べ歩き") %> 
-                  </span>
-                  </li>
-                  <li class="scroll_item_search">
-                            <span class="img_radio-active"> 
-                          <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
-                            <%= label_tag('active', "アクティブ") %> 
-                        </span>
-                        </li>
-                    <% end %>
-                <li class="scroll_item_search">
-                    <span class="img_radio-recommend">  
-                  <%= radio_button_tag(:large, "その他", @other, {:id => "other"}) %>
-                    <%= label_tag('other', "その他") %>
-                </span>
-                </li>
-              </ul>
-            </div>
-            <br><br>
-            <%= submit_tag "絞る", :class => "btn btn-default" %>
-            <br>
-            <button type="button" class="btn btn-default btn-sm pull-right" style="margin:10px;" data-dismiss="modal">×</button>
-            <br>
-            </div>
-            <br>
-          <% end %>
-        </div>
-      </div>
-    </div>
 
     <%= form_tag(searches_category_third_path, method: :get) do %>
     <%= hidden_field_tag :timezone, params[:timezone] %>
@@ -260,10 +130,152 @@
 	   
 	<% end %>
 
-<% else %>
-	該当するスポットがありません
 <% end %>
 
+<%#詳細条件モーダルの中身%>
+<div class="modal fade" id="myModal-distance">
+  <div class="modal-dialog">
+    <div>
+      <%= form_tag(searches_second_path, method: :get) do %>
+        <%= hidden_field_tag :timezone, params[:timezone] %>
+        <%= hidden_field_tag :large, params[:large] %>
+        <%= hidden_field_tag :spot1, params[:spot1] %>
+        <div class="text-center" style="padding-top:30px;">
+        <p>１軒目からの距離はどうしますか？</p>
+        <br>
+        <div class="row">
+          <div class="col-xs-offset-1 col-xs-10">
+            <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail"
+              oninput="document.getElementById('output2').value=this.value">
+              <div class="pull-right">
+              <span class="rage-output2">~</span><output id="output2" class="rage-output2"><%= params[:distance].to_i %></output><span class="rage-output2">m</span>
+            </div>
+          </div>
+        </div>
+        <br>
+        <p>エリアを指定することもできます</p>
+        <br>
+        <div class="horizontal_scroll_search">
+          <ul class="scroll_lst_search">
+            <li class="scroll_item_search">
+                <span class="radio-city"> 
+              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
+              <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
+            </span>
+            </li>
+            <li class="scroll_item_search">
+                <span class="radio-city"> 
+              <%= radio_button_tag(:city, "渋谷", @shibuya, {:id => "shibuya"}) %>
+              <%= label_tag('shibuya', "渋谷") %>
+            </span>
+            </li>
+            <li class="scroll_item_search">
+                <span class="radio-city"> 
+              <%= radio_button_tag(:city, "原宿・表参道・青山", @harajuku, {:id => "harajuku"}) %>
+              <%= label_tag('harajuku', "原宿・表参道・青山") %>
+            </span>
+            </li>
+            <li class="scroll_item_search">
+                <span class="radio-city"> 
+              <%= radio_button_tag(:city, "新宿", @shinjuku, {:id => "shinjuku"}) %>
+              <%= label_tag('shinjuku', "新宿") %>
+            </span>
+            </li>
+            <li class="scroll_item_search">
+                <span class="radio-city"> 
+              <%= radio_button_tag(:city, "東京・丸の内・日本橋", @tokyo, {:id => "tokyo"}) %>
+              <%= label_tag('tokyo', "東京・丸の内・日本橋") %>
+            </span>
+            </li>
+          </ul>
+        </div>
+        <br>
+        <p>どこに行きたいですか？</p>
+        <div class="horizontal_scroll_search">
+          <ul class="scroll_lst_search">
+            <% if params[:timezone] == "夜" %>
+              <li class="scroll_item_search">
+                  <span class="img_radio-bar">  
+                <%= radio_button_tag(:large, "バー", @bar, {:id => "bar"}) %>
+                  <%= label_tag('bar', "バー") %>
+              </span>
+              </li>
+              <li class="scroll_item_search">
+                  <span class="img_radio-nightcafe">  
+                <%= radio_button_tag(:large, "カフェ", @cafe, {:id => "cafe"}) %>
+                  <%= label_tag('cafe', "カフェ") %>
+              </span>
+              </li>
+              <li class="scroll_item_search">
+                        <span class="img_radio-nightactive">  
+                      <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
+                        <%= label_tag('active', "アクティブ") %> 
+                    </span>
+                    </li>
+                    <li class="scroll_item_search">
+                        <span class="img_radio-night">  
+                      <%= radio_button_tag(:large, "夜景", @night, {:id => "night"}) %>
+                        <%= label_tag('night', "夜景") %> 
+                    </span>
+                    </li>
+                <% end %>
+                <% if params[:timezone] == "昼" %>
+              <li class="scroll_item_search">
+                  <span class="img_radio-cafe"> 
+                <%= radio_button_tag(:large, "カフェ", @cafe, {:id => "cafe"}) %>
+                  <%= label_tag('cafe', "カフェ") %>
+              </span>
+              </li>
+              <li class="scroll_item_search">
+                  <span class="img_radio-park"> 
+                <%= radio_button_tag(:large, "公園", @park, {:id => "park"}) %>
+                  <%= label_tag('park', "公園") %> 
+              </span>
+              </li>
+              <li class="scroll_item_search">
+                  <span class="img_radio-museum"> 
+                <%= radio_button_tag(:large, "ミュージアム", @museum, {:id => "museum"}) %>
+                  <%= label_tag('museum', "ミュージアム") %> 
+              </span>
+              </li>
+              <li class="scroll_item_search">
+                  <span class="img_radio-shop"> 
+                <%= radio_button_tag(:large, "ショップ", @shop, {:id => "shop"}) %>
+                  <%= label_tag('shop', "ショップ") %> 
+              </span>
+              </li>
+              <li class="scroll_item_search">
+                  <span class="img_radio-walk"> 
+                <%= radio_button_tag(:large, "食べ歩き", @walk, {:id => "walk"}) %>
+                  <%= label_tag('walk', "食べ歩き") %> 
+              </span>
+              </li>
+              <li class="scroll_item_search">
+                        <span class="img_radio-active"> 
+                      <%= radio_button_tag(:large, "アクティブ", @active, {:id => "active"}) %>
+                        <%= label_tag('active', "アクティブ") %> 
+                    </span>
+                    </li>
+                <% end %>
+            <li class="scroll_item_search">
+                <span class="img_radio-recommend">  
+              <%= radio_button_tag(:large, "その他", @other, {:id => "other"}) %>
+                <%= label_tag('other', "その他") %>
+            </span>
+            </li>
+          </ul>
+        </div>
+        <br><br>
+        <%= submit_tag "絞る", :class => "btn btn-default" %>
+        <br>
+        <button type="button" class="btn btn-default btn-sm pull-right" style="margin:10px;" data-dismiss="modal">閉じる×</button>
+        <br>
+        </div>
+        <br>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <script>
 //更新
