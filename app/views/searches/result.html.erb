@@ -114,8 +114,20 @@
           <div class="panel-body">
             <%# タイトル %>
             <div class="title-spot-show-min"><%= @spot1.title %></div>
+            <%# 料金 %>
+            <p style="color: #666666;margin:5px 0px;font-size:12px">
+              <% unless @spot1.price_lunch.blank? %>
+                <i class="fa fa-sun-o"></i>~<%= @spot1.price_lunch %>円/
+              <% end %>
+              <% unless @spot1.price_dinner.blank? %>
+                <i class="fa fa-moon-o"></i>~<%= @spot1.price_dinner %>円/
+              <% end %>
+              <% unless @spot1.price_spot.blank? %>
+                <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
+              <% end %>
+            </p> 
             <%# 都道府県、エリア %>
-            <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+            <p style="color: #66666;margin-top:5px;font-size:12px">
               <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
             </p> 
             <%# 見出し %>
@@ -136,7 +148,7 @@
                 <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
               <% end %>
               <% unless @spot1.introduction.blank? %>
-                <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+                <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
               <% end %>
             </div>
             <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
@@ -285,8 +297,20 @@
               <div class="panel-body">
                 <%# タイトル %>
                 <div class="title-spot-show-min"><%= @spot1.title %></div>
+                <%# 料金 %>
+                <p style="color: #666666;margin:5px 0px;font-size:12px">
+                  <% unless @spot1.price_lunch.blank? %>
+                    <i class="fa fa-sun-o"></i>~<%= @spot1.price_lunch %>円/
+                  <% end %>
+                  <% unless @spot1.price_dinner.blank? %>
+                    <i class="fa fa-moon-o"></i>~<%= @spot1.price_dinner %>円/
+                  <% end %>
+                  <% unless @spot1.price_spot.blank? %>
+                    <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
+                  <% end %>
+                </p> 
                 <%# 都道府県、エリア %>
-                <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+                <p style="color: #66666;margin-top:5px;font-size:12px">
                   <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
                 </p> 
                 <%# 見出し %>
@@ -307,7 +331,7 @@
                     <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
                   <% end %>
                   <% unless @spot1.introduction.blank? %>
-                <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+                <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
               <% end %>
                 </div>
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
@@ -377,8 +401,20 @@
               <div class="panel-body">
                 <%# タイトル %>
                 <div class="title-spot-show-min"><%= @spot2.title %></div>
+                <%# 料金 %>
+                <p style="color: #666666;margin:5px 0px;font-size:12px">
+                  <% unless @spot2.price_lunch.blank? %>
+                    <i class="fa fa-sun-o"></i>~<%= @spot2.price_lunch %>円/
+                  <% end %>
+                  <% unless @spot2.price_dinner.blank? %>
+                    <i class="fa fa-moon-o"></i>~<%= @spot2.price_dinner %>円/
+                  <% end %>
+                  <% unless @spot2.price_spot.blank? %>
+                    <i class="fa fa-yen"></i>~<%= @spot2.price_spot %>円
+                  <% end %>
+                </p> 
                 <%# 都道府県、エリア %>
-                <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+                <p style="color: #666666;margin-top:5px;font-size:12px">
                   <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
                 </p> 
                 <%# 見出し %>
@@ -399,7 +435,7 @@
                     <a href="<%= @spot2.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
                   <% end %>
                   <% unless @spot2.introduction.blank? %>
-                <a href="<%= @spot2.introduction %>" target="_blank" class="raise4-result"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+                <a href="<%= @spot2.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
               <% end %>
                 </div>
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
@@ -550,8 +586,20 @@
                 <div class="panel-body">
                   <%# タイトル %>
                   <div class="title-spot-show-min"><%= @spot1.title %></div>
+                  <%# 料金 %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px">
+                    <% unless @spot1.price_lunch.blank? %>
+                      <i class="fa fa-sun-o"></i>~<%= @spot1.price_lunch %>円/
+                    <% end %>
+                    <% unless @spot1.price_dinner.blank? %>
+                      <i class="fa fa-moon-o"></i>~<%= @spot1.price_dinner %>円/
+                    <% end %>
+                    <% unless @spot1.price_spot.blank? %>
+                      <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
+                    <% end %>
+                  </p> 
                   <%# 都道府県、エリア %>
-                  <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+                  <p style="color: #666666;margin-top:5px;font-size:12px">
                     <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
                   </p> 
                   <%# 見出し %>
@@ -572,7 +620,7 @@
                       <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
                     <% end %>
                     <% unless @spot1.introduction.blank? %>
-                      <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+                      <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
                     <% end %>
                   </div>
                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
@@ -642,8 +690,20 @@
                 <div class="panel-body">
                   <%# タイトル %>
                   <div class="title-spot-show-min"><%= @spot2.title %></div>
+                  <%# 料金 %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px">
+                    <% unless @spot2.price_lunch.blank? %>
+                      <i class="fa fa-sun-o"></i>~<%= @spot2.price_lunch %>円/
+                    <% end %>
+                    <% unless @spot2.price_dinner.blank? %>
+                      <i class="fa fa-moon-o"></i>~<%= @spot2.price_dinner %>円/
+                    <% end %>
+                    <% unless @spot2.price_spot.blank? %>
+                      <i class="fa fa-yen"></i>~<%= @spot2.price_spot %>円
+                    <% end %>
+                  </p> 
                   <%# 都道府県、エリア %>
-                  <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+                  <p style="color: #666666;margin-top:5px;font-size:12px">
                     <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
                   </p> 
                   <%# 見出し %>
@@ -664,7 +724,7 @@
                       <a href="<%= @spot2.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
                     <% end %>
                     <% unless @spot2.introduction.blank? %>
-                      <a href="<%= @spot2.introduction %>" target="_blank" class="raise4-result"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+                      <a href="<%= @spot2.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
                     <% end %>
                   </div>
                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
@@ -734,8 +794,20 @@
                 <div class="panel-body">
                   <%# タイトル %>
                   <div class="title-spot-show-min"><%= @spot3.title %></div>
+                  <%# 料金 %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px">
+                    <% unless @spot3.price_lunch.blank? %>
+                      <i class="fa fa-sun-o"></i>~<%= @spot3.price_lunch %>円/
+                    <% end %>
+                    <% unless @spot3.price_dinner.blank? %>
+                      <i class="fa fa-moon-o"></i>~<%= @spot3.price_dinner %>円/
+                    <% end %>
+                    <% unless @spot3.price_spot.blank? %>
+                      <i class="fa fa-yen"></i>~<%= @spot3.price_spot %>円
+                    <% end %>
+                  </p> 
                   <%# 都道府県、エリア %>
-                  <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+                  <p style="color: #666666;margin-top:5px;font-size:12px">
                     <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot3.city %>&nbsp;&nbsp;[<%= @spot3.station %>]
                   </p> 
                   <%# 見出し %>
@@ -756,7 +828,7 @@
                       <a href="<%= @spot3.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
                     <% end %>
                     <% unless @spot3.introduction.blank? %>
-                      <a href="<%= @spot3.introduction %>" target="_blank" class="raise4-result"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+                      <a href="<%= @spot3.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
                     <% end %>
                   </div>
                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>

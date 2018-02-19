@@ -4420,7 +4420,7 @@ display: inline-block;
   font-size: 13px;
   line-height: 1;
   text-decoration: none;
-  padding: 7px 7px;/*ボタン内の余白*/
+  padding: 7px 10px;/*ボタン内の余白*/
   border-radius: 30px;/*角の丸み*/
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -4471,17 +4471,36 @@ display: inline-block;
 //instagramで見るボタン(result)
 .raise4-result{
   display: inline-block;
+  position: relative;
   color: #fff;
   font-size: 13px;
   line-height: 1;
   text-decoration: none;
-  padding: 9px 12px;/*ボタン内の余白*/
-  border-radius: 30px;/*角の丸み*/
-    cursor: pointer;
+  padding: 9px 12px;
+  border-radius: 30px;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
-  background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;/*グラデーション①*/
-   margin:0px 2px;
+  background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+  margin:0px 2px;
+
+}
+
+.raise4-result:before{/*グラデーション②*/
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
+  background: linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
+  border-radius: 30px;
+}
+
+.raise4-result span {/*テキスト*/
+  display:inline-block;
+  position: relative;
 }
 
 
@@ -4779,7 +4798,7 @@ display: inline-block;
 }
 
 .aaa-min {
-	margin-top:-0.2em;
+	margin-top:-0.1em;
 	margin-bottom:0.5em;
 	font-size:15px;
 	font-weight: 500;

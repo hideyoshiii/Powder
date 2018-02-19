@@ -91,8 +91,20 @@
           <div class="panel-body">
             <%# タイトル %>
             <div class="title-spot-show-min"><%= spot.title %></div>
+            <%# 料金 %>
+            <p style="color: #666666;margin:5px 0px;font-size:12px">
+              <% unless spot.price_lunch.blank? %>
+                <i class="fa fa-sun-o"></i>~<%= spot.price_lunch %>円/
+              <% end %>
+              <% unless spot.price_dinner.blank? %>
+                <i class="fa fa-moon-o"></i>~<%= spot.price_dinner %>円/
+              <% end %>
+              <% unless spot.price_spot.blank? %>
+                <i class="fa fa-yen"></i>~<%= spot.price_spot %>円
+              <% end %>
+            </p> 
             <%# 都道府県、エリア %>
-            <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+            <p style="color: #666666;margin-top:5px;font-size:12px">
               <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.city %>&nbsp;&nbsp;[<%= spot.station %>]
             </p> 
             <%# 見出し %>
@@ -113,7 +125,7 @@
                 <a href="<%= spot.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
               <% end %>
               <% unless spot.introduction.blank? %>
-                <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><i class="fa fa-instagram"></i>&nbsp;Instagram</a>
+                <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
               <% end %>
             </div>
             <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
