@@ -4405,7 +4405,7 @@ display: inline-block;
   font-size: 13px;
   line-height: 1;
   text-decoration: none;
-  padding: 7px 5px;/*ボタン内の余白*/
+  padding: 7px 7px;/*ボタン内の余白*/
   border-radius: 30px;/*角の丸み*/
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -4452,6 +4452,24 @@ display: inline-block;
   background: linear-gradient(to right, #fc4a1a, #f7b733); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    margin:0px 2px;
 }
+
+//instagramで見るボタン(result)
+.raise4-result{
+  display: inline-block;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 9px 12px;/*ボタン内の余白*/
+  border-radius: 30px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+  background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;/*グラデーション①*/
+   margin:0px 2px;
+}
+
+
 
 
 //コースを保存ボタン
