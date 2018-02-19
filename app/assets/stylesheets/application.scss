@@ -5541,7 +5541,7 @@ button.button1 {
 
 
 
-//featureの画像
+//what関連
 .img-feature{
 	width:20%;
 	height:auto;
@@ -5553,8 +5553,11 @@ button.button1 {
 	text-align:center;
 }
 
-
-
+h2 span.what {
+        display: inline;
+        padding: 2px 0em;
+        border-bottom: 2px solid black;
+}
 
 
 
