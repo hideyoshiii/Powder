@@ -1780,6 +1780,21 @@ dl.search1 dd span:hover{
 	font-size:18px;
 }
 
+.box99 h2 {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  width: 100%;
+  color:#CCC;
+  text-shadow: 1px 1px 2px black;
+  font-size:15px;
+  }
+
 .box99 h1 {
   position: absolute;
   top: 65%;
@@ -5526,8 +5541,17 @@ button.button1 {
 
 
 
+//featureの画像
+.img-feature{
+	width:20%;
+	height:auto;
+	margin-bottom:10px;
+}
 
-
+.box-feature{
+	margin:70px 0px;
+	text-align:center;
+}
 
 
 
@@ -5698,8 +5722,8 @@ h4 {
 }
 
 p {
-	letter-spacing:-0.08em;
-	font-size:15px;
+	letter-spacing:-0.05em;
+	font-size:14px;
 	line-height: 1.5
 }
 
