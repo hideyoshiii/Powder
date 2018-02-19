@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  root :to => 'demos#search'
+  root :to => 'searches#home'
 
   get "/homes" => "homes#index"
 
-  get "searches/home" => "searches#home"
   get "searches/kind" => "searches#kind"
   get "searches/category-first" => "searches#categoryfirst"
   get "searches/first" => "searches#first"
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   get "courses/search" => "courses#search"
   get "courses/result" => "courses#result"
 
+  get "demos/search" => "demos#search"
   get "demos/search1" => "demos#search1"
   get "demos/dinner" => "demos#dinner"
   get "demos/search3" => "demos#search3"
