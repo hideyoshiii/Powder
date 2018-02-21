@@ -51,8 +51,9 @@
         </label>
       </div>
       <!-- モーダルウィンドウの中身 -->
-      <div class="modal fade" id="myModal<%= @n %>">
+      <div class="modal" id="myModal<%= @n %>">
         <div class="modal-dialog">
+        <div class="modal-content">
           <br>
           <%# 横スクロール写真 %>
           <div class="horizontal_scroll_wrap_content_spot">
@@ -130,6 +131,7 @@
             <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
           </div>  
         </div>
+        </div>
       </div>
     <% end %>
 
@@ -147,9 +149,9 @@
 <% end %>
 
 <%#詳細条件モーダルの中身%>
-<div class="modal fade" id="myModal-distance">
+<div class="modal" id="myModal-distance">
   <div class="modal-dialog">
-    <div>
+    <div class="modal-content">
       <%= form_tag(searches_first_path, method: :get) do %>
         <%= hidden_field_tag :timezone, params[:timezone] %>
         <%= hidden_field_tag :city, params[:city] %>

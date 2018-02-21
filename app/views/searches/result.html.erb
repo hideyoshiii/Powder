@@ -75,8 +75,9 @@
         </ul>
       </div>
       <!-- モーダルウィンドウの中身 -->
-      <div class="modal fade" id="myModal1">
+      <div class="modal" id="myModal1">
         <div class="modal-dialog">
+        <div class="modal-content">
           <br>
           <%# 横スクロール写真 %>
           <div class="horizontal_scroll_wrap_content_spot">
@@ -153,6 +154,7 @@
             </div>
             <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
           </div>  
+        </div>
         </div>
       </div>
       <%# シェア %>
@@ -258,8 +260,9 @@
             </ul>
           </div>
           <!-- モーダルウィンドウの中身 -->
-          <div class="modal fade" id="myModal1">
+          <div class="modal" id="myModal1">
             <div class="modal-dialog">
+            <div class="modal-content">
               <br>
               <%# 横スクロール写真 %>
               <div class="horizontal_scroll_wrap_content_spot">
@@ -337,6 +340,7 @@
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
               </div>  
             </div>
+            </div>
           </div>
           <%# 横スクロールアイキャッチ %>
           <div class="horizontal_scroll_wrap_result">
@@ -362,8 +366,9 @@
             </ul>
           </div>
           <!-- モーダルウィンドウの中身 -->
-          <div class="modal fade" id="myModal2">
+          <div class="modal" id="myModal2">
             <div class="modal-dialog">
+            <div class="modal-content">
               <br>
               <%# 横スクロール写真 %>
               <div class="horizontal_scroll_wrap_content_spot">
@@ -440,6 +445,7 @@
                 </div>
                 <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
               </div>  
+            </div>
             </div>
           </div>
           <%# シェア %>
@@ -547,8 +553,9 @@
               </ul>
             </div>
             <!-- モーダルウィンドウの中身 -->
-            <div class="modal fade" id="myModal1">
+            <div class="modal" id="myModal1">
               <div class="modal-dialog">
+              <div class="modal-content">
                 <br>
                 <%# 横スクロール写真 %>
                 <div class="horizontal_scroll_wrap_content_spot">
@@ -626,6 +633,7 @@
                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
                 </div>  
               </div>
+              </div>
             </div>
             <%# 横スクロールアイキャッチ %>
             <div class="horizontal_scroll_wrap_result">
@@ -651,8 +659,9 @@
               </ul>
             </div>
             <!-- モーダルウィンドウの中身 -->
-            <div class="modal fade" id="myModal2">
+            <div class="modal" id="myModal2">
               <div class="modal-dialog">
+              <div class="modal-content">
                 <br>
                 <%# 横スクロール写真 %>
                 <div class="horizontal_scroll_wrap_content_spot">
@@ -730,6 +739,7 @@
                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
                 </div>  
               </div>
+              </div>
             </div>
             <%# 横スクロールアイキャッチ %>
             <div class="horizontal_scroll_wrap_result">
@@ -755,8 +765,9 @@
               </ul>
             </div>
             <!-- モーダルウィンドウの中身 -->
-            <div class="modal fade" id="myModal3">
+            <div class="modal" id="myModal3">
               <div class="modal-dialog">
+              <div class="modal-content">
                 <br>
                 <%# 横スクロール写真 %>
                 <div class="horizontal_scroll_wrap_content_spot">
@@ -834,21 +845,44 @@
                   <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
                 </div>  
               </div>
+              </div>
             </div>
-            <%# シェア %>
-            <h4 class="text-center" style="margin:50px 0px 30px">シェアしていただけると幸いです</h4> 
-            <div class="text-center">
-              <a href="http://twitter.com/share?url=<%= url_for(only_path: false) %>&text=A.Date/あなたのデートに彩りを" target="_blank" class="tweet-btn"><i class="fa fa-twitter"></i> <span>Tweetする</span></a>
+            <%# ライン %>
+            <div class="box-line">
+              <h3>More about the course</h3>
+              <p>
+                ショーンはあなたの代わりにこのデートコースの詳細を調べてくれます。
+                <br>
+                知りたいことを質問して見ましょう
+              </p>
+              <a href="" data-toggle="modal" data-target="#myModal-line">
+                <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+                <br>
+                <h4>ショーンに聞く</h4>
+              </a>
+              <p>ショーンとは？</p>
             </div>
-            <%# コースを作り直す %>
-            <h4 class="text-center" style="margin:50px 0px 30px">コースが気に入りませんでしたか？</h4> 
-            <div class="text-center">
-              <%= link_to root_path do %>
-                <div class="raised4">
-                  コースを作り直す
-                </div> 
-              <% end %>
-            </div>
+            <%#モーダルの中身%>
+              <div class="modal" id="myModal-line">
+                <div class="modal-top-line"></div>
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="panel-body">
+                      <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
+                      <p style="margin:20px 20px;">①<%= @spot1.title %><br>②<%= @spot2.title %><br>③<%= @spot3.title %></p> 
+                      <div  class="text-center" style="margin:20px 0px;">
+                        <button class="btn" data-clipboard-text="①<%= @spot1.title %>/②<%= @spot2.title %>/③<%= @spot3.title %>"><i class="fa fa-clone"></i>コピー</button>
+                      </div>
+                      <div  class="text-center">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+                          LINEを起動する
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             <%# マップ %>
             <div class="map-title-box">
               <div class="map-title">
@@ -963,6 +997,17 @@ function markerEvent(i) {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
 
 
+<script>
+  var clipboard = new Clipboard('.btn');
+  clipboard.on('success', function(e) {
+    console.info('Trigger:', e.trigger);
+    alert('コピーできました');
+  });
+  clipboard.on('error', function(e) {
+    console.error('Trigger:', e.trigger);
+    alert('このブラウザでは対応していません');
+  });
+</script>
 
 </mains>
 
