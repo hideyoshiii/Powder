@@ -14,8 +14,6 @@
 //= require dropzone
 //= require bootstrap-sprockets
 //= require toastr
-//= require zeroclipboard
-
 //= require rails-ujs
 
 //= require_tree .
