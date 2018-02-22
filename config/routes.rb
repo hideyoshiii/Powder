@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "searches/middle-third" => "searches#middlethird"
   get "searches/third" => "searches#third"
   get "searches/result" => "searches#result"
+  get "searches/change-first" => "searches#changefirst"
+  get "searches/change-second" => "searches#changesecond"
+  get "searches/change-third" => "searches#changethird"
 
 
   get "courses/search" => "courses#search"

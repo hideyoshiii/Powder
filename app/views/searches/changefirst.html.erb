@@ -1,0 +1,274 @@
+<%= render "partial/navbar" %>
+
+<mains class="" id="main-collapse">
+
+
+<% if @spots.blank? %>
+
+  <h4 class="text-center" style="margin:20px 0px;">
+    該当するスポットがありません
+  </h4> 
+
+  <h4 class="text-center" style="margin:20px 0px;">
+    <a href="" data-toggle="modal" data-target="#myModal-distance">
+      <span style="font-size:12px;">
+      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件を絞る
+      </span>
+    </a>
+  </h4> 
+
+<% else %>
+	
+    <h4 class="text-center" style="margin:20px 0px;">
+	    どちらにしますか？
+	    <a href="" data-toggle="modal" data-target="#myModal-distance">
+	      <span style="font-size:12px;">
+	      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件を絞る
+	      </span>
+	    </a>
+	</h4> 
+
+  <%= form_tag(searches_result_path, method: :get) do %>
+  <%= hidden_field_tag :timezone, params[:timezone] %>
+
+    <% if !@spot2.blank? %>
+      <%= hidden_field_tag :spot2, @spot2.id %>
+    <% end %>
+    <% if !@spot3.blank? %>
+      <%= hidden_field_tag :spot3, @spot3.id %>
+    <% end %>
+
+    <% @spots.each do |spot| %>
+      <div class="radio-city1">	
+        <% @n = @n + 1 %>
+        <% if @n == 1 %>	
+          <%= radio_button_tag(:spot1, spot.id, true) %>
+        <% else %>
+          <%= radio_button_tag(:spot1, spot.id) %>
+        <% end %>
+        <label for="spot1_<%= spot.id %>">
+          <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
+          <h3>
+            <%= spot.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.station %></span>
+          </h3> 
+          <a href="" data-toggle="modal" data-target="#myModal<%= @n %>">
+            <h4>
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+            </h4>
+          </a>
+        </label>
+      </div>
+      <!-- モーダルウィンドウの中身 -->
+      <div class="modal fade" id="myModal<%= @n %>">
+        <div class="modal-dialog">
+          <br>
+          <%# 横スクロール写真 %>
+          <div class="horizontal_scroll_wrap_content_spot">
+            <ul class="scroll_lst_content">
+              <% @pictures = spot.pictures.order(id: "ASC") %>
+              <% @pictures.each do |picture| %>
+                <li class="scroll_item_content">
+                  <div class="scroll_item_inr_content">
+                    <div class="scroll_item_thum_content">
+                      <%# $$$spotから利用する写真をfitstなどで指定 %>
+                      <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                    </div>
+                    <div class="scroll_item_info_content_quote">
+                      <p class="scroll_item_ttl_content_quote pull-right">
+                        <% if !picture.url.blank? %>
+                          <% if !picture.quote.blank? %>
+                            <a href="<%= picture.url %>" target="_blank" class="gray">
+                              出典&nbsp;<%= picture.quote %>
+                            </a>
+                          <% else %> 
+                            <a href="<%= picture.url %>" target="_blank" class="gray">
+                              出典&nbsp;
+                            </a>
+                          <% end %>
+                        <% else %> 
+                            &nbsp;
+                        <% end %>  
+                      </p>
+                    </div>
+                 </div>
+                </li>
+              <% end %>  
+            </ul>
+          </div>
+          <div class="panel-body">
+            <%# タイトル %>
+            <div class="title-spot-show-min"><%= spot.title %></div>
+            <%# 都道府県、エリア %>
+            <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.city %>&nbsp;&nbsp;[<%= spot.station %>]
+            </p> 
+            <%# 見出し %>
+            <% unless spot.heading.blank? %>
+              <p class="aaa-min"><%= spot.heading %></p>
+            <% end %>
+            <%# Description %>
+            <% unless spot.description.blank? %>
+              <p style="font-size:12px"><%= spot.description %></p>
+            <% end %>
+            <%# 食べログ、rettyボタン等 %>
+            <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+            <div class="info-box1-min">
+              <% unless spot.tabelog.blank? %>
+                <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログで見る</a>
+              <% end %>
+              <% unless spot.retty.blank? %>
+                <a href="<%= spot.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Rettyで見る</a>
+              <% end %>
+            </div>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+          </div>  
+        </div>
+      </div>
+    <% end %>
+
+    <div class="dinner-box change-btn">	
+      <div class="col-xs-12">
+        <div class="text-center">
+          <a href="javascript:;" onclick="koshin()" class=""><i class="fa fa-refresh"></i>&nbsp;Change</a>&nbsp;&nbsp;
+          <%= submit_tag "変更を確定する", :class => "btn btn-default" %>
+        </div>
+      </div>	
+    </div>
+
+  <% end %>
+
+<% end %>
+
+
+<%#詳細条件モーダルの中身%>
+<div class="modal" id="myModal-distance">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <%= form_tag(searches_change_first_path, method: :get) do %>
+        <%= hidden_field_tag :timezone, params[:timezone] %>
+        <%= hidden_field_tag :spot1, @spot1.id %>
+        <%= hidden_field_tag :spot2, @spot2.id %>
+        <%= hidden_field_tag :spot3, @spot3.id %>
+        <div class="text-center" style="padding-top:30px;">
+          <% if params[:timezone] == "昼" %>
+            <p>ランチの予算はいくらにしますか？</p>
+            <br>
+            <div class="row">
+              <div class="col-xs-offset-1 col-xs-10">
+                <input id="price" name="price" type="range" value="<%= params[:price].to_i %>" min="1000" max="5000" step="1000" class="search-detail"
+                  oninput="document.getElementById('output1').value=this.value , document.getElementById('output2').value=this.value - 999">
+                  <div class="pull-right">
+                  <output id="output2" class="rage-output2"><%= params[:price].to_i - 999 %></output>
+                  <span class="rage-output2">~&nbsp;</span><output id="output1" class="rage-output2"><%= params[:price].to_i %></output><span class="rage-output2">円</span> 
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <% if params[:timezone] == "夜" %>
+            <p>ディナーの予算はいくらにしますか？</p>
+            <br>
+            <div class="row">
+              <div class="col-xs-offset-1 col-xs-10">
+                <input id="price" name="price" type="range" value="<%= params[:price].to_i %>" min="3000" max="10000" step="1000" class="search-detail"
+                  oninput="document.getElementById('output1').value=this.value, document.getElementById('output2').value=this.value - 1999">
+                  <div class="pull-right">
+                  <output id="output2" class="rage-output2"><%= params[:price].to_i - 1999 %></output>
+                  <span class="rage-output2">~&nbsp;</span><output id="output1" class="rage-output2"><%= params[:price].to_i %></output><span class="rage-output2">円</span> 
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <br><br>
+            <p>ジャンルを指定しますか？</p>
+            <br>
+            <div class="horizontal_scroll_search">
+              <ul class="scroll_lst_search">
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "和食", @japanese, {:id => "japanese"}) %>
+                  <%= label_tag('japanese', "和食") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
+                  <%= label_tag('yakiniku', "焼肉・ホルモン") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
+                  <%= label_tag('steak', "ステーキ・ハンバーグ") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "鍋", @pot, {:id => "pot"}) %>
+                  <%= label_tag('pot', "鍋") %>
+                </span>
+                </li>
+              </ul>
+            </div>
+            <div class="horizontal_scroll_search">
+              <ul class="scroll_lst_search">
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "フレンチ", @french, {:id => "french"}) %>
+                  <%= label_tag('french', "フレンチ") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "イタリアン", @italian, {:id => "italian"}) %>
+                  <%= label_tag('italian', "イタリアン") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "西洋各国料理", @western, {:id => "western"}) %>
+                  <%= label_tag('western', "西洋各国料理") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "中華料理", @chinese, {:id => "chinese"}) %>
+                  <%= label_tag('chinese', "中華料理") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "アジア・エスニック", @asia, {:id => "asia"}) %>
+                  <%= label_tag('asia', "アジア・エスニック") %>
+                </span>
+                </li>
+                <li class="scroll_item_search">
+                    <span class="radio-city"> 
+                  <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
+                  <%= label_tag('otherwise', "その他") %>
+                </span>
+                </li>
+              </ul>
+            </div>
+          <br>
+          <%= submit_tag "絞る", :class => "btn btn-default" %>
+          <div class="panel-body">
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">閉じる×</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script>
+//更新
+function koshin(){
+	$('body,html').animate({
+  scrollTop: 0},0);
+
+  location.reload();
+}
+</script>
+
+</mains>
