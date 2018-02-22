@@ -245,31 +245,24 @@ def changefirst
   end
   params[:city] = @spot1.city
   @spots = @spots.where(city: params[:city])
-  if params[:price].blank?
+  if params[:price_min].blank?
     if @large == "ディナー"
-      params[:price] = @spot1.price_dinner
-      @price_start = params[:price].to_i - 1999
-      @price_end = params[:price].to_i
-      @spots = @spots.where(price_dinner: @price_start..@price_end)
+    params[:price_min] = @spot1.price_dinner.to_i - 2000
+    params[:price_max] = @spot1.price_dinner.to_i + 2000
     end
     if @large == "ランチ"
-      params[:price] = @spot1.price_lunch
-      @price_start = params[:price].to_i - 1999
-      @price_end = params[:price].to_i
-      @spots = @spots.where(price_lunch: @price_start..@price_end)
-    end
-  else
-    if @large == "ディナー"
-      @price_start = params[:price].to_i - 1999
-      @price_end = params[:price].to_i
-      @spots = @spots.where(price_dinner: @price_start..@price_end)
-    end
-    if @large == "ランチ"
-      @price_start = params[:price].to_i - 999
-      @price_end = params[:price].to_i
-      @spots = @spots.where(price_lunch: @price_start..@price_end)
+      params[:price_min] = @spot1.price_lunch.to_i - 1000
+      params[:price_max] = @spot1.price_lunch.to_i + 1000
     end
   end
+    @price_start = params[:price_min].to_i
+    @price_end = params[:price_max].to_i
+    if @large == "ディナー"
+      @spots = @spots.where(price_dinner: @price_start..@price_end)
+    end
+    if @large == "ランチ"
+      @spots = @spots.where(price_lunch: @price_start..@price_end)
+    end
     if !params[:small].blank?
       @small = params[:small]
       @spots = @spots.where("small like '%#{@small}%'")

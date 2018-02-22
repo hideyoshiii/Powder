@@ -14,7 +14,7 @@
 	  	</span>
 	  	<span style="display:inline-block;">
 		 	<%= form_tag(searches_result_path, method: :get) do %>
-          	<%= hidden_field_tag :timezone, "昼" %>
+          	<%= hidden_field_tag :timezone, params[:timezone] %>
           	<%= hidden_field_tag :spot1, params[:spot1] %>
           	<%= button_tag :type => "submit", :class =>"no" do %>
 	            ２軒目なし
