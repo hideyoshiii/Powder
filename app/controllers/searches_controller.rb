@@ -310,7 +310,7 @@ def changesecond
   @spots = @spots.where("timezone like '%#{@timezone}%'")
 
   if params[:large].blank?
-    params[:large] == "おまかせ"
+    params[:large] = "おまかせ"
   end
   @large = params[:large]
 
@@ -356,7 +356,7 @@ def changethird
   @spots = @spots.where("timezone like '%#{@timezone}%'")
 
   if params[:large].blank?
-    params[:large] == "おまかせ"
+    params[:large] = "おまかせ"
   end
   @large = params[:large]
 
