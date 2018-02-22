@@ -210,6 +210,12 @@
         <p>どこに行きたいですか？</p>
         <div class="horizontal_scroll_search">
           <ul class="scroll_lst_search">
+            <li class="scroll_item_search">
+              <span class="img_radio-cool">  
+              <%= radio_button_tag(:large, "おまかせ", true, {:id => "recommend"}) %>
+                <%= label_tag('recommend', "おまかせ") %>
+              </span>
+            </li>
             <% if params[:timezone] == "夜" %>
               <li class="scroll_item_search">
                   <span class="img_radio-bar">  
@@ -306,130 +312,6 @@
     });
   });
 </script>
-
-<script>
-  $(function () {
-    $('.img_radio-bar').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-nightcafe').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-nightactive').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-night').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-cafe').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-park').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-museum').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-shop').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-walk').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-active').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-
-  $(function () {
-    $('.img_radio-recommend').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-</script>
-
 
 </mains>
 
