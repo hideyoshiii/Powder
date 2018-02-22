@@ -1734,7 +1734,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(home11.jpg);
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url(home11.jpg);
   background-size: cover;
   background-position: center;
 
@@ -4411,6 +4411,7 @@ display: inline-block;
   -webkit-tap-highlight-color: transparent;
   transition: .3s ease-out;/*変化を緩やかに*/
   border: 1px solid black;
+  box-shadow: 0px 0px 7px 0 rgba(225,225,225,0.5);
 }
 
 .raised:hover{
