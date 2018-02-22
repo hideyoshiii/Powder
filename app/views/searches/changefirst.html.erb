@@ -147,8 +147,12 @@
       <%= form_tag(searches_change_first_path, method: :get) do %>
         <%= hidden_field_tag :timezone, params[:timezone] %>
         <%= hidden_field_tag :spot1, @spot1.id %>
-        <%= hidden_field_tag :spot2, @spot2.id %>
-        <%= hidden_field_tag :spot3, @spot3.id %>
+        <% if !@spot2.blank? %>
+		  <%= hidden_field_tag :spot2, @spot2.id %>
+		<% end %>
+		<% if !@spot3.blank? %>
+		  <%= hidden_field_tag :spot3, @spot3.id %>
+		<% end %>
         <div class="text-center" style="padding-top:30px;">
           <% if params[:timezone] == "昼" %>
             <p>ランチの予算はいくらにしますか？</p>

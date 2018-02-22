@@ -146,9 +146,13 @@
     <div class="modal-content">
       <%= form_tag(searches_change_second_path, method: :get) do %>
         <%= hidden_field_tag :timezone, params[:timezone] %>
-        <%= hidden_field_tag :spot1, @spot1.id %>
-        <%= hidden_field_tag :spot2, @spot2.id %>
         <%= hidden_field_tag :spot3, @spot3.id %>
+        <% if !@spot1.blank? %>
+	      <%= hidden_field_tag :spot1, @spot1.id %>
+	    <% end %>
+	    <% if !@spot2.blank? %>
+	      <%= hidden_field_tag :spot2, @spot2.id %>
+	    <% end %>
         <div class="text-center" style="padding-top:30px;">
           <p>２軒目からの距離はどうしますか？</p>
 	        <br>
