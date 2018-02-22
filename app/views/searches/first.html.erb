@@ -41,11 +41,24 @@
         <label for="spot1_<%= spot.id %>">
           <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
           <h3>
-            <%= spot.title %><br><span style="font-size:10px;text-shadow: 0px 0px 0px black;"><i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %><br><i class="fa fa-cutlery"></i>&nbsp;</span>
+            <%# タイトル %>
+            <%= spot.title %>
+            <%# 駅 %>
+            <span style="font-size:11px;text-shadow: 0px 0px 0px black;"><br><i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %></span>
+            <%# ジャンル %>
             <% unless spot.small.blank? %>
-            <% spot.small.each do |small| %>
-            <span style="font-size:10px;text-shadow: 0px 0px 0px black;"><%= small %>/</span>
-            <% end %>
+              <span style="font-size:11px;text-shadow: 0px 0px 0px black;"><br><i class="fa fa-cutlery"></i>&nbsp;</span>
+              <% @i = 0 %>
+              <% spot.small.each do |small| %>
+                <% @i = @i + 1 %>
+                <span style="font-size:11px;text-shadow: 0px 0px 0px black;">
+                  <% if @i == spot.small.size %>
+                    <%= small %>
+                  <% else %>
+                    <%= small %>/
+                  <% end %>
+                </span>
+              <% end %>
             <% end %>
           </h3> 
           <a href="" data-toggle="modal" data-target="#myModal<%= @n %>">
