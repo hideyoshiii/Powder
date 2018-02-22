@@ -14,6 +14,7 @@
 //= require dropzone
 //= require bootstrap-sprockets
 //= require toastr
+//= require jquery.nouislider
 //= require rails-ujs
 
 //= require_tree .

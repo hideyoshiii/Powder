@@ -61,33 +61,59 @@
   <div class="box97" id='section1'>
   	<% if params[:timezone] == "昼" %>
 	  	<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">ランチの予算はいくらにしますか？</h4>
-	  	<br>
-	  	<div class="col-xs-10">
-			<input id="price" name="price" type="range" value="2000" min="1000" max="5000" step="100"
-		  	oninput="document.getElementById('output1').value=this.value, document.getElementById('output2').value=this.value - 999">
-		  	<div class="pull-right">
-		  		<output id="output2" class="rage-output">1001</output>
-				<span class="rage-output">~</span><output id="output1" class="rage-output">2000</output><span class="rage-output">円</span>
-			</div>
-		</div>
 	<% end %>
 	<% if params[:timezone] == "夜" %>
 	  	<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">ディナーの予算はいくらにしますか？</h4>
-	  	<br>
-	  	<div class="col-xs-10">
-			<input id="price" name="price" type="range" value="4000" min="3000" max="10000" step="100"
-		  	oninput="document.getElementById('output1').value=this.value,  document.getElementById('output2').value=this.value - 1999">
-		  	<div class="pull-right">
-		  		<output id="output2" class="rage-output">2001</output>
-				<span class="rage-output">~</span><output id="output1" class="rage-output">4000</output><span class="rage-output">円</span>
-			</div>
-		</div>
 	<% end %>
+	<br>
+	<div style="width:80%;">
+		<span class="pull-left" style="color:white;">
+			<span id="value-lower"></span>円
+		</span>
+		<span class="pull-right" style="color:white;">
+			<span id="value-upper"></span>円
+		</span>
+	</div>
+	<br>
+	<div style="width:80%;">	
+		<div id="slider"></div>
+	</div>
+	<%= hidden_field_tag :price_min , 0, :class =>"min" %>
+	<%= hidden_field_tag :price_max , 20000, :class =>"max" %>
+	<br>
 	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
   </div>
 
 
 <% end %>
+
+
+
+
+ 
+
+<script>
+$("#slider").noUiSlider({
+  start: [0, 20000],
+  step: 500,
+  connect: true,
+  format: wNumb({
+    decimals: 0
+  }),
+  range: {
+    'min': 0,
+    'max': 20000
+  }
+});
+$('#slider').Link('lower').to($('#value-lower'), 'html');
+$('#slider').Link('upper').to($('#value-upper'), 'html');
+
+$("#slider").on('slide', function(event, values) {
+    $("input.min").val(values[0]);
+    $("input.max").val(values[1]);
+  });
+</script>
+
 
 
 <script>
