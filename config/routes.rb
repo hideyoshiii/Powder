@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
+  get "searches/timezone" => "searches#timezone"
   get "searches/kind" => "searches#kind"
   get "searches/category-first" => "searches#categoryfirst"
   get "searches/first" => "searches#first"

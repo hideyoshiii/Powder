@@ -7,34 +7,14 @@
   			<p class="text-center">提案するのは厳選したデートコースのみ</p>
   			<p class="text-center">私たちが完璧なデートへのハードルをお下げします</p>
   		</div>
+      <br>
       <h1>
       <div class="home-box">
-        <div class="home-box-1">
-          <%= form_tag(searches_category_first_path, method: :get) do %>
-          	<%= hidden_field_tag :timezone, "昼" %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="lunch-btn">
-	              <i class="fa fa-sun-o"></i>
-	            </div>
-	            <div class="lunch-info">
-	              ランチから
-	            </div>
-            <% end %>
-          <% end %>
+        <%= link_to searches_timezone_path do %>
+        <div class="raised">
+          デートコースを作る
         </div>
-        <div class="home-box-1">
-          <%= form_tag(searches_category_first_path, method: :get) do %>
-	          <%= hidden_field_tag :timezone, "夜" %>
-	          <%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="dinner-btn">
-	              <i class="fa fa-moon-o"></i>
-	            </div>
-	            <div class="dinner-info">
-	              ディナーから
-	            </div>
-	          <% end %>
-          <% end %>
-        </div>
+        <% end %>
       </div>
       </h1>
       <h2 class="text-center">
@@ -76,9 +56,13 @@
     </div>
 
     <div class="text-center">
-      <a href="#top" class="btn btn-default">
-        <span style="color:black;">トップに戻る&nbsp;<i class="fa fa-level-up"></i></span>
-      </a>
+      <div class="home-box">
+        <%= link_to searches_timezone_path do %>
+        <div class="raised">
+          さっそくデートコースを作る
+        </div>
+        <% end %>
+      </div>
     </div>
     <br><br>
 

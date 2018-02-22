@@ -4,6 +4,9 @@ class SearchesController < ApplicationController
 def home
 end
 
+def timezone
+end
+
 def kind
 end
 

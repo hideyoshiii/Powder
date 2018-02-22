@@ -1,0 +1,46 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+  	<div class="box91" id='top'> 
+  		<div>
+  			<h4 class="text-center">まずは時間帯を選びましょう。</h4>
+  			
+  			<h4 class="text-center">どちらの時間帯のデートですか？</h4>
+  		</div>
+  		<br><br><br>
+      <h1>
+      <div class="home-box">
+        <div class="home-box-1">
+          <%= form_tag(searches_category_first_path, method: :get) do %>
+          	<%= hidden_field_tag :timezone, "昼" %>
+          	<%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="lunch-btn">
+	              <i class="fa fa-sun-o"></i>
+	            </div>
+	            <div class="lunch-info">
+	              ランチから
+	            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="home-box-1">
+          <%= form_tag(searches_category_first_path, method: :get) do %>
+	          <%= hidden_field_tag :timezone, "夜" %>
+	          <%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="dinner-btn">
+	              <i class="fa fa-moon-o"></i>
+	            </div>
+	            <div class="dinner-info">
+	              ディナーから
+	            </div>
+	          <% end %>
+          <% end %>
+        </div>
+      </div>
+      </h1>
+    </div>
+
+
+</mains>
+
+

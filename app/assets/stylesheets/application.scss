@@ -1734,7 +1734,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(search02.jpg);
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url(home11.jpg);
   background-size: cover;
   background-position: center;
 
@@ -1784,7 +1784,7 @@ dl.search1 dd span:hover{
 
 .box99 h2 {
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -1799,7 +1799,7 @@ dl.search1 dd span:hover{
 
 .box99 h1 {
   position: absolute;
-  top: 65%;
+  top: 60%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -2111,6 +2111,54 @@ dl.search1 dd span:hover{
   padding:0;
   }
 
+
+.box91 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(timezone.jpg);
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:-50px;
+  box-sizing: border-box;
+}
+
+.box91 h4{
+	color:white;
+}
+
+.box91 h1 {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  width: 100%;
+  }
 
 
 
@@ -4354,11 +4402,11 @@ display: inline-block;
   background-color: #53331c;
   color: #cab261;
   text-shadow: 1px 1px 2px black;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   text-decoration: none;
-  padding: 10px 36px;/*ボタン内の余白*/
-  border-radius: 5px;/*角の丸み*/
+  padding: 12px 40px;/*ボタン内の余白*/
+  border-radius: 3px;/*角の丸み*/
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: .3s ease-out;/*変化を緩やかに*/
@@ -5763,7 +5811,48 @@ h2 span.what {
 
 
 
+//デートコースを作るのボタン
+.button {
+  display: inline-block;
+  width: 200px;
+  height: 54px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 54px;
+  outline: none;
+}
+.button::before,
+.button::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  content: '';
+}
+.button,
+.button::before,
+.button::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
 
+square_btnn{
+    display: inline-block;
+    padding: 7px 20px;
+	border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+    transition: .4s;
+}
+
+.square_btnn:hover {
+    background-image: -webkit-linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+    background-image: linear-gradient(45deg, #FFC107 0%, #f76a35 100%);
+}
 
 
 
