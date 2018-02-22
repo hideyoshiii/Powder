@@ -918,4 +918,13 @@ document.addEventListener("turbolinks:load", function (event) {
 });
 
 
+//更新
+function koshin(){
+	$('body,html').animate({
+  scrollTop: 0},0);
+
+  location.reload();
+}
+
+
 
