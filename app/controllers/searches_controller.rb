@@ -306,11 +306,13 @@ def changesecond
     @spots = @spots.where(city: params[:city])
   end
 
+  @timezone = params[:timezone]
+  @spots = @spots.where("timezone like '%#{@timezone}%'")
+
   if params[:large].blank?
     params[:large] == "おまかせ"
   end
   @large = params[:large]
-  @spots = @spots.where("timezone like '%#{@timezone}%'")
 
   if @large == "おまかせ"
     @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%カフェ%", "%夜景%", "%公園%", "%ミュージアム%", "%ショップ%", "%アクティブ%", "%その他%")
@@ -350,11 +352,13 @@ def changethird
     @spots = @spots.where(city: params[:city])
   end
 
+  @timezone = params[:timezone]
+  @spots = @spots.where("timezone like '%#{@timezone}%'")
+
   if params[:large].blank?
     params[:large] == "おまかせ"
   end
   @large = params[:large]
-  @spots = @spots.where("timezone like '%#{@timezone}%'")
 
   if @large == "おまかせ"
     @spots = @spots.where("large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?OR large LIKE ? OR large LIKE ? OR large LIKE ? OR large LIKE ?", "%バー%", "%カフェ%", "%夜景%", "%公園%", "%ミュージアム%", "%ショップ%", "%アクティブ%", "%その他%")
