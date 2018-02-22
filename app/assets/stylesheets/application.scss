@@ -6038,7 +6038,10 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 
 }
 
-
+#map {width: auto; height: 450px;}
+@media only screen and (max-width: 768px) {
+#map {width: 100%; height: 30vh;}
+}
 
 #map_canvas_01,
 #map_canvas_02,
