@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-	before_action :set_params, only: [:first, :second, :third, :changefirst, :changesecond, :changethird]
+	before_action :set_params, only: [:first, :second, :third, :middlesecond, :middlethird, :changefirst, :changesecond, :changethird]
 
 def home
 end
