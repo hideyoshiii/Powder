@@ -136,6 +136,34 @@
                 <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
               <% end %>
             </p> 
+            <%# カテゴリー %>
+            <% unless @spot1.large.blank? %>
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+              <% @i = 0 %>
+                <% @spot1.large.each do |large| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == @spot1.large.size %>
+                    <%= large %>
+                  <% else %>
+                    <%= large %>/
+                  <% end %> 
+                <% end %>
+              </p> 
+            <% end %>
+            <%# ジャンル %>
+            <% unless @spot1.small.blank? %>
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+              <% @i = 0 %>
+                <% @spot1.small.each do |small| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == @spot1.small.size %>
+                    <%= small %>
+                  <% else %>
+                    <%= small %>/
+                  <% end %>
+                <% end %>
+              </p> 
+            <% end %>
             <%# 都道府県、エリア %>
             <p style="color: #66666;margin-top:5px;font-size:12px">
               <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
@@ -355,6 +383,34 @@
                     <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
                   <% end %>
                 </p> 
+                <%# カテゴリー %>
+                <% unless @spot1.large.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot1.large.each do |large| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot1.large.size %>
+                        <%= large %>
+                      <% else %>
+                        <%= large %>/
+                      <% end %> 
+                    <% end %>
+                  </p> 
+                <% end %>
+                <%# ジャンル %>
+                <% unless @spot1.small.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot1.small.each do |small| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot1.small.size %>
+                        <%= small %>
+                      <% else %>
+                        <%= small %>/
+                      <% end %>
+                    <% end %>
+                  </p> 
+                <% end %>
                 <%# 都道府県、エリア %>
                 <p style="color: #66666;margin-top:5px;font-size:12px">
                   <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
@@ -471,6 +527,34 @@
                     <i class="fa fa-yen"></i>~<%= @spot2.price_spot %>円
                   <% end %>
                 </p> 
+                <%# カテゴリー %>
+                <% unless @spot2.large.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot2.large.each do |large| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot2.large.size %>
+                        <%= large %>
+                      <% else %>
+                        <%= large %>/
+                      <% end %> 
+                    <% end %>
+                  </p> 
+                <% end %>
+                <%# ジャンル %>
+                <% unless @spot2.small.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot2.small.each do |small| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot2.small.size %>
+                        <%= small %>
+                      <% else %>
+                        <%= small %>/
+                      <% end %>
+                    <% end %>
+                  </p> 
+                <% end %>
                 <%# 都道府県、エリア %>
                 <p style="color: #666666;margin-top:5px;font-size:12px">
                   <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
@@ -693,6 +777,34 @@
                       <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
                     <% end %>
                   </p> 
+                  <%# カテゴリー %>
+                  <% unless @spot1.large.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot1.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot1.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# ジャンル %>
+                  <% unless @spot1.small.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot1.small.each do |small| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot1.small.size %>
+                          <%= small %>
+                        <% else %>
+                          <%= small %>/
+                        <% end %>
+                      <% end %>
+                    </p> 
+                  <% end %>
                   <%# 都道府県、エリア %>
                   <p style="color: #666666;margin-top:5px;font-size:12px">
                     <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
@@ -810,6 +922,34 @@
                       <i class="fa fa-yen"></i>~<%= @spot2.price_spot %>円
                     <% end %>
                   </p> 
+                  <%# カテゴリー %>
+                  <% unless @spot2.large.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot2.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot2.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# ジャンル %>
+                  <% unless @spot2.small.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot2.small.each do |small| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot2.small.size %>
+                          <%= small %>
+                        <% else %>
+                          <%= small %>/
+                        <% end %>
+                      <% end %>
+                    </p> 
+                  <% end %>
                   <%# 都道府県、エリア %>
                   <p style="color: #666666;margin-top:5px;font-size:12px">
                     <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
@@ -927,6 +1067,34 @@
                       <i class="fa fa-yen"></i>~<%= @spot3.price_spot %>円
                     <% end %>
                   </p> 
+                  <%# カテゴリー %>
+                  <% unless @spot3.large.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot3.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot3.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# ジャンル %>
+                  <% unless @spot3.small.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot3.small.each do |small| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot3.small.size %>
+                          <%= small %>
+                        <% else %>
+                          <%= small %>/
+                        <% end %>
+                      <% end %>
+                    </p> 
+                  <% end %>
                   <%# 都道府県、エリア %>
                   <p style="color: #666666;margin-top:5px;font-size:12px">
                     <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot3.city %>&nbsp;&nbsp;[<%= @spot3.station %>]
