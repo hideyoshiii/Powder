@@ -162,25 +162,25 @@
               <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
                 <i class="fa fa-clock-o"></i>
                 <% if @wday == 0 %>
-                <% unless spot.sunday.blank? %>日&nbsp;&nbsp;<%= spot.sunday %><% end %>
+                <% unless spot.sunday.blank? %>(日)<%= spot.sunday %><% end %>
                 <% end %>
                 <% if @wday == 1 %>
-                <% unless spot.monday.blank? %>月&nbsp;&nbsp;<%= spot.monday %><% end %>
+                <% unless spot.monday.blank? %>(月)<%= spot.monday %><% end %>
                 <% end %>
                 <% if @wday == 2 %>
-                <% unless spot.tuesday.blank? %>火&nbsp;&nbsp;<%= spot.tuesday %><% end %>
+                <% unless spot.tuesday.blank? %>(火)<%= spot.tuesday %><% end %>
                 <% end %>
                 <% if @wday == 3 %>
-                <% unless spot.wednesday.blank? %>水&nbsp;&nbsp;<%= spot.wednesday %><% end %>
+                <% unless spot.wednesday.blank? %>(水)<%= spot.wednesday %><% end %>
                 <% end %>
                 <% if @wday == 4 %>
-                <% unless spot.thursday.blank? %>木&nbsp;&nbsp;<%= spot.thursday %><% end %>
+                <% unless spot.thursday.blank? %>(木)<%= spot.thursday %><% end %>
                 <% end %>
                 <% if @wday == 5 %>
-                <% unless spot.friday.blank? %>金&nbsp;&nbsp;<%= spot.friday %><% end %>
+                <% unless spot.friday.blank? %>(金)<%= spot.friday %><% end %>
                 <% end %>
                 <% if @wday == 6 %>
-                <% unless spot.saturday.blank? %>土&nbsp;&nbsp;<%= spot.saturday %><% end %>
+                <% unless spot.saturday.blank? %>(土)<%= spot.saturday %><% end %>
                 <% end %>
                 ▼
               </p>
