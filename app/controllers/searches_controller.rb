@@ -1,5 +1,6 @@
 class SearchesController < ApplicationController
 	before_action :set_params, only: [:first, :second, :third, :middlesecond, :middlethird, :changefirst, :changesecond, :changethird]
+  before_action :set_wday, only: [:first, :second, :third, :middlesecond, :middlethird, :changefirst, :changesecond, :changethird, :result]
 
 def home
 end
@@ -476,6 +477,10 @@ end
       end
     end
 
+  end
+
+  def set_wday
+    @wday = Date.today.wday
   end
 
 
