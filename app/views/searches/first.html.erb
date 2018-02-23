@@ -156,7 +156,7 @@
             <%# 営業時間 %>
             <div onclick="obj=document.getElementById('open<%= @n %>').style; obj.display=(obj.display=='none')?'block':'none';">
               <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
-                <i class="fa fa-clock-o"></i>▼
+                <i class="fa fa-clock-o"></i>
                 <% if @wday == 0 %>
                 <% unless spot.sunday.blank? %>(日)<%= spot.sunday %><% end %>
                 <% end %>
@@ -178,7 +178,7 @@
                 <% if @wday == 6 %>
                 <% unless spot.saturday.blank? %>(土)<%= spot.saturday %><% end %>
                 <% end %>
-                
+                ▼
               </p>
             </div>
             <div id="open<%= @n %>" style="display:none;clear:both;">
