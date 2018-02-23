@@ -179,7 +179,9 @@
           <br>
           <h4>ショーンに聞く</h4>
         </a>
-        <p>ショーンとは？</p>
+        <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+          <p>ショーンとは？</p>
+        </a>
       </div>
       <%#モーダルの中身%>
       <div class="modal" id="myModal-line">
@@ -512,7 +514,9 @@
               <br>
               <h4>ショーンに聞く</h4>
             </a>
-            <p>ショーンとは？</p>
+            <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+              <p>ショーンとは？</p>
+            </a>
           </div>
           <%#モーダルの中身%>
           <div class="modal" id="myModal-line">
@@ -966,7 +970,9 @@
                 <br>
                 <h4>ショーンに聞く</h4>
               </a>
-              <p>ショーンとは？</p>
+              <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+                <p>ショーンとは？</p>
+              </a>
             </div>
             <%#モーダルの中身%>
             <div class="modal" id="myModal-line">
@@ -1015,6 +1021,74 @@
 <% else %>
   該当するデートコースはありません
 <% end %>
+
+
+<%#ショーンとはモーダルの中身%>
+<div class="modal" id="myModal-sean">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="sean-back"></div>
+      <div class="text-center" style="margin-top:-80px;z-index:99;">
+        <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+        <h4>ショーン</h4>
+      </div>
+      <div class="panel-body">
+        <div class="text-center">
+          <h2 style="padding:40px 0px;"><span class="what">About</span></h2>
+          <h4>あなたのデートプランナー</h4>
+          <p>ショーンはあなたがデートコースを作るのをサポートしてくれるデートプランナーです。<br><span class="site-title">A.Date</span>で作っデートコースの詳細を調べてくれたり、アドバイスをくれたり様々なサポートをしてくれます。</p>
+        </div>
+        <div class="text-center">
+          <h2 style="padding:40px 0px;"><span class="what">Example</span></h2>
+          <h4>使い方はあなた次第</h4>
+          <p>ショーンはできる限りのことをサポートしてくれます。ぜひあなただけの使い方を見つけてください。</p>
+        </div>
+        <div class="row" style="padding:20px 0px;">
+          <div class="col-xs-6">
+          <h4>様々な情報を</h4>
+          <p>「次のスポットへは歩いてどのくらい？」</p>
+          <p>「オススメのメニューを教えて！」</p>
+          <p>「ここってサプライズとか対応してくれるのかな？」</p>
+          </div>
+          <div class="col-xs-6">
+            <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+          </div>
+        </div>
+        <div class="row" style="padding:40px 0px;">
+          <div class="col-xs-6">
+          <h4>アドバイスを</h4>
+          <p>「次のスポットまでは歩いたがいいかな？それともタクシーかな？」</p>
+          <p>「どんなファッションで行ったらいいんだろう？」</p>
+          <p>「初デートのアドバイスってある？」</p>
+          </div>
+          <div class="col-xs-6">
+            <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+          </div>
+        </div>
+        <div class="row" style="padding:40px 0px;">
+          <div class="col-xs-6">
+          <h4>代わりに予約を</h4>
+          <p>「ディナーのお店を代わりに予約しといて欲しい！」</p>
+          <p>「このお店ってランチでも予約できるのかな？」</p>
+          </div>
+          <div class="col-xs-6">
+            <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="http://line.me/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+          ショーンと友達になる
+        </a>
+      </div>
+      <br>
+      <div class="text-center">
+        <button type="button" class="btn btn-default" data-dismiss="modal">×&nbsp;閉じる</button>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
 
 
 
