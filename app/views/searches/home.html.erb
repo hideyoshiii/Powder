@@ -71,9 +71,74 @@
         <a href="http://line.me/ti/p/%40zjy4954t" target="_blank">
           <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
           <br>
-          <h4>ショーン&nbsp;<span style="font-size:14px;">＠zjy4945</span></h4>
+          <h4>ショーン&nbsp;<span style="font-size:14px;">＠zjy4945t</span></h4>
         </a>
-        <p>ショーンとは？</p>
+        <a href="" data-toggle="modal" data-target="#myModal-sean">
+          <p>ショーンとは？</p>
+        </a>
+      </div>
+    </div>
+
+    <%#モーダルの中身%>
+    <div class="modal" id="myModal-sean">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="sean-back"></div>
+          <div class="text-center" style="margin-top:-80px;z-index:99;">
+            <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+            <h4>ショーン</h4>
+          </div>
+          <div class="panel-body">
+            <div class="text-center">
+              <h2 style="padding:40px 0px;"><span class="what">About</span></h2>
+              <p>ショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプル</p>
+            </div>
+            <div class="text-center">
+              <h2 style="padding:40px 0px;"><span class="what">Plofile</span></h2>
+              <p>ショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプル</p>
+            </div>
+            <div class="text-center">
+              <h2 style="padding:20px 0px;"><span class="what">Like</span></h2>
+              <div class="frame-sean-like">
+                <%= image_tag "tokyo.jpg", :class =>'img-sean-like' %>
+                <p>ショーンのLike</p> 
+              </div>
+              <div class="frame-sean-like">
+                <%= image_tag "kyoto.jpg", :class =>'img-sean-like' %>
+                <p>ショーンのLike</p> 
+              </div>
+              <div class="frame-sean-like">
+                <%= image_tag "fukuoka.jpg", :class =>'img-sean-like' %>
+                <p>ショーンのLike</p> 
+              </div>
+            </div>
+            <div class="text-center">
+              <h2 style="padding:40px 0px;"><span class="what">Example</span></h2>
+            </div>
+            <div class="row" style="padding:20px 0px;">
+              <div class="col-xs-6">
+              <h4>ショーンとは</h4>
+              <p>ショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプル</p>
+              </div>
+              <div class="col-xs-6">
+                <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+              </div>
+            </div>
+            <div class="row" style="padding:40px 0px;">
+              <div class="col-xs-6">
+              <h4>ショーンとは</h4>
+              <p>ショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプルショーンとはサンプル</p>
+              </div>
+              <div class="col-xs-6">
+                <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+              </div>
+            </div>
+          </div>
+          <div  class="text-center">
+            <button type="button" class="btn btn-default" data-dismiss="modal">×&nbsp;閉じる</button>
+          </div>
+          <br>
+        </div>
       </div>
     </div>
 

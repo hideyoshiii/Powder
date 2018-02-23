@@ -5979,10 +5979,49 @@ square_btnn{
 
 
 
+//ショーンとは
+.sean-back {
+  width: 100%;
+  height: 200px;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)) , url(tokyo.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+}
 
 
+.img-sean-use{
+	width:100%;
+	height:auto;
+	border-radius: 5px;
+	display: inline-block; 
+}
 
+.img-sean-like{
+	width:100%;
+	height:auto;
+	border-radius: 5px;
+	display: inline-block; 
+}
 
+.frame-sean-like {
+  position: relative;
+  padding:20px 0px;
+  }
+
+.frame-sean-like p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color:white;
+  font-size:18px;
+  }
 
 
 
