@@ -77,8 +77,9 @@
         </label>
       </div>
       <!-- モーダルウィンドウの中身 -->
-      <div class="modal fade" id="myModal<%= @n %>">
+      <div class="modal" id="myModal<%= @n %>">
         <div class="modal-dialog">
+        <div class="modal-content">
           <br>
           <%# 横スクロール写真 %>
           <div class="horizontal_scroll_wrap_content_spot">
@@ -116,10 +117,78 @@
           <div class="panel-body">
             <%# タイトル %>
             <div class="title-spot-show-min"><%= spot.title %></div>
+            <%# カテゴリー %>
+            <% unless spot.large.blank? %>
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+              <% @i = 0 %>
+                <% spot.large.each do |large| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == spot.large.size %>
+                    <%= large %>
+                  <% else %>
+                    <%= large %>/
+                  <% end %> 
+                <% end %>
+              </p> 
+            <% end %>
+            <%# ジャンル %>
+            <% unless spot.small.blank? %>
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+              <% @i = 0 %>
+                <% spot.small.each do |small| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == spot.small.size %>
+                    <%= small %>
+                  <% else %>
+                    <%= small %>/
+                  <% end %>
+                <% end %>
+              </p> 
+            <% end %>
             <%# 都道府県、エリア %>
-            <p style="color: #CCCCCC;margin-top:5px 0px;font-size:12px">
+            <p style="color: #66666;margin-top:5px;font-size:12px">
               <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.city %>&nbsp;&nbsp;[<%= spot.station %>]
             </p> 
+            <%# 営業時間 %>
+            <div onclick="obj=document.getElementById('open<%= @n %>').style; obj.display=(obj.display=='none')?'block':'none';">
+              <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                <i class="fa fa-clock-o"></i>
+                <% if @wday == 0 %>
+                <% unless spot.sunday.blank? %>(日)<%= spot.sunday %><% end %>
+                <% end %>
+                <% if @wday == 1 %>
+                <% unless spot.monday.blank? %>(月)<%= spot.monday %><% end %>
+                <% end %>
+                <% if @wday == 2 %>
+                <% unless spot.tuesday.blank? %>(火)<%= spot.tuesday %><% end %>
+                <% end %>
+                <% if @wday == 3 %>
+                <% unless spot.wednesday.blank? %>(水)<%= spot.wednesday %><% end %>
+                <% end %>
+                <% if @wday == 4 %>
+                <% unless spot.thursday.blank? %>(木)<%= spot.thursday %><% end %>
+                <% end %>
+                <% if @wday == 5 %>
+                <% unless spot.friday.blank? %>(金)<%= spot.friday %><% end %>
+                <% end %>
+                <% if @wday == 6 %>
+                <% unless spot.saturday.blank? %>(土)<%= spot.saturday %><% end %>
+                <% end %>
+                ▼
+              </p>
+            </div>
+            <div id="open<%= @n %>" style="display:none;clear:both;">
+              <p style="color: #66666;margin-top:5px;font-size:12px">
+                月&nbsp;&nbsp;<% unless spot.monday.blank? %><%= spot.monday %><% end %><br>
+                火&nbsp;&nbsp;<% unless spot.tuesday.blank? %><%= spot.tuesday %><% end %><br>
+                水&nbsp;&nbsp;<% unless spot.wednesday.blank? %><%= spot.wednesday %><% end %><br>
+                木&nbsp;&nbsp;<% unless spot.thursday.blank? %><%= spot.thursday %><% end %><br>
+                金&nbsp;&nbsp;<% unless spot.friday.blank? %><%= spot.friday %><% end %><br>
+                土&nbsp;&nbsp;<% unless spot.saturday.blank? %><%= spot.saturday %><% end %><br>
+                日&nbsp;&nbsp;<% unless spot.sunday.blank? %><%= spot.sunday %><% end %><br>
+                祝&nbsp;&nbsp;<% unless spot.holiday.blank? %><%= spot.holiday %><% end %><br>
+              </p> 
+            </div>
             <%# 見出し %>
             <% unless spot.heading.blank? %>
               <p class="aaa-min"><%= spot.heading %></p>
@@ -140,6 +209,7 @@
             </div>
             <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
           </div>  
+        </div>
         </div>
       </div>
     <% end %>
