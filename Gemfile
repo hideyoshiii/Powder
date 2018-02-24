@@ -45,6 +45,7 @@ gem "figaro", "~> 1.0.0"
 gem 'aws-sdk', '~> 2.3'
 gem 'geocoder'
 gem 'nouislider-rails', '~> 7.0', '>= 7.0.2'
+gem 'rack-rewrite'
 
 
 group :production do 
