@@ -9,6 +9,17 @@
                       :sizes => '180x180',
                       :type => 'image/png'}) %>
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@A__Date" />
+    <meta name="twitter:title" content="A.Date" />
+    <meta name="twitter:description" content="Coolなデートコースを10秒で" />
+    <meta name="twitter:image" content="<%= asset_url('card.jpg') %>" />
+
+    <meta property="og:url" content="https://saruwakakun.com/best" />
+    <meta property="og:title" content="A.Date" /> 
+    <meta property="og:description" content="Coolなデートコースを10秒で" /> 
+    <meta property="og:image" content="<%= asset_url('card.jpg') %>" /> 
+
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
