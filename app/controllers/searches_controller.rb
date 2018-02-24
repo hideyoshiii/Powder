@@ -231,9 +231,10 @@ def result
         @price1 = 0
       end
       if @spot2.blank?
+        #スポットが１つの時の合計
         @price = @price1
       else
-        if @spot2.large.include?('カフェ') || @spot2.large.include?('カフェ')
+        if @spot2.large.include?('カフェ') || @spot2.large.include?('バー')
           if params[:timezone] == "昼"
             unless @spot2.price_lunch.blank?
               @price2 = @spot2.price_lunch
@@ -253,9 +254,10 @@ def result
           @price2 = 0
         end
         if @spot3.blank?
+          #スポットが２つの時の合計
           @price = @price1 + @price2
         else
-          if @spot3.large.include?('カフェ') || @spot3.large.include?('カフェ')
+          if @spot3.large.include?('カフェ') || @spot3.large.include?('バー')
             if params[:timezone] == "昼"
               unless @spot3.price_lunch.blank?
                 @price3 = @spot3.price_lunch
@@ -267,13 +269,14 @@ def result
               end
             end
           else
-            unless @spot2.price_spot.blank?
+            unless @spot3.price_spot.blank?
               @price3 = @spot3.price_spot  
             end
           end
           if @price3.blank?
             @price3 = 0
           end
+          #スポットが３つの時の合計
           @price = @price1 + @price2 + @price3
         end
       end
