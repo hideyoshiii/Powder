@@ -5,13 +5,42 @@ require_relative 'config/environment'
 run Rails.application
 
 
-# このメソッドを追加
-if ENV['RACK_ENV'] == 'production'
-  use Rack::Rewrite do
-    r301 %r{.*}, 'http://a-date.jp$&', :if => Proc.new {|rack_env|
-      rack_env['SERVER_NAME'] != 'a-date.jp'
-    }
+module Rack
+
+  class TryStatic
+
+    def initialize(app, options)
+      @app = app
+      @try = ['', *options.delete(:try)]
+      @static = ::Rack::Static.new(lambda { [404, {}, []] }, options)
+    end
+
+    def call(env)
+      orig_path = env['PATH_INFO']
+      found = nil
+      @try.each do |path|
+        resp = @static.call(env.merge!({'PATH_INFO' => orig_path + path}))
+        break if 404 != resp[0] && found = resp
+      end
+      found or @app.call(env.merge!('PATH_INFO' => orig_path))
+    end
   end
 end
-require './app.rb'
-run Sinatra::Application
+
+require 'rack/rewrite'
+use Rack::Rewrite do
+  r301 %r{.*}, 'http://a-date.jp$&', :if => Proc.new {|rack_env|
+    rack_env['SERVER_NAME'] != 'a-date.jp'
+  }
+end
+
+use Rack::TryStatic, :root => "build", :urls => %w[/], :try => ['.html', 'index.html', '/index.html']
+
+run lambda{ |env|
+  not_found_page = File.expand_path("../build/404.html", __FILE__)
+  if File.exist?(not_found_page)
+    [ 404, { 'Content-Type'  => 'text/html'}, [File.read(not_found_page)] ]
+  else
+    [ 404, { 'Content-Type'  => 'text/html' }, ['404 - page not found'] ]
+  end
+}
