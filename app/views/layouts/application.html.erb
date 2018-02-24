@@ -3,22 +3,24 @@
   <head>
     <title>A.Date</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- twitterカード -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@A__Date" />
+    <meta name="twitter:title" content="A.Date" />
+    <meta name="twitter:description" content="Coolなデートコースを10秒で" />
+    <meta name="twitter:image" content="<%= asset_url('card.jpg') %>" />
+    <!-- facebook系カード -->
+    <meta property="og:url" content="https://limitless-shelf-32995.herokuapp.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="A.Date" /> 
+    <meta property="og:description" content="Coolなデートコースを10秒で" /> 
+    <meta property="og:image" content="<%= asset_url('card.jpg') %>" /> 
+    <!-- ファビコン -->
     <%= favicon_link_tag('favicon.ico') %>
     <%= favicon_link_tag('apple-touch-icon.png',
                      {:rel => 'apple-touch-icon',
                       :sizes => '180x180',
                       :type => 'image/png'}) %>
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@A__Date" />
-    <meta name="twitter:title" content="A.Date" />
-    <meta name="twitter:description" content="Coolなデートコースを10秒で" />
-    <meta name="twitter:image" content="<%= asset_url('card.jpg') %>" />
-
-    <meta property="og:url" content="https://saruwakakun.com/best" />
-    <meta property="og:title" content="A.Date" /> 
-    <meta property="og:description" content="Coolなデートコースを10秒で" /> 
-    <meta property="og:image" content="<%= asset_url('card.jpg') %>" /> 
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
