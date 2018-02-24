@@ -29,7 +29,7 @@ end
 
 require 'rack/rewrite'
 use Rack::Rewrite do
-  r301 %r{.*}, 'http://a-date.jp$&', :if => Proc.new {|rack_env|
+  r301 %r{.*}, 'http://www.a-date.jp$&', :if => Proc.new {|rack_env|
     rack_env['SERVER_NAME'] != 'a-date.jp'
   }
 end
