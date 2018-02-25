@@ -29,20 +29,20 @@
 			<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
 		</span>
 		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "渋谷", false, {:id => "shibuya", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-			<%= label_tag('shibuya', "渋谷") %>
-		</span>
-		<span class="radio-city">	
 		 	<%= radio_button_tag(:city, "原宿・表参道・青山", false, {:id => "harajuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 			<%= label_tag('harajuku', "原宿・表参道・青山") %>
 		</span>
 		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "新宿", false, {:id => "shinjuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-			<%= label_tag('shinjuku', "新宿") %>
+		 	<%= radio_button_tag(:city, "渋谷", false, {:id => "shibuya", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('shibuya', "渋谷") %>
 		</span>
 		<span class="radio-city">	
 		 	<%= radio_button_tag(:city, "東京・丸の内・日本橋", false, {:id => "tokyo", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 			<%= label_tag('tokyo', "東京・丸の内・日本橋") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "新宿", false, {:id => "shinjuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('shinjuku', "新宿") %>
 		</span>
   	</div>
   </div>
@@ -64,7 +64,7 @@
 		</span>
 	</div>
 	<br>
-	<div style="width:80%;">	
+	<div style="width:75%;">	
 		<div id="slider"></div>
 	</div>
 	<%= hidden_field_tag :price_min , 0, :class =>"min" %>
