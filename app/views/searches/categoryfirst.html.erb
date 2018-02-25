@@ -29,12 +29,12 @@
 			<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
 		</span>
 		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "原宿・表参道・青山", false, {:id => "harajuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
-			<%= label_tag('harajuku', "原宿・表参道・青山") %>
-		</span>
-		<span class="radio-city">	
 		 	<%= radio_button_tag(:city, "渋谷", false, {:id => "shibuya", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
 			<%= label_tag('shibuya', "渋谷") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "原宿・表参道・青山", false, {:id => "harajuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('harajuku', "原宿・表参道・青山") %>
 		</span>
 		<span class="radio-city">	
 		 	<%= radio_button_tag(:city, "新宿", false, {:id => "shinjuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
