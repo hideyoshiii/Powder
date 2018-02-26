@@ -501,7 +501,7 @@ end
       if params[:city] == "東京・丸の内・日本橋"
         @tokyo = true
       end
-      if params[:city] == "六本木・赤坂"
+      if params[:city] == "六本木・麻布・赤坂"
         @roppongi = true
       end
     end

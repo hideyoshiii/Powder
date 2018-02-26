@@ -51,6 +51,11 @@ Rails.application.routes.draw do
   get "/terms" => "details#terms"
   get "/policy" => "details#policy"
 
+  get "spots/search00" => "spots#search00"
+  get "spots/result00" => "spots#result00"
+  get 'spots/:id/show00' => 'spots#show00'
+
+
   get "spots/result" => "spots#result"
   get "spots/rank" => "spots#rank"
   get 'spots/:id/pictures' => 'spots#pictures'

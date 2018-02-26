@@ -1,0 +1,54 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+  	<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">何がしたいですか？</h4>
+  	<br>
+
+      <div class="box-b">
+        <div class="box-b-in">
+          <%= form_tag(spots_result00_path, method: :get) do %>
+          	<%= hidden_field_tag :scene, "朝食" %>
+          	<%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="lunch-btn">
+	              <i class="fa fa-sun-o"></i>
+	            </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="box-b-in">
+          <%= form_tag(spots_result00_path, method: :get) do %>
+	          <%= hidden_field_tag :scene, "ランチ" %>
+	          <%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="dinner-btn">
+	              <i class="fa fa-moon-o"></i>
+	            </div>
+	          <% end %>
+          <% end %>
+        </div>
+        <div class="box-b-in">
+          <%= form_tag(spots_result00_path, method: :get) do %>
+	          <%= hidden_field_tag :scene, "ディナー" %>
+	          <%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="dinner-btn">
+	              <i class="fa fa-moon-o"></i>
+	            </div>
+	          <% end %>
+          <% end %>
+        </div>
+        <div class="box-b-in">
+          <%= form_tag(spots_result00_path, method: :get) do %>
+	          <%= hidden_field_tag :scene, "カフェ" %>
+	          <%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="dinner-btn">
+	              <i class="fa fa-moon-o"></i>
+	            </div>
+	          <% end %>
+          <% end %>
+        </div>
+      </div>
+      
+
+
+</mains>
+
+

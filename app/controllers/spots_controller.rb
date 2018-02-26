@@ -82,6 +82,17 @@ class SpotsController < ApplicationController
     @pictures = @spot.pictures.order(id: "ASC")
   end
 
+
+
+  def search00
+  end
+
+  def result00  
+  end
+
+  def show00
+  end
+
   
 
 
