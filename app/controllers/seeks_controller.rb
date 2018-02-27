@@ -67,6 +67,19 @@ class SeeksController < ApplicationController
   end
 
   def choice
+  	if params[:spot1].blank?
+  		@spot_n = 1
+  	else
+  		if params[:spot2].blank?
+  			@spot_n = 2
+  		else
+  			if params[:spot3].blank?
+  				@spot_n = 3
+  			end
+  		end
+  	end
+
+
   	@n = 0
   	@large = params[:large]
 
@@ -89,22 +102,53 @@ class SeeksController < ApplicationController
     	@spots = @spots.where(price_dinner: @price_start..@price_end)
     end
 
-    if !params[:small].blank?
-      @small = params[:small]
-      @spots = @spots.where("small like '%#{@small}%'")
+    if params[:small].blank?
+      params[:small] = "すべてのジャンル"
+      @all_genre = true
+    else
+      if params[:small] = "すべてのジャンル"
+      else
+        @small = params[:small]
+        @spots = @spots.where("small like '%#{@small}%'")
+  	  end
     end
 
     @spots = @spots.order("RANDOM()").limit(2)
   end
 
   def result
+
+	flash.now[:notice] = "コースが作成されました"
+    @spot1 = Spot.find(params[:spot1])
+    if @spot1
+      @pictures1 = @spot1.pictures.order(id: "ASC")
+    end
+    if params[:spot2]
+      @spot2 = Spot.find(params[:spot2])
+      if @spot2
+        @pictures2 = @spot2.pictures.order(id: "ASC")
+        @distance_second = Geocoder::Calculations.distance_between([@spot1.latitude,@spot1.longitude], [@spot2.latitude,@spot2.longitude], :units => :km)
+        @distance_second = @distance_second.to_f.round(4) * 1000
+        @distance_second = @distance_second.to_i
+      end
+    end
+    if params[:spot3]
+      @spot3 = Spot.find(params[:spot3])
+      if @spot3
+        @pictures3 = @spot3.pictures.order(id: "ASC")
+        @distance_third = Geocoder::Calculations.distance_between([@spot2.latitude,@spot2.longitude], [@spot3.latitude,@spot3.longitude], :units => :km)
+        @distance_third = @distance_third.to_f.round(4) * 1000
+        @distance_third = @distance_third.to_i
+      end
+    end
+
   end
 
 
   private
   def set_params
   
-
+  	@all_genre = false
     @japanese = false
     @yakiniku = false
     @steak = false
@@ -116,6 +160,9 @@ class SeeksController < ApplicationController
     @asia = false
     @otherwise = false
     if !params[:small].blank?
+      if params[:small] == "すべてのジャンル"
+        @all_genre = true
+      end
       if params[:small] == "和食"
         @japanese = true
       end

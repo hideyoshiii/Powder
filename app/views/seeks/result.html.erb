@@ -1,1 +1,1493 @@
-result.html.erb
+<%= render "partial/navbar" %>
+
+<mains class="" id="main-collapse">
+
+<%# スポットが１つの時 %>
+<% if !@spot1.nil? %>
+  <% if !@pictures1.nil? %>
+    <% if @spot2.nil? %>
+
+
+      <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
+
+        <%# 距離 %>
+        <div class="distance-box">
+          <%= @spot1.title %>
+        </div>
+
+      <%# 横スクロールアイキャッチ %>
+      <div class="horizontal_scroll_wrap_result">
+        <ul class="scroll_lst_result">
+          <%# 画像とタイトル %>
+          <li class="scroll_item_result">
+              <div class="scroll_item_inr_result">
+                <div class="frame-demo">
+                  <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
+                  <h3><%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
+                  <%= form_tag(searches_change_first_path, method: :get) do %>
+                    <%= hidden_field_tag :timezone, params[:timezone] %>
+                    <%= hidden_field_tag :spot1, @spot1.id %>
+                    <h2>
+                      <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
+                        <i class="fa fa-refresh"></i>
+                      <% end %>
+                    </h2>
+                  <% end %>
+                </div>
+              </div>
+          </li>
+          <a href="" data-toggle="modal" data-target="#myModal1">
+            <li class="scroll_item_result_maps">
+              <div class="scroll_item_inr_result">     
+                <div class="scroll_item_thum_result_info">
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                </div>           
+              </div>
+            </li>
+          </a>
+        </ul>
+      </div>
+      <!-- モーダルウィンドウの中身 -->
+      <div class="modal" id="myModal1">
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <br>
+          <%# 横スクロール写真 %>
+          <div class="horizontal_scroll_wrap_content_spot">
+            <ul class="scroll_lst_content">
+              <% @pictures = @spot1.pictures.order(id: "ASC") %>
+              <% @pictures.each do |picture| %>
+                <li class="scroll_item_content">
+                  <div class="scroll_item_inr_content">
+                    <div class="scroll_item_thum_content">
+                      <%# $$$spotから利用する写真をfitstなどで指定 %>
+                      <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                    </div>
+                    <div class="scroll_item_info_content_quote">
+                      <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                        <% if !picture.url.blank? %>
+                          <% if !picture.quote.blank? %>
+                            <a href="<%= picture.url %>" target="_blank" class="gray">
+                              出典&nbsp;<%= picture.quote %>
+                            </a>
+                          <% else %> 
+                            <a href="<%= picture.url %>" target="_blank" class="gray">
+                              出典&nbsp;
+                            </a>
+                          <% end %>
+                        <% else %> 
+                            &nbsp;
+                        <% end %>  
+                      </p>
+                    </div>
+                 </div>
+                </li>
+              <% end %>  
+            </ul>
+          </div>
+          <div class="panel-body">
+            <%# タイトル %>
+            <div class="title-spot-show-min"><%= @spot1.title %></div>
+            <%# 料金 %>
+            <p style="color: #666666;margin:5px 0px;font-size:12px">
+              <% unless @spot1.price_lunch.blank? %>
+                <i class="fa fa-sun-o"></i>~<%= @spot1.price_lunch %>円/
+              <% end %>
+              <% unless @spot1.price_dinner.blank? %>
+                <i class="fa fa-moon-o"></i>~<%= @spot1.price_dinner %>円/
+              <% end %>
+              <% unless @spot1.price_spot.blank? %>
+                <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
+              <% end %>
+            </p> 
+            <%# カテゴリー %>
+            <% unless @spot1.large.blank? %>
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+              <% @i = 0 %>
+                <% @spot1.large.each do |large| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == @spot1.large.size %>
+                    <%= large %>
+                  <% else %>
+                    <%= large %>/
+                  <% end %> 
+                <% end %>
+              </p> 
+            <% end %>
+            <%# ジャンル %>
+            <% unless @spot1.small.blank? %>
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+              <% @i = 0 %>
+                <% @spot1.small.each do |small| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == @spot1.small.size %>
+                    <%= small %>
+                  <% else %>
+                    <%= small %>/
+                  <% end %>
+                <% end %>
+              </p> 
+            <% end %>
+            <%# 都道府県、エリア %>
+            <p style="color: #66666;margin-top:5px;font-size:12px">
+              <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
+            </p> 
+            <%# 営業時間 %>
+            <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
+              <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                <i class="fa fa-clock-o"></i>
+                <% if @wday == 0 %>
+                <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
+                <% end %>
+                <% if @wday == 1 %>
+                <% unless @spot1.monday.blank? %>(月)<%= @spot1.monday %><% end %>
+                <% end %>
+                <% if @wday == 2 %>
+                <% unless @spot1.tuesday.blank? %>(火)<%= @spot1.tuesday %><% end %>
+                <% end %>
+                <% if @wday == 3 %>
+                <% unless @spot1.wednesday.blank? %>(水)<%= @spot1.wednesday %><% end %>
+                <% end %>
+                <% if @wday == 4 %>
+                <% unless @spot1.thursday.blank? %>(木)<%= @spot1.thursday %><% end %>
+                <% end %>
+                <% if @wday == 5 %>
+                <% unless @spot1.friday.blank? %>(金)<%= @spot1.friday %><% end %>
+                <% end %>
+                <% if @wday == 6 %>
+                <% unless @spot1.saturday.blank? %>(土)<%= @spot1.saturday %><% end %>
+                <% end %>
+                ▼
+              </p>
+            </div>
+            <div id="open1" style="display:none;clear:both;">
+              <p style="color: #66666;margin-top:5px;font-size:12px">
+                月&nbsp;&nbsp;<% unless @spot1.monday.blank? %><%= @spot1.monday %><% end %><br>
+                火&nbsp;&nbsp;<% unless @spot1.tuesday.blank? %><%= @spot1.tuesday %><% end %><br>
+                水&nbsp;&nbsp;<% unless @spot1.wednesday.blank? %><%= @spot1.wednesday %><% end %><br>
+                木&nbsp;&nbsp;<% unless @spot1.thursday.blank? %><%= @spot1.thursday %><% end %><br>
+                金&nbsp;&nbsp;<% unless @spot1.friday.blank? %><%= @spot1.friday %><% end %><br>
+                土&nbsp;&nbsp;<% unless @spot1.saturday.blank? %><%= @spot1.saturday %><% end %><br>
+                日&nbsp;&nbsp;<% unless @spot1.sunday.blank? %><%= @spot1.sunday %><% end %><br>
+                祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
+              </p> 
+            </div>
+            <%# 見出し %>
+            <% unless @spot1.heading.blank? %>
+              <p class="aaa-min"><%= @spot1.heading %></p>
+            <% end %>
+            <%# Description %>
+            <% unless @spot1.description.blank? %>
+              <p style="font-size:12px"><%= @spot1.description %></p>
+            <% end %>
+            <%# 食べログ、rettyボタン等 %>
+            <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+            <div class="info-box1-min">
+              <% unless @spot1.tabelog.blank? %>
+                <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+              <% end %>
+              <% unless @spot1.retty.blank? %>
+                <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
+              <% end %>
+              <% unless @spot1.introduction.blank? %>
+                <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
+              <% end %>
+            </div>
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+          </div>  
+        </div>
+        </div>
+      </div>
+      <%# ライン %>
+      <div class="box-line">
+        <h3>More about the course</h3>
+        <p>
+          ショーンはあなたの代わりにこのデートコースの詳細を調べてくれます。
+          <br>
+          知りたいことを質問して見ましょう
+        </p>
+        <a href="" data-toggle="modal" data-target="#myModal-line">
+          <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+          <br>
+          <h4>ショーンに聞く</h4>
+        </a>
+        <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+          <p>ショーンとは？</p>
+        </a>
+      </div>
+      <%#モーダルの中身%>
+      <div class="modal" id="myModal-line">
+        <div class="modal-top-line"></div>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="panel-body">
+              <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
+              <p style="margin:20px 20px;">①<%= @spot1.title %></p> 
+              <div  class="text-center" style="margin:20px 0px;">
+                <button class="btn" data-clipboard-text="①<%= @spot1.title %>"><i class="fa fa-clone"></i>コピー</button>
+              </div>
+              <div  class="text-center">
+                <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+                  LINEを起動する
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%# マップ %>
+      <div class="map-title-box">
+        <div class="map-title">
+          Map
+          <br>
+          <i class="fa fa-angle-double-down"></i>
+        </div>
+      </div>
+      <div id="sample"></div>
+
+
+    <%# スポットが２つの時 %>
+    <% else %>
+      <% if !@pictures2.nil? %>
+        <% if @spot3.nil? %>
+          
+
+          <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
+          
+          <%# 距離 %>
+          <div class="distance-box">
+            <%= @spot1.title %>
+            <br>
+            <span class="distance">↓ (<%= @distance_second %>m)</span>
+            <br>
+            <%= @spot2.title %>
+          </div>
+
+
+          <%# 横スクロールアイキャッチ %>
+          <div class="horizontal_scroll_wrap_result">
+            <ul class="scroll_lst_result">
+              <%# 画像とタイトル %>
+              <li class="scroll_item_result">
+                  <div class="scroll_item_inr_result">
+                    <div class="frame-demo">
+                      <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
+                      <h3>1,&nbsp;<%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
+                      <%= form_tag(searches_change_first_path, method: :get) do %>
+                        <%= hidden_field_tag :timezone, params[:timezone] %>
+                        <%= hidden_field_tag :spot1, @spot1.id %>
+                        <%= hidden_field_tag :spot2, @spot2.id %>
+                        <h2>
+                          <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
+                            <i class="fa fa-refresh"></i>
+                          <% end %>
+                        </h2>
+                      <% end %>
+                    </div>
+                  </div>
+              </li>
+              <a href="" data-toggle="modal" data-target="#myModal1">
+                <li class="scroll_item_result_maps">
+                  <div class="scroll_item_inr_result">     
+                    <div class="scroll_item_thum_result_info">
+                      <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                    </div>           
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
+          <!-- モーダルウィンドウの中身 -->
+          <div class="modal" id="myModal1">
+            <div class="modal-dialog">
+            <div class="modal-content">
+              <br>
+              <%# 横スクロール写真 %>
+              <div class="horizontal_scroll_wrap_content_spot">
+                <ul class="scroll_lst_content">
+                  <% @pictures = @spot1.pictures.order(id: "ASC") %>
+                  <% @pictures.each do |picture| %>
+                    <li class="scroll_item_content">
+                      <div class="scroll_item_inr_content">
+                        <div class="scroll_item_thum_content">
+                          <%# $$$spotから利用する写真をfitstなどで指定 %>
+                          <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                        </div>
+                        <div class="scroll_item_info_content_quote">
+                          <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                            <% if !picture.url.blank? %>
+                              <% if !picture.quote.blank? %>
+                                <a href="<%= picture.url %>" target="_blank" class="gray">
+                                  出典&nbsp;<%= picture.quote %>
+                                </a>
+                              <% else %> 
+                                <a href="<%= picture.url %>" target="_blank" class="gray">
+                                  出典&nbsp;
+                                </a>
+                              <% end %>
+                            <% else %> 
+                                &nbsp;
+                            <% end %>  
+                          </p>
+                        </div>
+                     </div>
+                    </li>
+                  <% end %>  
+                </ul>
+              </div>
+              <div class="panel-body">
+                <%# タイトル %>
+                <div class="title-spot-show-min"><%= @spot1.title %></div>
+                <%# 料金 %>
+                <p style="color: #666666;margin:5px 0px;font-size:12px">
+                  <% unless @spot1.price_lunch.blank? %>
+                    <i class="fa fa-sun-o"></i>~<%= @spot1.price_lunch %>円/
+                  <% end %>
+                  <% unless @spot1.price_dinner.blank? %>
+                    <i class="fa fa-moon-o"></i>~<%= @spot1.price_dinner %>円/
+                  <% end %>
+                  <% unless @spot1.price_spot.blank? %>
+                    <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
+                  <% end %>
+                </p> 
+                <%# カテゴリー %>
+                <% unless @spot1.large.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot1.large.each do |large| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot1.large.size %>
+                        <%= large %>
+                      <% else %>
+                        <%= large %>/
+                      <% end %> 
+                    <% end %>
+                  </p> 
+                <% end %>
+                <%# ジャンル %>
+                <% unless @spot1.small.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot1.small.each do |small| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot1.small.size %>
+                        <%= small %>
+                      <% else %>
+                        <%= small %>/
+                      <% end %>
+                    <% end %>
+                  </p> 
+                <% end %>
+                <%# 都道府県、エリア %>
+                <p style="color: #66666;margin-top:5px;font-size:12px">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
+                </p> 
+                <%# 営業時間 %>
+                <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
+                  <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                    <i class="fa fa-clock-o"></i>
+                    <% if @wday == 0 %>
+                    <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
+                    <% end %>
+                    <% if @wday == 1 %>
+                    <% unless @spot1.monday.blank? %>(月)<%= @spot1.monday %><% end %>
+                    <% end %>
+                    <% if @wday == 2 %>
+                    <% unless @spot1.tuesday.blank? %>(火)<%= @spot1.tuesday %><% end %>
+                    <% end %>
+                    <% if @wday == 3 %>
+                    <% unless @spot1.wednesday.blank? %>(水)<%= @spot1.wednesday %><% end %>
+                    <% end %>
+                    <% if @wday == 4 %>
+                    <% unless @spot1.thursday.blank? %>(木)<%= @spot1.thursday %><% end %>
+                    <% end %>
+                    <% if @wday == 5 %>
+                    <% unless @spot1.friday.blank? %>(金)<%= @spot1.friday %><% end %>
+                    <% end %>
+                    <% if @wday == 6 %>
+                    <% unless @spot1.saturday.blank? %>(土)<%= @spot1.saturday %><% end %>
+                    <% end %>
+                    ▼
+                  </p>
+                </div>
+                <div id="open1" style="display:none;clear:both;">
+                  <p style="color: #66666;margin-top:5px;font-size:12px">
+                    月&nbsp;&nbsp;<% unless @spot1.monday.blank? %><%= @spot1.monday %><% end %><br>
+                    火&nbsp;&nbsp;<% unless @spot1.tuesday.blank? %><%= @spot1.tuesday %><% end %><br>
+                    水&nbsp;&nbsp;<% unless @spot1.wednesday.blank? %><%= @spot1.wednesday %><% end %><br>
+                    木&nbsp;&nbsp;<% unless @spot1.thursday.blank? %><%= @spot1.thursday %><% end %><br>
+                    金&nbsp;&nbsp;<% unless @spot1.friday.blank? %><%= @spot1.friday %><% end %><br>
+                    土&nbsp;&nbsp;<% unless @spot1.saturday.blank? %><%= @spot1.saturday %><% end %><br>
+                    日&nbsp;&nbsp;<% unless @spot1.sunday.blank? %><%= @spot1.sunday %><% end %><br>
+                    祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
+                  </p> 
+                </div>
+                <%# 見出し %>
+                <% unless @spot1.heading.blank? %>
+                  <p class="aaa-min"><%= @spot1.heading %></p>
+                <% end %>
+                <%# Description %>
+                <% unless @spot1.description.blank? %>
+                  <p style="font-size:12px"><%= @spot1.description %></p>
+                <% end %>
+                <%# 食べログ、rettyボタン等 %>
+                <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+                <div class="info-box1-min">
+                  <% unless @spot1.tabelog.blank? %>
+                    <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+                  <% end %>
+                  <% unless @spot1.retty.blank? %>
+                    <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
+                  <% end %>
+                  <% unless @spot1.introduction.blank? %>
+                <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
+              <% end %>
+                </div>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+              </div>  
+            </div>
+            </div>
+          </div>
+          <%# 横スクロールアイキャッチ %>
+          <div class="horizontal_scroll_wrap_result">
+            <ul class="scroll_lst_result">
+              <%# 画像とタイトル %>
+              <li class="scroll_item_result">
+                  <div class="scroll_item_inr_result">
+                    <div class="frame-demo">
+                      <%= image_tag @spot2.pictures.first.image.url, :class =>'img-demo-result' %>
+                      <h3>2,&nbsp;<%= @spot2.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
+                      <%= form_tag(searches_change_second_path, method: :get) do %>
+                        <%= hidden_field_tag :timezone, params[:timezone] %>
+                        <%= hidden_field_tag :spot1, @spot1.id %>
+                        <%= hidden_field_tag :spot2, @spot2.id %>
+                          <h2>
+                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
+                              <i class="fa fa-refresh"></i>
+                            <% end %>
+                          </h2>
+                        <% end %>
+                    </div>
+                  </div>
+              </li>
+              <a href="" data-toggle="modal" data-target="#myModal2">
+                <li class="scroll_item_result_maps">
+                  <div class="scroll_item_inr_result">     
+                    <div class="scroll_item_thum_result_info">
+                      <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                    </div>           
+                  </div>
+                </li>
+              </a>
+            </ul>
+          </div>
+          <!-- モーダルウィンドウの中身 -->
+          <div class="modal" id="myModal2">
+            <div class="modal-dialog">
+            <div class="modal-content">
+              <br>
+              <%# 横スクロール写真 %>
+              <div class="horizontal_scroll_wrap_content_spot">
+                <ul class="scroll_lst_content">
+                  <% @pictures = @spot2.pictures.order(id: "ASC") %>
+                  <% @pictures.each do |picture| %>
+                    <li class="scroll_item_content">
+                      <div class="scroll_item_inr_content">
+                        <div class="scroll_item_thum_content">
+                          <%# $$$spotから利用する写真をfitstなどで指定 %>
+                          <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                        </div>
+                        <div class="scroll_item_info_content_quote">
+                          <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                            <% if !picture.url.blank? %>
+                              <% if !picture.quote.blank? %>
+                                <a href="<%= picture.url %>" target="_blank" class="gray">
+                                  出典&nbsp;<%= picture.quote %>
+                                </a>
+                              <% else %> 
+                                <a href="<%= picture.url %>" target="_blank" class="gray">
+                                  出典&nbsp;
+                                </a>
+                              <% end %>
+                            <% else %> 
+                                &nbsp;
+                            <% end %>  
+                          </p>
+                        </div>
+                     </div>
+                    </li>
+                  <% end %>  
+                </ul>
+              </div>
+              <div class="panel-body">
+                <%# タイトル %>
+                <div class="title-spot-show-min"><%= @spot2.title %></div>
+                <%# 料金 %>
+                <p style="color: #666666;margin:5px 0px;font-size:12px">
+                  <% unless @spot2.price_lunch.blank? %>
+                    <i class="fa fa-sun-o"></i>~<%= @spot2.price_lunch %>円/
+                  <% end %>
+                  <% unless @spot2.price_dinner.blank? %>
+                    <i class="fa fa-moon-o"></i>~<%= @spot2.price_dinner %>円/
+                  <% end %>
+                  <% unless @spot2.price_spot.blank? %>
+                    <i class="fa fa-yen"></i>~<%= @spot2.price_spot %>円
+                  <% end %>
+                </p> 
+                <%# カテゴリー %>
+                <% unless @spot2.large.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot2.large.each do |large| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot2.large.size %>
+                        <%= large %>
+                      <% else %>
+                        <%= large %>/
+                      <% end %> 
+                    <% end %>
+                  </p> 
+                <% end %>
+                <%# ジャンル %>
+                <% unless @spot2.small.blank? %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                  <% @i = 0 %>
+                    <% @spot2.small.each do |small| %>
+                      <% @i = @i + 1 %>
+                      <% if @i == @spot2.small.size %>
+                        <%= small %>
+                      <% else %>
+                        <%= small %>/
+                      <% end %>
+                    <% end %>
+                  </p> 
+                <% end %>
+                <%# 都道府県、エリア %>
+                <p style="color: #666666;margin-top:5px;font-size:12px">
+                  <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
+                </p> 
+                <%# 営業時間 %>
+                <div onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
+                  <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                    <i class="fa fa-clock-o"></i>
+                    <% if @wday == 0 %>
+                    <% unless @spot2.sunday.blank? %>(日)<%= @spot2.sunday %><% end %>
+                    <% end %>
+                    <% if @wday == 1 %>
+                    <% unless @spot2.monday.blank? %>(月)<%= @spot2.monday %><% end %>
+                    <% end %>
+                    <% if @wday == 2 %>
+                    <% unless @spot2.tuesday.blank? %>(火)<%= @spot2.tuesday %><% end %>
+                    <% end %>
+                    <% if @wday == 3 %>
+                    <% unless @spot2.wednesday.blank? %>(水)<%= @spot2.wednesday %><% end %>
+                    <% end %>
+                    <% if @wday == 4 %>
+                    <% unless @spot2.thursday.blank? %>(木)<%= @spot2.thursday %><% end %>
+                    <% end %>
+                    <% if @wday == 5 %>
+                    <% unless @spot2.friday.blank? %>(金)<%= @spot2.friday %><% end %>
+                    <% end %>
+                    <% if @wday == 6 %>
+                    <% unless @spot2.saturday.blank? %>(土)<%= @spot2.saturday %><% end %>
+                    <% end %>
+                    ▼
+                  </p>
+                </div>
+                <div id="open2" style="display:none;clear:both;">
+                  <p style="color: #66666;margin-top:5px;font-size:12px">
+                    月&nbsp;&nbsp;<% unless @spot2.monday.blank? %><%= @spot2.monday %><% end %><br>
+                    火&nbsp;&nbsp;<% unless @spot2.tuesday.blank? %><%= @spot2.tuesday %><% end %><br>
+                    水&nbsp;&nbsp;<% unless @spot2.wednesday.blank? %><%= @spot2.wednesday %><% end %><br>
+                    木&nbsp;&nbsp;<% unless @spot2.thursday.blank? %><%= @spot2.thursday %><% end %><br>
+                    金&nbsp;&nbsp;<% unless @spot2.friday.blank? %><%= @spot2.friday %><% end %><br>
+                    土&nbsp;&nbsp;<% unless @spot2.saturday.blank? %><%= @spot2.saturday %><% end %><br>
+                    日&nbsp;&nbsp;<% unless @spot2.sunday.blank? %><%= @spot2.sunday %><% end %><br>
+                    祝&nbsp;&nbsp;<% unless @spot2.holiday.blank? %><%= @spot2.holiday %><% end %><br>
+                  </p> 
+                </div>
+                <%# 見出し %>
+                <% unless @spot2.heading.blank? %>
+                  <p class="aaa-min"><%= @spot2.heading %></p>
+                <% end %>
+                <%# Description %>
+                <% unless @spot2.description.blank? %>
+                  <p style="font-size:12px"><%= @spot2.description %></p>
+                <% end %>
+                <%# 食べログ、rettyボタン等 %>
+                <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+                <div class="info-box1-min">
+                  <% unless @spot2.tabelog.blank? %>
+                    <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+                  <% end %>
+                  <% unless @spot2.retty.blank? %>
+                    <a href="<%= @spot2.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
+                  <% end %>
+                  <% unless @spot2.introduction.blank? %>
+                <a href="<%= @spot2.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
+              <% end %>
+                </div>
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+              </div>  
+            </div>
+            </div>
+          </div>
+          <%# ライン %>
+          <div class="box-line">
+            <h3>More about the course</h3>
+            <p>
+              ショーンはあなたの代わりにこのデートコースの詳細を調べてくれます。
+              <br>
+              知りたいことを質問して見ましょう
+            </p>
+            <a href="" data-toggle="modal" data-target="#myModal-line">
+              <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+              <br>
+              <h4>ショーンに聞く</h4>
+            </a>
+            <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+              <p>ショーンとは？</p>
+            </a>
+          </div>
+          <%#モーダルの中身%>
+          <div class="modal" id="myModal-line">
+            <div class="modal-top-line"></div>
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="panel-body">
+                  <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
+                  <p style="margin:20px 20px;">①<%= @spot1.title %><br>②<%= @spot2.title %></p> 
+                  <div  class="text-center" style="margin:20px 0px;">
+                    <button class="btn" data-clipboard-text="①<%= @spot1.title %>/②<%= @spot2.title %>"><i class="fa fa-clone"></i>コピー</button>
+                  </div>
+                  <div  class="text-center">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                    <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+                      LINEを起動する
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%# マップ %>
+          <div class="map-title-box">
+            <div class="map-title">
+              Map
+              <br>
+              <i class="fa fa-angle-double-down"></i>
+            </div>
+          </div>
+          <div id="sample"></div>
+
+
+        <%# スポットが3つの時 %>
+        <% else %>
+          <% if !@pictures3.nil? %>
+            
+
+            <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
+            
+            <%# 距離 %>
+            <div class="distance-box">
+              <%= @spot1.title %>
+              <br>
+              <span class="distance">↓ (<%= @distance_second %>m)</span>
+              <br>
+              <%= @spot2.title %>
+              <br>
+              <span class="distance">↓ (<%= @distance_third %>m)</span>
+              <br>
+              <%= @spot3.title %>
+            </div>
+
+            <%# 横スクロールアイキャッチ %>
+            <div class="horizontal_scroll_wrap_result">
+              <ul class="scroll_lst_result">
+                <%# 画像とタイトル %>
+                <li class="scroll_item_result">
+                    <div class="scroll_item_inr_result">
+                      <div class="frame-demo">
+                        <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
+                        <h3>1,&nbsp;<%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
+                        <%= form_tag(searches_change_first_path, method: :get) do %>
+                          <%= hidden_field_tag :timezone, params[:timezone] %>
+                          <%= hidden_field_tag :spot1, @spot1.id %>
+                          <%= hidden_field_tag :spot2, @spot2.id %>
+                          <%= hidden_field_tag :spot3, @spot3.id %>
+                          <h2>
+                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
+                              <i class="fa fa-refresh"></i>
+                            <% end %>
+                          </h2>
+                        <% end %>
+                      </div>
+                    </div>
+                </li>
+                <a href="" data-toggle="modal" data-target="#myModal1">
+                  <li class="scroll_item_result_maps">
+                    <div class="scroll_item_inr_result">     
+                      <div class="scroll_item_thum_result_info">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                      </div>           
+                    </div>
+                  </li>
+                </a>
+              </ul>
+            </div>
+            <!-- モーダルウィンドウの中身 -->
+            <div class="modal" id="myModal1">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                <br>
+                <%# 横スクロール写真 %>
+                <div class="horizontal_scroll_wrap_content_spot">
+                  <ul class="scroll_lst_content">
+                    <% @pictures = @spot1.pictures.order(id: "ASC") %>
+                    <% @pictures.each do |picture| %>
+                      <li class="scroll_item_content">
+                        <div class="scroll_item_inr_content">
+                          <div class="scroll_item_thum_content">
+                            <%# $$$spotから利用する写真をfitstなどで指定 %>
+                            <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                          </div>
+                          <div class="scroll_item_info_content_quote">
+                            <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                              <% if !picture.url.blank? %>
+                                <% if !picture.quote.blank? %>
+                                  <a href="<%= picture.url %>" target="_blank" class="gray">
+                                    出典&nbsp;<%= picture.quote %>
+                                  </a>
+                                <% else %> 
+                                  <a href="<%= picture.url %>" target="_blank" class="gray">
+                                    出典&nbsp;
+                                  </a>
+                                <% end %>
+                              <% else %> 
+                                  &nbsp;
+                              <% end %>  
+                            </p>
+                          </div>
+                       </div>
+                      </li>
+                    <% end %>  
+                  </ul>
+                </div>
+                <div class="panel-body">
+                  <%# タイトル %>
+                  <div class="title-spot-show-min"><%= @spot1.title %></div>
+                  <%# 料金 %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px">
+                    <% unless @spot1.price_lunch.blank? %>
+                      <i class="fa fa-sun-o"></i>~<%= @spot1.price_lunch %>円/
+                    <% end %>
+                    <% unless @spot1.price_dinner.blank? %>
+                      <i class="fa fa-moon-o"></i>~<%= @spot1.price_dinner %>円/
+                    <% end %>
+                    <% unless @spot1.price_spot.blank? %>
+                      <i class="fa fa-yen"></i>~<%= @spot1.price_spot %>円
+                    <% end %>
+                  </p> 
+                  <%# カテゴリー %>
+                  <% unless @spot1.large.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot1.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot1.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# ジャンル %>
+                  <% unless @spot1.small.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot1.small.each do |small| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot1.small.size %>
+                          <%= small %>
+                        <% else %>
+                          <%= small %>/
+                        <% end %>
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# 都道府県、エリア %>
+                  <p style="color: #666666;margin-top:5px;font-size:12px">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
+                  </p> 
+                  <%# 営業時間 %>
+                  <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
+                    <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                      <i class="fa fa-clock-o"></i>
+                      <% if @wday == 0 %>
+                      <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
+                      <% end %>
+                      <% if @wday == 1 %>
+                      <% unless @spot1.monday.blank? %>(月)<%= @spot1.monday %><% end %>
+                      <% end %>
+                      <% if @wday == 2 %>
+                      <% unless @spot1.tuesday.blank? %>(火)<%= @spot1.tuesday %><% end %>
+                      <% end %>
+                      <% if @wday == 3 %>
+                      <% unless @spot1.wednesday.blank? %>(水)<%= @spot1.wednesday %><% end %>
+                      <% end %>
+                      <% if @wday == 4 %>
+                      <% unless @spot1.thursday.blank? %>(木)<%= @spot1.thursday %><% end %>
+                      <% end %>
+                      <% if @wday == 5 %>
+                      <% unless @spot1.friday.blank? %>(金)<%= @spot1.friday %><% end %>
+                      <% end %>
+                      <% if @wday == 6 %>
+                      <% unless @spot1.saturday.blank? %>(土)<%= @spot1.saturday %><% end %>
+                      <% end %>
+                      ▼
+                    </p>
+                  </div>
+                  <div id="open1" style="display:none;clear:both;">
+                    <p style="color: #66666;margin-top:5px;font-size:12px">
+                      月&nbsp;&nbsp;<% unless @spot1.monday.blank? %><%= @spot1.monday %><% end %><br>
+                      火&nbsp;&nbsp;<% unless @spot1.tuesday.blank? %><%= @spot1.tuesday %><% end %><br>
+                      水&nbsp;&nbsp;<% unless @spot1.wednesday.blank? %><%= @spot1.wednesday %><% end %><br>
+                      木&nbsp;&nbsp;<% unless @spot1.thursday.blank? %><%= @spot1.thursday %><% end %><br>
+                      金&nbsp;&nbsp;<% unless @spot1.friday.blank? %><%= @spot1.friday %><% end %><br>
+                      土&nbsp;&nbsp;<% unless @spot1.saturday.blank? %><%= @spot1.saturday %><% end %><br>
+                      日&nbsp;&nbsp;<% unless @spot1.sunday.blank? %><%= @spot1.sunday %><% end %><br>
+                      祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
+                    </p> 
+                  </div>
+                  <%# 見出し %>
+                  <% unless @spot1.heading.blank? %>
+                    <p class="aaa-min"><%= @spot1.heading %></p>
+                  <% end %>
+                  <%# Description %>
+                  <% unless @spot1.description.blank? %>
+                    <p style="font-size:12px"><%= @spot1.description %></p>
+                  <% end %>
+                  <%# 食べログ、rettyボタン等 %>
+                  <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+                  <div class="info-box1-min">
+                    <% unless @spot1.tabelog.blank? %>
+                      <a href="<%= @spot1.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+                    <% end %>
+                    <% unless @spot1.retty.blank? %>
+                      <a href="<%= @spot1.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
+                    <% end %>
+                    <% unless @spot1.introduction.blank? %>
+                      <a href="<%= @spot1.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
+                    <% end %>
+                  </div>
+                  <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+                </div>  
+              </div>
+              </div>
+            </div>
+            <%# 横スクロールアイキャッチ %>
+            <div class="horizontal_scroll_wrap_result">
+              <ul class="scroll_lst_result">
+                <%# 画像とタイトル %>
+                <li class="scroll_item_result">
+                    <div class="scroll_item_inr_result">
+                      <div class="frame-demo">
+                        <%= image_tag @spot2.pictures.first.image.url, :class =>'img-demo-result' %>
+                        <h3>2,&nbsp;<%= @spot2.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
+                        <%= form_tag(searches_change_second_path, method: :get) do %>
+                        <%= hidden_field_tag :timezone, params[:timezone] %>
+                        <%= hidden_field_tag :spot1, @spot1.id %>
+                        <%= hidden_field_tag :spot2, @spot2.id %>
+                        <%= hidden_field_tag :spot3, @spot3.id %>
+                          <h2>
+                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
+                              <i class="fa fa-refresh"></i>
+                            <% end %>
+                          </h2>
+                        <% end %>
+                      </div>
+                    </div>
+                </li>
+                <a href="" data-toggle="modal" data-target="#myModal2">
+                  <li class="scroll_item_result_maps">
+                    <div class="scroll_item_inr_result">     
+                      <div class="scroll_item_thum_result_info">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                      </div>           
+                    </div>
+                  </li>
+                </a>
+              </ul>
+            </div>
+            <!-- モーダルウィンドウの中身 -->
+            <div class="modal" id="myModal2">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                <br>
+                <%# 横スクロール写真 %>
+                <div class="horizontal_scroll_wrap_content_spot">
+                  <ul class="scroll_lst_content">
+                    <% @pictures = @spot2.pictures.order(id: "ASC") %>
+                    <% @pictures.each do |picture| %>
+                      <li class="scroll_item_content">
+                        <div class="scroll_item_inr_content">
+                          <div class="scroll_item_thum_content">
+                            <%# $$$spotから利用する写真をfitstなどで指定 %>
+                            <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                          </div>
+                          <div class="scroll_item_info_content_quote">
+                            <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                              <% if !picture.url.blank? %>
+                                <% if !picture.quote.blank? %>
+                                  <a href="<%= picture.url %>" target="_blank" class="gray">
+                                    出典&nbsp;<%= picture.quote %>
+                                  </a>
+                                <% else %> 
+                                  <a href="<%= picture.url %>" target="_blank" class="gray">
+                                    出典&nbsp;
+                                  </a>
+                                <% end %>
+                              <% else %> 
+                                  &nbsp;
+                              <% end %>  
+                            </p>
+                          </div>
+                       </div>
+                      </li>
+                    <% end %>  
+                  </ul>
+                </div>
+                <div class="panel-body">
+                  <%# タイトル %>
+                  <div class="title-spot-show-min"><%= @spot2.title %></div>
+                  <%# 料金 %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px">
+                    <% unless @spot2.price_lunch.blank? %>
+                      <i class="fa fa-sun-o"></i>~<%= @spot2.price_lunch %>円/
+                    <% end %>
+                    <% unless @spot2.price_dinner.blank? %>
+                      <i class="fa fa-moon-o"></i>~<%= @spot2.price_dinner %>円/
+                    <% end %>
+                    <% unless @spot2.price_spot.blank? %>
+                      <i class="fa fa-yen"></i>~<%= @spot2.price_spot %>円
+                    <% end %>
+                  </p> 
+                  <%# カテゴリー %>
+                  <% unless @spot2.large.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot2.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot2.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# ジャンル %>
+                  <% unless @spot2.small.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot2.small.each do |small| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot2.small.size %>
+                          <%= small %>
+                        <% else %>
+                          <%= small %>/
+                        <% end %>
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# 都道府県、エリア %>
+                  <p style="color: #666666;margin-top:5px;font-size:12px">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
+                  </p> 
+                  <%# 営業時間 %>
+                  <div onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
+                    <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                      <i class="fa fa-clock-o"></i>
+                      <% if @wday == 0 %>
+                      <% unless @spot2.sunday.blank? %>(日)<%= @spot2.sunday %><% end %>
+                      <% end %>
+                      <% if @wday == 1 %>
+                      <% unless @spot2.monday.blank? %>(月)<%= @spot2.monday %><% end %>
+                      <% end %>
+                      <% if @wday == 2 %>
+                      <% unless @spot2.tuesday.blank? %>(火)<%= @spot2.tuesday %><% end %>
+                      <% end %>
+                      <% if @wday == 3 %>
+                      <% unless @spot2.wednesday.blank? %>(水)<%= @spot2.wednesday %><% end %>
+                      <% end %>
+                      <% if @wday == 4 %>
+                      <% unless @spot2.thursday.blank? %>(木)<%= @spot2.thursday %><% end %>
+                      <% end %>
+                      <% if @wday == 5 %>
+                      <% unless @spot2.friday.blank? %>(金)<%= @spot2.friday %><% end %>
+                      <% end %>
+                      <% if @wday == 6 %>
+                      <% unless @spot2.saturday.blank? %>(土)<%= @spot2.saturday %><% end %>
+                      <% end %>
+                      ▼
+                    </p>
+                  </div>
+                  <div id="open2" style="display:none;clear:both;">
+                    <p style="color: #66666;margin-top:5px;font-size:12px">
+                      月&nbsp;&nbsp;<% unless @spot2.monday.blank? %><%= @spot2.monday %><% end %><br>
+                      火&nbsp;&nbsp;<% unless @spot2.tuesday.blank? %><%= @spot2.tuesday %><% end %><br>
+                      水&nbsp;&nbsp;<% unless @spot2.wednesday.blank? %><%= @spot2.wednesday %><% end %><br>
+                      木&nbsp;&nbsp;<% unless @spot2.thursday.blank? %><%= @spot2.thursday %><% end %><br>
+                      金&nbsp;&nbsp;<% unless @spot2.friday.blank? %><%= @spot2.friday %><% end %><br>
+                      土&nbsp;&nbsp;<% unless @spot2.saturday.blank? %><%= @spot2.saturday %><% end %><br>
+                      日&nbsp;&nbsp;<% unless @spot2.sunday.blank? %><%= @spot2.sunday %><% end %><br>
+                      祝&nbsp;&nbsp;<% unless @spot2.holiday.blank? %><%= @spot2.holiday %><% end %><br>
+                    </p> 
+                  </div>
+                  <%# 見出し %>
+                  <% unless @spot2.heading.blank? %>
+                    <p class="aaa-min"><%= @spot2.heading %></p>
+                  <% end %>
+                  <%# Description %>
+                  <% unless @spot2.description.blank? %>
+                    <p style="font-size:12px"><%= @spot2.description %></p>
+                  <% end %>
+                  <%# 食べログ、rettyボタン等 %>
+                  <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+                  <div class="info-box1-min">
+                    <% unless @spot2.tabelog.blank? %>
+                      <a href="<%= @spot2.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+                    <% end %>
+                    <% unless @spot2.retty.blank? %>
+                      <a href="<%= @spot2.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
+                    <% end %>
+                    <% unless @spot2.introduction.blank? %>
+                      <a href="<%= @spot2.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
+                    <% end %>
+                  </div>
+                  <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+                </div>  
+              </div>
+              </div>
+            </div>
+            <%# 横スクロールアイキャッチ %>
+            <div class="horizontal_scroll_wrap_result">
+              <ul class="scroll_lst_result">
+                <%# 画像とタイトル %>
+                <li class="scroll_item_result">
+                    <div class="scroll_item_inr_result">
+                      <div class="frame-demo">
+                        <%= image_tag @spot3.pictures.first.image.url, :class =>'img-demo-result' %>
+                        <h3>3,&nbsp;<%= @spot3.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot3.station %></span></h3> 
+                        <%= form_tag(searches_change_third_path, method: :get) do %>
+                        <%= hidden_field_tag :timezone, params[:timezone] %>
+                        <%= hidden_field_tag :spot1, @spot1.id %>
+                        <%= hidden_field_tag :spot2, @spot2.id %>
+                        <%= hidden_field_tag :spot3, @spot3.id %>
+                          <h2>
+                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
+                              <i class="fa fa-refresh"></i>
+                            <% end %>
+                          </h2>
+                        <% end %>
+                      </div>
+                    </div>
+                </li>
+                <a href="" data-toggle="modal" data-target="#myModal3">
+                  <li class="scroll_item_result_maps">
+                    <div class="scroll_item_inr_result">     
+                      <div class="scroll_item_thum_result_info">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Info
+                      </div>           
+                    </div>
+                  </li>
+                </a>
+              </ul>
+            </div>
+            <!-- モーダルウィンドウの中身 -->
+            <div class="modal" id="myModal3">
+              <div class="modal-dialog">
+              <div class="modal-content">
+                <br>
+                <%# 横スクロール写真 %>
+                <div class="horizontal_scroll_wrap_content_spot">
+                  <ul class="scroll_lst_content">
+                    <% @pictures = @spot3.pictures.order(id: "ASC") %>
+                    <% @pictures.each do |picture| %>
+                      <li class="scroll_item_content">
+                        <div class="scroll_item_inr_content">
+                          <div class="scroll_item_thum_content">
+                            <%# $$$spotから利用する写真をfitstなどで指定 %>
+                            <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
+                          </div>
+                          <div class="scroll_item_info_content_quote">
+                            <p class="scroll_item_ttl_content_quote spot-show-p pull-right">
+                              <% if !picture.url.blank? %>
+                                <% if !picture.quote.blank? %>
+                                  <a href="<%= picture.url %>" target="_blank" class="gray">
+                                    出典&nbsp;<%= picture.quote %>
+                                  </a>
+                                <% else %> 
+                                  <a href="<%= picture.url %>" target="_blank" class="gray">
+                                    出典&nbsp;
+                                  </a>
+                                <% end %>
+                              <% else %> 
+                                  &nbsp;
+                              <% end %>  
+                            </p>
+                          </div>
+                       </div>
+                      </li>
+                    <% end %>  
+                  </ul>
+                </div>
+                <div class="panel-body">
+                  <%# タイトル %>
+                  <div class="title-spot-show-min"><%= @spot3.title %></div>
+                  <%# 料金 %>
+                  <p style="color: #666666;margin:5px 0px;font-size:12px">
+                    <% unless @spot3.price_lunch.blank? %>
+                      <i class="fa fa-sun-o"></i>~<%= @spot3.price_lunch %>円/
+                    <% end %>
+                    <% unless @spot3.price_dinner.blank? %>
+                      <i class="fa fa-moon-o"></i>~<%= @spot3.price_dinner %>円/
+                    <% end %>
+                    <% unless @spot3.price_spot.blank? %>
+                      <i class="fa fa-yen"></i>~<%= @spot3.price_spot %>円
+                    <% end %>
+                  </p> 
+                  <%# カテゴリー %>
+                  <% unless @spot3.large.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot3.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot3.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# ジャンル %>
+                  <% unless @spot3.small.blank? %>
+                    <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% @spot3.small.each do |small| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == @spot3.small.size %>
+                          <%= small %>
+                        <% else %>
+                          <%= small %>/
+                        <% end %>
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# 都道府県、エリア %>
+                  <p style="color: #666666;margin-top:5px;font-size:12px">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot3.city %>&nbsp;&nbsp;[<%= @spot3.station %>]
+                  </p> 
+                  <%# 営業時間 %>
+                  <div onclick="obj=document.getElementById('open3').style; obj.display=(obj.display=='none')?'block':'none';">
+                    <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                      <i class="fa fa-clock-o"></i>
+                      <% if @wday == 0 %>
+                      <% unless @spot3.sunday.blank? %>(日)<%= @spot3.sunday %><% end %>
+                      <% end %>
+                      <% if @wday == 1 %>
+                      <% unless @spot3.monday.blank? %>(月)<%= @spot3.monday %><% end %>
+                      <% end %>
+                      <% if @wday == 2 %>
+                      <% unless @spot3.tuesday.blank? %>(火)<%= @spot3.tuesday %><% end %>
+                      <% end %>
+                      <% if @wday == 3 %>
+                      <% unless @spot3.wednesday.blank? %>(水)<%= @spot3.wednesday %><% end %>
+                      <% end %>
+                      <% if @wday == 4 %>
+                      <% unless @spot3.thursday.blank? %>(木)<%= @spot3.thursday %><% end %>
+                      <% end %>
+                      <% if @wday == 5 %>
+                      <% unless @spot3.friday.blank? %>(金)<%= @spot3.friday %><% end %>
+                      <% end %>
+                      <% if @wday == 6 %>
+                      <% unless @spot3.saturday.blank? %>(土)<%= @spot3.saturday %><% end %>
+                      <% end %>
+                      ▼
+                    </p>
+                  </div>
+                  <div id="open3" style="display:none;clear:both;">
+                    <p style="color: #66666;margin-top:5px;font-size:12px">
+                      月&nbsp;&nbsp;<% unless @spot3.monday.blank? %><%= @spot3.monday %><% end %><br>
+                      火&nbsp;&nbsp;<% unless @spot3.tuesday.blank? %><%= @spot3.tuesday %><% end %><br>
+                      水&nbsp;&nbsp;<% unless @spot3.wednesday.blank? %><%= @spot3.wednesday %><% end %><br>
+                      木&nbsp;&nbsp;<% unless @spot3.thursday.blank? %><%= @spot3.thursday %><% end %><br>
+                      金&nbsp;&nbsp;<% unless @spot3.friday.blank? %><%= @spot3.friday %><% end %><br>
+                      土&nbsp;&nbsp;<% unless @spot3.saturday.blank? %><%= @spot3.saturday %><% end %><br>
+                      日&nbsp;&nbsp;<% unless @spot3.sunday.blank? %><%= @spot3.sunday %><% end %><br>
+                      祝&nbsp;&nbsp;<% unless @spot3.holiday.blank? %><%= @spot3.holiday %><% end %><br>
+                    </p> 
+                  </div>
+                  <%# 見出し %>
+                  <% unless @spot3.heading.blank? %>
+                    <p class="aaa-min"><%= @spot3.heading %></p>
+                  <% end %>
+                  <%# Description %>
+                  <% unless @spot3.description.blank? %>
+                    <p style="font-size:12px"><%= @spot3.description %></p>
+                  <% end %>
+                  <%# 食べログ、rettyボタン等 %>
+                  <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+                  <div class="info-box1-min">
+                    <% unless @spot3.tabelog.blank? %>
+                      <a href="<%= @spot3.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+                    <% end %>
+                    <% unless @spot3.retty.blank? %>
+                      <a href="<%= @spot3.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
+                    <% end %>
+                    <% unless @spot3.introduction.blank? %>
+                      <a href="<%= @spot3.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
+                    <% end %>
+                  </div>
+                  <button type="button" class="btn btn-default pull-right" data-dismiss="modal">×&nbsp;閉じる</button>
+                </div>  
+              </div>
+              </div>
+            </div>
+            <%# ライン %>
+            <div class="box-line">
+              <h3>More about the course</h3>
+              <p>
+                ショーンはあなたの代わりにこのデートコースの詳細を調べてくれます。
+                <br>
+                知りたいことを質問して見ましょう
+              </p>
+              <a href="" data-toggle="modal" data-target="#myModal-line">
+                <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+                <br>
+                <h4>ショーンに聞く</h4>
+              </a>
+              <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+                <p>ショーンとは？</p>
+              </a>
+            </div>
+            <%#モーダルの中身%>
+            <div class="modal" id="myModal-line">
+              <div class="modal-top-line"></div>
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="panel-body">
+                    <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
+                    <p style="margin:20px 20px;">①<%= @spot1.title %><br>②<%= @spot2.title %><br>③<%= @spot3.title %></p> 
+                    <div  class="text-center" style="margin:20px 0px;">
+                      <button class="btn" data-clipboard-text="①<%= @spot1.title %>/②<%= @spot2.title %>/③<%= @spot3.title %>"><i class="fa fa-clone"></i>コピー</button>
+                    </div>
+                    <div  class="text-center">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                      <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+                        LINEを起動する
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <%# マップ %>
+            <div class="map-title-box">
+              <div class="map-title">
+                Map
+                <br>
+                <i class="fa fa-angle-double-down"></i>
+              </div>
+            </div>
+            <div id="sample"></div>
+
+
+
+          <% else %>
+	           該当するデートコースはありません
+          <% end %>
+        <% end %>
+      <% else %>
+	       該当するデートコースはありません
+      <% end %>
+    <% end %>
+  <% else %>
+       該当するデートコースはありません
+  <% end %>
+<% else %>
+  該当するデートコースはありません
+<% end %>
+
+
+<%#ショーンとはモーダルの中身%>
+<div class="modal" id="myModal-sean">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="sean-back"></div>
+      <div class="text-center" style="margin-top:-80px;z-index:99;">
+        <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+        <h4>ショーン</h4>
+      </div>
+      <div class="panel-body">
+        <div class="text-center">
+          <h2 style="padding:40px 0px;"><span class="what">About</span></h2>
+          <h4>あなたのデートプランナー</h4>
+          <p>ショーンはあなたがデートコースを作るのをサポートしてくれるデートプランナーです。<br><span class="site-title">A.Date</span>で作っデートコースの詳細を調べてくれたり、アドバイスをくれたり様々なサポートをしてくれます。</p>
+        </div>
+        <div class="text-center">
+          <h2 style="padding:40px 0px;"><span class="what">Example</span></h2>
+          <h4>使い方はあなた次第</h4>
+          <p>ショーンはできる限りのことをサポートしてくれます。ぜひあなただけの使い方を見つけてください。</p>
+        </div>
+        <div class="row" style="padding:20px 0px;">
+          <div class="col-xs-6">
+          <h4>様々な情報を</h4>
+          <p>「次のスポットへは歩いてどのくらい？」</p>
+          <p>「オススメのメニューを教えて！」</p>
+          <p>「ここってサプライズとか対応してくれるのかな？」</p>
+          </div>
+          <div class="col-xs-6">
+            <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+          </div>
+        </div>
+        <div class="row" style="padding:40px 0px;">
+          <div class="col-xs-6">
+          <h4>アドバイスを</h4>
+          <p>「次のスポットまでは歩いたがいいかな？それともタクシーかな？」</p>
+          <p>「どんなファッションで行ったらいいんだろう？」</p>
+          <p>「初デートのアドバイスってある？」</p>
+          </div>
+          <div class="col-xs-6">
+            <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+          </div>
+        </div>
+        <div class="row" style="padding:40px 0px;">
+          <div class="col-xs-6">
+          <h4>代わりに予約を</h4>
+          <p>「ディナーのお店を代わりに予約しといて欲しい！」</p>
+          <p>「このお店ってランチでも予約できるのかな？」</p>
+          </div>
+          <div class="col-xs-6">
+            <%= image_tag "tutorial1.jpg", :class =>'img-sean-use' %>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+          ショーンと友達になる
+        </a>
+      </div>
+      <br>
+      <div class="text-center">
+        <button type="button" class="btn btn-default" data-dismiss="modal">×&nbsp;閉じる</button>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  var map;
+var marker = [];
+var infoWindow = [];
+var markerData = [ // マーカーを立てる場所名・緯度・経度
+
+<% if !@spot1.nil? %>
+<% if @spot2.nil? %>
+  {
+       name: "<%= @spot1.title %>",
+       lat: <%= @spot1.latitude %>,
+        lng: <%= @spot1.longitude %>,
+  }, 
+<% else %>
+<% if @spot3.nil? %>
+  {
+       name: "<%= @spot1.title %>",
+       lat: <%= @spot1.latitude %>,
+        lng: <%= @spot1.longitude %>,
+  }, 
+  {
+       name: "<%= @spot2.title %>",
+       lat: <%= @spot2.latitude %>,
+        lng: <%= @spot2.longitude %>,
+  }, 
+<% else %>
+  {
+       name: "<%= @spot1.title %>",
+       lat: <%= @spot1.latitude %>,
+        lng: <%= @spot1.longitude %>,
+  }, 
+  {
+       name: "<%= @spot2.title %>",
+       lat: <%= @spot2.latitude %>,
+        lng: <%= @spot2.longitude %>,
+  }, 
+  {
+       name: "<%= @spot3.title %>",
+       lat: <%= @spot3.latitude %>,
+        lng: <%= @spot3.longitude %>,
+  }, 
+<% end %>
+<% end %>
+<% end %>
+
+];
+ 
+function initMap() {
+ // 地図の作成
+    var mapLatLng = new google.maps.LatLng({lat: markerData[0]['lat'], lng: markerData[0]['lng']}); // 緯度経度のデータ作成
+   map = new google.maps.Map(document.getElementById('sample'), { // #sampleに地図を埋め込む
+    gestureHandling: 'greedy',
+     center: mapLatLng, // 地図の中心を指定
+      zoom: 15 // 地図のズームを指定
+   });
+ 
+ // マーカー毎の処理
+ for (var i = 0; i < markerData.length; i++) {
+        markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+        marker[i] = new google.maps.Marker({ // マーカーの追加
+         position: markerLatLng, // マーカーを立てる位置を指定
+            map: map // マーカーを立てる地図を指定
+       });
+ 
+     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+         content: '<div class="sample">' + markerData[i]['name'] + '</div>' // 吹き出しに表示する内容
+       });
+ 
+     markerEvent(i); // マーカーにクリックイベントを追加
+ }
+ 
+   
+}
+ 
+// マーカーにクリックイベントを追加
+function markerEvent(i) {
+    marker[i].addListener('click', function() { // マーカーをクリックしたとき
+      infoWindow[i].open(map, marker[i]); // 吹き出しの表示
+  });
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
+
+
+<script>
+  var clipboard = new Clipboard('.btn');
+  clipboard.on('success', function(e) {
+    console.info('Trigger:', e.trigger);
+    alert('コピーできました');
+  });
+  clipboard.on('error', function(e) {
+    console.error('Trigger:', e.trigger);
+    alert('このブラウザでは対応していません');
+  });
+</script>
+
+</mains>
+
