@@ -12,7 +12,7 @@
 	  </h4> 
 
   	<% if params[:spot1].blank? %>
-  		<span class="text-center">１軒目</span>
+  		<div class="text-center">１軒目</div>
   	<% else %>
   		<% if params[:spot2].blank? %>
   			<%= form_tag(seeks_result_path, method: :get) do %>
