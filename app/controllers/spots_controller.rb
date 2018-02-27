@@ -7,7 +7,7 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.order('id DESC')
+    @spots = Spot.order('id DESC').page(params[:page]).per(30)
     @q = Spot.ransack(params[:q])
     
   end
@@ -88,9 +88,16 @@ class SpotsController < ApplicationController
   end
 
   def result00  
+    @spots = Spot.all
+    unless params[:scene].blank?
+      @scene = params[:scene]
+      @spots = @spots.where("scenes like '%#{@scene}%'")
+    end
+    @spots = @spots.order(:created_at).page(params[:page]).per(3)
   end
 
   def show00
+
   end
 
   

@@ -2,8 +2,28 @@
 <mains class="" id="main-collapse">
 
 <br>
-<h3 class="text-center"><%= params[:scene] %></h3>
+<% unless @scene.blank? %>
+	<h3 class="text-center"><%= @scene %></h3>
+<% end %>
 <br>
+
+<% if @spots.blank? %>
+
+
+
+<% else %>
+
+
+	
+<%= render 'spots' %>
+
+<div class="text-center">
+	<%= paginate @spots %>
+</div>
+	  
+
+
+<% end %>
 
 
 </mains>

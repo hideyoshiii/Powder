@@ -408,7 +408,30 @@
 			                </div>
 			              </div>
 			            </div>
-			            <br>	
+			            <br>
+
+			            <div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>シーン(仮)</label>
+                                <br>   
+								    <% ["朝食","ランチ", "ディナー"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>
+								<br>--------------<br>
+								<% ["カフェ", "アニマルカフェ", "スイーツ", "バー", "映画", "ショップ・雑貨屋", "スポーツ", "夜景", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "カラオケ", "ボーリング", "ダーツ", "食べ歩き", "公園", "その他"].each do |scene| %>
+								    <label>
+								      <%= f.check_box :scenes, { multiple: true},scene,nil %>
+								      <%= scene %>
+								    </label>
+								    <% end %>		  
+                            	</div>
+							</div>
+						</div>	
+						<br>	
 
 			            <div class="pull-left btn btn-default btn-sm">
 							<%= link_to("/spots/#{@spot.id}/destroy", {method: "post"}) do %>

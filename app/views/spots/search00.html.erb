@@ -226,6 +226,17 @@
             <% end %>
           <% end %>
         </div>
+        <div class="box-b-in">
+          <%= form_tag(spots_result00_path, method: :get) do %>
+          	<%= hidden_field_tag :scene, "公園" %>
+          	<%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="box-category-img">
+            		<%= image_tag "park00.jpg", :class =>'img-category' %>
+            		<span class="text-category">公園行きたい</span>
+            	</div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
       
 
