@@ -84,6 +84,21 @@
 		            </span>    
 		        </div>
 	        	<br>
+	        	<% if @spot_n == 2 || @spot_n == 3 %>
+	        		<%= check_box_tag :distance_on, true, @distance_on, {} %>
+	        		<%= label_tag(:distance_on, "距離を指定する") %>        	
+	        		<br><br>
+	        		<div class="row">
+			          <div class="col-xs-offset-1 col-xs-10">
+			            <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail"
+			              oninput="document.getElementById('output2').value=this.value">
+			              <div class="pull-right">
+			              <span class="rage-output2">~</span><output id="output2" class="rage-output2"><%= params[:distance].to_i %></output><span class="rage-output2">m</span>
+			            </div>
+			          </div>
+			        </div>
+	        		<br>
+	        	<% end %>  
 	        	<%= submit_tag "絞る", :class => "btn btn-default" %>
 	        	<br><br>
 	        	<div class="panel-body">
@@ -102,6 +117,8 @@
           	<%= hidden_field_tag :city, params[:city] %>
           	<%= hidden_field_tag :price_min , 0 %>
           	<%= hidden_field_tag :price_max , 20000 %>
+          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+          	<%= hidden_field_tag :distance, params[:distance] %>
           	<% unless params[:spot1].blank? %>
           		<%= hidden_field_tag :spot1, params[:spot1] %>
           	<% end %>
@@ -125,6 +142,8 @@
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , 0 %>
           	  <%= hidden_field_tag :price_max , 20000 %>
+          	  <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          	  <%= hidden_field_tag :distance, params[:distance] %>
           	    <% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -148,6 +167,8 @@
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , 0 %>
           	  <%= hidden_field_tag :price_max , 20000 %>
+          	  <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          	  <%= hidden_field_tag :distance, params[:distance] %>
           	    <% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>

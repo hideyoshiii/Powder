@@ -1,8 +1,9 @@
 class SeeksController < ApplicationController
   before_action :set_params, only: [:category,:term,:choice]
-  before_action :set_wday, only: []
+  before_action :set_wday, only: [:category,:term,:choice]
 
   def category
+  	@spots = Spot.all
 
   	if params[:spot1].blank?
   		@spot_n = 1
@@ -23,23 +24,32 @@ class SeeksController < ApplicationController
   		if @spot_n == 1
 	  		params[:city] = "すべてのエリア"
 	  		@all = true
-	  		@spots = Spot.all
 	  	end
 	  	if @spot_n == 2
 	  		params[:city] = @spot1.city
-	  		@spots = Spot.where(city: params[:city])
 	  	end
 	  	if @spot_n == 3
 	  		params[:city] = @spot2.city
-	  		@spots = Spot.where(city: params[:city])
 	  	end
-  	else
-  		if params[:city] == "すべてのエリア"
-  			@spots = Spot.all
-  		else
-  			@spots = Spot.where(city: params[:city])
-  		end
   	end
+
+  	if params[:distance_on] == "true"
+  		unless params[:distance].blank?
+  			@distance = params[:distance].to_f / 1000
+  			if @spot_n == 2
+  				@spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
+  			end
+  			if @spot_n == 3
+  				@spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
+  			end
+  		end
+  	else
+	  	if params[:city] == "すべてのエリア"
+	  		@spots = @spots.all
+	  	else
+	  		@spots = @spots.where(city: params[:city])
+	  	end
+	end
 
   	if !params[:city].blank?
       if params[:city] == "すべてのエリア"
@@ -88,27 +98,27 @@ class SeeksController < ApplicationController
   	@park = @spots.where("large like '%公園%'")
 
 
-  	@breakfast_n = @breakfast.count
-    @lunch_n = @lunch.count
-    @dinner_n = @dinner.count
-    @cafe_n = @cafe.count
-    @animal_n = @animal.count
-    @sweets_n = @sweets.count
-    @bar_n = @bar.count
-    @movie_n = @movie.count
-    @shop_n = @shop.count
-    @karaoke_n = @karaoke.count
-    @sport_n = @sport.count
-    @night_view_n = @nitht_view.count
-    @planetarium_n = @planetarium.count
-    @zoo_n = @zoo.count
-    @aquarium_n = @aquarium.count
-    @museum_n = @museum.count
-    @amusement_park_n = @amusement_park.count
-    @bowling_n = @bowling.count
-    @darts_n = @darts.count
-    @walk_eat_n = @walk_eat.count
-    @park_n = @park.count
+  	@breakfast_n = @breakfast.size
+    @lunch_n = @lunch.size
+    @dinner_n = @dinner.size
+    @cafe_n = @cafe.size
+    @animal_n = @animal.size
+    @sweets_n = @sweets.size
+    @bar_n = @bar.size
+    @movie_n = @movie.size
+    @shop_n = @shop.size
+    @karaoke_n = @karaoke.size
+    @sport_n = @sport.size
+    @night_view_n = @nitht_view.size
+    @planetarium_n = @planetarium.size
+    @zoo_n = @zoo.size
+    @aquarium_n = @aquarium.size
+    @museum_n = @museum.size
+    @amusement_park_n = @amusement_park.size
+    @bowling_n = @bowling.size
+    @darts_n = @darts.size
+    @walk_eat_n = @walk_eat.size
+    @park_n = @park.size
   end
 
   def term
@@ -121,9 +131,11 @@ class SeeksController < ApplicationController
   	else
   		if params[:spot2].blank?
   			@spot_n = 2
+  			@spot1 = Spot.find(params[:spot1])
   		else
   			if params[:spot3].blank?
   				@spot_n = 3
+  				@spot2 = Spot.find(params[:spot2])
   			end
   		end
   	end
@@ -134,10 +146,22 @@ class SeeksController < ApplicationController
 
   	@spots = Spot.where("large like '%#{@large}%'")
 
-  	if params[:city] == "すべてのエリア"
+  	if params[:distance_on] == "true"
+  		unless params[:distance].blank?
+  			@distance = params[:distance].to_f / 1000
+  			if @spot_n == 2
+  				@spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
+  			end
+  			if @spot_n == 3
+  				@spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
+  			end
+  		end
   	else
-  		@spots = @spots.where(city: params[:city])
-  	end
+	  	if params[:city] == "すべてのエリア"
+	  	else
+	  		@spots = @spots.where(city: params[:city])
+	  	end
+	end
 
     @price_start = params[:price_min].to_i
     @price_end = params[:price_max].to_i
@@ -360,6 +384,11 @@ class SeeksController < ApplicationController
       if params[:large] == "公園"
         @park = true
       end
+    end
+
+     @distance_on = false
+    if params[:distance_on] == "true"
+      @distance_on = true
     end
 
   end

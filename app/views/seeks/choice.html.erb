@@ -29,8 +29,12 @@
     
     <% if @spot_n == 1 || @spot_n == 2 %>
     <%= form_tag(seeks_category_path, method: :get) do %>
+    <% if @spot_n == 1 %>
+    	<%= hidden_field_tag :distance, 500 %>
+    <% end %>
     <% if @spot_n == 2 %>
     	<%= hidden_field_tag :spot1, params[:spot1] %>
+    	<%= hidden_field_tag :distance, 500 %>
     <% end %>
     
 		<% @spots.each do |spot| %>
@@ -249,6 +253,7 @@
     <%= form_tag(seeks_result_path, method: :get) do %>
     <%= hidden_field_tag :spot1, params[:spot1] %>
 	<%= hidden_field_tag :spot2, params[:spot2] %>
+	<%= hidden_field_tag :distance, 500 %>
 
 	<% @spots.each do |spot| %>
       <div class="radio-city1">	
@@ -460,7 +465,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <%= form_tag(seeks_choice_path, method: :get) do %>
-        <%= hidden_field_tag :city, params[:city] %>
+        <%= hidden_field_tag :large, params[:large] %>
+        <% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
         <div class="text-center" style="padding-top:30px;">
           <p>エリアはどこにしますか？</p>
 	        <br>
@@ -511,6 +522,21 @@
 	          </ul>
 	        </div>
 	        <br>
+	        <% if @spot_n == 2 || @spot_n == 3 %>
+        		<%= check_box_tag :distance_on, true, @distance_on, {} %>
+	        	<%= label_tag(:distance_on, "距離を指定する") %>  
+        		<br><br>
+        		<div class="row">
+		          <div class="col-xs-offset-1 col-xs-10">
+		            <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail"
+		              oninput="document.getElementById('output2').value=this.value">
+		              <div class="pull-right">
+		              <span class="rage-output2">~</span><output id="output2" class="rage-output2"><%= params[:distance].to_i %></output><span class="rage-output2">m</span>
+		            </div>
+		          </div>
+			    </div>
+        		<br>
+        	<% end %>  
 	      <% if @large == "朝食" || @large == "ランチ" || @large == "ディナー" %>
           <p>予算はいくらにしますか？</p>
           <div style="width:80%;margin:0 auto;">
@@ -652,6 +678,7 @@ $("#slider").on('slide', function(event, values) {
     $("input.max").val(values[1]);
   });
 </script>
+
 
 
 </mains>
