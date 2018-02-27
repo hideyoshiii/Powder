@@ -1837,7 +1837,7 @@ dl.search1 dd span:hover{
   align-items: center;
 
   padding: 0px;
-  margin-top:-75px;
+  margin-top:-50px;
   box-sizing: border-box;
 }
 
@@ -6028,6 +6028,7 @@ square_btnn{
 .box-city{
 	width:85%;
 	text-align:center;
+	margin:0 auto;
 }
 
 
@@ -6128,6 +6129,12 @@ button.button-b {
     border:0;
     margin:0;
     padding:0;
+}
+
+.number-category{
+	text-align: center;
+	font-size:14px;
+	margin:5px 0 0;
 }
 
 

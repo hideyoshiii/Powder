@@ -1,0 +1,102 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+<%= form_tag(seeks_choice_path, method: :get) do %>
+<%= hidden_field_tag :large, params[:large] %>
+
+
+  <div class="box98" id=''>
+  
+  	<div>
+  		<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">エリアはどこにしますか？</h4>
+  	</div>
+  	<br>
+  	<div class="box-city">
+  		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "すべてのエリア", @all, {:id => "all", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('all', "すべてのエリア") %>
+		</span>
+  		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "原宿・表参道・青山", @harajuku, {:id => "harajuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('harajuku', "原宿・表参道・青山") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "渋谷", @shibuya, {:id => "shibuya", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('shibuya', "渋谷") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "東京・丸の内・日本橋", @tokyo, {:id => "tokyo", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('tokyo', "東京・丸の内・日本橋") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "新宿", @shinjuku, {:id => "shinjuku", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('shinjuku', "新宿") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "六本木・麻布・赤坂", @roppongi, {:id => "roppongi", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('roppongi', "六本木・麻布・赤坂") %>
+		</span>
+  	</div>
+  </div>
+
+  <div class="box97" id='section1'>
+  	<div>
+  		<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
+  	</div>
+	<br>
+	<div style="width:80%;">
+		<span class="pull-left" style="color:white;">
+			<span id="value-lower"></span>円
+		</span>
+		<span class="pull-right" style="color:white;">
+			<span id="value-upper"></span>円
+		</span>
+	</div>
+	<br>
+	<div style="width:75%;">	
+		<div id="slider"></div>
+	</div>
+	<%= hidden_field_tag :price_min , 0, :class =>"min" %>
+	<%= hidden_field_tag :price_max , 20000, :class =>"max" %>
+	<br><br>
+	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
+  </div>
+
+
+<% end %>
+
+
+
+
+ 
+
+<script>
+$("#slider").noUiSlider({
+  start: [0, 20000],
+  step: 500,
+  connect: true,
+  format: wNumb({
+    decimals: 0
+  }),
+  range: {
+    'min': 0,
+    'max': 20000
+  }
+});
+$('#slider').Link('lower').to($('#value-lower'), 'html');
+$('#slider').Link('upper').to($('#value-upper'), 'html');
+
+$("#slider").on('slide', function(event, values) {
+    $("input.min").val(values[0]);
+    $("input.max").val(values[1]);
+  });
+</script>
+
+
+
+</mains>
+

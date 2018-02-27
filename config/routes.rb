@@ -4,6 +4,31 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
+
+  get "seeks/category" => "seeks#category"
+  get "seeks/term" => "seeks#term"
+  get "seeks/choice" => "seeks#choice"
+  get "seeks/result" => "seeks#result"
+ 
+
+
+
+  get "searches/kind" => "searches#kind"
+  get "searches/category-first" => "searches#categoryfirst"
+  get "searches/first" => "searches#first"
+  get "searches/category-second" => "searches#categorysecond"
+  get "searches/middle-second" => "searches#middlesecond"
+  get "searches/second" => "searches#second"
+  get "searches/category-third" => "searches#categorythird"
+  get "searches/middle-third" => "searches#middlethird"
+  get "searches/third" => "searches#third"
+  get "searches/result" => "searches#result"
+  get "searches/change-first" => "searches#changefirst"
+  get "searches/change-second" => "searches#changesecond"
+  get "searches/change-third" => "searches#changethird"
+
+
+
   get "searches/timezone" => "searches#timezone"
   get "searches/kind" => "searches#kind"
   get "searches/category-first" => "searches#categoryfirst"
