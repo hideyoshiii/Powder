@@ -4,10 +4,35 @@ class SeeksController < ApplicationController
 
   def category
 
+  	if params[:spot1].blank?
+  		@spot_n = 1
+  	else
+  		if params[:spot2].blank?
+  			@spot_n = 2
+  			@spot1 = Spot.find(params[:spot1])
+  		else
+  			if params[:spot3].blank?
+  				@spot_n = 3
+  				@spot1 = Spot.find(params[:spot1])
+  				@spot2 = Spot.find(params[:spot2])
+  			end
+  		end
+  	end
+
   	if params[:city].blank?
-  		params[:city] = "すべてのエリア"
-  		@all = true
-  		@spots = Spot.all
+  		if @spot_n == 1
+	  		params[:city] = "すべてのエリア"
+	  		@all = true
+	  		@spots = Spot.all
+	  	end
+	  	if @spot_n == 2
+	  		params[:city] = @spot1.city
+	  		@spots = Spot.where(city: params[:city])
+	  	end
+	  	if @spot_n == 3
+	  		params[:city] = @spot2.city
+	  		@spots = Spot.where(city: params[:city])
+	  	end
   	else
   		if params[:city] == "すべてのエリア"
   			@spots = Spot.all
@@ -15,6 +40,30 @@ class SeeksController < ApplicationController
   			@spots = Spot.where(city: params[:city])
   		end
   	end
+
+  	if !params[:city].blank?
+      if params[:city] == "すべてのエリア"
+        @all = true
+      end
+      if params[:city] == "恵比寿・代官山・中目黒"
+        @ebisu = true
+      end
+      if params[:city] == "渋谷"
+        @shibuya = true
+      end
+      if params[:city] == "原宿・表参道・青山"
+        @harajuku = true
+      end
+      if params[:city] == "新宿"
+        @shinjuku = true
+      end
+      if params[:city] == "東京・丸の内・日本橋"
+        @tokyo = true
+      end
+      if params[:city] == "六本木・麻布・赤坂"
+        @roppongi = true
+      end
+    end
 
   	@breakfast = @spots.where("large like '%朝食%'")
   	@lunch = @spots.where("large like '%ランチ%'")
