@@ -2,40 +2,49 @@
 <mains class="" id="main-collapse">
 
 	<br>
-  	<h3 class="text-center">何がしたいですか？</h3>
+	<% if params[:spot1].blank? %>
+		<h3 class="text-center">どこに行きたい？<span style="font-size:12px;">(１軒目)</span></h3>
+	<% else %>
+		<% if params[:spot2].blank? %>
+			<h3 class="text-center">どこに行きたい？<span style="font-size:12px;">(２軒目)</span></h3>
+		<% else %>
+			<% if params[:spot3].blank? %>
+				<h3 class="text-center">どこに行きたい？<span style="font-size:12px;">(３軒目)</span></h3>
+			<% end %>
+		<% end %>
+	<% end %>
   	  <h4 class="text-center" style="margin:20px 0px;">
 	    <a href="" data-toggle="modal" data-target="#myModal-distance">
-	      <span style="font-size:12px;">
+	      <span style="font-size:14px;">
 	      <i class="fa fa-map-marker"></i>&nbsp;<%= params[:city] %>
 	      </span>
 	    </a>
 	  </h4> 
 
   	<% if params[:spot1].blank? %>
-  		<div class="text-center">１軒目</div>
   	<% else %>
   		<% if params[:spot2].blank? %>
   			<%= form_tag(seeks_result_path, method: :get) do %>
   				<%= hidden_field_tag :spot1, params[:spot1] %>
   				<div class="text-center">
-  					２軒目
   					<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
   				</div>
   			<% end %>
+  			<br>
   		<% else %>
   			<% if params[:spot3].blank? %>
   				<%= form_tag(seeks_result_path, method: :get) do %>
   					<%= hidden_field_tag :spot1, params[:spot1] %>
   					<%= hidden_field_tag :spot2, params[:spot2] %>
   					<div class="text-center">
-  						３軒目
 		  				<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
 		  			</div>
 		  		<% end %>
+		  		<br>
   			<% end %>
   		<% end %>
   	<% end %>
-  	<br>
+  	
 	
 
 
