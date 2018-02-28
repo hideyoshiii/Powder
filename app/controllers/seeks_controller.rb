@@ -20,6 +20,18 @@ class SeeksController < ApplicationController
   		end
   	end
 
+  	if params[:timezone].blank?
+  		params[:timezone] = "すべての時間帯"
+	  	@all_timezone = true
+  		@spots = @spots.all
+  	else
+  		if params[:timezone] == "すべての時間帯"
+	  	else
+	  		@timezone = params[:timezone]
+	  		@spots = @spots.where("timezone like '%#{@timezone}%'")
+	  	end
+  	end
+
   	if params[:city].blank?
   		if @spot_n == 1
 	  		params[:city] = "すべてのエリア"
@@ -145,6 +157,18 @@ class SeeksController < ApplicationController
   	@large = params[:large]
 
   	@spots = Spot.where("large like '%#{@large}%'")
+
+  	if params[:timezone].blank?
+  		params[:timezone] = "すべての時間帯"
+	  	@all_timezone = true
+  		@spots = @spots.all
+  	else
+  		if params[:timezone] == "すべての時間帯"
+	  	else
+	  		@timezone = params[:timezone]
+	  		@spots = @spots.where("timezone like '%#{@timezone}%'")
+	  	end
+  	end
 
   	if params[:distance_on] == "true"
   		unless params[:distance].blank?
@@ -389,6 +413,29 @@ class SeeksController < ApplicationController
      @distance_on = false
     if params[:distance_on] == "true"
       @distance_on = true
+    end
+
+    @all_timezone = false
+    @morning = false
+    @noon = false
+    @night = false
+    @late_night = false
+    if !params[:timezone].blank?
+      if params[:timezone] == "すべての時間帯"
+        @all_timezone = true
+      end
+      if params[:timezone] == "朝"
+        @morning = true
+      end
+      if params[:timezone] == "昼"
+        @noon = true
+      end
+      if params[:timezone] == "夜"
+        @night = true
+      end
+      if params[:timezone] == "深夜"
+        @late_night = true
+      end
     end
 
   end
