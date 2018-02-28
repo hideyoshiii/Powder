@@ -6037,26 +6037,14 @@ square_btnn{
 
 
 //Bサーチのカテゴリーボタン
-.box-b{
-	text-align: center;
-}
-
-.box-b-in{
-	width:48%;
-	display: inline-block;
-	text-align: center;
-	margin-bottom:30px;
-}
-
 .box-category-img{
   position: relative;
   display: inline-block;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border:1px solid black;
+  width: 100%;
+  height: auto;
   box-shadow: 0 4px 4px 0 rgba(0,0,0,.4), 0 4px 4px 0 rgba(0,0,0,0.6);
   overflow:hidden;
+  text-align:center;
 }
 
 .box-category-img:before {
@@ -6070,8 +6058,9 @@ square_btnn{
 }
 
 .img-category{
-  width: 150px;
-  height: 150px;
+  width:100%;
+  height:auto;
+  display: inline-block; 
 }
 
 
@@ -6085,12 +6074,18 @@ square_btnn{
   margin:0;
   padding:0;
   color:white;
-  font-size:14px;
+  font-size:18px;
   width:100%;
   text-shadow: 2px 2px 4px black;
   line-height:1.2;
 }
 
+
+.number-category{
+	text-align: center;
+	font-size:14px;
+	margin:5px 0 0;
+}
 
 //Bサーチのresult00
 .result-b {
@@ -6131,25 +6126,12 @@ button.button-b {
     padding:0;
 }
 
-.number-category{
-	text-align: center;
-	font-size:14px;
-	margin:5px 0 0;
-}
-
 
 //詳細検索のタブ
 .box-tab{
 	width:24%;
 	font-size:18px;
 }
-
-
-
-
-
-
-
 
 
 

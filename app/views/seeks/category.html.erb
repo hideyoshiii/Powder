@@ -167,60 +167,45 @@
 	  </div>
 	</div>
 
-      <div class="box-b">
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "朝食" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
-          	<%= hidden_field_tag :distance, params[:distance] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-            	<div class="box-category-img">
-            		<%= image_tag "breakfast00.jpg", :class =>'img-category' %>
-            		<span class="text-category">朝食食べたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @breakfast_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-	          <%= hidden_field_tag :large, "ランチ" %>
-	          <%= hidden_field_tag :city, params[:city] %>
-	          <%= hidden_field_tag :price_min , 0 %>
-          	  <%= hidden_field_tag :price_max , 20000 %>
-          	  <%= hidden_field_tag :distance_on, params[:distance_on] %>
-          	  <%= hidden_field_tag :distance, params[:distance] %>
-          	  <%= hidden_field_tag :timezone, params[:timezone] %>
-          	    <% unless params[:spot1].blank? %>
+<div class="panel-body">
+
+	<div class="hero-full-wrapper">
+	  <div class="grid">
+	    <div class="gutter-sizer"></div>
+	    <div class="grid-sizer"></div>
+
+
+
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+		    	<%= hidden_field_tag :large, "朝食" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
 			  	<% unless params[:spot2].blank? %>
 	          		<%= hidden_field_tag :spot2, params[:spot2] %>
 	          	<% end %>
-	          <%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "lunch00.jpg", :class =>'img-category' %>
-            		<span class="text-category">ランチしたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @lunch_n %>件
-	            </div>
-	          <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+			    	<div class="box-category-img">
+		        		<%= image_tag "breakfast00.jpg", :class =>'img-category' %>
+		        		<div class="text-category">
+		        			朝食食べたい
+		        			<br>
+		        			<span class="number-category"><%= @breakfast_n %>件</span>
+		        		</div>
+		        	</div>
+	        	<% end %>
+            <% end %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "ディナー" %>
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , 0 %>
@@ -237,16 +222,18 @@
 	          <%= button_tag :type => "submit", :class =>"button1" do %>
 	            <div class="box-category-img">
             		<%= image_tag "dinner00.jpg", :class =>'img-category' %>
-            		<span class="text-category">ディナーしたい</span>
+            		<div class="text-category">
+            			ディナーしたい
+            			<br>
+            			<span class="number-category"><%= @dinner_n %>件</span>
+            		</div>
             	</div>
-            	<div class="number-category">
-	              <%= @dinner_n %>件
-	            </div>
 	          <% end %>
           <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "カフェ" %>
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , 0 %>
@@ -261,422 +248,472 @@
 	          <%= button_tag :type => "submit", :class =>"button1" do %>
 	            <div class="box-category-img">
             		<%= image_tag "cafe00.jpg", :class =>'img-category' %>
-            		<span class="text-category">カフェ行きたい</span>
+            		<div class="text-category">
+            			カフェ行きたい
+            			<br>
+            			<span class="number-category"><%= @cafe_n %>件</span>
+            		</div>
             	</div>
-            	<div class="number-category">
-	              <%= @cafe_n %>件
-	            </div>
 	          <% end %>
-          <% end %>
-        </div>
-      	<div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "アニマルカフェ" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-      	    <% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "アニマルカフェ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	      	    <% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "animal00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			アニマルカフェ行きたい
+	            			<br>
+	            			<span class="number-category"><%= @animal_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "animal00.jpg", :class =>'img-category' %>
-            		<span class="text-category">アニマルカフェ行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @animal_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "スイーツ" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "スイーツ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "sweets00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			スイーツ食べたい
+	            			<br>
+	            			<span class="number-category"><%= @sweets_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "バー" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "bar00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			バー行きたい
+	            			<br>
+	            			<span class="number-category"><%= @bar_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "sweets00.jpg", :class =>'img-category' %>
-            		<span class="text-category">スイーツ食べたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @sweets_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "バー" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "映画" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "movie00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			映画見たい
+	            			<br>
+	            			<span class="number-category"><%= @movie_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "ショップ・雑貨屋" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "shop00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			ショップ・雑貨屋に行きたい
+	            			<br>
+	            			<span class="number-category"><%= @shop_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "bar00.jpg", :class =>'img-category' %>
-            		<span class="text-category">バー行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @bar_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "映画" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "カラオケ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "karaoke00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			カラオケしたい
+	            			<br>
+	            			<span class="number-category"><%= @karaoke_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "スポーツ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "sport00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			スポーツしたい
+	            			<br>
+	            			<span class="number-category"><%= @sport_n %>件</span>
+	            		</div>
+	            	</div>
+            	<% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "movie00.jpg", :class =>'img-category' %>
-            		<span class="text-category">映画見たい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @movie_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "ショップ・雑貨屋" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "夜景" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "night-view00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			夜景見たい
+	            			<br>
+	            			<span class="number-category"><%= @night_view_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "プラネタリウム" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "planetarium00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			プラネタリウム見たい
+	            			<br>
+	            			<span class="number-category"><%= @planetarium_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "shop00.jpg", :class =>'img-category' %>
-            		<span class="text-category">ショップ・雑貨屋に行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @shop_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "カラオケ" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "動物園" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "zoo00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			動物園行きたい
+	            			<br>
+	            			<span class="number-category"><%= @zoo_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "水族館" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "aquarium00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			水族館行きたい
+	            			<br>
+	            			<span class="number-category"><%= @aquarium_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "karaoke00.jpg", :class =>'img-category' %>
-            		<span class="text-category">カラオケしたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @karaoke_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "スポーツ" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "美術館" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "museum00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			美術館行きたい
+	            			<br>
+	            			<span class="number-category"><%= @museum_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "遊園地" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "amusement-park00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			遊園地行きたい
+	            			<br>
+	            			<span class="number-category"><%= @amusement_park_n %>件</span>
+	            		</div>
+	            	</div>	
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "sport00.jpg", :class =>'img-category' %>
-            		<span class="text-category">スポーツしたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @sport_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "夜景" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "ボーリング" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "bowling00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			ボーリングしたい
+	            			<br>
+	            			<span class="number-category"><%= @bowling_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "ダーツ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "darts00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			ダーツしたい
+	            			<br>
+	            			<span class="number-category"><%= @darts_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "night-view00.jpg", :class =>'img-category' %>
-            		<span class="text-category">夜景見たい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @night_view_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "プラネタリウム" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "食べ歩き" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "walk-eat00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			食べ歩きしたい
+	            			<br>
+	            			<span class="number-category"><%= @walk_eat_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "公園" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+		        <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "park00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			公園行きたい
+	            			<br>
+	            			<span class="number-category"><%= @park_n %>件</span>
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "planetarium00.jpg", :class =>'img-category' %>
-            		<span class="text-category">プラネタリウム見たい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @planetarium_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "動物園" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "zoo00.jpg", :class =>'img-category' %>
-            		<span class="text-category">動物園行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @zoo_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "水族館" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "aquarium00.jpg", :class =>'img-category' %>
-            		<span class="text-category">水族館行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @aquarium_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "美術館" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "museum00.jpg", :class =>'img-category' %>
-            		<span class="text-category">美術館行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @museum_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "遊園地" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "amusement-park00.jpg", :class =>'img-category' %>
-            		<span class="text-category">遊園地行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @amusement_park_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "ボーリング" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "bowling00.jpg", :class =>'img-category' %>
-            		<span class="text-category">ボーリングしたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @bowling_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "ダーツ" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "darts00.jpg", :class =>'img-category' %>
-            		<span class="text-category">ダーツしたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @darts_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "食べ歩き" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<%= hidden_field_tag :timezone, params[:timezone] %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "walk-eat00.jpg", :class =>'img-category' %>
-            		<span class="text-category">食べ歩きしたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @walk_eat_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-        <div class="box-b-in">
-          <%= form_tag(seeks_choice_path, method: :get) do %>
-          	<%= hidden_field_tag :large, "公園" %>
-          	<%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :price_min , 0 %>
-          	<%= hidden_field_tag :price_max , 20000 %>
-          	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-	        <% end %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="box-category-img">
-            		<%= image_tag "park00.jpg", :class =>'img-category' %>
-            		<span class="text-category">公園行きたい</span>
-            	</div>
-            	<div class="number-category">
-	              <%= @park_n %>件
-	            </div>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
+	    </div>
+
+	  </div>
+	</div>
+
+</div>
+
+      
+        
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     masonryBuild();
+  });
+</script>
       
 
 
