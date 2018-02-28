@@ -2,6 +2,9 @@ class SeeksController < ApplicationController
   before_action :set_params, only: [:category,:term,:choice]
   before_action :set_wday, only: [:category,:term,:choice]
 
+  def home
+  end
+
   def category
   	#@spotsを定義
   	@spots = Spot.all
