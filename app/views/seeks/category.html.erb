@@ -174,8 +174,84 @@
 					        </div>
 			            </div>
 			            <div id="genre" class="tab-pane fade">
-			                <h3>ジャンル</h3>
-			                <p>ジャンルのコンテンツが入ります。</p>
+			                <p>ジャンルを指定しますか？</p>
+				            <br>
+				            <div class="horizontal_scroll_search">
+				              <ul class="scroll_lst_search">
+				              	<li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "すべてのジャンル", @all_genre, {:id => "alla-genre"}) %>
+				                  <%= label_tag('all-genre', "すべてのジャンル") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "和食", @japanese, {:id => "japanese"}) %>
+				                  <%= label_tag('japanese', "和食") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
+				                  <%= label_tag('yakiniku', "焼肉・ホルモン") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
+				                  <%= label_tag('steak', "ステーキ・ハンバーグ") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "鍋", @pot, {:id => "pot"}) %>
+				                  <%= label_tag('pot', "鍋") %>
+				                </span>
+				                </li>
+				              </ul>
+				            </div>
+				            <div class="horizontal_scroll_search">
+				              <ul class="scroll_lst_search">
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "フレンチ", @french, {:id => "french"}) %>
+				                  <%= label_tag('french', "フレンチ") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "イタリアン", @italian, {:id => "italian"}) %>
+				                  <%= label_tag('italian', "イタリアン") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "西洋各国料理", @western, {:id => "western"}) %>
+				                  <%= label_tag('western', "西洋各国料理") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "中華料理", @chinese, {:id => "chinese"}) %>
+				                  <%= label_tag('chinese', "中華料理") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "アジア・エスニック", @asia, {:id => "asia"}) %>
+				                  <%= label_tag('asia', "アジア・エスニック") %>
+				                </span>
+				                </li>
+				                <li class="scroll_item_search">
+				                    <span class="radio-city"> 
+				                  <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
+				                  <%= label_tag('otherwise', "その他") %>
+				                </span>
+				                </li>
+				              </ul>
+				            </div>
+				            <br><br><br>
+				          	<p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
 			            </div>
 		        	</div>
 		        </div>
@@ -209,6 +285,8 @@
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
 	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -236,6 +314,8 @@
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
 	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -264,6 +344,7 @@
           	  <%= hidden_field_tag :distance_on, params[:distance_on] %>
           	  <%= hidden_field_tag :distance, params[:distance] %>
           	  <%= hidden_field_tag :timezone, params[:timezone] %>
+          	  <%= hidden_field_tag :small, params[:small] %>
           	    <% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -289,7 +370,10 @@
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
           	  <%= hidden_field_tag :timezone, params[:timezone] %>
+          	  <%= hidden_field_tag :small, params[:small] %>
           	  	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -315,7 +399,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	      	    <% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -341,7 +428,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -367,7 +457,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -393,7 +486,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -419,7 +515,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -445,7 +544,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -471,7 +573,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -497,7 +602,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -523,7 +631,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -549,7 +660,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -575,7 +689,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -601,7 +718,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -627,7 +747,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -653,7 +776,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -680,6 +806,10 @@
 	          	<%= hidden_field_tag :price_min , 0 %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -705,7 +835,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -731,6 +864,10 @@
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
 	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>

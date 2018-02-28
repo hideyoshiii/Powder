@@ -77,6 +77,19 @@ class SeeksController < ApplicationController
     @breakfast = @spots.where(price_lunch: @price_start..@price_end)    
     @lunch = @spots.where(price_lunch: @price_start..@price_end) 
     @dinner = @spots.where(price_dinner: @price_start..@price_end)
+    #params[price_max]がない時のの定義
+    if params[:small].blank?
+      params[:small] = "すべてのジャンル"
+      @all_genre = true
+    end
+    #朝食,ランチ,ディナー用にジャンルで絞る
+    if params[:small] == "すべてのジャンル"
+    else
+      @small = params[:small]
+      @breakfast = @breakfast.where("small like '%#{@small}%'")
+      @lunch = @lunch.where("small like '%#{@small}%'")
+      @dinner = @dinner.where("small like '%#{@small}%'")
+  	end
     
 	#カテゴリーごとに抽出
   	@breakfast = @breakfast.where("large like '%朝食%'")
@@ -229,7 +242,7 @@ class SeeksController < ApplicationController
       params[:small] = "すべてのジャンル"
       @all_genre = true
     else
-      if params[:small] = "すべてのジャンル"
+      if params[:small] == "すべてのジャンル"
       else
         @small = params[:small]
         @spots = @spots.where("small like '%#{@small}%'")
