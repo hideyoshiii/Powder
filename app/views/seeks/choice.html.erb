@@ -60,14 +60,14 @@
             <%# タイトル %>
             <%= spot.title %>
             <%# 駅 %>
-            <span style="font-size:11px;text-shadow: 0px 0px 0px black;"><br><i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %></span>
+            <span style="font-size:11px;"><br><i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %></span>
             <%# ジャンル %>
             <% unless spot.small.blank? %>
-              <span style="font-size:11px;text-shadow: 0px 0px 0px black;"><br><i class="fa fa-cutlery"></i>&nbsp;</span>
+              <span style="font-size:11px;"><br><i class="fa fa-cutlery"></i>&nbsp;</span>
               <% @i = 0 %>
               <% spot.small.each do |small| %>
                 <% @i = @i + 1 %>
-                <span style="font-size:11px;text-shadow: 0px 0px 0px black;">
+                <span style="font-size:11px;">
                   <% if @i == spot.small.size %>
                     <%= small %>
                   <% else %>
@@ -269,14 +269,14 @@
             <%# タイトル %>
             <%= spot.title %>
             <%# 駅 %>
-            <span style="font-size:11px;text-shadow: 0px 0px 0px black;"><br><i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %></span>
+            <span style="font-size:11px;"><br><i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %></span>
             <%# ジャンル %>
             <% unless spot.small.blank? %>
-              <span style="font-size:11px;text-shadow: 0px 0px 0px black;"><br><i class="fa fa-cutlery"></i>&nbsp;</span>
+              <span style="font-size:11px;"><br><i class="fa fa-cutlery"></i>&nbsp;</span>
               <% @i = 0 %>
               <% spot.small.each do |small| %>
                 <% @i = @i + 1 %>
-                <span style="font-size:11px;text-shadow: 0px 0px 0px black;">
+                <span style="font-size:11px;">
                   <% if @i == spot.small.size %>
                     <%= small %>
                   <% else %>
