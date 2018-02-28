@@ -11,7 +11,7 @@
   <h4 class="text-center" style="margin:20px 0px;">
     <a href="" data-toggle="modal" data-target="#myModal-distance">
       <span style="font-size:12px;">
-      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件を絞る
+      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件変更
       </span>
     </a>
   </h4> 
@@ -22,7 +22,7 @@
 	    どちらにしますか？
 	    <a href="" data-toggle="modal" data-target="#myModal-distance">
 	      <span style="font-size:12px;">
-	      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件を絞る
+	      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件変更
 	      </span>
 	    </a>
     </h4> 
@@ -554,9 +554,10 @@
 				          <div style="width:75%;margin:0 auto;">  
 				            <div id="slider"></div>
 				          </div>
+				          <br><br><br>
+				          <p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
 				          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
 				          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
-				          <br><br>
 				        <% end %>
 		            </div>
 		            <div id="timezone" class="tab-pane fade">
@@ -680,19 +681,6 @@
     </div>
   </div>
 </div>
-
-<script>
-  $(function () {
-    $('.radio-city').on('click', function(event) {
-      // 既定の動作をキャンセル(今回はinputにcheckedが入るのをキャンセル)
-      event.preventDefault();
-      
-      // チェック済みの場合はチェックを外し、未チェックの場合はチェックを入れる
-      var $input = $(this).find('input');
-      $input.prop('checked', !$input.prop('checked'));
-    });
-  });
-</script>
 
 <script>
 $("#slider").noUiSlider({

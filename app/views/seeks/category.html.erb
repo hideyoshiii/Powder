@@ -16,7 +16,7 @@
   	  <h4 class="text-center" style="margin:20px 0px;">
 	    <a href="" data-toggle="modal" data-target="#myModal-distance">
 	      <span style="font-size:14px;">
-	      <i class="fa fa-map-marker"></i>&nbsp;<%= params[:city] %>
+	      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件変更
 	      </span>
 	    </a>
 	  </h4> 
@@ -127,8 +127,23 @@
 				        	<% end %>  
 			            </div>
 			            <div id="price" class="tab-pane fade">
-			                <h3>予算</h3>
-			                <p>予算のコンテンツが入ります。</p>
+				          <p>予算はいくらにしますか？</p>
+				          <div style="width:80%;margin:0 auto;">
+				            <span class="pull-left">
+				              <span id="value-lower"></span>円
+				            </span>
+				            <span class="pull-right">
+				              <span id="value-upper"></span>円
+				            </span>
+				          </div>
+				          <br><br>
+				          <div style="width:75%;margin:0 auto;">  
+				            <div id="slider"></div>
+				          </div>
+				          <br><br><br>
+				          <p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
+				          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
+				          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
 			            </div>
 			            <div id="timezone" class="tab-pane fade">
 			                <div class="box-city">
@@ -190,8 +205,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 		    	<%= hidden_field_tag :large, "朝食" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
 	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<% unless params[:spot1].blank? %>
@@ -217,8 +232,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 		    	<%= hidden_field_tag :large, "ランチ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
 	          	<%= hidden_field_tag :distance, params[:distance] %>
 	          	<% unless params[:spot1].blank? %>
@@ -244,8 +259,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "ディナー" %>
 	          <%= hidden_field_tag :city, params[:city] %>
-	          <%= hidden_field_tag :price_min , 0 %>
-          	  <%= hidden_field_tag :price_max , 20000 %>
+	          <%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
           	  <%= hidden_field_tag :distance_on, params[:distance_on] %>
           	  <%= hidden_field_tag :distance, params[:distance] %>
           	  <%= hidden_field_tag :timezone, params[:timezone] %>
@@ -272,8 +287,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "カフェ" %>
 	          <%= hidden_field_tag :city, params[:city] %>
-	          <%= hidden_field_tag :price_min , 0 %>
-          	  <%= hidden_field_tag :price_max , 20000 %>
+	          <%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
           	  <%= hidden_field_tag :timezone, params[:timezone] %>
           	  	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -298,8 +313,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "アニマルカフェ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	      	    <% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -324,8 +339,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "スイーツ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -350,8 +365,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "バー" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -376,8 +391,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "映画" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -402,8 +417,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "ショップ・雑貨屋" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -428,8 +443,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "カラオケ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -454,8 +469,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "スポーツ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -480,8 +495,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "夜景" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -506,8 +521,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "プラネタリウム" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -532,8 +547,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "動物園" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -558,8 +573,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "水族館" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -584,8 +599,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "美術館" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -610,8 +625,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "遊園地" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -636,8 +651,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "ボーリング" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -663,8 +678,8 @@
 	          	<%= hidden_field_tag :large, "ダーツ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
-	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -688,8 +703,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "食べ歩き" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<%= hidden_field_tag :timezone, params[:timezone] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
@@ -714,8 +729,8 @@
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "公園" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , 0 %>
-	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
 	          	<% unless params[:spot1].blank? %>
 	          		<%= hidden_field_tag :spot1, params[:spot1] %>
 	          	<% end %>
@@ -743,14 +758,34 @@
       
         
 
-
-
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {
      masonryBuild();
   });
 </script>
-      
+
+<script>
+$("#slider").noUiSlider({
+  start: [<%= params[:price_min].to_i %>, <%= params[:price_max].to_i %>],
+  step: 500,
+  connect: true,
+  format: wNumb({
+    decimals: 0
+  }),
+  range: {
+    'min': 0,
+    'max': 20000
+  }
+});
+$('#slider').Link('lower').to($('#value-lower'), 'html');
+$('#slider').Link('upper').to($('#value-upper'), 'html');
+
+$("#slider").on('slide', function(event, values) {
+    $("input.min").val(values[0]);
+    $("input.max").val(values[1]);
+  });
+</script>
+
 
 
 </mains>
