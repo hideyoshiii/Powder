@@ -193,11 +193,38 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 			    	<div class="box-category-img">
-		        		<%= image_tag "breakfast00.jpg", :class =>'img-category' %>
+		        		<%= image_tag "breakfast000.jpg", :class =>'img-category' %>
 		        		<div class="text-category">
 		        			朝食食べたい
 		        			<br>
 		        			<span class="number-category"><%= @breakfast_n %>件</span>
+		        		</div>
+		        	</div>
+	        	<% end %>
+            <% end %>
+	    </div>
+
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+		    	<%= hidden_field_tag :large, "ランチ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , 0 %>
+	          	<%= hidden_field_tag :price_max , 20000 %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+			    	<div class="box-category-img">
+		        		<%= image_tag "lunch000.jpg", :class =>'img-category' %>
+		        		<div class="text-category">
+		        			ランチしたい
+		        			<br>
+		        			<span class="number-category"><%= @lunch_n %>件</span>
 		        		</div>
 		        	</div>
 	        	<% end %>
@@ -221,7 +248,7 @@
 	          	<% end %>
 	          <%= button_tag :type => "submit", :class =>"button1" do %>
 	            <div class="box-category-img">
-            		<%= image_tag "dinner00.jpg", :class =>'img-category' %>
+            		<%= image_tag "dinner000.jpg", :class =>'img-category' %>
             		<div class="text-category">
             			ディナーしたい
             			<br>
@@ -247,7 +274,7 @@
 	          	<% end %>
 	          <%= button_tag :type => "submit", :class =>"button1" do %>
 	            <div class="box-category-img">
-            		<%= image_tag "cafe00.jpg", :class =>'img-category' %>
+            		<%= image_tag "cafe000.jpg", :class =>'img-category' %>
             		<div class="text-category">
             			カフェ行きたい
             			<br>
@@ -273,7 +300,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "animal00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "animal000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			アニマルカフェ行きたい
 	            			<br>
@@ -299,7 +326,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "sweets00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "sweets000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			スイーツ食べたい
 	            			<br>
@@ -325,7 +352,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "bar00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "bar000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			バー行きたい
 	            			<br>
@@ -351,7 +378,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "movie00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "movie000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			映画見たい
 	            			<br>
@@ -377,7 +404,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "shop00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "shop000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			ショップ・雑貨屋に行きたい
 	            			<br>
@@ -403,7 +430,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "karaoke00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "karaoke000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			カラオケしたい
 	            			<br>
@@ -429,7 +456,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "sport00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "sport000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			スポーツしたい
 	            			<br>
@@ -455,7 +482,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "night-view00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "night-view000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			夜景見たい
 	            			<br>
@@ -481,7 +508,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "planetarium00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "planetarium000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			プラネタリウム見たい
 	            			<br>
@@ -507,7 +534,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "zoo00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "zoo000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			動物園行きたい
 	            			<br>
@@ -533,7 +560,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "aquarium00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "aquarium000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			水族館行きたい
 	            			<br>
@@ -559,7 +586,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "museum00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "museum000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			美術館行きたい
 	            			<br>
@@ -585,7 +612,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "amusement-park00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "amusement-park000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			遊園地行きたい
 	            			<br>
@@ -611,7 +638,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "bowling00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "bowling000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			ボーリングしたい
 	            			<br>
@@ -637,7 +664,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "darts00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "darts000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			ダーツしたい
 	            			<br>
@@ -663,7 +690,7 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "walk-eat00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "walk-eat000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			食べ歩きしたい
 	            			<br>
@@ -688,7 +715,7 @@
 		        <% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "park00.jpg", :class =>'img-category' %>
+	            		<%= image_tag "park000.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			公園行きたい
 	            			<br>
