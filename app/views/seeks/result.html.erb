@@ -32,15 +32,6 @@
                 <div class="frame-demo">
                   <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
                   <h3><%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-                  <%= form_tag(searches_change_first_path, method: :get) do %>
-                    <%= hidden_field_tag :timezone, params[:timezone] %>
-                    <%= hidden_field_tag :spot1, @spot1.id %>
-                    <h2>
-                      <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                        <i class="fa fa-refresh"></i>
-                      <% end %>
-                    </h2>
-                  <% end %>
                 </div>
               </div>
           </li>
@@ -290,16 +281,6 @@
                     <div class="frame-demo">
                       <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
                       <h3>1,&nbsp;<%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-                      <%= form_tag(searches_change_first_path, method: :get) do %>
-                        <%= hidden_field_tag :timezone, params[:timezone] %>
-                        <%= hidden_field_tag :spot1, @spot1.id %>
-                        <%= hidden_field_tag :spot2, @spot2.id %>
-                        <h2>
-                          <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                            <i class="fa fa-refresh"></i>
-                          <% end %>
-                        </h2>
-                      <% end %>
                     </div>
                   </div>
               </li>
@@ -474,16 +455,6 @@
                     <div class="frame-demo">
                       <%= image_tag @spot2.pictures.first.image.url, :class =>'img-demo-result' %>
                       <h3>2,&nbsp;<%= @spot2.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
-                      <%= form_tag(searches_change_second_path, method: :get) do %>
-                        <%= hidden_field_tag :timezone, params[:timezone] %>
-                        <%= hidden_field_tag :spot1, @spot1.id %>
-                        <%= hidden_field_tag :spot2, @spot2.id %>
-                          <h2>
-                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                              <i class="fa fa-refresh"></i>
-                            <% end %>
-                          </h2>
-                        <% end %>
                     </div>
                   </div>
               </li>
@@ -735,17 +706,6 @@
                       <div class="frame-demo">
                         <%= image_tag @spot1.pictures.first.image.url, :class =>'img-demo-result' %>
                         <h3>1,&nbsp;<%= @spot1.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.station %></span></h3> 
-                        <%= form_tag(searches_change_first_path, method: :get) do %>
-                          <%= hidden_field_tag :timezone, params[:timezone] %>
-                          <%= hidden_field_tag :spot1, @spot1.id %>
-                          <%= hidden_field_tag :spot2, @spot2.id %>
-                          <%= hidden_field_tag :spot3, @spot3.id %>
-                          <h2>
-                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                              <i class="fa fa-refresh"></i>
-                            <% end %>
-                          </h2>
-                        <% end %>
                       </div>
                     </div>
                 </li>
@@ -920,17 +880,6 @@
                       <div class="frame-demo">
                         <%= image_tag @spot2.pictures.first.image.url, :class =>'img-demo-result' %>
                         <h3>2,&nbsp;<%= @spot2.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.station %></span></h3> 
-                        <%= form_tag(searches_change_second_path, method: :get) do %>
-                        <%= hidden_field_tag :timezone, params[:timezone] %>
-                        <%= hidden_field_tag :spot1, @spot1.id %>
-                        <%= hidden_field_tag :spot2, @spot2.id %>
-                        <%= hidden_field_tag :spot3, @spot3.id %>
-                          <h2>
-                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                              <i class="fa fa-refresh"></i>
-                            <% end %>
-                          </h2>
-                        <% end %>
                       </div>
                     </div>
                 </li>
@@ -1105,17 +1054,6 @@
                       <div class="frame-demo">
                         <%= image_tag @spot3.pictures.first.image.url, :class =>'img-demo-result' %>
                         <h3>3,&nbsp;<%= @spot3.title %><br><span style="font-size:14px;text-shadow: 0px 0px 0px silver;"><i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot3.station %></span></h3> 
-                        <%= form_tag(searches_change_third_path, method: :get) do %>
-                        <%= hidden_field_tag :timezone, params[:timezone] %>
-                        <%= hidden_field_tag :spot1, @spot1.id %>
-                        <%= hidden_field_tag :spot2, @spot2.id %>
-                        <%= hidden_field_tag :spot3, @spot3.id %>
-                          <h2>
-                            <%= button_tag :type => "submit", :class =>"btn btn-default btn-sm" do %>
-                              <i class="fa fa-refresh"></i>
-                            <% end %>
-                          </h2>
-                        <% end %>
                       </div>
                     </div>
                 </li>
