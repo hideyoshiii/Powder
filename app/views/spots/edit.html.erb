@@ -31,7 +31,7 @@
 								<div class="form-group">
                                 <label>timezone</label>
                                 <br>   
-								    <% ["朝", "昼", "夜", "深夜"].each do |timezone| %>
+								    <% ["朝", "昼", "夜"].each do |timezone| %>
 								    <label>
 								      <%= f.check_box :timezone, { multiple: true},timezone,nil %>
 								      <%= timezone %>

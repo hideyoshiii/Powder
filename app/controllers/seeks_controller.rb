@@ -115,6 +115,7 @@ class SeeksController < ApplicationController
   	@darts = @spots.where("large like '%ダーツ%'")
   	@walk_eat = @spots.where("large like '%食べ歩き%'")
   	@park = @spots.where("large like '%公園%'")
+  	@other = @spots.where("large like '%その他%'")
   	#数を抽出
   	@breakfast_n = @breakfast.size
     @lunch_n = @lunch.size
@@ -137,6 +138,7 @@ class SeeksController < ApplicationController
     @darts_n = @darts.size
     @walk_eat_n = @walk_eat.size
     @park_n = @park.size
+    @other_n = @other.size
     #cheched判別のための定義
   	if !params[:city].blank?
       if params[:city] == "すべてのエリア"
