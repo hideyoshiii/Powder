@@ -3,9 +3,9 @@
 
   	<div class="box99" id='top'> 
   		<div>
-  			<h4 class="text-center box-top1">Coolなデートコースを10秒で</h4>
-  			<p class="text-center">提案するのは厳選したデートコースのみ</p>
-  			<p class="text-center">私たちが完璧なデートへのハードルをお下げします</p>
+  			<h4 class="text-center box-top1">デートコースを驚くほど簡単に</h4>
+  			<p class="text-center">提案するのは厳選したデートスポットのみ</p>
+  			<p class="text-center"><span class="site-title" style="letter-spacing:0em;">A.Date</span>がデートの手間を省きます</p>
   		</div>
       <br>
       <h1>
@@ -166,4 +166,27 @@
     <%= render "partial/footer" %>
   <% end %>
 <% end %>
+
+
+<script>
+	
+    $(function() {
+  $("body").on("click", "a", function(e) {
+    var _this = $(this);
+    var _href = _this.attr("href");
+  
+    if (_href.charAt(0,1) == "#") {
+      e.preventDefault();
+      var _target  = $(_href == "#" || _href == "" ? $("html") : _href);
+      if (_target.length == "0") _target = $("html");
+      var position = _target.offset().top;
+      var _scroll  = _this.data("scroll");
+      if (_scroll !== undefined) position = position + Number(_scroll);
+      if (position <= 0) position = 1;  //Android2系でスクロールのバグ対策
+      $("html, body").animate({scrollTop : position} ,500, "swing");
+      return false;
+    }
+  });
+});
+</script>
 
