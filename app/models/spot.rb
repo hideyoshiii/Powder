@@ -1,16 +1,14 @@
 class Spot < ApplicationRecord
-  belongs_to :user
 
-  validates :title, presence: true
-  validates :prefecture, presence: true
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
 
   serialize :scenes
   serialize :large
   serialize :small
   serialize :timezone
 
-  geocoded_by :address
-  after_validation :geocode, :if => :address_changed?
+  belongs_to :user
 
   has_many :likes, dependent: :destroy
   has_many :pictures, dependent: :destroy
