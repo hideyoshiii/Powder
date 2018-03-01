@@ -1,6 +1,5 @@
 class SeeksController < ApplicationController
   before_action :set_params, only: [:category,:term,:choice]
-  before_action :set_wday, only: [:category,:term,:choice]
 
   def home
   end
@@ -480,11 +479,10 @@ class SeeksController < ApplicationController
       end
     end
 
+    @wday = Date.today.wday
+
   end
 
-  def set_wday
-    @wday = Date.today.wday
-  end
 
 
 end

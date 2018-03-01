@@ -6388,6 +6388,10 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 	margin-bottom: 50px;
 }
 
+.fotter-bo2{
+	margin-bottom: 60px;
+}
+
 //コースの公開ボタン(フッター)
 .sticky-bar-release {
     position: fixed;
@@ -6418,6 +6422,30 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
     height:80px;
     background-color: rgba(244,245,247,0.9);
 
+}
+
+//自分が選んでいるスポットバー
+.sticky-bar-spot {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    background:#F4F5F7;
+    width:100%;
+    height:60px;
+    border-top:1px solid #CCCCCC;
+}
+
+.sticky-menu-spot{
+	padding-left:15px;
+}
+
+.img-stickey-spot{
+  height:50px;
+  width:auto;
+  margin-top:5px;
+  margin-right:5px;
+  border-radius:5px;
+  display: inline-block; 
 }
 
 #map {width: auto; height: 450px;}
