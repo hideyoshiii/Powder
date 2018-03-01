@@ -6077,7 +6077,7 @@ square_btnn{
   font-size:18px;
   width:100%;
   text-shadow:
-    black 1px 1px 5px;
+    black 1px 1px 1px,black 1px 1px 1px;
   line-height:1.2;
 }
 
@@ -6108,9 +6108,7 @@ square_btnn{
   padding:5px;
   color:white;
   font-size:18px;
-  font-weight: 300;
   font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-  text-shadow: 2px 2px 4px black;
   text-align:left;
   }
 
@@ -6142,7 +6140,31 @@ button.button-b {
 }
 
 
+//Bサーチのホームのボタン
+.raised-trans{
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.3); 
+  color: white;
+  text-shadow: 
+  	black 1px 1px 2px, black -1px 1px 2px,
+    black 1px -1px 2px, black -1px -1px 2px;
+  font-size: 16px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 12px 40px;/*ボタン内の余白*/
+  border-radius: 3px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;/*変化を緩やかに*/
+  border: 1px solid white;
+  box-shadow: 0px 0px 5px 0 rgba(225,225,225,1);
+}
 
+.raised-trans:hover{
+	color: #FFF;
+	text-shadow: 1px 1px 2px black;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
+}
 
 
 
