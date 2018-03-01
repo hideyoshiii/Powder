@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   
-  root :to => 'searches#home'
+  root :to => 'seeks#home'
 
   get "/homes" => "homes#index"
 
-  get "seeks/home" => "seeks#home"
+  
   get "seeks/category" => "seeks#category"
   get "seeks/term" => "seeks#term"
   get "seeks/choice" => "seeks#choice"
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
  
 
 
-
+  get "searches/honme" => "searches#home"
   get "searches/kind" => "searches#kind"
   get "searches/category-first" => "searches#categoryfirst"
   get "searches/first" => "searches#first"

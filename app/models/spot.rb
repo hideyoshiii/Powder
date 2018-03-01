@@ -1,7 +1,7 @@
 class Spot < ApplicationRecord
 
   geocoded_by :address
-  after_validation :geocode, if: :address_changed?
+  after_validation :geocode, :if => :address_changed?
 
   serialize :scenes
   serialize :large
