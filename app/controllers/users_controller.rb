@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def spot 
     @user = User.find(params[:id]) 
-    @spots = Spot.where(user_id: @user.id).order('id DESC')
+    @spots = Spot.where(user_id: @user.id).order('id DESC').page(params[:page]).per(30)
   end
 
   def clip
