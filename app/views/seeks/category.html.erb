@@ -684,63 +684,6 @@
           	<% end %>
 	    </div>
 
-	    <div class="grid-item">
-	    	<%= form_tag(seeks_choice_path, method: :get) do %>
-	          	<%= hidden_field_tag :large, "動物園" %>
-	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , params[:price_min] %>
-	          	<%= hidden_field_tag :price_max , params[:price_max] %>
-	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
-	          	<%= hidden_field_tag :distance, params[:distance] %>
-	          	<%= hidden_field_tag :timezone, params[:timezone] %>
-	          	<%= hidden_field_tag :small, params[:small] %>
-	          	<% unless params[:spot1].blank? %>
-	          		<%= hidden_field_tag :spot1, params[:spot1] %>
-	          	<% end %>
-			  	<% unless params[:spot2].blank? %>
-	          		<%= hidden_field_tag :spot2, params[:spot2] %>
-	          	<% end %>
-	          	<%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="box-category-img">
-	            		<%= image_tag "zoo000.jpg", :class =>'img-category' %>
-	            		<div class="text-category">
-	            			動物園行きたい
-	            			<br>
-	            			<span class="number-category"><%= @zoo_n %>件</span>
-	            		</div>
-	            	</div>
-	            <% end %>
-          	<% end %>
-	    </div>
-
-	    <div class="grid-item">
-	    	<%= form_tag(seeks_choice_path, method: :get) do %>
-	          	<%= hidden_field_tag :large, "水族館" %>
-	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , params[:price_min] %>
-	          	<%= hidden_field_tag :price_max , params[:price_max] %>
-	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
-	          	<%= hidden_field_tag :distance, params[:distance] %>
-	          	<%= hidden_field_tag :timezone, params[:timezone] %>
-	          	<%= hidden_field_tag :small, params[:small] %>
-	          	<% unless params[:spot1].blank? %>
-	          		<%= hidden_field_tag :spot1, params[:spot1] %>
-	          	<% end %>
-			  	<% unless params[:spot2].blank? %>
-	          		<%= hidden_field_tag :spot2, params[:spot2] %>
-	          	<% end %>
-	          	<%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="box-category-img">
-	            		<%= image_tag "aquarium000.jpg", :class =>'img-category' %>
-	            		<div class="text-category">
-	            			水族館行きたい
-	            			<br>
-	            			<span class="number-category"><%= @aquarium_n %>件</span>
-	            		</div>
-	            	</div>
-	            <% end %>
-          	<% end %>
-	    </div>
 
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
@@ -767,35 +710,6 @@
 	            			<span class="number-category"><%= @museum_n %>件</span>
 	            		</div>
 	            	</div>
-	            <% end %>
-          	<% end %>
-	    </div>
-
-	    <div class="grid-item">
-	    	<%= form_tag(seeks_choice_path, method: :get) do %>
-	          	<%= hidden_field_tag :large, "遊園地" %>
-	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , params[:price_min] %>
-	          	<%= hidden_field_tag :price_max , params[:price_max] %>
-	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
-	          	<%= hidden_field_tag :distance, params[:distance] %>
-	          	<%= hidden_field_tag :timezone, params[:timezone] %>
-	          	<%= hidden_field_tag :small, params[:small] %>
-	          	<% unless params[:spot1].blank? %>
-	          		<%= hidden_field_tag :spot1, params[:spot1] %>
-	          	<% end %>
-			  	<% unless params[:spot2].blank? %>
-	          		<%= hidden_field_tag :spot2, params[:spot2] %>
-	          	<% end %>
-	          	<%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="box-category-img">
-	            		<%= image_tag "amusement-park000.jpg", :class =>'img-category' %>
-	            		<div class="text-category">
-	            			遊園地行きたい
-	            			<br>
-	            			<span class="number-category"><%= @amusement_park_n %>件</span>
-	            		</div>
-	            	</div>	
 	            <% end %>
           	<% end %>
 	    </div>
