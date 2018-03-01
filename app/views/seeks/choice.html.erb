@@ -485,13 +485,12 @@
 		            <li class="box-tab"><a data-toggle="tab" href="#genre"><i class="fa fa-star-o"></i></a>
 		            </li>
 		        </ul>
-		        <br><br>
+		        <hr style="border-top: 1px solid #8c8b8b;">
 		    <%#タブ中身%>
 		        <div class="tab-content">
 		            <div id="city" class="tab-pane fade in active">
 		                <p>エリアを指定することができます</p>
 				        <br>
-				        <div class="box-city">
 				        	<span class="radio-city"> 
 				              <%= radio_button_tag(:city, "すべてのエリア", @all, {:id => "all"}) %>
 				              <%= label_tag('all', "すべてのエリア") %>
@@ -521,7 +520,6 @@
 				              <%= radio_button_tag(:city, "六本木・麻布・赤坂", @roppongi, {:id => "roppongi"}) %>
 				              <%= label_tag('roppongi', "六本木・麻布・赤坂") %>
 				            </span>    
-				        </div>
 			        	<br>
 			        	<% if @spot_n == 2 || @spot_n == 3 %>
 			        		<%= check_box_tag :distance_on, true, @distance_on, {} %>
@@ -540,8 +538,8 @@
 			        	<% end %>  
 		            </div>
 		            <div id="price" class="tab-pane fade">
-		                <% if @large == "朝食" || @large == "ランチ" || @large == "ディナー" %>
 				          <p>予算はいくらにしますか？</p>
+				          <br>
 				          <div style="width:80%;margin:0 auto;">
 				            <span class="pull-left">
 				              <span id="value-lower"></span>円
@@ -558,9 +556,10 @@
 				          <p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
 				          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
 				          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
-				        <% end %>
 		            </div>
 		            <div id="timezone" class="tab-pane fade">
+		            	<p>時間帯を指定しますか？</p>
+				        <br>
 		            	<div class="box-city">
 		                	<span class="radio-city"> 
 				              <%= radio_button_tag(:timezone, "すべての時間帯", @all_timezone, {:id => "all-timezone"}) %>
@@ -589,86 +588,54 @@
 				        </div>
 		            </div>
 		            <div id="genre" class="tab-pane fade">
-		                <% if @large == "朝食" || @large == "ランチ" || @large == "ディナー" %>
 				            <p>ジャンルを指定しますか？</p>
 				            <br>
-				            <div class="horizontal_scroll_search">
-				              <ul class="scroll_lst_search">
-				              	<li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "すべてのジャンル", @all_genre, {:id => "alla-genre"}) %>
-				                  <%= label_tag('all-genre', "すべてのジャンル") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "和食", @japanese, {:id => "japanese"}) %>
-				                  <%= label_tag('japanese', "和食") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
-				                  <%= label_tag('yakiniku', "焼肉・ホルモン") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
-				                  <%= label_tag('steak', "ステーキ・ハンバーグ") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "鍋", @pot, {:id => "pot"}) %>
-				                  <%= label_tag('pot', "鍋") %>
-				                </span>
-				                </li>
-				              </ul>
-				            </div>
-				            <div class="horizontal_scroll_search">
-				              <ul class="scroll_lst_search">
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "フレンチ", @french, {:id => "french"}) %>
-				                  <%= label_tag('french', "フレンチ") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "イタリアン", @italian, {:id => "italian"}) %>
-				                  <%= label_tag('italian', "イタリアン") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "西洋各国料理", @western, {:id => "western"}) %>
-				                  <%= label_tag('western', "西洋各国料理") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "中華料理", @chinese, {:id => "chinese"}) %>
-				                  <%= label_tag('chinese', "中華料理") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "アジア・エスニック", @asia, {:id => "asia"}) %>
-				                  <%= label_tag('asia', "アジア・エスニック") %>
-				                </span>
-				                </li>
-				                <li class="scroll_item_search">
-				                    <span class="radio-city"> 
-				                  <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
-				                  <%= label_tag('otherwise', "その他") %>
-				                </span>
-				                </li>
-				              </ul>
-				            </div>
+				            <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "すべてのジャンル", @all_genre, {:id => "alla-genre"}) %>
+			                  <%= label_tag('all-genre', "すべてのジャンル") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "和食", @japanese, {:id => "japanese"}) %>
+			                  <%= label_tag('japanese', "和食") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
+			                  <%= label_tag('yakiniku', "焼肉・ホルモン") %>
+			                </span>				                
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
+			                  <%= label_tag('steak', "ステーキ・ハンバーグ") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "鍋", @pot, {:id => "pot"}) %>
+			                  <%= label_tag('pot', "鍋") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "フレンチ", @french, {:id => "french"}) %>
+			                  <%= label_tag('french', "フレンチ") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "イタリアン", @italian, {:id => "italian"}) %>
+			                  <%= label_tag('italian', "イタリアン") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "西洋各国料理", @western, {:id => "western"}) %>
+			                  <%= label_tag('western', "西洋各国料理") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "中華料理", @chinese, {:id => "chinese"}) %>
+			                  <%= label_tag('chinese', "中華料理") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "アジア・エスニック", @asia, {:id => "asia"}) %>
+			                  <%= label_tag('asia', "アジア・エスニック") %>
+			                </span>
+			                <span class="radio-city"> 
+			                  <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
+			                  <%= label_tag('otherwise', "その他") %>
+			                </span>
 				            <br><br><br>
 				          	<p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
-				        <% end %>
 		            </div>
 	        	</div>
 	        </div>
