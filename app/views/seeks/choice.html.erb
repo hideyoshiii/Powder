@@ -125,6 +125,10 @@
           <div class="panel-body">
             <%# タイトル %>
             <div class="title-spot-show-min"><%= spot.title %></div>
+            <%# 都道府県、エリア %>
+            <p style="color: #66666;margin:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %>
+            </p> 
             <%# 料金 %>
             <p style="color: #666666;margin:5px 0px;font-size:12px">
               <% unless spot.price_lunch.blank? %>
@@ -139,7 +143,7 @@
             </p> 
             <%# カテゴリー %>
             <% unless spot.large.blank? %>
-              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>
               <% @i = 0 %>
                 <% spot.large.each do |large| %>
                   <% @i = @i + 1 %>
@@ -165,13 +169,9 @@
                 <% end %>
               </p> 
             <% end %>
-            <%# 都道府県、エリア %>
-            <p style="color: #66666;margin-top:5px;font-size:12px">
-              <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.city %>&nbsp;&nbsp;[<%= spot.station %>]
-            </p> 
             <%# 営業時間 %>
             <div onclick="obj=document.getElementById('open<%= @n %>').style; obj.display=(obj.display=='none')?'block':'none';">
-              <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+              <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                 <i class="fa fa-clock-o"></i>
                 <% if @wday == 0 %>
                 <% unless spot.sunday.blank? %>(日)<%= spot.sunday %><% end %>
@@ -209,14 +209,6 @@
                 祝&nbsp;&nbsp;<% unless spot.holiday.blank? %><%= spot.holiday %><% end %><br>
               </p> 
             </div>
-            <%# 見出し %>
-            <% unless spot.heading.blank? %>
-              <p class="aaa-min"><%= spot.heading %></p>
-            <% end %>
-            <%# Description %>
-            <% unless spot.description.blank? %>
-              <p style="font-size:12px"><%= spot.description %></p>
-            <% end %>
             <%# 食べログ、rettyボタン等 %>
             <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
             <div class="info-box1-min">
@@ -334,6 +326,10 @@
           <div class="panel-body">
             <%# タイトル %>
             <div class="title-spot-show-min"><%= spot.title %></div>
+            <%# 都道府県、エリア %>
+            <p style="color: #66666;margin:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %>
+            </p> 
             <%# 料金 %>
             <p style="color: #666666;margin:5px 0px;font-size:12px">
               <% unless spot.price_lunch.blank? %>
@@ -348,7 +344,7 @@
             </p> 
             <%# カテゴリー %>
             <% unless spot.large.blank? %>
-              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>&nbsp;
+              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>
               <% @i = 0 %>
                 <% spot.large.each do |large| %>
                   <% @i = @i + 1 %>
@@ -374,13 +370,9 @@
                 <% end %>
               </p> 
             <% end %>
-            <%# 都道府県、エリア %>
-            <p style="color: #66666;margin-top:5px;font-size:12px">
-              <i class="fa fa-map-marker" aria-hidden="true"></i><%= spot.city %>&nbsp;&nbsp;[<%= spot.station %>]
-            </p> 
             <%# 営業時間 %>
             <div onclick="obj=document.getElementById('open<%= @n %>').style; obj.display=(obj.display=='none')?'block':'none';">
-              <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+              <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                 <i class="fa fa-clock-o"></i>
                 <% if @wday == 0 %>
                 <% unless spot.sunday.blank? %>(日)<%= spot.sunday %><% end %>
@@ -418,14 +410,6 @@
                 祝&nbsp;&nbsp;<% unless spot.holiday.blank? %><%= spot.holiday %><% end %><br>
               </p> 
             </div>
-            <%# 見出し %>
-            <% unless spot.heading.blank? %>
-              <p class="aaa-min"><%= spot.heading %></p>
-            <% end %>
-            <%# Description %>
-            <% unless spot.description.blank? %>
-              <p style="font-size:12px"><%= spot.description %></p>
-            <% end %>
             <%# 食べログ、rettyボタン等 %>
             <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
             <div class="info-box1-min">
@@ -518,7 +502,6 @@
 				              <%= radio_button_tag(:city, "すべてのエリア", @all, {:id => "all"}) %>
 				              <%= label_tag('all', "すべてのエリア") %>
 				            </span>
-				            <br>
 				            <span class="radio-city"> 
 				              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
 				              <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
@@ -574,16 +557,11 @@
 				              <%= label_tag('all-timezone', "すべての時間帯") %>
 				            </span>
 				            <br>
-				        	<span class="radio-city"> 
-				              <%= radio_button_tag(:timezone, "朝", @morning, {:id => "morning"}) %>
-				              <%= label_tag('morning', "朝") %>
-				            </span>
-				            <br>
 				            <span class="radio-city"> 
 				              <%= radio_button_tag(:timezone, "昼", @noon, {:id => "noon"}) %>
 				              <%= label_tag('noon', "昼") %>
 				            </span>
-				            <br>
+                    &nbsp;&nbsp;&nbsp;
 				            <span class="radio-city"> 
 				              <%= radio_button_tag(:timezone, "夜", @night, {:id => "night"}) %>
 				              <%= label_tag('night', "夜") %>
@@ -593,52 +571,7 @@
 		            <div id="genre" class="tab-pane fade">
 				            <p>ジャンルを指定しますか？</p>
 				            <br>
-				            <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "すべてのジャンル", @all_genre, {:id => "all-genre"}) %>
-			                  <%= label_tag('all-genre', "すべてのジャンル") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "和食", @japanese, {:id => "japanese"}) %>
-			                  <%= label_tag('japanese', "和食") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
-			                  <%= label_tag('yakiniku', "焼肉・ホルモン") %>
-			                </span>				                
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
-			                  <%= label_tag('steak', "ステーキ・ハンバーグ") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "鍋", @pot, {:id => "pot"}) %>
-			                  <%= label_tag('pot', "鍋") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "フレンチ", @french, {:id => "french"}) %>
-			                  <%= label_tag('french', "フレンチ") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "イタリアン", @italian, {:id => "italian"}) %>
-			                  <%= label_tag('italian', "イタリアン") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "西洋各国料理", @western, {:id => "western"}) %>
-			                  <%= label_tag('western', "西洋各国料理") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "中華料理", @chinese, {:id => "chinese"}) %>
-			                  <%= label_tag('chinese', "中華料理") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "アジア・エスニック", @asia, {:id => "asia"}) %>
-			                  <%= label_tag('asia', "アジア・エスニック") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
-			                  <%= label_tag('otherwise', "その他") %>
-			                </span>
-				            <br><br><br>
-				          	<p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
+				          	<p style="font-size:10px;">※只今,ジャンルで絞る機能を準備しております</p>
 		            </div>
 	        	</div>
 	        </div>

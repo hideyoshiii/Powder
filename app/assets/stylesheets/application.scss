@@ -1843,7 +1843,7 @@ dl.search1 dd span:hover{
 
 .box98 h1 {
   position: absolute;
-  top: 70%;
+  top: 80%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -5680,8 +5680,14 @@ button.no {
 
 h2 span.what {
         display: inline;
-        padding: 2px 0em;
+        padding: 2px 0;
         border-bottom: 2px solid black;
+}
+
+h4 span.what {
+        display: inline;
+        padding: 2px 0;
+        border-bottom: 1px solid black;
 }
 
 
@@ -5916,7 +5922,7 @@ square_btnn{
 //ホームのabout画像背景
 .img_about01 {
   width: 100%;
-  height: 30vh;
+  height: 35vh;
 
   position: relative;
 
@@ -5947,7 +5953,7 @@ square_btnn{
 
 .img_about02 {
   width: 100%;
-  height: 30vh;
+  height: 35vh;
 
   position: relative;
 
@@ -6026,7 +6032,7 @@ square_btnn{
 
 //エリア選択のボックス
 .box-city{
-	width:85%;
+	width:90%;
 	text-align:center;
 	margin:0 auto;
 }
@@ -6446,6 +6452,23 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
   margin-right:5px;
   border-radius:5px;
   display: inline-block; 
+  vertical-align: top; 
+}
+
+.title-stickey-spot{
+  width:100px;
+  margin-top:7px;
+  margin-right:5px;
+  display: inline-block; 
+  vertical-align: top; 
+}
+
+.title-stickey-spot p{
+  font-size:7px;
+  line-height:1.2;
+  color:#666666;
+  margin-bottom:5px;
+  padding:0;
 }
 
 #map {width: auto; height: 450px;}

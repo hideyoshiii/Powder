@@ -4,24 +4,15 @@ class SeeksController < ApplicationController
   def home
   end
 
+  def area
+  end
+
+  def meal
+  end
+
   def category
   	#@spotsを定義
   	@spots = Spot.all
-  	#何軒目かを定義
-  	if params[:spot1].blank?
-  		@spot_n = 1
-  	else
-  		if params[:spot2].blank?
-  			@spot_n = 2
-  			@spot1 = Spot.find(params[:spot1])
-  		else
-  			if params[:spot3].blank?
-  				@spot_n = 3
-  				@spot1 = Spot.find(params[:spot1])
-  				@spot2 = Spot.find(params[:spot2])
-  			end
-  		end
-  	end
   	#時間帯で絞る
   	if params[:timezone].blank?
   		params[:timezone] = "すべての時間帯"
@@ -173,20 +164,6 @@ class SeeksController < ApplicationController
   def choice
   	#@spotsを定義
   	@spots = Spot.all
-  	#何軒目かを定義
-  	if params[:spot1].blank?
-  		@spot_n = 1
-  	else
-  		if params[:spot2].blank?
-  			@spot_n = 2
-  			@spot1 = Spot.find(params[:spot1])
-  		else
-  			if params[:spot3].blank?
-  				@spot_n = 3
-  				@spot2 = Spot.find(params[:spot2])
-  			end
-  		end
-  	end
   	#選択でのchecked判別のための@nを定義
   	@n = 0
   	#カテゴリーで絞る
@@ -287,6 +264,22 @@ class SeeksController < ApplicationController
 
   private
   def set_params
+
+  	#何軒目かを定義
+  	if params[:spot1].blank?
+  		@spot_n = 1
+  	else
+  		if params[:spot2].blank?
+  			@spot_n = 2
+  			@spot1 = Spot.find(params[:spot1])
+  		else
+  			if params[:spot3].blank?
+  				@spot_n = 3
+  				@spot1 = Spot.find(params[:spot1])
+  				@spot2 = Spot.find(params[:spot2])
+  			end
+  		end
+  	end
   
   	@all_genre = false
     @japanese = false

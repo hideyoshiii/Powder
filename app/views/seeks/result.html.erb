@@ -87,6 +87,10 @@
           <div class="panel-body">
             <%# タイトル %>
             <div class="title-spot-show-min"><%= @spot1.title %></div>
+            <%# 都道府県、エリア %>
+            <p style="color: #66666;margin:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker"></i>&nbsp;<%= @spot1.station %>
+            </p> 
             <%# 料金 %>
             <p style="color: #666666;margin:5px 0px;font-size:12px">
               <% unless @spot1.price_lunch.blank? %>
@@ -127,13 +131,9 @@
                 <% end %>
               </p> 
             <% end %>
-            <%# 都道府県、エリア %>
-            <p style="color: #66666;margin-top:5px;font-size:12px">
-              <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
-            </p> 
             <%# 営業時間 %>
             <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
-              <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+              <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                 <i class="fa fa-clock-o"></i>
                 <% if @wday == 0 %>
                 <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
@@ -171,14 +171,6 @@
                 祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
               </p> 
             </div>
-            <%# 見出し %>
-            <% unless @spot1.heading.blank? %>
-              <p class="aaa-min"><%= @spot1.heading %></p>
-            <% end %>
-            <%# Description %>
-            <% unless @spot1.description.blank? %>
-              <p style="font-size:12px"><%= @spot1.description %></p>
-            <% end %>
             <%# 食べログ、rettyボタン等 %>
             <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
             <div class="info-box1-min">
@@ -336,6 +328,10 @@
               <div class="panel-body">
                 <%# タイトル %>
                 <div class="title-spot-show-min"><%= @spot1.title %></div>
+                <%# 都道府県、エリア %>
+                <p style="color: #66666;margin:5px 0px;font-size:12px">
+                  <i class="fa fa-map-marker"></i>&nbsp;<%= @spot1.station %>
+                </p> 
                 <%# 料金 %>
                 <p style="color: #666666;margin:5px 0px;font-size:12px">
                   <% unless @spot1.price_lunch.blank? %>
@@ -376,13 +372,9 @@
                     <% end %>
                   </p> 
                 <% end %>
-                <%# 都道府県、エリア %>
-                <p style="color: #66666;margin-top:5px;font-size:12px">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
-                </p> 
                 <%# 営業時間 %>
                 <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
-                  <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                  <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                     <i class="fa fa-clock-o"></i>
                     <% if @wday == 0 %>
                     <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
@@ -420,14 +412,6 @@
                     祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
                   </p> 
                 </div>
-                <%# 見出し %>
-                <% unless @spot1.heading.blank? %>
-                  <p class="aaa-min"><%= @spot1.heading %></p>
-                <% end %>
-                <%# Description %>
-                <% unless @spot1.description.blank? %>
-                  <p style="font-size:12px"><%= @spot1.description %></p>
-                <% end %>
                 <%# 食べログ、rettyボタン等 %>
                 <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
                 <div class="info-box1-min">
@@ -510,6 +494,10 @@
               <div class="panel-body">
                 <%# タイトル %>
                 <div class="title-spot-show-min"><%= @spot2.title %></div>
+                <%# 都道府県、エリア %>
+                <p style="color: #66666;margin:5px 0px;font-size:12px">
+                  <i class="fa fa-map-marker"></i>&nbsp;<%= @spot2.station %>
+                </p> 
                 <%# 料金 %>
                 <p style="color: #666666;margin:5px 0px;font-size:12px">
                   <% unless @spot2.price_lunch.blank? %>
@@ -550,13 +538,9 @@
                     <% end %>
                   </p> 
                 <% end %>
-                <%# 都道府県、エリア %>
-                <p style="color: #666666;margin-top:5px;font-size:12px">
-                  <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
-                </p> 
                 <%# 営業時間 %>
                 <div onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
-                  <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                  <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                     <i class="fa fa-clock-o"></i>
                     <% if @wday == 0 %>
                     <% unless @spot2.sunday.blank? %>(日)<%= @spot2.sunday %><% end %>
@@ -594,14 +578,6 @@
                     祝&nbsp;&nbsp;<% unless @spot2.holiday.blank? %><%= @spot2.holiday %><% end %><br>
                   </p> 
                 </div>
-                <%# 見出し %>
-                <% unless @spot2.heading.blank? %>
-                  <p class="aaa-min"><%= @spot2.heading %></p>
-                <% end %>
-                <%# Description %>
-                <% unless @spot2.description.blank? %>
-                  <p style="font-size:12px"><%= @spot2.description %></p>
-                <% end %>
                 <%# 食べログ、rettyボタン等 %>
                 <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
                 <div class="info-box1-min">
@@ -761,6 +737,10 @@
                 <div class="panel-body">
                   <%# タイトル %>
                   <div class="title-spot-show-min"><%= @spot1.title %></div>
+                  <%# 都道府県、エリア %>
+                  <p style="color: #66666;margin:5px 0px;font-size:12px">
+                    <i class="fa fa-map-marker"></i>&nbsp;<%= @spot1.station %>
+                  </p> 
                   <%# 料金 %>
                   <p style="color: #666666;margin:5px 0px;font-size:12px">
                     <% unless @spot1.price_lunch.blank? %>
@@ -801,13 +781,9 @@
                       <% end %>
                     </p> 
                   <% end %>
-                  <%# 都道府県、エリア %>
-                  <p style="color: #666666;margin-top:5px;font-size:12px">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
-                  </p> 
                   <%# 営業時間 %>
                   <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
-                    <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                    <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                       <i class="fa fa-clock-o"></i>
                       <% if @wday == 0 %>
                       <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
@@ -845,14 +821,6 @@
                       祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
                     </p> 
                   </div>
-                  <%# 見出し %>
-                  <% unless @spot1.heading.blank? %>
-                    <p class="aaa-min"><%= @spot1.heading %></p>
-                  <% end %>
-                  <%# Description %>
-                  <% unless @spot1.description.blank? %>
-                    <p style="font-size:12px"><%= @spot1.description %></p>
-                  <% end %>
                   <%# 食べログ、rettyボタン等 %>
                   <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
                   <div class="info-box1-min">
@@ -935,6 +903,10 @@
                 <div class="panel-body">
                   <%# タイトル %>
                   <div class="title-spot-show-min"><%= @spot2.title %></div>
+                  <%# 都道府県、エリア %>
+                  <p style="color: #66666;margin:5px 0px;font-size:12px">
+                    <i class="fa fa-map-marker"></i>&nbsp;<%= @spot2.station %>
+                  </p> 
                   <%# 料金 %>
                   <p style="color: #666666;margin:5px 0px;font-size:12px">
                     <% unless @spot2.price_lunch.blank? %>
@@ -975,13 +947,9 @@
                       <% end %>
                     </p> 
                   <% end %>
-                  <%# 都道府県、エリア %>
-                  <p style="color: #666666;margin-top:5px;font-size:12px">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
-                  </p> 
                   <%# 営業時間 %>
                   <div onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
-                    <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                    <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                       <i class="fa fa-clock-o"></i>
                       <% if @wday == 0 %>
                       <% unless @spot2.sunday.blank? %>(日)<%= @spot2.sunday %><% end %>
@@ -1019,14 +987,6 @@
                       祝&nbsp;&nbsp;<% unless @spot2.holiday.blank? %><%= @spot2.holiday %><% end %><br>
                     </p> 
                   </div>
-                  <%# 見出し %>
-                  <% unless @spot2.heading.blank? %>
-                    <p class="aaa-min"><%= @spot2.heading %></p>
-                  <% end %>
-                  <%# Description %>
-                  <% unless @spot2.description.blank? %>
-                    <p style="font-size:12px"><%= @spot2.description %></p>
-                  <% end %>
                   <%# 食べログ、rettyボタン等 %>
                   <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
                   <div class="info-box1-min">
@@ -1109,6 +1069,10 @@
                 <div class="panel-body">
                   <%# タイトル %>
                   <div class="title-spot-show-min"><%= @spot3.title %></div>
+                  <%# 都道府県、エリア %>
+                  <p style="color: #66666;margin:5px 0px;font-size:12px">
+                    <i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %>
+                  </p> 
                   <%# 料金 %>
                   <p style="color: #666666;margin:5px 0px;font-size:12px">
                     <% unless @spot3.price_lunch.blank? %>
@@ -1149,13 +1113,9 @@
                       <% end %>
                     </p> 
                   <% end %>
-                  <%# 都道府県、エリア %>
-                  <p style="color: #666666;margin-top:5px;font-size:12px">
-                    <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot3.city %>&nbsp;&nbsp;[<%= @spot3.station %>]
-                  </p> 
                   <%# 営業時間 %>
                   <div onclick="obj=document.getElementById('open3').style; obj.display=(obj.display=='none')?'block':'none';">
-                    <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+                    <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
                       <i class="fa fa-clock-o"></i>
                       <% if @wday == 0 %>
                       <% unless @spot3.sunday.blank? %>(日)<%= @spot3.sunday %><% end %>
@@ -1193,14 +1153,6 @@
                       祝&nbsp;&nbsp;<% unless @spot3.holiday.blank? %><%= @spot3.holiday %><% end %><br>
                     </p> 
                   </div>
-                  <%# 見出し %>
-                  <% unless @spot3.heading.blank? %>
-                    <p class="aaa-min"><%= @spot3.heading %></p>
-                  <% end %>
-                  <%# Description %>
-                  <% unless @spot3.description.blank? %>
-                    <p style="font-size:12px"><%= @spot3.description %></p>
-                  <% end %>
                   <%# 食べログ、rettyボタン等 %>
                   <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
                   <div class="info-box1-min">
@@ -1298,16 +1250,16 @@
         <div class="text-center">
           <h2 style="padding:40px 0px;"><span class="what">About</span></h2>
           <h4>あなたのデートプランナー</h4>
-          <p>ショーンはあなたがデートコースを作るのをサポートしてくれるデートプランナーです。<br><span class="site-title">A.Date</span>で作っデートコースの詳細を調べてくれたり、アドバイスをくれたり様々なサポートをしてくれます。</p>
+          <p>ショーンはあなたがデートコースを作るのをサポートしてくれるデートプランナーです。<br><span class="site-title">A.Date</span>で作ってデートコースの詳細を調べてくれたり、アドバイスをくれたり様々なサポートをしてくれます。</p>
         </div>
-        <div class="text-center">
+        <div class="text-center" style="margin-bottom:50px;">
           <h2 style="padding:40px 0px;"><span class="what">Example</span></h2>
           <h4>使い方はあなた次第</h4>
           <p>ショーンはできる限りのことをサポートしてくれます。ぜひあなただけの使い方を見つけてください。</p>
         </div>
         <div class="row" style="padding:20px 0px;">
           <div class="col-xs-6">
-          <h4>様々な情報を</h4>
+          <h4 style="margin-bottom:25px;"><span class="what">様々な情報を</span></h4>
           <p>「次のスポットへは歩いてどのくらい？」</p>
           <p>「オススメのメニューを教えて！」</p>
           <p>「ここってサプライズとか対応してくれるのかな？」</p>
@@ -1318,7 +1270,7 @@
         </div>
         <div class="row" style="padding:40px 0px;">
           <div class="col-xs-6">
-          <h4>アドバイスを</h4>
+          <h4 style="margin-bottom:25px;"><span class="what">アドバイスを</span></h4>
           <p>「次のスポットまでは歩いたがいいかな？それともタクシーかな？」</p>
           <p>「どんなファッションで行ったらいいんだろう？」</p>
           <p>「初デートのアドバイスってある？」</p>
@@ -1329,7 +1281,7 @@
         </div>
         <div class="row" style="padding:40px 0px;">
           <div class="col-xs-6">
-          <h4>代わりに予約を</h4>
+          <h4 style="margin-bottom:25px;"><span class="what">代わりに予約を</span></h4>
           <p>「ディナーのお店を代わりに予約しといて欲しい！」</p>
           <p>「このお店ってランチでも予約できるのかな？」</p>
           </div>

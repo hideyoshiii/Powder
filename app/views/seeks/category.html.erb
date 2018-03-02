@@ -3,21 +3,15 @@
 
 	<br>
 	<% if @spot_n == 1 %>
-		<h3 class="text-center">どこに行きたい？<span style="font-size:12px;">(１軒目)</span></h3>
+		<h4 class="text-center">まずはどこに行きますか？</h4>
 	<% end %>
 	<% if @spot_n == 2 %>
-		<h3 class="text-center">どこに行きたい？<span style="font-size:12px;">(２軒目)</span></h3>
+		<h4 class="text-center">２軒目はどこに行きますか？</h4>
 	<% end %>
 	<% if @spot_n == 3 %>
-		<h3 class="text-center">どこに行きたい？<span style="font-size:12px;">(３軒目)</span></h3>
+		<h4 class="text-center">３軒目はどこに行きますか？</h4>
 	<% end %>
-  	  <h4 class="text-center" style="margin:20px 0px;">
-	    <a href="" data-toggle="modal" data-target="#myModal-distance">
-	      <span style="font-size:15px;">
-	      <i class="fa fa-chevron-circle-down"></i>&nbsp;条件変更
-	      </span>
-	    </a>
-	  </h4> 
+	<br>
 
   	<% if params[:spot1].blank? %>
   	<% else %>
@@ -42,202 +36,6 @@
   			<% end %>
   		<% end %>
   	<% end %>
-  	
-	
-
-
-  	<%#詳細条件モーダルの中身%>
-	<div class="modal" id="myModal-distance">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
-	      <%= form_tag(seeks_category_path, method: :get) do %>
-	      	<% unless params[:spot1].blank? %>
-          		<%= hidden_field_tag :spot1, params[:spot1] %>
-          	<% end %>
-		  	<% unless params[:spot2].blank? %>
-          		<%= hidden_field_tag :spot2, params[:spot2] %>
-          	<% end %>
-          	<div class="text-center" style="padding-top:30px;">
-	          	<div class="panel-body">
-	          	<%#タブ%>
-			        <ul class="nav nav-pills">
-			            <li class="active box-tab"><a data-toggle="tab" href="#city"><i class="fa fa-map-marker"></i></a>
-			            </li>
-			            <li class="box-tab"><a data-toggle="tab" href="#price"><i class="fa fa-yen"></i></a>
-			            </li>
-			            <li class="box-tab"><a data-toggle="tab" href="#timezone"><i class="fa fa-clock-o"></i></a>
-			            </li>
-			            <li class="box-tab"><a data-toggle="tab" href="#genre"><i class="fa fa-star-o"></i></a>
-			            </li>
-			        </ul>
-			        <hr style="border-top: 1px solid #8c8b8b;">
-			    <%#タブ中身%>
-			        <div class="tab-content">
-			            <div id="city" class="tab-pane fade in active">
-			            	<% if @spot_n == 2 || @spot_n == 3 %>
-			                    <% if @spot_n == 2 %>
-			                      <p>１軒目からの距離を指定できます</p>
-			                    <% end %>  
-			                    <% if @spot_n == 3 %>
-			                      <p>２軒目からの距離を指定できます</p>
-			                    <% end %>  
-			                    <br>
-			                    <%= check_box_tag :distance_on, true, @distance_on, {} %>
-			                    <%= label_tag(:distance_on, "距離を指定する") %>         
-			                    <br><br>
-			                    <div class="row">
-			                      <div class="col-xs-offset-1 col-xs-10">
-			                        <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail"
-			                          oninput="document.getElementById('output2').value=this.value">
-			                          <div class="pull-right">
-			                          <span class="rage-output2">~</span><output id="output2" class="rage-output2"><%= params[:distance].to_i %></output><span class="rage-output2">m</span>
-			                        </div>
-			                      </div>
-			                    </div>
-			                    <br>
-			                <% end %>  
-			                <br>
-			                <p>エリアを指定しますか？</p>
-					        <br>
-				        	<span class="radio-city"> 
-				              <%= radio_button_tag(:city, "すべてのエリア", @all, {:id => "all"}) %>
-				              <%= label_tag('all', "すべてのエリア") %>
-				            </span>
-				            <br>
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
-				              <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
-				            </span>
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:city, "渋谷", @shibuya, {:id => "shibuya"}) %>
-				              <%= label_tag('shibuya', "渋谷") %>
-				            </span>
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:city, "原宿・表参道・青山", @harajuku, {:id => "harajuku"}) %>
-				              <%= label_tag('harajuku', "原宿・表参道・青山") %>
-				            </span>
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:city, "新宿", @shinjuku, {:id => "shinjuku"}) %>
-				              <%= label_tag('shinjuku', "新宿") %>
-				            </span>
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:city, "東京・丸の内・日本橋", @tokyo, {:id => "tokyo"}) %>
-				              <%= label_tag('tokyo', "東京・丸の内・日本橋") %>
-				            </span>
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:city, "六本木・麻布・赤坂", @roppongi, {:id => "roppongi"}) %>
-				              <%= label_tag('roppongi', "六本木・麻布・赤坂") %>
-				            </span>    
-				        	<br>
-			            </div>
-			            <div id="price" class="tab-pane fade">
-				          <p>予算はいくらにしますか？</p>
-				          <br>
-				          <div style="width:80%;margin:0 auto;">
-				            <span class="pull-left">
-				              <span id="value-lower"></span>円
-				            </span>
-				            <span class="pull-right">
-				              <span id="value-upper"></span>円
-				            </span>
-				          </div>
-				          <br><br>
-				          <div style="width:75%;margin:0 auto;">  
-				            <div id="slider"></div>
-				          </div>
-				          <br><br><br>
-				          <p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
-				          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
-				          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
-			            </div>
-			            <div id="timezone" class="tab-pane fade">
-			            	<p>時間帯を指定しますか？</p>
-				            <br>
-			                <div class="box-city">
-			                	<span class="radio-city"> 
-					              <%= radio_button_tag(:timezone, "すべての時間帯", @all_timezone, {:id => "all-timezone"}) %>
-					              <%= label_tag('all-timezone', "すべての時間帯") %>
-					            </span>
-					            <br>
-					        	<span class="radio-city"> 
-					              <%= radio_button_tag(:timezone, "朝", @morning, {:id => "morning"}) %>
-					              <%= label_tag('morning', "朝") %>
-					            </span>
-					            <br>
-					            <span class="radio-city"> 
-					              <%= radio_button_tag(:timezone, "昼", @noon, {:id => "noon"}) %>
-					              <%= label_tag('noon', "昼") %>
-					            </span>
-					            <br>
-					            <span class="radio-city"> 
-					              <%= radio_button_tag(:timezone, "夜", @night, {:id => "night"}) %>
-					              <%= label_tag('night', "夜") %>
-					            </span>
-					        </div>
-			            </div>
-			            <div id="genre" class="tab-pane fade">
-			                <p>ジャンルを指定しますか？</p>
-				            <br>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "すべてのジャンル", @all_genre, {:id => "all-genre"}) %>
-			                  <%= label_tag('all-genre', "すべてのジャンル") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "和食", @japanese, {:id => "japanese"}) %>
-			                  <%= label_tag('japanese', "和食") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
-			                  <%= label_tag('yakiniku', "焼肉・ホルモン") %>
-			                </span>				                
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
-			                  <%= label_tag('steak', "ステーキ・ハンバーグ") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "鍋", @pot, {:id => "pot"}) %>
-			                  <%= label_tag('pot', "鍋") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "フレンチ", @french, {:id => "french"}) %>
-			                  <%= label_tag('french', "フレンチ") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "イタリアン", @italian, {:id => "italian"}) %>
-			                  <%= label_tag('italian', "イタリアン") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "西洋各国料理", @western, {:id => "western"}) %>
-			                  <%= label_tag('western', "西洋各国料理") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "中華料理", @chinese, {:id => "chinese"}) %>
-			                  <%= label_tag('chinese', "中華料理") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "アジア・エスニック", @asia, {:id => "asia"}) %>
-			                  <%= label_tag('asia', "アジア・エスニック") %>
-			                </span>
-			                <span class="radio-city"> 
-			                  <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
-			                  <%= label_tag('otherwise', "その他") %>
-			                </span>
-				            <br><br><br>
-				          	<p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
-			            </div>
-		        	</div>
-		        </div>
-
-	        	<%= submit_tag "絞る", :class => "btn btn-default" %>
-	        	<br><br>
-	        	<div class="panel-body">
-		          <button type="button" class="btn btn-default pull-right" data-dismiss="modal">閉じる×</button>
-		        </div>
-		    </div>
-	      <% end %>  
-	    </div>
-	  </div>
-	</div>
 
 <div class="panel-body">
 
@@ -247,7 +45,7 @@
 	    <div class="grid-sizer"></div>
 
 
-
+	    <% unless @lunch_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 		    	<%= hidden_field_tag :large, "ランチ" %>
@@ -266,17 +64,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 			    	<div class="box-category-img">
-		        		<%= image_tag "lunch000.jpg", :class =>'img-category' %>
+		        		<%= image_tag "lunch00.jpg", :class =>'img-category' %>
 		        		<div class="text-category">
 		        			ランチしたい
-		        			<br>
-		        			<span class="number-category"><%= @lunch_n %>件</span>
 		        		</div>
 		        	</div>
 	        	<% end %>
             <% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @dinner_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "ディナー" %>
@@ -295,17 +93,17 @@
 	          	<% end %>
 	          <%= button_tag :type => "submit", :class =>"button1" do %>
 	            <div class="box-category-img">
-            		<%= image_tag "dinner000.jpg", :class =>'img-category' %>
+            		<%= image_tag "dinner00.jpg", :class =>'img-category' %>
             		<div class="text-category">
             			ディナーしたい
-            			<br>
-            			<span class="number-category"><%= @dinner_n %>件</span>
             		</div>
             	</div>
 	          <% end %>
           <% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @cafe_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "カフェ" %>
@@ -324,17 +122,17 @@
 	          	<% end %>
 	          <%= button_tag :type => "submit", :class =>"button1" do %>
 	            <div class="box-category-img">
-            		<%= image_tag "cafe000.jpg", :class =>'img-category' %>
+            		<%= image_tag "cafe00.jpg", :class =>'img-category' %>
             		<div class="text-category">
             			カフェ行きたい
-            			<br>
-            			<span class="number-category"><%= @cafe_n %>件</span>
             		</div>
             	</div>
 	          <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @bar_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "バー" %>
@@ -353,17 +151,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "bar000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "bar00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			バー行きたい
-	            			<br>
-	            			<span class="number-category"><%= @bar_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @movie_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "映画" %>
@@ -382,17 +180,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "movie000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "movie00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			映画見たい
-	            			<br>
-	            			<span class="number-category"><%= @movie_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @shop_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "ショップ・雑貨屋" %>
@@ -411,17 +209,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "shop000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "shop00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			ショップ・雑貨屋に行きたい
-	            			<br>
-	            			<span class="number-category"><%= @shop_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @walk_eat_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "食べ歩き" %>
@@ -440,17 +238,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "walk-eat000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "walk-eat00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			食べ歩きしたい
-	            			<br>
-	            			<span class="number-category"><%= @walk_eat_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @park_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "公園" %>
@@ -469,17 +267,17 @@
 		        <% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "park000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "park00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			公園行きたい
-	            			<br>
-	            			<span class="number-category"><%= @park_n %>件</span>
+	            			公園行きたい	            			
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @night_view_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "夜景" %>
@@ -498,17 +296,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "night-view000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "night-view00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			夜景見たい
-	            			<br>
-	            			<span class="number-category"><%= @night_view_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @planetarium_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "プラネタリウム" %>
@@ -527,17 +325,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "planetarium000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "planetarium00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			プラネタリウム見たい
-	            			<br>
-	            			<span class="number-category"><%= @planetarium_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @karaoke_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "カラオケ" %>
@@ -556,17 +354,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "karaoke000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "karaoke00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			カラオケしたい
-	            			<br>
-	            			<span class="number-category"><%= @karaoke_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @bowling_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "ボーリング" %>
@@ -585,17 +383,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "bowling000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "bowling00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			ボーリングしたい
-	            			<br>
-	            			<span class="number-category"><%= @bowling_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @sport_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "スポーツ" %>
@@ -614,18 +412,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "sport000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "sport00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			スポーツしたい
-	            			<br>
-	            			<span class="number-category"><%= @sport_n %>件</span>
 	            		</div>
 	            	</div>
             	<% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
-
+	    <% unless @darts_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "ダーツ" %>
@@ -645,18 +442,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "darts000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "darts00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			ダーツしたい
-	            			<br>
-	            			<span class="number-category"><%= @darts_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
-
+	    <% unless @museum_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "美術館" %>
@@ -675,17 +471,17 @@
 	          	<% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "museum000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "museum00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			美術館行きたい
-	            			<br>
-	            			<span class="number-category"><%= @museum_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
+	    <% unless @other_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "その他" %>
@@ -704,16 +500,15 @@
 		        <% end %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="box-category-img">
-	            		<%= image_tag "other000.jpg", :class =>'img-category' %>
+	            		<%= image_tag "other00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
 	            			その他
-	            			<br>
-	            			<span class="number-category"><%= @other_n %>件</span>
 	            		</div>
 	            	</div>
 	            <% end %>
           	<% end %>
 	    </div>
+	    <% end %>
 
 	  </div>
 	</div>
@@ -731,6 +526,22 @@
 				<div class="sticky-menu-spot">
 					<a href="" data-toggle="modal" data-target="#myModal-spot1">
 						<%= image_tag @spot1.pictures.first.image.url, :class =>'img-stickey-spot' %>
+						<div class="title-stickey-spot">
+							<p><%= @spot1.title %></p>
+							<% unless @spot1.large.blank? %>
+					          <p><i class="fa fa-tag"></i>
+					          <% @i = 0 %>
+					            <% @spot1.large.each do |large| %>
+					              <% @i = @i + 1 %>
+					              <% if @i == @spot1.large.size %>
+					                <%= large %>
+					              <% else %>
+					                <%= large %>/
+					              <% end %> 
+					            <% end %>
+					          </p> 
+					        <% end %>
+						</div>
 					</a>
 				</div>
 			</div>
@@ -743,9 +554,41 @@
 				<div class="sticky-menu-spot">
 					<a href="" data-toggle="modal" data-target="#myModal-spot1">
 			    		<%= image_tag @spot1.pictures.first.image.url, :class =>'img-stickey-spot' %>
+			    		<div class="title-stickey-spot">
+							<p><%= @spot1.title %></p>
+							<% unless @spot1.large.blank? %>
+					          <p><i class="fa fa-tag"></i>
+					          <% @i = 0 %>
+					            <% @spot1.large.each do |large| %>
+					              <% @i = @i + 1 %>
+					              <% if @i == @spot1.large.size %>
+					                <%= large %>
+					              <% else %>
+					                <%= large %>/
+					              <% end %> 
+					            <% end %>
+					          </p> 
+					        <% end %>
+						</div>
 			    	</a>
 			    	<a href="" data-toggle="modal" data-target="#myModal-spot2">
 			      		<%= image_tag @spot2.pictures.first.image.url, :class =>'img-stickey-spot' %>
+			      		<div class="title-stickey-spot">
+							<p><%= @spot2.title %></p>
+							<% unless @spot2.large.blank? %>
+					          <p><i class="fa fa-tag"></i>
+					          <% @i = 0 %>
+					            <% @spot2.large.each do |large| %>
+					              <% @i = @i + 1 %>
+					              <% if @i == @spot2.large.size %>
+					                <%= large %>
+					              <% else %>
+					                <%= large %>/
+					              <% end %> 
+					            <% end %>
+					          </p> 
+					        <% end %>
+						</div>
 			      	</a>
     			</div>
     		</div>
@@ -797,6 +640,10 @@
       <div class="panel-body">
         <%# タイトル %>
         <div class="title-spot-show-min"><%= @spot1.title %></div>
+        <%# 都道府県、エリア %>
+            <p style="color: #66666;margin:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker"></i>&nbsp;<%= @spot1.station %>
+            </p> 
         <%# 料金 %>
         <p style="color: #666666;margin:5px 0px;font-size:12px">
           <% unless @spot1.price_lunch.blank? %>
@@ -837,13 +684,9 @@
             <% end %>
           </p> 
         <% end %>
-        <%# 都道府県、エリア %>
-        <p style="color: #66666;margin-top:5px;font-size:12px">
-          <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
-        </p> 
         <%# 営業時間 %>
         <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
-          <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+          <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
             <i class="fa fa-clock-o"></i>
             <% if @wday == 0 %>
             <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
@@ -881,14 +724,6 @@
             祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
           </p> 
         </div>
-        <%# 見出し %>
-        <% unless @spot1.heading.blank? %>
-          <p class="aaa-min"><%= @spot1.heading %></p>
-        <% end %>
-        <%# Description %>
-        <% unless @spot1.description.blank? %>
-          <p style="font-size:12px"><%= @spot1.description %></p>
-        <% end %>
         <%# 食べログ、rettyボタン等 %>
         <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
         <div class="info-box1-min">
@@ -952,6 +787,10 @@
       <div class="panel-body">
         <%# タイトル %>
         <div class="title-spot-show-min"><%= @spot1.title %></div>
+        <%# 都道府県、エリア %>
+            <p style="color: #66666;margin:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker"></i>&nbsp;<%= @spot1.station %>
+            </p> 
         <%# 料金 %>
         <p style="color: #666666;margin:5px 0px;font-size:12px">
           <% unless @spot1.price_lunch.blank? %>
@@ -992,13 +831,9 @@
             <% end %>
           </p> 
         <% end %>
-        <%# 都道府県、エリア %>
-        <p style="color: #66666;margin-top:5px;font-size:12px">
-          <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot1.city %>&nbsp;&nbsp;[<%= @spot1.station %>]
-        </p> 
         <%# 営業時間 %>
         <div onclick="obj=document.getElementById('open1').style; obj.display=(obj.display=='none')?'block':'none';">
-          <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+          <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
             <i class="fa fa-clock-o"></i>
             <% if @wday == 0 %>
             <% unless @spot1.sunday.blank? %>(日)<%= @spot1.sunday %><% end %>
@@ -1036,14 +871,6 @@
             祝&nbsp;&nbsp;<% unless @spot1.holiday.blank? %><%= @spot1.holiday %><% end %><br>
           </p> 
         </div>
-        <%# 見出し %>
-        <% unless @spot1.heading.blank? %>
-          <p class="aaa-min"><%= @spot1.heading %></p>
-        <% end %>
-        <%# Description %>
-        <% unless @spot1.description.blank? %>
-          <p style="font-size:12px"><%= @spot1.description %></p>
-        <% end %>
         <%# 食べログ、rettyボタン等 %>
         <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
         <div class="info-box1-min">
@@ -1103,6 +930,10 @@
       <div class="panel-body">
         <%# タイトル %>
         <div class="title-spot-show-min"><%= @spot2.title %></div>
+        <%# 都道府県、エリア %>
+            <p style="color: #66666;margin:5px 0px;font-size:12px">
+              <i class="fa fa-map-marker"></i>&nbsp;<%= @spot2.station %>
+            </p> 
         <%# 料金 %>
         <p style="color: #666666;margin:5px 0px;font-size:12px">
           <% unless @spot2.price_lunch.blank? %>
@@ -1143,13 +974,9 @@
             <% end %>
           </p> 
         <% end %>
-        <%# 都道府県、エリア %>
-        <p style="color: #666666;margin-top:5px;font-size:12px">
-          <i class="fa fa-map-marker" aria-hidden="true"></i><%= @spot2.city %>&nbsp;&nbsp;[<%= @spot2.station %>]
-        </p> 
         <%# 営業時間 %>
         <div onclick="obj=document.getElementById('open2').style; obj.display=(obj.display=='none')?'block':'none';">
-          <p style="cursor:pointer;color: #66666;margin-top:-7px;font-size:12px;">
+          <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
             <i class="fa fa-clock-o"></i>
             <% if @wday == 0 %>
             <% unless @spot2.sunday.blank? %>(日)<%= @spot2.sunday %><% end %>
@@ -1187,14 +1014,6 @@
             祝&nbsp;&nbsp;<% unless @spot2.holiday.blank? %><%= @spot2.holiday %><% end %><br>
           </p> 
         </div>
-        <%# 見出し %>
-        <% unless @spot2.heading.blank? %>
-          <p class="aaa-min"><%= @spot2.heading %></p>
-        <% end %>
-        <%# Description %>
-        <% unless @spot2.description.blank? %>
-          <p style="font-size:12px"><%= @spot2.description %></p>
-        <% end %>
         <%# 食べログ、rettyボタン等 %>
         <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
         <div class="info-box1-min">

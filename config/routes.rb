@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
-  
+  get "seeks/area" => "seeks#area"
   get "seeks/category" => "seeks#category"
   get "seeks/term" => "seeks#term"
+  get "seeks/meal" => "seeks#meal"
   get "seeks/choice" => "seeks#choice"
   get "seeks/result" => "seeks#result"
  
