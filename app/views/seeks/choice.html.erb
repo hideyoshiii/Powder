@@ -28,7 +28,7 @@
     </h4> 
     
     <% if @spot_n == 1 || @spot_n == 2 %>
-    <%= form_tag(seeks_category_path, method: :get) do %>
+    <%= form_tag(seeks_area_path, method: :get) do %>
     <% if @spot_n == 1 %>
     	<%= hidden_field_tag :distance, 500 %>
     <% end %>
@@ -481,9 +481,16 @@
                       <p>２軒目からの距離を指定できます</p>
                     <% end %>  
                     <br>
-                    <%= check_box_tag :distance_on, true, @distance_on, {} %>
-                    <%= label_tag(:distance_on, "距離を指定する") %>         
-                    <br><br>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:distance_on, "true", @distance_on_on, {:id => "on"}) %>
+                      <%= label_tag('on', "距離を指定する") %>
+                    </span>
+                    &nbsp;
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:distance_on, "false", @distance_on_off, {:id => "off"}) %>
+                      <%= label_tag('off', "エリアを指定する") %>
+                    </span>     
+                    <br><br><br>
                     <div class="row">
                       <div class="col-xs-offset-1 col-xs-10">
                         <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail"
@@ -493,11 +500,10 @@
                         </div>
                       </div>
                     </div>
-                    <br>
+                    <br><br>
                   <% end %>  
-                  <br>
   		            <p>エリアを指定しますか？</p>
-  				        <br>
+                  <br>
 				        	<span class="radio-city"> 
 				              <%= radio_button_tag(:city, "すべてのエリア", @all, {:id => "all"}) %>
 				              <%= label_tag('all', "すべてのエリア") %>
@@ -530,27 +536,30 @@
 		            </div>
 		            <div id="price" class="tab-pane fade">
 				          <p>予算はいくらにしますか？</p>
-				          <br>
-				          <div style="width:80%;margin:0 auto;">
-				            <span class="pull-left">
-				              <span id="value-lower"></span>円
-				            </span>
-				            <span class="pull-right">
-				              <span id="value-upper"></span>円
-				            </span>
-				          </div>
 				          <br><br>
-				          <div style="width:75%;margin:0 auto;">  
-				            <div id="slider"></div>
-				          </div>
-				          <br><br><br>
-				          <p style="font-size:10px;">※朝食,ランチ,ディナーのみに反映されます</p>
-				          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
-				          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
-		            </div>
+                  <% if @large == "ランチ" || @large == "ディナー" %>
+  				          <div style="width:80%;margin:0 auto;">
+  				            <span class="pull-left">
+  				              <span id="value-lower"></span>円
+  				            </span>
+  				            <span class="pull-right">
+  				              <span id="value-upper"></span>円
+  				            </span>
+  				          </div>
+  				          <br><br>
+  				          <div style="width:75%;margin:0 auto;">  
+  				            <div id="slider"></div>
+  				          </div>
+  				          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
+  				          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
+                    <br><br>
+                    <% else %>
+                      <p style="font-size:10px;">※ランチ,ディナーのみ予算で絞る機能が使えます</p>
+                    <% end %>
+      		      </div>
 		            <div id="timezone" class="tab-pane fade">
 		            	<p>時間帯を指定しますか？</p>
-				        <br>
+				          <br>
 		            	<div class="box-city">
 		                	<span class="radio-city"> 
 				              <%= radio_button_tag(:timezone, "すべての時間帯", @all_timezone, {:id => "all-timezone"}) %>

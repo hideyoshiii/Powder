@@ -2160,6 +2160,91 @@ dl.search1 dd span:hover{
   width: 100%;
   }
 
+.box90 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(distance02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:-50px;
+  box-sizing: border-box;
+}
+
+.box90 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
+
+.box89 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(city02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:0px;
+  box-sizing: border-box;
+}
+
+.box89 h1 {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
 
 
 
@@ -5585,6 +5670,60 @@ input[type="range"].search-detail:active::-webkit-slider-thumb:before {
 	background-color: #666;
 }
 input[type="range"].search-detail:focus {
+	outline:none;
+}
+
+//スライダー数値入力(サーチB)
+input[type="range"].search-detail-b {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #FAFAFA;
+	border:0;
+	height:5px;
+	margin:5px 0;
+	border-radius:10px;
+	box-shadow:1px 1px 0px #666 inset;
+}
+input[type="range"].search-detail-b::-webkit-slider-thumb{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background-color: #CCCCCC;
+	text-align:center;
+	width: 30px;
+	height: 30px;
+	border:1px solid transparent;
+	border-radius:30px;
+	cursor:pointer;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+input[type="range"].search-detail-b::-webkit-slider-thumb:before {
+	content:"";
+	display:inline-block;
+	background-color: #FAFAFA;
+	width: 10px;
+	height: 10px;
+	border:1px solid transparent;
+	border-radius:10px;
+	margin:4px auto 0;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+}
+input[type="range"].search-detail-b::-webkit-slider-thumb:hover {
+	background-color: #FAFAFA;
+}
+
+input[type="range"].search-detail-b:active::-webkit-slider-thumb {
+	background-color: #FAFAFA;
+}
+input[type="range"].search-detail-b:active::-webkit-slider-thumb:before {
+	background-color: #FAFAFA;
+}
+input[type="range"].search-detail-b:focus {
 	outline:none;
 }
 

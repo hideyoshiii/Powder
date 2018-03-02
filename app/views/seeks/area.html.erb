@@ -16,6 +16,7 @@
 	<% end %>
 
 
+  <% if @spot_n == 1 %>
   <div class="box98" id=''>
   	<div>
   		<h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">まずはエリアを決めましょう。</h4>
@@ -57,6 +58,93 @@
   	</div>
   	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
   </div>
+  <% end %>
+
+  <% if @spot_n == 2 || @spot_n == 3 %>
+  <div class="box90" id=''>
+	<% if @spot_n == 2 %>
+		<div>
+	      <h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">次に２軒目を決めましょう</h4>
+	    </div>	
+	    <br>
+	    <div>
+	      <h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">２軒目のエリアはどうしますか？</h4>
+	    </div>	
+    <% end %>  
+    <% if @spot_n == 3 %>
+	    <div>
+	      <h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">次に３軒目を決めましょう</h4>
+	    </div>	
+	    <br>
+	    <div>
+	      <h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">３軒目のエリアはどうしますか？</h4>
+	    </div>	
+    <% end %>  
+    <br>
+    <div>
+	    <span class="radio-city">	
+		 	<%= radio_button_tag(:distance_on, "true", true, {:id => "on"}) %>
+			<%= label_tag('on', "距離を指定する") %>
+		</span>
+		&nbsp;
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:distance_on, "false", false, {:id => "off", :onclick => "$('html,body').animate({scrollTop: $( '#section1' ).get( 0 ).offsetTop}, 700, 'swing');"}) %>
+			<%= label_tag('off', "エリアを指定する") %>
+		</span>   
+	</div>  
+    <br><br>
+	  <div style="width:80%">
+	    <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail-b"
+	      oninput="document.getElementById('output2').value=this.value">
+	      <div class="pull-right">
+	      <span class="rage-output">~</span><output id="output2" class="rage-output"><%= params[:distance].to_i %></output><span class="rage-output">m</span>
+	    </div>
+	  </div>
+	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
+  </div>
+
+  <div class="box89" id='section1'>
+  	<div>
+  		<h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">まずはエリアを決めましょう。</h4>
+  	</div>
+  	<br>
+  	<div>
+  		<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">どこでデートをしますか？</h4>
+  	</div>
+  	<br>
+  	<div class="box-city">
+  		<span class="radio-city"> 
+          <%= radio_button_tag(:city, "すべてのエリア", true, {:id => "all"}) %>
+          <%= label_tag('all', "すべてのエリア") %>
+        </span>
+  		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "恵比寿・代官山・中目黒", false, {:id => "ebisu"}) %>
+			<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "原宿・表参道・青山", false, {:id => "harajuku"}) %>
+			<%= label_tag('harajuku', "原宿・表参道・青山") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "渋谷", false, {:id => "shibuya"}) %>
+			<%= label_tag('shibuya', "渋谷") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "東京・丸の内・日本橋", false, {:id => "tokyo"}) %>
+			<%= label_tag('tokyo', "東京・丸の内・日本橋") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "新宿", false, {:id => "shinjuku"}) %>
+			<%= label_tag('shinjuku', "新宿") %>
+		</span>
+		<span class="radio-city">	
+		 	<%= radio_button_tag(:city, "六本木・麻布・赤坂", false, {:id => "roppongi"}) %>
+			<%= label_tag('roppongi', "六本木・麻布・赤坂") %>
+		</span>
+  	</div>
+  	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
+  </div>
+  <% end %>
 
 <% end %>
 

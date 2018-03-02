@@ -432,6 +432,18 @@ class SeeksController < ApplicationController
       end
     end
 
+    @distance_on_on = false
+    @distance_on_off = false
+    if !params[:distance_on].blank?
+    	if params[:distance_on] == "true"
+	    	@distance_on_on = true
+	    end
+	    if params[:distance_on] == "false"
+	    	@distance_on_off = true
+	    end
+    end
+
+
     @wday = Date.today.wday
 
   end
