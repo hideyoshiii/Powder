@@ -47,7 +47,7 @@
 
 	    <% unless @lunch_n.to_i == 0 %>
 	    <div class="grid-item">
-	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	    	<%= form_tag(seeks_meal_path, method: :get) do %>
 		    	<%= hidden_field_tag :large, "ランチ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -76,11 +76,11 @@
 
 	    <% unless @dinner_n.to_i == 0 %>
 	    <div class="grid-item">
-	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	    	<%= form_tag(seeks_meal_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "ディナー" %>
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , params[:price_min] %>
-	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          <%= hidden_field_tag :price_max , params[:price_max] %>
           	  <%= hidden_field_tag :distance_on, params[:distance_on] %>
           	  <%= hidden_field_tag :distance, params[:distance] %>
           	  <%= hidden_field_tag :timezone, params[:timezone] %>
@@ -1043,30 +1043,6 @@
      masonryBuild();
   });
 </script>
-
-<script>
-$("#slider").noUiSlider({
-  start: [<%= params[:price_min].to_i %>, <%= params[:price_max].to_i %>],
-  step: 500,
-  connect: true,
-  format: wNumb({
-    decimals: 0
-  }),
-  range: {
-    'min': 0,
-    'max': 20000
-  }
-});
-$('#slider').Link('lower').to($('#value-lower'), 'html');
-$('#slider').Link('upper').to($('#value-upper'), 'html');
-
-$("#slider").on('slide', function(event, values) {
-    $("input.min").val(values[0]);
-    $("input.max").val(values[1]);
-  });
-</script>
-
-
 
 </mains>
 

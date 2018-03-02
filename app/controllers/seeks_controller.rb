@@ -1,5 +1,5 @@
 class SeeksController < ApplicationController
-  before_action :set_params, only: [:category,:term,:choice]
+  before_action :set_params, only: [:area,:category,:term,:meal,:choice]
 
   def home
   end
@@ -14,29 +14,10 @@ class SeeksController < ApplicationController
   	#@spotsを定義
   	@spots = Spot.all
   	#時間帯で絞る
-  	if params[:timezone].blank?
-  		params[:timezone] = "すべての時間帯"
-	  	@all_timezone = true
-  		@spots = @spots.all
+  	if params[:timezone] == "すべての時間帯"
   	else
-  		if params[:timezone] == "すべての時間帯"
-	  	else
-	  		@timezone = params[:timezone]
-	  		@spots = @spots.where("timezone like '%#{@timezone}%'")
-	  	end
-  	end
-  	#params[:city]がない場合の定義
-  	if params[:city].blank?
-  		if @spot_n == 1
-	  		params[:city] = "すべてのエリア"
-	  		@all = true
-	  	end
-	  	if @spot_n == 2
-	  		params[:city] = @spot1.city
-	  	end
-	  	if @spot_n == 3
-	  		params[:city] = @spot2.city
-	  	end
+  		@timezone = params[:timezone]
+  		@spots = @spots.where("timezone like '%#{@timezone}%'")
   	end
   	#距離で絞るorエリアで絞る
   	if params[:distance_on] == "true"
@@ -56,25 +37,12 @@ class SeeksController < ApplicationController
 	  		@spots = @spots.where(city: params[:city])
 	  	end
 	end
-	#params[price_min]がない時のの定義
-	if params[:price_min].blank?
-  		params[:price_min] = 0
-  	end
-  	#params[price_max]がない時のの定義
-	if params[:price_max].blank?
-  		params[:price_max] = 20000
-  	end
   	#朝食,ランチ,ディナー用に予算で絞る
     @price_start = params[:price_min].to_i
     @price_end = params[:price_max].to_i    
     @breakfast = @spots.where(price_lunch: @price_start..@price_end)    
     @lunch = @spots.where(price_lunch: @price_start..@price_end) 
     @dinner = @spots.where(price_dinner: @price_start..@price_end)
-    #params[price_max]がない時のの定義
-    if params[:small].blank?
-      params[:small] = "すべてのジャンル"
-      @all_genre = true
-    end
     #朝食,ランチ,ディナー用にジャンルで絞る
     if params[:small] == "すべてのジャンル"
     else
@@ -130,30 +98,6 @@ class SeeksController < ApplicationController
     @walk_eat_n = @walk_eat.size
     @park_n = @park.size
     @other_n = @other.size
-    #cheched判別のための定義
-  	if !params[:city].blank?
-      if params[:city] == "すべてのエリア"
-        @all = true
-      end
-      if params[:city] == "恵比寿・代官山・中目黒"
-        @ebisu = true
-      end
-      if params[:city] == "渋谷"
-        @shibuya = true
-      end
-      if params[:city] == "原宿・表参道・青山"
-        @harajuku = true
-      end
-      if params[:city] == "新宿"
-        @shinjuku = true
-      end
-      if params[:city] == "東京・丸の内・日本橋"
-        @tokyo = true
-      end
-      if params[:city] == "六本木・麻布・赤坂"
-        @roppongi = true
-      end
-    end
 
   end
 
@@ -170,16 +114,10 @@ class SeeksController < ApplicationController
   	@large = params[:large]
   	@spots = @spots.where("large like '%#{@large}%'")
   	#時間帯で絞る
-  	if params[:timezone].blank?
-  		params[:timezone] = "すべての時間帯"
-	  	@all_timezone = true
-  		@spots = @spots.all
+	if params[:timezone] == "すべての時間帯"
   	else
-  		if params[:timezone] == "すべての時間帯"
-	  	else
-	  		@timezone = params[:timezone]
-	  		@spots = @spots.where("timezone like '%#{@timezone}%'")
-	  	end
+  		@timezone = params[:timezone]
+  		@spots = @spots.where("timezone like '%#{@timezone}%'")
   	end
   	#距離で絞るorエリアで絞る
   	if params[:distance_on] == "true"
@@ -198,14 +136,6 @@ class SeeksController < ApplicationController
 	  		@spots = @spots.where(city: params[:city])
 	  	end
 	end
-	#params[price_min]がない時のの定義
-	if params[:price_min].blank?
-  		params[:price_min] = 0
-  	end
-  	#params[price_max]がない時のの定義
-	if params[:price_max].blank?
-  		params[:price_max] = 20000
-  	end
   	#予算で絞る
     @price_start = params[:price_min].to_i
     @price_end = params[:price_max].to_i
@@ -219,16 +149,11 @@ class SeeksController < ApplicationController
     	@spots = @spots.where(price_dinner: @price_start..@price_end)
     end
     #ジャンルで絞る
-    if params[:small].blank?
-      params[:small] = "すべてのジャンル"
-      @all_genre = true
-    else
-      if params[:small] == "すべてのジャンル"
-      else
-        @small = params[:small]
-        @spots = @spots.where("small like '%#{@small}%'")
-  	  end
-    end
+  	if params[:small] == "すべてのジャンル"
+  	else
+    	@small = params[:small]
+    	@spots = @spots.where("small like '%#{@small}%'")
+	end
     #ランダムにして２つ抽出
     @spots = @spots.order("RANDOM()").limit(2)
   end
@@ -280,6 +205,39 @@ class SeeksController < ApplicationController
   			end
   		end
   	end
+
+  	#時間帯で絞る
+  	if params[:timezone].blank?
+  		params[:timezone] = "すべての時間帯"
+  	end
+
+  	#params[:city]がない場合の定義
+  	if params[:city].blank?
+  		if @spot_n == 1
+	  		params[:city] = "すべてのエリア"
+	  		@all = true
+	  	end
+	  	if @spot_n == 2
+	  		params[:city] = @spot1.city
+	  	end
+	  	if @spot_n == 3
+	  		params[:city] = @spot2.city
+	  	end
+  	end
+
+  	#params[price_min]がない時のの定義
+	if params[:price_min].blank?
+  		params[:price_min] = 0
+  	end
+  	#params[price_max]がない時のの定義
+	if params[:price_max].blank?
+  		params[:price_max] = 20000
+  	end
+
+  	#params[price_max]がない時のの定義
+    if params[:small].blank?
+      params[:small] = "すべてのジャンル"
+    end
   
   	@all_genre = false
     @japanese = false

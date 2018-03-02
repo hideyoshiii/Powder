@@ -2,6 +2,18 @@
 <mains class="" id="main-collapse">
 
 <%= form_tag(seeks_category_path, method: :get) do %>
+	<%= hidden_field_tag :price_min , params[:price_min] %>
+	<%= hidden_field_tag :price_max , params[:price_max] %>
+	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	<%= hidden_field_tag :distance, params[:distance] %>
+	<%= hidden_field_tag :timezone, params[:timezone] %>
+	<%= hidden_field_tag :small, params[:small] %>
+	<% unless params[:spot1].blank? %>
+		<%= hidden_field_tag :spot1, params[:spot1] %>
+	<% end %>
+	<% unless params[:spot2].blank? %>
+		<%= hidden_field_tag :spot2, params[:spot2] %>
+	<% end %>
 
 
   <div class="box98" id=''>
