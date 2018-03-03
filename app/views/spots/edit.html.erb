@@ -1,6 +1,7 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
 
+<div class="visible-xs">
 <div class="container">
 	<div class="row">
 		<br>
@@ -427,9 +428,381 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 </div>
 
+<div class="hidden-xs">
+	<div class="container">
+		<div class="row">
+			<%= form_for @spot do |f| %>
+				<div class="col-md-4">
+					<div class="panel-body">
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>title</label>
+                                <%= f.text_field :title, placeholder: "スポットの名称", class: "form-control", required: "true" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>timezone</label>
+                                <br>   
+								    <% ["朝", "昼", "夜"].each do |timezone| %>
+								    <label>
+								      <%= f.check_box :timezone, { multiple: true},timezone,nil %>
+								      <%= timezone %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>大カテゴリー</label>
+                                <br>   
+								<% ["朝食","ランチ", "ディナー"].each do |large| %>
+							    <label>
+							      <%= f.check_box :large, { multiple: true},large,nil %>
+							      <%= large %>
+							    </label>
+							    <% end %>
+								<br>--------------<br>
+								<% ["カフェ", "アニマルカフェ", "スイーツ", "バー", "映画", "ショップ・雑貨屋", "スポーツ", "夜景", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "カラオケ", "ボーリング", "ダーツ", "食べ歩き", "公園", "その他"].each do |large| %>
+							    <label>
+							      <%= f.check_box :large, { multiple: true},large,nil %>
+							      <%= large %>
+							    </label>
+							    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>小カテゴリー</label>
+                                <br>   
+								    <% ["和食", "焼肉・ホルモン", "ステーキ・ハンバーグ", "鍋", "フレンチ", "イタリアン", "西洋各国料理", "中華料理", "アジア・エスニック", "その他"].each do |small| %>
+								    <label>
+								      <%= f.check_box :small, { multiple: true},small,nil %>
+								      <%= small %>
+								    </label>
+								    <% end %>	  
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-4 select">
+								<div class="form-group">
+                                <label>ランチ</label>
+                                ~<%= f.number_field :price_lunch, min:0, max:50000 %>円
+                            	</div>
+							</div>
+							<div class="col-md-4 select">
+								<div class="form-group">
+                                <label>ディナー</label>
+                                ~<%= f.number_field :price_dinner, min:0, max:50000 %>円
+                            	</div>
+							</div>
+							<div class="col-md-4 select">
+								<div class="form-group">
+                                <label>その他</label>
+                                ~<%= f.number_field :price_spot, min:0, max:50000 %>円
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>price</label>
+                                <%= f.text_area :price, rows: 2, placeholder: "料金について", class: "form-control" %>
+                            </div> 
+							</div>
+						</div>
+						<br>
+
+						<hr class="style1">
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>prefecture</label>
+									<%= f.select :prefecture, [["東京","東京"]], {prompt:"選択してください"}, {required: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+									<label>city</label>
+									<%= f.select :city, [["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"],["原宿・表参道・青山","原宿・表参道・青山"],["新宿","新宿"],["東京・丸の内・日本橋","東京・丸の内・日本橋"],["六本木・麻布・赤坂","六本木・麻布・赤坂"]], {prompt:"選択してください"}, {required: 'true', class: 'form-control'} %>
+								</div>
+							</div>
+						</div>
+						<br>	
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>station</label>
+                                <%= f.text_field :station, placeholder: "最寄駅", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel-body">
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>tabelog</label>
+                                <%= f.text_field :tabelog, placeholder: "食べログのURL", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>Retty</label>
+                                <%= f.text_field :retty, placeholder: "RettyのURL", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>instagram</label>
+                                <%= f.text_field :introduction, placeholder: "インスタグラムのURL", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>browser</label>
+                                <%= f.text_field :browser, placeholder: "公式サイトのURL", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>address</label>
+                                <%= f.text_field :address, placeholder: "住所", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>phone</label>
+                                <%= f.text_field :phone, placeholder: "電話番号(半角ハイフンなし)", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<hr class="style1">
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>月曜日</label>
+                                <%= f.text_field :monday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>火曜日</label>
+                                <%= f.text_field :tuesday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>水曜日</label>
+                                <%= f.text_field :wednesday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>木曜日</label>
+                                <%= f.text_field :thursday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>金曜日</label>
+                                <%= f.text_field :friday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>土曜日</label>
+                                <%= f.text_field :saturday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>日曜日</label>
+                                <%= f.text_field :sunday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>祝日</label>
+                                <%= f.text_field :holiday, placeholder: "8am~10:30pm", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="panel-body">
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>heading</label>
+                                <%= f.text_field :heading, placeholder: "見出し", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>description</label>
+                                <%= f.text_area :description, rows: 7, placeholder: "説明", class: "form-control" %>
+                            </div> 
+							</div>
+						</div>
+						<br>
+
+						<hr class="style1">
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>アクセス</label>
+                                <%= f.text_field :access, placeholder: "東急東横線代官山駅より徒歩3分", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>支払い方法</label>
+                                <%= f.text_field :payment, placeholder: "カード可  （VISA、MASTER、AMEX）", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>サービス料</label>
+                                <%= f.text_field :service, placeholder: "なし", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>チャージ</label>
+                                <%= f.text_field :charge, placeholder: "ディナータイムのみコペルト（パン代、席料）として、300円/人", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>禁煙・喫煙</label>
+                                <%= f.text_field :smoking, placeholder: "完全禁煙  同施設内に喫煙所あり。", class: "form-control" %>
+                            	</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="pull-left btn btn-default btn-sm">
+							<%= link_to("/spots/#{@spot.id}/destroy", {method: "post"}) do %>
+							<span style="color:red;">投稿を削除</span>
+							<% end %>
+						</div>
+						
+						<div class="actions">
+							<%= f.submit "保存", class: "btn btn-primary pull-right" %>
+						</div>	
+
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
 
  
 </main>
