@@ -4,6 +4,9 @@ class SeeksController < ApplicationController
   def home
   end
 
+  def distance
+  end
+
   def area
   end
 

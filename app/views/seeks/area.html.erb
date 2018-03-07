@@ -2,64 +2,162 @@
 <mains class="" id="main-collapse">
 
 <% if @spot_n == 1 %>
-<%= form_tag(seeks_category_path, method: :get) do %>
-	<%= hidden_field_tag :price_min , params[:price_min] %>
-	<%= hidden_field_tag :price_max , params[:price_max] %>
-	<%= hidden_field_tag :distance_on, params[:distance_on] %>
-	<%= hidden_field_tag :distance, params[:distance] %>
-	<%= hidden_field_tag :timezone, params[:timezone] %>
-	<%= hidden_field_tag :small, params[:small] %>
-	<% unless params[:spot1].blank? %>
-		<%= hidden_field_tag :spot1, params[:spot1] %>
-	<% end %>
-	<% unless params[:spot2].blank? %>
-		<%= hidden_field_tag :spot2, params[:spot2] %>
-	<% end %>
+
+<div class="panel-body">
+
+	<br>
+	<p class="text-center" style="color:black;">まずはエリアを決めましょう</p>
+	<h4 class="text-center">どこでデートしますか？</h4>
+	<br>
+
+	<%= form_tag(seeks_category_path, method: :get) do %>
+      	<%= hidden_field_tag :city, "恵比寿・代官山・中目黒" %>
+      	<%= hidden_field_tag :price_min , params[:price_min] %>
+      	<%= hidden_field_tag :price_max , params[:price_max] %>
+      	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+      	<%= hidden_field_tag :distance, params[:distance] %>
+      	<%= hidden_field_tag :timezone, params[:timezone] %>
+      	<%= hidden_field_tag :small, params[:small] %>
+      	<% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
+      	<%= button_tag :type => "submit", :class =>"button1" do %>
+	    	<div class="box-area-img">
+        		<%= image_tag "ebisu00.jpg", :class =>'img-area' %>
+        		<div class="text-area">
+        			恵比寿・代官山・中目黒
+        		</div>
+        	</div>
+    	<% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      	<%= hidden_field_tag :city, "渋谷" %>
+      	<%= hidden_field_tag :price_min , params[:price_min] %>
+      	<%= hidden_field_tag :price_max , params[:price_max] %>
+      	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+      	<%= hidden_field_tag :distance, params[:distance] %>
+      	<%= hidden_field_tag :timezone, params[:timezone] %>
+      	<%= hidden_field_tag :small, params[:small] %>
+      	<% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
+      	<%= button_tag :type => "submit", :class =>"button1" do %>
+	    	<div class="box-area-img">
+        		<%= image_tag "shibuya00.jpg", :class =>'img-area' %>
+        		<div class="text-area">
+        			渋谷
+        		</div>
+        	</div>
+    	<% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      	<%= hidden_field_tag :city, "原宿・表参道・青山" %>
+      	<%= hidden_field_tag :price_min , params[:price_min] %>
+      	<%= hidden_field_tag :price_max , params[:price_max] %>
+      	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+      	<%= hidden_field_tag :distance, params[:distance] %>
+      	<%= hidden_field_tag :timezone, params[:timezone] %>
+      	<%= hidden_field_tag :small, params[:small] %>
+      	<% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
+      	<%= button_tag :type => "submit", :class =>"button1" do %>
+	    	<div class="box-area-img">
+        		<%= image_tag "harajuku00.jpg", :class =>'img-area' %>
+        		<div class="text-area">
+        			原宿・表参道・青山
+        		</div>
+        	</div>
+    	<% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      	<%= hidden_field_tag :city, "東京・丸の内・日本橋" %>
+      	<%= hidden_field_tag :price_min , params[:price_min] %>
+      	<%= hidden_field_tag :price_max , params[:price_max] %>
+      	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+      	<%= hidden_field_tag :distance, params[:distance] %>
+      	<%= hidden_field_tag :timezone, params[:timezone] %>
+      	<%= hidden_field_tag :small, params[:small] %>
+      	<% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
+      	<%= button_tag :type => "submit", :class =>"button1" do %>
+	    	<div class="box-area-img">
+        		<%= image_tag "tokyo00.jpg", :class =>'img-area' %>
+        		<div class="text-area">
+        			東京・丸の内・日本橋
+        		</div>
+        	</div>
+    	<% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      	<%= hidden_field_tag :city, "新宿" %>
+      	<%= hidden_field_tag :price_min , params[:price_min] %>
+      	<%= hidden_field_tag :price_max , params[:price_max] %>
+      	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+      	<%= hidden_field_tag :distance, params[:distance] %>
+      	<%= hidden_field_tag :timezone, params[:timezone] %>
+      	<%= hidden_field_tag :small, params[:small] %>
+      	<% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
+      	<%= button_tag :type => "submit", :class =>"button1" do %>
+	    	<div class="box-area-img">
+        		<%= image_tag "shinnjuku00.jpg", :class =>'img-area' %>
+        		<div class="text-area">
+        			新宿
+        		</div>
+        	</div>
+    	<% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      	<%= hidden_field_tag :city, "六本木・麻布・赤坂" %>
+      	<%= hidden_field_tag :price_min , params[:price_min] %>
+      	<%= hidden_field_tag :price_max , params[:price_max] %>
+      	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+      	<%= hidden_field_tag :distance, params[:distance] %>
+      	<%= hidden_field_tag :timezone, params[:timezone] %>
+      	<%= hidden_field_tag :small, params[:small] %>
+      	<% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
+      	<%= button_tag :type => "submit", :class =>"button1" do %>
+	    	<div class="box-area-img">
+        		<%= image_tag "roppongi00.jpg", :class =>'img-area' %>
+        		<div class="text-area">
+        			六本木・麻布・赤坂
+        		</div>
+        	</div>
+    	<% end %>
+    <% end %>
 
 
-  <div class="box98" id=''>
-  	<div>
-  		<h4 class="box-top1" style="color:white;text-shadow: 1px 1px 2px black;">まずはエリアを決めましょう。</h4>
-  	</div>
-  	<br>
-  	<div>
-  		<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">どこでデートをしますか？</h4>
-  	</div>
-  	<br>
-  	<div class="box-city">
-  		<span class="radio-city"> 
-          <%= radio_button_tag(:city, "すべてのエリア", true, {:id => "all"}) %>
-          <%= label_tag('all', "すべてのエリア") %>
-        </span>
-  		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "恵比寿・代官山・中目黒", false, {:id => "ebisu"}) %>
-			<%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
-		</span>
-		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "原宿・表参道・青山", false, {:id => "harajuku"}) %>
-			<%= label_tag('harajuku', "原宿・表参道・青山") %>
-		</span>
-		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "渋谷", false, {:id => "shibuya"}) %>
-			<%= label_tag('shibuya', "渋谷") %>
-		</span>
-		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "東京・丸の内・日本橋", false, {:id => "tokyo"}) %>
-			<%= label_tag('tokyo', "東京・丸の内・日本橋") %>
-		</span>
-		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "新宿", false, {:id => "shinjuku"}) %>
-			<%= label_tag('shinjuku', "新宿") %>
-		</span>
-		<span class="radio-city">	
-		 	<%= radio_button_tag(:city, "六本木・麻布・赤坂", false, {:id => "roppongi"}) %>
-			<%= label_tag('roppongi', "六本木・麻布・赤坂") %>
-		</span>
-  	</div>
-  	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
-  </div>
+	
+</div>
 
-  <% end %>
 <% end %>
 
   <% if @spot_n == 2 || @spot_n == 3 %>

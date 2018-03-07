@@ -1,15 +1,18 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
+<div class="panel-body">
+
 	<br>
 	<% if @spot_n == 1 %>
-		<h4 class="text-center">まずはどこに行きますか？</h4>
+		<p class="text-center" style="color:black;">次に何をするか決めましょう</p>
+		<h4 class="text-center">何がしたいですか？</h4>
 	<% end %>
 	<% if @spot_n == 2 %>
-		<h4 class="text-center">２軒目はどこに行きますか？</h4>
+		<h4 class="text-center">次は何をしますか？</h4>
 	<% end %>
 	<% if @spot_n == 3 %>
-		<h4 class="text-center">３軒目はどこに行きますか？</h4>
+		<h4 class="text-center">次は何をしますか？</h4>
 	<% end %>
 	<br>
 
@@ -36,8 +39,6 @@
   			<% end %>
   		<% end %>
   	<% end %>
-
-<div class="panel-body">
 
 	<div class="hero-full-wrapper">
 	  <div class="grid">
