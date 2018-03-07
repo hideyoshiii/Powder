@@ -96,12 +96,16 @@
             </p> 
             <%# 料金 %>
             <p style="color: #666666;margin:5px 0px;font-size:12px">
-              <% unless @spot1.price_lunch.blank?  && @spot1.price_lunch != 0 %>
-              <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot1.price_lunch %>円&nbsp;&nbsp;&nbsp;
-            <% end %>
-            <% unless @spot1.price_dinner.blank?  && @spot1.dinner_lunch != 0 %>
-              <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot1.price_dinner %>円
-            <% end %>
+              <% unless @spot1.price_lunch.blank? %>
+                <% unless @spot1.price_lunch == 0 %>
+                  <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot1.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                <% end %>
+              <% end %>
+              <% unless @spot1.price_dinner.blank? %>
+                <% unless @spot1.price_lunch == 0 %>
+                  <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot1.price_dinner %>円
+                <% end %>
+              <% end %>
             </p> 
             <%# カテゴリー %>
             <% unless @spot1.large.blank? %>
@@ -337,11 +341,15 @@
                 </p> 
                 <%# 料金 %>
                 <p style="color: #666666;margin:5px 0px;font-size:12px">
-                  <% unless @spot1.price_lunch.blank?  && @spot1.price_lunch != 0 %>
-                    <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot1.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                  <% unless @spot1.price_lunch.blank? %>
+                    <% unless @spot1.price_lunch == 0 %>
+                      <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot1.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                    <% end %>
                   <% end %>
-                  <% unless @spot1.price_dinner.blank?  && @spot1.dinner_lunch != 0 %>
-                    <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot1.price_dinner %>円
+                  <% unless @spot1.price_dinner.blank? %>
+                    <% unless @spot1.price_lunch == 0 %>
+                      <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot1.price_dinner %>円
+                    <% end %>
                   <% end %>
                 </p> 
                 <%# カテゴリー %>
@@ -500,11 +508,15 @@
                 </p> 
                 <%# 料金 %>
                 <p style="color: #666666;margin:5px 0px;font-size:12px">
-                  <% unless @spot2.price_lunch.blank?  && @spot2.price_lunch != 0 %>
-                    <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot2.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                  <% unless @spot2.price_lunch.blank? %>
+                    <% unless @spot2.price_lunch == 0 %>
+                      <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot2.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                    <% end %>
                   <% end %>
-                  <% unless @spot2.price_dinner.blank?  && @spot2.dinner_lunch != 0 %>
-                    <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot2.price_dinner %>円
+                  <% unless @spot2.price_dinner.blank? %>
+                    <% unless @spot2.price_lunch == 0 %>
+                      <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot2.price_dinner %>円
+                    <% end %>
                   <% end %>
                 </p> 
                 <%# カテゴリー %>
@@ -743,11 +755,15 @@
                   </p> 
                   <%# 料金 %>
                   <p style="color: #666666;margin:5px 0px;font-size:12px">
-                    <% unless @spot1.price_lunch.blank?  && @spot1.price_lunch != 0 %>
-                      <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot1.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                    <% unless @spot1.price_lunch.blank? %>
+                      <% unless @spot1.price_lunch == 0 %>
+                        <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot1.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                      <% end %>
                     <% end %>
-                    <% unless @spot1.price_dinner.blank?  && @spot1.dinner_lunch != 0 %>
-                      <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot1.price_dinner %>円
+                    <% unless @spot1.price_dinner.blank? %>
+                      <% unless @spot1.price_lunch == 0 %>
+                        <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot1.price_dinner %>円
+                      <% end %>
                     <% end %>
                   </p> 
                   <%# カテゴリー %>
@@ -906,11 +922,15 @@
                   </p> 
                   <%# 料金 %>
                   <p style="color: #666666;margin:5px 0px;font-size:12px">
-                    <% unless @spot2.price_lunch.blank?  && @spot2.price_lunch != 0 %>
-                      <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot2.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                    <% unless @spot2.price_lunch.blank? %>
+                      <% unless @spot2.price_lunch == 0 %>
+                        <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot2.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                      <% end %>
                     <% end %>
-                    <% unless @spot2.price_dinner.blank?  && @spot2.dinner_lunch != 0 %>
-                      <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot2.price_dinner %>円
+                    <% unless @spot2.price_dinner.blank? %>
+                      <% unless @spot2.price_lunch == 0 %>
+                        <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot2.price_dinner %>円
+                      <% end %>
                     <% end %>
                   </p> 
                   <%# カテゴリー %>
@@ -1069,11 +1089,15 @@
                   </p> 
                   <%# 料金 %>
                   <p style="color: #666666;margin:5px 0px;font-size:12px">
-                    <% unless @spot3.price_lunch.blank?  && @spot3.price_lunch != 0 %>
-                      <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot3.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                    <% unless @spot3.price_lunch.blank? %>
+                      <% unless @spot3.price_lunch == 0 %>
+                        <i class="fa fa-sun-o"></i>&nbsp;~<%= @spot3.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                      <% end %>
                     <% end %>
-                    <% unless @spot3.price_dinner.blank?  && @spot3.dinner_lunch != 0 %>
-                      <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot3.price_dinner %>円
+                    <% unless @spot3.price_dinner.blank? %>
+                      <% unless @spot3.price_lunch == 0 %>
+                        <i class="fa fa-moon-o"></i>&nbsp;~<%= @spot3.price_dinner %>円
+                      <% end %>
                     <% end %>
                   </p> 
                   <%# カテゴリー %>
