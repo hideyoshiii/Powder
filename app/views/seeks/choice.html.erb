@@ -28,7 +28,7 @@
     </h4> 
     
     <% if @spot_n == 1 || @spot_n == 2 %>
-    <%= form_tag(seeks_area_path, method: :get) do %>
+    <%= form_tag(seeks_distance_path, method: :get) do %>
     <% if @spot_n == 1 %>
     	<%= hidden_field_tag :distance, 500 %>
     <% end %>

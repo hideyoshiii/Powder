@@ -1,1 +1,93 @@
-distance.html.erb
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+
+<% if @spot_n == 2 || @spot_n == 3 %>
+  <div class="box90" id=''>
+	<% if @spot_n == 2 %>
+		<div>
+			<p style="color:white;text-shadow: 1px 1px 2px black;">次に２軒目を決めましょう</p>			
+	    </div>
+	    <%= form_tag(seeks_result_path, method: :get) do %>
+			<%= hidden_field_tag :spot1, params[:spot1] %>
+		    <div style="margin-top:-10px;">
+		    	<%= submit_tag "ここまでにする", :class => "btn-stop" %>
+		    </div>	
+	    <% end %>
+	    <div>
+	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">２軒目までの距離はどうしますか？</h4>
+	    </div>	
+    <% end %>  
+    <% if @spot_n == 3 %>
+	    <div>
+	        <h4 style="color:white;text-shadow: 1px 1px 2px black;">次に３軒目を決めましょう</h4>
+	    </div>	
+	    <%= form_tag(seeks_result_path, method: :get) do %>
+			<%= hidden_field_tag :spot1, params[:spot1] %>
+			<%= hidden_field_tag :spot2, params[:spot2] %>
+			<div style="margin-top:-10px;">
+	    		<%= submit_tag "ここまでにする", :class => "btn-stop" %>
+	    	</div>
+	    <% end %>
+	    <div>
+	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">３軒目までの距離はどうしますか？</h4>
+	    </div>	
+    <% end %>  
+
+    <div>
+    <%= form_tag(seeks_category_path, method: :get) do %>
+	<%= hidden_field_tag :price_min , params[:price_min] %>
+	<%= hidden_field_tag :price_max , params[:price_max] %>
+	<%= hidden_field_tag :distance_on, "true" %>
+	<%= hidden_field_tag :distance, params[:distance] %>
+	<%= hidden_field_tag :timezone, params[:timezone] %>
+	<%= hidden_field_tag :small, params[:small] %>
+	<% unless params[:spot1].blank? %>
+		<%= hidden_field_tag :spot1, params[:spot1] %>
+	<% end %>
+	<% unless params[:spot2].blank? %>
+		<%= hidden_field_tag :spot2, params[:spot2] %>
+	<% end %>
+	</div>
+
+    <br><br><br>
+	  <div style="width:80%">
+	    <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail-b"
+	      oninput="document.getElementById('output2').value=this.value">
+	      <div class="pull-right">
+	      <span class="rage-output">~</span><output id="output2" class="rage-output"><%= params[:distance].to_i %></output><span class="rage-output">m</span>
+	    </div>
+	  </div>
+	 <br><br>
+	<div>
+	<%= submit_tag "次へ進む", :class => "btn btn-default" %>
+	</div>
+	<% end %>
+
+	<div style="margin-top:5px;">
+		<%= form_tag(seeks_area_path, method: :get) do %>
+      	<%= hidden_field_tag :price_min , params[:price_min] %>
+      	<%= hidden_field_tag :price_max , params[:price_max] %>
+      	<%= hidden_field_tag :distance_on, "false" %>
+      	<%= hidden_field_tag :distance, params[:distance] %>
+      	<%= hidden_field_tag :timezone, params[:timezone] %>
+      	<%= hidden_field_tag :small, params[:small] %>
+      	<% unless params[:spot1].blank? %>
+      		<%= hidden_field_tag :spot1, params[:spot1] %>
+      	<% end %>
+	  	<% unless params[:spot2].blank? %>
+      		<%= hidden_field_tag :spot2, params[:spot2] %>
+      	<% end %>
+      	<%= submit_tag "エリアを指定する", :class => "btn-stop" %>
+    	<% end %>
+	</div>
+
+  </div>
+
+<% end %>
+
+
+
+
+</mains>
+

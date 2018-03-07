@@ -1,5 +1,5 @@
 class SeeksController < ApplicationController
-  before_action :set_params, only: [:area,:category,:term,:meal,:choice]
+  before_action :set_params, only: [:area,:distance,:category,:term,:meal,:choice]
 
   def home
   end

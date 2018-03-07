@@ -9,12 +9,13 @@
 		<h4 class="text-center">何がしたいですか？</h4>
 	<% end %>
 	<% if @spot_n == 2 %>
-		<h4 class="text-center">次は何をしますか？</h4>
+		<p class="text-center" style="color:black;">次に何をするか決めましょう</p>
+		<h4 class="text-center">何がしたいですか？</h4>
 	<% end %>
 	<% if @spot_n == 3 %>
-		<h4 class="text-center">次は何をしますか？</h4>
+		<p class="text-center" style="color:black;">次に何をするか決めましょう</p>
+		<h4 class="text-center">何がしたいですか？</h4>
 	<% end %>
-	<br>
 
   	<% if params[:spot1].blank? %>
   	<% else %>
@@ -39,6 +40,8 @@
   			<% end %>
   		<% end %>
   	<% end %>
+
+  	<br>
 
 	<div class="hero-full-wrapper">
 	  <div class="grid">
