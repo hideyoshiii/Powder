@@ -19,6 +19,7 @@
 	<% end %>
 	<br>
 
+	<div>
 	<%= form_tag(seeks_category_path, method: :get) do %>
       	<%= hidden_field_tag :city, "恵比寿・代官山・中目黒" %>
       	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -42,7 +43,9 @@
         	</div>
     	<% end %>
     <% end %>
+    </div>
 
+    <div>
     <%= form_tag(seeks_category_path, method: :get) do %>
       	<%= hidden_field_tag :city, "渋谷" %>
       	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -66,7 +69,9 @@
         	</div>
     	<% end %>
     <% end %>
+    </div>
 
+    <div>
     <%= form_tag(seeks_category_path, method: :get) do %>
       	<%= hidden_field_tag :city, "原宿・表参道・青山" %>
       	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -90,7 +95,9 @@
         	</div>
     	<% end %>
     <% end %>
+    </div>
 
+    <div>
     <%= form_tag(seeks_category_path, method: :get) do %>
       	<%= hidden_field_tag :city, "東京・丸の内・日本橋" %>
       	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -114,7 +121,9 @@
         	</div>
     	<% end %>
     <% end %>
+    </div>
 
+    <div>
     <%= form_tag(seeks_category_path, method: :get) do %>
       	<%= hidden_field_tag :city, "新宿" %>
       	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -138,7 +147,9 @@
         	</div>
     	<% end %>
     <% end %>
+    </div>
 
+    <div>
     <%= form_tag(seeks_category_path, method: :get) do %>
       	<%= hidden_field_tag :city, "六本木・麻布・赤坂" %>
       	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -162,6 +173,7 @@
         	</div>
     	<% end %>
     <% end %>
+    </div>
 
 </div>
 

@@ -19,10 +19,12 @@
 
   <div class="box97" id='section1'>
   	<% if params[:large] == "ランチ" %>
-	  	<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">ランチの予算はいくらにしますか？</h4>
+  		<p style="color:white;text-shadow: 1px 1px 2px black;">ランチの詳細条件を決めましょう</p>		
+	  	<h4 style="color:white;text-shadow: 1px 1px 2px black;">ランチの予算はいくらにしますか？</h4>
 	<% end %>
 	<% if params[:large] == "ディナー" %>
-	  	<h4 class="box-top" style="color:white;text-shadow: 1px 1px 2px black;">ディナーの予算はいくらにしますか？</h4>
+		<p style="color:white;text-shadow: 1px 1px 2px black;">ディナーの詳細条件を決めましょう</p>	
+	  	<h4 style="color:white;text-shadow: 1px 1px 2px black;">ディナーの予算はいくらにしますか？</h4>
 	<% end %>
 	<br>
 	<div style="width:80%;">
@@ -39,7 +41,7 @@
 	</div>
 	<%= hidden_field_tag :price_min , 0, :class =>"min" %>
 	<%= hidden_field_tag :price_max , 20000, :class =>"max" %>
-	<br><br>
+	<br><br><br>
 	<h1><%= submit_tag "次へ進む", :class => "btn btn-default" %></h1>
   </div>
 

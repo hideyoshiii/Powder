@@ -6242,7 +6242,7 @@ square_btnn{
   overflow:hidden;
   text-align:center;
   border-radius: 5px;
-  margin-bottom:5px;
+  margin-bottom:10px;
 }
 
 .box-area-img:before {
@@ -6259,7 +6259,7 @@ square_btnn{
   width:100%;
   height:auto;
   display: inline-block; 
-  margin-top:-5%;
+  
 }
 
 .text-area{
@@ -6369,6 +6369,7 @@ button.button-b {
     border:0;
     margin:0;
     padding:0;
+    text-shadow: 1px 1px 2px black;
 }
 
 

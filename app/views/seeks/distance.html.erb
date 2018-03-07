@@ -11,8 +11,9 @@
 	    <%= form_tag(seeks_result_path, method: :get) do %>
 			<%= hidden_field_tag :spot1, params[:spot1] %>
 		    <div style="margin-top:-10px;">
-		    	<%= submit_tag "ここまでにする", :class => "btn-stop" %>
+		    	<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
 		    </div>	
+		    <br>
 	    <% end %>
 	    <div>
 	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">２軒目までの距離はどうしますか？</h4>
@@ -26,8 +27,9 @@
 			<%= hidden_field_tag :spot1, params[:spot1] %>
 			<%= hidden_field_tag :spot2, params[:spot2] %>
 			<div style="margin-top:-10px;">
-	    		<%= submit_tag "ここまでにする", :class => "btn-stop" %>
+	    		<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
 	    	</div>
+	    	<br>
 	    <% end %>
 	    <div>
 	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">３軒目までの距離はどうしますか？</h4>
