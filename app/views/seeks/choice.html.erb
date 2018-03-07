@@ -134,7 +134,7 @@
               <% unless spot.price_lunch.blank?  && spot.price_lunch != 0 %>
                 <i class="fa fa-sun-o"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
               <% end %>
-              <% unless spot1.price_dinner.blank?  && spot.dinner_lunch != 0 %>
+              <% unless spot.price_dinner.blank?  && spot.dinner_lunch != 0 %>
                 <i class="fa fa-moon-o"></i>&nbsp;~<%= spot.price_dinner %>円
               <% end %>
             </p> 
