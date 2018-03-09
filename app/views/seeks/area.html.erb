@@ -1,20 +1,20 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
 
-	<br>
-	<% if @spot_n == 1 %>
-		<p class="text-center" style="color:black;">まずはエリアを決めましょう</p>
-		<h4 class="text-center">どこでデートしますか？</h4>
-	<% end %>
-	<% if @spot_n == 2 %>
-		<p class="text-center" style="color:black;">２軒目のエリアを決めましょう</p>
-		<h4 class="text-center">２軒目のエリアはどこにしますか？</h4>
-	<% end %>
-	<% if @spot_n == 3 %>
-		<p class="text-center" style="color:black;">３目のエリアを決めましょう</p>
-		<h4 class="text-center">３軒目のエリアはどこにしますか？</h4>
-	<% end %>
-	<br>
+  	<br>
+  	<% if @spot_n == 1 %>
+  		<p class="text-center" style="color:black;">まずはエリアを決めましょう</p>
+  		<h4 class="text-center">どこでデートしますか？</h4>
+  	<% end %>
+  	<% if @spot_n == 2 %>
+  		<p class="text-center" style="color:black;">２軒目のエリアを決めましょう</p>
+  		<h4 class="text-center">２軒目のエリアはどこにしますか？</h4>
+  	<% end %>
+  	<% if @spot_n == 3 %>
+  		<p class="text-center" style="color:black;">３目のエリアを決めましょう</p>
+  		<h4 class="text-center">３軒目のエリアはどこにしますか？</h4>
+  	<% end %>
+  	<br>
 
 	  <%= form_tag(seeks_category_path, method: :get) do %>
     	<%= hidden_field_tag :city, "恵比寿・代官山・中目黒" %>
@@ -151,7 +151,6 @@
   	  <% unless params[:spot2].blank? %>
     		<%= hidden_field_tag :spot2, params[:spot2] %>
     	<% end %>
-    	<div>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
     	  <div class="box-area-img">
       		<%= image_tag "roppongi00.jpg", :class =>'img-area' %>
