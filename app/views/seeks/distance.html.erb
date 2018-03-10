@@ -8,29 +8,14 @@
 		<div>
 			<p style="color:white;text-shadow: 1px 1px 2px black;">次に２軒目を決めましょう</p>			
 	    </div>
-	    <%= form_tag(seeks_result_path, method: :get) do %>
-			<%= hidden_field_tag :spot1, params[:spot1] %>
-		    <div>
-		    	<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
-		    </div>	
-		    <br>
-	    <% end %>
 	    <div>
 	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">２軒目までの距離はどうしますか？</h4>
 	    </div>	
     <% end %>  
     <% if @spot_n == 3 %>
 	    <div>
-	        <h4 style="color:white;text-shadow: 1px 1px 2px black;">次に３軒目を決めましょう</h4>
+	        <p style="color:white;text-shadow: 1px 1px 2px black;">次に３軒目を決めましょう</p>
 	    </div>	
-	    <%= form_tag(seeks_result_path, method: :get) do %>
-			<%= hidden_field_tag :spot1, params[:spot1] %>
-			<%= hidden_field_tag :spot2, params[:spot2] %>
-			<div>
-	    		<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
-	    	</div>
-	    	<br>
-	    <% end %>
 	    <div>
 	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">３軒目までの距離はどうしますか？</h4>
 	    </div>	
@@ -67,21 +52,39 @@
 	<% end %>
 
 	<div style="margin-top:5px;">
-		<%= form_tag(seeks_area_path, method: :get) do %>
-      	<%= hidden_field_tag :price_min , params[:price_min] %>
-      	<%= hidden_field_tag :price_max , params[:price_max] %>
-      	<%= hidden_field_tag :distance_on, "false" %>
-      	<%= hidden_field_tag :distance, params[:distance] %>
-      	<%= hidden_field_tag :timezone, params[:timezone] %>
-      	<%= hidden_field_tag :small, params[:small] %>
-      	<% unless params[:spot1].blank? %>
-      		<%= hidden_field_tag :spot1, params[:spot1] %>
-      	<% end %>
-	  	<% unless params[:spot2].blank? %>
-      		<%= hidden_field_tag :spot2, params[:spot2] %>
-      	<% end %>
-      	<%= submit_tag "エリアを指定する", :class => "btn-stop" %>
-    	<% end %>
+
+		<div style="display:inline-block;">
+			<%= form_tag(seeks_area_path, method: :get) do %>
+	      	<%= hidden_field_tag :price_min , params[:price_min] %>
+	      	<%= hidden_field_tag :price_max , params[:price_max] %>
+	      	<%= hidden_field_tag :distance_on, "false" %>
+	      	<%= hidden_field_tag :distance, params[:distance] %>
+	      	<%= hidden_field_tag :timezone, params[:timezone] %>
+	      	<%= hidden_field_tag :small, params[:small] %>
+	      	<% unless params[:spot1].blank? %>
+	      		<%= hidden_field_tag :spot1, params[:spot1] %>
+	      	<% end %>
+		  	<% unless params[:spot2].blank? %>
+	      		<%= hidden_field_tag :spot2, params[:spot2] %>
+	      	<% end %>
+	      	<%= submit_tag "エリアを指定する", :class => "btn-stop" %>
+	    	<% end %>
+    	</div>
+
+    	<span style="color:white;">/</span>
+
+    	<div style="display:inline-block;">
+    	<% if @spot_n == 2 || @spot_n == 3 %>
+		    <%= form_tag(seeks_result_path, method: :get) do %>
+				<%= hidden_field_tag :spot1, params[:spot1] %>
+				<% if @spot_n == 3 %>
+					<%= hidden_field_tag :spot2, params[:spot2] %>
+				<% end %>
+			    <%= submit_tag "ここまでにする", :class => "btn-stop" %>
+		    <% end %>
+	    <% end %>  
+	    </div>
+
 	</div>
 
   </div>
