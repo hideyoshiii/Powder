@@ -16,6 +16,14 @@ class SeeksController < ApplicationController
   def category
   	#@spotsを定義
   	@spots = Spot.all
+  	#同じスポットが含まれないように
+  	if @spot_n == 2
+  		@spots = @spots.where.not(title: @spot1.title)
+  	end
+  	if @spot_n == 3
+  		@spots = @spots.where.not(title: @spot1.title)
+  		@spots = @spots.where.not(title: @spot2.title)
+  	end
   	#時間帯で絞る
   	if params[:timezone] == "すべての時間帯"
   	else
@@ -111,6 +119,14 @@ class SeeksController < ApplicationController
   def choice
   	#@spotsを定義
   	@spots = Spot.all
+  	#同じスポットが含まれないように
+  	if @spot_n == 2
+  		@spots = @spots.where.not(title: @spot1.title)
+  	end
+  	if @spot_n == 3
+  		@spots = @spots.where.not(title: @spot1.title)
+  		@spots = @spots.where.not(title: @spot2.title)
+  	end
   	#選択でのchecked判別のための@nを定義
   	@n = 0
   	#カテゴリーで絞る
@@ -149,6 +165,9 @@ class SeeksController < ApplicationController
     	@spots = @spots.where(price_lunch: @price_start..@price_end)
     end
     if @large == "ディナー"
+    	@spots = @spots.where(price_dinner: @price_start..@price_end)
+    end
+    if @large == "バー"
     	@spots = @spots.where(price_dinner: @price_start..@price_end)
     end
     #ジャンルで絞る
