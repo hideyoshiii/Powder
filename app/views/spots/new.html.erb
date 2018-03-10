@@ -79,14 +79,30 @@
 						<div class="row">
 							<div class="col-md-12 select">
 								<div class="form-group">
-                                <label>小カテゴリー</label>
+                                <label>飲食店ジャンル</label>
                                 <br>   
-								    <% ["和食", "焼肉・ホルモン", "ステーキ・ハンバーグ", "鍋", "フレンチ", "イタリアン", "西洋各国料理", "中華料理", "アジア・エスニック", "その他"].each do |small| %>
+								    <% ["和食", "焼き鳥・鳥料理", "寿司", "焼肉・ホルモン", "ステーキ・ハンバーグ", "鍋", "フレンチ", "イタリアン", "西洋各国料理", "中華料理", "アジア・エスニック", "カフェ", "その他"].each do |small| %>
 								    <label>
 								      <%= f.check_box :small, { multiple: true},small,nil %>
 								      <%= small %>
 								    </label>
-								    <% end %>	  
+								    <% end %>	 
+                            	</div>
+							</div>
+						</div>
+						<br>
+						
+						<div class="row">
+							<div class="col-md-12 select">
+								<div class="form-group">
+                                <label>飲食店ジャンル</label>
+                                <br>   
+								    <% ["パン・サンドイッチ", "コーヒー・ジュース", "スイーツ", "その他"].each do |small| %>
+								    <label>
+								      <%= f.check_box :small, { multiple: true},small,nil %>
+								      <%= small %>
+								    </label>
+								    <% end %>	 
                             	</div>
 							</div>
 						</div>
