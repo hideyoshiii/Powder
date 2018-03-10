@@ -502,10 +502,6 @@
                   <% end %>  
   		            <p>エリアを指定しますか？</p>
                   <br>
-				        	<span class="radio-city"> 
-				              <%= radio_button_tag(:city, "すべてのエリア", @all, {:id => "all"}) %>
-				              <%= label_tag('all', "すべてのエリア") %>
-				            </span>
 				            <span class="radio-city"> 
 				              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
 				              <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
@@ -535,7 +531,7 @@
 		            <div id="price" class="tab-pane fade">
 				          <p>予算はいくらにしますか？</p>
 				          <br><br>
-                  <% if @large == "ランチ" || @large == "ディナー" %>
+                  <% if @large == "ランチ" || @large == "ディナー" || @large == "カフェ" || @large == "バー" %>
   				          <div style="width:80%;margin:0 auto;">
   				            <span class="pull-left">
   				              <span id="value-lower"></span>円
@@ -552,18 +548,20 @@
   				          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
                     <br><br>
                     <% else %>
-                      <p style="font-size:10px;">※ランチ,ディナーのみ予算で絞る機能が使えます</p>
+                      <p style="font-size:10px;">※ランチ,ディナー,カフェ,バーのみ予算で絞る機能が使えます</p>
                     <% end %>
       		      </div>
 		            <div id="timezone" class="tab-pane fade">
 		            	<p>時間帯を指定しますか？</p>
 				          <br>
 		            	<div class="box-city">
-		                	<span class="radio-city"> 
-				              <%= radio_button_tag(:timezone, "すべての時間帯", @all_timezone, {:id => "all-timezone"}) %>
-				              <%= label_tag('all-timezone', "すべての時間帯") %>
-				            </span>
-				            <br>
+                    <% unless @large == "カフェ" %>
+  		                <span class="radio-city"> 
+  				              <%= radio_button_tag(:timezone, "すべての時間帯", @all_timezone, {:id => "all-timezone"}) %>
+  				              <%= label_tag('all-timezone', "すべての時間帯") %>
+  				            </span>
+  				            <br>
+                    <% end %>
 				            <span class="radio-city"> 
 				              <%= radio_button_tag(:timezone, "昼", @noon, {:id => "noon"}) %>
 				              <%= label_tag('noon', "昼") %>
