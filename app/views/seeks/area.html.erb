@@ -161,5 +161,101 @@
     	<% end %>
     <% end %>
 
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      <%= hidden_field_tag :city, "お台場" %>
+      <%= hidden_field_tag :price_min , params[:price_min] %>
+      <%= hidden_field_tag :price_max , params[:price_max] %>
+      <%= hidden_field_tag :distance_on, params[:distance_on] %>
+      <%= hidden_field_tag :distance, params[:distance] %>
+      <%= hidden_field_tag :timezone, params[:timezone] %>
+      <%= hidden_field_tag :small, params[:small] %>
+      <% unless params[:spot1].blank? %>
+        <%= hidden_field_tag :spot1, params[:spot1] %>
+      <% end %>
+      <% unless params[:spot2].blank? %>
+        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% end %>
+      <%= button_tag :type => "submit", :class =>"button-bb" do %>
+        <div class="box-area-img">
+          <%= image_tag "odaiba00.jpg", :class =>'img-area' %>
+          <div class="text-area">
+            お台場
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      <%= hidden_field_tag :city, "品川" %>
+      <%= hidden_field_tag :price_min , params[:price_min] %>
+      <%= hidden_field_tag :price_max , params[:price_max] %>
+      <%= hidden_field_tag :distance_on, params[:distance_on] %>
+      <%= hidden_field_tag :distance, params[:distance] %>
+      <%= hidden_field_tag :timezone, params[:timezone] %>
+      <%= hidden_field_tag :small, params[:small] %>
+      <% unless params[:spot1].blank? %>
+        <%= hidden_field_tag :spot1, params[:spot1] %>
+      <% end %>
+      <% unless params[:spot2].blank? %>
+        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% end %>
+      <%= button_tag :type => "submit", :class =>"button-bb" do %>
+        <div class="box-area-img">
+          <%= image_tag "shinagawa00.jpg", :class =>'img-area' %>
+          <div class="text-area">
+            品川
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      <%= hidden_field_tag :city, "池袋" %>
+      <%= hidden_field_tag :price_min , params[:price_min] %>
+      <%= hidden_field_tag :price_max , params[:price_max] %>
+      <%= hidden_field_tag :distance_on, params[:distance_on] %>
+      <%= hidden_field_tag :distance, params[:distance] %>
+      <%= hidden_field_tag :timezone, params[:timezone] %>
+      <%= hidden_field_tag :small, params[:small] %>
+      <% unless params[:spot1].blank? %>
+        <%= hidden_field_tag :spot1, params[:spot1] %>
+      <% end %>
+      <% unless params[:spot2].blank? %>
+        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% end %>
+      <%= button_tag :type => "submit", :class =>"button-bb" do %>
+        <div class="box-area-img">
+          <%= image_tag "ikebukuro00.jpg", :class =>'img-area' %>
+          <div class="text-area">
+            池袋
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= form_tag(seeks_category_path, method: :get) do %>
+      <%= hidden_field_tag :city, "銀座・有楽町" %>
+      <%= hidden_field_tag :price_min , params[:price_min] %>
+      <%= hidden_field_tag :price_max , params[:price_max] %>
+      <%= hidden_field_tag :distance_on, params[:distance_on] %>
+      <%= hidden_field_tag :distance, params[:distance] %>
+      <%= hidden_field_tag :timezone, params[:timezone] %>
+      <%= hidden_field_tag :small, params[:small] %>
+      <% unless params[:spot1].blank? %>
+        <%= hidden_field_tag :spot1, params[:spot1] %>
+      <% end %>
+      <% unless params[:spot2].blank? %>
+        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% end %>
+      <%= button_tag :type => "submit", :class =>"button-bb" do %>
+        <div class="box-area-img">
+          <%= image_tag "ginza00.jpg", :class =>'img-area' %>
+          <div class="text-area">
+            銀座・有楽町
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
 </main>
 
