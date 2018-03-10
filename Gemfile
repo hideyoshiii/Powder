@@ -47,6 +47,7 @@ gem 'geocoder'
 gem 'nouislider-rails', '~> 7.0', '>= 7.0.2'
 gem 'kaminari'
 gem 'jquery-turbolinks'
+gem 'rack-rewrite'
 
 
 
