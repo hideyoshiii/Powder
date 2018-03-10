@@ -85,6 +85,7 @@ class SeeksController < ApplicationController
   	@darts = @spots.where("large like '%ダーツ%'")
   	@walk_eat = @spots.where("large like '%食べ歩き%'")
   	@park = @spots.where("large like '%公園%'")
+  	@spa = @spots.where("large like '%スパ・温泉%'")
   	@other = @spots.where("large like '%その他%'")
   	#数を抽出
   	@breakfast_n = @breakfast.size
@@ -108,6 +109,7 @@ class SeeksController < ApplicationController
     @darts_n = @darts.size
     @walk_eat_n = @walk_eat.size
     @park_n = @park.size
+    @spa_n = @spa.size
     @other_n = @other.size
 
   end
