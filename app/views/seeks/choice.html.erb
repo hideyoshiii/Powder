@@ -29,12 +29,8 @@
     
     <% if @spot_n == 1 || @spot_n == 2 %>
     <%= form_tag(seeks_distance_path, method: :get) do %>
-    <% if @spot_n == 1 %>
-    	<%= hidden_field_tag :distance, 500 %>
-    <% end %>
     <% if @spot_n == 2 %>
     	<%= hidden_field_tag :spot1, params[:spot1] %>
-    	<%= hidden_field_tag :distance, 500 %>
     <% end %>
     
 		<% @spots.each do |spot| %>

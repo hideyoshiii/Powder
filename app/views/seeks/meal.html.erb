@@ -30,6 +30,24 @@
 		<p style="color:white;text-shadow: 1px 1px 2px black;">バーの詳細条件を決めましょう</p>	
 	  	<h4 style="color:white;text-shadow: 1px 1px 2px black;">バーの予算はいくらにしますか？</h4>
 	<% end %>
+	<% if params[:large] == "カフェ" %>
+		<p style="color:white;text-shadow: 1px 1px 2px black;">カフェの詳細条件を決めましょう</p>	
+	  	<h4 style="color:white;text-shadow: 1px 1px 2px black;">カフェの予算はいくらにしますか？</h4>
+	  	<div style="margin:10px 0 -10px;">
+		  	<li style="display: inline-block;">
+			  	<span class="radio-city"> 
+		          <%= radio_button_tag(:timezone, "昼", true, {:id => "noon"}) %>
+		          <%= label_tag('noon', "昼カフェ") %>
+		        </span>
+	        </li>
+	        <li style="display: inline-block;">
+		        <span class="radio-city"> 
+		          <%= radio_button_tag(:timezone, "夜", false, {:id => "night"}) %>
+		          <%= label_tag('night', "夜カフェ") %>
+		        </span>
+        	</li>
+        </div>
+	<% end %>
 	<br><br>
 	<div style="width:80%;">
 		<span class="pull-left" style="color:white;">

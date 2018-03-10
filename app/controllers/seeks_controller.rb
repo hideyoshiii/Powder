@@ -170,6 +170,14 @@ class SeeksController < ApplicationController
     if @large == "バー"
     	@spots = @spots.where(price_dinner: @price_start..@price_end)
     end
+    if @large == "カフェ"
+    	if params[:timezone] == "昼"
+    		@spots = @spots.where(price_lunch: @price_start..@price_end)
+    	end
+    	if params[:timezone] == "夜"
+    		@spots = @spots.where(price_dinner: @price_start..@price_end)
+    	end
+    end
     #ジャンルで絞る
   	if params[:small] == "すべてのジャンル"
   	else
@@ -231,6 +239,11 @@ class SeeksController < ApplicationController
   	#時間帯で絞る
   	if params[:timezone].blank?
   		params[:timezone] = "すべての時間帯"
+  	end
+
+  	#時間帯で絞る
+  	if params[:distance].blank?
+  		params[:distance] = 500
   	end
 
   	#params[:city]がない場合の定義
