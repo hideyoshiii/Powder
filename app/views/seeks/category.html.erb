@@ -68,7 +68,7 @@
 			    	<div class="box-category-img">
 		        		<%= image_tag "lunch00.jpg", :class =>'img-category' %>
 		        		<div class="text-category">
-		        			ランチしたい
+		        			ランチ
 		        		</div>
 		        	</div>
 	        	<% end %>
@@ -97,7 +97,7 @@
 	            <div class="box-category-img">
             		<%= image_tag "dinner00.jpg", :class =>'img-category' %>
             		<div class="text-category">
-            			ディナーしたい
+            			ディナー
             		</div>
             	</div>
 	          <% end %>
@@ -126,7 +126,7 @@
 	            <div class="box-category-img">
             		<%= image_tag "cafe00.jpg", :class =>'img-category' %>
             		<div class="text-category">
-            			カフェ行きたい
+            			カフェ
             		</div>
             	</div>
 	          <% end %>
@@ -155,7 +155,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "bar00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			バー行きたい
+	            			バー
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -184,7 +184,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "movie00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			映画見たい
+	            			映画
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -213,7 +213,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "shop00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			ショップ・雑貨屋に行きたい
+	            			ショップ・雑貨屋
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -242,7 +242,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "walk-eat00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			食べ歩きしたい
+	            			食べ歩き
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -271,7 +271,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "park00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			公園行きたい	            			
+	            			公園      			
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -300,7 +300,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "night-view00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			夜景見たい
+	            			夜景
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -329,65 +329,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "planetarium00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			プラネタリウム見たい
-	            		</div>
-	            	</div>
-	            <% end %>
-          	<% end %>
-	    </div>
-	    <% end %>
-
-	    <% unless @karaoke_n.to_i == 0 %>
-	    <div class="grid-item">
-	    	<%= form_tag(seeks_choice_path, method: :get) do %>
-	          	<%= hidden_field_tag :large, "カラオケ" %>
-	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , params[:price_min] %>
-	          	<%= hidden_field_tag :price_max , params[:price_max] %>
-	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
-	          	<%= hidden_field_tag :distance, params[:distance] %>
-	          	<%= hidden_field_tag :timezone, params[:timezone] %>
-	          	<%= hidden_field_tag :small, params[:small] %>
-	          	<% unless params[:spot1].blank? %>
-	          		<%= hidden_field_tag :spot1, params[:spot1] %>
-	          	<% end %>
-			  	<% unless params[:spot2].blank? %>
-	          		<%= hidden_field_tag :spot2, params[:spot2] %>
-	          	<% end %>
-	          	<%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="box-category-img">
-	            		<%= image_tag "karaoke00.jpg", :class =>'img-category' %>
-	            		<div class="text-category">
-	            			カラオケしたい
-	            		</div>
-	            	</div>
-	            <% end %>
-          	<% end %>
-	    </div>
-	    <% end %>
-
-	    <% unless @bowling_n.to_i == 0 %>
-	    <div class="grid-item">
-	    	<%= form_tag(seeks_choice_path, method: :get) do %>
-	          	<%= hidden_field_tag :large, "ボーリング" %>
-	          	<%= hidden_field_tag :city, params[:city] %>
-	          	<%= hidden_field_tag :price_min , params[:price_min] %>
-	          	<%= hidden_field_tag :price_max , params[:price_max] %>
-	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
-	          	<%= hidden_field_tag :distance, params[:distance] %>
-	          	<%= hidden_field_tag :timezone, params[:timezone] %>
-	          	<%= hidden_field_tag :small, params[:small] %>
-	          	<% unless params[:spot1].blank? %>
-	          		<%= hidden_field_tag :spot1, params[:spot1] %>
-	          	<% end %>
-			  	<% unless params[:spot2].blank? %>
-	          		<%= hidden_field_tag :spot2, params[:spot2] %>
-	          	<% end %>
-	          	<%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="box-category-img">
-	            		<%= image_tag "bowling00.jpg", :class =>'img-category' %>
-	            		<div class="text-category">
-	            			ボーリングしたい
+	            			プラネタリウム
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -416,10 +358,68 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "sport00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			スポーツしたい
+	            			スポーツ
 	            		</div>
 	            	</div>
             	<% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @karaoke_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "カラオケ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "karaoke00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			カラオケ
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @bowling_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "ボーリング" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:spot1].blank? %>
+	          		<%= hidden_field_tag :spot1, params[:spot1] %>
+	          	<% end %>
+			  	<% unless params[:spot2].blank? %>
+	          		<%= hidden_field_tag :spot2, params[:spot2] %>
+	          	<% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "bowling00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			ボーリング
+	            		</div>
+	            	</div>
+	            <% end %>
           	<% end %>
 	    </div>
 	    <% end %>
@@ -446,7 +446,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "darts00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			ダーツしたい
+	            			ダーツ
 	            		</div>
 	            	</div>
 	            <% end %>
@@ -475,7 +475,7 @@
 		            <div class="box-category-img">
 	            		<%= image_tag "museum00.jpg", :class =>'img-category' %>
 	            		<div class="text-category">
-	            			美術館行きたい
+	            			美術館
 	            		</div>
 	            	</div>
 	            <% end %>
