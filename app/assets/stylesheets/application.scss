@@ -1734,7 +1734,7 @@ dl.search1 dd span:hover{
 
   position: relative;
 
-  background: linear-gradient(-45deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), url(home11.jpg);
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(home11.jpg);
   background-size: cover;
   background-position: center;
 
@@ -6371,7 +6371,6 @@ square_btnn{
 }
 
 
-
 //ここまでにするボタン
 .btn-stop{
 	font-size:14px;
@@ -6383,6 +6382,26 @@ square_btnn{
     text-shadow: 1px 1px 1px black;
 }
 
+
+
+.btn-home-icon{
+	display: inline-block; 
+	width:40%;
+	text-align:center;
+	vertical-align: top;
+}
+
+.text-home-icon{
+	color:white;
+	font-size:12px;
+	text-shadow:black 2px 2px 4px;
+	margin-top:5px;
+}
+
+.img-home-icon{
+	height:auto; 
+	width:50px;
+}
 
 
 

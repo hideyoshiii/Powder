@@ -10,17 +10,20 @@
       <br>
       <h1>
       <div class="home-box">
-        <div style="color:#CCC;font-size:18px;text-shadow:black 2px 2px 4px;">
-          デートコースを
-        </div>
         <%= link_to eagle_path do %>
-          <div class="raised-trans">
-            提案してもらう
+          <div class="btn-home-icon">
+            <%= image_tag "idea.png", :class =>'img-home-icon' %>
+            <div class="text-home-icon">
+              デートコースを提案してもらう
+            </div>
           </div>
         <% end %>
         <%= link_to seeks_area_path do %>
-          <div class="raised-trans">
-            つくる
+          <div class="btn-home-icon">
+            <%= image_tag "make.png", :class =>'img-home-icon' %>
+            <div class="text-home-icon">
+              デートコースを作る
+            </div>
           </div>
         <% end %>
       </div>
