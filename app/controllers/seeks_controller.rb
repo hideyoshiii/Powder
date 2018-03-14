@@ -16,6 +16,8 @@ class SeeksController < ApplicationController
   def category
   	#@spotsを定義
   	@spots = Spot.all
+    #@latitudeがない物を排除
+    @spots = @spots.where.not(latitude: nil)
   	#同じスポットが含まれないように
   	if @spot_n == 2
   		@spots = @spots.where.not(title: @spot1.title)
@@ -121,6 +123,8 @@ class SeeksController < ApplicationController
   def choice
   	#@spotsを定義
   	@spots = Spot.all
+    #@latitudeがない物を排除
+    @spots = @spots.where.not(latitude: nil)
   	#同じスポットが含まれないように
   	if @spot_n == 2
   		@spots = @spots.where.not(title: @spot1.title)
