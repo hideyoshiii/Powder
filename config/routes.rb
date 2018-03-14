@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   get "demos/lunch-kind" => "demos#lunchkind"
 
   get "/adate" => "details#adate"
+  get "/sean" => "details#sean"
   get "/eagle" => "details#eagle"
   get "/terms" => "details#terms"
   get "/policy" => "details#policy"

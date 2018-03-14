@@ -3,6 +3,9 @@ class DetailsController < ApplicationController
   def adate 	
   end
 
+  def sean 	
+  end
+
   def eagle 	
   end
 
