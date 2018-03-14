@@ -1784,7 +1784,7 @@ dl.search1 dd span:hover{
 
 .box99 h2 {
   position: absolute;
-  top: 65%;
+  top: 70%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -4836,7 +4836,7 @@ display: inline-block;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.3); /* カラーを重ねる */
+	background: rgba(0, 0, 0, 0.1); /* カラーを重ねる */
 }
 
 .frame-demo h2 {
@@ -6366,6 +6366,31 @@ square_btnn{
 }
 
 .raised-trans:hover{
+	box-shadow: 0px 0px 7px 0 rgba(225,225,225,1);
+}
+
+//Bサーチのホームのミニボタン
+.raised-trans-min{
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5); 
+  color: white;
+  text-shadow: 
+  	black 1px 1px 2px, black -1px 1px 2px,
+    black 1px -1px 2px, black -1px -1px 2px;
+  font-size: 10px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 10px 25px;/*ボタン内の余白*/
+  border-radius: 5px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: .3s ease-out;/*変化を緩やかに*/
+  border: 1px solid white;
+
+  
+}
+
+.raised-trans-min:hover{
 	box-shadow: 0px 0px 7px 0 rgba(225,225,225,1);
 }
 
