@@ -156,14 +156,24 @@
 
 
     <br><br>
-    <div class="text-center">
-      <div class="home-box">
-        <%= link_to seeks_area_path do %>
-        <div class="btn btn-default">
-          さっそくデートコースを作る
+    <div class="home-box">
+      <h2 style="padding:30px 0px 40px;"><span class="what">Use</span></h2>
+      <%= link_to eagle_path do %>
+        <div class="btn-home-icon">
+          <%= image_tag "idea2.png", :class =>'img-home-icon' %>
+          <div class="text-home-icon2">
+            デートコースを提案してもらう
+          </div>
         </div>
-        <% end %>
-      </div>
+      <% end %>
+      <%= link_to seeks_area_path do %>
+        <div class="btn-home-icon">
+          <%= image_tag "make2.png", :class =>'img-home-icon' %>
+          <div class="text-home-icon2">
+            デートコースを作る
+          </div>
+        </div>
+      <% end %>
     </div>
     <br><br>
 
