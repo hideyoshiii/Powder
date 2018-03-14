@@ -526,6 +526,22 @@
 				              <%= radio_button_tag(:city, "六本木・麻布・赤坂", @roppongi, {:id => "roppongi"}) %>
 				              <%= label_tag('roppongi', "六本木・麻布・赤坂") %>
 				            </span>    
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:city, "お台場", @odaiba, {:id => "odaiba"}) %>
+                      <%= label_tag('odaiba', "お台場") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:city, "品川", @shinagawa, {:id => "shinagawa"}) %>
+                      <%= label_tag('shinagawa', "品川") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:city, "池袋", @ikebukuro, {:id => "ikebukuro"}) %>
+                      <%= label_tag('ikebukuro', "池袋") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:city, "銀座・有楽町", @ginze, {:id => "ginze"}) %>
+                      <%= label_tag('ginze', "銀座・有楽町") %>
+                    </span>
 			        	<br>
 		            </div>
 		            <div id="price" class="tab-pane fade">
@@ -554,24 +570,7 @@
 		            <div id="timezone" class="tab-pane fade">
 		            	<p>時間帯を指定しますか？</p>
 				          <br>
-		            	<div class="box-city">
-                    <% unless @large == "カフェ" %>
-  		                <span class="radio-city"> 
-  				              <%= radio_button_tag(:timezone, "すべての時間帯", @all_timezone, {:id => "all-timezone"}) %>
-  				              <%= label_tag('all-timezone', "すべての時間帯") %>
-  				            </span>
-  				            <br>
-                    <% end %>
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:timezone, "昼", @noon, {:id => "noon"}) %>
-				              <%= label_tag('noon', "昼") %>
-				            </span>
-                    &nbsp;&nbsp;&nbsp;
-				            <span class="radio-city"> 
-				              <%= radio_button_tag(:timezone, "夜", @night, {:id => "night"}) %>
-				              <%= label_tag('night', "夜") %>
-				            </span>
-				        </div>
+                    <p style="font-size:10px;">※只今,時間帯で絞る機能を準備しております</p>
 		            </div>
 		            <div id="genre" class="tab-pane fade">
 				            <p>ジャンルを指定しますか？</p>

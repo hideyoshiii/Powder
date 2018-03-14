@@ -330,6 +330,10 @@ class SeeksController < ApplicationController
     @shinjuku = false
     @tokyo = false
     @roppongi = false
+    @odaiba = false
+    @shinagawa = false
+    @ikebukuro = false
+    @ginze = false
     if !params[:city].blank?
       if params[:city] == "すべてのエリア"
         @all = true
@@ -351,6 +355,18 @@ class SeeksController < ApplicationController
       end
       if params[:city] == "六本木・麻布・赤坂"
         @roppongi = true
+      end
+      if params[:city] == "お台場"
+        @odaiba = true
+      end
+      if params[:city] == "品川"
+        @shinagawa = true
+      end
+      if params[:city] == "池袋"
+        @ikebukuro = true
+      end
+      if params[:city] == "銀座・有楽町"
+        @ginze = true
       end
     end
 
