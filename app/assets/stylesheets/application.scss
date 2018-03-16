@@ -6275,7 +6275,7 @@ square_btnn{
 .img-area{
   width:100%;
   height:auto;
-  margin-top:-10%;
+  margin-top:-7%;
   display: inline-block;
 }
 
@@ -6413,7 +6413,7 @@ square_btnn{
 
 //モーダルの高さ固定
 .modal-content{
-	max-height:70vh;
+	max-height:85vh;
 	overflow-y: scroll;
 }
 
@@ -6464,7 +6464,12 @@ square_btnn{
 }
 
 .inline{
-	display:inline-block;
+	position:fixed;
+	bottom:30px;
+	z-index:998;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
 }
 
 
@@ -6475,7 +6480,7 @@ square_btnn{
  z-index:999;
 }
 
-//チェンジボタン
+//モーダル閉じるボタン
 #btn-detail {/*円*/
     display: block;
     width: 56px;

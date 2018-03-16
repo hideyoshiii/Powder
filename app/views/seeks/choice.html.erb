@@ -215,10 +215,9 @@
             <% end %>
           </div>  
         </div>
-        <div class="btn-modal">
-          <br>
-          <% if @spot_n == 1 || @spot_n == 2 %>
-            <div class="inline">
+        </div>
+        <% if @spot_n == 1 || @spot_n == 2 %>
+            <div class="">
               <%= form_tag(seeks_distance_path, method: :get) do %>
                 <% if @spot_n == 1 %>
                   <%= hidden_field_tag :spot1, spot.id %>
@@ -232,17 +231,15 @@
             </div>
           <% end %>
           <% if @spot_n == 3 %>
-            <div class="inline">
+            <div class="">
               <%= form_tag(seeks_result_path, method: :get) do %>
                 <%= hidden_field_tag :spot1, params[:spot1] %>
                 <%= hidden_field_tag :spot2, params[:spot2] %>
                 <%= hidden_field_tag :spot3, spot.id %>
-                <%= submit_tag "このスポットにする", :class => "btn btn-default" %>
+                <%= submit_tag "このスポットにする", :class => "btn btn-default inline" %>
               <% end %>
             </div>
           <% end %>
-        </div>
-        </div>
         <div class="btn-details">
          <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
           <i class="fa fa-close"></i>
@@ -395,14 +392,11 @@
 	        </div>
 	    </div>
     </div>
-    <div class="btn-modal">
-      <br>
-      <div class="inline">
-        <%= submit_tag "絞る", :class => "btn btn-default" %>
-      </div>
+    </div>
+    <div class="">
+      <%= submit_tag "絞る", :class => "btn btn-default inline" %>
     </div>
     <% end %>  
-    </div>
     <div class="btn-details">
      <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
       <i class="fa fa-close"></i>
