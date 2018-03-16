@@ -191,6 +191,80 @@ class SeeksController < ApplicationController
     	@spots = @spots.where("small like '%#{@small}%'")
 	end
     #ランダムにして２つ抽出
+    @spots = @spots.order("RANDOM()")
+  end
+
+  def choice2
+    #@spotsを定義
+    @spots = Spot.all
+    #@latitudeがない物を排除
+    @spots = @spots.where.not(latitude: nil)
+    #同じスポットが含まれないように
+    if @spot_n == 2
+      @spots = @spots.where.not(title: @spot1.title)
+    end
+    if @spot_n == 3
+      @spots = @spots.where.not(title: @spot1.title)
+      @spots = @spots.where.not(title: @spot2.title)
+    end
+    #選択でのchecked判別のための@nを定義
+    @n = 0
+    #カテゴリーで絞る
+    @large = params[:large]
+    @spots = @spots.where("large like '%#{@large}%'")
+    #時間帯で絞る
+  if params[:timezone] == "すべての時間帯"
+    else
+      @timezone = params[:timezone]
+      @spots = @spots.where("timezone like '%#{@timezone}%'")
+    end
+    #距離で絞るorエリアで絞る
+    if params[:distance_on] == "true"
+      unless params[:distance].blank?
+        @distance = params[:distance].to_f / 1000
+        if @spot_n == 2
+          @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
+        end
+        if @spot_n == 3
+          @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
+        end
+      end
+    else
+      if params[:city] == "すべてのエリア"
+      else
+        @spots = @spots.where(city: params[:city])
+      end
+  end
+    #予算で絞る
+    @price_start = params[:price_min].to_i
+    @price_end = params[:price_max].to_i
+    if @large == "朝食"
+      @spots = @spots.where(price_lunch: @price_start..@price_end)
+    end
+    if @large == "ランチ"
+      @spots = @spots.where(price_lunch: @price_start..@price_end)
+    end
+    if @large == "ディナー"
+      @spots = @spots.where(price_dinner: @price_start..@price_end)
+    end
+    if @large == "バー"
+      @spots = @spots.where(price_dinner: @price_start..@price_end)
+    end
+    if @large == "カフェ"
+      if params[:timezone] == "昼"
+        @spots = @spots.where(price_lunch: @price_start..@price_end)
+      end
+      if params[:timezone] == "夜"
+        @spots = @spots.where(price_dinner: @price_start..@price_end)
+      end
+    end
+    #ジャンルで絞る
+    if params[:small] == "すべてのジャンル"
+    else
+      @small = params[:small]
+      @spots = @spots.where("small like '%#{@small}%'")
+  end
+    #ランダムにして２つ抽出
     @spots = @spots.order("RANDOM()").limit(2)
   end
 
