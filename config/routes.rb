@@ -75,6 +75,7 @@ Rails.application.routes.draw do
 
   get "/adate" => "details#adate"
   get "/sean" => "details#sean"
+  get "/sent" => "details#sent"
   get "/eagle" => "details#eagle"
   get "/terms" => "details#terms"
   get "/policy" => "details#policy"

@@ -6,6 +6,9 @@ class DetailsController < ApplicationController
   def sean 	
   end
 
+  def sent  
+  end
+
   def eagle 	
   end
 
