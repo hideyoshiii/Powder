@@ -6413,7 +6413,7 @@ square_btnn{
 
 //モーダルの高さ固定
 .modal-content{
-	max-height:85vh;
+	max-height:83vh;
 	overflow-y: scroll;
 }
 
@@ -6465,7 +6465,7 @@ square_btnn{
 
 .inline{
 	position:fixed;
-	bottom:30px;
+	bottom:20px;
 	z-index:998;
 	left: 50%;
 	transform: translate(-50%, -50%);
