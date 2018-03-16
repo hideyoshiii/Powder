@@ -53,6 +53,19 @@
                 </span>
               <% end %>
             <% end %>
+            <%# 料金 %>
+            <span style="font-size:11px;"><br>
+              <% unless spot.price_lunch.blank? %>
+                <% unless spot.price_lunch == 0 %>
+                  <i class="fa fa-sun-o"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                <% end %>
+              <% end %>
+              <% unless spot.price_dinner.blank? %>
+                <% unless spot.price_lunch == 0 %>
+                  <i class="fa fa-moon-o"></i>&nbsp;~<%= spot.price_dinner %>円
+                <% end %>
+              <% end %>
+            </span>
           </h3> 
       </div>
       </a>
@@ -195,6 +208,11 @@
                 <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
               <% end %>
             </div>
+            <%# Description %>
+            <% unless spot.description.blank? %>
+              <h4 style="margin:15px 0px 10px;font-size:15px">Description</h4>
+              <p style="font-size:12px"><%= spot.description %></p>
+            <% end %>
           </div>  
         </div>
         <div class="btn-modal">
