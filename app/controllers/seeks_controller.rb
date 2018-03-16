@@ -189,9 +189,9 @@ class SeeksController < ApplicationController
   	else
     	@small = params[:small]
     	@spots = @spots.where("small like '%#{@small}%'")
-	end
+	  end
     #ランダムにして２つ抽出
-    @spots = @spots.order("RANDOM()").limit(2)
+    @spots = @spots.order("RANDOM()")
   end
 
   def choice2

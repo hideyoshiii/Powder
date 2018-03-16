@@ -49,7 +49,7 @@
 
 	    <% unless @lunch_n.to_i == 0 %>
 	    <div class="grid-item">
-	    	<%= form_tag(seeks_meal_path, method: :get) do %>
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 		    	<%= hidden_field_tag :large, "ランチ" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
@@ -78,7 +78,7 @@
 
 	    <% unless @dinner_n.to_i == 0 %>
 	    <div class="grid-item">
-	    	<%= form_tag(seeks_meal_path, method: :get) do %>
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "ディナー" %>
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , params[:price_min] %>
@@ -107,7 +107,7 @@
 
 	    <% unless @cafe_n.to_i == 0 %>
 	    <div class="grid-item">
-	    	<%= form_tag(seeks_meal_path, method: :get) do %>
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          <%= hidden_field_tag :large, "カフェ" %>
 	          <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :price_min , params[:price_min] %>
@@ -136,7 +136,7 @@
 
 	    <% unless @bar_n.to_i == 0 %>
 	    <div class="grid-item">
-	    	<%= form_tag(seeks_meal_path, method: :get) do %>
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
 	          	<%= hidden_field_tag :large, "バー" %>
 	          	<%= hidden_field_tag :city, params[:city] %>
 	          	<%= hidden_field_tag :price_min , params[:price_min] %>
