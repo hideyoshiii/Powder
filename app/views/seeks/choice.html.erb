@@ -183,7 +183,7 @@
               </p> 
             </div>
             <%# 食べログ、rettyボタン等 %>
-            <h4 style="margin:20px 0px 0px;font-size:15px">For your infomation</h4>
+            <h4 style="margin:15px 0px 0px;font-size:15px">For your infomation</h4>
             <div class="info-box1-min">
               <% unless spot.tabelog.blank? %>
                 <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
@@ -209,7 +209,7 @@
                   <%= hidden_field_tag :spot1, params[:spot1] %>
                   <%= hidden_field_tag :spot2, spot.id %>
                 <% end %>
-                <%= submit_tag "次へ進む", :class => "btn btn-default inline" %>
+                <%= submit_tag "このスポットにする", :class => "btn btn-default inline" %>
               <% end %>
             </div>
           <% end %>
@@ -219,7 +219,7 @@
                 <%= hidden_field_tag :spot1, params[:spot1] %>
                 <%= hidden_field_tag :spot2, params[:spot2] %>
                 <%= hidden_field_tag :spot3, spot.id %>
-                <%= submit_tag "次へ進む", :class => "btn btn-default" %>
+                <%= submit_tag "このスポットにする", :class => "btn btn-default" %>
               <% end %>
             </div>
           <% end %>

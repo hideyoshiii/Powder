@@ -1,7 +1,6 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
 
-	<br>
 	<% if @spot_n == 1 %>
 		<p class="text-center" style="color:black;">次にやることを決めましょう</p>
 		<h4 class="text-center">何をしますか？</h4>
@@ -14,30 +13,6 @@
 		<p class="text-center" style="color:black;">次にやることを決めましょう</p>
 		<h4 class="text-center">何をしますか？</h4>
 	<% end %>
-
-  	<% if params[:spot1].blank? %>
-  	<% else %>
-  		<% if params[:spot2].blank? %>
-  			<%= form_tag(seeks_result_path, method: :get) do %>
-  				<%= hidden_field_tag :spot1, params[:spot1] %>
-  				<div class="text-center">
-  					<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
-  				</div>
-  			<% end %>
-  			<br>
-  		<% else %>
-  			<% if params[:spot3].blank? %>
-  				<%= form_tag(seeks_result_path, method: :get) do %>
-  					<%= hidden_field_tag :spot1, params[:spot1] %>
-  					<%= hidden_field_tag :spot2, params[:spot2] %>
-  					<div class="text-center">
-		  				<%= submit_tag "ここまでにする", :class => "btn btn-default btn-sm" %>
-		  			</div>
-		  		<% end %>
-		  		<br>
-  			<% end %>
-  		<% end %>
-  	<% end %>
 
   	<br>
 
