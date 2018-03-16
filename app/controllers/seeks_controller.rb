@@ -356,6 +356,8 @@ class SeeksController < ApplicationController
   
   	@all_genre = false
     @japanese = false
+    @yakitori = false
+    @sushi = false
     @yakiniku = false
     @steak = false
     @pot = false
@@ -364,13 +366,23 @@ class SeeksController < ApplicationController
     @western = false
     @chinese = false
     @asia = false
+    @cafe_s = false
     @otherwise = false
+    @bread = false
+    @coffee = false
+    @sweets = false
     if !params[:small].blank?
       if params[:small] == "すべてのジャンル"
         @all_genre = true
       end
       if params[:small] == "和食"
         @japanese = true
+      end
+      if params[:small] == "焼き鳥・鳥料理"
+        @yakitori = true
+      end
+      if params[:small] == "寿司"
+        @sushi = true
       end
       if params[:small] == "焼肉・ホルモン"
         @yakiniku = true
@@ -396,8 +408,20 @@ class SeeksController < ApplicationController
       if params[:small] == "アジア・エスニック"
         @asia = true
       end
+      if params[:small] == "カフェ"
+        @cafe = true
+      end
       if params[:small] == "その他"
         @otherwise = true
+      end
+      if params[:small] == "パン・サンドイッチ"
+        @bread = true
+      end
+      if params[:small] == "コーヒー・ジュース"
+        @coffee = true
+      end
+      if params[:small] == "スイーツ"
+        @sweets = true
       end
     end
 
@@ -453,7 +477,6 @@ class SeeksController < ApplicationController
     @dinner = false
     @cafe = false
     @animal = false
-    @sweets = false
     @bar = false
     @movie = false
     @shop = false
@@ -469,6 +492,7 @@ class SeeksController < ApplicationController
     @darts = false
     @walk_eat = false
     @park = false
+    @other = false
     if !params[:large].blank?
     	if params[:large] == "朝食"
         @breakfast = true
@@ -484,9 +508,6 @@ class SeeksController < ApplicationController
       end
       if params[:large] == "アニマルカフェ"
         @animal = true
-      end
-      if params[:large] == "スイーツ"
-        @sweets = true
       end
       if params[:large] == "バー"
         @bar = true
@@ -532,6 +553,9 @@ class SeeksController < ApplicationController
       end
       if params[:large] == "公園"
         @park = true
+      end
+      if params[:large] == "その他"
+        @other = true
       end
     end
 
