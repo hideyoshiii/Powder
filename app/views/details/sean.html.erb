@@ -1,4 +1,4 @@
-<%= render "partial/navbar4" %>
+<%= render "partial/navbar" %>
 <main class="" id="main-collapse">
 
     <div class="box-what3">
@@ -94,6 +94,14 @@
             <h4>Area</h4>
             <p>ご希望のエリアを教えてください</p>
             <%= text_field_tag :area, '', placeholder: "エリア", class: "form-control", required: "true" %>
+            <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
+          </div>
+          <br>
+          <div class="form-group">
+            <h4>Timezone</h4>
+            <p>ご希望の時間帯を教えてください</p>
+            <%= text_field_tag :timezone, '', placeholder: "時間帯", class: "form-control", required: "true" %>
+            <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
           </div>
           <br><br>
           <h4>Price</h4>
@@ -116,7 +124,8 @@
           <div class="form-group">
             <h4>Term</h4>
             <p>詳細な条件や希望を教えてください</p>
-              <%= text_area_tag :term, '', rows: 7, placeholder: "詳細条件", class: "form-control" %>
+              <%= text_area_tag :term, '', rows: 7, placeholder: "詳細条件", class: "form-control", required: "true"  %>
+              <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
           </div> 
           <br>
           <div class="text-center">

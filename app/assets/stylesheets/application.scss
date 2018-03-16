@@ -4552,7 +4552,7 @@ display: inline-block;
 .raise2-result{
   display: inline-block;
   background-color: white;
-  color: #53331c;
+  color: black;
   font-size: 13px;
   line-height: 1;
   text-decoration: none;
@@ -4561,7 +4561,7 @@ display: inline-block;
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: .3s ease-out;/*変化を緩やかに*/
-  border: solid 1px #53331c;
+  border: solid 1px black;
   margin:0px 2px;
 }
 
@@ -6545,7 +6545,7 @@ square_btnn{
 
 //モーダルの高さ固定
 .modal-content{
-	max-height:77vh;
+	max-height:83vh;
 	overflow-y: scroll;
 }
 

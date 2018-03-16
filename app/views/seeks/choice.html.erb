@@ -207,6 +207,11 @@
               <% unless spot.introduction.blank? %>
                 <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
               <% end %>
+              <% if spot.tabelog.blank? %>
+                <% unless spot.browser.blank? %>
+                  <a href="<%= spot.browser %>" target="_blank" class="raise2-result"><span><i class="fa fa-globe"></i>&nbsp;公式</span></a>
+                <% end %>
+              <% end %>
             </div>
             <%# Description %>
             <% unless spot.description.blank? %>

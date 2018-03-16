@@ -7,10 +7,11 @@
         <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
         <p style="margin:20px 20px;">
         	①エリア&nbsp;&nbsp;<%= params[:area] %><br>
-        	②予算&nbsp;&nbsp;<%= params[:price_min] %>~<%= params[:price_max] %>円<br>
-        	③詳細条件&nbsp;&nbsp;<%= params[:term] %></p> 
+        	②時間帯&nbsp;&nbsp;<%= params[:timezone] %><br>
+        	③予算&nbsp;&nbsp;<%= params[:price_min] %>~<%= params[:price_max] %>円<br>
+        	④詳細条件&nbsp;&nbsp;<%= params[:term] %></p> 
         <div class="text-center" style="margin:20px 0px;">
-          <button class="btn" data-clipboard-text="①<%= params[:area] %>/②<%= params[:price_min] %>~<%= params[:price_max] %>円/③<%= params[:term] %>"><i class="fa fa-clone"></i>コピー</button>
+          <button class="btn" data-clipboard-text="①<%= params[:area] %>/②<%= params[:timezone] %>/③<%= params[:price_min] %>~<%= params[:price_max] %>円/④<%= params[:term] %>"><i class="fa fa-clone"></i>コピー</button>
         </div>
         <div  class="text-center">
           <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank">
