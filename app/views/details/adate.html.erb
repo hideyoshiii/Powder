@@ -1,7 +1,165 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
+	<div class="img_about03">
+		<h1><span class="what">About</span></h1>
+	</div>
 
+
+    <div class="box-what1">
+      <div class="text-center" style="padding:60px 15px;">
+        <h4>誰でも簡単にデートコースが作れる</h4> 
+        <span class="site-title">A.Date</span>はデートコースが簡単に作れるサービスです。<br>あなたが意中の女性とのデートを楽しめるように、デートコース作成のお手伝いします。
+      </div>
+    </div>
+
+    <div class="img_about01">
+    	<h1><span class="what">Feature</span></h1>
+    </div>
+
+    <div class="box-what2">
+      <div class="text-center" style="padding:60px 0px;">
+      	<div style="padding:20px 0px;">
+          <div class="box-feature1">
+          	<%= image_tag "thumb.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2">
+          	<h4 style="font-size:15px;">デートに最適なスポットを厳選</h4>
+          	<p  style="font-size:12px;">お洒落な飲食店からユニークなスポットまで、デートに最適なスポットだけを集めました。</p>
+          </div>
+        </div>
+        <div style="padding:20px 0px;">
+          <div class="box-feature1">
+          	<%= image_tag "touch.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2">
+          	<h4 style="font-size:15px;">あなたは２択から選ぶだけ</h4>
+          	<p  style="font-size:12px;">質問に答えると、あなたの条件に合ったスポットを２つ提示します。あなたは行きたいと思った方を選択していくだけです。</p>
+          </div>
+        </div>
+        <div style="padding:20px 0px;">
+          <div class="box-feature1">
+          	<%= image_tag "navi.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2">
+          	<h4 style="font-size:15px;">自然とデートコースができる</h4>
+          	<p  style="font-size:12px;">好きなスポットを選んでいくだけで、実際にデートで使えるコースができます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="img_about02">
+    	<h1><span class="what">More</span></h1>
+    </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:50px 15px;">
+        <h4>あなたのデートをサポートします</h4>
+        <p>ショーンはあなたのデートを様々な面でサポートしてくれます。<br>ショーンを活用して完璧なデートにしましょう。</p>
+        <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank">
+          <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+          <br>
+          <h4>ショーン&nbsp;<span style="font-size:14px;">＠zjy4945t</span></h4>
+        </a>
+        <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+          <p>ショーンとは？</p>
+        </a>
+      </div>
+    </div>
+
+    <%#ショーンとはモーダルの中身%>
+    <div class="modal" id="myModal-sean">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="sean-back"></div>
+          <div class="text-center" style="margin-top:-80px;z-index:99;">
+            <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+            <h4>ショーン</h4>
+          </div>
+          <div class="panel-body">
+            <div class="text-center">
+              <h2 style="padding:40px 0px;"><span class="what">About</span></h2>
+              <h4>あなたのデートプランナー</h4>
+              <p>ショーンはあなたがデートコースを作るのをサポートしてくれるデートプランナーです。<br><span class="site-title">A.Date</span>で作ってデートコースの詳細を調べてくれたり、アドバイスをくれたり様々なサポートをしてくれます。</p>
+            </div>
+            <div class="text-center"  style="margin-bottom:50px;">
+              <h2 style="padding:40px 0px;"><span class="what">Example</span></h2>
+              <h4>使い方はあなた次第</h4>
+              <p>ショーンはできる限りのことをサポートしてくれます。ぜひあなただけの使い方を見つけてください。</p>
+            </div>
+            <div class="row" style="padding:20px 0px;">
+              <div class="col-xs-6">
+              <h4 style="margin-bottom:25px;"><span class="what">様々な情報を</span></h4>
+              <p>「次のスポットへは歩いてどのくらい？」</p>
+              <p>「オススメのメニューを教えて！」</p>
+              <p>「ここってサプライズとか対応してくれるのかな？」</p>
+              </div>
+              <div class="col-xs-6" style="padding-left:0px;">
+                <%= image_tag "sean01.jpg", :class =>'img-sean-use' %>
+              </div>
+            </div>
+            <div class="row" style="padding:40px 0px;">
+              <div class="col-xs-6">
+              <h4 style="margin-bottom:25px;"><span class="what">アドバイスを</span></h4>
+              <p>「次のスポットまでは歩いたがいいかな？それともタクシーかな？」</p>
+              <p>「どんなファッションで行ったらいいんだろう？」</p>
+              <p>「初デートのアドバイスってある？」</p>
+              </div>
+              <div class="col-xs-6" style="padding-left:0px;">
+                <%= image_tag "sean02.jpg", :class =>'img-sean-use' %>
+              </div>
+            </div>
+            <div class="row" style="padding:40px 0px;">
+              <div class="col-xs-6">
+              <h4 style="margin-bottom:25px;"><span class="what">代わりに予約を</span></h4>
+              <p>「ディナーのお店を代わりに予約しといて欲しい！」</p>
+              <p>「このお店ってランチでも予約できるのかな？」</p>
+              </div>
+              <div class="col-xs-6" style="padding-left:0px;">
+                <%= image_tag "sean03.jpg", :class =>'img-sean-use' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default inline">
+        ショーンと友達になる
+      </a>
+      <div class="btn-details">
+        <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+          <i class="fa fa-close"></i>
+       </a>
+      </div>
+    </div>
+
+    <div class="img_about04">
+    	<h1><span class="what">Use</span></h1>
+    </div>
+
+    <div class="home-box">
+      <div class="text-center" style="padding:50px 15px;">
+	      <h4><span class="site-title">A.Date</span>を使ってみる</h4>
+	      <br><br>
+	      <%= link_to sean_path do %>
+	        <div class="btn-home-icon">
+	          <%= image_tag "idea2.png", :class =>'img-home-icon' %>
+	          <div class="text-home-icon2">
+	            デートコースを提案してもらう
+	          </div>
+	        </div>
+	      <% end %>
+	      <%= link_to seeks_area_path do %>
+	        <div class="btn-home-icon">
+	          <%= image_tag "make2.png", :class =>'img-home-icon' %>
+	          <div class="text-home-icon2">
+	            デートコースを作る
+	          </div>
+	        </div>
+	      <% end %>
+      </div>
+    </div>
+    
 
 </mains>
 
