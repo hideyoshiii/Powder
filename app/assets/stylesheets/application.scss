@@ -6413,8 +6413,10 @@ square_btnn{
 
 //モーダルの高さ固定
 .modal-content{
+	position:absolute;
 	max-height:83vh;
 	overflow-y: scroll;
+	z-index:997;
 }
 
 .btn-modal {
