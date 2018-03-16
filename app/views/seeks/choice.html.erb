@@ -222,10 +222,12 @@
               <% end %>
             </div>
           <% end %>
-          <div class="inline">
-            <button type="button" class="btn btn-defaulte" data-dismiss="modal">×&nbsp;閉じる</button>
-          </div>
         </div>
+        </div>
+        <div class="btn-details">
+         <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+          <i class="fa fa-close"></i>
+         </a>
         </div>
       </div>
    
@@ -375,14 +377,17 @@
 	    </div>
     </div>
     <div class="btn-modal">
-    <br>
+      <br>
       <div class="inline">
         <%= submit_tag "絞る", :class => "btn btn-default" %>
       </div>
-      <div class="inline">
-        <button type="button" class="btn btn-defaulte" data-dismiss="modal">×&nbsp;閉じる</button>
-      </div>
+    </div>
     <% end %>  
+    </div>
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+      <i class="fa fa-close"></i>
+     </a>
     </div>
   </div>
 </div>
