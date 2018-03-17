@@ -331,15 +331,17 @@
               <button class="btn" data-clipboard-text="①<%= @spot1.title %>/②<%= @spot2.title %>/③<%= @spot3.title %>"><i class="fa fa-clone"></i>コピー</button>
             </div>
           <% end %>
-          <div  class="text-center">
-            <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
-            <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
-              LINEを起動する
-            </a>
-          </div>
         </div>
       </div>
     </div>
+    <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default inline">
+        LINEを起動する
+      </a>
+      <div class="btn-details">
+        <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+          <i class="fa fa-close"></i>
+        </a>
+      </div>
   </div>
 <% end %>
 
@@ -410,17 +412,15 @@
           </div>
         </div>
       </div>
-      <div class="text-center">
-        <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
-          ショーンと友達になる
-        </a>
-      </div>
-      <br>
-      <div class="text-center">
-        <button type="button" class="btn btn-default" data-dismiss="modal">×&nbsp;閉じる</button>
-      </div>
-      <br>
     </div>
+  </div>
+  <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default inline">
+    ショーンと友達になる
+  </a>
+  <div class="btn-details">
+    <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+      <i class="fa fa-close"></i>
+    </a>
   </div>
 </div>
 
