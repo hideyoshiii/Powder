@@ -1784,7 +1784,7 @@ dl.search1 dd span:hover{
 
 .box99 h2 {
   position: absolute;
-  top: 75%;
+  top: 64%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -1799,7 +1799,7 @@ dl.search1 dd span:hover{
 
 .box99 h1 {
   position: absolute;
-  top: 60%;
+  top: 55%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
@@ -5828,6 +5828,12 @@ button.no {
 	padding-top:5px;
 }
 
+.img-man{
+	width:20%;
+	height:auto;
+	padding:10px 0;
+}
+
 .box-feature{
 	margin:70px 0px;
 	text-align:center;
@@ -5862,6 +5868,13 @@ h4 span.what {
         display: inline;
         padding: 2px 0;
         border-bottom: 1px solid black;
+}
+
+h4 span.what-white {
+        display: inline;
+        padding: 2px 0;
+        border-bottom: 1px solid white;
+        color:white;
 }
 
 
@@ -6258,6 +6271,50 @@ square_btnn{
 }
 
 .img_about04 h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color:white;
+  font-size:30px;
+  }
+
+.img_about05 {
+  width: 100%;
+  height: 30vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)) , url(about05.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin:0px; 
+  box-sizing: border-box;
+}
+
+.img_about05 h1 {
   position: absolute;
   top: 50%;
   left: 50%;

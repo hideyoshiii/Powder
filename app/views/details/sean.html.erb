@@ -1,22 +1,104 @@
 <%= render "partial/navbar" %>
-<main class="" id="main-collapse">
+<mains class="" id="main-collapse">
+
+    <div class="img_about05">
+      <h4><span class="what-white">あなたにデートコースを提案します</span></h4>
+    </div>
 
     <div class="box-what3">
-      <div class="text-center" style="padding:0px 15px;">
+      <div class="text-center" style="padding:0px 40px;">
         <br><br>
-        <h4 style="padding:0px 0px 40px;"><span class="what">あなたにデートコースを提案します</span></h4>
-        <p>ショーンは無料であなたの条件に合ったデートコースを提案してくれます。<br>ショーンにあなたのデートの条件をお伝えください。</p>
-        <p style="font-size:10px;">※東京エリアのみに対応しています</p>
-        
-          <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
-          <br>
-          <h4>ショーン&nbsp;<span style="font-size:14px;">＠zjy4945t</span></h4>
-        
-        <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
-          <p>ショーンとは？</p>
-        </a>
+        <p>ショーンが無料であなたの条件に合ったデートコースを提案してくれます。<br>ショーンにあなたのデートの条件をお伝えください。</p>
+        <p style="font-size:10px;">※対応エリア</p>
+        <p style="font-size:10px;margin-top:-5px;">恵比寿・代官山・中目黒/渋谷/原宿・表参道・青山/東京・丸の内・日本橋/新宿/六本木・麻布・赤坂/お台場/品川/池袋/銀座・有楽町</p>
       </div>
     </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:50px 15px 0px;">
+        <h4><span class="what">利用例</span></h4>
+        <%= image_tag "man.png", :class =>'img-man' %>
+        <div class="panel-body" style="background:white;border:1px solid black;">
+        <p>恵比寿駅で<br>仕事終わり19時から終電まで<br>1人あたり8000円以内<br>高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ</p>
+        </div>
+        <span style="font-size:50px;"><i class="fa fa-angle-down"></i></span>
+      </div>
+    </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:0px 15px 50px;">
+        <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+          <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+          <br>
+          <h4>ショーン&nbsp;<span style="font-size:14px;">＠zjy4945t</span></h4>    
+          <p>ショーンとは？</p>
+        </a>
+        <div class="panel-body" style="background:white;border:1px solid black;">
+        <p>こちらのコースはいかがでしょうか。</p>
+        <p>
+          <a href="https://www.a-date.jp/seeks/result?utf8=✓&spot1=378&spot2=413&commit=ここまでにする" class="black">
+            https://www.a-date.jp/seeks/result
+          </a>
+        </p>
+        <p>１軒目のUbcraは京野菜をスタイリッシュ空間で堪能できます。お値段も恵比寿にしては良心的でコスパ抜群のお店です</p>
+        <p>２軒目のBAR&nbsp;Devaは恵比寿の７階建ビルの最上階にある隠れ家バーです。インターホンを押して入るワクワク感を一緒に楽しめます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:40px 20px;">
+      <div class="text-center" style="padding-bottom:20px;">
+        <h4><span class="what">条件フォーム</span></h4>
+        <p>さっそくショーンに聞いて見ましょう！</p>
+      </div>
+      <%= form_tag(sent_path, method: :get) do %>
+        <div class="panel-body" style="background:white;border:1px solid black;">
+          <div class="form-group">
+            <h4>Area</h4>
+            <p>ご希望のエリアを教えてください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <%= text_field_tag :area, '', placeholder: "例:恵比寿駅付近で", class: "form-control", required: "true" %>
+            <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
+          </div>
+          <br><hr>
+          <div class="form-group">
+            <h4>Timezone</h4>
+            <p>ご希望の時間帯を教えてください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <%= text_field_tag :timezone, '', placeholder: "例:仕事終わり19時から終電まで", class: "form-control", required: "true" %>
+            <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
+          </div>
+          <br><hr>
+          <h4>Price</h4>
+          <p>一人当たりの予算を教えてください</p>
+          <div style="width:80%;margin:0 auto;">
+            <span class="pull-left">
+              <span id="value-lower"></span>円
+            </span>
+            <span class="pull-right">
+              <span id="value-upper"></span>円
+            </span>
+          </div>
+          <br><br>
+          <div style="width:75%;margin:0 auto;">  
+            <div id="slider"></div>
+          </div>
+          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
+          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
+          <br><hr>
+          <div class="form-group">
+            <h4>Term</h4>
+            <p>詳細な条件や希望を教えてください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+              <%= text_area_tag :term, '', rows: 7, placeholder: "例:高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ", class: "form-control", required: "true"  %>
+              <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
+          </div> 
+          <br>
+          <div class="text-center">
+            <%= submit_tag "次へ進む", :class => "btn btn-default" %>
+          </div>
+          <br>
+        </div>
+      <% end %>
+    </div>
+
 
     <%#ショーンとはモーダルの中身%>
     <div class="modal" id="myModal-sean">
@@ -83,60 +165,7 @@
       </div>
     </div>
 
-    <br><br>
-
-    <div>
-      <%= form_tag(sent_path, method: :get) do %>
-        <div class="panel-body" style="background:white;border:1px solid black;">
-          <h4 class="text-center"><span class="what">フォーム</span></h4>
-          <br>
-          <div class="form-group">
-            <h4>Area</h4>
-            <p>ご希望のエリアを教えてください</p>
-            <%= text_field_tag :area, '', placeholder: "エリア", class: "form-control", required: "true" %>
-            <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
-          </div>
-          <br>
-          <div class="form-group">
-            <h4>Timezone</h4>
-            <p>ご希望の時間帯を教えてください</p>
-            <%= text_field_tag :timezone, '', placeholder: "時間帯", class: "form-control", required: "true" %>
-            <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
-          </div>
-          <br><br>
-          <h4>Price</h4>
-          <p>一人当たりの予算を教えてください</p>
-          <div style="width:80%;margin:0 auto;">
-            <span class="pull-left">
-              <span id="value-lower"></span>円
-            </span>
-            <span class="pull-right">
-              <span id="value-upper"></span>円
-            </span>
-          </div>
-          <br><br>
-          <div style="width:75%;margin:0 auto;">  
-            <div id="slider"></div>
-          </div>
-          <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
-          <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
-          <br><br><br>
-          <div class="form-group">
-            <h4>Term</h4>
-            <p>詳細な条件や希望を教えてください</p>
-              <%= text_area_tag :term, '', rows: 7, placeholder: "詳細条件", class: "form-control", required: "true"  %>
-              <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
-          </div> 
-          <br>
-          <div class="text-center">
-            <%= submit_tag "次へ進む", :class => "btn btn-default" %>
-          </div>
-          <br>
-        </div>
-      <% end %>
-    </div>
-
-</main>
+</mains>
 
 
 <script>

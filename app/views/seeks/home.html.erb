@@ -3,34 +3,26 @@
 
   	<div class="box99" id='top'> 
   		<div style="margin-top:-35px;">
-  			<h4 class="text-center box-top1">デートコースを驚くほど簡単に</h4>
-  			<p class="text-center">提案するのは厳選したデートスポットのみ</p>
-  			<p class="text-center"><span class="site-title" style="letter-spacing:0em;">A.Date</span>がデートの手間を省きます</p>
+  			<h4 class="text-center box-top1">あなたの代わりにデートコースを</h4>
+  			<p class="text-center">デートコースに悩むあなたへ</p>
+  			<p class="text-center">ちょっぴり背伸びしたデートをご提案します</p>
   		</div>
       <br>
       <h1>
       <div class="home-box">
         <%= link_to sean_path do %>
-          <div class="btn-home-icon">
-            <%= image_tag "idea.png", :class =>'img-home-icon' %>
-            <div class="text-home-icon">
-              デートコースを提案してもらう
-            </div>
-          </div>
-        <% end %>
-        <%= link_to seeks_area_path do %>
-          <div class="btn-home-icon">
-            <%= image_tag "make.png", :class =>'img-home-icon' %>
-            <div class="text-home-icon">
-              デートコースを作る
-            </div>
+          <div class="raised-trans">
+            デートコースを提案してもらう
           </div>
         <% end %>
       </div>
       </h1>
       <h2 class="text-center">
+        <%= link_to seeks_area_path do %>     
+          <span style="color:#CCC;">自分でつくる&nbsp;&nbsp;/</span>  
+        <% end %>
         <%= link_to adate_path do %>
-          <span style="color:#CCC;">A.dateとは</span>
+          <span style="color:#CCC;">&nbsp;&nbsp;A.dateとは</span>
         <% end %>
       </h2>
     </div>
