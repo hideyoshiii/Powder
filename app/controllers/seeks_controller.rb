@@ -270,7 +270,12 @@ class SeeksController < ApplicationController
 
   def result
 
+  #フラッシュ
 	flash.now[:notice] = "コースが作成されました"
+
+  #@nを定義
+  @n = 0
+  
     @spot1 = Spot.find(params[:spot1])
     if @spot1
       @pictures1 = @spot1.pictures.order(id: "ASC")
@@ -292,6 +297,35 @@ class SeeksController < ApplicationController
         @distance_third = @distance_third.to_f.round(4) * 1000
         @distance_third = @distance_third.to_i
       end
+    end
+
+    #スポット数を定義
+    if @pictures1.blank?
+      @spot_n = 0
+    else
+      if @pictures2.blank?
+        @spot_n = 1
+      else
+        if @pictures3.blank?
+          @spot_n = 2
+        else
+          @spot_n = 3
+        end
+      end
+    end
+
+
+    #スポットidを配列に入れる
+    if @spot_n == 0
+    end
+    if @spot_n == 1
+      @spots = [@spot1.id]
+    end
+    if @spot_n == 2
+      @spots = [@spot1.id, @spot2.id]
+    end
+    if @spot_n == 3
+      @spots = [@spot1.id, @spot2.id, @spot3.id]
     end
 
   end
