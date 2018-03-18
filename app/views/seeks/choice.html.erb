@@ -74,22 +74,24 @@
         <div class="modal-dialog">
         <div class="modal-content">
           <%# 画像 %>
-          <%= image_tag spot.pictures.first.image.url, :class =>'img-one' %>
-          <p class="quote-one">
-            <% if !spot.pictures.first.url.blank? %>
-              <% if !spot.pictures.first.quote.blank? %>
-                <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
-                  出典&nbsp;<%= spot.pictures.first.quote %>
-                </a>
+          <div class="box-one">
+            <%= image_tag spot.pictures.first.image.url, :class =>'img-one' %>
+            <p class="quote-one">
+              <% if !spot.pictures.first.url.blank? %>
+                <% if !spot.pictures.first.quote.blank? %>
+                  <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                    出典&nbsp;<%= spot.pictures.first.quote %>
+                  </a>
+                <% else %> 
+                  <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                    出典&nbsp;
+                  </a>
+                <% end %>
               <% else %> 
-                <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
-                  出典&nbsp;
-                </a>
-              <% end %>
-            <% else %> 
-                &nbsp;
-            <% end %>  
-          </p>
+                  &nbsp;
+              <% end %>  
+            </p>
+          </div>
           <div class="panel-body">
             <%# タイトル %>
             <div class="title-one"><%= spot.title %></div>
