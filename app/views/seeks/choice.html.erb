@@ -141,8 +141,8 @@
               </p> 
             <% end %>
             <%# 食べログ、rettyボタン等 %>
-            <h4 style="margin:10px 0px 0px;font-size:15px">For your infomation</h4>
-            <div class="info-box1-min">
+            <h4 style="margin:10px 0px 7px;font-size:13px">For your infomation</h4>
+            <div class="">
               <% unless spot.tabelog.blank? %>
                 <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
               <% end %>
@@ -160,8 +160,8 @@
             </div>
             <%# Description %>
             <% unless spot.description.blank? %>
-              <h4 style="margin:10px 0px 10px;font-size:15px">Description</h4>
-              <p style="font-size:12px"><%= spot.description %></p>
+              <h4 style="margin:10px 0px 7px;font-size:13px">Description</h4>
+              <p style="font-size:11px"><%= spot.description %></p>
             <% end %>
           </div>  
         </div>
