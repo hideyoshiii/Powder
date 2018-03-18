@@ -4717,7 +4717,7 @@ display: inline-block;
 
 .title-spot-show-min{
 	font-size:15px;
-	margin-top:-15px;
+	margin:0px;
 	padding:0;
 	color:black;
 	text-shadow: 1px 1px 2px silver;
@@ -6708,6 +6708,28 @@ square_btnn{
   transform: rotate(180deg);
 }
 
+
+
+//モーダルの写真１枚バージョン
+.img-one{max-width:100%;height:auto;overflow:hidden}
+
+.quote-one {
+    font-size: 10px;
+    color: #CCCCCC;
+    margin:5px;
+	line-height:1.5;
+	text-align:right;
+    
+}
+
+.title-one{
+	font-size:15px;
+	margin-top:-10px;
+	padding:0;
+	color:black;
+	text-shadow: 1px 1px 2px silver;
+	line-height: 1.2
+}
 
 
 
