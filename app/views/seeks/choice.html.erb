@@ -96,11 +96,11 @@
             <%# タイトル %>
             <div class="title-one"><%= spot.title %></div>
             <%# 都道府県、エリア %>
-            <p style="color: #66666;margin:5px 0px;font-size:12px">
+            <p style="color: #66666;margin:4px 0px;font-size:10px">
               <i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %>
             </p> 
             <%# 料金 %>
-            <p style="color: #666666;margin:5px 0px;font-size:12px">
+            <p style="color: #666666;margin:4px 0px;font-size:10px">
               <% unless spot.price_lunch.blank? %>
                 <% unless spot.price_lunch == 0 %>
                   <i class="fa fa-sun-o"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
@@ -114,7 +114,7 @@
             </p> 
             <%# カテゴリー %>
             <% unless spot.large.blank? %>
-              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>
+              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fa fa-tag"></i>
               <% @i = 0 %>
                 <% spot.large.each do |large| %>
                   <% @i = @i + 1 %>
@@ -128,7 +128,7 @@
             <% end %>
             <%# ジャンル %>
             <% unless spot.small.blank? %>
-              <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fa fa-cutlery"></i>&nbsp;
               <% @i = 0 %>
                 <% spot.small.each do |small| %>
                   <% @i = @i + 1 %>
@@ -141,7 +141,7 @@
               </p> 
             <% end %>
             <%# 食べログ、rettyボタン等 %>
-            <h4 style="margin:15px 0px 0px;font-size:15px">For your infomation</h4>
+            <h4 style="margin:10px 0px 0px;font-size:15px">For your infomation</h4>
             <div class="info-box1-min">
               <% unless spot.tabelog.blank? %>
                 <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
@@ -160,7 +160,7 @@
             </div>
             <%# Description %>
             <% unless spot.description.blank? %>
-              <h4 style="margin:15px 0px 10px;font-size:15px">Description</h4>
+              <h4 style="margin:10px 0px 10px;font-size:15px">Description</h4>
               <p style="font-size:12px"><%= spot.description %></p>
             <% end %>
           </div>  
