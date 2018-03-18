@@ -126,49 +126,34 @@
     <div class="modal" id="myModal<%= @n %>">
       <div class="modal-dialog">
       <div class="modal-content">
-        <br>
-        <%# 横スクロール写真 %>
-        <div class="horizontal_scroll_wrap_content_spot">
-          <ul class="scroll_lst_content">
-            <% @pictures = spot.pictures.order(id: "ASC") %>
-            <% @pictures.each do |picture| %>
-              <li class="scroll_item_content">
-                <div class="scroll_item_inr_content">
-                  <div class="scroll_item_thum_content">
-                    <%# $$$spotから利用する写真をfitstなどで指定 %>
-                    <%= image_tag picture.image.url(), :class =>'img-scroll_content' %>
-                  </div>
-                  <div class="scroll_item_info_content_quote">
-                    <p class="scroll_item_ttl_content_quote pull-right">
-                      <% if !picture.url.blank? %>
-                        <% if !picture.quote.blank? %>
-                          <a href="<%= picture.url %>" target="_blank" class="gray">
-                            出典&nbsp;<%= picture.quote %>
-                          </a>
-                        <% else %> 
-                          <a href="<%= picture.url %>" target="_blank" class="gray">
-                            出典&nbsp;
-                          </a>
-                        <% end %>
-                      <% else %> 
-                          &nbsp;
-                      <% end %>  
-                    </p>
-                  </div>
-               </div>
-              </li>
+        <%# 画像 %>
+        <div class="box-one">
+          <%= image_tag spot.pictures.first.image.url, :class =>'img-one' %>
+          <p class="quote-one">
+            <% if !spot.pictures.first.url.blank? %>
+              <% if !spot.pictures.first.quote.blank? %>
+                <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                  出典&nbsp;<%= spot.pictures.first.quote %>
+                </a>
+              <% else %> 
+                <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                  出典&nbsp;
+                </a>
+              <% end %>
+            <% else %> 
+                &nbsp;
             <% end %>  
-          </ul>
+          </p>
         </div>
         <div class="panel-body">
           <%# タイトル %>
-          <div class="title-spot-show-min"><%= spot.title %></div>
+          <div class="title-one"><%= spot.title %></div>
           <%# 都道府県、エリア %>
-          <p style="color: #66666;margin:5px 0px;font-size:12px">
+          <p style="color: #66666;margin:4px 0px;font-size:10px">
             <i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %>
           </p> 
           <%# 料金 %>
-          <p style="color: #666666;margin:5px 0px;font-size:12px">
+          <p style="color: #666666;margin:4px 0px;font-size:10px">
             <% unless spot.price_lunch.blank? %>
               <% unless spot.price_lunch == 0 %>
                 <i class="fa fa-sun-o"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
@@ -182,7 +167,7 @@
           </p> 
           <%# カテゴリー %>
           <% unless spot.large.blank? %>
-            <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-tag"></i>
+            <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fa fa-tag"></i>
             <% @i = 0 %>
               <% spot.large.each do |large| %>
                 <% @i = @i + 1 %>
@@ -196,7 +181,7 @@
           <% end %>
           <%# ジャンル %>
           <% unless spot.small.blank? %>
-            <p style="color: #666666;margin:5px 0px;font-size:12px"><i class="fa fa-cutlery"></i>&nbsp;
+            <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fa fa-cutlery"></i>&nbsp;
             <% @i = 0 %>
               <% spot.small.each do |small| %>
                 <% @i = @i + 1 %>
@@ -208,49 +193,9 @@
               <% end %>
             </p> 
           <% end %>
-          <%# 営業時間 %>
-          <div onclick="obj=document.getElementById('open<%= @n %>').style; obj.display=(obj.display=='none')?'block':'none';">
-            <p style="cursor:pointer;color: #66666;margin:5px 0px;font-size:12px;">
-              <i class="fa fa-clock-o"></i>
-              <% if @wday == 0 %>
-              <% unless spot.sunday.blank? %>(日)<%= spot.sunday %><% end %>
-              <% end %>
-              <% if @wday == 1 %>
-              <% unless spot.monday.blank? %>(月)<%= spot.monday %><% end %>
-              <% end %>
-              <% if @wday == 2 %>
-              <% unless spot.tuesday.blank? %>(火)<%= spot.tuesday %><% end %>
-              <% end %>
-              <% if @wday == 3 %>
-              <% unless spot.wednesday.blank? %>(水)<%= spot.wednesday %><% end %>
-              <% end %>
-              <% if @wday == 4 %>
-              <% unless spot.thursday.blank? %>(木)<%= spot.thursday %><% end %>
-              <% end %>
-              <% if @wday == 5 %>
-              <% unless spot.friday.blank? %>(金)<%= spot.friday %><% end %>
-              <% end %>
-              <% if @wday == 6 %>
-              <% unless spot.saturday.blank? %>(土)<%= spot.saturday %><% end %>
-              <% end %>
-              ▼
-            </p>
-          </div>
-          <div id="open<%= @n %>" style="display:none;clear:both;">
-            <p style="color: #66666;margin-top:5px;font-size:12px">
-              月&nbsp;&nbsp;<% unless spot.monday.blank? %><%= spot.monday %><% end %><br>
-              火&nbsp;&nbsp;<% unless spot.tuesday.blank? %><%= spot.tuesday %><% end %><br>
-              水&nbsp;&nbsp;<% unless spot.wednesday.blank? %><%= spot.wednesday %><% end %><br>
-              木&nbsp;&nbsp;<% unless spot.thursday.blank? %><%= spot.thursday %><% end %><br>
-              金&nbsp;&nbsp;<% unless spot.friday.blank? %><%= spot.friday %><% end %><br>
-              土&nbsp;&nbsp;<% unless spot.saturday.blank? %><%= spot.saturday %><% end %><br>
-              日&nbsp;&nbsp;<% unless spot.sunday.blank? %><%= spot.sunday %><% end %><br>
-              祝&nbsp;&nbsp;<% unless spot.holiday.blank? %><%= spot.holiday %><% end %><br>
-            </p> 
-          </div>
           <%# 食べログ、rettyボタン等 %>
-          <h4 style="margin:15px 0px 0px;font-size:15px">For your infomation</h4>
-          <div class="info-box1-min">
+          <h4 style="margin:10px 0px 7px;font-size:13px">For your infomation</h4>
+          <div class="">
             <% unless spot.tabelog.blank? %>
               <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
             <% end %>
@@ -268,8 +213,8 @@
           </div>
           <%# Description %>
           <% unless spot.description.blank? %>
-            <h4 style="margin:15px 0px 10px;font-size:15px">Description</h4>
-            <p style="font-size:12px"><%= spot.description %></p>
+            <h4 style="margin:10px 0px 7px;font-size:13px">Description</h4>
+            <p style="font-size:11px"><%= spot.description %></p>
           <% end %>
         </div>  
       </div>
