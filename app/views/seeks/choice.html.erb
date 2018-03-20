@@ -27,10 +27,9 @@
     <i class="fa fa-search"></i>
    </a>
   </div>
-    
-		<% @spots.each do |spot| %>
-      <% @n = @n + 1 %>
-      <a href="" data-toggle="modal" data-target="#myModal<%= @n %>">
+
+		<% @spots.each.with_index(1) do |spot, i| %>
+      <a href="" data-toggle="modal" data-target="#myModal<%= i %>">
       <div class="radio-city-b">	
           <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
           <h3>
@@ -70,7 +69,7 @@
       </div>
       </a>
       <!-- モーダルウィンドウの中身 -->
-      <div class="modal" id="myModal<%= @n %>">
+      <div class="modal" id="myModal<%= i %>">
         <div class="modal-dialog">
         <div class="modal-content">
           <%# 画像 %>
@@ -166,30 +165,19 @@
           </div>  
         </div>
         </div>
-        <% if @spot_n == 1 || @spot_n == 2 %>
-            <div class="">
-              <%= form_tag(seeks_distance_path, method: :get) do %>
-                <% if @spot_n == 1 %>
-                  <%= hidden_field_tag :spot1, spot.id %>
-                <% end %>
-                <% if @spot_n == 2 %>
-                  <%= hidden_field_tag :spot1, params[:spot1] %>
-                  <%= hidden_field_tag :spot2, spot.id %>
-                <% end %>
-                <%= submit_tag "このスポットにする", :class => "btn btn-default inline" %>
+        <div class="">
+          <%= form_tag(seeks_distance_path, method: :get) do %>
+            <% if params[:ss].blank? %>
+              <%= hidden_field_tag 'ss[]', spot.id %>
+            <% else %>
+              <% params[:ss].each.with_index(1) do |s, i| %>
+                <%= hidden_field_tag 'ss[]', s %>
               <% end %>
-            </div>
+              <%= hidden_field_tag 'ss[]', spot.id %>
+            <% end %>
+            <%= submit_tag "このスポットにする", :class => "btn btn-default inline" %>
           <% end %>
-          <% if @spot_n == 3 %>
-            <div class="">
-              <%= form_tag(seeks_result_path, method: :get) do %>
-                <%= hidden_field_tag :spot1, params[:spot1] %>
-                <%= hidden_field_tag :spot2, params[:spot2] %>
-                <%= hidden_field_tag :spot3, spot.id %>
-                <%= submit_tag "このスポットにする", :class => "btn btn-default inline" %>
-              <% end %>
-            </div>
-          <% end %>
+        </div>
         <div class="btn-details">
          <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
           <i class="fa fa-close"></i>
@@ -208,11 +196,10 @@
   <div class="modal-dialog">
   <%= form_tag(seeks_choice_path, method: :get) do %>
     <%= hidden_field_tag :large, params[:large] %>
-    <% unless params[:spot1].blank? %>
-      <%= hidden_field_tag :spot1, params[:spot1] %>
-    <% end %>
-    <% unless params[:spot2].blank? %>
-        <%= hidden_field_tag :spot2, params[:spot2] %>
+    <% unless params[:ss].blank? %>
+      <% params[:ss].each.with_index(1) do |s, i| %>
+            <%= hidden_field_tag 'ss[]', s %>
+          <% end %>
     <% end %>
     <div class="modal-content">
       	<div class="text-center" style="padding-top:30px;">

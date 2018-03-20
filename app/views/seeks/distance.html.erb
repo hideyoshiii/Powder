@@ -2,24 +2,16 @@
 <mains class="" id="main-collapse">
 
 
-<% if @spot_n == 2 || @spot_n == 3 %>
   <div class="box90" id=''>
-	<% if @spot_n == 2 %>
-		<div>
-			<p style="color:white;text-shadow: 1px 1px 2px black;">次に２軒目を決めましょう</p>			
+  	<% unless params[:ss].blank? %>
+  		<div>
+			<p style="color:white;text-shadow: 1px 1px 2px black;">次に<%= @ss.size + 1 %>軒目を決めましょう</p>			
 	    </div>
 	    <div>
-	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">２軒目までの距離はどうしますか？</h4>
-	    </div>	
-    <% end %>  
-    <% if @spot_n == 3 %>
-	    <div>
-	        <p style="color:white;text-shadow: 1px 1px 2px black;">次に３軒目を決めましょう</p>
-	    </div>	
-	    <div>
-	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">３軒目までの距離はどうしますか？</h4>
-	    </div>	
-    <% end %>  
+	      <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;"><%= @ss.size + 1 %>軒目までの距離はどうしますか？</h4>
+	    </div>
+    <% end %>
+  	<br>
 
     <div>
     <%= form_tag(seeks_category_path, method: :get) do %>
@@ -29,12 +21,11 @@
 	<%= hidden_field_tag :distance, params[:distance] %>
 	<%= hidden_field_tag :timezone, params[:timezone] %>
 	<%= hidden_field_tag :small, params[:small] %>
-	<% unless params[:spot1].blank? %>
-		<%= hidden_field_tag :spot1, params[:spot1] %>
-	<% end %>
-	<% unless params[:spot2].blank? %>
-		<%= hidden_field_tag :spot2, params[:spot2] %>
-	<% end %>
+	<% unless params[:ss].blank? %>
+    	<% params[:ss].each.with_index(1) do |s, i| %>
+            <%= hidden_field_tag 'ss[]', s %>
+        <% end %>
+    <% end %>
 	</div>
 
     <br><br><br>
@@ -61,12 +52,11 @@
 	      	<%= hidden_field_tag :distance, params[:distance] %>
 	      	<%= hidden_field_tag :timezone, params[:timezone] %>
 	      	<%= hidden_field_tag :small, params[:small] %>
-	      	<% unless params[:spot1].blank? %>
-	      		<%= hidden_field_tag :spot1, params[:spot1] %>
-	      	<% end %>
-		  	<% unless params[:spot2].blank? %>
-	      		<%= hidden_field_tag :spot2, params[:spot2] %>
-	      	<% end %>
+	      	<% unless params[:ss].blank? %>
+		    	<% params[:ss].each.with_index(1) do |s, i| %>
+                	<%= hidden_field_tag 'ss[]', s %>
+             	<% end %>
+		    <% end %>
 	      	<%= submit_tag "エリアを指定する", :class => "btn-stop" %>
 	    	<% end %>
     	</div>
@@ -74,22 +64,20 @@
     	<span style="color:white;">/</span>
 
     	<div style="display:inline-block;">
-    	<% if @spot_n == 2 || @spot_n == 3 %>
 		    <%= form_tag(seeks_result_path, method: :get) do %>
-				<%= hidden_field_tag :spot1, params[:spot1] %>
-				<% if @spot_n == 3 %>
-					<%= hidden_field_tag :spot2, params[:spot2] %>
-				<% end %>
+				<% unless params[:ss].blank? %>
+			    	<% params[:ss].each.with_index(1) do |s, i| %>
+		                <%= hidden_field_tag 'ss[]', s %>
+		            <% end %>
+			    <% end %>
 			    <%= submit_tag "ここまでにする", :class => "btn-stop" %>
 		    <% end %>
-	    <% end %>  
 	    </div>
 
 	</div>
 
   </div>
 
-<% end %>
 
 
 

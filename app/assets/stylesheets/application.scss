@@ -4639,6 +4639,22 @@ display: inline-block;
   position: relative;
 }
 
+//２点間の経路ボタン(result)
+.raise5-result{
+  display: inline-block;
+  background-color: white;
+  color: black;
+  font-size: 7px;
+  line-height: 1;
+  text-decoration: none;
+  padding: 4px 8px;/*ボタン内の余白*/
+  border-radius: 5px;/*角の丸み*/
+    cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  border: solid 1px black;
+  margin:0px 2px;
+}
+
 
 
 
@@ -6741,13 +6757,76 @@ square_btnn{
 	line-height: 1.2
 }
 
+//resultの２点間の距離
+.box-distance{
+	position: relative;
+	height:6vh;
+	text-align:center;
+	line-height:5.5vh;
+	vertical-align:middle;
+	margin-top:-1px;
+	border:1px solid black;
+	
+
+}
+
+.text-distance{
+	font-size:14px;
+	color:black
+}
 
 
+//現在選んでるスポットフッター
+.sticky-bar_now {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    background:#F4F5F7;
+    width:100%;
+    height:70px;
+    line-height:70px;
+	vertical-align:middle;
+    border-top:1px solid #CCCCCC;
+}
 
+.fotter_now{
+	margin-bottom: 70px;
+}
 
+.horizontal_scroll_now{
+    background: #F4F5F7;
+    width:100%;
+    height:70px;
+    overflow-y: hidden;
+    margin:0px;
+    padding:0px;
 
+}
+.scroll_lst_now {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+}
+.scroll_item_now {
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top; 
+    width: 90px;
+    border-radius:5px;
+}
+.scroll_item_now:first-child {
+    margin-left: 5px;
+}
 
-
+.img-scroll_now{
+	width:90px;
+	height:60px;
+	border-radius: 5px;
+	overflow:hidden;
+}
 
 
 
@@ -6952,9 +7031,6 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 	margin-bottom: 50px;
 }
 
-.fotter-box2{
-	margin-bottom: 60px;
-}
 
 //コースの公開ボタン(フッター)
 .sticky-bar-release {
@@ -6988,46 +7064,6 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 
 }
 
-//自分が選んでいるスポットバー
-.sticky-bar-spot {
-    position: fixed;
-    bottom: 0;
-    left:0;
-    background:#F4F5F7;
-    width:100%;
-    height:60px;
-    border-top:1px solid #CCCCCC;
-}
-
-.sticky-menu-spot{
-	padding-left:15px;
-}
-
-.img-stickey-spot{
-  height:50px;
-  width:auto;
-  margin-top:5px;
-  margin-right:5px;
-  border-radius:5px;
-  display: inline-block; 
-  vertical-align: top; 
-}
-
-.title-stickey-spot{
-  width:80px;
-  margin-top:7px;
-  margin-right:5px;
-  display: inline-block; 
-  vertical-align: top; 
-}
-
-.title-stickey-spot p{
-  font-size:7px;
-  line-height:1.2;
-  color:#666666;
-  margin-bottom:5px;
-  padding:0;
-}
 
 #map {width: auto; height: 450px;}
 @media only screen and (max-width: 768px) {

@@ -1,5 +1,5 @@
 class SeeksController < ApplicationController
-  before_action :set_params, only: [:area,:distance,:category,:term,:meal,:choice]
+  before_action :set_params, only: [:area,:distance,:category,:meal,:choice,:result]
 
   def home
   end
@@ -19,13 +19,12 @@ class SeeksController < ApplicationController
     #@latitudeがない物を排除
     @spots = @spots.where.not(latitude: nil)
   	#同じスポットが含まれないように
-  	if @spot_n == 2
-  		@spots = @spots.where.not(title: @spot1.title)
-  	end
-  	if @spot_n == 3
-  		@spots = @spots.where.not(title: @spot1.title)
-  		@spots = @spots.where.not(title: @spot2.title)
-  	end
+    unless @ss.blank?
+      @ss.each do |s|
+        @spot = Spot.find(s)
+        @spots = @spots.where.not(title: @spot.title)
+      end
+    end
   	#時間帯で絞る
   	if params[:timezone] == "すべての時間帯"
   	else
@@ -33,23 +32,20 @@ class SeeksController < ApplicationController
   		@spots = @spots.where("timezone like '%#{@timezone}%'")
   	end
   	#距離で絞るorエリアで絞る
-  	if params[:distance_on] == "true"
-  		unless params[:distance].blank?
-  			@distance = params[:distance].to_f / 1000
-  			if @spot_n == 2
-  				@spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
-  			end
-  			if @spot_n == 3
-  				@spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
-  			end
-  		end
-  	else
-	  	if params[:city] == "すべてのエリア"
-	  		@spots = @spots.all
-	  	else
-	  		@spots = @spots.where(city: params[:city])
-	  	end
-	end
+    if params[:distance_on] == "true"
+      unless @ss.blank?
+        unless params[:distance].blank?
+          @spot_last = Spot.find(@ss.last)
+          @distance = params[:distance].to_f / 1000
+          @spots = @spots.near([@spot_last.latitude, @spot_last.longitude], @distance.to_f, :units => :km, :order => false)
+        end
+      end
+    else
+      if params[:city] == "すべてのエリア"
+      else
+        @spots = @spots.where(city: params[:city])
+      end
+    end
   	#朝食,ランチ,ディナー用に予算で絞る
     @price_start = params[:price_min].to_i
     @price_end = params[:price_max].to_i    
@@ -116,51 +112,42 @@ class SeeksController < ApplicationController
 
   end
 
-  def term
-  	@large = params[:large]
-  end
-
   def choice
   	#@spotsを定義
   	@spots = Spot.all
     #@latitudeがない物を排除
     @spots = @spots.where.not(latitude: nil)
   	#同じスポットが含まれないように
-  	if @spot_n == 2
-  		@spots = @spots.where.not(title: @spot1.title)
-  	end
-  	if @spot_n == 3
-  		@spots = @spots.where.not(title: @spot1.title)
-  		@spots = @spots.where.not(title: @spot2.title)
-  	end
-  	#選択でのchecked判別のための@nを定義
-  	@n = 0
+    unless @ss.blank?
+      @ss.each do |s|
+        @spot = Spot.find(s)
+        @spots = @spots.where.not(title: @spot.title)
+      end
+    end
   	#カテゴリーで絞る
   	@large = params[:large]
   	@spots = @spots.where("large like '%#{@large}%'")
   	#時間帯で絞る
-	if params[:timezone] == "すべての時間帯"
+  	if params[:timezone] == "すべての時間帯"
   	else
   		@timezone = params[:timezone]
   		@spots = @spots.where("timezone like '%#{@timezone}%'")
   	end
   	#距離で絞るorエリアで絞る
   	if params[:distance_on] == "true"
-  		unless params[:distance].blank?
-  			@distance = params[:distance].to_f / 1000
-  			if @spot_n == 2
-  				@spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
-  			end
-  			if @spot_n == 3
-  				@spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
-  			end
-  		end
+      unless @ss.blank?
+    		unless params[:distance].blank?
+          @spot_last = Spot.find(@ss.last)
+    			@distance = params[:distance].to_f / 1000
+    			@spots = @spots.near([@spot_last.latitude, @spot_last.longitude], @distance.to_f, :units => :km, :order => false)
+    		end
+      end
   	else
 	  	if params[:city] == "すべてのエリア"
 	  	else
 	  		@spots = @spots.where(city: params[:city])
 	  	end
-	end
+  	end
   	#予算で絞る
     @price_start = params[:price_min].to_i
     @price_end = params[:price_max].to_i
@@ -194,139 +181,11 @@ class SeeksController < ApplicationController
     @spots = @spots.order("RANDOM()")
   end
 
-  def choice2
-    #@spotsを定義
-    @spots = Spot.all
-    #@latitudeがない物を排除
-    @spots = @spots.where.not(latitude: nil)
-    #同じスポットが含まれないように
-    if @spot_n == 2
-      @spots = @spots.where.not(title: @spot1.title)
-    end
-    if @spot_n == 3
-      @spots = @spots.where.not(title: @spot1.title)
-      @spots = @spots.where.not(title: @spot2.title)
-    end
-    #選択でのchecked判別のための@nを定義
-    @n = 0
-    #カテゴリーで絞る
-    @large = params[:large]
-    @spots = @spots.where("large like '%#{@large}%'")
-    #時間帯で絞る
-  if params[:timezone] == "すべての時間帯"
-    else
-      @timezone = params[:timezone]
-      @spots = @spots.where("timezone like '%#{@timezone}%'")
-    end
-    #距離で絞るorエリアで絞る
-    if params[:distance_on] == "true"
-      unless params[:distance].blank?
-        @distance = params[:distance].to_f / 1000
-        if @spot_n == 2
-          @spots = @spots.near([@spot1.latitude, @spot1.longitude], @distance.to_f, :units => :km, :order => false)
-        end
-        if @spot_n == 3
-          @spots = @spots.near([@spot2.latitude, @spot2.longitude], @distance.to_f, :units => :km, :order => false)
-        end
-      end
-    else
-      if params[:city] == "すべてのエリア"
-      else
-        @spots = @spots.where(city: params[:city])
-      end
-  end
-    #予算で絞る
-    @price_start = params[:price_min].to_i
-    @price_end = params[:price_max].to_i
-    if @large == "朝食"
-      @spots = @spots.where(price_lunch: @price_start..@price_end)
-    end
-    if @large == "ランチ"
-      @spots = @spots.where(price_lunch: @price_start..@price_end)
-    end
-    if @large == "ディナー"
-      @spots = @spots.where(price_dinner: @price_start..@price_end)
-    end
-    if @large == "バー"
-      @spots = @spots.where(price_dinner: @price_start..@price_end)
-    end
-    if @large == "カフェ"
-      if params[:timezone] == "昼"
-        @spots = @spots.where(price_lunch: @price_start..@price_end)
-      end
-      if params[:timezone] == "夜"
-        @spots = @spots.where(price_dinner: @price_start..@price_end)
-      end
-    end
-    #ジャンルで絞る
-    if params[:small] == "すべてのジャンル"
-    else
-      @small = params[:small]
-      @spots = @spots.where("small like '%#{@small}%'")
-  end
-    #ランダムにして２つ抽出
-    @spots = @spots.order("RANDOM()").limit(2)
-  end
-
+  
   def result
 
   #フラッシュ
 	flash.now[:notice] = "コースが作成されました"
-
-  #@nを定義
-  @n = 0
-  
-    @spot1 = Spot.find(params[:spot1])
-    if @spot1
-      @pictures1 = @spot1.pictures.order(id: "ASC")
-    end
-    if params[:spot2]
-      @spot2 = Spot.find(params[:spot2])
-      if @spot2
-        @pictures2 = @spot2.pictures.order(id: "ASC")
-        @distance_second = Geocoder::Calculations.distance_between([@spot1.latitude,@spot1.longitude], [@spot2.latitude,@spot2.longitude], :units => :km)
-        @distance_second = @distance_second.to_f.round(4) * 1000
-        @distance_second = @distance_second.to_i
-      end
-    end
-    if params[:spot3]
-      @spot3 = Spot.find(params[:spot3])
-      if @spot3
-        @pictures3 = @spot3.pictures.order(id: "ASC")
-        @distance_third = Geocoder::Calculations.distance_between([@spot2.latitude,@spot2.longitude], [@spot3.latitude,@spot3.longitude], :units => :km)
-        @distance_third = @distance_third.to_f.round(4) * 1000
-        @distance_third = @distance_third.to_i
-      end
-    end
-
-    #スポット数を定義
-    if @pictures1.blank?
-      @spot_n = 0
-    else
-      if @pictures2.blank?
-        @spot_n = 1
-      else
-        if @pictures3.blank?
-          @spot_n = 2
-        else
-          @spot_n = 3
-        end
-      end
-    end
-
-
-    #スポットidを配列に入れる
-    if @spot_n == 0
-    end
-    if @spot_n == 1
-      @spots = [@spot1.id]
-    end
-    if @spot_n == 2
-      @spots = [@spot1.id, @spot2.id]
-    end
-    if @spot_n == 3
-      @spots = [@spot1.id, @spot2.id, @spot3.id]
-    end
 
   end
 
@@ -634,6 +493,11 @@ class SeeksController < ApplicationController
 
 
     @wday = Date.today.wday
+
+    @ss = []
+    unless params[:ss].blank?
+      @ss = params[:ss]
+    end
 
   end
 

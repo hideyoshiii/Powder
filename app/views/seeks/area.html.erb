@@ -1,18 +1,13 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
 
-  	<% if @spot_n == 1 %>
-  		<p class="text-center" style="color:black;">まずはエリアを決めましょう</p>
-  		<h4 class="text-center">どこでデートしますか？</h4>
-  	<% end %>
-  	<% if @spot_n == 2 %>
-  		<p class="text-center" style="color:black;">２軒目のエリアを決めましょう</p>
-  		<h4 class="text-center">２軒目のエリアはどこにしますか？</h4>
-  	<% end %>
-  	<% if @spot_n == 3 %>
-  		<p class="text-center" style="color:black;">３目のエリアを決めましょう</p>
-  		<h4 class="text-center">３軒目のエリアはどこにしますか？</h4>
-  	<% end %>
+    <% if params[:ss].blank? %>
+      <p class="text-center" style="color:black;">まずはエリアを決めましょう</p>
+      <h4 class="text-center">どこでデートしますか？</h4>
+    <% else %>
+      <p class="text-center" style="color:black;"><%= @ss.size + 1 %>軒目のエリアを決めましょう</p>
+      <h4 class="text-center"><%= @ss.size + 1 %>軒目のエリアはどこにしますか？</h4>
+    <% end %>
   	<br>
 
 	  <%= form_tag(seeks_category_path, method: :get) do %>
@@ -23,12 +18,9 @@
     	<%= hidden_field_tag :distance, params[:distance] %>
     	<%= hidden_field_tag :timezone, params[:timezone] %>
     	<%= hidden_field_tag :small, params[:small] %>
-    	<% unless params[:spot1].blank? %>
-    		<%= hidden_field_tag :spot1, params[:spot1] %>
-    	<% end %>
-  	  <% unless params[:spot2].blank? %>
-    		<%= hidden_field_tag :spot2, params[:spot2] %>
-    	<% end %>
+      <% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
+      <% end %>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
       	<div class="box-area-img">
       		<%= image_tag "ebisu00.jpg", :class =>'img-area' %>
@@ -48,12 +40,9 @@
     	<%= hidden_field_tag :distance, params[:distance] %>
     	<%= hidden_field_tag :timezone, params[:timezone] %>
     	<%= hidden_field_tag :small, params[:small] %>
-    	<% unless params[:spot1].blank? %>
-    		<%= hidden_field_tag :spot1, params[:spot1] %>
-    	<% end %>
-  	  <% unless params[:spot2].blank? %>
-    		<%= hidden_field_tag :spot2, params[:spot2] %>
-    	<% end %>
+      <% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
+      <% end %>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
       	<div class="box-area-img">
       		<%= image_tag "shibuya00.jpg", :class =>'img-area' %>
@@ -72,12 +61,9 @@
     	<%= hidden_field_tag :distance, params[:distance] %>
     	<%= hidden_field_tag :timezone, params[:timezone] %>
     	<%= hidden_field_tag :small, params[:small] %>
-    	<% unless params[:spot1].blank? %>
-    		<%= hidden_field_tag :spot1, params[:spot1] %>
-    	<% end %>
-  	  <% unless params[:spot2].blank? %>
-    		<%= hidden_field_tag :spot2, params[:spot2] %>
-    	<% end %>
+      <% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
+      <% end %>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
     	  <div class="box-area-img">
       		<%= image_tag "harajuku00.jpg", :class =>'img-area' %>
@@ -96,12 +82,9 @@
     	<%= hidden_field_tag :distance, params[:distance] %>
     	<%= hidden_field_tag :timezone, params[:timezone] %>
     	<%= hidden_field_tag :small, params[:small] %>
-    	<% unless params[:spot1].blank? %>
-    		<%= hidden_field_tag :spot1, params[:spot1] %>
-    	<% end %>
-  	  <% unless params[:spot2].blank? %>
-    		<%= hidden_field_tag :spot2, params[:spot2] %>
-    	<% end %>
+    	<% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
+      <% end %>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
     	  <div class="box-area-img">
       		<%= image_tag "tokyo00.jpg", :class =>'img-area' %>
@@ -120,12 +103,9 @@
     	<%= hidden_field_tag :distance, params[:distance] %>
     	<%= hidden_field_tag :timezone, params[:timezone] %>
     	<%= hidden_field_tag :small, params[:small] %>
-    	<% unless params[:spot1].blank? %>
-    		<%= hidden_field_tag :spot1, params[:spot1] %>
-    	<% end %>
-      <% unless params[:spot2].blank? %>
-    		<%= hidden_field_tag :spot2, params[:spot2] %>
-    	<% end %>
+    	<% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
+      <% end %>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
     	  <div class="box-area-img">
       		<%= image_tag "shinnjuku00.jpg", :class =>'img-area' %>
@@ -144,12 +124,7 @@
     	<%= hidden_field_tag :distance, params[:distance] %>
     	<%= hidden_field_tag :timezone, params[:timezone] %>
     	<%= hidden_field_tag :small, params[:small] %>
-    	<% unless params[:spot1].blank? %>
-    		<%= hidden_field_tag :spot1, params[:spot1] %>
-    	<% end %>
-  	  <% unless params[:spot2].blank? %>
-    		<%= hidden_field_tag :spot2, params[:spot2] %>
-    	<% end %>
+    	<%= hidden_field_tag 'ss[]', params[:ss] %>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
     	  <div class="box-area-img">
       		<%= image_tag "roppongi00.jpg", :class =>'img-area' %>
@@ -168,11 +143,8 @@
       <%= hidden_field_tag :distance, params[:distance] %>
       <%= hidden_field_tag :timezone, params[:timezone] %>
       <%= hidden_field_tag :small, params[:small] %>
-      <% unless params[:spot1].blank? %>
-        <%= hidden_field_tag :spot1, params[:spot1] %>
-      <% end %>
-      <% unless params[:spot2].blank? %>
-        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
       <% end %>
       <%= button_tag :type => "submit", :class =>"button-bb" do %>
         <div class="box-area-img">
@@ -192,11 +164,8 @@
       <%= hidden_field_tag :distance, params[:distance] %>
       <%= hidden_field_tag :timezone, params[:timezone] %>
       <%= hidden_field_tag :small, params[:small] %>
-      <% unless params[:spot1].blank? %>
-        <%= hidden_field_tag :spot1, params[:spot1] %>
-      <% end %>
-      <% unless params[:spot2].blank? %>
-        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
       <% end %>
       <%= button_tag :type => "submit", :class =>"button-bb" do %>
         <div class="box-area-img">
@@ -216,11 +185,8 @@
       <%= hidden_field_tag :distance, params[:distance] %>
       <%= hidden_field_tag :timezone, params[:timezone] %>
       <%= hidden_field_tag :small, params[:small] %>
-      <% unless params[:spot1].blank? %>
-        <%= hidden_field_tag :spot1, params[:spot1] %>
-      <% end %>
-      <% unless params[:spot2].blank? %>
-        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
       <% end %>
       <%= button_tag :type => "submit", :class =>"button-bb" do %>
         <div class="box-area-img">
@@ -240,11 +206,8 @@
       <%= hidden_field_tag :distance, params[:distance] %>
       <%= hidden_field_tag :timezone, params[:timezone] %>
       <%= hidden_field_tag :small, params[:small] %>
-      <% unless params[:spot1].blank? %>
-        <%= hidden_field_tag :spot1, params[:spot1] %>
-      <% end %>
-      <% unless params[:spot2].blank? %>
-        <%= hidden_field_tag :spot2, params[:spot2] %>
+      <% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
       <% end %>
       <%= button_tag :type => "submit", :class =>"button-bb" do %>
         <div class="box-area-img">

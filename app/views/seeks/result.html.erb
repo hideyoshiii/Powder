@@ -2,56 +2,10 @@
 
 <mains class="" id="main-collapse">
 
-<% if @spot_n == 0 %>
+<% if @ss.blank? %>
   該当するデートコースはありません
-<% end %>
-
-<%# １軒の時の目次 %>
-<% if @spot_n == 1 %>
-  <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
-  <%# コースの諸情報 %>
-  <div class="result-info-box">
-    <div class="result-info-box-1">
-      <div class="result-info-btn">
-        <i class="fa fa-map-marker"></i>
-      </div>
-      <div class="result-info">
-        <%= @spot1.city %>付近
-      </div>
-    </div>
-  </div>
-  <%# 距離 %>
-  <div class="distance-box">
-    <%= @spot1.title %>
-  </div>
-<% end %>
-
-<%# ２軒の時の目次 %>
-<% if @spot_n == 2 %>
-  <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>
-  <%# コースの諸情報 %>
-  <div class="result-info-box">
-    <div class="result-info-box-1">
-      <div class="result-info-btn">
-        <i class="fa fa-map-marker"></i>
-      </div>
-      <div class="result-info">
-        <%= @spot1.city %>付近
-      </div>
-    </div>
-  </div>
-  <%# 距離 %>
-  <div class="distance-box">
-    <%= @spot1.title %>
-    <br>
-    <span class="distance">↓ (<%= @distance_second %>m)</span>
-    <br>
-    <%= @spot2.title %>
-  </div>
-<% end %>
-
-<%# ３軒の時の目次 %>
-<% if @spot_n == 3 %>
+<% else %>
+  <%# 目次 %>
   <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>           
   <%# コースの諸情報 %>
   <div class="result-info-box">
@@ -60,30 +14,29 @@
         <i class="fa fa-map-marker"></i>
       </div>
       <div class="result-info">
-        <%= @spot1.city %>付近
+        <% @spot_first = Spot.find(@ss.first) %>
+        <%= @spot_first.city %>付近
       </div>
     </div>
   </div>
-    <%# 距離 %>
-    <div class="distance-box">
-      <%= @spot1.title %>
-      <br>
-      <span class="distance">↓ (<%= @distance_second %>m)</span>
-      <br>
-      <%= @spot2.title %>
-      <br>
-      <span class="distance">↓ (<%= @distance_third %>m)</span>
-      <br>
-      <%= @spot3.title %>
-    </div>
-<% end %>
-
-<%# アイキャッチ %>
-<% unless @spots.blank? %>
-  <% @spots.each do |id| %>
-    <% spot = Spot.find(id) %>
-    <% @n = @n + 1 %>
-    <a href="" data-toggle="modal" data-target="#myModal<%= @n %>">
+  
+  <%# アイキャッチ %>
+  <% @ss.each.with_index(1) do |s, i| %>
+    <% spot = Spot.find(s) %>
+      <% unless i == 1 %>
+        <div class="box-distance">
+        <% spot_pre_n = @ss[i - 2] %>
+        <% spot_pre = Spot.find(spot_pre_n) %>
+        <% @distance_two = Geocoder::Calculations.distance_between([spot_pre.latitude,spot_pre.longitude], [spot.latitude,spot.longitude], :units => :km) %>
+        <% @distance_two = @distance_two.to_f.round(4) * 1000 %>
+        <% @distance_two = @distance_two.to_i %>
+        <div class="">
+          <span class="text-distance"><i class="fa fa-angle-down"></i>&nbsp;<%= @distance_two %>m</span>
+          <a href="https://www.google.co.jp/maps/dir/<%= spot_pre.address %>/<%= spot.address %>/" target="_blank" class="raise5-result"><span><i class="fa fa-map-o"></i>&nbsp;経路</span></a>
+        </div>
+      </div>
+    <% end %>
+    <a href="" data-toggle="modal" data-target="#myModal<%= i %>">
     <div class="radio-city-b">  
         <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
         <h3>
@@ -123,7 +76,7 @@
     </div>
     </a>
     <!-- モーダルウィンドウの中身 -->
-    <div class="modal" id="myModal<%= @n %>">
+    <div class="modal" id="myModal<%= i %>">
       <div class="modal-dialog">
       <div class="modal-content">
         <%# 画像 %>
@@ -226,10 +179,9 @@
       </div>
     </div>
   <% end %>
-<% end %>
 
-<%# ショーン %>
-<% unless @spots.blank? %>
+
+  <%# ショーン %>
   <div class="box-line">
     <h3>More about the course</h3>
     <p>
@@ -252,30 +204,18 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="panel-body">
-          <%#１軒の時%>
-          <% if @spot_n == 1 %>
-            <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
-            <p style="margin:20px 20px;">①<%= @spot1.title %></p> 
-            <div  class="text-center" style="margin:20px 0px;">
-              <button class="btn" data-clipboard-text="①<%= @spot1.title %>"><i class="fa fa-clone"></i>コピー</button>
-            </div>
-          <% end %>
-          <%#２軒の時%>
-          <% if @spot_n == 2 %>
-            <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
-            <p style="margin:20px 20px;">①<%= @spot1.title %><br>②<%= @spot2.title %></p> 
-            <div  class="text-center" style="margin:20px 0px;">
-              <button class="btn" data-clipboard-text="①<%= @spot1.title %>/②<%= @spot2.title %>"><i class="fa fa-clone"></i>コピー</button>
-            </div>
-          <% end %>
-          <%#３軒の時%>
-          <% if @spot_n == 3 %>
-            <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
-            <p style="margin:20px 20px;">①<%= @spot1.title %><br>②<%= @spot2.title %><br>③<%= @spot3.title %></p> 
-            <div  class="text-center" style="margin:20px 0px;">
-              <button class="btn" data-clipboard-text="①<%= @spot1.title %>/②<%= @spot2.title %>/③<%= @spot3.title %>"><i class="fa fa-clone"></i>コピー</button>
-            </div>
-          <% end %>
+          <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
+          <p style="margin:20px 20px;">
+            <% @ss.each.with_index(1) do |s, i| %>
+              <% spot = Spot.find(s) %>
+              <%= i %>,<%= spot.title %>
+              <br>
+            <% end %>
+          </p> 
+          <div  class="text-center" style="margin:20px 0px;">
+            <button class="btn" data-clipboard-text="<% @ss.each.with_index(1) do |s, i| %><% spot = Spot.find(s) %><% unless i == 1 %> / <% end %><%= i %>,<%= spot.title %><% end %>">
+            <i class="fa fa-clone"></i>コピー</button>
+          </div>
         </div>
       </div>
     </div>
@@ -288,10 +228,8 @@
       </a>
     </div>
   </div>
-<% end %>
 
-<%# マップ %>
-<% unless @spots.blank? %>
+  <%# マップ %>
   <div class="map-title-box">
     <div class="map-title">
       Map
@@ -300,6 +238,7 @@
     </div>
   </div>
   <div id="sample"></div>
+
 <% end %>
 
 
@@ -377,42 +316,14 @@ var marker = [];
 var infoWindow = [];
 var markerData = [ // マーカーを立てる場所名・緯度・経度
 
-<% if @spot_n == 1 %>
-  {
-       name: "<%= @spot1.title %>",
-       lat: <%= @spot1.latitude %>,
-        lng: <%= @spot1.longitude %>,
-  }, 
-<% end %>
-<% if @spot_n == 2 %>
-  {
-       name: "<%= @spot1.title %>",
-       lat: <%= @spot1.latitude %>,
-        lng: <%= @spot1.longitude %>,
-  }, 
-  {
-       name: "<%= @spot2.title %>",
-       lat: <%= @spot2.latitude %>,
-        lng: <%= @spot2.longitude %>,
-  }, 
-<% end %>
-<% if @spot_n == 3 %>
-  {
-       name: "<%= @spot1.title %>",
-       lat: <%= @spot1.latitude %>,
-        lng: <%= @spot1.longitude %>,
-  }, 
-  {
-       name: "<%= @spot2.title %>",
-       lat: <%= @spot2.latitude %>,
-        lng: <%= @spot2.longitude %>,
-  }, 
-  {
-       name: "<%= @spot3.title %>",
-       lat: <%= @spot3.latitude %>,
-        lng: <%= @spot3.longitude %>,
-  }, 
-<% end %>
+  <% @ss.each.with_index(1) do |s, i| %>
+    <% spot = Spot.find(s) %>
+    {
+       name: "<%= spot.title %>",
+       lat: <%= spot.latitude %>,
+        lng: <%= spot.longitude %>,
+    }, 
+  <% end %>
 
 ];
  
