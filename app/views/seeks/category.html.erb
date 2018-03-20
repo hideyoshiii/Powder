@@ -617,6 +617,7 @@
 			  	<% @ss.each.with_index(1) do |s, i| %>
 			  		<% spot = Spot.find(s) %>
 				    <li class="scroll_item_now">
+				      <h1><span class="number_now"><%= i %></span></h1>
 				      <a href="" data-toggle="modal" data-target="#myModal<%= i %>">
 				      	<%= image_tag spot.pictures.first.image.url, :class =>'img-scroll_now' %>
 				      </a>

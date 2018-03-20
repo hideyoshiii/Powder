@@ -6772,8 +6772,10 @@ square_btnn{
 
 .text-distance{
 	font-size:14px;
-	color:black
+	color:black;
+	display: inline-block;
 }
+
 
 
 //現在選んでるスポットフッター
@@ -6811,6 +6813,7 @@ square_btnn{
     -webkit-overflow-scrolling: touch;
 }
 .scroll_item_now {
+	position:relative;
     margin-right: 5px;
     display: inline-block;
     vertical-align: top; 
@@ -6828,7 +6831,32 @@ square_btnn{
 	overflow:hidden;
 }
 
+.scroll_item_now h1 {
+  position: absolute;
+  top: 10%;
+  left: 9%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  }
 
+
+.number_now{
+  display: inline-block;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFF;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-size:5px;
+}
 
 
 

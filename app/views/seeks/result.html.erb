@@ -30,14 +30,12 @@
         <% @distance_two = Geocoder::Calculations.distance_between([spot_pre.latitude,spot_pre.longitude], [spot.latitude,spot.longitude], :units => :km) %>
         <% @distance_two = @distance_two.to_f.round(4) * 1000 %>
         <% @distance_two = @distance_two.to_i %>
-        <div class="">
           <span class="text-distance">
             <i class="fa fa-angle-down"></i>&nbsp;<%= @distance_two %>m
           </span>
           <a href="https://www.google.com/maps?saddr=<%= spot_pre.address %>&daddr=<%= spot.address %>&dirflg=w" target="_blank" class="raise5-result">
             <i class="fa fa-map-o"></i>&nbsp;経路
           </a>
-        </div>
       </div>
     <% end %>
     <a href="" data-toggle="modal" data-target="#myModal<%= i %>">
