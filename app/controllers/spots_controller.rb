@@ -12,7 +12,7 @@ class SpotsController < ApplicationController
   end
 
   def address
-    @spots = Spot.page(params[:page]).per(30)
+    @spots = Spot.order('id DESC')
     @q = Spot.ransack(params[:q]) 
   end
 
