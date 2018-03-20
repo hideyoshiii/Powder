@@ -31,8 +31,12 @@
         <% @distance_two = @distance_two.to_f.round(4) * 1000 %>
         <% @distance_two = @distance_two.to_i %>
         <div class="">
-          <span class="text-distance"><i class="fa fa-angle-down"></i>&nbsp;<%= @distance_two %>m</span>
-          <a href="https://www.google.co.jp/maps/dir/<%= spot_pre.address %>/<%= spot.address %>/" target="_blank" class="raise5-result"><span><i class="fa fa-map-o"></i>&nbsp;経路</span></a>
+          <span class="text-distance">
+            <i class="fa fa-angle-down"></i>&nbsp;<%= @distance_two %>m
+          </span>
+          <a href="https://www.google.co.jp/maps/dir/<%= spot_pre.address %>/<%= spot.address %>/" target="_blank" class="raise5-result">
+            <i class="fa fa-map-o"></i>&nbsp;経路
+          </a>
         </div>
       </div>
     <% end %>

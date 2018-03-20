@@ -124,7 +124,9 @@
     	<%= hidden_field_tag :distance, params[:distance] %>
     	<%= hidden_field_tag :timezone, params[:timezone] %>
     	<%= hidden_field_tag :small, params[:small] %>
-    	<%= hidden_field_tag 'ss[]', params[:ss] %>
+    	<% unless params[:ss].blank? %>
+        <%= hidden_field_tag 'ss[]', params[:ss] %>
+      <% end %>
     	<%= button_tag :type => "submit", :class =>"button-bb" do %>
     	  <div class="box-area-img">
       		<%= image_tag "roppongi00.jpg", :class =>'img-area' %>
