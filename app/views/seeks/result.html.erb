@@ -34,7 +34,7 @@
           <span class="text-distance">
             <i class="fa fa-angle-down"></i>&nbsp;<%= @distance_two %>m
           </span>
-          <a href="https://www.google.co.jp/maps/dir/<%= spot_pre.address %>/<%= spot.address %>/" target="_blank" class="raise5-result">
+          <a href="https://www.google.com/maps?saddr=<%= spot_pre.address %>&daddr=<%= spot.address %>&dirflg=w" target="_blank" class="raise5-result">
             <i class="fa fa-map-o"></i>&nbsp;経路
           </a>
         </div>
