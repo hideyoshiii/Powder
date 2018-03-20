@@ -8,8 +8,12 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.order('id DESC').page(params[:page]).per(30)
-    @q = Spot.ransack(params[:q])
-    
+    @q = Spot.ransack(params[:q]) 
+  end
+
+  def address
+    @spots = Spot.page(params[:page]).per(30)
+    @q = Spot.ransack(params[:q]) 
   end
 
   def rank

@@ -18,7 +18,7 @@
               <span class="site-title">A.Date</span>
             </h2>
           </a>
-        <p style="font-weight: bold;">デートコースを驚くほど簡単に</p>
+        <p style="">あなたの代わりにデートコースを</p>
       </div>
 
       <div class="hidden-xs">
@@ -67,7 +67,12 @@
           <% if current_user.authority == "manager" %>
             <li>
               <%= link_to new_spot_path do %>
-                <i class="fa fa-plus-circle" aria-hidden="true"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
+                <i class="fa fa-plus-circle"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to spots_address_path do %>
+                <i class="fa fa-map-pin"></i> <span style="font-size: 13px;">Address validation</span>
               <% end %>
             </li>
           <% end %>

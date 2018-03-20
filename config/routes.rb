@@ -84,7 +84,7 @@ Rails.application.routes.draw do
   get "spots/result00" => "spots#result00"
   get 'spots/:id/show00' => 'spots#show00'
 
-
+  get "spots/address" => "spots#address"
   get "spots/result" => "spots#result"
   get "spots/rank" => "spots#rank"
   get 'spots/:id/pictures' => 'spots#pictures'

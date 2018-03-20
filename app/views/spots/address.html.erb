@@ -1,0 +1,31 @@
+<%= render "partial/navbar5" %>
+<main class="" id="main-collapse">
+
+
+<span style="color:black; font-size:18px;border-bottom: solid 2px black;">Address validation</span>
+&nbsp;&nbsp;
+<br><br>
+
+<div class="hero-full-wrapper">
+  <div class="grid">
+    <div class="gutter-sizer"></div>
+    <div class="grid-sizer"></div>
+    <%= render 'address' %>
+  </div>
+</div>
+
+<div class="text-center">
+  <%= paginate @spots %>
+</div>
+
+<br><br>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     masonryBuild();
+  });
+</script>
+ 
+</main>
+<%= render "partial/footer" %>
