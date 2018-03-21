@@ -244,6 +244,190 @@
           <% end %>
         <% end %>
       </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "新橋・汐留・浜松町" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "shinbashi00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                新橋・汐留・浜松町
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "上野" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "ueno00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                上野
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "浅草・押上" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "asakusa00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                浅草・押上
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "目黒・白金・五反田" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "meguro00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                目黒・白金・五反田
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "吉祥寺・三鷹" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "kichijoji00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                吉祥寺・三鷹
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "神楽坂・飯田橋" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "kagurazaka00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                神楽坂・飯田橋
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "下北沢" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "shimokitazawa00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                下北沢
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "谷中・根津・千駄木" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <%= hidden_field_tag 'ss[]', params[:ss] %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "taninaka00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                谷中・根津・千駄木
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       
     </div>
     </div>
