@@ -573,6 +573,202 @@
 	    </div>
 	    <% end %>
 
+	    <% unless @game_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "ゲームセンター" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "game00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			ゲームセンター
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @temple_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "お寺・神社" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "temple00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			お寺・神社
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @theater_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "劇場" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "theater00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			劇場
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @cyber_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "インターネットカフェ" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "cyber00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			インターネットカフェ
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @consept_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "コンセプトカフェ・バー" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "consept00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			コンセプトカフェ・バー
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @street_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "ストリート" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "street00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			ストリート
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
+	    <% unless @complex_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "複合施設" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "complex00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			複合施設
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
 	    <% unless @other_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>

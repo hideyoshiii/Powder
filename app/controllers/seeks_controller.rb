@@ -84,6 +84,13 @@ class SeeksController < ApplicationController
   	@walk_eat = @spots.where("large like '%食べ歩き%'")
   	@park = @spots.where("large like '%公園%'")
   	@spa = @spots.where("large like '%スパ・温泉%'")
+    @game = @spots.where("large like '%ゲームセンター%'")
+    @temple = @spots.where("large like '%お寺・神社%'")
+    @theater = @spots.where("large like '%劇場%'")
+    @cyber = @spots.where("large like '%インターネットカフェ%'")
+    @consept = @spots.where("large like '%コンセプトカフェ・バー%'")
+    @street = @spots.where("large like '%ストリート%'")
+    @complex = @spots.where("large like '%複合施設%'")
   	@other = @spots.where("large like '%その他%'")
   	#数を抽出
   	@breakfast_n = @breakfast.size
@@ -108,6 +115,13 @@ class SeeksController < ApplicationController
     @walk_eat_n = @walk_eat.size
     @park_n = @park.size
     @spa_n = @spa.size
+    @game_n = @game.size
+    @temple_n = @temple.size
+    @theater_n = @theater.size
+    @cyber_n = @cyber.size
+    @consept_n = @consept.size
+    @street_n = @street.size
+    @complex_n = @complex.size
     @other_n = @other.size
 
   end
@@ -429,6 +443,14 @@ class SeeksController < ApplicationController
     @darts = false
     @walk_eat = false
     @park = false
+    @spa = false
+    @game = false
+    @temple = false
+    @theater = false
+    @cyber = false
+    @consept = false
+    @street = false
+    @complex = false
     @other = false
     if !params[:large].blank?
     	if params[:large] == "朝食"
@@ -490,6 +512,30 @@ class SeeksController < ApplicationController
       end
       if params[:large] == "公園"
         @park = true
+      end
+      if params[:large] == "スパ・温泉"
+        @spa = true
+      end
+      if params[:large] == "ゲームセンター"
+        @game = true
+      end
+      if params[:large] == "お寺・神社"
+        @temple = true
+      end
+      if params[:large] == "劇場"
+        @theater = true
+      end
+      if params[:large] == "インターネットカフェ"
+        @cyber = true
+      end
+      if params[:large] == "コンセプトカフェ・バー"
+        @consept = true
+      end
+      if params[:large] == "ストリート"
+        @street = true
+      end
+      if params[:large] == "複合施設"
+        @complex = true
       end
       if params[:large] == "その他"
         @other = true
