@@ -454,29 +454,6 @@
 
       <div class="grid-item">
         <%= form_tag(seeks_category_path, method: :get) do %>
-          <%= hidden_field_tag :city, "神保町・九段下" %>
-          <%= hidden_field_tag :price_min , params[:price_min] %>
-          <%= hidden_field_tag :price_max , params[:price_max] %>
-          <%= hidden_field_tag :distance_on, params[:distance_on] %>
-          <%= hidden_field_tag :distance, params[:distance] %>
-          <%= hidden_field_tag :timezone, params[:timezone] %>
-          <%= hidden_field_tag :small, params[:small] %>
-          <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
-          <% end %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "jinbocho00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                神保町・九段下
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_category_path, method: :get) do %>
           <%= hidden_field_tag :city, "赤坂・虎ノ門・永田町" %>
           <%= hidden_field_tag :price_min , params[:price_min] %>
           <%= hidden_field_tag :price_max , params[:price_max] %>
