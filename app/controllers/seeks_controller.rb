@@ -337,6 +337,10 @@ class SeeksController < ApplicationController
     @kagurazaka = false
     @shimokitazawa = false
     @taninaka = false
+    @kanda = false
+    @jinbocho = false
+    @akasaka = false
+    @yotsuya = false
     if !params[:city].blank?
       if params[:city] == "すべてのエリア"
         @all = true
@@ -394,6 +398,18 @@ class SeeksController < ApplicationController
       end
       if params[:city] == "谷中・根津・千駄木"
         @taninaka = true
+      end
+      if params[:city] == "神田・秋葉原・御茶ノ水"
+        @kanda = true
+      end
+      if params[:city] == "神保町・九段下"
+        @jinbocho = true
+      end
+      if params[:city] == "赤坂・虎ノ門・永田町"
+        @akasaka = true
+      end
+      if params[:city] == "四ツ谷・信濃町・千駄ヶ谷"
+        @yotsuya = true
       end
     end
 
