@@ -449,6 +449,7 @@ class SeeksController < ApplicationController
     @theater = false
     @cyber = false
     @consept = false
+    @experience = false
     @street = false
     @complex = false
     @other = false
@@ -530,6 +531,9 @@ class SeeksController < ApplicationController
       end
       if params[:large] == "コンセプトカフェ・バー"
         @consept = true
+      end
+      if params[:large] == "体験"
+        @experience = true
       end
       if params[:large] == "ストリート"
         @street = true

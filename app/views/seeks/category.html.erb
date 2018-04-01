@@ -713,6 +713,34 @@
 	    </div>
 	    <% end %>
 
+	    <% unless @experience_n.to_i == 0 %>
+	    <div class="grid-item">
+	    	<%= form_tag(seeks_choice_path, method: :get) do %>
+	          	<%= hidden_field_tag :large, "体験" %>
+	          	<%= hidden_field_tag :city, params[:city] %>
+	          	<%= hidden_field_tag :price_min , params[:price_min] %>
+	          	<%= hidden_field_tag :price_max , params[:price_max] %>
+	          	<%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          	<%= hidden_field_tag :distance, params[:distance] %>
+	          	<%= hidden_field_tag :timezone, params[:timezone] %>
+	          	<%= hidden_field_tag :small, params[:small] %>
+	          	<% unless params[:ss].blank? %>
+			        <% params[:ss].each.with_index(1) do |s, i| %>
+                		<%= hidden_field_tag 'ss[]', s %>
+              		<% end %>
+			    <% end %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="box-category-img">
+	            		<%= image_tag "experience00.jpg", :class =>'img-category' %>
+	            		<div class="text-category">
+	            			体験
+	            		</div>
+	            	</div>
+	            <% end %>
+          	<% end %>
+	    </div>
+	    <% end %>
+
 	    <% unless @street_n.to_i == 0 %>
 	    <div class="grid-item">
 	    	<%= form_tag(seeks_choice_path, method: :get) do %>
