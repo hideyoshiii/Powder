@@ -4,6 +4,27 @@ class SeeksController < ApplicationController
   def home
   end
 
+  def method
+  end
+
+  def line
+  end
+
+  def mail
+  end
+
+  def confirmline
+    @starts = params[:time_start]
+    @start_h = @starts["(4i)"]
+    @start_m = @starts["(5i)"]
+    @ends = params[:time_end]
+    @end_h = @ends["(4i)"]
+    @end_m = @ends["(5i)"]
+  end
+
+  def confirmmail
+  end
+
   def distance
   end
 

@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get "seeks/meal" => "seeks#meal"
   get "seeks/choice" => "seeks#choice"
   get "seeks/result" => "seeks#result"
+  get "seeks/method" => "seeks#method"
+  get "seeks/line" => "seeks#line"
+  get "seeks/mail" => "seeks#mail"
+  get "seeks/confirm-line" => "seeks#confirmline"
+  get "seeks/confirm-mail" => "seeks#confirmmail"
  
 
 
