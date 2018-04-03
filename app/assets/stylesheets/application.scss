@@ -7194,7 +7194,27 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 //フォームのズーム防止
 input {
   font-size: 16px;
-  transform: scale(0.8);
+}
+
+.form-control {
+  textarea&,
+  input[type="color"] &,
+  input[type="date"] &,
+  input[type="datetime"] &,
+  input[type="datetime-local"] &,
+  input[type="email"] &,
+  input[type="month"] &,
+  input[type="number"] &,
+  input[type="password"] &,
+  input[type="search"] &,
+  input[type="tel"] &,
+  input[type="text"] &,
+  input[type="time"] &,
+  input[type="url"] &,
+  input[type="week"] &,
+  select:focus & {
+    font-size: 16px;
+  }
 }
 
 #map {width: auto; height: 450px;}
