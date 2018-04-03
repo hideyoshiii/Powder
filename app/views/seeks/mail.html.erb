@@ -12,7 +12,7 @@
           <br><br><br>
           <div class="form-group">
             <p class="title-item"><span id="fab-item"><i class="far fa-clock"></i></span>ご希望の時間帯を教えてください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <div style="width:100%;margin:0 auto;text-align:center;">  
 	            <%= time_select :time_start, '', :minute_step => 10, :default => {:hour => '12'}, class: "form-control" %>
 	        	~~
 	            <%= time_select :time_end, '', :minute_step => 10, :default => {:hour => '18'}, class: "form-control" %>
@@ -37,21 +37,21 @@
           <br><br><br><br>
           <div class="form-group">
             <p class="title-item"><span id="fab-item"><i class="fab fa-font-awesome-flag"></i></span>デートのイメージをご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <div class="select-box01">
             	<%= select_tag :image, options_for_select([["クールに", "クールに"], ["カジュアルに", "カジュアルに"], ["ユニークに", "ユニークに"], ["その他", "その他"]], "クールに") %>
             </div>
           </div>
           <br><br><br>
           <div class="form-group">
             <p class="title-item"><span id="fab-item"><i class="far fa-handshake"></i></span>相手との関係をご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <div class="select-box01">
             	<%= select_tag :relation, options_for_select([["初デート", "初デート"], ["数回目のデート", "数回目のデート"], ["交際中", "交際中"], ["その他", "その他"]], "初デート") %>
             </div>
           </div>
           <br><br><br>
           <div class="form-group">
             <p class="title-item"><span id="fab-item"><i class="far fa-user"></i></span>あなたと相手の年齢をご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <div class="select-box01">
 	            あなたの年齢
 	            <%= select_tag :age_you, options_for_select([["10代", "10代"], ["20代前半", "20代前半"], ["20代後半", "20代後半"], ["30代前半", "30代前半"], ["30代後半", "30代後半"], ["40代前半", "40代前半"], ["40代後半", "40代後半"], ["その他", "その他"]], "20代前半") %>
 	            <br>

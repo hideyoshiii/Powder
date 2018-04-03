@@ -1,6 +1,59 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 		
-	ただいまメンテナンス中です。
+	<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+	<%# ライン %>
+    <div class="box-line">
+    
+        <p class="text-center" style="padding:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
+        <div style="text-align:left;">
+        	<h4 style="margin-bottom:0px;">Area</h4>
+        	<p><%= params[:area] %></p>
+        	<h4 style="margin-bottom:0px;">Timezone</h4>
+        	<p><%= params[:time_start]["(4i)"] %>:<%= params[:time_start]["(5i)"] %>~<%= params[:time_end]["(4i)"] %>:<%= params[:time_end]["(5i)"] %></p>
+        	<h4 style="margin-bottom:0px;">Price</h4>
+        	<%= params[:price_min] %>~<%= params[:price_max] %>円</p>
+        	<h4 style="margin-bottom:0px;">Image</h4>
+        	<p><%= params[:image] %></p>
+        	<h4 style="margin-bottom:0px;">Relation</h4>
+        	<p><%= params[:relation] %></p>
+        	<h4 style="margin-bottom:0px;">Age</h4>
+        	<p>あなたの年齢→<%= params[:age_you] %><br>
+        	相手の年齢→<%= params[:age_opponent] %></p>
+        	<h4 style="margin-bottom:0px;">Spot</h4>
+        	<p><%= params[:spot] %></p>
+        	<h4 style="margin-bottom:0px;">Term</h4>
+        	<p><%= params[:term] %></p>
+        </div> 
+        <div class="text-center" style="margin:20px 0px;">
+          <button class="btn btn-default" data-clipboard-text="Area&#13;<%= params[:area] %>&#13;&#13;Timezone&#13;<%= params[:time_start]["(4i)"] %>:<%= params[:time_start]["(5i)"] %>~<%= params[:time_end]["(4i)"] %>:<%= params[:time_end]["(5i)"] %>&#13;&#13;Price&#13;<%= params[:price_min] %>~<%= params[:price_max] %>円&#13;&#13;Image&#13;<%= params[:image] %>&#13;&#13;Relation&#13;<%= params[:relation] %>&#13;&#13;Age&#13;あなたの年齢→<%= params[:age_you] %>&#13;相手の年齢→<%= params[:age_opponent] %>&#13;&#13;Spot&#13;<%= params[:spot] %>&#13;&#13;Term&#13;<%= params[:term] %>"><i class="fa fa-clone"></i>コピー</button>
+        </div>
+        <div  class="text-center">
+          <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank">
+          <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+          <br>
+          <h4>ショーン&nbsp;<span style="font-size:14px;">LINEを起動する</span></h4>
+          </a>
+        </div>
+     
+       
+    </div>
+    
+</mains>
+
+
+<script>
+  var clipboard = new Clipboard('.btn');
+  clipboard.on('success', function(e) {
+    console.info('Trigger:', e.trigger);
+    alert('コピーできました');
+  });
+  clipboard.on('error', function(e) {
+    console.error('Trigger:', e.trigger);
+    alert('このブラウザでは対応していません');
+  });
+</script>
 
 </mains>
