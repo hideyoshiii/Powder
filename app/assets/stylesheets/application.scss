@@ -6885,6 +6885,10 @@ square_btnn{
   text-align:center;
 }
 
+.box-method-item {
+	display: inline-block;
+}
+
 //line、メール選択ボタン
 #fab-line {/*円の部分*/
     display: inline-block;
@@ -6895,7 +6899,7 @@ square_btnn{
     border-radius: 50%;/*角丸く*/
     transition: .3s;/*滑らかな動きに*/
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
-    margin:0px 15px;
+    margin:0px 15px 10px;
 }
 
 #fab-line:hover {/*ホバー時*/
@@ -6918,7 +6922,7 @@ square_btnn{
     border-radius: 50%;/*角丸く*/
     transition: .3s;/*滑らかな動きに*/
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
-    margin:0px 15px;
+    margin:0px 15px 10px;
 }
 
 #fab-mail:hover {/*ホバー時*/
@@ -7212,6 +7216,7 @@ input,select,textarea{
   input[type="url"] &,
   input[type="week"] &,
   textarea &,
+  select &,
   select:focus &
    {
     font-size: 16px;
