@@ -25,6 +25,13 @@ class SeeksController < ApplicationController
   def confirmmail
   end
 
+  def sentmail
+    email = params[:mail]
+    @email = email
+    SampleMailer.send_when_update(email).deliver
+    redirect_to root_path
+  end
+
   def distance
   end
 

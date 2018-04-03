@@ -106,4 +106,16 @@ config.paperclip_defaults = {
     s3_region: ENV.fetch('AWS_REGION'),
   }
 }
+
+config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'smtp.gmail.com',
+    user_name:            'adate.ask@gmail.com',
+    password:             'adatetinder',
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
 end

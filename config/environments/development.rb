@@ -27,9 +27,9 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.perform_caching = false
+  config.action_mailer.perform_caching = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -63,5 +63,17 @@ Rails.application.configure do
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       s3_region: ENV['AWS_REGION'],
     }
+  }
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'smtp.gmail.com',
+    user_name:            'adate.ask@gmail.com',
+    password:             'adatetinder',
+    authentication:       'login',
+    enable_starttls_auto: true
   }
 end

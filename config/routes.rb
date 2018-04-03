@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "seeks/mail" => "seeks#mail"
   get "seeks/confirm-line" => "seeks#confirmline"
   get "seeks/confirm-mail" => "seeks#confirmmail"
+  get "seeks/sent-mail" => "seeks#sentmail"
  
 
 

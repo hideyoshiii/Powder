@@ -1,6 +1,61 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
-		
-	ただいまメンテナンス中です。
+
+    <div class="box-line">
+    
+        <p class="text-center" style="padding:20px 0px;">以下の内容が正しいかご確認ください。</p>
+        <div style="text-align:left;">
+        	<h4 style="margin-bottom:0px;">Area</h4>
+        	<p><%= params[:area] %></p>
+        	<h4 style="margin-bottom:0px;">Timezone</h4>
+        	<p><%= params[:time_start]["(4i)"] %>:<%= params[:time_start]["(5i)"] %>~<%= params[:time_end]["(4i)"] %>:<%= params[:time_end]["(5i)"] %></p>
+        	<h4 style="margin-bottom:0px;">Price</h4>
+        	<%= params[:price_min] %>~<%= params[:price_max] %>円</p>
+        	<h4 style="margin-bottom:0px;">Image</h4>
+        	<p><%= params[:image] %></p>
+        	<h4 style="margin-bottom:0px;">Relation</h4>
+        	<p><%= params[:relation] %></p>
+        	<h4 style="margin-bottom:0px;">Age</h4>
+        	<p>あなたの年齢→<%= params[:age_you] %><br>
+        	相手の年齢→<%= params[:age_opponent] %></p>
+        	<h4 style="margin-bottom:0px;">Spot</h4>
+        	<p><%= params[:spot] %></p>
+        	<h4 style="margin-bottom:0px;">Term</h4>
+        	<p><%= params[:term] %></p>
+        	<h4 style="margin-bottom:0px;">Email</h4>
+        	<p><%= params[:mail] %></p>
+        </div> 
+        
+        <%= form_tag(seeks_sent_mail_path, method: :get) do %>
+        	<%= hidden_field_tag :area, params[:area] %>
+        	<%= hidden_field_tag :time_start, params[:time_start] %>
+        	<%= hidden_field_tag :time_end, params[:time_end] %>
+        	<%= hidden_field_tag :price_min, params[:price_min] %>
+        	<%= hidden_field_tag :price_max, params[:price_max] %>
+        	<%= hidden_field_tag :image, params[:image] %>
+        	<%= hidden_field_tag :relation, params[:relation] %>
+        	<%= hidden_field_tag :age_you, params[:age_you] %>
+        	<%= hidden_field_tag :age_opponent, params[:age_opponent] %>
+        	<%= hidden_field_tag :spot, params[:spot] %>
+        	<%= hidden_field_tag :term, params[:term] %>
+        	<%= hidden_field_tag :mail, params[:mail] %>
+        	<div class="text-center">
+            <%= submit_tag "送信する", :class => "btn btn-default" %>
+          	</div>
+        <% end %>
+           
+    </div>
 
 </mains>
+
+<script>
+  var clipboard = new Clipboard('.btn');
+  clipboard.on('success', function(e) {
+    console.info('Trigger:', e.trigger);
+    alert('コピーできました');
+  });
+  clipboard.on('error', function(e) {
+    console.error('Trigger:', e.trigger);
+    alert('このブラウザでは対応していません');
+  });
+</script>
