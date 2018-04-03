@@ -6965,7 +6965,28 @@ square_btnn{
 	padding-bottom:10px;
 }
 
+//セレクトボックスのデザイン
+.select-box01 select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
 
+.select-box01 select {
+	width: 100%;
+	padding: 5px 5px 5px 20px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid black;
+	background: white;
+	border-radius: 0px;
+	font-size:14px;
+	background: url(select.png) right 50% no-repeat, -webkit-linear-gradient(top, #fff 0%,#fff 100%);;
+	background: url(select.png) right 50% no-repeat, linear-gradient(to bottom, #fff 0%,#fff 100%);
+	background-size: 10px, 100%;
+	background-position : right 5px bottom 10px;
+}
 
 
 
@@ -7222,6 +7243,7 @@ input,select,textarea{
     font-size: 16px;
   }
 }
+
 
 #map {width: auto; height: 450px;}
 @media only screen and (max-width: 768px) {

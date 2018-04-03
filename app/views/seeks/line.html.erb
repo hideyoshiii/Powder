@@ -5,21 +5,21 @@
       <%= form_tag(seeks_confirm_line_path, method: :get) do %>
         <div class="panel-body">
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="fas fa-map-marker-alt"></i></span>ご希望のエリアを教えてください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <p class="title-item"><span id="fab-item"><i class="fas fa-map-marker-alt"></i></span>ご希望のエリアをご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
             <%= text_field_tag :area, '', placeholder: "例:恵比寿駅付近で", class: "form-control", required: "true" %>
             <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
           </div>
           <br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="far fa-clock"></i></span>ご希望の時間帯を教えてください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <p class="title-item"><span id="fab-item"><i class="far fa-clock"></i></span>ご希望の時間帯を選択してください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <div style="width:100%;margin:0 auto;text-align:center;">  
 	            <%= time_select :time_start, '', :minute_step => 10, :default => {:hour => '12'}, class: "form-control" %>
 	        	~~
 	            <%= time_select :time_end, '', :minute_step => 10, :default => {:hour => '18'}, class: "form-control" %>
 	        </div>
           </div>
           <br><br><br>
-           <p class="title-item"><span id="fab-item"><i class="fas fa-yen-sign"></i></span>一人当たりの予算を教えてください<span style="color:red;font-size:10px;">※必須</span></p>
+           <p class="title-item"><span id="fab-item"><i class="fas fa-yen-sign"></i></span>一人当たりの予算を指定してください<span style="color:red;font-size:10px;">※必須</span></p>
           <div style="width:80%;margin:0 auto;">
             <span class="pull-left">
               <span id="value-lower"></span>円
@@ -36,22 +36,22 @@
           <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
           <br><br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="fab fa-font-awesome-flag"></i></span>デートのイメージをご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <p class="title-item"><span id="fab-item"><i class="fab fa-font-awesome-flag"></i></span>デートのイメージを選択してください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <div class="select-box01">
             	<%= select_tag :image, options_for_select([["クールに", "クールに"], ["カジュアルに", "カジュアルに"], ["ユニークに", "ユニークに"], ["その他", "その他"]], "クールに") %>
             </div>
           </div>
           <br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="far fa-handshake"></i></span>相手との関係をご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <p class="title-item"><span id="fab-item"><i class="far fa-handshake"></i></span>相手との関係を選択してください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <div class="select-box01">
             	<%= select_tag :relation, options_for_select([["初デート", "初デート"], ["数回目のデート", "数回目のデート"], ["交際中", "交際中"], ["その他", "その他"]], "初デート") %>
             </div>
           </div>
           <br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="far fa-user"></i></span>あなたと相手の年齢をご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div style="width:75%;margin:0 auto;text-align:center;">  
+            <p class="title-item"><span id="fab-item"><i class="far fa-user"></i></span>あなたと相手の年齢を選択してください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <div class="select-box01">
 	            あなたの年齢
 	            <%= select_tag :age_you, options_for_select([["10代", "10代"], ["20代前半", "20代前半"], ["20代後半", "20代後半"], ["30代前半", "30代前半"], ["30代後半", "30代後半"], ["40代前半", "40代前半"], ["40代後半", "40代後半"], ["その他", "その他"]], "20代前半") %>
 	            <br>
@@ -67,7 +67,7 @@
           </div>
           <br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="fas fa-asterisk"></i></span>詳細な条件や希望を教えてください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <p class="title-item"><span id="fab-item"><i class="fas fa-asterisk"></i></span>詳細な条件や希望をご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
               <%= text_area_tag :term, '', rows: 7, placeholder: "例:高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ", class: "form-control", required: "true"  %>
               <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
           </div> 
