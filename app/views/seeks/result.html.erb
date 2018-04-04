@@ -184,134 +184,30 @@
   <% end %>
   </div>
 
-
-  <%# ショーン %>
-  <div class="box-line">
-    <h3>More about the course</h3>
-    <p>
-      ショーンはあなたの代わりにこのデートコースの詳細を調べてくれます。
-      <br>
-      知りたいことを質問して見ましょう
-    </p>
-    <a href="" data-toggle="modal" data-target="#myModal-line">
-      <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
-      <br>
-      <h4>ショーンに聞く</h4>
-    </a>
-    <a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
-      <p>ショーンとは？</p>
-    </a>
+  
+  <%#マップモーダルボタン%>
+  <div class="btn-details">
+   <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
+    <i class="far fa-map"></i>
+   </a>
   </div>
-  <%#モーダルの中身%>
-  <div class="modal" id="myModal-line">
-    <div class="modal-top-line"></div>
+  <%#マップモーダルの中身%>
+  <div class="modal" id="myModal-map">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="panel-body">
-          <p class="text-center" style="margin:20px 0px;">以下の内容をコピーしてショーンにお伝えください。</p>
-          <p style="margin:20px 20px;">
-            <% @ss.each.with_index(1) do |s, i| %>
-              <% spot = Spot.find(s) %>
-              <%= i %>,<%= spot.title %>
-              <br>
-            <% end %>
-          </p> 
-          <div  class="text-center" style="margin:20px 0px;">
-            <button class="btn" data-clipboard-text="<% @ss.each.with_index(1) do |s, i| %><% spot = Spot.find(s) %><% unless i == 1 %> / <% end %><%= i %>,<%= spot.title %><% end %>">
-            <i class="fa fa-clone"></i>コピー</button>
-          </div>
-        </div>
+        <div id="sample"></div>
       </div>
     </div>
-    <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default inline">
-      LINEを起動する
-    </a>
     <div class="btn-details">
-      <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-        <i class="fa fa-close"></i>
-      </a>
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+      <i class="fa fa-close"></i>
+     </a>
     </div>
   </div>
 
-  <%# マップ %>
-  <div class="map-title-box">
-    <div class="map-title">
-      Map
-      <br>
-      <i class="fa fa-angle-double-down"></i>
-    </div>
-  </div>
-  <div id="sample"></div>
+  <br>
 
 <% end %>
-
-
-
-<%#ショーンとはモーダルの中身%>
-<div class="modal" id="myModal-sean">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="sean-back"></div>
-      <div class="text-center" style="margin-top:-80px;z-index:99;">
-        <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
-        <h4>ショーン</h4>
-      </div>
-      <div class="panel-body">
-        <div class="text-center">
-          <h2 style="padding:40px 0px;"><span class="what">About</span></h2>
-          <h4>あなたのデートプランナー</h4>
-          <p>ショーンはあなたがデートコースを作るのをサポートしてくれるデートプランナーです。<br><span class="site-title">A.Date</span>で作ってデートコースの詳細を調べてくれたり、アドバイスをくれたり様々なサポートをしてくれます。</p>
-        </div>
-        <div class="text-center" style="margin-bottom:50px;">
-          <h2 style="padding:40px 0px;"><span class="what">Example</span></h2>
-          <h4>使い方はあなた次第</h4>
-          <p>ショーンはできる限りのことをサポートしてくれます。ぜひあなただけの使い方を見つけてください。</p>
-        </div>
-        <div class="row" style="padding:20px 0px;">
-          <div class="col-xs-6">
-          <h4 style="margin-bottom:25px;"><span class="what">様々な情報を</span></h4>
-          <p>「次のスポットへは歩いてどのくらい？」</p>
-          <p>「オススメのメニューを教えて！」</p>
-          <p>「ここってサプライズとか対応してくれるのかな？」</p>
-          </div>
-          <div class="col-xs-6" style="padding-left:0px;">
-            <%= image_tag "sean01.jpg", :class =>'img-sean-use' %>
-          </div>
-        </div>
-        <div class="row" style="padding:40px 0px;">
-          <div class="col-xs-6">
-          <h4 style="margin-bottom:25px;"><span class="what">アドバイスを</span></h4>
-          <p>「次のスポットまでは歩いたがいいかな？それともタクシーかな？」</p>
-          <p>「どんなファッションで行ったらいいんだろう？」</p>
-          <p>「初デートのアドバイスってある？」</p>
-          </div>
-          <div class="col-xs-6" style="padding-left:0px;">
-            <%= image_tag "sean02.jpg", :class =>'img-sean-use' %>
-          </div>
-        </div>
-        <div class="row" style="padding:40px 0px;">
-          <div class="col-xs-6">
-          <h4 style="margin-bottom:25px;"><span class="what">代わりに予約を</span></h4>
-          <p>「ディナーのお店を代わりに予約しといて欲しい！」</p>
-          <p>「このお店ってランチでも予約できるのかな？」</p>
-          </div>
-          <div class="col-xs-6" style="padding-left:0px;">
-            <%= image_tag "sean03.jpg", :class =>'img-sean-use' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default inline">
-    ショーンと友達になる
-  </a>
-  <div class="btn-details">
-    <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-      <i class="fa fa-close"></i>
-    </a>
-  </div>
-</div>
-
 
 
 <script type="text/javascript">
