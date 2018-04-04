@@ -6694,6 +6694,48 @@ square_btnn{
 	margin-top:-10%;
 }
 
+//choice複数表示バージョン/resultバージョン
+.radio-city-bb {
+  	position: relative;
+  	width:100%;
+    height:32vh;
+    overflow:hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+  }
+
+.radio-city-bb:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0);
+}
+
+.radio-city-bb h3 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  -ms-transform: translate(0%,0%);
+  -webkit-transform: translate(0%,0%);
+  transform: translate(0%,0%);
+  margin:0;
+  padding:5px;
+  color:white;
+  font-size:15px;
+  font-weight: 300;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  text-shadow:
+    black 1px 1px 5px, black 2px 1px 5px,
+  }
+
+  .img-city-bb{
+	width:100%;
+	height:auto;
+}
+
 .inline{
 	position:fixed;
 	bottom:20px;
@@ -6782,12 +6824,24 @@ square_btnn{
 	line-height:5.5vh;
 	vertical-align:middle;
 	margin-top:-1px;
-	
-	
-
 }
 
 .text-distance{
+	font-size:14px;
+	color:black;
+	display: inline-block;
+}
+
+//resultの２点間の距離/resultバージョン
+.box-distance-bb{
+	position: relative;
+	height:6vh;
+	text-align:center;
+	line-height:5.5vh;
+	vertical-align:middle;
+}
+
+.text-distance-bb{
 	font-size:14px;
 	color:black;
 	display: inline-block;
