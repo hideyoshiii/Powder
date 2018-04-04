@@ -21,7 +21,7 @@
   </div>
   
   <%# アイキャッチ %>
-  <div class="panel-body" style="padding:0px 30px;">
+  <div style="padding:0px 25px;">
   <% @ss.each.with_index(1) do |s, i| %>
     <% spot = Spot.find(s) %>
       <% unless i == 1 %>

@@ -6700,7 +6700,7 @@ square_btnn{
   	width:100%;
     height:32vh;
     overflow:hidden;
-    border-radius: 5px;
+    border-radius: 0px;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
   }
 
@@ -6835,10 +6835,11 @@ square_btnn{
 //resultの２点間の距離/resultバージョン
 .box-distance-bb{
 	position: relative;
-	height:6vh;
+	height:auto;
 	text-align:center;
-	line-height:5.5vh;
+	line-height:1;
 	vertical-align:middle;
+	padding:15px;
 }
 
 .text-distance-bb{
