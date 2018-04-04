@@ -15,9 +15,9 @@
         	<p><%= params[:image] %></p>
         	<h4 style="margin-bottom:0px;">Relation</h4>
         	<p><%= params[:relation] %></p>
-        	<h4 style="margin-bottom:0px;">Age</h4>
-        	<p>あなたの年齢→<%= params[:age_you] %><br>
-        	相手の年齢→<%= params[:age_opponent] %></p>
+        	<h4 style="margin-bottom:0px;">Personal</h4>
+        	<p>あなた&nbsp;<%= params[:age_you] %>/<%= params[:sex_you] %><br>
+            ご相手&nbsp;<%= params[:age_opponent] %>/<%= params[:sex_opponent] %></p>
         	<h4 style="margin-bottom:0px;">Spot</h4>
         	<p><%= params[:spot] %></p>
         	<h4 style="margin-bottom:0px;">Term</h4>
@@ -35,7 +35,9 @@
         	<%= hidden_field_tag :image, params[:image] %>
         	<%= hidden_field_tag :relation, params[:relation] %>
         	<%= hidden_field_tag :age_you, params[:age_you] %>
+            <%= hidden_field_tag :sex_you, params[:sex_you] %>
         	<%= hidden_field_tag :age_opponent, params[:age_opponent] %>
+            <%= hidden_field_tag :sex_opponent, params[:sex_opponent] %>
         	<%= hidden_field_tag :spot, params[:spot] %>
         	<%= hidden_field_tag :term, params[:term] %>
         	<%= hidden_field_tag :mail, params[:mail] %>

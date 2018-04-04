@@ -46,7 +46,7 @@
           <div class="form-group">
             <p class="title-item"><span id="fab-item"><i class="fab fa-font-awesome-flag"></i></span>デートのイメージを選択してください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
             <div class="select-box01">
-            	<%= select_tag :image, options_for_select([["クールに", "クールに"], ["カジュアルに", "カジュアルに"], ["ユニークに", "ユニークに"], ["その他", "その他"]], "クールに") %>
+            	<%= select_tag :image, options_for_select([["クールに", "クールに"], ["カジュアルに", "カジュアルに"], ["ユニークに", "ユニークに"]], "クールに") %>
             </div>
           </div>
           <br><br><br>
@@ -58,13 +58,33 @@
           </div>
           <br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="far fa-user"></i></span>年齢を選択してください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <div class="select-box01">
-	            あなたの年齢
+            <p class="title-item"><span id="fab-item"><i class="far fa-user"></i></span>年齢,性別について選択してください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
+            <div style="width:15%;display:inline-block;">
+            	あなた
+            </div>
+            <div style="width:30%;display:inline-block;">
+	        	<div class="select-box01">
 	            <%= select_tag :age_you, options_for_select([["10代", "10代"], ["20代前半", "20代前半"], ["20代後半", "20代後半"], ["30代前半", "30代前半"], ["30代後半", "30代後半"], ["40代前半", "40代前半"], ["40代後半", "40代後半"], ["その他", "その他"]], "20代前半") %>
-	            <br>
-	            相手の年齢
-	            <%= select_tag :age_opponent, options_for_select([["10代前半", "10代前半"], ["10代後半", "10代後半"], ["20代前半", "20代前半"], ["20代後半", "20代後半"], ["30代前半", "30代前半"], ["30代後半", "30代後半"], ["40代前半", "40代前半"], ["40代後半", "40代後半"], ["その他", "その他"]], "20代前半") %>
+	            </div>
+            </div>
+            <div style="width:30%;display:inline-block;">
+	        	<div class="select-box01">
+	            <%= select_tag :sex_you, options_for_select([["男性", "男性"], ["女性", "女性"]], "男性") %>
+	            </div>
+            </div>
+            <br><br>
+            <div style="width:15%;display:inline-block;">
+            	ご相手
+            </div>
+            <div style="width:30%;display:inline-block;">
+	            <div class="select-box01">
+	            	<%= select_tag :age_opponent, options_for_select([["10代前半", "10代前半"], ["10代後半", "10代後半"], ["20代前半", "20代前半"], ["20代後半", "20代後半"], ["30代前半", "30代前半"], ["30代後半", "30代後半"], ["40代前半", "40代前半"], ["40代後半", "40代後半"], ["その他", "その他"]], "20代前半") %>
+	            </div>
+            </div>
+            <div style="width:30%;display:inline-block;">
+	        	<div class="select-box01">
+	            <%= select_tag :sex_opponent, options_for_select([["男性", "男性"], ["女性", "女性"]], "女性") %>
+	            </div>
             </div>
           </div>
           <br><br><br>

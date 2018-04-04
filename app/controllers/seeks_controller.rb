@@ -4,6 +4,9 @@ class SeeksController < ApplicationController
   def home
   end
 
+  def about
+  end
+
   def method
   end
 
@@ -51,10 +54,12 @@ class SeeksController < ApplicationController
     image = params[:image]
     relation = params[:relation]
     age_you = params[:age_you]
+    sex_you = params[:sex_you]
     age_opponent = params[:age_opponent]
+    sex_opponent = params[:sex_opponent]
     spot = params[:spot]
     term = params[:term]
-    if SampleMailer.send_when_update(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,age_opponent,spot,term).deliver
+    if SampleMailer.send_when_update(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,sex_you,age_opponent,sex_opponent,spot,term).deliver
       redirect_to seeks_sent_mail_path
     else
       render 'confirmmail'

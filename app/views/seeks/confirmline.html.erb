@@ -16,16 +16,16 @@
         	<p><%= params[:image] %></p>
         	<h4 style="margin-bottom:0px;">Relation</h4>
         	<p><%= params[:relation] %></p>
-        	<h4 style="margin-bottom:0px;">Age</h4>
-        	<p>あなたの年齢→<%= params[:age_you] %><br>
-        	相手の年齢→<%= params[:age_opponent] %></p>
+        	<h4 style="margin-bottom:0px;">Personal</h4>
+        	<p>あなた&nbsp;<%= params[:age_you] %>/<%= params[:sex_you] %><br>
+        	ご相手&nbsp;<%= params[:age_opponent] %>/<%= params[:sex_opponent] %></p>
         	<h4 style="margin-bottom:0px;">Spot</h4>
         	<p><%= params[:spot] %></p>
         	<h4 style="margin-bottom:0px;">Term</h4>
         	<p><%= params[:term] %></p>
         </div> 
         <div class="text-center" style="margin:20px 0px;">
-          <button class="btn btn-default" data-clipboard-text="Area&#13;<%= params[:area] %>&#13;&#13;Timezone&#13;<%= params[:time_start] %>~<%= params[:time_end] %>&#13;&#13;Price&#13;<%= params[:price_min] %>~<%= params[:price_max] %>円&#13;&#13;Image&#13;<%= params[:image] %>&#13;&#13;Relation&#13;<%= params[:relation] %>&#13;&#13;Age&#13;あなたの年齢→<%= params[:age_you] %>&#13;相手の年齢→<%= params[:age_opponent] %>&#13;&#13;Spot&#13;<%= params[:spot] %>&#13;&#13;Term&#13;<%= params[:term] %>"><i class="fa fa-clone"></i>コピー</button>
+          <button class="btn btn-default" data-clipboard-text="Area&#13;<%= params[:area] %>&#13;&#13;Timezone&#13;<%= params[:time_start] %>~<%= params[:time_end] %>&#13;&#13;Price&#13;<%= params[:price_min] %>~<%= params[:price_max] %>円&#13;&#13;Image&#13;<%= params[:image] %>&#13;&#13;Relation&#13;<%= params[:relation] %>&#13;&#13;Age&#13;あなた&nbsp;<%= params[:age_you] %>/<%= params[:sex_you] %>&#13;ご相手&nbsp;<%= params[:age_opponent] %>/<%= params[:sex_opponent] %>&#13;&#13;Spot&#13;<%= params[:spot] %>&#13;&#13;Term&#13;<%= params[:term] %>"><i class="fa fa-clone"></i>コピー</button>
         </div>
         <div  class="text-center">
           <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank">

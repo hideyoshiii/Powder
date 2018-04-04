@@ -18,10 +18,14 @@
       </div>
       </h1>
       <h2 class="text-center">
-        <%= link_to seeks_area_path do %>     
-          <span style="color:#CCC;">自分でつくる&nbsp;&nbsp;/</span>  
+        <% if (user_signed_in?) %>
+          <% if current_user.authority == "manager" %>
+            <%= link_to seeks_area_path do %>     
+              <span style="color:#CCC;">自分でつくる&nbsp;&nbsp;/</span>  
+            <% end %>
+          <% end %>
         <% end %>
-        <%= link_to adate_path do %>
+        <%= link_to seeks_about_path do %>
           <span style="color:#CCC;">&nbsp;&nbsp;A.dateとは</span>
         <% end %>
       </h2>

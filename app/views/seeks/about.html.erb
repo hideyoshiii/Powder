@@ -1,0 +1,58 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+    <div class="img_about05">
+      <h4><span class="what-white">あなたにデートコースを提案します</span></h4>
+    </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:0px 40px;">
+        <br><br>
+        <p>A.Dateがあなたの条件に合ったデートコースをご提案します。<br>あなたのデートの条件をお伝えください。</p>
+        <p style="font-size:10px;">※東京エリアのみの対応となります</p>
+      </div>
+    </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:50px 15px 0px;">
+        <h3><span class="what">Example</span></h3>
+        <%= image_tag "man.png", :class =>'img-man' %>
+        <div class="panel-body" style="background:white;border:1px solid black;">
+        <p>恵比寿駅で<br>仕事終わり19時から終電まで<br>1人あたり8000円以内<br>高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ。</p>
+        </div>
+        <span style="font-size:50px;"><i class="fa fa-angle-down"></i></span>
+      </div>
+    </div>
+
+    <div class="box-what3" style="margin-top:-30px;">
+      <div class="text-center" style="padding:0px 15px 70px;">
+        <%= image_tag "adate.png", :class =>'img-circle profile-line' %>
+        <br><br>
+        <div class="panel-body" style="background:white;border:1px solid black;">
+        <p>こちらのコースはいかがでしょうか。</p>
+        <p>
+          <a href="https://www.a-date.jp/seeks/result?utf8=✓&ss%5B%5D=378&ss%5B%5D=413&commit=ここまでにする">
+            https://www.a-date.jp/seeks/result
+          </a>
+        </p>
+        <p>１軒目のUbcraは京野菜をスタイリッシュ空間で堪能できます。お値段も恵比寿にしては良心的でコスパ抜群のお店です。</p>
+        <p>２軒目のBAR&nbsp;Devaは恵比寿の７階建ビルの最上階にある隠れ家バーです。インターホンを押して入るワクワク感を一緒に楽しめます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="img_about04">
+	  <h4>
+		<span class="what-white"><span class="site-title">Use&nbsp;&nbsp;A.Date</span></span>
+	  </h4>
+      <h4>
+      	<%= link_to seeks_method_path do %>
+          <div class="raised-trans">
+            デートコースを提案してもらう
+          </div>
+        <% end %>
+      </h4>
+    </div>
+
+</mains>
+
