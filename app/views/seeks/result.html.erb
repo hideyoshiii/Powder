@@ -6,7 +6,7 @@
   該当するデートコースはありません
 <% else %>
   <%# 目次 %>
-  <h3 class=" text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>           
+  <h3 class="text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>           
   <%# コースの諸情報 %>
   <div class="result-info-box">
     <div class="result-info-box-1">
@@ -21,7 +21,7 @@
   </div>
   
   <%# アイキャッチ %>
-  <div style="padding:0px 20px;">
+  <div style="padding:0px 15px;">
   <% @ss.each.with_index(1) do |s, i| %>
     <% spot = Spot.find(s) %>
       <% unless i == 1 %>
