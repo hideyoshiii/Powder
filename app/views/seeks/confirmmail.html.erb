@@ -8,7 +8,7 @@
         	<h4 style="margin-bottom:0px;">Area</h4>
         	<p><%= params[:area] %></p>
         	<h4 style="margin-bottom:0px;">Timezone</h4>
-        	<p><%= params[:time_start]["(4i)"] %>:<%= params[:time_start]["(5i)"] %>~<%= params[:time_end]["(4i)"] %>:<%= params[:time_end]["(5i)"] %></p>
+        	<p><%= params[:time_start] %>~<%= params[:time_end] %></p>
         	<h4 style="margin-bottom:0px;">Price</h4>
         	<%= params[:price_min] %>~<%= params[:price_max] %>円</p>
         	<h4 style="margin-bottom:0px;">Image</h4>
@@ -26,7 +26,7 @@
         	<p><%= params[:mail] %></p>
         </div> 
         
-        <%= form_tag(seeks_sent_mail_path, method: :get) do %>
+        <%= form_tag(seeks_send_mail_path, method: :get) do %>
         	<%= hidden_field_tag :area, params[:area] %>
         	<%= hidden_field_tag :time_start, params[:time_start] %>
         	<%= hidden_field_tag :time_end, params[:time_end] %>
@@ -39,6 +39,7 @@
         	<%= hidden_field_tag :spot, params[:spot] %>
         	<%= hidden_field_tag :term, params[:term] %>
         	<%= hidden_field_tag :mail, params[:mail] %>
+        	<br>
         	<div class="text-center">
             <%= submit_tag "送信する", :class => "btn btn-default" %>
           	</div>

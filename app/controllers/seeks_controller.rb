@@ -8,9 +8,25 @@ class SeeksController < ApplicationController
   end
 
   def line
+    #params[price_min]がない時のの定義
+  if params[:price_min].blank?
+      params[:price_min] = 0
+    end
+    #params[price_max]がない時のの定義
+  if params[:price_max].blank?
+      params[:price_max] = 20000
+    end
   end
 
   def mail
+    #params[price_min]がない時のの定義
+  if params[:price_min].blank?
+      params[:price_min] = 0
+    end
+    #params[price_max]がない時のの定義
+  if params[:price_max].blank?
+      params[:price_max] = 20000
+    end
   end
 
   def confirmline
@@ -25,11 +41,28 @@ class SeeksController < ApplicationController
   def confirmmail
   end
 
-  def sentmail
+  def sendmail
     email = params[:mail]
-    @email = email
-    SampleMailer.send_when_update(email).deliver
-    redirect_to root_path
+    area = params[:area]
+    time_start = params[:time_start]
+    time_end = params[:time_end]
+    price_min = params[:price_min]
+    price_max = params[:price_max]
+    image = params[:image]
+    relation = params[:relation]
+    age_you = params[:age_you]
+    age_opponent = params[:age_opponent]
+    spot = params[:spot]
+    term = params[:term]
+    if SampleMailer.send_when_update(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,age_opponent,spot,term).deliver
+      redirect_to seeks_sent_mail_path
+    else
+      render 'confirmmail'
+      flash.now[:alert] = "受付に失敗しました"
+    end
+  end
+
+  def sentmail
   end
 
   def distance

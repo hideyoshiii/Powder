@@ -3,23 +3,50 @@
 <head>
   <meta content="text/html; charset=UTF-8" />
   <style type="text/css">
-    h2 {
-      color: #e7454a;
-    }
-    p hr {
-      color: #2d2a24;
-    }
+    
   </style>
 </head>
 <body>
-  <h2><%= @email %> 様</h2>
-  <hr />
+
+  <br>
+  <hr>
+  <h4>A.Date:依頼受付メール</h4>
+  <hr>
+  <br>
   <p>
-    これはテストメールです。
+    この度はA.Dateをご利用おいただきありがとうございます。<br>
+    下記内容でご依頼を受け付けました。<br>	
+    ご希望に沿ったコースをメールでご提案しますので、今しばらくお待ちください。<br>
+    (提案までの時間の目安:１時間以内)
   </p>
-  <p>
-    ユーザー名: <%= @email %><br />
-  </p>
-  <hr />
+  	<h4 style="margin-bottom:0px;">Area</h4>
+	<p><%= @area %></p>
+	<h4 style="margin-bottom:0px;">Timezone</h4>
+	<p><%= @time_start %>~<%= @time_end %></p>
+	<h4 style="margin-bottom:0px;">Price</h4>
+	<%= @price_min %>~<%= @price_max %>円</p>
+	<h4 style="margin-bottom:0px;">Image</h4>
+	<p><%= @image %></p>
+	<h4 style="margin-bottom:0px;">Relation</h4>
+	<p><%= @relation %></p>
+	<h4 style="margin-bottom:0px;">Age</h4>
+	<p>あなたの年齢→<%= @age_you %><br>
+	相手の年齢→<%= @age_opponent %></p>
+	<h4 style="margin-bottom:0px;">Spot</h4>
+	<p><%= @spot %></p>
+	<h4 style="margin-bottom:0px;">Term</h4>
+	<p><%= @term %></p>
+	<br>
+	<hr>
+	<p>
+		A.Dateに関するお問い合わせは、メールにてお受付しています。<br>
+		お問合せ先:adate.ask@gmail.com
+	</p>
+	<hr>
+	<br>
+	<p>
+		※このメールはシステムによって自動的に返信されています。
+	</p>
+
 </body>
 </html>
