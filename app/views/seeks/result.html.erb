@@ -18,6 +18,14 @@
         <%= @spot_first.city %>付近
       </div>
     </div>
+    <div class="result-info-box-1">
+      <div class="result-info-btn">
+        <i class="fas fa-yen-sign"></i>
+      </div>
+      <div class="result-info">
+        <%= @total_min %>~<%= @total_max %>円程度
+      </div>
+    </div>
   </div>
   
   <%# アイキャッチ %>
@@ -70,7 +78,7 @@
               <% end %>
             <% end %>
             <% unless spot.price_dinner.blank? %>
-              <% unless spot.price_lunch == 0 %>
+              <% unless spot.price_dinner == 0 %>
                 <i class="far fa-moon"></i>&nbsp;~<%= spot.price_dinner %>円
               <% end %>
             <% end %>
@@ -116,7 +124,7 @@
               <% end %>
             <% end %>
             <% unless spot.price_dinner.blank? %>
-              <% unless spot.price_lunch == 0 %>
+              <% unless spot.price_dinner == 0 %>
                 <i class="far fa-moon"></i>&nbsp;~<%= spot.price_dinner %>円
               <% end %>
             <% end %>
