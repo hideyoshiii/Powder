@@ -33,18 +33,31 @@ class SeeksController < ApplicationController
   end
 
   def confirmline
-    @starts = params[:time_start]
-    @start_h = @starts["(4i)"]
-    @start_m = @starts["(5i)"]
-    @ends = params[:time_end]
-    @end_h = @ends["(4i)"]
-    @end_m = @ends["(5i)"]
+    if params[:spot].blank?
+      params[:spot] = "特になし"
+    end
+    if params[:term].blank?
+      params[:term] = "特になし"
+    end
   end
 
   def confirmmail
+    if params[:spot].blank?
+      params[:spot] = "特になし"
+    end
+    if params[:term].blank?
+      params[:term] = "特になし"
+    end
   end
 
   def sendmail
+    if params[:spot].blank?
+      params[:spot] = "特になし"
+    end
+    if params[:term].blank?
+      params[:term] = "特になし"
+    end
+    
     email = params[:mail]
     area = params[:area]
     time_start = params[:time_start]

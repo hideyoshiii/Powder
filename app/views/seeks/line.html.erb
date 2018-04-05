@@ -89,15 +89,13 @@
           </div>
           <br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="fas fa-map-pin"></i></span>行きたいスポットがあればご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-            <%= text_field_tag :spot, '', placeholder: "例:恵比寿ガーデンプレイス", class: "form-control", required: "true" %>
-            <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
+            <p class="title-item"><span id="fab-item"><i class="fas fa-map-pin"></i></span>行きたいスポットがあればご記入ください&nbsp;<span style="font-size:10px;">※任意</span></p>
+            <%= text_field_tag :spot, '', placeholder: "例:恵比寿ガーデンプレイス", class: "form-control" %>
           </div>
           <br><br><br>
           <div class="form-group">
-            <p class="title-item"><span id="fab-item"><i class="fas fa-asterisk"></i></span>詳細な条件や希望をご記入ください&nbsp;<span style="color:red;font-size:10px;">※必須</span></p>
-              <%= text_area_tag :term, '', rows: 7, placeholder: "例:高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ", class: "form-control", required: "true"  %>
-              <p style="font-size:11px;" class="pull-right">※特に希望がない場合は指定なしとご記入ください</p>
+            <p class="title-item"><span id="fab-item"><i class="fas fa-asterisk"></i></span>詳細な条件や希望をご記入ください&nbsp;<span style="font-size:10px;">※任意</span></p>
+              <%= text_area_tag :term, '', rows: 7, placeholder: "例:高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ", class: "form-control" %>
           </div> 
           <br><br><br>
           <div class="text-center">
