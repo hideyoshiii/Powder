@@ -264,6 +264,11 @@ class SeeksController < ApplicationController
   
   def result
 
+  @ss_first = @ss.first
+  @ss_last = @ss.last
+  @spot_first = Spot.find(@ss_first)
+  @spot_last = Spot.find(@ss_last)
+
   @total_min = 0
   @total_max = 0
 
