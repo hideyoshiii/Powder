@@ -16,7 +16,7 @@
     <div class="box-what3">
       <div class="text-center" style="padding:30px 0px 20px;">
         <h3><span class="what">Example</span></h3>
-        <div style="padding:50px 0px 0px;">
+        <div style="padding:30px 0px 0px;">
           <div class="box-feature1">
             <%= image_tag "man.png", :class =>'img-feature' %>
           </div>
@@ -29,7 +29,7 @@
         </div>
         <a href="https://www.a-date.jp/seeks/result?utf8=✓&ss%5B%5D=378&ss%5B%5D=413">
           <% @spot1 = Spot.find_by(title: "Ubcra") %>
-          <div class="radio-city-b">  
+          <div class="radio-city-b smoke">  
               <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
               <h1>京野菜ディナーのあとはインターホンを押して入る隠れ家的バーの恵比寿王道デート</h1>
           </div>
@@ -47,7 +47,7 @@
         </div>
         <a href="https://www.a-date.jp/seeks/result?utf8=✓&ss%5B%5D=449&ss%5B%5D=749&ss%5B%5D=1028">
           <% @spot2 = Spot.find_by(title: "THE THEATER TABLE") %>
-          <div class="radio-city-b">  
+          <div class="radio-city-b smoke">  
               <%= image_tag @spot2.pictures.first.image.url, :class =>'img-course-result' %>
               <h1>渋谷でおしゃれランチ、盛り上がったらプラネタリウムを観に行ってもいいかも</h1>
           </div>
@@ -65,7 +65,7 @@
         </div>
         <a href="https://www.a-date.jp/seeks/result?utf8=✓&ss%5B%5D=1394&ss%5B%5D=1316&ss%5B%5D=1315&ss%5B%5D=1305">
           <% @spot3 = Spot.find_by(title: "ラシーヌ ファーム トゥー パーク") %>
-          <div class="radio-city-b">  
+          <div class="radio-city-b smoke">  
               <%= image_tag @spot3.pictures.first.image.url, :class =>'img-course-result' %>
               <h1>芝生いっぱいの公園の前でランチ、夜はボーリングからの焼肉のアクティブデート</h1>
           </div>

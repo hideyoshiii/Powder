@@ -6759,6 +6759,16 @@ square_btnn{
 	margin-top:-10%;
 }
 
+.smoke:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.1);
+}
+
 //choice複数表示バージョン/resultバージョン
 .radio-city-bb {
   	position: relative;
