@@ -264,9 +264,6 @@ class SeeksController < ApplicationController
   
   def result
 
-  #フラッシュ
-	flash.now[:notice] = "コースが作成されました"
-
   @total_min = 0
   @total_max = 0
 

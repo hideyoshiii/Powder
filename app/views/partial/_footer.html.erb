@@ -3,7 +3,7 @@
     <div class="col-xs-3">
       <div class="sticky-menu">
         <%= link_to root_path do %>
-          <i class="fa fa-home sticky-icon" aria-hidden="true"></i>
+          <i class="fas fa-home sticky-icon"></i>
           <div class="sticky-title">ホーム</div >
         <% end %>
       </div>
@@ -11,7 +11,7 @@
     <div class="col-xs-3">
       <div class="sticky-menu">
         <%= link_to "/courses" do %>
-          <i class="fa fa-align-justify sticky-icon" aria-hidden="true"></i>
+          <i class="fas fa-align-justify sticky-icon" aria-hidden="true"></i>
           <div class="sticky-title">タイムライン</div >
         <% end %>
       </div>
@@ -19,7 +19,7 @@
     <div class="col-xs-3">
       <div class="sticky-menu">
         <%= link_to "/spots" do %>
-          <i class="fa fa-map-marker sticky-icon" aria-hidden="true"></i>
+          <i class="fas fa-map-marker-alt sticky-icon" aria-hidden="true"></i>
           <div class="sticky-title">スポット</div >
         <% end %>
       </div>
@@ -28,12 +28,12 @@
       <div class="sticky-menu">
         <% if (user_signed_in?) %>
           <%= link_to user_path(current_user) do %>
-            <i class="fa fa-user sticky-icon" aria-hidden="true"></i>
+            <i class="far fa-user sticky-icon" aria-hidden="true"></i>
             <div class="sticky-title">マイページ</div >
           <% end %>
         <% else %>
           <%= link_to new_user_session_path do %>
-            <i class="fa fa-sign-in sticky-icon" aria-hidden="true"></i>
+            <i class="fas fa-sign-in-alt sticky-icon" aria-hidden="true"></i>
             <div class="sticky-title">ログイン</div >
           <% end %>
         <% end %>

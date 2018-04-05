@@ -36,10 +36,10 @@
             <%# タイトル %>
             <%= spot.title %>
             <%# 駅 %>
-            <span style="font-size:11px;"><br><i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %></span>
+            <span style="font-size:11px;"><br><i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %></span>
             <%# ジャンル %>
             <% unless spot.small.blank? %>
-              <span style="font-size:11px;"><br><i class="fa fa-cutlery"></i>&nbsp;</span>
+              <span style="font-size:11px;"><br><i class="fas fa-utensils"></i>&nbsp;</span>
               <% @i = 0 %>
               <% spot.small.each do |small| %>
                 <% @i = @i + 1 %>
@@ -56,12 +56,12 @@
             <span style="font-size:11px;"><br>
               <% unless spot.price_lunch.blank? %>
                 <% unless spot.price_lunch == 0 %>
-                  <i class="fa fa-sun-o"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                  <i class="far fa-sun"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
                 <% end %>
               <% end %>
               <% unless spot.price_dinner.blank? %>
                 <% unless spot.price_lunch == 0 %>
-                  <i class="fa fa-moon-o"></i>&nbsp;~<%= spot.price_dinner %>円
+                  <i class="far fa-moon"></i>&nbsp;~<%= spot.price_dinner %>円
                 <% end %>
               <% end %>
             </span>
@@ -96,24 +96,24 @@
             <div class="title-one"><%= spot.title %></div>
             <%# 都道府県、エリア %>
             <p style="color: #66666;margin:4px 0px;font-size:10px">
-              <i class="fa fa-map-marker"></i>&nbsp;<%= spot.station %>
+              <i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %>
             </p> 
             <%# 料金 %>
             <p style="color: #666666;margin:4px 0px;font-size:10px">
               <% unless spot.price_lunch.blank? %>
                 <% unless spot.price_lunch == 0 %>
-                  <i class="fa fa-sun-o"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                  <i class="far fa-sun"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
                 <% end %>
               <% end %>
               <% unless spot.price_dinner.blank? %>
                 <% unless spot.price_lunch == 0 %>
-                  <i class="fa fa-moon-o"></i>&nbsp;~<%= spot.price_dinner %>円
+                  <i class="far fa-moon"></i>&nbsp;~<%= spot.price_dinner %>円
                 <% end %>
               <% end %>
             </p> 
             <%# カテゴリー %>
             <% unless spot.large.blank? %>
-              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fa fa-tag"></i>
+              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fas fa-tag"></i>
               <% @i = 0 %>
                 <% spot.large.each do |large| %>
                   <% @i = @i + 1 %>
@@ -127,7 +127,7 @@
             <% end %>
             <%# ジャンル %>
             <% unless spot.small.blank? %>
-              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fa fa-cutlery"></i>&nbsp;
+              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fas fa-utensils"></i>&nbsp;
               <% @i = 0 %>
                 <% spot.small.each do |small| %>
                   <% @i = @i + 1 %>
@@ -146,14 +146,14 @@
                 <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
               <% end %>
               <% unless spot.retty.blank? %>
-                <a href="<%= spot.retty %>" target="_blank" class="raise3-result"><i class="fa fa-cutlery"></i>&nbsp;Retty</a>
+                <a href="<%= spot.retty %>" target="_blank" class="raise3-result"><i class="fas fa-utensils"></i>&nbsp;Retty</a>
               <% end %>
               <% unless spot.introduction.blank? %>
-                <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><span><i class="fa fa-instagram"></i>&nbsp;Instagram</span></a>
+                <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><span><i class="fab fa-instagram"></i>&nbsp;Instagram</span></a>
               <% end %>
               <% if spot.tabelog.blank? %>
                 <% unless spot.browser.blank? %>
-                  <a href="<%= spot.browser %>" target="_blank" class="raise2-result"><span><i class="fa fa-globe"></i>&nbsp;公式</span></a>
+                  <a href="<%= spot.browser %>" target="_blank" class="raise2-result"><span><i class="fas fa-globe"></i>&nbsp;公式</span></a>
                 <% end %>
               <% end %>
             </div>
@@ -206,13 +206,13 @@
           	<div class="panel-body">
           	<%#タブ%>
 		        <ul class="nav nav-pills">
-		            <li class="active box-tab"><a data-toggle="tab" href="#city"><i class="fa fa-map-marker"></i></a>
+		            <li class="active box-tab"><a data-toggle="tab" href="#city"><i class="fas fa-map-marker-alt"></i></a>
 		            </li>
-		            <li class="box-tab"><a data-toggle="tab" href="#price"><i class="fa fa-yen"></i></a>
+		            <li class="box-tab"><a data-toggle="tab" href="#price"><i class="fas fa-yen-sign"></i></a>
 		            </li>
-		            <li class="box-tab"><a data-toggle="tab" href="#timezone"><i class="fa fa-clock-o"></i></a>
+		            <li class="box-tab"><a data-toggle="tab" href="#timezone"><i class="far fa-clock"></i></a>
 		            </li>
-		            <li class="box-tab"><a data-toggle="tab" href="#genre"><i class="fa fa-star-o"></i></a>
+		            <li class="box-tab"><a data-toggle="tab" href="#genre"><i class="far fa-star"></i></a>
 		            </li>
 		        </ul>
 		        <hr style="border-top: 1px solid #8c8b8b;">
