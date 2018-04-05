@@ -23,7 +23,11 @@
         <i class="fas fa-yen-sign"></i>
       </div>
       <div class="result-info">
-        <%= @total_min %>~<%= @total_max %>円程度
+        <% if @total_min == @total_max %>
+          <%= @total_min %>円程度
+        <% else %>
+          <%= @total_min %>~<%= @total_max %>円程度
+        <% end %>
       </div>
     </div>
   </div>
