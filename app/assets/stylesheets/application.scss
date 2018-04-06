@@ -7245,8 +7245,6 @@ square_btnn{
 
 
 
-
-
 //body関連
 
 .sidebar { background-color:#F4F5F7; }
@@ -7448,6 +7446,18 @@ input,select,textarea{
    {
     font-size: 16px;
   }
+}
+
+//resultのフッター
+.fotter_result{
+	padding:30px 15px 50px;
+}
+
+.btn-sns{
+	font-size:25px;
+	color:black;
+	display:inline-block;
+	padding:0px 20px;
 }
 
 
