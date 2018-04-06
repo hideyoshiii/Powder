@@ -5909,7 +5909,7 @@ p.e4 {
 
 //ライン＠
 .box-line{
-	padding:30px 50px 50px;
+	padding:20px 40px 50px;
 	text-align:center;
 }
 
@@ -7013,7 +7013,7 @@ square_btnn{
 .box-method {
   width: 100%;
   height: auto;
-  padding:100px 15px 0px; 
+  padding:70px 15px 0px; 
   text-align:center;
 }
 
@@ -7024,8 +7024,8 @@ square_btnn{
 //line、メール選択ボタン
 #fab-line {/*円の部分*/
     display: inline-block;
-    width: 100px;/*幅*/
-    height: 100px;/*高さ*/
+    width: 120px;/*幅*/
+    height: 120px;/*高さ*/
     background: #00c300;/*背景色*/
     text-align: center;/*中央寄せ*/
     border-radius: 50%;/*角丸く*/
@@ -7040,15 +7040,15 @@ square_btnn{
 
 #fab-line i {/*中央のアイコン*/
   color: white;
-  line-height: 100px;/*＝幅と高さ*/
+  line-height: 120px;/*＝幅と高さ*/
   vertical-align: middle;
-  font-size: 50px;/*サイズ*/
+  font-size: 65px;/*サイズ*/
 }
 
 #fab-mail {/*円の部分*/
     display: inline-block;
-    width: 100px;/*幅*/
-    height: 100px;/*高さ*/
+    width: 120px;/*幅*/
+    height: 120px;/*高さ*/
     background: #007ee5;/*背景色*/
     text-align: center;/*中央寄せ*/
     border-radius: 50%;/*角丸く*/
@@ -7063,9 +7063,9 @@ square_btnn{
 
 #fab-mail i {/*中央のアイコン*/
   color: white;
-  line-height: 100px;/*＝幅と高さ*/
+  line-height: 120px;/*＝幅と高さ*/
   vertical-align: middle;
-  font-size: 50px;/*サイズ*/
+  font-size: 65px;/*サイズ*/
 }
 
 //フォームの項目のアイコン
@@ -7120,11 +7120,82 @@ square_btnn{
 	background-position : right 5px bottom 10px;
 }
 
+//バルーン
+.box-balloon {
+  width: 100%;
+  height: auto;
+  padding:20px 15px 20px; 
+  text-align:center;
+}
+
+.balloon-on {
+ 	position: relative;
+	display: inline-block;
+ 	margin: 0;
+	padding: 0 5px;
+ 	width: 30px;
+ 	height: 30px;
+ 	line-height: 30px;
+ 	vertical-align: middle;
+ 	text-align: center;
+ 	color: #FFF;
+	font-size: 12px;
+ 	font-weight: bold;
+	background: black;
+ 	border-radius: 50%;
+ 	box-sizing: border-box;
+}
+
+.balloon-on:before{
+	content: "";
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+ 	margin-left: -9px;
+	border: 9px solid transparent;
+	border-top: 9px solid black;
+ 	z-index: 0;
+}
+
+.balloon-off {
+ 	position: relative;
+	display: inline-block;
+ 	margin: 0;
+	padding: 0 5px;
+ 	width: 30px;
+ 	height: 30px;
+ 	line-height: 30px;
+ 	vertical-align: middle;
+ 	text-align: center;
+ 	color: #FFF;
+	font-size: 12px;
+ 	font-weight: bold;
+	background: #666666;
+ 	border-radius: 50%;
+ 	box-sizing: border-box;
+}
+
+.balloon-off:before{
+	content: "";
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+ 	margin-left: -9px;
+	border: 9px solid transparent;
+	border-top: 9px solid #666666;
+ 	z-index: 0;
+}
 
 
-
-
-
+.balloon-line{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	width: 20px;
+ 	height: 3px;
+ 	margin: 0px 5px;
+ 	background: #666666;
+}
 
 
 

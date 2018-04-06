@@ -1,7 +1,22 @@
 <%= render "partial/navbar" %>
 <mains class="" id="main-collapse">
 
-    <div style="padding:40px 20px;">
+  <div class="box-balloon">
+    <h4 class="text-center">条件を入力しましょう</h4>
+    <div class="balloon-off">
+      1
+    </div>
+    <div class="balloon-line"></div>
+    <div class="balloon-on">
+      2
+    </div>
+    <div class="balloon-line"></div>
+    <div class="balloon-off">
+      3
+    </div>
+  </div>
+
+    <div style="padding:30px 20px;">
       <%= form_tag(seeks_confirm_mail_path, method: :get) do %>
         <div class="panel-body">
           <div class="form-group">
