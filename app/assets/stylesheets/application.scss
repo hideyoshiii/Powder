@@ -7013,7 +7013,7 @@ square_btnn{
 .box-method {
   width: 100%;
   height: auto;
-  padding:70px 15px 0px; 
+  padding:50px 15px 0px; 
   text-align:center;
 }
 
@@ -7024,8 +7024,8 @@ square_btnn{
 //line、メール選択ボタン
 #fab-line {/*円の部分*/
     display: inline-block;
-    width: 120px;/*幅*/
-    height: 120px;/*高さ*/
+    width: 110px;/*幅*/
+    height: 110px;/*高さ*/
     background: #00c300;/*背景色*/
     text-align: center;/*中央寄せ*/
     border-radius: 50%;/*角丸く*/
@@ -7040,15 +7040,15 @@ square_btnn{
 
 #fab-line i {/*中央のアイコン*/
   color: white;
-  line-height: 120px;/*＝幅と高さ*/
+  line-height: 110px;/*＝幅と高さ*/
   vertical-align: middle;
-  font-size: 65px;/*サイズ*/
+  font-size: 60px;/*サイズ*/
 }
 
 #fab-mail {/*円の部分*/
     display: inline-block;
-    width: 120px;/*幅*/
-    height: 120px;/*高さ*/
+    width: 110px;/*幅*/
+    height: 110px;/*高さ*/
     background: #007ee5;/*背景色*/
     text-align: center;/*中央寄せ*/
     border-radius: 50%;/*角丸く*/
@@ -7063,9 +7063,9 @@ square_btnn{
 
 #fab-mail i {/*中央のアイコン*/
   color: white;
-  line-height: 120px;/*＝幅と高さ*/
+  line-height: 110px;/*＝幅と高さ*/
   vertical-align: middle;
-  font-size: 65px;/*サイズ*/
+  font-size: 60px;/*サイズ*/
 }
 
 //フォームの項目のアイコン
