@@ -17,8 +17,7 @@
     </div>
 
     <div class="box-line">
-    
-        <p class="text-center" style="padding:20px 0px;">以下の内容が正しいかご確認ください。</p>
+
         <div style="text-align:left;">
         	<h4 style="margin-bottom:0px;">Area</h4>
         	<p><%= params[:area] %></p>
@@ -40,6 +39,8 @@
         	<h4 style="margin-bottom:0px;">Email</h4>
         	<p><%= params[:mail] %></p>
         </div> 
+
+        <p class="text-center" style="padding:20px 0px;color:black;">上記の内容が正しければ、送信ボタンを押してください。</p>
         
         <%= form_tag(seeks_send_mail_path, method: :get) do %>
         	<%= hidden_field_tag :area, params[:area] %>
