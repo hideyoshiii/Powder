@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "seeks/about" => "seeks#about"
   get "seeks/save" => "seeks#save"
   get 'seeks/course/:id' => 'seeks#course'
+  get 'seeks/course/:id/update' => 'seeks#update'
+  get 'seeks/course/:id/destroy' => 'seeks#destroy'
  
 
 

@@ -149,6 +149,24 @@ class SeeksController < ApplicationController
     end
   end
 
+  def update
+    @course = Course.find(params[:id])
+    if @course.update(title: params[:title], description: params[:description], city: params[:city], time_start: params[:time_start], time_end: params[:time_end])
+      redirect_to "/seeks/course/#{@course.id}", notice: "コース情報を編集しました" 
+    else
+      redirect_to "/seeks/course/#{@course.id}", error: "コース情報の編集に失敗しました" 
+    end
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+    if @course.destroy
+      redirect_to user_path(current_user), notice: "コースを削除しました" 
+    else
+      redirect_to user_path(current_user), error: "削除に失敗しました" 
+    end
+  end
+
   def distance
   end
 

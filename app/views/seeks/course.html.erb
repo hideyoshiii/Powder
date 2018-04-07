@@ -54,7 +54,7 @@
 
   <%# コースの説明 %>
   <div class="result-description-box">
-	<p class="text-center" style="line-height:1.2;"><%= @course.description %></p> 
+	<p class="text-center" style="line-height:1.4;"><%= @course.description %></p> 
   </div> 
             
   
@@ -234,9 +234,51 @@
       <div class="modal" id="myModal-edit">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div style="height:80vh;padding:30px 50px 0px;">
-            	<br><br>
-            	<h4 class="text-center">コース情報を変更する</h4>	
+            <div style="height:80vh;padding:30px 15px 0px;">
+            	<%= form_tag("/seeks/course/#{@course.id}/update", method: :get) do %>
+	                <h4 class="text-center">コースを保存する</h4>
+	                <br>
+	                <div class="form-group">
+	                  <%= text_field_tag :title, @course.title, placeholder: "タイトル", class: "form-control", required: "true" %>
+	                </div>
+	                <br>
+	                <div class="form-group">
+	                    <%= text_area_tag :description, @course.description, rows: 4, placeholder: "コースの説明", class: "form-control", required: "true" %>
+	                </div> 
+	                <br>
+	                <div class="form-group">
+	                  <div style="width:100%;margin:0 auto;text-align:center;">  
+	                    <div style="width:30%;display:inline-block;">
+	                      <div class="select-box01">
+	                        <%= select_tag :time_start, options_for_select([["朝", "朝"], ["昼", "昼"], ["夜", "夜"]], @course.time_start) %>
+	                      </div>
+	                    </div>
+	                    &nbsp;~&nbsp;
+	                    <div style="width:30%;display:inline-block;">
+	                      <div class="select-box01">
+	                        <%= select_tag :time_end, options_for_select([["朝", "朝"], ["昼", "昼"], ["夜", "夜"]], @course.time_end) %>
+	                      </div>
+	                    </div>  
+	                  </div>       
+	                </div>
+	                <br>
+	                <div class="form-group">
+	                  <div class="select-box01">
+	                    <%= select_tag :city, options_for_select([["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"],["原宿・表参道・青山","原宿・表参道・青山"],["新宿","新宿"],["東京・丸の内・日本橋","東京・丸の内・日本橋"],["六本木・麻布・赤坂","六本木・麻布・赤坂"],["銀座・有楽町","銀座・有楽町"],["品川","品川"],["お台場","お台場"],["池袋","池袋"],["新橋・汐留・浜松町","新橋・汐留・浜松町"],["上野","上野"],["浅草・押上","浅草・押上"],["目黒・白金・五反田","目黒・白金・五反田"],["吉祥寺・三鷹","吉祥寺・三鷹"],["神楽坂・飯田橋","神楽坂・飯田橋"],["下北沢","下北沢"],["谷中・根津・千駄木","谷中・根津・千駄木"],["神田・秋葉原・御茶ノ水","神田・秋葉原・御茶ノ水"],["赤坂・虎ノ門・永田町","赤坂・虎ノ門・永田町"],["四ツ谷・信濃町・千駄ヶ谷","四ツ谷・信濃町・千駄ヶ谷"]], @course.city) %>
+	                  </div>
+	                </div>
+	                <br>
+	                <div class="text-center">
+	                  <%= submit_tag "保存する", :class => "btn btn-default" %>
+	                </div>
+	                <br>
+	            <% end %>
+	            <%= form_tag("/seeks/course/#{@course.id}/destroy", method: :get) do %>
+	            <div class="text-center">
+                  <%= submit_tag "コースを削除する", :class => "btn btn-primary btn-sm" %>
+                </div>
+                <br>
+	            <% end %>
             </div>
           </div>
         </div>
