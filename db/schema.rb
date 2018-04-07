@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217015221) do
+ActiveRecord::Schema.define(version: 20180407184127) do
 
   create_table "airticles", force: :cascade do |t|
     t.string "title"
@@ -101,6 +101,11 @@ ActiveRecord::Schema.define(version: 20180217015221) do
     t.string "went"
     t.string "city"
     t.string "timezone"
+    t.text "description"
+    t.string "time_start"
+    t.string "time_end"
+    t.string "type"
+    t.string "kind"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 

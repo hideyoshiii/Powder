@@ -5464,16 +5464,24 @@ display: inline-block;
 
 
 
+//コースのタイトルのbox
+.result-title-box{
+	padding:10px 30px 0px;
+}
 
+//コースの説明のbox
+.result-description-box{
+	padding:0px 40px 20px;
+}
 
 //resultの諸情報
 .result-info-box{
 	text-align: center;
-	margin:20px 0px 20px;
+	padding:30px 0px 20px;
 }
 
 .result-info-box-1{
-	width:30%;
+	width:25%;
 	display: inline-block;
 	vertical-align: top;
 	text-align: center;
@@ -5482,21 +5490,24 @@ display: inline-block;
 .result-info-btn{
   display: inline-block;
   background: #F4F5F7;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 47px;
+  height: 47px;
+  line-height: 47px;
   border-radius: 50%;
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
-  font-size:25px;
-  border:1px solid black;
+  font-size:21px;
+  border:1px solid #666666;
+  color:#666666;
+  
 }
 
 .result-info{
 	text-align: center;
 	font-size:10px;
-	margin:5px 0 0;
+	margin:5px 5px 0;
+	
 }
 
 
@@ -6860,6 +6871,73 @@ square_btnn{
   transform: rotate(180deg);
 }
 
+.btn-saves{
+ position:fixed;
+ bottom:30px;
+ left:20px;
+ z-index:999;
+}
+
+//モーダル保存ボタン
+#btn-save {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(255,0,0,0.7);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-save:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-save i {/*アイコン*/
+  color: white;
+  line-height: 56px;
+  vertical-align: middle;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#btn-save:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+//モーダル保存ボタン
+#btn-copy {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(0,0,255,0.7);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-copy:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-copy i {/*アイコン*/
+  color: white;
+  line-height: 56px;
+  vertical-align: middle;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#btn-copy:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 
 
 //モーダルの写真１枚バージョン
@@ -7196,7 +7274,6 @@ square_btnn{
  	margin: 0px 5px;
  	background: #666666;
 }
-
 
 
 

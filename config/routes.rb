@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get "seeks/send-mail" => "seeks#sendmail"
   get "seeks/sent-mail" => "seeks#sentmail"
   get "seeks/about" => "seeks#about"
+  get "seeks/save" => "seeks#save"
+  get 'seeks/course/:id' => 'seeks#course'
  
 
 
