@@ -118,6 +118,43 @@
       </div>
     </div>
 
+    <div class="box-what3">
+      <div class="text-center" style="padding:0px 0px 10px;">
+        <h3><span class="what">Course</span></h3>
+        <p style="padding-top:10px;color:black;">A.Dateが実際にご提案したデートプランです。</p>
+        <br>
+        <% @courses.each.with_index(1) do |course, i| %>
+          <% @point = Point.where(course_id: course.id).order(number: "ASC").first %>
+          <%= link_to "/seeks/course/#{course.id}" do %>
+            <div class="radio-city-b smoke">  
+                <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-course-result' %>
+                <h1>
+                  <%= course.title %>
+                </h1>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="fotter_result">
+      <div style="text-align:center;font-size:20px;color:black;">
+        <a href="/" class="site-title black" style="letter-spacing:0em;">A.Date</a>
+        <p>あなたの代わりにデートコースを</p>
+      </div>
+      <div style="text-align:center;">
+        <a class="btn-sns" href="https://www.instagram.com/adate_ig/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="btn-sns" href="https://www.facebook.com/adate.fa/" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="btn-sns" href="https://twitter.com/adate_tw/" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+
     <div class="img_about06">
 	  <h4>
 		<span class="what-white"><span class="site-title">Use&nbsp;&nbsp;A.Date</span></span>

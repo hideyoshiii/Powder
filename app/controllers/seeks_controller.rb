@@ -5,6 +5,7 @@ class SeeksController < ApplicationController
   end
 
   def about
+    @courses = Course.where(kind: "提案").order('id DESC')
   end
 
   def method

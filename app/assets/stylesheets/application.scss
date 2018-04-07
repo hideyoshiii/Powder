@@ -5477,7 +5477,7 @@ display: inline-block;
 //resultの諸情報
 .result-info-box{
 	text-align: center;
-	padding:30px 0px 20px;
+	padding:20px 0px 30px;
 }
 
 .result-info-box-1{
@@ -6934,6 +6934,43 @@ square_btnn{
 }
 
 #btn-copy:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.btn-edits{
+ position:fixed;
+ bottom:100px;
+ left:20px;
+ z-index:999;
+}
+
+//モーダル保存ボタン
+#btn-edit {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(0,255,0,0.7);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-edit:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-edit i {/*アイコン*/
+  color: white;
+  line-height: 56px;
+  vertical-align: middle;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#btn-edit:hover i {/*ホバーでアイコン回転*/
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }

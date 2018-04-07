@@ -5,7 +5,16 @@
 <% if @ss.blank? %>
   該当するデートコースはありません
 <% else %>
-            
+  
+  <%# アイキャッチタイトル %>
+  <% @point = Point.where(course_id: @course.id).order(number: "ASC").first %>
+  <div class="radio-city-b smoke">  
+      <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-course-result' %>
+      <h1>
+        <%= @course.title %>
+      </h1>
+  </div>
+
   <%# コースの諸情報 %>
   <div class="result-info-box">
     <div class="result-info-box-1">
@@ -42,14 +51,12 @@
       </div>
     </div>
   </div>
-  <%# コースのタイトル %>
-  <div class="result-title-box">
-	<p class="text-center" style="line-height:1.2;color:black;font-size:17px;"><%= @course.title %></p>           
-  </div>
+
   <%# コースの説明 %>
   <div class="result-description-box">
 	<p class="text-center" style="line-height:1.2;"><%= @course.description %></p> 
   </div> 
+            
   
   <%# アイキャッチ %>
   <div style="padding:0px 15px;">
@@ -217,6 +224,28 @@
 
   <% if (user_signed_in?) %>
     <% if current_user.authority == "manager" %>
+      <%#編集モーダルボタン%>
+      <div class="btn-edits">
+       <a href="" data-toggle="modal" data-target="#myModal-edit" id="btn-edit">
+        <i class="far fa-edit"></i>
+       </a>
+      </div>
+      <%#編集モーダルの中身%>
+      <div class="modal" id="myModal-edit">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div style="height:80vh;padding:30px 50px 0px;">
+            	<br><br>
+            	<h4 class="text-center">コース情報を変更する</h4>	
+            </div>
+          </div>
+        </div>
+        <div class="btn-edits">
+         <a href="" data-toggle="modal" data-dismiss="modal" id="btn-edit">
+          <i class="fa fa-close"></i>
+         </a>
+        </div>
+      </div>
       <%#コピーモーダルボタン%>
       <div class="btn-saves">
        <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-copy">
