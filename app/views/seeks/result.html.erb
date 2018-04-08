@@ -204,7 +204,7 @@
        </a>
       </div>
       <%#保存モーダルの中身%>
-      <div class="modal" id="myModal-save" style="position:fixed">
+      <div class="modal" id="myModal-save">
         <div class="modal-dialog">
           <div class="modal-content">
             <div style="height:80vh;padding:30px 15px 0px;">
@@ -212,7 +212,7 @@
                 <h4 class="text-center">コースを保存する</h4>
                 <br>
                 <div class="form-group">
-                  <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
+                  <%= text_area_tag :title, '', rows: 2, placeholder: "タイトル", class: "form-control", required: "true" %>
                 </div>
                 <br>
                 <div class="form-group">

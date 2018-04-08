@@ -231,21 +231,21 @@
        </a>
       </div>
       <%#編集モーダルの中身%>
-      <div class="modal" id="myModal-edit" style="position:fixed">
+      <div class="modal" id="myModal-edit">
         <div class="modal-dialog">
           <div class="modal-content">
             <div style="height:80vh;padding:30px 15px 0px;">
             	<%= form_tag("/seeks/course/#{@course.id}/update", method: :get) do %>
-	                <h4 class="text-center">コースを保存する</h4>
+	                <h4 class="text-center">コース情報を編集する</h4>
 	                <br>
-	                <div class="form-group">
-	                  <%= text_field_tag :title, @course.title, placeholder: "タイトル", class: "form-control", required: "true" %>
+	                <div class="form-group" style="position:fixed;top:15vh;width:90%;">
+                    <%= text_area_tag :title, @course.title, rows: 2, placeholder: "タイトル", class: "form-control", required: "true" %>
 	                </div>
 	                <br>
-	                <div class="form-group">
+	                <div class="form-group" style="position:fixed;top:28vh;width:90%;">
 	                    <%= text_area_tag :description, @course.description, rows: 4, placeholder: "コースの説明", class: "form-control", required: "true" %>
 	                </div> 
-	                <br>
+	                <br><br><br><br><br><br><br><br>
 	                <div class="form-group">
 	                  <div style="width:100%;margin:0 auto;text-align:center;">  
 	                    <div style="width:30%;display:inline-block;">
