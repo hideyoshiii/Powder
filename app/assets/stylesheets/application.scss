@@ -7122,13 +7122,19 @@ square_btnn{
   font-size:9px;
 }
 
-
+//メソッドの注意書きのbox
+.box-note {
+  width: 100%;
+  height: auto;
+  padding:30px 50px 30px; 
+  text-align:left;
+}
 
 //line、メール選択ボタンのbox
 .box-method {
   width: 100%;
   height: auto;
-  padding:70px 15px 0px; 
+  padding:30px 15px 0px; 
   text-align:center;
 }
 
