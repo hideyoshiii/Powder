@@ -198,8 +198,8 @@
     <%= hidden_field_tag :large, params[:large] %>
     <% unless params[:ss].blank? %>
       <% params[:ss].each.with_index(1) do |s, i| %>
-            <%= hidden_field_tag 'ss[]', s %>
-          <% end %>
+        <%= hidden_field_tag 'ss[]', s %>
+      <% end %>
     <% end %>
     <div class="modal-content">
       	<div class="text-center" style="padding-top:30px;">
@@ -219,13 +219,8 @@
 		    <%#タブ中身%>
 		        <div class="tab-content">
 		            <div id="city" class="tab-pane fade in active">
-                  <% if @spot_n == 2 || @spot_n == 3 %>
-                    <% if @spot_n == 2 %>
-                      <p>１軒目からの距離を指定できます</p>
-                    <% end %>  
-                    <% if @spot_n == 3 %>
-                      <p>２軒目からの距離を指定できます</p>
-                    <% end %>  
+                  <% if @ss.size >= 1 %>
+                    <p><%= @ss.size %>軒目からの距離を指定できます</p>  
                     <br>
                     <span class="radio-city"> 
                       <%= radio_button_tag(:distance_on, "true", @distance_on_on, {:id => "on"}) %>
