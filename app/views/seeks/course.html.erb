@@ -299,18 +299,37 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div style="height:80vh;padding:30px 50px 0px;">
-            	<br><br>
+            	<br>
             	<h4 class="text-center">提案文コピー</h4>
             	<br>
-            	<div style="text-align:left;">
-		        	<p style="color:black;font-size:16px;">こちらのコースはいかがでしょうか。</p>
-		        	<p style="color:black;font-size:16px;"><%= @course.title %></p>
-		        	<p style="color:black;font-size:16px;"><%= url_for(only_path: false) %></p>
-		        </div> 
-		        <br>
-              	<div class="text-center">
-		          <button class="btn btn-default" data-clipboard-text="こちらのコースはいかがでしょうか。&#13;&#13;<%= @course.title %>&#13;&#13;<%= url_for(only_path: false) %>"><i class="far fa-copy"></i>コピー</button>
-		        </div>
+              <h4>(LINE)</h4>
+              <div style="text-align:left;">
+               <p style="color:black;font-size:16px;">お待たせいたしました。<br>ご要望に応じてデートプランをご提案させていただきます。</p>
+               <p style="color:black;font-size:16px;"><%= @course.title %><br><%= url_for(only_path: false) %></p>
+               <p style="color:black;font-size:16px;">============</p>
+               <p style="color:black;font-size:16px;">ご提案したデートコースは参考になりましたか？</p>
+               <p style="color:black;font-size:16px;">※プランがご希望に沿わなかった場合<br>どのような点が良くなかったかをお教えください。ご意見を踏まえ、新しいプランをご提案します。</p>
+               <p style="color:black;font-size:16px;">※ご意見募集のお願い<br>リリース間もない本サービスをご利用いただいた皆様から、サービスに対する率直なご意見（ご提案内容や使い勝手など）やご要望をお聞かせいただければと思っております。<br>もしご意見がある方は、どんなことでも構いませんのでご気軽に本メールへご返信ください。</p>
+               <p style="color:black;font-size:16px;">A.Dateに関するお問い合わせは、メールにてお受付しております。<br>お問合せ先:adate.ask@gmail.com</p>
+              </div> 
+              <div class="text-center">
+                <button class="btn btn-default" data-clipboard-text="お待たせいたしました。&#13;ご要望に応じてデートプランをご提案させていただきます。&#13;&#13;<%= @course.title %>&#13;<%= url_for(only_path: false) %>"><i class="fab fa-line"></i>&nbsp;LINE①</button>
+                <button class="btn btn-default" data-clipboard-text="ご提案したデートコースは参考になりましたか？&#13;&#13;==============&#13;※プランがご希望に沿わなかった場合&#13;どのような点が良くなかったかをお教えください。ご意見を踏まえ、新しいプランをご提案します。&#13;==============&#13;※ご意見募集のお願い&#13;リリース間もない本サービスをご利用いただいた皆様から、サービスに対する率直なご意見（ご提案内容や使い勝手など）やご要望をお聞かせいただければと思っております。&#13;もしご意見がある方は、どんなことでも構いませんのでご気軽に本アカウントへご返信ください。&#13;==============&#13;&#13;&#13;A.Dateに関するお問い合わせは、メールでもお受付しております。&#13;お問合せ先:adate.ask@gmail.com"><i class="fab fa-line"></i>&nbsp;LINE②</button>
+              </div>
+              <br>
+              <div style="text-align:left;">
+               <h4>(メール)</h4>
+               <p style="color:black;font-size:16px;">お待たせいたしました。<br>ご要望に応じてデートプランをご提案させていただきます。</p>
+               <p style="color:black;font-size:16px;"><%= @course.title %><br><%= url_for(only_path: false) %></p>
+               <p style="color:black;font-size:16px;">ご提案したデートコースは参考になりましたか？</p>
+               <p style="color:black;font-size:16px;">※プランがご希望に沿わなかった場合<br>どのような点が良くなかったかをお教えください。ご意見を踏まえ、新しいプランをご提案します。</p>
+               <p style="color:black;font-size:16px;">※ご意見募集のお願い<br>リリース間もない本サービスをご利用いただいた皆様から、サービスに対する率直なご意見（ご提案内容や使い勝手など）やご要望をお聞かせいただければと思っております。<br>もしご意見がある方は、どんなことでも構いませんのでご気軽に本メールへご返信ください。</p>
+               <p style="color:black;font-size:16px;">A.Dateに関するお問い合わせは、LINEでもお受付しております。<br>LINE:@zjy4954t</p>
+              </div> 
+              <div class="text-center">
+                <button class="btn btn-default" data-clipboard-text="お待たせいたしました。&#13;ご要望に応じてデートプランをご提案させていただきます。&#13;&#13;&#13;<%= @course.title %>&#13;<%= url_for(only_path: false) %>&#13;&#13;&#13;ご提案したデートコースは参考になりましたか？&#13;&#13;===============================&#13;※プランがご希望に沿わなかった場合&#13;どのような点が良くなかったかをお教えください。ご意見を踏まえ、新しいプランをご提案します。&#13;===============================&#13;※ご意見募集のお願い&#13;リリース間もない本サービスをご利用いただいた皆様から、サービスに対する率直なご意見（ご提案内容や使い勝手など）やご要望をお聞かせいただければと思っております。&#13;もしご意見がある方は、どんなことでも構いませんのでご気軽に本メールへご返信ください。&#13;===============================&#13;&#13;A.Dateに関するお問い合わせは、LINEでもお受付しております。&#13;LINE:@zjy4954t"><i class="fas fa-envelope-square"></i>&nbsp;メール</button>
+              </div>
+              <br>
             </div>
           </div>
         </div>

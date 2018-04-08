@@ -73,11 +73,23 @@ class SeeksController < ApplicationController
     sex_opponent = params[:sex_opponent]
     spot = params[:spot]
     term = params[:term]
-    if SampleMailer.send_when_update(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,sex_you,age_opponent,sex_opponent,spot,term).deliver
-      redirect_to seeks_sent_mail_path
+
+    @time_now = DateTime.now
+
+    if @time_now.hour.between?(10, 22)
+      if SampleMailer.send_when_update(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,sex_you,age_opponent,sex_opponent,spot,term).deliver
+        redirect_to seeks_sent_mail_path
+      else
+        render 'confirmmail'
+        flash.now[:alert] = "受付に失敗しました"
+      end
     else
-      render 'confirmmail'
-      flash.now[:alert] = "受付に失敗しました"
+      if SampleMailer.send_when_off(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,sex_you,age_opponent,sex_opponent,spot,term).deliver
+        redirect_to seeks_sent_mail_path
+      else
+        render 'confirmmail'
+        flash.now[:alert] = "受付に失敗しました"
+      end
     end
   end
 
