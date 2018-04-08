@@ -15,7 +15,9 @@
 
     <div class="box-what3">
       <div class="text-center" style="padding:30px 0px 0px;">
+        <div></div>
         <h3><span class="what">Example</span></h3>
+        <p style="padding:10px 30px 0px;color:black;">ご利用方法はシンプル。<br>フォームで条件を入力していただければ、A.Dateがコースをお作りし、メールまたはLINEのお好きな方法で提案させていただきます。</p>
         <div style="padding:30px 0px 0px;">
           <div class="box-feature1">
             <%= image_tag "man.png", :class =>'img-feature' %>
@@ -50,7 +52,7 @@
           </div>
           <div class="box-feature2">
             <h4 style="font-size:15px;">面倒な会員登録なし</h4>
-            <p style="font-size:12px;">会員登録することなく、LINEやメールで提案してもらえます。</p>
+            <p style="font-size:12px;">会員登録することなく、LINEやメールで提案してもらえます。ご気軽にご依頼ください。</p>
           </div>
         </div>
         <div style="padding:20px 0px;">
@@ -59,7 +61,7 @@
           </div>
           <div class="box-feature2">
             <h4 style="font-size:15px;">あなただけのためのコース</h4>
-            <p style="font-size:12px;">A.Dateはあなたの希望に沿ったコースをお作りします。</p>
+            <p style="font-size:12px;">A.Dateはあなたの希望に沿ったコースをお作りします。プランの作り直しや細かい修正も対応可能です。</p>
           </div>
         </div>
         <div style="padding:20px 0px;">
@@ -68,7 +70,7 @@
           </div>
           <div class="box-feature2">
             <h4 style="font-size:15px;">30分以内にご提案</h4>
-            <p style="font-size:12px;">自分でプランを作る時、１時間以上かかるなんて当たり前。A.Dateは30分以内にご提案させていただきます。</p>
+            <p style="font-size:12px;">自分でプランを作る時、１時間以上かかるなんて当たり前。A.Dateは30分以内にご提案させていただくことを目標としております。</p>
           </div>
         </div>
       </div>
@@ -93,23 +95,7 @@
       </div>
     </div>
 
-    <div class="fotter_result">
-      <div style="text-align:center;font-size:20px;color:black;">
-        <a href="/" class="site-title black" style="letter-spacing:0em;">A.Date</a>
-        <p>あなたの代わりにデートコースを</p>
-      </div>
-      <div style="text-align:center;">
-        <a class="btn-sns" href="https://www.instagram.com/adate_ig/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a class="btn-sns" href="https://www.facebook.com/adate.fa/" target="_blank">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a class="btn-sns" href="https://twitter.com/adate_tw/" target="_blank">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </div>
-    </div>
+    <%= render "partial/fotter_home" %>
 
     <div class="img_about06">
 	  <h4>

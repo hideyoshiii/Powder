@@ -18,4 +18,10 @@ class DetailsController < ApplicationController
   def policy 	
   end
 
+  def law  
+  end
+
+  def manager   
+  end
+
 end

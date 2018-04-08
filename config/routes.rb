@@ -91,6 +91,8 @@ Rails.application.routes.draw do
   get "/eagle" => "details#eagle"
   get "/terms" => "details#terms"
   get "/policy" => "details#policy"
+  get "/law" => "details#law"
+  get "/manager" => "details#manager"
 
   get "spots/search00" => "spots#search00"
   get "spots/result00" => "spots#result00"

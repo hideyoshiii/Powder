@@ -45,7 +45,28 @@
       </div>
 
 
-      <ul class="nav">               
+      <ul class="nav">  
+
+        <li>
+          <%= link_to manager_path do %>
+            <span style="font-size: 13px;">運営者情報</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to terms_path do %>
+            <span style="font-size: 13px;">利用規約</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to law_path do %>
+            <span style="font-size: 13px;">特定商取引法に基づく表記</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to policy_path do %>
+            <span style="font-size: 13px;">プライバシーポリシー</span>
+          <% end %>
+        </li>             
 
         <% if (user_signed_in?) %>
           <% if current_user.authority == "manager" %>
@@ -70,10 +91,6 @@
           <% end %>
         <br>
         <% else %>
-        <%= link_to new_user_registration_path do %>
-          <i class="fas fa-user-plus"></i> アカウント作成
-          <% end %>
-        <br>
           <%= link_to new_user_session_path do %>
           <i class="fas fa-sign-in-alt"></i> ログイン
           <% end %>
