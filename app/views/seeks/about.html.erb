@@ -118,6 +118,9 @@
       </div>
     </div>
 
+<% if (user_signed_in?) %>
+  <% if current_user.authority == "manager" %>
+
     <div class="box-what3">
       <div class="text-center" style="padding:0px 0px 10px;">
         <h3><span class="what">Course</span></h3>
@@ -154,6 +157,9 @@
         </a>
       </div>
     </div>
+
+  <% end %>
+<% end %>
 
     <div class="img_about06">
 	  <h4>
