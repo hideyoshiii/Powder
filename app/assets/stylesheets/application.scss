@@ -7379,8 +7379,19 @@ square_btnn{
   align-items: center;
 
   padding: 0px;
-  margin-top:-50px;
+  margin-top:-100px;
   box-sizing: border-box;
+
+  font-size:100px;
+}
+
+
+@media only screen and (min-width: 768px) {
+.box-thumbnail{font-size:150px;margin-top:-70px;}
+}
+
+@media only screen and (min-width: 1000px) {
+.box-thumbnail{font-size:200px;margin-top:-50px;}
 }
 
 
