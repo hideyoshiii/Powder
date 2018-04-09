@@ -93,6 +93,7 @@ Rails.application.routes.draw do
   get "/policy" => "details#policy"
   get "/law" => "details#law"
   get "/manager" => "details#manager"
+  get "/thumbnail" => "details#thumbnail"
 
   get "spots/search00" => "spots#search00"
   get "spots/result00" => "spots#result00"

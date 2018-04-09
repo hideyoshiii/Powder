@@ -24,4 +24,7 @@ class DetailsController < ApplicationController
   def manager   
   end
 
+  def thumbnail 
+  end
+
 end
