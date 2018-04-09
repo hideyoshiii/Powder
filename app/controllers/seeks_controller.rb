@@ -2,6 +2,7 @@ class SeeksController < ApplicationController
   before_action :set_params, only: [:area,:distance,:category,:meal,:choice,:result]
 
   def home
+    @courses = Course.where(kind: "提案").order('id DESC')
   end
 
   def about
