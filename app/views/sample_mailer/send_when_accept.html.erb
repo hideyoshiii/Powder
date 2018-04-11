@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta content="text/html; charset=UTF-8" />
+  <style type="text/css">
+    
+  </style>
+</head>
+<body>
+
+  <br>
+  <hr>
+  <h4>A.Date:依頼受付メール</h4>
+  <hr>
+  <br>
+  <p>
+    この度はA.Dateをご利用いただきありがとうございます。<br>
+    下記内容でご依頼を受け付けました。<br>	<br>
+    ご希望に沿ったコースを３コース、メールでご提案しますので、今しばらくお待ちください。<br>
+    (提案までの時間の目安:24時間以内)<br><br>
+    ※A.Dateはベータ版のため、東京でも対応していないエリアがございます。その場合こちらからご連絡させていただきます。
+  </p>
+  <br>
+  	<h4 style="margin-bottom:0px;">Area</h4>
+	<p><%= @area %></p>
+	<h4 style="margin-bottom:0px;">Timezone</h4>
+	<p><%= @time_start %>~<%= @time_end %></p>
+	<h4 style="margin-bottom:0px;">Price</h4>
+	<p><%= @price_min %>~<%= @price_max %>円</p>
+	<h4 style="margin-bottom:0px;">Image</h4>
+	<p><%= @image %></p>
+	<h4 style="margin-bottom:0px;">Relation</h4>
+	<p><%= @relation %></p>
+	<h4 style="margin-bottom:0px;">Personal</h4>
+	<p>あなた&nbsp;<%= @age_you %>/<%= @sex_you %><br>
+	ご相手&nbsp;<%= @age_opponent %>/<%= @sex_opponent %></p>
+	<h4 style="margin-bottom:0px;">Spot</h4>
+	<p><%= @spot %></p>
+	<h4 style="margin-bottom:0px;">Term</h4>
+	<p><%= @term %></p>
+	<br>
+	<hr>
+	<p>
+		A.Dateに関するお問い合わせは、メールにてお受付しています。<br>
+		お問合せ先:adate.ask@gmail.com
+	</p>
+	<hr>
+	<br>
+	<p>
+		※このメールはシステムによって自動的に返信されています。
+	</p>
+
+</body>
+</html>

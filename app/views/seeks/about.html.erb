@@ -23,7 +23,7 @@
             <%= image_tag "man.png", :class =>'img-feature' %>
           </div>
           <div class="box-feature2" style="border-radius:5px;border:1px solid black;padding:10px 10px;">
-            <p style="font-size:12px;color:black;">恵比寿駅で<br>仕事終わり19時から終電まで<br>1人あたり8000円以内<br>高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ。</p>
+            <p style="font-size:12px;color:black;">恵比寿駅で<br>仕事終わり19時から終電まで<br>1人あたり1000円以内<br>高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ。</p>
           </div>
         </div>
         <div style="font-size:30px;color:black;">
@@ -33,10 +33,41 @@
           <% @spot1 = Spot.find_by(title: "Ubcra") %>
           <div class="radio-city-b smoke">  
               <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
+              <h4>
+                <span id="fab-item"><i class="">１</i>
+              </h4>
               <h1>
                 京野菜ディナーと夜景の見える隠れ家バーの恵比寿王道デート
                 <br>
                 <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);">https://www.a-date.jp/seeks/course/46</span>
+              </h1>
+          </div>
+        </a>
+        <a href="https://www.a-date.jp/seeks/course/49">
+          <% @spot1 = Spot.find_by(title: "L'IGNIS（リグニス）") %>
+          <div class="radio-city-b smoke">  
+              <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
+              <h4>
+                <span id="fab-item"><i class="">２</i>
+              </h4>
+              <h1>
+                京野菜ディナーと夜景の見える隠れ家バーの恵比寿王道デート
+                <br>
+                <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);">https://www.a-date.jp/seeks/course/49</span>
+              </h1>
+          </div>
+        </a>
+        <a href="https://www.a-date.jp/seeks/course/50">
+          <% @spot1 = Spot.find_by(title: "小割烹おはし ゑびすりびんぐ") %>
+          <div class="radio-city-b smoke">  
+              <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
+              <h4>
+                <span id="fab-item"><i class="">３</i>
+              </h4>
+              <h1>
+                京野菜ディナーと夜景の見える隠れ家バーの恵比寿王道デート
+                <br>
+                <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);">https://www.a-date.jp/seeks/course/50</span>
               </h1>
           </div>
         </a>
@@ -48,11 +79,11 @@
         <h3><span class="what">Feature</span></h3>
         <div style="padding:20px 0px;">
           <div class="box-feature1">
-            <%= image_tag "user.png", :class =>'img-feature' %>
+            <%= image_tag "idea3.png", :class =>'img-feature' %>
           </div>
           <div class="box-feature2">
-            <h4 style="font-size:15px;">面倒な会員登録なし</h4>
-            <p style="font-size:12px;">会員登録することなく、LINEやメールで提案してもらえます。ご気軽にご依頼ください。</p>
+            <h4 style="font-size:15px;">３つのプランをご提案</h4>
+            <p style="font-size:12px;">ご要望に合わせたデートプランを３つ御提案させていただきます。３つのコースを見比べて参考にしていただけると幸いです。</p>
           </div>
         </div>
         <div style="padding:20px 0px;">
@@ -66,11 +97,11 @@
         </div>
         <div style="padding:20px 0px;">
           <div class="box-feature1">
-            <%= image_tag "clock.png", :class =>'img-feature' %>
+            <%= image_tag "user.png", :class =>'img-feature' %>
           </div>
           <div class="box-feature2">
-            <h4 style="font-size:15px;">30分以内にご提案</h4>
-            <p style="font-size:12px;">自分でプランを作る時、１時間以上かかるなんて当たり前。A.Dateは30分以内にご提案させていただくことを目標としております。</p>
+            <h4 style="font-size:15px;">面倒な会員登録なし</h4>
+            <p style="font-size:12px;">会員登録することなく、LINEやメールで提案してもらえます。ご気軽にご依頼ください。</p>
           </div>
         </div>
       </div>
