@@ -1,31 +1,93 @@
 class SeeksController < ApplicationController
   before_action :set_params, only: [:area,:distance,:category,:meal,:choice,:result]
 
-  def new
+  def form 
+    #params[price_min]がない時のの定義
+    if params[:price_min].blank?
+      params[:price_min] = 0
+    end
+    #params[price_max]がない時のの定義
+    if params[:price_max].blank?
+      params[:price_max] = 20000
+    end
   end
 
-  def create
-    # Amount in cents
-    @amount = 500#引き落とす金額
-  　　　 ###この操作で、Stripe から帰ってきた情報を取得します
+  def confirm 
+    if params[:spot].blank?
+      params[:spot] = "特になし"
+    end
+    if params[:term].blank?
+      params[:term] = "特になし"
+    end
+  end
+
+  def sent  
+    if params[:spot].blank?
+      params[:spot] = "特になし"
+    end
+    if params[:term].blank?
+      params[:term] = "特になし"
+    end
+    
+    email = params[:mail]
+    area = params[:area]
+    time_start = params[:time_start]
+    time_end = params[:time_end]
+    price_min = params[:price_min]
+    price_max = params[:price_max]
+    image = params[:image]
+    relation = params[:relation]
+    age_you = params[:age_you]
+    sex_you = params[:sex_you]
+    age_opponent = params[:age_opponent]
+    sex_opponent = params[:sex_opponent]
+    spot = params[:spot]
+    term = params[:term]
+
+    @amount = 300
     customer = Stripe::Customer.create(
-      :email => params[:stripeEmail], #emailは暗号化されずに受け取れます
-      :source  => params[:stripeToken] #めちゃめちゃな文字列です 
+      :email => params[:stripeEmail], 
+      :source  => params[:stripeToken] 
     )
-
-
-    ###この操作で、決済をします
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => 'Rails Stripe customer',
-      :currency    => 'usd'
+      :description => 'A.Date customer',
+      :currency    => 'jpy'
     )
-
-  rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to new_charge_path
+    if SampleMailer.send_when_accept(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,sex_you,age_opponent,sex_opponent,spot,term).deliver
+      redirect_to seeks_complete_path, notice: "受付が完了しました" 
+    end
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      render 'confirm'
+      flash.now[:alert] = "受付に失敗しました"
   end
+
+  def complete  
+  end
+
+  def new
+  end
+
+  def create   
+    @amount = 500
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail], 
+      :source  => params[:stripeToken] 
+    )
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'A.Date customer',
+      :currency    => 'jpy'
+    )
+    redirect_to root_path, notice: "支払いが完了しました" 
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to seeks_new_path 
+  end
+
 
 
   def home
@@ -41,11 +103,11 @@ class SeeksController < ApplicationController
 
   def line
     #params[price_min]がない時のの定義
-  if params[:price_min].blank?
+    if params[:price_min].blank?
       params[:price_min] = 0
     end
     #params[price_max]がない時のの定義
-  if params[:price_max].blank?
+    if params[:price_max].blank?
       params[:price_max] = 20000
     end
   end

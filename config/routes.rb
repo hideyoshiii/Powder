@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "/homes" => "homes#index"
 
   get "seeks/new" => "seeks#new"
-  get "seeks/create" => "seeks#create"
+  post "seeks/create" => "seeks#create"
   get "seeks/area" => "seeks#area"
   get "seeks/distance" => "seeks#distance"
   get "seeks/category" => "seeks#category"
@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   get 'seeks/courses' => 'seeks#courses'
   get 'seeks/course/:id' => 'seeks#course'
   get 'seeks/course/:id/update' => 'seeks#update'
-  get 'seeks/course/:id/destroy' => 'seeks#destroy'
+  post 'seeks/course/:id/destroy' => 'seeks#destroy'
+  get "seeks/form" => "seeks#form"
+  get "seeks/confirm" => "seeks#confirm"
+  post "seeks/sent" => "seeks#sent"
+  get "seeks/complete" => "seeks#complete"
  
 
 
