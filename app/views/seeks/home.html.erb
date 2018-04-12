@@ -41,7 +41,7 @@
     <div id="next"></div>
     <div class="box-what3">
       <div class="text-center" style="padding:60px 40px 0px;color:black;">
-        <p>A.Dateがあなたの条件に合ったデートコースをご提案します。<br>あなたのデートの条件をお伝えください。</p>
+        <p>A.Dateがあなたの条件に合ったデートコースを３つご提案します。<br>あなたのデートの条件をお伝えください。</p>
         <p style="font-size:10px;">※東京エリアのみの対応となります</p>
       </div>
     </div>
@@ -50,17 +50,25 @@
       <div class="text-center" style="padding:30px 0px 0px;">
         <div></div>
         <h3><span class="what">Example</span></h3>
-        <p style="padding:10px 30px 0px;color:black;">ご利用方法はシンプルです。<br>フォームで条件を入力していただければ、A.Dateがコースをお作りし、メールまたはLINEのお好きな方法で提案させていただきます。</p>
+        <p style="padding:10px 30px 0px;color:black;">ご利用方法はシンプルです。<br>フォームで条件を入力していただければ、A.Dateがデートコースを３つお作りし、メールまたはLINEのお好きな方法で提案させていただきます。</p>
         <div style="padding:30px 0px 0px;">
           <div class="box-feature1">
             <%= image_tag "man.png", :class =>'img-feature' %>
           </div>
-          <div class="box-feature2" style="border-radius:5px;border:1px solid black;padding:10px 10px;">
+          <div class="box-feature2" style="border-radius:5px;border:1px solid black;padding:10px 10px 0px;">
             <p style="font-size:12px;color:black;">恵比寿駅で<br>仕事終わり19時から終電まで<br>1人あたり1000円以内<br>高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ。</p>
           </div>
         </div>
         <div style="font-size:30px;color:black;">
           <i class="fas fa-chevron-down"></i>
+        </div>
+        <div style="padding:0px 0px 20px;">
+          <div class="box-feature1">
+            <%= image_tag "adate.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2" style="border-radius:5px;border:1px solid black;padding:10px 10px 0px;">
+            <p style="font-size:12px;color:black;">お待たせいたしました。<br>ご要望に応じてデートプランをご提案させていただきます。</p>
+          </div>
         </div>
         <a href="https://www.a-date.jp/seeks/course/46">
           <% @spot1 = Spot.find_by(title: "Ubcra") %>
@@ -116,7 +124,7 @@
           </div>
           <div class="box-feature2">
             <h4 style="font-size:15px;">３つのプランをご提案</h4>
-            <p style="font-size:12px;">ご要望に合わせたデートプランを３つ御提案させていただきます。３つのコースを見比べて参考にしていただけると幸いです。</p>
+            <p style="font-size:12px;">ご要望に合わせたデートプランを３つご提案させていただきます。３つのコースを見比べて参考にしていただけると幸いです。</p>
           </div>
         </div>
         <div style="padding:20px 0px;">
@@ -141,22 +149,29 @@
     </div>
 
     <div class="box-what3">
-      <div class="text-center" style="padding:0px 0px 10px;">
-        <h3><span class="what">Course</span></h3>
-        <p style="padding-top:10px;color:black;">A.Dateが実際にご提案したデートプランです。</p>
+      <div style="padding:0px 0px 10px;">
+        <h3 class="text-center"><span class="what">Course</span></h3>
+        <p class="text-center" style="padding-top:10px;color:black;">A.Dateが実際にご提案したデートプランです。</p>
         <br>
         <% @courses.each.with_index(1) do |course, i| %>
           <% @point = Point.where(course_id: course.id).order(number: "ASC").first %>
           <%= link_to "/seeks/course/#{course.id}" do %>
             <div class="radio-city-b smoke">  
                 <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-course-result' %>
-                <h1>
+                <h4>
                   <%= course.title %>
-                </h1>
+                  <br>
+                  <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %></span>
+                </h4>
             </div>
           <% end %>
         <% end %>
       </div>
+      <%= link_to "/seeks/courses" do %>
+      <div class="pull-right" style="padding:0px 10px;font-size:12px;">
+        もっと見る&nbsp;<i class="fas fa-chevron-right"></i>
+      </div>
+      <% end %>
     </div>
 
     <%= render "partial/fotter_home" %>

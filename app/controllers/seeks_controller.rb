@@ -2,11 +2,11 @@ class SeeksController < ApplicationController
   before_action :set_params, only: [:area,:distance,:category,:meal,:choice,:result]
 
   def home
-    @courses = Course.where(kind: "提案").order('id DESC')
+    @courses = Course.where(kind: "提案").order('id DESC').limit(5)
   end
 
   def about
-    @courses = Course.where(kind: "提案").order('id DESC')
+    @courses = Course.where(kind: "提案").order('id DESC').limit(5)
   end
 
   def method
@@ -100,6 +100,10 @@ class SeeksController < ApplicationController
       flash.now[:error] = '保存に失敗しました'
       render :result
     end      
+  end
+
+  def courses
+    @courses = Course.where(kind: "提案").order('id DESC').page(params[:page]).per(30)   
   end
 
   def course 
