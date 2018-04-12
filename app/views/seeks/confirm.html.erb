@@ -59,6 +59,7 @@
         	<%= hidden_field_tag :mail, params[:mail] %>
         	<div class="text-center">
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  Stripe.setPublishableKey('PUBLISHABLE_KEY');
 		          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
                   data-name="A.Date"
 		          data-description="カード情報をご記入ください"
