@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
+  get "seeks/new" => "seeks#new"
+  get "seeks/create" => "seeks#create"
   get "seeks/area" => "seeks#area"
   get "seeks/distance" => "seeks#distance"
   get "seeks/category" => "seeks#category"

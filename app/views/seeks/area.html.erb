@@ -25,7 +25,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -48,7 +50,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -71,7 +75,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -94,7 +100,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -117,7 +125,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -140,7 +150,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -163,7 +175,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -186,7 +200,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -209,7 +225,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -232,7 +250,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -255,7 +275,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -278,7 +300,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -301,7 +325,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -324,7 +350,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -347,7 +375,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -370,7 +400,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -393,7 +425,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -416,7 +450,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -439,7 +475,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -462,7 +500,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
@@ -485,7 +525,9 @@
           <%= hidden_field_tag :timezone, params[:timezone] %>
           <%= hidden_field_tag :small, params[:small] %>
           <% unless params[:ss].blank? %>
-            <%= hidden_field_tag 'ss[]', params[:ss] %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
           <% end %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">

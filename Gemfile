@@ -49,6 +49,7 @@ gem 'kaminari'
 gem 'jquery-turbolinks'
 gem 'rack-rewrite'
 gem 'google-analytics-rails'
+gem 'stripe'
 
 
 
