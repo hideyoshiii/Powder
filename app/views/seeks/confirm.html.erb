@@ -60,7 +60,8 @@
         	<div class="text-center">
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 		          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-		          data-description="A.Date"
+                  data-name="A.Date"
+		          data-description="カード情報をご記入ください"
 		          data-amount="300"
 		          data-currency="jpy"
 		          data-locale="auto"
