@@ -151,8 +151,7 @@
     <div class="box-what3">
       <div style="padding:0px 0px 10px;">
         <h3 class="text-center"><span class="what">Course</span></h3>
-        <p class="text-center" style="padding-top:10px;color:black;">A.Dateが実際にご提案したデートプランです。</p>
-        <br>
+        <p class="text-center" style="padding:10px;color:black;">A.Dateが実際にご提案したデートプランです。</p>
         <% @courses.each.with_index(1) do |course, i| %>
           <% @point = Point.where(course_id: course.id).order(number: "ASC").first %>
           <%= link_to "/seeks/course/#{course.id}" do %>
@@ -175,8 +174,6 @@
     </div>
 
     <%= render "partial/fotter_home" %>
-
-    <%= @ii %>
 
     <div class="img_about06">
     <h4>
