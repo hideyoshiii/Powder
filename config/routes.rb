@@ -30,6 +30,11 @@ Rails.application.routes.draw do
   get "seeks/confirm" => "seeks#confirm"
   post "seeks/sent" => "seeks#sent"
   get "seeks/complete" => "seeks#complete"
+
+  get "seeks/timezone" => "seeks#timezone"
+  get "seeks/city" => "seeks#city"
+  get "seeks/price" => "seeks#price"
+  get "seeks/outcome" => "seeks#outcome"
  
 
 

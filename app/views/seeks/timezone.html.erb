@@ -1,0 +1,19 @@
+<%= form_tag(seeks_price_path, method: :get) do %>
+<%= hidden_field_tag :city, params[:city] %>
+        <div class="panel-body">
+          <div class="form-group text-center">
+            
+            <div style="width:35%;display:inline-block;">
+	        	<div class="select-box01">
+	            <%= select_tag :timezone, options_for_select([["昼", "昼"], ["夜", "夜"]], "昼") %>
+	            </div>
+            </div>
+            から
+   
+          <br><br>
+          <div class="text-center">
+            <%= submit_tag "確認する", :class => "btn btn-default" %>
+          </div>
+          <br>
+        </div>
+      <% end %>
