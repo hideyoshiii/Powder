@@ -6,7 +6,8 @@
   該当するデートコースはありません
 <% else %>
   <%# 目次 %>
-  <h3 class="text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>           
+  <h3 class="text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>   
+  <p class="text-center" style="font-size:12px;padding:0px 30px;margin-bottom:-5px;">コースが気に入らない場合はchangeボタンで変更できます</p>        
   <%# コースの諸情報 %>
   <div class="result-info-box">
     <div class="result-info-box-1">
@@ -14,9 +15,24 @@
         <i class="fas fa-map-marker-alt"></i>
       </div>
       <div class="result-info">
-        <%= @spot_first.city %>付近
+        <%= params[:city] %>付近
       </div>
     </div>
+    <% unless params[:timezone].blank? %>
+      <div class="result-info-box-1">
+        <div class="result-info-btn">
+          <i class="far fa-clock"></i>
+        </div>
+        <div class="result-info">
+          <% if params[:timezone] == "noon" %>
+            昼から
+          <% end %>
+          <% if params[:timezone] == "night" %>
+            夜から
+          <% end %>
+        </div>
+      </div>
+    <% end %>
     <div class="result-info-box-1">
       <div class="result-info-btn">
         <i class="fas fa-yen-sign"></i>
@@ -30,9 +46,18 @@
       </div>
     </div>
   </div>
+
+  <%# マップ %>
+  <div style="padding:0px 15px 0px;margin-top:-20px;">
+    <h4 class="text-center">Map</h4>   
+    <div class="box-map">
+      <div id="map_10"></div>
+    </div>
+  </div>
   
   <%# アイキャッチ %>
   <div style="padding:0px 15px;">
+    <h4 class="text-center">Course</h4>   
   <% @ss.each.with_index(1) do |s, i| %>
     <% spot = Spot.find(s) %>
       <% unless i == 1 %>
@@ -58,6 +83,21 @@
           <%= spot.title %>
           <%# 駅 %>
           <span style="font-size:10px;"><br><i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %></span>
+          <%# カテゴリー %>
+          <% unless spot.large.blank? %>
+            <span style="font-size:10px;"><br><i class="fas fa-tag"></i></i>&nbsp;</span>
+            <% @i = 0 %>
+            <% spot.large.each do |large| %>
+              <% @i = @i + 1 %>
+              <span style="font-size:10px;">
+                <% if @i == spot.large.size %>
+                  <%= large %>
+                <% else %>
+                  <%= large %>/
+                <% end %>
+              </span>
+            <% end %>
+          <% end %>
           <%# ジャンル %>
           <% unless spot.small.blank? %>
             <span style="font-size:10px;"><br><i class="fas fa-utensils"></i>&nbsp;</span>
@@ -195,6 +235,17 @@
   <% end %>
   </div>
 
+  <%#作って見るボタン%>
+  <div class="text-center" style="padding:60px 20px 0px;">
+    <h4>10秒でデートコースをつくってみよう！</h4>
+    <p>あなたも上記の様なコースがすぐにつくれます。</p>
+    <%= link_to seeks_city_path do %>
+      <div class="btn btn-default">
+        10秒でデートコースをつくる
+      </div>
+    <% end %>
+  </div>
+
   <% if (user_signed_in?) %>
     <% if current_user.authority == "manager" %>
       <%#保存モーダルボタン%>
@@ -262,27 +313,6 @@
     <% end %>
   <% end %>
 
-  
-  <%#マップモーダルボタン%>
-  <div class="btn-details">
-   <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
-    <i class="far fa-map"></i>
-   </a>
-  </div>
-  <%#マップモーダルの中身%>
-  <div class="modal" id="myModal-map">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div id="map"></div>
-      </div>
-    </div>
-    <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-      <i class="fa fa-close"></i>
-     </a>
-    </div>
-  </div>
-
   <br>
 
 <% end %>
@@ -309,11 +339,11 @@ function initMap() {
     };
 
     // マップの生成
-    var map = new google.maps.Map(document.getElementById("map"), {
+    var map = new google.maps.Map(document.getElementById("map_10"), {
         <%# $$$出発地と同じ緯度経度を記入 %>
         gestureHandling: 'greedy',
         center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
-        zoom: 15 // ズームレベル
+        zoom: 14 // ズームレベル
     });
 
     var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
@@ -331,6 +361,7 @@ function initMap() {
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
+
 
 </mains>
 

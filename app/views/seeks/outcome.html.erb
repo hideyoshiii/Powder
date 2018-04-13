@@ -23,7 +23,12 @@
         <i class="far fa-clock"></i>
       </div>
       <div class="result-info">
-        <%= params[:timezone] %>から
+        <% if params[:timezone] == "noon" %>
+          昼から
+        <% end %>
+        <% if params[:timezone] == "night" %>
+          夜から
+        <% end %>
       </div>
     </div>
     <div class="result-info-box-1">
@@ -228,6 +233,17 @@
   <% end %>
   </div>
 
+  <%#ツイートボタン%>
+  <div class="text-center" style="padding:60px 20px 0px;">
+    <h4>ツイートしてコースを保存できます</h4>
+    <p>ツイートするとこのコースのURLが作成されて、リンクからいつでもこのコースを見ることができます。</p>
+    <div id="tw">
+      <a href="" target="_blank" class="btn-twitter">
+        <i class="fab fa-twitter"></i> <span>ツイートする</span>
+      </a>
+    </div>
+  </div>
+
   <% if (user_signed_in?) %>
     <% if current_user.authority == "manager" %>
       <%#保存モーダルボタン%>
@@ -352,8 +368,14 @@ function initMap() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
 
+<%#ツイートのJS%>
 <script>
-//更新
+  var url = 'http://twitter.com/share?url=' + encodeURIComponent('<%= @url %>') + '&text=A.Date%0a10秒でデートコースをつくってみた%0a';
+  $('#tw a').attr({"href":url}); // aタグのhrefに設定
+</script>
+
+<%#チェンジのJS%>
+<script>
 function koshin(){
 	$('body,html').animate({
   scrollTop: 0},0);

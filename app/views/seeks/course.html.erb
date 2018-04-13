@@ -273,7 +273,7 @@
 	                </div>
 	                <br>
 	            <% end %>
-	            <%= form_tag("/seeks/course/#{@course.id}/destroy", method: :get) do %>
+	            <%= form_tag("/seeks/course/#{@course.id}/destroy", method: :post) do %>
 	            <div class="text-center">
                   <%= submit_tag "コースを削除する", :class => "btn btn-primary btn-sm" %>
                 </div>

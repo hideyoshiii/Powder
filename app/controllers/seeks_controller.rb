@@ -45,7 +45,7 @@ class SeeksController < ApplicationController
    @category_nights = ["カフェ", "バー", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
    @nights = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #昼からの時
-   if params[:timezone] == "昼"
+   if params[:timezone] == "noon"
     #スポット１(ランチ)
     @spot1_city = @spots.where(city: params[:city])
     @spot1_category = @spot1_city.where("large like '%ランチ%'")
@@ -109,7 +109,7 @@ class SeeksController < ApplicationController
     @spot5 = @spot5_distance.order("RANDOM()").first
    end
    #夜からの時
-   if params[:timezone] == "夜"
+   if params[:timezone] == "night"
     #スポット１
     @spot1_city = @spots.where(city: params[:city])
     @spot1_category = @spot1_city.where("large like '%ディナー%'")
@@ -184,6 +184,15 @@ class SeeksController < ApplicationController
         end
       end
     end
+
+    #ツイート用のURL作成
+    @timezone = params[:timezone]
+    @url = root_url(only_path: false)
+    @url = @url.to_s + '/seeks/result?utf8=✓'
+    params[:ss].each.with_index(1) do |s, i|
+      @url = @url.to_s + "&ss%5B%5D=#{s}"
+    end
+    @url = @url.to_s + "&timezone=#{@timezone}"
 
     flash.now[:notice] = "コースが作成されました"
     

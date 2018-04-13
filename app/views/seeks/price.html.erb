@@ -5,7 +5,7 @@
 	<%= hidden_field_tag :city, params[:city] %>
 	<%= hidden_field_tag :timezone, params[:timezone] %>
 	<div class="box97" id=''>
-  		<% if params[:timezone] == "昼" %>
+  		<% if params[:timezone] == "noon" %>
   			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:100px;">最後に一人当たりの予算を決めましょう</p>
 			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
 	  		<br>
@@ -49,7 +49,7 @@
 			<%= hidden_field_tag :price_minz , params[:price_minz].to_i, :class =>"minz" %>
 			<%= hidden_field_tag :price_maxz , params[:price_maxz].to_i, :class =>"maxz" %>
 		<% end %>
-		<% if params[:timezone] == "夜" %>
+		<% if params[:timezone] == "night" %>
 			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:180px;">最後に一人当たりの予算を決めましょう</p>
 			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
 	  		<br>
