@@ -110,6 +110,25 @@ class SeeksController < ApplicationController
    end
    #夜からの時
    if params[:timezone] == "夜"
+    #スポット１
+    @spot1_city = @spots.where(city: params[:city])
+    @spot1_category = @spot1_city.where("large like '%ディナー%'")
+    @spot1_price = @spot1_category.where(price_dinner: @price_startz..@price_endz)
+    @spot1 = @spot1_price.order("RANDOM()").first
+    #スポット２
+    @spot2_not = @spots.where.not(title: @spot1.title)
+    @spot2_not_lunch = @spot2_not.where.not("large like '%ディナー%'")
+    @spot2_timezone = @spot2_not_lunch.where("timezone like '%夜%'")
+    @spot2_category = @spot2_timezone
+    @nights.each.with_index(1) do |night, i|
+      @spot2_category = @spot2_category.where.not("large like '%#{night}%'")
+    end
+    @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    until @spot2_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot2 = @spot2_distance.order("RANDOM()").first
    end
   end
 
