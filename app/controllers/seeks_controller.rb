@@ -40,53 +40,51 @@ class SeeksController < ApplicationController
    @distance = 0.5.to_f
    #昼のカテゴリー定義
    @category_noons = ["カフェ", "アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "カラオケ", "ボーリング", "ダーツ", "食べ歩き", "公園", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "インターネットカフェ", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+   @noons = ["バー", "夜景"]
    #夜のカテゴリー定義
    @category_nights = ["カフェ", "バー", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
+   @nights = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #昼からの時
    if params[:timezone] == "昼"
-    #ランチ
+    #スポット１(ランチ)
     @spot1_city = @spots.where(city: params[:city])
     @spot1_category = @spot1_city.where("large like '%ランチ%'")
     @spot1_price = @spot1_category.where(price_lunch: @price_start..@price_end)
     @spot1 = @spot1_price.order("RANDOM()").first
     #スポット２
-    @spot2_not1 = @spots.where.not(title: @spot1.title)
-    @spot2_not_lunch = @spot2_not1.where.not("large like '%ランチ%'")
+    @spot2_not = @spots.where.not(title: @spot1.title)
+    @spot2_not_lunch = @spot2_not.where.not("large like '%ランチ%'")
     @spot2_timezone = @spot2_not_lunch.where("timezone like '%昼%'")
-    @spot2_distance = @spot2_timezone.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    @spot2_category = @spot2_timezone
+    @noons.each.with_index(1) do |noon, i|
+      @spot2_category = @spot2_category.where.not("large like '%#{noon}%'")
+    end
+    @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
     until @spot2_distance.size >= 1 do
       @distance = @distance + 0.2.to_f
-      @spot2_distance = @spot2_timezone.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
     end
-    @category_noon = @category_noons.sample
-    @spot2_category = @spot2_distance.where("large like '%#{@category_noon}%'")
-    until @spot2_category.size >= 1 do
-      @category_noon = @category_noons.sample
-      @spot2_category = @spot2_distance.where("large like '%#{@category_noon}%'")
-    end
-    @spot2 = @spot2_category.order("RANDOM()").first
+    @spot2 = @spot2_distance.order("RANDOM()").first
     #スポット３
-    @spot3_not1 = @spots.where.not(title: @spot1.title)
-    @spot3_not2 = @spot3_not1.where.not(title: @spot2.title)
-    @spot3_not_lunch = @spot3_not2.where.not("large like '%ランチ%'")
+    @spot3_not = @spots.where.not(title: @spot1.title)
+    @spot3_not = @spot3_not.where.not(title: @spot2.title)
+    @spot3_not_lunch = @spot3_not.where.not("large like '%ランチ%'")
     @spot3_timezone = @spot3_not_lunch.where("timezone like '%昼%'")
-    @spot3_distance = @spot3_timezone.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+    @spot3_category = @spot3_timezone
+    @noons.each.with_index(1) do |noon, i|
+      @spot3_category = @spot3_category.where.not("large like '%#{noon}%'")
+    end
+    @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     until @spot3_distance.size >= 1 do
-      @distance = @distance.to_f + 0.2.to_f
-      @spot3_distance = @spot3_timezone.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+      @distance = @distance + 0.2.to_f
+      @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     end
-    @category_noon = @category_noons.sample
-    @spot3_category = @spot3_distance.where("large like '%#{@category_noon}%'")
-    until @spot3_category.size >= 1 do
-      @category_noon = @category_noons.sample
-      @spot3_category = @spot3_distance.where("large like '%#{@category_noon}%'")
-    end
-    @spot3 = @spot3_category.order("RANDOM()").first
-    #ディナー
-    @spot4_not1 = @spots.where.not(title: @spot1.title)
-    @spot4_not2 = @spot4_not1.where.not(title: @spot2.title)
-    @spot4_not3 = @spot4_not2.where.not(title: @spot3.title)
-    @spot4_category = @spot4_not3.where("large like '%ディナー%'")
+    @spot3 = @spot3_distance.order("RANDOM()").first
+    #スポット４(ディナー)
+    @spot4_not = @spots.where.not(title: @spot1.title)
+    @spot4_not = @spot4_not.where.not(title: @spot2.title)
+    @spot4_not = @spot4_not.where.not(title: @spot3.title)
+    @spot4_category = @spot4_not.where("large like '%ディナー%'")
     @spot4_price = @spot4_category.where(price_dinner: @price_startz..@price_endz)
     @spot4_distance = @spot4_price.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
     until @spot4_distance.size >= 1 do
@@ -95,16 +93,18 @@ class SeeksController < ApplicationController
     end
     @spot4 = @spot4_distance.order("RANDOM()").first
     #スポット５
-    @spot5_not1 = @spots.where.not(title: @spot1.title)
-    @spot5_not2 = @spot5_not1.where.not(title: @spot2.title)
-    @spot5_not3 = @spot5_not2.where.not(title: @spot2.title)
-    @spot5_not4 = @spot5_not3.where.not(title: @spot2.title)
-    @spot5_not_dinner = @spot5_not4.where.not("large like '%ディナー%'")
-    @spot5_timezone = @spot5_not_dinner.where("timezone like '%夜%'")
-    @spot5_distance = @spot5_timezone.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
+    @spot5_not = @spots.where.not(title: @spot1.title)
+    @spot5_not = @spot5_not.where.not(title: @spot2.title)
+    @spot5_not_lunch = @spot5_not.where.not("large like '%ディナー%'")
+    @spot5_timezone = @spot5_not_lunch.where("timezone like '%夜%'")
+    @spot5_category = @spot5_timezone
+    @nights.each.with_index(1) do |night, i|
+      @spot5_category = @spot5_category.where.not("large like '%#{night}%'")
+    end
+    @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
     until @spot5_distance.size >= 1 do
-      @distance = @distance.to_f + 0.2.to_f
-      @spot5_distance = @spot5_timezone.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
+      @distance = @distance + 0.2.to_f
+      @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
     end
     @spot5 = @spot5_distance.order("RANDOM()").first
    end
