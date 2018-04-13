@@ -232,7 +232,7 @@
     <% if current_user.authority == "manager" %>
       <%#保存モーダルボタン%>
       <div class="btn-saves">
-       <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-edit">
+       <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
         <i class="far fa-save"></i>
        </a>
       </div>
@@ -287,7 +287,7 @@
           </div>
         </div>
         <div class="btn-saves">
-         <a href="" data-toggle="modal" data-dismiss="modal" id="btn-edit">
+         <a href="" data-toggle="modal" data-dismiss="modal" id="btn-save">
           <i class="fa fa-close"></i>
          </a>
         </div>
@@ -298,7 +298,7 @@
   
   <%#chngeボタン%>
   <div class="btn-details">
-   <a href="javascript:;" onclick="koshin()" id="btn-save">
+   <a href="javascript:;" onclick="koshin()" id="btn-copy">
     <i class="fas fa-sync-alt"></i>
    </a>
   </div>
