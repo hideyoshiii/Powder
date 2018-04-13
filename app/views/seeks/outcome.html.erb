@@ -207,8 +207,8 @@
   <% if (user_signed_in?) %>
     <% if current_user.authority == "manager" %>
       <%#保存モーダルボタン%>
-      <div class="btn-saves">
-       <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
+      <div class="btn-edits">
+       <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-edit">
         <i class="far fa-save"></i>
        </a>
       </div>
@@ -262,14 +262,22 @@
             </div>
           </div>
         </div>
-        <div class="btn-saves">
-         <a href="" data-toggle="modal" data-dismiss="modal" id="btn-save">
+        <div class="btn-edits">
+         <a href="" data-toggle="modal" data-dismiss="modal" id="btn-edit">
           <i class="fa fa-close"></i>
          </a>
         </div>
       </div>
     <% end %>
   <% end %>
+
+  
+  <%#chngeボタン%>
+  <div class="btn-saves">
+   <a href="javascript:;" onclick="koshin()" id="btn-save">
+    <i class="fas fa-sync-alt"></i>
+   </a>
+  </div>
 
   
   <%#マップモーダルボタン%>
@@ -340,6 +348,16 @@ function initMap() {
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
+
+<script>
+//更新
+function koshin(){
+	$('body,html').animate({
+  scrollTop: 0},0);
+
+  location.reload();
+}
+</script>
 
 </mains>
 

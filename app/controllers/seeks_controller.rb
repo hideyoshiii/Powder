@@ -157,7 +157,7 @@ class SeeksController < ApplicationController
 
     @total_min = 0
     @total_max = 0
-    
+
     @ss.each.with_index(1) do |s, i|
       spot = Spot.find(s)
       if spot.price_lunch.blank? || spot.price_lunch == 0
@@ -184,6 +184,8 @@ class SeeksController < ApplicationController
         end
       end
     end
+
+    flash.now[:notice] = "コースが作成されました"
     
   end
 

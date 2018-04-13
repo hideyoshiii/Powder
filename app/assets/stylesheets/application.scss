@@ -1898,37 +1898,10 @@ dl.search1 dd span:hover{
   background-size: cover;
   background-position: center;
 
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-
-  /* 左右中央寄せ */
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-flex-direction: column;
-  justify-content: center;
-
-  /* 上下中央寄せ */
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-flex-direction: column;
-  align-items: center;
-
   padding: 0px;
-  margin-top:-50px;
+  margin-top:0px;
   box-sizing: border-box;
 }
-
-.box97 h1 {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-  margin:0;
-  padding:0;
-  }
 
 .box96 {
   width: 100%;
@@ -5573,15 +5546,15 @@ display: inline-block;
 
 .lunch-btn{
   display: inline-block;
-  background: rgba(195, 150, 76, 1);
-  width: 56px;
-  height: 56px;
-  line-height: 54px;
+  background: rgba(195, 150, 76, 0.7);
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
   border-radius: 50%;
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
-  font-size:24px;
+  font-size:30px;
   color:#FAFAFA;
   border:1px solid black;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
@@ -5589,15 +5562,15 @@ display: inline-block;
 
 .dinner-btn{
   display: inline-block;
-  background: rgba(80, 64, 191, 1);
-  width: 56px;
-  height: 56px;
-  line-height: 56px;
+  background: rgba(80, 64, 191, 0.7);
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
   border-radius: 50%;
   text-align: center;
   vertical-align: middle;
   overflow: hidden;
-  font-size:24px;
+  font-size:30px;
   color:#FAFAFA;
   border:1px solid black;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
