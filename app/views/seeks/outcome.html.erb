@@ -6,7 +6,8 @@
   該当するデートコースはありません
 <% else %>
   <%# 目次 %>
-  <h3 class="text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>           
+  <h3 class="text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>   
+  <p class="text-center"><%= params[:city] %>付近で<%= params[:timezone] %>からのデートコースです</p>        
   <%# コースの諸情報 %>
   <div class="result-info-box">
     <div class="result-info-box-1">
