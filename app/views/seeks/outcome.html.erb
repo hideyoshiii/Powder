@@ -39,9 +39,18 @@
       </div>
     </div>
   </div>
+
+  <%# マップ %>
+  <div style="padding:0px 15px 0px;margin-top:-20px;">
+  	<h4 class="text-center">Map</h4>   
+	  <div class="box-map">
+	  	<div id="map_10"></div>
+	  </div>
+  </div>
   
   <%# アイキャッチ %>
   <div style="padding:0px 15px;">
+  	<h4 class="text-center">Course</h4>   
   <% @ss.each.with_index(1) do |s, i| %>
     <% spot = Spot.find(s) %>
       <% unless i == 1 %>
@@ -222,7 +231,7 @@
   <% if (user_signed_in?) %>
     <% if current_user.authority == "manager" %>
       <%#保存モーダルボタン%>
-      <div class="btn-edits">
+      <div class="btn-saves">
        <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-edit">
         <i class="far fa-save"></i>
        </a>
@@ -277,7 +286,7 @@
             </div>
           </div>
         </div>
-        <div class="btn-edits">
+        <div class="btn-saves">
          <a href="" data-toggle="modal" data-dismiss="modal" id="btn-edit">
           <i class="fa fa-close"></i>
          </a>
@@ -288,31 +297,10 @@
 
   
   <%#chngeボタン%>
-  <div class="btn-saves">
+  <div class="btn-details">
    <a href="javascript:;" onclick="koshin()" id="btn-save">
     <i class="fas fa-sync-alt"></i>
    </a>
-  </div>
-
-  
-  <%#マップモーダルボタン%>
-  <div class="btn-details">
-   <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
-    <i class="far fa-map"></i>
-   </a>
-  </div>
-  <%#マップモーダルの中身%>
-  <div class="modal" id="myModal-map">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div id="map"></div>
-      </div>
-    </div>
-    <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-      <i class="fa fa-close"></i>
-     </a>
-    </div>
   </div>
 
   <br>
@@ -341,11 +329,11 @@ function initMap() {
     };
 
     // マップの生成
-    var map = new google.maps.Map(document.getElementById("map"), {
+    var map = new google.maps.Map(document.getElementById("map_10"), {
         <%# $$$出発地と同じ緯度経度を記入 %>
         gestureHandling: 'greedy',
         center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
-        zoom: 15 // ズームレベル
+        zoom: 14 // ズームレベル
     });
 
     var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
