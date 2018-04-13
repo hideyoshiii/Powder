@@ -130,6 +130,61 @@ class SeeksController < ApplicationController
     end
     @spot2 = @spot2_distance.order("RANDOM()").first
    end
+   #配列を作る
+   @ss = []
+   unless @spot1.blank?
+     @ss.push(@spot1.id)
+   end
+   unless @spot2.blank?
+     @ss.push(@spot2.id)
+   end
+   unless @spot3.blank?
+     @ss.push(@spot3.id)
+   end
+   unless @spot4.blank?
+     @ss.push(@spot4.id)
+   end
+   unless @spot5.blank?
+     @ss.push(@spot5.id)
+   end
+   params[:ss] = []
+   params[:ss] = @ss
+    #料金について
+    @ss_first = @ss.first
+    @ss_last = @ss.last
+    @spot_first = Spot.find(@ss_first)
+    @spot_last = Spot.find(@ss_last)
+
+    @total_min = 0
+    @total_max = 0
+    
+    @ss.each.with_index(1) do |s, i|
+      spot = Spot.find(s)
+      if spot.price_lunch.blank? || spot.price_lunch == 0
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = 0
+          @price_2 = 0
+        else
+          @price_1 = spot.price_dinner
+          @price_2 = spot.price_dinner
+        end
+      else
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_lunch
+        else
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_dinner
+        end
+      end
+      unless @price_1.blank?
+        unless  @price_2.blank?
+          @total_min = @total_min + @price_1
+          @total_max = @total_max + @price_2
+        end
+      end
+    end
+    
   end
 
   def form 
