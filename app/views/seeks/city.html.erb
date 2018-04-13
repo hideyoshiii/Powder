@@ -50,6 +50,7 @@
 
       <div class="grid-item">
         <%= form_tag(seeks_timezone_path, method: :get) do %>
+        <%= hidden_field_tag :city, "東京・丸の内・日本橋" %>
           <%= button_tag :type => "submit", :class =>"button1" do %>
             <div class="box-category-img">
               <%= image_tag "tokyo00.jpg", :class =>'img-category' %>
