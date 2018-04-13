@@ -7,7 +7,7 @@
 <% else %>
   <%# 目次 %>
   <h3 class="text-center">The&nbsp;course&nbsp;you&nbsp;made</h3>   
-  <p class="text-center" style="font-size:12px;padding:0px 30px;"><%= params[:city] %>付近で<%= params[:timezone] %>からのデートコースです<br>コースが気に入らない場合はchangeボタンで変更できます</p>        
+  <p class="text-center" style="font-size:12px;padding:0px 30px;margin-bottom:-5px;"><%= params[:city] %>付近で<%= params[:timezone] %>からのデートコースです<br>コースが気に入らない場合はchangeボタンで変更できます</p>        
   <%# コースの諸情報 %>
   <div class="result-info-box">
     <div class="result-info-box-1">
@@ -67,6 +67,21 @@
           <%= spot.title %>
           <%# 駅 %>
           <span style="font-size:10px;"><br><i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %></span>
+          <%# カテゴリー %>
+          <% unless spot.large.blank? %>
+            <span style="font-size:10px;"><br><i class="fas fa-tag"></i></i>&nbsp;</span>
+            <% @i = 0 %>
+            <% spot.large.each do |large| %>
+              <% @i = @i + 1 %>
+              <span style="font-size:10px;">
+                <% if @i == spot.large.size %>
+                  <%= large %>
+                <% else %>
+                  <%= large %>/
+                <% end %>
+              </span>
+            <% end %>
+          <% end %>
           <%# ジャンル %>
           <% unless spot.small.blank? %>
             <span style="font-size:10px;"><br><i class="fas fa-utensils"></i>&nbsp;</span>

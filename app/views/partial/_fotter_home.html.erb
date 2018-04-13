@@ -1,5 +1,5 @@
 <div class="fotter_result">
-  <div style="text-align:center;font-size:20px;color:black;">
+  <div style="text-align:center;font-size:20px;color:black;padding:20px 15px 0px;">
     <a href="/" class="site-title black" style="letter-spacing:0em;">A.Date</a>
     <p>あなたの代わりにデートコースを</p>
   </div>
@@ -13,12 +13,27 @@
     <a class="btn-sns" href="https://twitter.com/adate_tw/" target="_blank">
       <i class="fab fa-twitter"></i>
     </a>
+    <a class="btn-sns" href="mailto:adate.ask@gmail.com?subject=お問い合わせ" target="_blank">
+      <i class="far fa-envelope"></i>
+    </a>
   </div>
-  <div style="padding:20px 15px 0px;text-align:center;font-size:20px;color:black;">
-  	<p style="font-size:13px;">A.Dateはベータ版でありまだ開発途中のサービスです。<br>ちょっとA.dateに聞いてみようくらいの気軽な気持ちでご利用いただけると幸いです。<br>もしご意見をいただける場合は、どんなことでも構いませんので下記のお問い合わせ先、または各種SNSからご連絡ください。
-  	</p>
-  	<a style="color:black;font-size:17px;" href="mailto:adate.ask@gmail.com?subject=お問い合わせ">
-  		<i class="fas fa-envelope"></i>&nbsp;&nbsp;adate.ask@gmail.com
-  	</a>
+  <div style="padding:40px 20px 0px;text-align:center;font-size:20px;color:black;">
+    <p style="font-size:13px;">
+      A.Dateはあなたの条件に応じてのデートコース提案する、パーソナルプランも行っております。
+      <br>より詳細な条件で自分に合ったデートコースをつくりたい方はぜひご利用ください。
+      <br><span style="font-size:10px;">※パーソナルプランは有料です</span>   
+    </p>
+    <div style="padding:10px 20px 0px;text-align:center;font-size:20px;color:black;">
+      <%= link_to seeks_form_path do %>
+        <div class="btn btn-primary">
+          デートコースを提案してもらう
+        </div>
+      <% end %>
+      <%= link_to seeks_about_path do %>
+        <div class="black" style="font-size:13px;padding-top:10px">
+          パーソナルプランとは
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
