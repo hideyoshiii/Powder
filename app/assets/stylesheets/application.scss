@@ -5589,7 +5589,8 @@ display: inline-block;
 //resultの諸情報
 .result-info-box{
 	text-align: center;
-	padding:20px 0px 20px;
+	padding:20px 0px 10px;
+
 }
 
 .result-info-box-1{
@@ -5610,8 +5611,8 @@ display: inline-block;
   vertical-align: middle;
   overflow: hidden;
   font-size:21px;
-  border:1px solid #666666;
-  color:#666666;
+  border:1px solid black;
+  color:black;
   
 }
 
@@ -5619,6 +5620,7 @@ display: inline-block;
 	text-align: center;
 	font-size:10px;
 	margin:5px 5px 0;
+	color:black;
 	
 }
 
@@ -6027,6 +6029,15 @@ h4 span.what-white {
 
 p.e4 {
   text-decoration: line-through;
+}
+
+h1 span.number {
+        display: inline;
+        padding: 3px 0;
+        border-bottom: 1px solid white;
+        opacity:0.9;
+        font-size:14px;
+        text-shadow:none;
 }
 
 
@@ -6995,6 +7006,78 @@ square_btnn{
 	margin-top:-5%;
 }
 
+//choice複数表示バージョン/resultバージョン
+.radio-city-bbb {
+  	position: relative;
+  	width:100%;
+    height:25vh;
+    overflow:hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+  }
+
+@media only screen and (min-width: 768px) {
+	.radio-city-bbb {
+	  	position: relative;
+	  	width:100%;
+	    height:20vh;
+	    overflow:hidden;
+	    border-radius: 5px;
+	    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+	  }
+}
+
+.radio-city-bbb:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.2);
+}
+
+.radio-city-bbb h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 100%;
+  margin:0;
+  padding:10px;
+  color:white;
+  font-size:16px;
+  line-height:1.2;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  text-shadow: black 1px 1px 5px, black 2px 1px 5px;
+  text-align:center;
+  }
+
+.radio-city-bbb h3 {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  -ms-transform: translate(0%,0%);
+  -webkit-transform: translate(0%,0%);
+  transform: translate(0%,0%);
+  margin:0;
+  padding:5px;
+  color:white;
+  font-size:16px;
+  font-weight: 300;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  text-shadow:
+    black 1px 1px 5px, black 2px 1px 5px,
+  }
+
+  .img-city-bbb{
+	width:100%;
+	height:auto;
+	margin-top:-5%;
+}
+
 .inline{
 	position:fixed;
 	bottom:20px;
@@ -7012,12 +7095,89 @@ square_btnn{
  z-index:999;
 }
 
+.btn-details_2{
+ position:fixed;
+ bottom:100px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_3{
+ position:fixed;
+ bottom:170px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_4{
+ position:fixed;
+ bottom:240px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_5{
+ position:fixed;
+ bottom:310px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_10{
+ position:fixed;
+ top:80px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_11{
+ position:fixed;
+ top:150px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_12{
+ position:fixed;
+ top:220px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_13{
+ position:fixed;
+ top:290px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-details_14{
+ position:fixed;
+ top:360px;
+ right:20px;
+ z-index:999;
+}
+
+.btn-saves{
+ position:fixed;
+ bottom:30px;
+ left:20px;
+ z-index:999;
+}
+
+.btn-edits{
+ position:fixed;
+ bottom:100px;
+ left:20px;
+ z-index:999;
+}
+
 //モーダル閉じるボタン
 #btn-detail {/*円*/
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.8);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7042,11 +7202,64 @@ square_btnn{
   transform: rotate(180deg);
 }
 
-.btn-saves{
- position:fixed;
- bottom:30px;
- left:20px;
- z-index:999;
+//ツイートボタン
+#btn-tw {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(29,161,243,0.8);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-tw:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-tw i {/*アイコン*/
+  color: white;
+  line-height: 56px;
+  vertical-align: middle;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#btn-tw:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+//フェイスブックボタン
+#btn-fb {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(49,80,150,0.9);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-fb:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-fb i {/*アイコン*/
+  color: white;
+  line-height: 56px;
+  vertical-align: middle;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#btn-fb:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 //モーダル保存ボタン
@@ -7054,7 +7267,7 @@ square_btnn{
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(255,0,0,0.7);
+    background: rgba(255,0,0,0.8);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7084,7 +7297,7 @@ square_btnn{
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(0,0,255,0.7);
+    background: rgba(0,0,255,0.8);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7109,19 +7322,12 @@ square_btnn{
   transform: rotate(180deg);
 }
 
-.btn-edits{
- position:fixed;
- bottom:100px;
- left:20px;
- z-index:999;
-}
-
 //モーダル保存ボタン
 #btn-edit {/*円*/
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(0,255,0,0.7);
+    background: rgba(0,255,0,0.8);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7642,6 +7848,54 @@ square_btnn{
 	}
 }
 
+.course{
+		background: rgba(0, 0, 0, 0);
+	}
+
+.course_in{
+		float: left;
+		vertical-align:top;
+		width:75%;
+		height: auto;
+		padding:0;
+		border-top:1px solid #CCCCCC;
+		border-bottom:1px solid #CCCCCC;
+		-webkit-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
+		-moz-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
+		box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
+		margin-top:10px;
+
+	}
+
+@media only screen and (min-width: 	991px) {
+	.course_in{
+		float: left;
+		vertical-align:top;
+		width:45%;
+		height: auto;
+		padding:0;
+		border-top:1px solid #CCCCCC;
+		border-bottom:1px solid #CCCCCC;
+		-webkit-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
+		-moz-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
+		box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
+		margin-top:-10px;
+
+	}
+
+	.course_map{
+		display:inline-block;
+		vertical-align:top;
+		width:52%;
+		height: auto;
+		padding:0;
+		margin:0px 10px;
+
+	}
+}
+
+
+
 
 
 
@@ -7884,6 +8138,15 @@ input,select,textarea{
 	#map_10 {
 		width: 100%;
 		height: 40vh;
+		margin:0;
+		padding:0;
+	}
+}
+
+@media only screen and (min-width: 	991px) {
+	#map_10_pc {
+		width: 100%;
+		height: 80vh;
 		margin:0;
 		padding:0;
 	}
