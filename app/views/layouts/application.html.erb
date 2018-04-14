@@ -41,18 +41,7 @@
 
   <body class='<%= "#{controller.controller_name}" %>'>
 
-    <% if (user_signed_in?) %>
-      <% if current_user.authority == "manager" %>
-        <%= yield %>
-      <% else %>
-        <div class="visible-xs">
-        <%= yield %>
-      </div>
-      <% end %>
-    <% else %>
-        <%= yield %>
-    <% end %>
-
+    <%= yield %>
 
     <!-- flashにメッセージがある時 -->
     <% unless flash.empty? %>
