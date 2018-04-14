@@ -187,7 +187,7 @@ class SeeksController < ApplicationController
 
     #ツイート用のURL作成
     @timezone = params[:timezone]
-    @url = 'https://www.a-date.jp'
+    @url = root_url(only_path: false)
     @url = @url.to_s + '/seeks/result?'
     params[:ss].each.with_index(1) do |s, i|
       @url = @url.to_s + "&ss%5B%5D=#{s}"

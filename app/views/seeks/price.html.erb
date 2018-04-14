@@ -1,86 +1,231 @@
 <%= render "partial/navbar_home" %>
 <mains class="" id="main-collapse">
 
-<%= form_tag(seeks_outcome_path, method: :get) do %>
-	<%= hidden_field_tag :city, params[:city] %>
-	<%= hidden_field_tag :timezone, params[:timezone] %>
-	<div class="box97" id=''>
-  		<% if params[:timezone] == "noon" %>
-  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:100px;">最後に一人当たりの予算を決めましょう</p>
-			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
-	  		<br>
-	  		<div style="width:30%;margin:0 auto;display:inline-block;">
-	  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ランチ&nbsp;/人</p>
-	  		</div>
-	  		<div style="width:60%;margin:0 auto;display:inline-block;">
-				<div style="width:100%;margin:0 auto;">
-					<span class="pull-left" style="color:white;">
-					  <span id="value-lower"></span>円
-					</span>
-					<span class="pull-right" style="color:white;">
-					  <span id="value-upper"></span>円
-					</span>
+  <%# PC用 %>
+  <div class="visible-md visible-lg">
+    <%# 画面１ %>
+    <div class="pc_1">
+      <%= form_tag(seeks_outcome_path, method: :get) do %>
+		<%= hidden_field_tag :city, params[:city] %>
+		<%= hidden_field_tag :timezone, params[:timezone] %>
+		<div class="box97" id=''>
+	  		<% if params[:timezone] == "noon" %>
+	  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:100px;">最後に一人当たりの予算を決めましょう</p>
+				<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
+		  		<br>
+		  		<div style="width:30%;margin:0 auto;display:inline-block;">
+		  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ランチ&nbsp;/人</p>
+		  		</div>
+		  		<div style="width:60%;margin:0 auto;display:inline-block;">
+					<div style="width:100%;margin:0 auto;">
+						<span class="pull-left" style="color:white;">
+						  <span id="value-lower_pc"></span>円
+						</span>
+						<span class="pull-right" style="color:white;">
+						  <span id="value-upper_pc"></span>円
+						</span>
+					</div>
+					<div style="height:40px;"></div>
+					<div style="width:100%;margin:0 auto;">  
+						<div id="slider_pc"></div>
+					</div>
 				</div>
-				<div style="height:40px;"></div>
-				<div style="width:100%;margin:0 auto;">  
-					<div id="slider"></div>
+				<%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min_pc" %>
+				<%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max_pc" %>
+				<br><br><br>
+				<div style="width:30%;margin:0 auto;display:inline-block;">
+		  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ディナー&nbsp;/人</p>
+		  		</div>
+		  		<div style="width:60%;margin:0 auto;display:inline-block;">
+					<div style="width:100%;margin:0 auto;">
+						<span class="pull-left" style="color:white;">
+						  <span id="value-lowerz_pc"></span>円
+						</span>
+						<span class="pull-right" style="color:white;">
+						  <span id="value-upperz_pc"></span>円
+						</span>
+					</div>
+					<div style="height:40px;"></div>
+					<div style="width:100%;margin:0 auto;">  
+						<div id="sliderz_pc"></div>
+					</div>
 				</div>
+				<%= hidden_field_tag :price_minz , params[:price_minz].to_i, :class =>"minz_pc" %>
+				<%= hidden_field_tag :price_maxz , params[:price_maxz].to_i, :class =>"maxz_pc" %>
+			<% end %>
+			<% if params[:timezone] == "night" %>
+				<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:100px;">最後に一人当たりの予算を決めましょう</p>
+				<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
+		  		<br>
+				<div style="width:30%;margin:0 auto;display:inline-block;">
+		  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ディナー&nbsp;/人</p>
+		  		</div>
+		  		<div style="width:60%;margin:0 auto;display:inline-block;">
+					<div style="width:100%;margin:0 auto;">
+						<span class="pull-left" style="color:white;">
+						  <span id="value-lowerz"></span>円
+						</span>
+						<span class="pull-right" style="color:white;">
+						  <span id="value-upperz"></span>円
+						</span>
+					</div>
+					<div style="height:40px;"></div>
+					<div style="width:100%;margin:0 auto;">  
+						<div id="sliderz"></div>
+					</div>
+				</div>
+				<%= hidden_field_tag :price_minz , params[:price_minz].to_i, :class =>"minz" %>
+				<%= hidden_field_tag :price_maxz , params[:price_maxz].to_i, :class =>"maxz" %>
+			<% end %>
+			<br><br><br><br>
+			<div class="text-center">
+			<%= submit_tag "次へ進む", :class => "btn btn-default" %>
 			</div>
-			<%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
-			<%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
-			<br><br><br>
-			<div style="width:30%;margin:0 auto;display:inline-block;">
-	  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ディナー&nbsp;/人</p>
-	  		</div>
-	  		<div style="width:60%;margin:0 auto;display:inline-block;">
-				<div style="width:100%;margin:0 auto;">
-					<span class="pull-left" style="color:white;">
-					  <span id="value-lowerz"></span>円
-					</span>
-					<span class="pull-right" style="color:white;">
-					  <span id="value-upperz"></span>円
-					</span>
-				</div>
-				<div style="height:40px;"></div>
-				<div style="width:100%;margin:0 auto;">  
-					<div id="sliderz"></div>
-				</div>
-			</div>
-			<%= hidden_field_tag :price_minz , params[:price_minz].to_i, :class =>"minz" %>
-			<%= hidden_field_tag :price_maxz , params[:price_maxz].to_i, :class =>"maxz" %>
-		<% end %>
-		<% if params[:timezone] == "night" %>
-			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:180px;">最後に一人当たりの予算を決めましょう</p>
-			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
-	  		<br>
-			<div style="width:30%;margin:0 auto;display:inline-block;">
-	  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ディナー&nbsp;/人</p>
-	  		</div>
-	  		<div style="width:60%;margin:0 auto;display:inline-block;">
-				<div style="width:100%;margin:0 auto;">
-					<span class="pull-left" style="color:white;">
-					  <span id="value-lowerz"></span>円
-					</span>
-					<span class="pull-right" style="color:white;">
-					  <span id="value-upperz"></span>円
-					</span>
-				</div>
-				<div style="height:40px;"></div>
-				<div style="width:100%;margin:0 auto;">  
-					<div id="sliderz"></div>
-				</div>
-			</div>
-			<%= hidden_field_tag :price_minz , params[:price_minz].to_i, :class =>"minz" %>
-			<%= hidden_field_tag :price_maxz , params[:price_maxz].to_i, :class =>"maxz" %>
-		<% end %>
-		<br><br><br><br>
-		<div class="text-center">
-		<%= submit_tag "次へ進む", :class => "btn btn-default" %>
 		</div>
-	</div>
-<% end %>
+	<% end %>
+    </div>
+    <%# 画面２ %>
+    <div class="pc_2">
+      <%= render "partial/fotter_home" %>
+    </div>
+  </div>
 
+  <%# SP用 %>
+  <div class="visible-xs visible-sm">
+  	<%= form_tag(seeks_outcome_path, method: :get) do %>
+		<%= hidden_field_tag :city, params[:city] %>
+		<%= hidden_field_tag :timezone, params[:timezone] %>
+		<div class="box97" id=''>
+	  		<% if params[:timezone] == "noon" %>
+	  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:100px;">最後に一人当たりの予算を決めましょう</p>
+				<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
+		  		<br>
+		  		<div style="width:30%;margin:0 auto;display:inline-block;">
+		  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ランチ&nbsp;/人</p>
+		  		</div>
+		  		<div style="width:60%;margin:0 auto;display:inline-block;">
+					<div style="width:100%;margin:0 auto;">
+						<span class="pull-left" style="color:white;">
+						  <span id="value-lower"></span>円
+						</span>
+						<span class="pull-right" style="color:white;">
+						  <span id="value-upper"></span>円
+						</span>
+					</div>
+					<div style="height:40px;"></div>
+					<div style="width:100%;margin:0 auto;">  
+						<div id="slider"></div>
+					</div>
+				</div>
+				<%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
+				<%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
+				<br><br><br>
+				<div style="width:30%;margin:0 auto;display:inline-block;">
+		  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ディナー&nbsp;/人</p>
+		  		</div>
+		  		<div style="width:60%;margin:0 auto;display:inline-block;">
+					<div style="width:100%;margin:0 auto;">
+						<span class="pull-left" style="color:white;">
+						  <span id="value-lowerz"></span>円
+						</span>
+						<span class="pull-right" style="color:white;">
+						  <span id="value-upperz"></span>円
+						</span>
+					</div>
+					<div style="height:40px;"></div>
+					<div style="width:100%;margin:0 auto;">  
+						<div id="sliderz"></div>
+					</div>
+				</div>
+				<%= hidden_field_tag :price_minz , params[:price_minz].to_i, :class =>"minz" %>
+				<%= hidden_field_tag :price_maxz , params[:price_maxz].to_i, :class =>"maxz" %>
+			<% end %>
+			<% if params[:timezone] == "night" %>
+				<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;padding-top:180px;">最後に一人当たりの予算を決めましょう</p>
+				<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はいくらにしますか？</h4>
+		  		<br>
+				<div style="width:30%;margin:0 auto;display:inline-block;">
+		  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">ディナー&nbsp;/人</p>
+		  		</div>
+		  		<div style="width:60%;margin:0 auto;display:inline-block;">
+					<div style="width:100%;margin:0 auto;">
+						<span class="pull-left" style="color:white;">
+						  <span id="value-lowerz_pc"></span>円
+						</span>
+						<span class="pull-right" style="color:white;">
+						  <span id="value-upperz_pc"></span>円
+						</span>
+					</div>
+					<div style="height:40px;"></div>
+					<div style="width:100%;margin:0 auto;">  
+						<div id="sliderz_pc"></div>
+					</div>
+				</div>
+				<%= hidden_field_tag :price_minz , params[:price_minz].to_i, :class =>"minz" %>
+				<%= hidden_field_tag :price_maxz , params[:price_maxz].to_i, :class =>"maxz" %>
+			<% end %>
+			<br><br><br><br>
+			<div class="text-center">
+			<%= submit_tag "次へ進む", :class => "btn btn-default" %>
+			</div>
+		</div>
+	<% end %>
+  </div>
 
+  <%# フッター %>
+  <div class="visible-xs visible-sm">
+  	<%= render "partial/fotter_home" %>
+  </div>
+  <% if (user_signed_in?) %>
+    <% if current_user.authority == "manager" %>
+      <%= render "partial/footer" %>
+    <% end %>
+  <% end %>
+
+</mains>
+<script>
+$("#slider_pc").noUiSlider({
+  start: [0, 20000],
+  step: 500,
+  connect: true,
+  format: wNumb({
+    decimals: 0
+  }),
+  range: {
+    'min': 0,
+    'max': 20000
+  }
+});
+$('#slider_pc').Link('lower').to($('#value-lower_pc'), 'html');
+$('#slider_pc').Link('upper').to($('#value-upper_pc'), 'html');
+
+$("#slider_pc").on('slide', function(event, values) {
+    $("input.min_pc").val(values[0]);
+    $("input.max_pc").val(values[1]);
+  });
+</script>
+
+<script>
+$("#sliderz_pc").noUiSlider({
+  start: [0, 20000],
+  step: 500,
+  connect: true,
+  format: wNumb({
+    decimals: 0
+  }),
+  range: {
+    'min': 0,
+    'max': 20000
+  }
+});
+$('#sliderz_pc').Link('lower').to($('#value-lowerz_pc'), 'html');
+$('#sliderz_pc').Link('upper').to($('#value-upperz_pc'), 'html');
+
+$("#sliderz_pc").on('slide', function(event, values) {
+    $("input.minz_pc").val(values[0]);
+    $("input.maxz_pc").val(values[1]);
+  });
+</script>
 
 
 <script>
@@ -126,6 +271,3 @@ $("#sliderz").on('slide', function(event, values) {
     $("input.maxz").val(values[1]);
   });
 </script>
-
-<%= render "partial/fotter_home" %>
-</mains>

@@ -1,47 +1,109 @@
 <%= render "partial/navbar_home" %>
 <mains class="" id="main-collapse">
 
-  	<div class="box91" id='top'> 
-  		<div style="margin-top:-50px;">
-  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">次に時間帯を選びましょう。</p>
-  			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">どちらの時間帯のデートですか？</h4>
-  		</div>
-  		<div style="height:100px;"></div>
+  <%# PC用 %>
+  <div class="visible-md visible-lg">
+    <%# 画面１ %>
+    <div class="pc_1">
+      <div class="box91" id='top'> 
+        <div style="margin-top:-50px;">
+          <p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">次に時間帯を選びましょう。</p>
+          <h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">どちらの時間帯のデートですか？</h4>
+        </div>
+        <div style="height:100px;"></div>
+        <h1>
+        <div class="home-box">
+          <div class="home-box-1">
+            <%= form_tag(seeks_price_path, method: :get) do %>
+              <%= hidden_field_tag :city, params[:city] %>
+              <%= hidden_field_tag :timezone, "noon" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="lunch-btn">
+                  <i class="fa fa-sun-o"></i>
+                </div>
+                <div class="lunch-info">
+                  ランチから
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="home-box-1">
+            <%= form_tag(seeks_price_path, method: :get) do %>
+              <%= hidden_field_tag :city, params[:city] %>
+              <%= hidden_field_tag :timezone, "night" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="dinner-btn">
+                  <i class="fa fa-moon-o"></i>
+                </div>
+                <div class="dinner-info">
+                  ディナーから
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        </h1>
+      </div>
+    </div>
+    <%# 画面２ %>
+    <div class="pc_2">
+      <%= render "partial/fotter_home" %>
+    </div>
+  </div>
+
+  <%# SP用 %>
+  <div class="visible-xs visible-sm">
+    <div class="box91" id='top'> 
+      <div style="margin-top:-50px;">
+        <p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">次に時間帯を選びましょう。</p>
+        <h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">どちらの時間帯のデートですか？</h4>
+      </div>
+      <div style="height:100px;"></div>
       <h1>
       <div class="home-box">
         <div class="home-box-1">
           <%= form_tag(seeks_price_path, method: :get) do %>
-			      <%= hidden_field_tag :city, params[:city] %>
-          	<%= hidden_field_tag :timezone, "noon" %>
-          	<%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="lunch-btn">
-	              <i class="fa fa-sun-o"></i>
-	            </div>
-	            <div class="lunch-info">
-	              ランチから
-	            </div>
+            <%= hidden_field_tag :city, params[:city] %>
+            <%= hidden_field_tag :timezone, "noon" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="lunch-btn">
+                <i class="fa fa-sun-o"></i>
+              </div>
+              <div class="lunch-info">
+                ランチから
+              </div>
             <% end %>
           <% end %>
         </div>
         <div class="home-box-1">
           <%= form_tag(seeks_price_path, method: :get) do %>
-			      <%= hidden_field_tag :city, params[:city] %>
-	          <%= hidden_field_tag :timezone, "night" %>
-	          <%= button_tag :type => "submit", :class =>"button1" do %>
-	            <div class="dinner-btn">
-	              <i class="fa fa-moon-o"></i>
-	            </div>
-	            <div class="dinner-info">
-	              ディナーから
-	            </div>
-	          <% end %>
+            <%= hidden_field_tag :city, params[:city] %>
+            <%= hidden_field_tag :timezone, "night" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="dinner-btn">
+                <i class="fa fa-moon-o"></i>
+              </div>
+              <div class="dinner-info">
+                ディナーから
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
       </h1>
     </div>
+  </div>
 
-<%= render "partial/fotter_home" %>
+  <%# フッター %>
+  <div class="visible-xs visible-sm">
+    <%= render "partial/fotter_home" %>
+  </div>
+  <% if (user_signed_in?) %>
+    <% if current_user.authority == "manager" %>
+      <%= render "partial/footer" %>
+    <% end %>
+  <% end %>
+
 </mains>
 
 

@@ -1,313 +1,639 @@
 <%= render "partial/navbar" %>
 <main class="" id="main-collapse">
 
+  <%# PC用 %>
+  <div class="visible-md visible-lg">
+    <%# 画面１ %>
+    <div class="pc_1">
+      <p class="text-center" style="color:black;">まずはエリアを決めましょう</p>
+      <h4 class="text-center">どこでデートしますか？</h4>
+      <br>
+      <%# ピンタレストスタイル %>
+      <div class="hero-full-wrapper">
+        <div class="grid">
+          <div class="gutter-sizer"></div>
+          <div class="grid-sizer"></div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "恵比寿・代官山・中目黒" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "ebisu00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    恵比寿・代官山・中目黒
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "渋谷" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "shibuya00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    渋谷
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "原宿・表参道・青山" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "harajuku00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    原宿・表参道・青山
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "東京・丸の内・日本橋" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "tokyo00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    東京・丸の内・日本橋
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "新宿" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "shinnjuku00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    新宿
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_category_path, method: :get) do %>
+              <%= hidden_field_tag :city, "六本木・麻布・赤坂" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "roppongi00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    六本木・麻布・赤坂
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "お台場" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "odaiba00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    お台場
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "品川" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "shinagawa00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    品川
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "池袋" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "ikebukuro00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    池袋
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+    　    <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "銀座・有楽町" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "ginza00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    銀座・有楽町
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "新橋・汐留・浜松町" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "shinbashi00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    新橋・汐留・浜松町
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "上野" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "ueno00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    上野
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "浅草・押上" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "asakusa00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    浅草・押上
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "目黒・白金・五反田" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "meguro00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    目黒・白金・五反田
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "吉祥寺・三鷹" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "kichijoji00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    吉祥寺・三鷹
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "神楽坂・飯田橋" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "kagurazaka00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    神楽坂・飯田橋
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "下北沢" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "shimokitazawa00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    下北沢
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "谷中・根津・千駄木" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "taninaka00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    谷中・根津・千駄木
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "神田・秋葉原・御茶ノ水" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "kanda00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    神田・秋葉原・御茶ノ水
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "赤坂・虎ノ門・永田町" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "akasaka00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    赤坂・虎ノ門・永田町
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <%# グリッドアイテム %>
+          <div class="grid-item">
+            <%= form_tag(seeks_timezone_path, method: :get) do %>
+              <%= hidden_field_tag :city, "四ツ谷・信濃町・千駄ヶ谷" %>
+              <%= button_tag :type => "submit", :class =>"button1" do %>
+                <div class="box-category-img">
+                  <%= image_tag "yotsuya00.jpg", :class =>'img-category' %>
+                  <div class="text-category2">
+                    四ツ谷・信濃町・千駄ヶ谷
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
+          </div>    
+        </div>
+      </div>
+    </div>
+    <%# 画面２ %>
+    <div class="pc_2">
+      <%= render "partial/fotter_home" %>
+    </div>
+  </div>
+
+  <%# SP用 %>
+  <div class="visible-xs visible-sm">
     <p class="text-center" style="color:black;">まずはエリアを決めましょう</p>
     <h4 class="text-center">どこでデートしますか？</h4>
-  	<br>
-
+    <br>
+    <%# ピンタレストスタイル %>
     <div class="hero-full-wrapper">
-    <div class="grid">
-      <div class="gutter-sizer"></div>
-      <div class="grid-sizer"></div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "恵比寿・代官山・中目黒" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "ebisu00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                恵比寿・代官山・中目黒
+      <div class="grid">
+        <div class="gutter-sizer"></div>
+        <div class="grid-sizer"></div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "恵比寿・代官山・中目黒" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "ebisu00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  恵比寿・代官山・中目黒
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "渋谷" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "shibuya00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                渋谷
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "渋谷" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "shibuya00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  渋谷
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "原宿・表参道・青山" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "harajuku00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                原宿・表参道・青山
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "原宿・表参道・青山" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "harajuku00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  原宿・表参道・青山
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-        <%= hidden_field_tag :city, "東京・丸の内・日本橋" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "tokyo00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                東京・丸の内・日本橋
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+          <%= hidden_field_tag :city, "東京・丸の内・日本橋" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "tokyo00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  東京・丸の内・日本橋
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "新宿" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "shinnjuku00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                新宿
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "新宿" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "shinnjuku00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  新宿
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_category_path, method: :get) do %>
-          <%= hidden_field_tag :city, "六本木・麻布・赤坂" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "roppongi00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                六本木・麻布・赤坂
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_category_path, method: :get) do %>
+            <%= hidden_field_tag :city, "六本木・麻布・赤坂" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "roppongi00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  六本木・麻布・赤坂
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "お台場" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "odaiba00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                お台場
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "お台場" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "odaiba00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  お台場
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "品川" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "shinagawa00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                品川
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "品川" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "shinagawa00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  品川
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "池袋" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "ikebukuro00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                池袋
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "池袋" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "ikebukuro00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  池袋
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "銀座・有楽町" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "ginza00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                銀座・有楽町
+        </div>
+  　    <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "銀座・有楽町" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "ginza00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  銀座・有楽町
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "新橋・汐留・浜松町" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "shinbashi00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                新橋・汐留・浜松町
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "新橋・汐留・浜松町" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "shinbashi00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  新橋・汐留・浜松町
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "上野" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "ueno00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                上野
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "上野" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "ueno00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  上野
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "浅草・押上" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "asakusa00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                浅草・押上
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "浅草・押上" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "asakusa00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  浅草・押上
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "目黒・白金・五反田" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "meguro00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                目黒・白金・五反田
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "目黒・白金・五反田" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "meguro00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  目黒・白金・五反田
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "吉祥寺・三鷹" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "kichijoji00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                吉祥寺・三鷹
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "吉祥寺・三鷹" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "kichijoji00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  吉祥寺・三鷹
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "神楽坂・飯田橋" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "kagurazaka00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                神楽坂・飯田橋
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "神楽坂・飯田橋" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "kagurazaka00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  神楽坂・飯田橋
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "下北沢" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "shimokitazawa00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                下北沢
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "下北沢" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "shimokitazawa00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  下北沢
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "谷中・根津・千駄木" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "taninaka00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                谷中・根津・千駄木
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "谷中・根津・千駄木" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "taninaka00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  谷中・根津・千駄木
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "神田・秋葉原・御茶ノ水" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "kanda00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                神田・秋葉原・御茶ノ水
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "神田・秋葉原・御茶ノ水" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "kanda00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  神田・秋葉原・御茶ノ水
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "赤坂・虎ノ門・永田町" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "akasaka00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                赤坂・虎ノ門・永田町
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "赤坂・虎ノ門・永田町" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "akasaka00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  赤坂・虎ノ門・永田町
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-
-      <div class="grid-item">
-        <%= form_tag(seeks_timezone_path, method: :get) do %>
-          <%= hidden_field_tag :city, "四ツ谷・信濃町・千駄ヶ谷" %>
-          <%= button_tag :type => "submit", :class =>"button1" do %>
-            <div class="box-category-img">
-              <%= image_tag "yotsuya00.jpg", :class =>'img-category' %>
-              <div class="text-category2">
-                四ツ谷・信濃町・千駄ヶ谷
+        </div>
+        <%# グリッドアイテム %>
+        <div class="grid-item">
+          <%= form_tag(seeks_timezone_path, method: :get) do %>
+            <%= hidden_field_tag :city, "四ツ谷・信濃町・千駄ヶ谷" %>
+            <%= button_tag :type => "submit", :class =>"button1" do %>
+              <div class="box-category-img">
+                <%= image_tag "yotsuya00.jpg", :class =>'img-category' %>
+                <div class="text-category2">
+                  四ツ谷・信濃町・千駄ヶ谷
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>    
       </div>
-      
     </div>
-    </div>
+  </div>
 
-<%= render "partial/fotter_home" %>
+  <%# フッター %>
+  <div class="visible-xs visible-sm">
+    <%= render "partial/fotter_home" %>
+  </div>
+  <% if (user_signed_in?) %>
+    <% if current_user.authority == "manager" %>
+      <%= render "partial/footer" %>
+    <% end %>
+  <% end %>
+
 </main>
 
 <script>

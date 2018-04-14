@@ -11,8 +11,35 @@
               <span class="site-title">A.Date</span>
             </h2>
           </a>
-        <p style="font-size:12px;">あなたの代わりにデートコースを</p>
+        <p style="font-size:12px;color:black;">あなたの代わりにデートコースを</p>
       </div>
+
+      <% if (user_signed_in?) %>
+        <% if current_user.authority == "manager" %>
+          <div class="hidden-xs">
+            <p class="button-menu">
+              <%= link_to root_path do %>
+                <i class="fas fa-home btn-menu"></i>
+              <% end %>
+              <%= link_to "seeks/courses" do %>
+                <i class="fas fa-align-justify btn-menu" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to "/spots" do %>
+                <i class="fas fa-map-marker-alt btn-menu" aria-hidden="true"></i>
+              <% end %>
+              <% if (user_signed_in?) %>
+                <%= link_to user_path(current_user) do %>
+                  <i class="far fa-user btn-menu"></i>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path do %>
+                  <i class="fas fa-sign-in-alt btn-menu" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
+        <% end %>
+      <% end %>
 
       <ul class="nav">               
 
@@ -39,6 +66,10 @@
           <% end %>
         <br>
         <% else %>
+          <%= link_to new_user_session_path do %>
+          <i class="fas fa-sign-in-alt"></i> ログイン
+          <% end %>
+        <br>
         <% end %>
 
         
