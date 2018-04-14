@@ -2271,6 +2271,40 @@ dl.search1 dd span:hover{
   box-sizing: border-box;
 }
 
+@media (min-width:768px){
+	.box90 {
+	  width: 100%;
+	  height: auto;
+	  min-height: 100vh;
+
+	  position: relative;
+
+	  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(distance02.jpg) ;
+	  background-size: cover;
+	  background-position: center;
+
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+
+	  /* 左右中央寄せ */
+	  -webkit-box-pack: center;
+	  -ms-flex-pack: center;
+	  -webkit-flex-direction: column;
+	  justify-content: center;
+
+	  /* 上下中央寄せ */
+	  -webkit-box-align: center;
+	  -ms-flex-align: center;
+	  -webkit-flex-direction: column;
+	  align-items: center;
+
+	  padding: 0px;
+	  margin-top:0px;
+	  box-sizing: border-box;
+	}
+}
+
 .box90 h1 {
   position: absolute;
   top: 80%;
@@ -7556,20 +7590,35 @@ square_btnn{
 
 
 
-
-.pc_1{
-	display:inline-block;
-	vertical-align:top;
-	width:60%;
-	margin:0;
+@media only screen and (min-width: 991px) {
+	.pc_1{
+		display:inline-block;
+		vertical-align:top;
+		width:60%;
+		margin:0;
+		padding:0;
+		border:solid #888888;
+  		border-width:0px 1px 0px 1px;
+	}
 }
 
-.pc_2{
-	display:inline-block;
-	vertical-align:top;
-	text-align:center;
-	width:30%;
-	margin:0;
+@media only screen and (min-width: 991px) {
+	.pc_1_padding{
+		padding:0 10px;
+	}
+}
+
+@media only screen and (min-width: 	991px) {
+	.pc_2{
+		display:inline-block;
+		vertical-align:top;
+		text-align:center;
+		width:30%;
+		height: 100vh;
+		margin:0;
+		padding:0;
+		position:fixed;right:25px;top:0;
+	}
 }
 
 

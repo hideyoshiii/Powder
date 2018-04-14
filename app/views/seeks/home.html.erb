@@ -1,44 +1,7 @@
 <%= render "partial/navbar_home" %>
 <mains class="" id="main-collapse">
 
-  <%# PC用 %>
-  <div class="visible-md visible-lg">
-    <%# 画面１ %>
-    <div class="pc_1">
-      <div class="box99" id='top'> 
-        <div style="margin-top:100px;">
-          <h4 class="text-center box-top1" style="font-size:22px;">
-            Coolなデートコースを10秒で
-          </h4>
-          <p class="text-center">デートコースがなかなか決まらないあなたへ</p>
-          <p class="text-center"><span class="site-title" style="letter-spacing:0em;">A.Date</span>は10秒でデートコースがつくれるサービスです</p>
-        </div>
-        <div style="height:30px;"></div>
-        <div class="home-box">
-          <%= link_to seeks_city_path do %>
-            <div class="raised-trans">
-              10秒でデートコースをつくる
-            </div>
-          <% end %>
-        </div>
-        <div style="height:5px;"></div>
-        <% if (user_signed_in?) %>
-          <% if current_user.authority == "manager" %>
-            <%= link_to seeks_area_path do %>     
-              <span style="color:#CCC;">自分でつくる</span>  
-            <% end %>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
-    <%# 画面２ %>
-    <div class="pc_2">
-      <%= render "partial/fotter_home" %>
-    </div>
-  </div>
-
-  <%# SP用 %>
-  <div class="visible-xs visible-sm">
+  <div class="pc_1">
   	<div class="box99" id='top'> 
   		<div style="margin-top:100px;">
   			<h4 class="text-center box-top1" style="font-size:22px;">
@@ -66,17 +29,18 @@
     </div>
   </div>
 
-  <%# フッター %>
-  <div class="visible-xs visible-sm">
+  <div class="pc_2">
     <%= render "partial/fotter_home" %>
   </div>
+
   <% if (user_signed_in?) %>
     <% if current_user.authority == "manager" %>
       <%= render "partial/footer" %>
     <% end %>
   <% end %>
-
+  
 </mains>
+
 
 
 <script>

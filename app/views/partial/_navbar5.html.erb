@@ -6,7 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="/" class="navbar-brand navbar-brand-center">A.Date</a>
+    <a href="/" class="navbar-brand navbar-brand-center">A.Date<span class="site-title" style="font-size:12px;">&nbsp;Tokyo</span></a>
   </div>
 
   <nav class="sidebar">
@@ -14,52 +14,78 @@
       <div class="site-header hidden-xs">
           <a class="site-brand" href="/" title="">
             <h2>
-              <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
               <span class="site-title">A.Date</span>
             </h2>
           </a>
-        <p style="">あなたの代わりにデートコースを</p>
+        <p style="font-size:12px;color:black;">あなたの代わりにデートコースを</p>
       </div>
 
-      <div class="hidden-xs">
-        <p class="button-menu">
-          <%= link_to root_path do %>
-            <i class="fa fa-home btn-menu"></i>
-          <% end %>
-          <%= link_to "/spots" do %>
-            <i class="fa fa-map-marker btn-menu" aria-hidden="true"></i>
-          <% end %>
-          <% if (user_signed_in?) %>
-            <%= link_to user_path(current_user) do %>
-              <i class="fa fa-user btn-menu"></i>
-            <% end %>
-          <% else %>
-            <%= link_to new_user_session_path do %>
-              <i class="fa fa-sign-in btn-menu" aria-hidden="true"></i>
-            <% end %>
-          <% end %>
-          <a href='#main-collapse'>
-            <i class="fa fa-level-up btn-menu" aria-hidden="true"></i>
-          </a>
-        </p>
-      </div>
-
-
-
-      <ul class="nav">
-
-        <div class="row">
-          <div class="col-xs-10 col-sm-10 col-md-10">      
-            <%= search_form_for(@q, url:spots_result_path) do |f| %>
-              <dl class="search1">
-                <dt><%= f.search_field :title_cont, placeholder: "Search" %></dt>
-                <dd><span><%= button_tag :type => "submit" do %>
-                  <i class="fa fa-search"></i>
-                <% end %></span></dd>
-              </dl>
-            <% end %>
+      <% if (user_signed_in?) %>
+        <% if current_user.authority == "manager" %>
+          <div class="hidden-xs">
+            <p class="button-menu">
+              <%= link_to root_path do %>
+                <i class="fas fa-home btn-menu"></i>
+              <% end %>
+              <%= link_to "seeks/courses" do %>
+                <i class="fas fa-align-justify btn-menu" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to "/spots" do %>
+                <i class="fas fa-map-marker-alt btn-menu" aria-hidden="true"></i>
+              <% end %>
+              <% if (user_signed_in?) %>
+                <%= link_to user_path(current_user) do %>
+                  <i class="far fa-user btn-menu"></i>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path do %>
+                  <i class="fas fa-sign-in-alt btn-menu" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+            </p>
           </div>
-        </div>
+        <% end %>
+      <% end %>
+
+
+      <ul class="nav">  
+
+        <li>
+          <%= link_to manager_path do %>
+            <span style="font-size: 13px;">運営者情報</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to terms_path do %>
+            <span style="font-size: 13px;">利用規約</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to law_path do %>
+            <span style="font-size: 13px;">特定商取引法に基づく表記</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to policy_path do %>
+            <span style="font-size: 13px;">プライバシーポリシー</span>
+          <% end %>
+        </li>             
+
+        <li>
+          <br>
+          <div class="row">
+            <div class="col-xs-10 col-sm-10 col-md-10">      
+              <%= search_form_for(@q, url:spots_result_path) do |f| %>
+                <dl class="search1">
+                  <dt><%= f.search_field :title_cont, placeholder: "Search" %></dt>
+                  <dd><span><%= button_tag :type => "submit" do %>
+                    <i class="fa fa-search"></i>
+                  <% end %></span></dd>
+                </dl>
+              <% end %>
+            </div>
+          </div>
+        </li>             
         
         
 
@@ -77,6 +103,11 @@
             </li>
           <% end %>
         <% end %>
+        
+        <li>
+          <br><br>
+          <p style="font-size:12px;color:red;">※A.DateのデザインはまだPC,タブレット版に対応しておりません。スマートフォンでのご利用をご推奨します</p>
+        </li>  
 
       </ul>
 
@@ -88,16 +119,12 @@
         <% end %>
         <br>
         <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa fa-sign-out" aria-hidden="true"></i> ログアウト
+          <i class="fas fa-sign-out-alt"></i> ログアウト
           <% end %>
         <br>
         <% else %>
-        <%= link_to new_user_registration_path do %>
-          <i class="fa fa-user-plus" aria-hidden="true"></i> アカウント作成
-          <% end %>
-        <br>
           <%= link_to new_user_session_path do %>
-          <i class="fa fa-sign-in" aria-hidden="true"></i> ログイン
+          <i class="fas fa-sign-in-alt"></i> ログイン
           <% end %>
         <br>
         <% end %>
@@ -105,17 +132,14 @@
         
         <br>
         <p class="nav-footer-social-buttons">
-          <a class="fa-icon" href="https://www.instagram.com/powder.date/" target="_blank">
-            <i class="fa fa-instagram"></i>
+          <a class="fa-icon" href="https://www.instagram.com/adate_ig/" target="_blank">
+            <i class="fab fa-instagram"></i>
           </a>
-          <a class="fa-icon" href="/" target="_blank">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
+          <a class="fa-icon" href="https://www.facebook.com/adate.fa/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
           </a>
-          <a class="fa-icon" href="/" target="_blank">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a class="fa-icon" href="/" target="_blank">
-            <i class="fa fa-pinterest" aria-hidden="true"></i>
+          <a class="fa-icon" href="https://twitter.com/adate_tw/" target="_blank">
+            <i class="fab fa-twitter"></i>
           </a>
         </p>
       </nav>  

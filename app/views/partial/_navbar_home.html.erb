@@ -41,7 +41,28 @@
         <% end %>
       <% end %>
 
-      <ul class="nav">               
+      <ul class="nav">      
+
+        <li>
+          <%= link_to manager_path do %>
+            <span style="font-size: 13px;">運営者情報</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to terms_path do %>
+            <span style="font-size: 13px;">利用規約</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to law_path do %>
+            <span style="font-size: 13px;">特定商取引法に基づく表記</span>
+          <% end %>
+        </li>  
+        <li>
+          <%= link_to policy_path do %>
+            <span style="font-size: 13px;">プライバシーポリシー</span>
+          <% end %>
+        </li>             
 
         <% if (user_signed_in?) %>
           <% if current_user.authority == "manager" %>
@@ -51,7 +72,13 @@
               <% end %>
             </li>
           <% end %>
-        <% end %>
+        <% end %>    
+
+        <li>
+          <br><br>
+          <p style="font-size:12px;color:red;">※A.DateのデザインはまだPC,タブレット版に対応しておりません。スマートフォンでのご利用をご推奨します</p>
+        </li>       
+
       </ul>
 
       <nav class="nav-footer">

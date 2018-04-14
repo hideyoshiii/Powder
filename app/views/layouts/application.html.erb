@@ -50,25 +50,7 @@
       </div>
       <% end %>
     <% else %>
-      <div class="hidden-xs">
-        <% if url_for(only_path: false) == "http://localhost:3000/thumbnail" || url_for(only_path: false) == "https://www.a-date.jp/thumbnail" %>
-          <div class="box-thumbnail">
-            <div class="site-title" style="font-size:100%;color:black;">A.Date</div>
-          </div>
-        <% else %>
-          <%= render "partial/navbar_home" %>
-          <mains class="" id="main-collapse">
-            <div class="box99">
-              <div style="color:white;font-size:20px;">
-                A.DateはまだPC,タブレット版に対応しておりません。<br>スマホ版でご利用ください。
-              </div>
-            </div>
-          </main>
-        <% end %>
-      </div>
-      <div class="visible-xs">
         <%= yield %>
-      </div>
     <% end %>
 
 
