@@ -196,6 +196,11 @@
             </div>
           </div>
         <% end %>
+        <%#SP用のマップ%>
+        <h4 class="text-center">Map</h4>   
+        <div class="box-map_sp">
+          <div id="map_10_pc"></div>
+        </div>
       </div>
     <%#SP用のフッター%>
     <div class="visible-xs visible-sm">
@@ -240,28 +245,6 @@
 
 
   <div class="visible-xs visible-sm">
-    <%#保存モーダルボタン%>
-    <% if (user_signed_in?) %>
-      <% if current_user.authority == "manager" %>
-        <div class="btn-details_14">
-         <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
-          <i class="far fa-save"></i>
-         </a>
-        </div>
-      <% end %>
-    <% end %>
-    <%#マップモーダルボタン%>
-    <div class="btn-details_13">
-     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
-      <i class="far fa-map"></i>
-     </a>
-    </div>
-    <%#chngeボタン%>
-    <div class="btn-details_12">
-     <a href="javascript:;" onclick="koshin()" id="btn-copy">
-      <i class="fas fa-sync-alt"></i>
-     </a>
-    </div>
     <%#ツイートボタン%>
     <div class="btn-details_10">
      <div id="tw">
@@ -270,12 +253,28 @@
         </a>
       </div>
     </div>
-    <%#フェイスブックボタン%>
+    <%#chngeボタン%>
     <div class="btn-details_11">
-     <a href="" id="btn-fb">
-      <i class="fab fa-facebook-f"></i>
+     <a href="javascript:;" onclick="koshin()" id="btn-change">
+      <i class="fas fa-sync-alt"></i>
      </a>
     </div>
+    <%#マップモーダルボタン%>
+    <div class="btn-details_12">
+     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-map">
+      <i class="far fa-map"></i>
+     </a>
+    </div>
+    <%#保存モーダルボタン%>
+    <% if (user_signed_in?) %>
+      <% if current_user.authority == "manager" %>
+        <div class="btn-details_13">
+         <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
+          <i class="far fa-save"></i>
+         </a>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <%#保存モーダルの中身%>
@@ -328,7 +327,7 @@
         </div>
       </div>
     </div>
-    <div class="btn-details_14">
+    <div class="btn-details">
      <a href="" data-toggle="modal" data-dismiss="modal" id="btn-save">
       <i class="fa fa-close"></i>
      </a>
@@ -342,8 +341,8 @@
         <div id="map"></div>
       </div>
     </div>
-    <div class="btn-details_13">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-map">
       <i class="fa fa-close"></i>
      </a>
     </div>

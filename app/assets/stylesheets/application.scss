@@ -7177,7 +7177,7 @@ square_btnn{
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7202,12 +7202,72 @@ square_btnn{
   transform: rotate(180deg);
 }
 
+//チェンジボタン
+#btn-change {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(0,0,51,0.9);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-change:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-change i {/*アイコン*/
+  color: white;
+  line-height: 56px;
+  vertical-align: middle;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#btn-change:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+//マップボタン
+#btn-map {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(0,170,0,0.9);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-map:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-map i {/*アイコン*/
+  color: white;
+  line-height: 56px;
+  vertical-align: middle;
+  font-size: 20px;
+  transition: 0.2s;
+}
+
+#btn-map:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 //ツイートボタン
 #btn-tw {/*円*/
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(29,161,243,0.8);
+    background: rgba(29,161,243,0.9);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7267,7 +7327,7 @@ square_btnn{
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(255,0,0,0.8);
+    background: rgba(255,0,0,0.9);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7292,12 +7352,12 @@ square_btnn{
   transform: rotate(180deg);
 }
 
-//モーダル保存ボタン
+//モーダルコピーボタン
 #btn-copy {/*円*/
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(0,0,255,0.8);
+    background: rgba(0,0,255,0.9);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7322,12 +7382,12 @@ square_btnn{
   transform: rotate(180deg);
 }
 
-//モーダル保存ボタン
+//モーダル編集ボタン
 #btn-edit {/*円*/
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(0,255,0,0.8);
+    background: rgba(0,255,0,0.9);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7756,6 +7816,16 @@ square_btnn{
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
   }
 
+//マップのbox
+.box-map_sp {
+  	position: relative;
+  	width:100%;
+    height:25vh;
+    overflow:hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+  }
+
 
 //ツイートボタン
 .btn-twitter{
@@ -8142,6 +8212,13 @@ input,select,textarea{
 		padding:0;
 	}
 }
+
+#map_10_pc {
+		width: 100%;
+		height: 25vh;
+		margin:0;
+		padding:0;
+	}
 
 @media only screen and (min-width: 	991px) {
 	#map_10_pc {
