@@ -12,7 +12,7 @@
 
       <%# 目次 %>
       <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
-      <p class="text-center" style="font-size:12px;padding:0px 30px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
+      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
       <%# コースの諸情報 %>
       <h4 class="text-center" style="margin:40px 0px 0px;">Summary</h4>       
       <div class="result-info-box">
@@ -204,6 +204,15 @@
       </div>
     <%#SP用のフッター%>
     <div class="visible-xs visible-sm">
+      <%#ツイートボタン%>
+      <div style="padding:40px 0px 0px;text-align:center;">
+       <p style="font-size:18px;color:black;">つくったコースをシェアしよう！</p>
+       <div id="tw">
+          <a href="" target="_blank" class="btn-twitter">
+            <i class="fab fa-twitter"></i> ツイートする
+          </a>
+        </div>
+      </div>
       <%= render "partial/fotter_home" %>
     </div>
     </div>
@@ -245,22 +254,14 @@
 
 
   <div class="visible-xs visible-sm">
-    <%#ツイートボタン%>
-    <div class="btn-details_10">
-     <div id="tw">
-        <a href="" target="_blank" id="btn-tw">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </div>
-    </div>
     <%#chngeボタン%>
-    <div class="btn-details_11">
+    <div class="btn-details_10">
      <a href="javascript:;" onclick="koshin()" id="btn-change">
       <i class="fas fa-sync-alt"></i>
      </a>
     </div>
     <%#マップモーダルボタン%>
-    <div class="btn-details_12">
+    <div class="btn-details_11">
      <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-map">
       <i class="far fa-map"></i>
      </a>
@@ -268,7 +269,7 @@
     <%#保存モーダルボタン%>
     <% if (user_signed_in?) %>
       <% if current_user.authority == "manager" %>
-        <div class="btn-details_13">
+        <div class="btn-details_12">
          <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
           <i class="far fa-save"></i>
          </a>
