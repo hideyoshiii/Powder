@@ -1,5 +1,6 @@
 class SeeksController < ApplicationController
-  before_action :set_params, only: [:area,:distance,:category,:meal,:choice,:result]
+  before_action :set_params, only: [:area,:distance,:category,:choice,:result,:resultsave]
+  before_action :authenticate_user!, only: [:area,:distance,:category,:choice,:resultsave]
 
   def city    
   end
@@ -183,6 +184,13 @@ class SeeksController < ApplicationController
           @total_max = @total_max + @price_2
         end
       end
+    end
+
+    if params[:timezone] == "noon"
+      @timezone_ja = "昼"
+    end
+    if params[:timezone] == "night"
+      @timezone_ja = "夜"
     end
 
     #ツイート用のURL作成
@@ -389,7 +397,7 @@ class SeeksController < ApplicationController
   end
 
   def courses
-    @courses = Course.where(kind: "提案").order('id DESC').page(params[:page]).per(30)   
+    @courses = Course.where(kind: "ユーザー").order('id DESC').page(params[:page]).per(30)   
   end
 
   def course 
@@ -400,6 +408,8 @@ class SeeksController < ApplicationController
     @points.each.with_index(1) do |point, i|
       @ss.push(point.spot_id)
     end
+
+    params[:ss] = @ss
 
     @ss_first = @ss.first
     @ss_last = @ss.last
@@ -439,6 +449,69 @@ class SeeksController < ApplicationController
       end
 
     end
+
+    #ツイート用のURL作成
+    @url = url_for(only_path: false)
+
+  end
+
+  def proposals
+    @courses = Course.where(kind: "提案").order('id DESC').page(params[:page]).per(30)   
+  end
+
+  def proposal 
+    @course =  Course.find(params[:id])
+    @points = Point.where(course_id: @course.id).order(number: "ASC")
+
+    @ss =[]
+    @points.each.with_index(1) do |point, i|
+      @ss.push(point.spot_id)
+    end
+
+    params[:ss] = @ss
+
+    @ss_first = @ss.first
+    @ss_last = @ss.last
+    @spot_first = Spot.find(@ss_first)
+    @spot_last = Spot.find(@ss_last)
+
+    @total_min = 0
+    @total_max = 0
+
+    @ss.each.with_index(1) do |s, i|
+      spot = Spot.find(s)
+
+      if spot.price_lunch.blank? || spot.price_lunch == 0
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = 0
+          @price_2 = 0
+        else
+          @price_1 = spot.price_dinner
+          @price_2 = spot.price_dinner
+        end
+
+      else
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_lunch
+        else
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_dinner
+        end
+      end
+
+      unless @price_1.blank?
+        unless  @price_2.blank?
+          @total_min = @total_min + @price_1
+          @total_max = @total_max + @price_2
+        end
+      end
+
+    end
+
+    #ツイート用のURL作成
+    @url = url_for(only_path: false)
+
   end
 
   def update
@@ -653,44 +726,109 @@ class SeeksController < ApplicationController
   
   def result
 
-  @ss_first = @ss.first
-  @ss_last = @ss.last
-  @spot_first = Spot.find(@ss_first)
-  @spot_last = Spot.find(@ss_last)
+    @ss_first = @ss.first
+    @ss_last = @ss.last
+    @spot_first = Spot.find(@ss_first)
+    @spot_last = Spot.find(@ss_last)
 
-  @total_min = 0
-  @total_max = 0
+    @total_min = 0
+    @total_max = 0
 
-  @ss.each.with_index(1) do |s, i|
-    spot = Spot.find(s)
+    @ss.each.with_index(1) do |s, i|
+      spot = Spot.find(s)
 
-    if spot.price_lunch.blank? || spot.price_lunch == 0
-      if spot.price_dinner.blank? || spot.price_lunch == 0
-        @price_1 = 0
-        @price_2 = 0
+      if spot.price_lunch.blank? || spot.price_lunch == 0
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = 0
+          @price_2 = 0
+        else
+          @price_1 = spot.price_dinner
+          @price_2 = spot.price_dinner
+        end
       else
-        @price_1 = spot.price_dinner
-        @price_2 = spot.price_dinner
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_lunch
+        else
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_dinner
+        end
       end
 
-    else
-      if spot.price_dinner.blank? || spot.price_lunch == 0
-        @price_1 = spot.price_lunch
-        @price_2 = spot.price_lunch
-      else
-        @price_1 = spot.price_lunch
-        @price_2 = spot.price_dinner
+      unless @price_1.blank?
+        unless  @price_2.blank?
+          @total_min = @total_min + @price_1
+          @total_max = @total_max + @price_2
+        end
       end
+
     end
 
-    unless @price_1.blank?
-      unless  @price_2.blank?
-        @total_min = @total_min + @price_1
-        @total_max = @total_max + @price_2
-      end
+    if params[:timezone] == "noon"
+      @timezone_ja = "昼"
     end
+    if params[:timezone] == "night"
+      @timezone_ja = "夜"
+    end
+
+    #ツイート用のURL作成
+    @timezone = params[:timezone]
+    @url = root_url(only_path: false)
+    @url = @url.to_s + '/seeks/result?'
+    params[:ss].each.with_index(1) do |s, i|
+      @url = @url.to_s + "&ss%5B%5D=#{s}"
+    end
+    @url = @url.to_s + "&timezone=#{@timezone}"
+
 
   end
+
+  def resultsave
+
+    @ss_first = @ss.first
+    @ss_last = @ss.last
+    @spot_first = Spot.find(@ss_first)
+    @spot_last = Spot.find(@ss_last)
+
+    @total_min = 0
+    @total_max = 0
+
+    @ss.each.with_index(1) do |s, i|
+      spot = Spot.find(s)
+
+      if spot.price_lunch.blank? || spot.price_lunch == 0
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = 0
+          @price_2 = 0
+        else
+          @price_1 = spot.price_dinner
+          @price_2 = spot.price_dinner
+        end
+      else
+        if spot.price_dinner.blank? || spot.price_lunch == 0
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_lunch
+        else
+          @price_1 = spot.price_lunch
+          @price_2 = spot.price_dinner
+        end
+      end
+
+      unless @price_1.blank?
+        unless  @price_2.blank?
+          @total_min = @total_min + @price_1
+          @total_max = @total_max + @price_2
+        end
+      end
+
+    end
+
+    if params[:timezone] == "noon"
+      @timezone_ja = "昼"
+    end
+    if params[:timezone] == "night"
+      @timezone_ja = "夜"
+    end
 
   end
 

@@ -197,13 +197,24 @@
           </div>
         <% end %>
         <%#SP用のマップ%>
-        <h4 class="text-center">Map</h4>   
-        <div class="box-map_sp">
-          <div id="map_10_pc"></div>
+        <div class="visible-xs visible-sm">
+          <h4 class="text-center">Map</h4>   
+          <div class="box-map_sp">
+            <div id="map_10_sp"></div>
+          </div>
         </div>
       </div>
     <%#SP用のフッター%>
     <div class="visible-xs visible-sm">
+      <%#ツイートボタン%>
+      <div style="padding:60px 0px 0px;text-align:center;">
+       <p style="font-size:18px;color:black;">つくったコースをシェアしよう！</p>
+       <div id="tw">
+          <a href="" target="_blank" class="btn-twitter">
+            <i class="fab fa-twitter"></i> ツイートする
+          </a>
+        </div>
+      </div>
       <%#作って見るボタン%>
       <div class="text-center" style="padding:40px 15px 0px;">
         <p style="color:black;">10秒でデートコースをつくってみよう！</p>
@@ -276,50 +287,55 @@
 
   <%#保存モーダルの中身%>
   <div class="modal" id="myModal-save">
+    <div style="height:25vh;"></div>
     <div class="modal-dialog">
       <div class="modal-content">
-        <div style="height:80vh;padding:30px 15px 0px;">
-          <%= form_tag(seeks_save_path, method: :get) do %>
-            <h4 class="text-center">コースを保存する</h4>
-            <br>
-            <div class="form-group">
-              <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
-            </div>
-            <br>
-            <div class="form-group">
-                <%= text_area_tag :description, '', rows: 4, placeholder: "コースの説明", class: "form-control", required: "true" %>
-            </div> 
-            <br>
-            <div class="form-group">
-              <div style="width:100%;margin:0 auto;text-align:center;">  
-                <div style="width:30%;display:inline-block;">
-                  <div class="select-box01">
-                    <%= select_tag :time_start, options_for_select([["朝", "朝"], ["昼", "昼"], ["夜", "夜"]], "昼") %>
-                  </div>
-                </div>
-                &nbsp;~&nbsp;
-                <div style="width:30%;display:inline-block;">
-                  <div class="select-box01">
-                    <%= select_tag :time_end, options_for_select([["朝", "朝"], ["昼", "昼"], ["夜", "夜"]], "夜") %>
-                  </div>
-                </div>  
-              </div>       
-            </div>
-            <br>
-            <div class="form-group">
-              <div class="select-box01">
-                <%= select_tag :city, options_for_select([["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"],["原宿・表参道・青山","原宿・表参道・青山"],["新宿","新宿"],["東京・丸の内・日本橋","東京・丸の内・日本橋"],["六本木・麻布・赤坂","六本木・麻布・赤坂"],["銀座・有楽町","銀座・有楽町"],["品川","品川"],["お台場","お台場"],["池袋","池袋"],["新橋・汐留・浜松町","新橋・汐留・浜松町"],["上野","上野"],["浅草・押上","浅草・押上"],["目黒・白金・五反田","目黒・白金・五反田"],["吉祥寺・三鷹","吉祥寺・三鷹"],["神楽坂・飯田橋","神楽坂・飯田橋"],["下北沢","下北沢"],["谷中・根津・千駄木","谷中・根津・千駄木"],["神田・秋葉原・御茶ノ水","神田・秋葉原・御茶ノ水"],["赤坂・虎ノ門・永田町","赤坂・虎ノ門・永田町"],["四ツ谷・信濃町・千駄ヶ谷","四ツ谷・信濃町・千駄ヶ谷"]], @spot_first.city) %>
+        <div style="height:auto;padding:30px 15px 0px;">
+          <% if (user_signed_in?) %>
+            <%= form_tag(seeks_save_path, method: :get) do %>
+              <%= hidden_field_tag :time_start, @timezone_ja %>
+              <%= hidden_field_tag :time_end, "夜" %>
+              <%= hidden_field_tag :city, @spot_first.city %>
+              <%= hidden_field_tag 'kind', "ユーザー" %>
+              <br>
+              <h4 class="text-center">コースを保存する</h4>
+              <br>
+              <div class="form-group">
+                <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
               </div>
-            </div>
-            <br>
-            <%= hidden_field_tag 'kind', "提案" %>
-            <% params[:ss].each.with_index(1) do |s, i| %>
-              <%= hidden_field_tag 'ss[]', s %>
+              <br>
+              <% if (user_signed_in?) %>
+                <% if current_user.authority == "manager" %>
+                  <div class="form-group">
+                    <div class="select-box01">
+                      <%= select_tag :kind, options_for_select([["提案","提案"],["ユーザー","ユーザー"],["サンプル","サンプル"]], "提案") %>
+                    </div>
+                  </div>
+                  <br>
+                <% end %>
+              <% end %>
+              <% params[:ss].each.with_index(1) do |s, i| %>
+                <%= hidden_field_tag 'ss[]', s %>
+              <% end %>
+              <div class="text-center">
+                <%= submit_tag "保存する", :class => "btn btn-default" %>
+              </div>
+              <br><br>
             <% end %>
-            <div class="text-center">
-              <%= submit_tag "保存する", :class => "btn btn-default" %>
-            </div>
-            <br>
+          <% else %>
+            <%= form_tag(seeks_result_save_path, method: :get) do %>
+              <%= hidden_field_tag :timezone, params[:timezone] %>
+              <br>
+              <h4 class="text-center">コースを保存するにはログインが必要です</h4>
+              <br>
+              <% params[:ss].each.with_index(1) do |s, i| %>
+                <%= hidden_field_tag 'ss[]', s %>
+              <% end %>
+              <div class="text-center">
+                <%= submit_tag "ログインする", :class => "btn btn-default" %>
+              </div>
+              <br><br>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -355,7 +371,7 @@
   </div>
 </div>
 
-
+<%= render "partial/footer" %>
 </mains>
 
 <%# googlemapのJS %>
@@ -392,6 +408,13 @@ function initMap() {
         zoom: 14 // ズームレベル
     });
 
+    var map_10_sp = new google.maps.Map(document.getElementById("map_10_sp"), {
+        <%# $$$出発地と同じ緯度経度を記入 %>
+        gestureHandling: 'greedy',
+        center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
+        zoom: 14 // ズームレベル
+    });
+
     var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
     var r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
         map: map, // 描画先の地図
@@ -415,6 +438,19 @@ function initMap() {
         // OKの場合ルート描画
         if (status == google.maps.DirectionsStatus.OK) {
             s.setDirections(result);
+        }
+    });
+
+    var f = new google.maps.DirectionsService(); // ルート検索オブジェクト
+    var t = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+        map: map_10_sp, // 描画先の地図
+        preserveViewport: true, // 描画後に中心点をずらさない
+    });
+    // ルート検索
+    f.route(request, function(result, status){
+        // OKの場合ルート描画
+        if (status == google.maps.DirectionsStatus.OK) {
+            t.setDirections(result);
         }
     });
 }

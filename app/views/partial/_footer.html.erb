@@ -1,6 +1,6 @@
 <div class="visible-xs">
   <div class="sticky-bar">
-    <div class="col-xs-3">
+    <div class="sticky-box">
       <div class="sticky-menu">
         <%= link_to root_path do %>
           <i class="fas fa-home sticky-icon"></i>
@@ -8,32 +8,53 @@
         <% end %>
       </div>
     </div>
-    <div class="col-xs-3">
+    <div class="sticky-box">
       <div class="sticky-menu">
         <%= link_to "/seeks/courses" do %>
-          <i class="fas fa-align-justify sticky-icon" aria-hidden="true"></i>
-          <div class="sticky-title">コース</div >
+          <i class="fas fa-search sticky-icon"></i>
+          <div class="sticky-title">探す</div >
         <% end %>
       </div>
     </div>
-    <div class="col-xs-3">
+    <div class="sticky-box">
       <div class="sticky-menu">
-        <%= link_to "/spots" do %>
-          <i class="fas fa-map-marker-alt sticky-icon" aria-hidden="true"></i>
-          <div class="sticky-title">スポット</div >
+        <%= link_to seeks_city_path do %>
+          <i class="fas fa-plus sticky-icon"></i>
+          <div class="sticky-title">コース作成</div >
         <% end %>
       </div>
     </div>
-    <div class="col-xs-3">
+    <% if (user_signed_in?) %>
+      <% if current_user.authority == "manager" %>
+        <div class="sticky-box">
+          <div class="sticky-menu">
+            <%= link_to "/spots" do %>
+              <i class="fas fa-map-marker-alt sticky-icon"></i>
+              <div class="sticky-title">スポット</div >
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="sticky-box">
+          <div class="sticky-menu">
+            <%= link_to root_path do %>
+              <i class="far fa-heart  sticky-icon"></i>
+              <div class="sticky-title">お気に入り</div >
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+    <div class="sticky-box">
       <div class="sticky-menu">
         <% if (user_signed_in?) %>
           <%= link_to user_path(current_user) do %>
-            <i class="far fa-user sticky-icon" aria-hidden="true"></i>
+            <i class="far fa-user sticky-icon"></i>
             <div class="sticky-title">マイページ</div >
           <% end %>
         <% else %>
           <%= link_to new_user_session_path do %>
-            <i class="fas fa-sign-in-alt sticky-icon" aria-hidden="true"></i>
+            <i class="fas fa-sign-in-alt sticky-icon"></i>
             <div class="sticky-title">ログイン</div >
           <% end %>
         <% end %>

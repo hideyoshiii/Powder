@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get "seeks/meal" => "seeks#meal"
   get "seeks/choice" => "seeks#choice"
   get "seeks/result" => "seeks#result"
+  get "seeks/result/save" => "seeks#resultsave"
   get "seeks/method" => "seeks#method"
   get "seeks/line" => "seeks#line"
   get "seeks/mail" => "seeks#mail"
@@ -24,6 +25,8 @@ Rails.application.routes.draw do
   get "seeks/save" => "seeks#save"
   get 'seeks/courses' => 'seeks#courses'
   get 'seeks/course/:id' => 'seeks#course'
+  get 'seeks/proposals' => 'seeks#proposals'
+  get 'seeks/proposal/:id' => 'seeks#proposal'
   get 'seeks/course/:id/update' => 'seeks#update'
   post 'seeks/course/:id/destroy' => 'seeks#destroy'
   get "seeks/form" => "seeks#form"

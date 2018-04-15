@@ -1,5 +1,6 @@
 <%= render "partial/navbar4" %>
-<main class="" id="main-collapse">
+<mains class="" id="main-collapse">
+<div class="pc_1">
 <br>
 
 <% if @user == current_user %>
@@ -14,11 +15,11 @@
     <%= @user.nickname %>
   </div>
 <% end %>
-
 <br>
 
-
-
+<% if (user_signed_in?) %>
+<% if current_user.authority == "manager" %>
+<div class="panel-body">
 
 <% want_count = Like.where(user_id: @user.id, kind: 1).count %>
 <% done_count = Like.where(user_id: @user.id, kind: 2).count %>
@@ -26,14 +27,7 @@
 <% clip_count = Clip.where(user_id: @user.id).count %>
 <% article_count = Article.where(user_id: @user.id).count %>
 <% course_count = Course.where(user_id: @user.id).count %>
-
-
-
-
-
-
-
-<%# デモ %>
+<%# タブレット用 %>
 <div class="hidden-xs hidden-sm">
   <div class="row">
     <div class="col-md-offset-3 col-md-6">
@@ -112,7 +106,7 @@
     </div>
   </div>
 </div>
-
+<%# スマホ用 %>
 <div class="visible-xs visible-sm">
   <div class="row">
     <div class="col-xs-6 col-sm-6">
@@ -166,41 +160,22 @@
   </div>
 </div>
 
+</div>
+<% end %>
+<% end %>
 
-<div class="row">
-  <div class="text-center">
-    <div class="black">
-      
-    </div>
-    <%= link_to adate_path do %>
-      <div class="black">
-        A.Dateとは
-      </div>
-    <% end %>
-    <%= link_to eagle_path do %>
-      <div class="black">
-        ワッシーの使い方
-      </div>
-    <% end %>
-    <%= link_to terms_path do %>
-      <div class="black">
-        利用規約
-      </div>
-    <% end %>
-    <%= link_to policy_path do %>
-      <div class="black">
-        プライバシーポリシー
-      </div>
-    <% end %>
-    <a href="mailto:powder.date@gmail.com?subject=お問い合わせ">
-      <div class="black">
-        お問い合わせ
-      </div>
-    </a>
-  </div>
+<%# 自分の作ったコース一覧 %>
+<%= render 'courses' %>
+
+<div class="text-center">
+  <%= paginate @courses %>
 </div>
 
+</div>
 
- 
-</main>
+  <div class="pc_2">
+    <%= render "partial/fotter_home" %>
+  </div>
+
+</mains>
 <%= render "partial/footer" %>

@@ -1,0 +1,13 @@
+<% @courses.each.with_index(1) do |course, i| %>
+  <% @point = Point.where(course_id: course.id).order(number: "ASC").first %>
+  <%= link_to "/seeks/course/#{course.id}" do %>
+    <div class="radio-city-b smoke">  
+        <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-course-result' %>
+        <h4>
+          <%= course.title %>
+          <br>
+          <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %></span>
+        </h4>
+    </div>
+  <% end %>
+<% end %>

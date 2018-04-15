@@ -11,18 +11,8 @@
     <div class="course_in">
 
       <%# 目次 %>
-      <% if (user_signed_in?) && current_user.id == @course.user_id %>
-	   	<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @course.title %></h4> 
-	  <% else %>
-	  	<% if @course.user.authority == "manager" %>
-	  		<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @course.title %></h4> 
-	  	<% else %>
-	    	<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @spot_first.city %>付近のコース</h4> 
-	    <% end %>
-	  <% end %>
-      <% unless @course.description.blank? %>  
-      	<p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;"><%= @course.description %></p> 
-      <% end %>       
+      <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
+      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
       <%# コースの諸情報 %>
       <h4 class="text-center" style="margin:40px 0px 0px;">Summary</h4>       
       <div class="result-info-box">
@@ -31,21 +21,21 @@
             <i class="fas fa-map-marker-alt"></i>
           </div>
           <div class="result-info">
-	        <% @spot_first = Spot.find(@ss.first) %>
-	        <%= @spot_first.city %>付近
-	      </div>
+            <%= params[:city] %>付近
+          </div>
         </div>
         <div class="result-info-box-1">
           <div class="result-info-btn">
             <i class="far fa-clock"></i>
           </div>
           <div class="result-info">
-	        <% if @course.time_start == @course.time_end %>
-	          <%= @course.time_start %>のみ
-	        <% else %>
-	          <%= @course.time_start %>&nbsp;-&nbsp;<%= @course.time_end %>
-	        <% end %>
-	      </div>
+            <% if params[:timezone] == "noon" %>
+              昼から
+            <% end %>
+            <% if params[:timezone] == "night" %>
+              夜から
+            <% end %>
+          </div>
         </div>
         <div class="result-info-box-1">
           <div class="result-info-btn">
@@ -216,20 +206,6 @@
       </div>
     <%#SP用のフッター%>
     <div class="visible-xs visible-sm">
-      <%#ツイートボタン%>
-      <div style="padding:60px 0px 0px;text-align:center;">
-        <% if (user_signed_in?) && current_user.id == @course.user_id %>
-        	<p style="color:black;margin-bottom:0px;">つくったコースをシェアしよう！</p>
-        	<p style="font-size:10px;margin-top:0px;">※タイトルは公開されません</p>
-        <% else %>
-        	<p style="color:black;margin-bottom:0px;">コースをシェアしよう！</p>
-        <% end %>
-       <div id="tw">
-          <a href="" target="_blank" class="btn-twitter">
-            <i class="fab fa-twitter"></i> ツイートする
-          </a>
-        </div>
-      </div>
       <%#作って見るボタン%>
       <div class="text-center" style="padding:40px 15px 0px;">
         <p style="color:black;">10秒でデートコースをつくってみよう！</p>
@@ -256,20 +232,13 @@
             </div>
           <% end %>
         </div>
-          <%#ツイートボタン%>
-	      <div style="padding:20px 0px 0px;text-align:center;">
-	        <% if (user_signed_in?) && current_user.id == @course.user_id %>
-	        	<h4 style="color:black;margin-bottom:0px;">つくったコースをシェアしよう！</h4>
-	        	<p style="font-size:10px;margin-top:0px;">※タイトルは公開されません</p>
-	        <% else %>
-	        	<h4 style="color:black;margin-bottom:0px;">コースをシェアしよう！</h4>
-	        <% end %>
-	       <div id="tw">
-	          <a href="" target="_blank" class="btn-twitter">
-	            <i class="fab fa-twitter"></i> ツイートする
-	          </a>
-	        </div>
-	      </div>
+        <%#保存モーダルボタン%>
+        <div style="padding:20px 0px 0px;text-align:center;">
+         <h4>コースを保存できるよ！</h4>
+         <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
+          <i class="far fa-save"></i> 保存する
+         </a>
+        </div>
       </div>
     </div>
   </div>
@@ -280,6 +249,74 @@
     <div class="btn-details_10">
      <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-map">
       <i class="far fa-map"></i>
+     </a>
+    </div>
+    <%#保存モーダルボタン%>
+    <div class="btn-details_11">
+     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
+      <i class="far fa-save"></i>
+     </a>
+    </div>
+  </div>
+
+  <%#保存モーダルの中身%>
+  <div class="modal" id="myModal-save">
+    <div style="height:25vh;"></div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div style="height:auto;padding:30px 15px 0px;">
+          <% if (user_signed_in?) %>
+            <%= form_tag(seeks_save_path, method: :get) do %>
+              <%= hidden_field_tag :time_start, @timezone_ja %>
+              <%= hidden_field_tag :time_end, "夜" %>
+              <%= hidden_field_tag :city, @spot_first.city %>
+              <%= hidden_field_tag 'kind', "ユーザー" %>
+              <br>
+              <h4 class="text-center">コースを保存する</h4>
+              <br>
+              <div class="form-group">
+                <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
+              </div>
+              <br>
+              <% if (user_signed_in?) %>
+                <% if current_user.authority == "manager" %>
+                  <div class="form-group">
+                    <div class="select-box01">
+                      <%= select_tag :kind, options_for_select([["提案","提案"],["ユーザー","ユーザー"],["サンプル","サンプル"]], "提案") %>
+                    </div>
+                  </div>
+                  <br>
+                <% end %>
+              <% end %>
+              <% params[:ss].each.with_index(1) do |s, i| %>
+                <%= hidden_field_tag 'ss[]', s %>
+              <% end %>
+              <div class="text-center">
+                <%= submit_tag "保存する", :class => "btn btn-default" %>
+              </div>
+              <br><br>
+            <% end %>
+          <% else %>
+            <%= form_tag(seeks_result_save_path, method: :get) do %>
+              <%= hidden_field_tag :timezone, params[:timezone] %>
+              <br>
+              <h4 class="text-center">コースを保存するにはログインが必要です</h4>
+              <br>
+              <% params[:ss].each.with_index(1) do |s, i| %>
+                <%= hidden_field_tag 'ss[]', s %>
+              <% end %>
+              <div class="text-center">
+                <%= submit_tag "ログインする", :class => "btn btn-default" %>
+              </div>
+              <br><br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-save">
+      <i class="fa fa-close"></i>
      </a>
     </div>
   </div>
@@ -394,11 +431,6 @@ function initMap() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
 
-<%#ツイートのJS%>
-<script>
-  var url = 'http://twitter.com/share?url=' + encodeURIComponent('<%= @url %>') + '&text=A.Date%0a10秒でデートコースをつくってみた%0a';
-  $('#tw a').attr({"href":url}); // aタグのhrefに設定
-</script>
 
 
 
