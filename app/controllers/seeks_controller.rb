@@ -514,6 +514,45 @@ class SeeksController < ApplicationController
 
   end
 
+  def edit
+    @course = Course.find(params[:id])
+    @points = Point.where(course_id: @course.id).order(number: "ASC")
+
+    if !(current_user == @course.user)
+      redirect_to root_path
+    end   
+  end
+
+  def sort
+    @course = Course.find(params[:id])
+    @points = Point.where(course_id: @course.id).order(number: "ASC")
+
+    if !(current_user == @course.user)
+      redirect_to root_path
+    end   
+
+    @course.update(title: params[:title], description: params[:description], city: params[:city], time_start: params[:time_start], time_end: params[:time_end])
+
+    unless params[:kind].blank?
+      @course.update(title: params[:kind])
+    end
+
+
+    unless params[:sorts].blank?
+      @sorts = params[:sorts].to_a
+      @points_new = []
+      @sorts.each.with_index(1) do |sort, i|
+        @point = Point.find_by(course_id: @course.id, number: sort)
+        @points_new.push(@point)
+      end
+      @points_new.each.with_index(1) do |point, i|
+        point.update(number: i)
+      end
+    end
+
+    redirect_to "/seeks/course/#{@course.id}", notice: "コースを編集しました" 
+  end
+
   def update
     @course = Course.find(params[:id])
     if @course.update(title: params[:title], description: params[:description], city: params[:city], time_start: params[:time_start], time_end: params[:time_end])

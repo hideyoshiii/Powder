@@ -1,0 +1,122 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+<%= form_tag("/seeks/course/#{@course.id}/sort", method: :get) do %>
+	<div style="padding:20px 15px 0px;">
+		<h4 class="text-center"><span class="what">コースを編集する</span></h4>
+	</div>
+	<div style="padding:20px 30px;">
+		<div class="form-group">
+	      <%= text_field_tag :title, @course.title, placeholder: "タイトル", class: "form-control", required: "true" %>
+	    </div>
+	    <% if (user_signed_in?) %>
+	    	<% if current_user.authority == "manager" %>
+			    <br>
+			    <div class="form-group">
+			        <%= text_area_tag :description, @course.description, rows: 4, placeholder: "コースの説明", class: "form-control", required: "true" %>
+			    </div>
+			    <br>
+		        <div class="form-group">
+		          <div style="width:100%;margin:0 auto;text-align:center;">  
+		            <div style="width:30%;display:inline-block;">
+		              <div class="select-box01">
+		                <%= select_tag :time_start, options_for_select([["朝", "朝"], ["昼", "昼"], ["夜", "夜"]], @course.time_start) %>
+		              </div>
+		            </div>
+		            &nbsp;~&nbsp;
+		            <div style="width:30%;display:inline-block;">
+		              <div class="select-box01">
+		                <%= select_tag :time_end, options_for_select([["朝", "朝"], ["昼", "昼"], ["夜", "夜"]], @course.time_end) %>
+		              </div>
+		            </div>  
+		          </div>       
+		        </div>
+		        <br>
+		        <div class="form-group">
+		          <div class="select-box01">
+		            <%= select_tag :city, options_for_select([["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"],["原宿・表参道・青山","原宿・表参道・青山"],["新宿","新宿"],["東京・丸の内・日本橋","東京・丸の内・日本橋"],["六本木・麻布・赤坂","六本木・麻布・赤坂"],["銀座・有楽町","銀座・有楽町"],["品川","品川"],["お台場","お台場"],["池袋","池袋"],["新橋・汐留・浜松町","新橋・汐留・浜松町"],["上野","上野"],["浅草・押上","浅草・押上"],["目黒・白金・五反田","目黒・白金・五反田"],["吉祥寺・三鷹","吉祥寺・三鷹"],["神楽坂・飯田橋","神楽坂・飯田橋"],["下北沢","下北沢"],["谷中・根津・千駄木","谷中・根津・千駄木"],["神田・秋葉原・御茶ノ水","神田・秋葉原・御茶ノ水"],["赤坂・虎ノ門・永田町","赤坂・虎ノ門・永田町"],["四ツ谷・信濃町・千駄ヶ谷","四ツ谷・信濃町・千駄ヶ谷"]], @course.city) %>
+		          </div>
+		        </div>
+		        <br>
+		        <div class="form-group">
+                    <div class="select-box01">
+                      <%= select_tag :kind, options_for_select([["提案","提案"],["ユーザー","ユーザー"],["サンプル","サンプル"]], @course.kind) %>
+                    </div>
+                  </div>
+		    <% end %> 
+	    <% end %> 
+	</div>	
+    <ul class="sortable li_none">
+    	<% @points.each do |point| %>
+	        <li class="li_none box-edit" id="<%= point.number %>">
+	        	<div class="box-edit-destroy">
+	        		<a href="" data-toggle="modal" data-target="#myModal_destory_<%= point.id %>">
+			      		<i class="fas fa-minus-circle" style="color:red;"></i>
+			      	</a>
+				</div>
+				<div class="box-edit-img">
+					<%= image_tag point.spot.pictures.first.image.url, :class =>'img-edit' %>
+				</div>
+				<div class="box-edit-title">
+					<h1>
+						<div style="font-size:15px;color:black;padding-bottom:5px;">
+							<%= point.spot.title %>
+						</div>
+						<div style="font-size:10px;color:#808080;">
+							<i class="fas fa-map-marker-alt"></i>&nbsp;<%= point.spot.station %>
+						</div>
+					</h1>
+				</div>	
+				<div class="box-edit-sort">
+			      	<i class="fas fa-align-justify"></i>
+				</div>
+				<%#numberの値を動的にセット%>
+				<%= hidden_field_tag 'sorts[]', point.number %>
+	        </li>
+	          <%#保存モーダルの中身%>
+			  <div class="modal" id="myModal_destory_<%= point.id %>">
+			    <div style="height:25vh;"></div>
+			    <div class="modal-dialog">
+			      <div class="modal-content">
+			        <div style="height:auto;padding:30px 15px 30px;text-align:center;">
+			          <h4>スポットを削除しますか？</h4>
+			          <br>
+			          <%= link_to("/points/#{point.id}/destroy", {method: "post"}) do %>
+			      		<div class="btn btn-primary">
+			      			削除する
+			      		</div>	
+			      	　<% end %>
+			        </div>
+			      </div>
+			    </div>
+			    <div class="btn-details">
+			     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-save">
+			      <i class="fa fa-close"></i>
+			     </a>
+			    </div>
+			  </div>		  
+        <% end %> 
+     </ul>
+     <br>
+     <div class="text-center">
+    	<%= submit_tag "編集を完了する", :class => "btn btn-primary" %>
+     </div>
+     <br>
+<% end %>
+
+</mains>
+<%= render "partial/footer" %>
+
+
+<script>
+	$(function() {
+      $(".sortable").sortable();
+      $(".sortable").disableSelection();
+  });
+
+</script>
+
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+<script src="js/jquery.ui.touch-punch.min.js"></script>

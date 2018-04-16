@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'seeks/course/:id' => 'seeks#course'
   get 'seeks/proposals' => 'seeks#proposals'
   get 'seeks/proposal/:id' => 'seeks#proposal'
+  get 'seeks/course/:id/edit' => 'seeks#edit'
+  get 'seeks/course/:id/sort' => 'seeks#sort'
   get 'seeks/course/:id/update' => 'seeks#update'
   post 'seeks/course/:id/destroy' => 'seeks#destroy'
   get "seeks/form" => "seeks#form"

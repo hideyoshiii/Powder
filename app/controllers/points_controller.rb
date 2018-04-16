@@ -25,9 +25,9 @@ class PointsController < ApplicationController
     def destroy
         @point = Point.find(params[:id])
         if @point.destroy
-            redirect_back(fallback_location: root_path) 
+            redirect_to "/seeks/course/#{@point.course.id}/edit" , notice: "スポットを削除しました" 
         else
-            redirect_back(fallback_location: root_path) 
+            redirect_to "/seeks/course/#{@point.course.id}/edit" , error: "スポットの削除に失敗しました" 
         end
   	end
 

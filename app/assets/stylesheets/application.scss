@@ -7387,7 +7387,7 @@ square_btnn{
     display: block;
     width: 56px;
     height: 56px;
-    background: rgba(0,255,0,0.9);
+    background: rgba(255,69,0,0.9);
     text-align: center;
     border-radius: 50%;
     transition: .2s;
@@ -7837,6 +7837,188 @@ square_btnn{
   padding:7px 20px;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
 }
+
+
+
+//コースの編集box
+.sortable{
+	padding:0;
+	margin:0;
+}
+
+.li_none{
+	list-style: none;
+}
+
+.box-edit{
+	background-color: #FAFAFA;
+	width:100%;
+	height:15vh;
+	padding:0;
+	margin:0;
+	border-top:1px solid #C8C8C8;
+	margin-bottom:1px;
+}
+
+.box-edit-img{
+	float: left;
+	position: relative;
+	height:15vh;
+	width:30%;
+	padding:1vh;
+	margin:0;
+	font-size:14px;
+	background-color: #FAFAFA;
+
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+
+	  /* 左右中央寄せ */
+	  -webkit-box-pack: center;
+	  -ms-flex-pack: center;
+	  -webkit-flex-direction: column;
+	  justify-content: center;
+
+	  /* 上下中央寄せ */
+	  -webkit-box-align: center;
+	  -ms-flex-align: center;
+	  -webkit-flex-direction: column;
+	  align-items: center;
+	
+}
+
+.box-edit-title{
+	float: left;
+	position: relative;
+	height:15vh;
+	width:45%;
+	padding:0;
+	margin:0;
+	font-size:14px;
+	background-color: #FAFAFA;
+
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+
+	  /* 左右中央寄せ */
+	  -webkit-box-pack: center;
+	  -ms-flex-pack: center;
+	  -webkit-flex-direction: column;
+	  justify-content: center;
+
+	  /* 上下中央寄せ */
+	  -webkit-box-align: center;
+	  -ms-flex-align: center;
+	  -webkit-flex-direction: column;
+	  align-items: center;
+
+}
+
+.box-edit-title h1 {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  width: 100%;
+  }
+
+.box-edit-destroy{
+	float: left;
+	height:15vh;
+	width:10%;
+	padding:0;
+	margin:0;
+	background-color: #FAFAFA;
+	color: red;
+	font-size:20px;
+
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+
+	  /* 左右中央寄せ */
+	  -webkit-box-pack: center;
+	  -ms-flex-pack: center;
+	  -webkit-flex-direction: column;
+	  justify-content: center;
+
+	  /* 上下中央寄せ */
+	  -webkit-box-align: center;
+	  -ms-flex-align: center;
+	  -webkit-flex-direction: column;
+	  align-items: center;
+
+	  text-align: center;
+}
+
+.box-edit-sort{
+	float: left;
+	height:15vh;
+	width:15%;
+	padding:0;
+	margin:0;
+	background-color: #FAFAFA;
+	color: #888888;
+	font-size:20px;
+
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+
+	  /* 左右中央寄せ */
+	  -webkit-box-pack: center;
+	  -ms-flex-pack: center;
+	  -webkit-flex-direction: column;
+	  justify-content: center;
+
+	  /* 上下中央寄せ */
+	  -webkit-box-align: center;
+	  -ms-flex-align: center;
+	  -webkit-flex-direction: column;
+	  align-items: center;
+
+	  text-align: center;
+}
+
+.img-edit{
+	width:100%;
+	overflow:hidden;
+    border-radius: 3px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

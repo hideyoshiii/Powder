@@ -282,6 +282,14 @@
       <i class="far fa-map"></i>
      </a>
     </div>
+    <%#編集モーダルボタン%>
+    <% if (user_signed_in?) && current_user.id == @course.user_id %>
+      <div class="btn-details_11">
+       <%= link_to "/seeks/course/#{@course.id}/edit", :id => 'btn-edit' do %>
+        <i class="far fa-edit"></i>
+       <% end %>
+      </div>
+    <% end %>
   </div>
 
   <%#マップモーダルの中身%>
