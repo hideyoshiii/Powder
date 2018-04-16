@@ -8158,7 +8158,7 @@ square_btnn{
 	.pc_1{
 		display:inline-block;
 		vertical-align:top;
-		width:60%;
+		width:55%;
 		margin:0;
 		padding:0;
 		border:solid #888888;
@@ -8177,13 +8177,20 @@ square_btnn{
 		display:inline-block;
 		vertical-align:top;
 		text-align:center;
-		width:30%;
+		width:35%;
 		height: 100vh;
 		margin:0;
-		padding:0;
+		padding:0 50px;
 		position:fixed;right:25px;top:0;
 	}
 }
+
+@media only screen and (max-width: 	768px) {
+	.pc_2{
+		display:none;
+	}
+}
+
 
 .course{
 		background: rgba(0, 0, 0, 0);
@@ -8194,13 +8201,13 @@ square_btnn{
 		vertical-align:top;
 		width:78%;
 		height: auto;
+		margin-top:-30px;
 		padding:0;
 		border-top:1px solid #CCCCCC;
 		border-bottom:1px solid #CCCCCC;
 		-webkit-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
 		-moz-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
 		box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
-		margin-top:10px;
 
 	}
 
@@ -8216,14 +8223,14 @@ square_btnn{
 		-webkit-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
 		-moz-box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
 		box-shadow: 5px 0px 5px -1px rgba(0,0,0,0.2);
-		margin-top:-10px;
+		margin-top:0px;
 
 	}
 
 	.course_map{
 		display:inline-block;
 		vertical-align:top;
-		width:52%;
+		width:50%;
 		height: auto;
 		padding:0;
 		margin:0px 10px;

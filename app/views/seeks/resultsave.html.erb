@@ -14,7 +14,7 @@
       <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
       <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
       <%# コースの諸情報 %>
-      <h4 class="text-center" style="margin:40px 0px 0px;">Summary</h4>       
+      <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
       <div class="result-info-box">
         <div class="result-info-box-1">
           <div class="result-info-btn">
@@ -204,19 +204,9 @@
 	        </div>
         </div>
       </div>
-    <%#SP用のフッター%>
-    <div class="visible-xs visible-sm">
-      <%#作って見るボタン%>
-      <div class="text-center" style="padding:40px 15px 0px;">
-        <p style="color:black;">10秒でデートコースをつくってみよう！</p>
-        <%= link_to seeks_city_path do %>
-          <div class="btn btn-info">
-            10秒でデートコースをつくる
-          </div>
-        <% end %>
+      <%#SP用のフッター%>
+      <div class="visible-xs visible-sm">
       </div>
-      <%= render "partial/fotter_home" %>
-    </div>
     </div>
     <%#PC用のmap%>
     <div class="visible-md visible-lg">

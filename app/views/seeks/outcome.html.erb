@@ -14,7 +14,7 @@
       <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
       <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
       <%# コースの諸情報 %>
-      <h4 class="text-center" style="margin:40px 0px 0px;">Summary</h4>       
+      <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
       <div class="result-info-box">
         <div class="result-info-box-1">
           <div class="result-info-btn">
@@ -204,19 +204,18 @@
           </div>
         </div>
       </div>
-    <%#SP用のフッター%>
-    <div class="visible-xs visible-sm">
-      <%#ツイートボタン%>
-      <div style="padding:60px 0px 0px;text-align:center;">
-       <p style="font-size:18px;color:black;">つくったコースをシェアしよう！</p>
-       <div id="tw">
-          <a href="" target="_blank" class="btn-twitter">
-            <i class="fab fa-twitter"></i> ツイートする
-          </a>
+      <%#SP用のフッター%>
+      <div class="visible-xs visible-sm">
+        <%#ツイートボタン%>
+        <div style="padding:60px 0px 100px;text-align:center;">
+         <p style="font-size:18px;color:black;">つくったコースをシェアしよう！</p>
+         <div id="tw">
+            <a href="" target="_blank" class="btn-twitter">
+              <i class="fab fa-twitter"></i> ツイートする
+            </a>
+          </div>
         </div>
       </div>
-      <%= render "partial/fotter_home" %>
-    </div>
     </div>
     <%#PC用のmap%>
     <div class="visible-md visible-lg">
