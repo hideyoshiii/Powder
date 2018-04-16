@@ -1,6 +1,6 @@
 class PointsController < ApplicationController
-  before_action :set_params, only: [:area,:distance,:category,:choice]
-  before_action :authenticate_user!, only: [:area,:distance,:category,:choice]
+  before_action :set_params, only: [:spot,:area,:distance,:category,:choice,:add]
+  before_action :authenticate_user!, only: [:spot,:area,:distance,:category,:choice,:add]
 
 	def new
 		@course = Course.find(params[:id])
@@ -14,13 +14,13 @@ class PointsController < ApplicationController
   		@course = Course.find(params[:id])
       @point_end = Point.where(course_id: @course.id).order(number: "ASC").last
       @number = @point_end.number + 1
-        @spot = Spot.find(params[:spot_id])
-        @point = Point.new(spot_id: @spot.id, course_id: @course.id, number: @number)
-        if @point.save
-              redirect_to edit_course_path(@course) #保存完了
-            else
-              redirect_back(fallback_location: root_path) #ポイント1が保存できなかった
-            end
+      @spot = Spot.find(params[:spot_id])
+      @point = Point.new(spot_id: @spot.id, course_id: @course.id, number: @number)
+      if @point.save
+        redirect_to edit_course_path(@course) #保存完了
+      else
+        redirect_back(fallback_location: root_path) #ポイント1が保存できなかった
+      end
   	end
 
     def destroy
@@ -76,10 +76,14 @@ class PointsController < ApplicationController
 
 
 
-
+  def spot   
+  end
 
 
   def distance
+    unless params[:distance_spot].blank?
+      @distance_spot = Spot.find(params[:distance_spot])
+    end
   end
 
   def area
@@ -265,6 +269,33 @@ class PointsController < ApplicationController
     end
     #ランダムにして２つ抽出
     @spots = @spots.order("RANDOM()")
+  end
+
+  def add
+    unless params[:distance_spot].blank?
+      @distance_spot = Spot.find(params[:distance_spot])
+      @distance_point = Point.find_by(spot_id: @distance_spot.id, course_id: @course.id)
+      @points.each.with_index(1) do |point, i|
+        if point.spot_id == params[:distance_spot].to_i
+          @before_number = i
+        end
+        unless @before_number.blank?
+          if i > @before_number
+            @change_number = point.number + 1
+            point.update(number: @change_number)
+          end
+        end
+      end
+      @add_number = @distance_point.number + 1
+      @add_spot = Spot.find(params[:add_spot])
+      @add_point = Point.new(spot_id: @add_spot.id, course_id: @course.id, number: @add_number)
+    end
+
+    if @add_point.save
+      redirect_to "/seeks/course/#{@course.id}/edit", notice: "スポットを追加しました" 
+    else
+      redirect_to "/seeks/course/#{@course.id}/edit", error: "スポットの追加に失敗しました" 
+    end
   end
 
     private

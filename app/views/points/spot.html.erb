@@ -1,0 +1,55 @@
+<%= render "partial/navbar" %>
+<main class="" id="main-collapse">
+
+  <div class="pc_1 pc_1_padding">
+    <p class="text-center" style="color:black;">追加する場所を指定しましょう</p>
+    <p class="text-center" style="color:black;">どのスポットの次に追加しますか？</p>
+  	<br>
+
+    <div class="hero-full-wrapper">
+    <div class="grid">
+      <div class="gutter-sizer"></div>
+      <div class="grid-sizer"></div>
+
+      <% @points.each.with_index(1) do |point, i| %>	
+	      <% spot = Spot.find(point.spot_id) %>
+	      <div class="grid-item">
+	        <%= form_tag("/course/#{@course.id}/point/distance", method: :get) do %>
+	          <%= hidden_field_tag :city, params[:city] %>
+	          <%= hidden_field_tag :price_min , params[:price_min] %>
+	          <%= hidden_field_tag :price_max , params[:price_max] %>
+	          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+	          <%= hidden_field_tag :distance, params[:distance] %>
+	          <%= hidden_field_tag :timezone, params[:timezone] %>
+	          <%= hidden_field_tag :small, params[:small] %>
+	          <%= hidden_field_tag :distance_spot, spot.id %>
+	          <%= button_tag :type => "submit", :class =>"button1" do %>
+	            <div class="box-category-img">
+	              <%= image_tag spot.pictures.first.image.url, :class =>'img-category' %>
+	              <div class="text-category2">
+	                <%= spot.title %>
+	              </div>
+	            </div>
+	          <% end %>
+	        <% end %>
+	      </div>
+      <% end %>
+      
+    </div>
+    </div>
+
+  </div>
+
+<div class="pc_2">
+  <%= render "partial/fotter_home" %>
+</div>
+
+<%= render "partial/footer" %>
+</main>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     masonryBuild();
+  });
+</script>
+

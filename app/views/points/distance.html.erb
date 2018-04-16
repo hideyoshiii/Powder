@@ -5,10 +5,12 @@
 	
   <div class="box90" id=''>
 	<div>
-		<h4 style="color:white;text-shadow: 1px 1px 2px black;">距離からスポットを探す</h4>			
+		<p style="color:white;text-shadow: 1px 1px 2px black;">追加するスポットを決めましょう</p>			
+    </div>
+    <div>
+        <p class="" style="color:white;text-shadow: 1px 1px 2px black;"><%= @distance_spot.title %>からの距離はどうしますか？</p>
     </div>
   	<br>
-
 
     <div>
     <%= form_tag("/course/#{@course.id}/point/category", method: :get) do %>
@@ -18,38 +20,10 @@
 	<%= hidden_field_tag :distance, params[:distance] %>
 	<%= hidden_field_tag :timezone, params[:timezone] %>
 	<%= hidden_field_tag :small, params[:small] %>
+	<%= hidden_field_tag :distance_spot, params[:distance_spot] %>
 	</div>
 
-	<div class="horizontal_scroll_spot">
-	  <ul class="scroll_lst_spot">  
-	  	<% @points.each.with_index(1) do |point, i| %>		
-	  		<% spot = Spot.find(point.spot_id) %>
-		    <li class="scroll_item_spot">
-		      <h1><span class="number_spot"><%= i %></span></h1>  
-	          <div class="radio-city1">	
-	          	<% if i == 1 %>	
-		          <%= radio_button_tag(:distance_spot, spot.id, true, {:id => "distance_spot_#{spot.id}"}) %>
-		        <% else %>
-		          <%= radio_button_tag(:distance_spot, spot.id, false, {:id => "distance_spot_#{spot.id}"}) %>
-		        <% end %>
-		        <label for="distance_spot_<%= spot.id %>">
-		          <%= image_tag spot.pictures.first.image.url, :class =>'img-scroll_spot' %>
-		          <h2>
-		            <%= spot.title %>
-		          </h2> 
-		        </label>
-		      </div>
-		    </li>
-		<% end %>
-	  </ul>
-	</div>
-
-	<br>
-	<div>
-        <h4 class="" style="color:white;text-shadow: 1px 1px 2px black;">から</h4>
-    </div>
-
-    <br><br>
+    <br><br><br>
 	  <div style="width:80%">
 	    <input id="distance" name="distance" type="range" value="<%= params[:distance].to_i %>" min="1" max="2000" step="1" class="search-detail-b"
 	      oninput="document.getElementById('output2').value=this.value">
@@ -73,6 +47,7 @@
 	      	<%= hidden_field_tag :distance, params[:distance] %>
 	      	<%= hidden_field_tag :timezone, params[:timezone] %>
 	      	<%= hidden_field_tag :small, params[:small] %>
+	      	<%= hidden_field_tag :distance_spot, params[:distance_spot] %>
 	      	<%= submit_tag "エリアを指定する", :class => "btn-stop" %>
 	    	<% end %>
     	</div>

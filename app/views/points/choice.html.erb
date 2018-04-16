@@ -162,6 +162,7 @@
         </div>
         <div class="">
           <%= form_tag("/course/#{@course.id}/point/add", method: :get) do %>
+          	<%= hidden_field_tag :distance_spot, params[:distance_spot] %>
             <%= hidden_field_tag :add_spot, spot.id %>
             <%= submit_tag "このスポットを追加する", :class => "btn btn-default inline" %>
           <% end %>
