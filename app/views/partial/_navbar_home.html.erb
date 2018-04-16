@@ -1,9 +1,15 @@
 <header class="">
   <div class="navbar navbar-default navbar-fixed-top visible-xs top_home">
+    <button type="button" class="navbar-toggle collapsed">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
     <a href="/" class="navbar-brand navbar-brand-center">A.Date<span class="site-title" style="font-size:12px;">&nbsp;Tokyo</span></a>
   </div>
 
-  <nav class="sidebar">
+  <nav class="sidebar sideber_home">
     <div class="navbar-collapse" id="navbar-collapse">
       <div class="site-header hidden-xs">
           <a class="site-brand" href="/" title="">
@@ -21,7 +27,7 @@
               <%= link_to root_path do %>
                 <i class="fas fa-home btn-menu"></i>
               <% end %>
-              <%= link_to "seeks/courses" do %>
+              <%= link_to "/seeks/courses" do %>
                 <i class="fas fa-align-justify btn-menu" aria-hidden="true"></i>
               <% end %>
               <%= link_to "/spots" do %>
@@ -41,7 +47,8 @@
         <% end %>
       <% end %>
 
-      <ul class="nav">      
+
+      <ul class="nav">  
 
         <li>
           <%= link_to manager_path do %>
@@ -72,14 +79,14 @@
               <% end %>
             </li>
           <% end %>
-        <% end %>    
-
+        <% end %>
+        
         <div class="visible-md visible-lg">
           <li>
             <br><br>
             <p style="font-size:12px;color:red;">※A.DateのデザインはまだPC,タブレット版に対応しておりません。スマートフォンでのご利用をご推奨します</p>
           </li>  
-        </div>     
+        </div>
 
       </ul>
 
