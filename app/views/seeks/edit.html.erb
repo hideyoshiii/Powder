@@ -13,7 +13,7 @@
 	    	<% if current_user.authority == "manager" %>
 			    <br>
 			    <div class="form-group">
-			        <%= text_area_tag :description, @course.description, rows: 4, placeholder: "コースの説明", class: "form-control", required: "true" %>
+			        <%= text_area_tag :description, @course.description, rows: 4, placeholder: "コースの説明", class: "form-control" %>
 			    </div>
 			    <br>
 		        <div class="form-group">
