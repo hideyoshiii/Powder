@@ -97,6 +97,14 @@
 			  </div>		  
         <% end %> 
      </ul>
+     <%= link_to("/course/#{@course.id}/point/distance", {method: "get"}) do %>
+		<div class="sss-plus-box">
+			<span class="sss-plus-in-box">
+				<%= image_tag "plus.png", :class =>'img-plus-sss' %>
+				スポットを追加
+			</span>
+		</div>
+	　<% end %>
      <br>
      <div class="text-center">
     	<%= submit_tag "編集を完了する", :class => "btn btn-primary" %>

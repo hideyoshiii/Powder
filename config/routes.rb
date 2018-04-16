@@ -36,6 +36,12 @@ Rails.application.routes.draw do
   post "seeks/sent" => "seeks#sent"
   get "seeks/complete" => "seeks#complete"
 
+  get "course/:id/point/distance" => "points#distance"
+  get "course/:id/point/area" => "points#area"
+  get "course/:id/point/category" => "points#category"
+  get "course/:id/point/choice" => "points#choice"
+  get "course/:id/point/add" => "points#add"
+
   get "seeks/timezone" => "seeks#timezone"
   get "seeks/city" => "seeks#city"
   get "seeks/price" => "seeks#price"
