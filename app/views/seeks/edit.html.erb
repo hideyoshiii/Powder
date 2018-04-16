@@ -68,7 +68,7 @@
 					</h1>
 				</div>	
 				<div class="box-edit-sort">
-			      	<i class="fas fa-align-justify"></i>
+			      	<i class="fas fa-align-justify" id="sort"></i>
 				</div>
 				<%#numberの値を動的にセット%>
 				<%= hidden_field_tag 'sorts[]', point.number %>
@@ -121,9 +121,7 @@
 
 
 <script>
-	$(function() {
-  $('#draggable').draggable();
-});
+	$('#sort').draggable();
 </script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js'></script>
