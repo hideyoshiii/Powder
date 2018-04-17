@@ -33,10 +33,10 @@ class SpotsController < ApplicationController
       @latitude = params[:latitude]
       unless params[:latitude] == "指定なし"
         if  params[:latitude] == "既"
-          @spots = @spots.where.not(latitude: nil)
+          @spots = @spots.where("latitude <> ''")
         end
         if  params[:latitude] == "未"
-          @spots = @spots.where(latitude: nil)
+          @spots = @spots.where.not("latitude <> ''")
         end
       end
     end
@@ -45,10 +45,10 @@ class SpotsController < ApplicationController
       @description = params[:description]
       unless params[:description] == "指定なし"
         if  params[:description] == "既"
-          @spots = @spots.where.not(description: nil)
+          @spots = @spots.where("description <> ''")
         end
         if  params[:description] == "未"
-          @spots = @spots.where(description: nil)
+          @spots = @spots.where.not("description <> ''")
         end
       end
     end
