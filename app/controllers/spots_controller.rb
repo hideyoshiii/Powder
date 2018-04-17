@@ -7,8 +7,54 @@ class SpotsController < ApplicationController
   end
 
   def index
-    @spots = Spot.order('id DESC').page(params[:page]).per(30)
+    @spots = Spot.all
     @q = Spot.ransack(params[:q]) 
+
+    unless params[:title].blank?  
+      @title = params[:title]
+      @spots = @spots.where("title like '%#{@title}%'")
+    end
+
+    unless params[:city].blank?  
+      @city = params[:city]
+      unless params[:city] == "指定なし"
+        @spots = @spots.where(city: @city)
+      end
+    end
+
+    unless params[:category].blank?  
+      @category = params[:category]
+      unless params[:category] == "指定なし"
+        @spots = @spots.where("large like '%#{@category}%'")
+      end
+    end
+
+    unless params[:latitude].blank?  
+      @latitude = params[:latitude]
+      unless params[:latitude] == "指定なし"
+        if  params[:latitude] == "既"
+          @spots = @spots.where.not(latitude: nil)
+        end
+        if  params[:latitude] == "未"
+          @spots = @spots.where(latitude: nil)
+        end
+      end
+    end
+
+    unless params[:description].blank?  
+      @description = params[:description]
+      unless params[:description] == "指定なし"
+        if  params[:description] == "既"
+          @spots = @spots.where.not(description: nil)
+        end
+        if  params[:description] == "未"
+          @spots = @spots.where(description: nil)
+        end
+      end
+    end
+
+    @spots = @spots.order('id DESC').page(params[:page]).per(30)
+
   end
 
   def address
