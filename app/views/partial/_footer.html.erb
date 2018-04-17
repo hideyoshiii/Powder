@@ -34,16 +34,25 @@
             <% end %>
           </div>
         </div>
-      <% end %>
-    <% else %>
-      <div class="sticky-box">
+      <% else %>
+        <div class="sticky-box">
           <div class="sticky-menu">
-            <%= link_to root_path do %>
-              <i class="far fa-heart  sticky-icon"></i>
-              <div class="sticky-title">お気に入り</div >
+            <%= link_to seeks_personal_path do %>
+              <i class="far fa-clipboard sticky-icon"></i>
+              <div class="sticky-title">パーソナル</div >
             <% end %>
           </div>
         </div>
+      <% end %>
+    <% else %>
+      <div class="sticky-box">
+        <div class="sticky-menu">
+          <%= link_to seeks_personal_path do %>
+            <i class="far fa-clipboard sticky-icon"></i>
+            <div class="sticky-title">パーソナル</div >
+          <% end %>
+        </div>
+      </div>
     <% end %>
     <div class="sticky-box">
       <div class="sticky-menu">

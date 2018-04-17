@@ -2,18 +2,10 @@
 <mains class="" id="main-collapse">
 
 <div class="pc_1">
-
-<div style="padding:20px 15px;">
-	<h3 class="text-center"><span class="what">Course</span></h3>
-</div>
-<%= render 'courses' %>
-
-<div class="text-center">
-  <%= paginate @courses %>
-</div>
-
-<br><br>
-
+	<%= render 'courses' %>
+	<div class="text-center">
+	  <%= paginate @courses %>
+	</div>
 </div>
 
   <div class="pc_2">

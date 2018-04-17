@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   get "seeks/confirm" => "seeks#confirm"
   post "seeks/sent" => "seeks#sent"
   get "seeks/complete" => "seeks#complete"
+  get "seeks/personal" => "seeks#personal"
 
   get "course/:id/point/spot" => "points#spot"
   get "course/:id/point/distance" => "points#distance"

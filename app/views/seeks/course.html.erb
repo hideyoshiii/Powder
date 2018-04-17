@@ -17,7 +17,7 @@
 	  	<% if @course.user.authority == "manager" %>
 	  		<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @course.title %></h4> 
 	  	<% else %>
-	    	<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @spot_first.city %>付近のコース</h4> 
+	    	<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @course.city %>デート</h4> 
 	    <% end %>
 	  <% end %>
       <% unless @course.description.blank? %>  

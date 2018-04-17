@@ -272,6 +272,9 @@ class SeeksController < ApplicationController
   def complete  
   end
 
+  def personal  
+  end
+
   def new
   end
 
