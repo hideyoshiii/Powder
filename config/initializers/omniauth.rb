@@ -1,1 +1,0 @@
-OmniAuth.config.full_host = "https://www.a-date.jp"
