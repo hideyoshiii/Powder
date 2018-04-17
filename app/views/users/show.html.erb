@@ -18,8 +18,8 @@
 <br>
 
 <% if (user_signed_in?) %>
-<% if current_user.authority == "manage" %>
-<div class="panel-body">
+<% if current_user.authority == "manager" %>
+<div style="padding:0 10%;margin-top:-30px;">
 
 <% want_count = Like.where(user_id: @user.id, kind: 1).count %>
 <% done_count = Like.where(user_id: @user.id, kind: 2).count %>
@@ -28,7 +28,7 @@
 <% article_count = Article.where(user_id: @user.id).count %>
 <% course_count = Course.where(user_id: @user.id).count %>
 <%# スマホ用 %>
-<div class="visible-xs visible-sm">
+<div class="">
   <div class="row">
     <div class="col-xs-6 col-sm-6">
       <%= link_to "/users/#{@user.id}/want" do %>
