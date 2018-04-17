@@ -7,7 +7,7 @@
           <% if (user_signed_in?) && current_user.id == course.user_id %>
             <%= course.title %>
           <% else %>
-            <% if @course.user.authority == "manager" %>
+            <% if course.kind == "提案" %>
               <%= course.title %>
             <% else %>
               <%= course.city %>デート
