@@ -8434,17 +8434,29 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
     position: fixed;
     bottom: 0;
     left:0;
-    background:#313131;
+    background:#1b1b1b;
     width:100%;
-    height:45px;
+    height:47px;
     text-align: center;
     box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15) inset;
     padding-top:3px;
 
 }
 
+.sticky-bar_home {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    background:rgba(0, 0, 0, 0);
+    width:100%;
+    height:47px;
+    text-align: center;
+    padding-top:3px;
+
+}
+
 .sticky-menu{
-	font-size:17px;
+	font-size:18px;
 	text-align: center;
 	margin: 0px;
 	padding: 0px;
@@ -8463,6 +8475,16 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 	color:#FAFAFA;
 }
 
+.sticky-icon_home{
+	color:#FAFAFA;
+}
+
+.sticky-title_home{
+	color:#FAFAFA;
+	font-size:9px;
+	margin-top:-8px;
+}
+
 .sticky-title{
 	color:#FAFAFA;
 	font-size:9px;
@@ -8470,7 +8492,7 @@ mains{-webkit-transition:all .2s linear;-o-transition:all .2s linear;transition:
 }
 
 .fotter-box{
-	margin-bottom: 45px;
+	margin-bottom: 47px;
 }
 
 
