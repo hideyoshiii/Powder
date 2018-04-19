@@ -15,14 +15,44 @@
           <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-imgbox-eye' %>
           <h1>
             <% if (user_signed_in?) && current_user.id == @course.user_id %>
+            <div style="margin-bottom:10px;">
+              <span>
+                <%= image_tag @course.user.image, :class => "img-circle img_user_course" %>
+              </span>
+              <span style="text-shadow:none;font-size:14px;">
+                <%= @course.user.nickname %>(あなたのプランです)
+              </span>
+            </div>
+            <div>
               <%= @course.title %>
-            <% else %>
-              <% if @course.user.authority == "manager" %>
+            </div>
+          <% else %>
+            <% if @course.kind == "提案" %>
+              <div style="margin-bottom:10px;">
+                <span>
+                  <%= image_tag @course.user.image, :class => "img-circle img_user_course" %>
+                </span>
+                <span style="text-shadow:none;font-size:14px;margin-top:5px;">
+                  <%= @course.user.nickname %>
+                </span>
+              </div>
+              <div>
                 <%= @course.title %>
-              <% else %>
+              </div>
+            <% else %>
+              <div style="margin-bottom:10px;">
+                <span>
+                  <%= image_tag "avatar-default.png", :class => "img-circle img_user_course" %>
+                </span>
+                <span style="text-shadow:none;font-size:14px;">
+                  ユーザー
+                </span>
+              </div>
+              <div>
                 <%= @course.city %>デート
-              <% end %>
+              </div>
             <% end %>
+          <% end %> 
           </h1>
       </div>
       <%# description %>
