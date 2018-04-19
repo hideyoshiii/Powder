@@ -299,7 +299,7 @@ class SeeksController < ApplicationController
 
 
   def home
-    @courses = Course.where(kind: "提案").order('id DESC').limit(5)
+    @courses = Course.where(kind: "提案").order('id DESC').page(params[:page]).per(30)   
   end
 
   def about
@@ -537,7 +537,7 @@ class SeeksController < ApplicationController
     @course.update(title: params[:title], description: params[:description], city: params[:city], time_start: params[:time_start], time_end: params[:time_end])
 
     unless params[:kind].blank?
-      @course.update(title: params[:kind])
+      @course.update(kind: params[:kind])
     end
 
 

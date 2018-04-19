@@ -6072,6 +6072,13 @@ h1 span.number {
 	border: 1px solid black;
 }
 
+.profile-line-min{
+	width: 70px;
+	height: 70px;
+	margin:30px 0px 0px ;
+	border: 1px solid black;
+}
+
 
 .modal-top-line{
 	margin-top:30vh;
@@ -8107,7 +8114,7 @@ square_btnn{
 }
 
 @media (min-width:768px){
-	.box99 {
+	.box-max {
 	  width: 100%;
 	  height: 100vh;
 	  min-height: 100vh;
@@ -8135,6 +8142,78 @@ square_btnn{
 	  box-sizing: border-box;
 	}
 }
+
+
+
+
+
+.img_about_home {
+  width: 100%;
+  height: 55vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) , url(home91.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding-top: 0px;
+  margin-top:0px; 
+  box-sizing: border-box;
+
+  border-bottom:1px solid #FAFAFA;
+}
+
+.img_about_home h4 {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color:white;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

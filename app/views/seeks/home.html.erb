@@ -2,23 +2,23 @@
 <mains class="" id="main-collapse">
 
   <div class="pc_1">
-  	<div class="box99" id='top'> 
-  		<div style="margin-top:100px;">
-  			<h4 class="text-center box-top1" style="font-size:22px;">
-          Coolなデートコースを10秒で
-        </h4>
-  			<p class="text-center">デートコースがなかなか決まらないあなたへ</p>
-  			<p class="text-center"><span class="site-title" style="letter-spacing:0em;">A.Date</span>は10秒でデートコースがつくれるサービスです</p>
-  		</div>
-      <div style="height:30px;"></div>
-      <div class="home-box">
+  	<div class="img_about_home">
+      <h1 style="font-size:21px;color:white;margin-bottom:5px;">
+        Coolなデートコースを10秒で
+      </h1>
+      <p class="text-center" style="font-size:12px;color:white;">
+        デートコースがなかなか決まらないあなたへ
+        <br>
+        <span class="site-title">A.Date</span>は10秒でデートコースがつくれるサービスです
+      </p>
+      <div style="height:0px;"></div>
+      <div class="">
         <%= link_to seeks_city_path do %>
           <div class="raised-trans">
             10秒でデートコースをつくる
           </div>
         <% end %>
       </div>
-      <div style="height:5px;"></div>
       <% if (user_signed_in?) %>
         <% if current_user.authority == "manager" %>
           <%= link_to seeks_area_path do %>     
@@ -26,6 +26,20 @@
           <% end %>
         <% end %>
       <% end %>
+      <div style="height:30px;"></div>
+      <h4 class="text-center" style="font-size:14px;">
+        <span class="what-white"><span class="site-title">A.Date</span>オススメデートコース</span>
+        <div style="margin-top:7px;">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </h4>
+    </div>
+    
+    <div>
+      <%= render 'courses' %>
+      <div class="text-center">
+        <%= paginate @courses %>
+      </div>
     </div>
   </div>
 
