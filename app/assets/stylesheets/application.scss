@@ -8180,6 +8180,12 @@ square_btnn{
   border-bottom:1px solid #FAFAFA;
 }
 
+@media only screen and (min-width: 	991px) {
+	.img_about_home{
+		height: 100vh;
+	}
+}
+
 .img_about_home h4 {
   position: absolute;
   top: 90%;
