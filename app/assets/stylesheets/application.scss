@@ -8149,7 +8149,7 @@ square_btnn{
 
 .img_about_home {
   width: 100%;
-  height: 55vh;
+  height: 60vh;
 
   position: relative;
 
@@ -8192,7 +8192,50 @@ square_btnn{
   color:white;
   }
 
+//コースのアイキャッチ
+.imgbox-eye {
+  	position: relative;
+  	width:100%;
+    height:20vh;
+    overflow:hidden;
+    border-bottom:1px solid #FAFAFA;
+  }
 
+.imgbox-eye:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.imgbox-eye h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 100%;
+  margin:0;
+  padding:10px;
+  color:white;
+  font-size:16px;
+  line-height:1.2;
+  font-weight: 300;
+  font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  text-shadow: black 1px 1px 5px, black 2px 1px 5px;
+  text-align:center;
+  }
+
+
+  .img-imgbox-eye{
+	width:100%;
+	height:auto;
+	margin-top:-20%;
+}
 
 
 
@@ -8349,7 +8392,7 @@ square_btnn{
 		vertical-align:top;
 		width:78%;
 		height: auto;
-		margin-top:-40px;
+		margin-top:-50px;
 		padding:0;
 		border-top:1px solid #CCCCCC;
 		border-bottom:1px solid #CCCCCC;

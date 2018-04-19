@@ -9,19 +9,26 @@
 <% else %>
   <div class="course">
     <div class="course_in">
-
-      <%# 目次 %>
-      <% if (user_signed_in?) && current_user.id == @course.user_id %>
-	   	<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @course.title %></h4> 
-	  <% else %>
-	  	<% if @course.user.authority == "manager" %>
-	  		<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @course.title %></h4> 
-	  	<% else %>
-	    	<h4 class="text-center" style="margin:30px 10px 5px;font-size:16px;"><%= @course.city %>デート</h4> 
-	    <% end %>
-	  <% end %>
+      <%# アイキャッチタイトル %>
+      <% @point = Point.where(course_id: @course.id).order(number: "ASC").first %>
+      <div class="imgbox-eye">  
+          <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-imgbox-eye' %>
+          <h1>
+            <% if (user_signed_in?) && current_user.id == @course.user_id %>
+              <%= @course.title %>
+            <% else %>
+              <% if @course.user.authority == "manager" %>
+                <%= @course.title %>
+              <% else %>
+                <%= @course.city %>デート
+              <% end %>
+            <% end %>
+          </h1>
+      </div>
+      <%# description %>
       <% unless @course.description.blank? %>  
-      	<p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;"><%= @course.description %></p> 
+        <h4 class="text-center" style="margin:30px 0px 0px;">Description</h4>       
+      	<p class="text-center" style="font-size:12px;padding:20px 20px 0px;margin-bottom:-5px;color:black;"><%= @course.description %></p> 
       <% end %>       
       <%# コースの諸情報 %>
       <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
@@ -102,6 +109,11 @@
                 </h1> 
             </div>
           </a>
+          <% unless spot.description.blank? %>
+            <p class="text-center" style="font-size:12px;padding:5px 5px 0px;margin:0;">
+            <%= spot.description %>
+            </p>
+          <% end %>
           <!-- モーダルウィンドウの中身 -->
           <div class="modal" id="myModal<%= i %>">
             <div class="modal-dialog">
