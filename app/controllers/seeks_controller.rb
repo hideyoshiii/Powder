@@ -400,7 +400,23 @@ class SeeksController < ApplicationController
   end
 
   def courses
-    @courses = Course.where(kind: "ユーザー").order('id DESC').page(params[:page]).per(30)   
+    @courses = Course.all 
+
+    unless params[:city].blank?  
+      @city = params[:city]
+      unless params[:city] == "指定なし"
+        @courses = @courses.where(city: @city)
+      end
+    end
+
+    unless params[:timezone].blank?  
+      @timezone = params[:timezone]
+      unless params[:timezone] == "指定なし"
+        @courses = @courses.where(time_start: @timezone)
+      end
+    end
+
+    @courses = @courses.where(kind: "ユーザー").order('id DESC').page(params[:page]).per(30)   
   end
 
   def course 

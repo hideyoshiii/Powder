@@ -6680,6 +6680,23 @@ square_btnn{
   line-height:1.2;
 }
 
+.text-category3{
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  color:white;
+  font-size:15px;
+  width:100%;
+  text-shadow:
+    black 1px 1px 1px,black 1px 1px 1px;
+  line-height:1.2;
+}
+
 
 .number-category{
 	text-align: center;
