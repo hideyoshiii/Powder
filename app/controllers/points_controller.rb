@@ -25,10 +25,11 @@ class PointsController < ApplicationController
 
     def destroy
         @point = Point.find(params[:id])
+        @course =  Course.find(@point.course_id)
         if @point.destroy
-            redirect_to "/seeks/course/#{@point.course.id}/edit" , notice: "スポットを削除しました" 
+          redirect_to "/seeks/course/#{@point.course.id}/edit" , notice: "スポットを削除しました" 
         else
-            redirect_to "/seeks/course/#{@point.course.id}/edit" , error: "スポットの削除に失敗しました" 
+          redirect_to "/seeks/course/#{@point.course.id}/edit" , error: "スポットの削除に失敗しました" 
         end
   	end
 
@@ -272,7 +273,16 @@ class PointsController < ApplicationController
   end
 
   def add
-    unless params[:distance_spot].blank?
+    if params[:distance_spot].blank?
+      if @points.size == 0
+        @add_number = 1
+      else
+        @distance_point = Point.where(course_id: @course.id).order(number: "ASC").last
+        @add_number = @distance_point.number + 1
+      end
+      @add_spot = Spot.find(params[:add_spot])
+      @add_point = Point.new(spot_id: @add_spot.id, course_id: @course.id, number: @add_number)
+    else
       @distance_spot = Spot.find(params[:distance_spot])
       @distance_point = Point.find_by(spot_id: @distance_spot.id, course_id: @course.id)
       @points.each.with_index(1) do |point, i|

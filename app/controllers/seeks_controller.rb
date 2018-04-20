@@ -408,47 +408,50 @@ class SeeksController < ApplicationController
     @points = Point.where(course_id: @course.id).order(number: "ASC")
 
     @ss =[]
-    @points.each.with_index(1) do |point, i|
-      @ss.push(point.spot_id)
-    end
-
-    params[:ss] = @ss
-
-    @ss_first = @ss.first
-    @ss_last = @ss.last
-    @spot_first = Spot.find(@ss_first)
-    @spot_last = Spot.find(@ss_last)
-
-    @total_min = 0
-    @total_max = 0
-
-    @ss.each.with_index(1) do |s, i|
-      spot = Spot.find(s)
-
-      if spot.price_lunch.blank? || spot.price_lunch == 0
-        if spot.price_dinner.blank? || spot.price_lunch == 0
-          @price_1 = 0
-          @price_2 = 0
-        else
-          @price_1 = spot.price_dinner
-          @price_2 = spot.price_dinner
-        end
-
-      else
-        if spot.price_dinner.blank? || spot.price_lunch == 0
-          @price_1 = spot.price_lunch
-          @price_2 = spot.price_lunch
-        else
-          @price_1 = spot.price_lunch
-          @price_2 = spot.price_dinner
-        end
+    unless @points.size == 0
+      @points.each.with_index(1) do |point, i|
+        @ss.push(point.spot_id)
       end
 
-      unless @price_1.blank?
-        unless  @price_2.blank?
-          @total_min = @total_min + @price_1
-          @total_max = @total_max + @price_2
+      params[:ss] = @ss
+
+      @ss_first = @ss.first
+      @ss_last = @ss.last
+      @spot_first = Spot.find(@ss_first)
+      @spot_last = Spot.find(@ss_last)
+
+      @total_min = 0
+      @total_max = 0
+
+      @ss.each.with_index(1) do |s, i|
+        spot = Spot.find(s)
+
+        if spot.price_lunch.blank? || spot.price_lunch == 0
+          if spot.price_dinner.blank? || spot.price_lunch == 0
+            @price_1 = 0
+            @price_2 = 0
+          else
+            @price_1 = spot.price_dinner
+            @price_2 = spot.price_dinner
+          end
+
+        else
+          if spot.price_dinner.blank? || spot.price_lunch == 0
+            @price_1 = spot.price_lunch
+            @price_2 = spot.price_lunch
+          else
+            @price_1 = spot.price_lunch
+            @price_2 = spot.price_dinner
+          end
         end
+
+        unless @price_1.blank?
+          unless  @price_2.blank?
+            @total_min = @total_min + @price_1
+            @total_max = @total_max + @price_2
+          end
+        end
+
       end
 
     end

@@ -97,14 +97,27 @@
 			  </div>		  
         <% end %> 
      </ul>
-     <%= link_to("/course/#{@course.id}/point/spot", {method: "get"}) do %>
-		<div class="sss-plus-box">
-			<span class="sss-plus-in-box">
-				<%= image_tag "plus.png", :class =>'img-plus-sss' %>
-				スポットを追加
-			</span>
-		</div>
-	　<% end %>
+     <% if @course.points.size == 0 %>
+     	<%#スポットが１つもない時%>
+        <%= link_to("/course/#{@course.id}/point/area", {method: "get"}) do %>
+			<div class="sss-plus-box">
+				<span class="sss-plus-in-box">
+					<%= image_tag "plus.png", :class =>'img-plus-sss' %>
+					スポットを追加
+				</span>
+			</div>
+		　<% end %>
+     <% else %>
+     	<%#スポットが１つ以上ある時%>
+        <%= link_to("/course/#{@course.id}/point/spot", {method: "get"}) do %>
+			<div class="sss-plus-box">
+				<span class="sss-plus-in-box">
+					<%= image_tag "plus.png", :class =>'img-plus-sss' %>
+					スポットを追加
+				</span>
+			</div>
+		　<% end %>
+     <% end %>
      <br>
      <div class="text-center">
     	<%= submit_tag "編集を完了する", :class => "btn btn-primary" %>

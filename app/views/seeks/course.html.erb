@@ -5,7 +5,40 @@
 <div class="pc_1">
 
 <% if @ss.blank? %>
-  該当するデートコースはありません
+  <div class="course">
+    <div class="course_in">
+      <h4 class="text-center" style="margin-top:50px;">スポットがありません</h4>
+      <p class="text-center">スポットを追加してください</p>
+      <div class="visible-xs visible-sm">
+        <%#編集ボタン%>
+        <div style="padding:30px 0px 50px;text-align:center;">
+          <% if (user_signed_in?) && current_user.id == @course.user_id %>
+            <%= link_to "/seeks/course/#{@course.id}/edit" do %>
+              <div class="text-center btn btn-primary">
+                コースを編集する
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="visible-xs visible-sm">
+    <%#いいねボタン%>
+    <div class="btn-details_2">
+     <a href="" id="btn-like-off">
+      <i class="far fa-heart"></i>
+     </a>
+    </div>
+    <%#編集モーダルボタン%>
+    <% if (user_signed_in?) && current_user.id == @course.user_id %>
+      <div class="btn-details_3">
+       <%= link_to "/seeks/course/#{@course.id}/edit", :id => 'btn-edit' do %>
+        <i class="far fa-edit"></i>
+       <% end %>
+      </div>
+    <% end %>
+  </div>
+  </div>
 <% else %>
   <div class="course">
     <div class="course_in">
@@ -345,6 +378,95 @@
     </div>
   </div>
 
+  <%# googlemapのJS %>
+  <script>
+  function initMap() {
+      // ルート検索の条件
+      var request = {
+          origin: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // 出発地
+          destination: new google.maps.LatLng(<%= @spot_last.latitude %>,<%= @spot_last.longitude %>), // 目的地
+          waypoints: [ // 経由地点(指定なしでも可)
+              <% @ss.each.with_index(1) do |s, i| %>
+                <% spot = Spot.find(s) %>
+                <% if i == 1 || i == @ss.size %> 
+                <% else %>
+                  { location: new google.maps.LatLng(<%= spot.latitude %>,<%= spot.longitude %>) },
+                <% end %>
+              <% end %>
+          ],
+          travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
+      };
+
+      // マップの生成
+      var map = new google.maps.Map(document.getElementById("map"), {
+          <%# $$$出発地と同じ緯度経度を記入 %>
+          gestureHandling: 'greedy',
+          center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
+          zoom: 14 // ズームレベル
+      });
+
+      var map_10_pc = new google.maps.Map(document.getElementById("map_10_pc"), {
+          <%# $$$出発地と同じ緯度経度を記入 %>
+          gestureHandling: 'greedy',
+          center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
+          zoom: 14 // ズームレベル
+      });
+
+      var map_10_sp = new google.maps.Map(document.getElementById("map_10_sp"), {
+          <%# $$$出発地と同じ緯度経度を記入 %>
+          gestureHandling: 'greedy',
+          center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
+          zoom: 14 // ズームレベル
+      });
+
+      var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
+      var r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+          map: map, // 描画先の地図
+          preserveViewport: true, // 描画後に中心点をずらさない
+      });
+      // ルート検索
+      d.route(request, function(result, status){
+          // OKの場合ルート描画
+          if (status == google.maps.DirectionsStatus.OK) {
+              r.setDirections(result);
+          }
+      });
+
+      var e = new google.maps.DirectionsService(); // ルート検索オブジェクト
+      var s = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+          map: map_10_pc, // 描画先の地図
+          preserveViewport: true, // 描画後に中心点をずらさない
+      });
+      // ルート検索
+      e.route(request, function(result, status){
+          // OKの場合ルート描画
+          if (status == google.maps.DirectionsStatus.OK) {
+              s.setDirections(result);
+          }
+      });
+
+      var f = new google.maps.DirectionsService(); // ルート検索オブジェクト
+      var t = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+          map: map_10_sp, // 描画先の地図
+          preserveViewport: true, // 描画後に中心点をずらさない
+      });
+      // ルート検索
+      f.route(request, function(result, status){
+          // OKの場合ルート描画
+          if (status == google.maps.DirectionsStatus.OK) {
+              t.setDirections(result);
+          }
+      });
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
+
+<%#ツイートのJS%>
+<script>
+  var url = 'http://twitter.com/share?url=' + encodeURIComponent('<%= @url %>') + '&text=A.Date%0a10秒でデートコースをつくってみた%0a';
+  $('#tw a').attr({"href":url}); // aタグのhrefに設定
+</script>
+
 <% end %>
 
 </div>
@@ -357,95 +479,6 @@
 
 <%= render "partial/footer" %>
 </mains>
-
-<%# googlemapのJS %>
-<script>
-function initMap() {
-    // ルート検索の条件
-    var request = {
-        origin: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // 出発地
-        destination: new google.maps.LatLng(<%= @spot_last.latitude %>,<%= @spot_last.longitude %>), // 目的地
-        waypoints: [ // 経由地点(指定なしでも可)
-            <% @ss.each.with_index(1) do |s, i| %>
-              <% spot = Spot.find(s) %>
-              <% if i == 1 || i == @ss.size %> 
-              <% else %>
-                { location: new google.maps.LatLng(<%= spot.latitude %>,<%= spot.longitude %>) },
-              <% end %>
-            <% end %>
-        ],
-        travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
-    };
-
-    // マップの生成
-    var map = new google.maps.Map(document.getElementById("map"), {
-        <%# $$$出発地と同じ緯度経度を記入 %>
-        gestureHandling: 'greedy',
-        center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
-        zoom: 14 // ズームレベル
-    });
-
-    var map_10_pc = new google.maps.Map(document.getElementById("map_10_pc"), {
-        <%# $$$出発地と同じ緯度経度を記入 %>
-        gestureHandling: 'greedy',
-        center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
-        zoom: 14 // ズームレベル
-    });
-
-    var map_10_sp = new google.maps.Map(document.getElementById("map_10_sp"), {
-        <%# $$$出発地と同じ緯度経度を記入 %>
-        gestureHandling: 'greedy',
-        center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
-        zoom: 14 // ズームレベル
-    });
-
-    var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
-    var r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
-        map: map, // 描画先の地図
-        preserveViewport: true, // 描画後に中心点をずらさない
-    });
-    // ルート検索
-    d.route(request, function(result, status){
-        // OKの場合ルート描画
-        if (status == google.maps.DirectionsStatus.OK) {
-            r.setDirections(result);
-        }
-    });
-
-    var e = new google.maps.DirectionsService(); // ルート検索オブジェクト
-    var s = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
-        map: map_10_pc, // 描画先の地図
-        preserveViewport: true, // 描画後に中心点をずらさない
-    });
-    // ルート検索
-    e.route(request, function(result, status){
-        // OKの場合ルート描画
-        if (status == google.maps.DirectionsStatus.OK) {
-            s.setDirections(result);
-        }
-    });
-
-    var f = new google.maps.DirectionsService(); // ルート検索オブジェクト
-    var t = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
-        map: map_10_sp, // 描画先の地図
-        preserveViewport: true, // 描画後に中心点をずらさない
-    });
-    // ルート検索
-    f.route(request, function(result, status){
-        // OKの場合ルート描画
-        if (status == google.maps.DirectionsStatus.OK) {
-            t.setDirections(result);
-        }
-    });
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
-
-<%#ツイートのJS%>
-<script>
-  var url = 'http://twitter.com/share?url=' + encodeURIComponent('<%= @url %>') + '&text=A.Date%0a10秒でデートコースをつくってみた%0a';
-  $('#tw a').attr({"href":url}); // aタグのhrefに設定
-</script>
 
 
 

@@ -1,63 +1,65 @@
 <% @courses.each.with_index(1) do |course, i| %>
-  <% @point = Point.where(course_id: course.id).order(number: "ASC").first %>
-  <%= link_to "/seeks/course/#{course.id}" do %>
-    <div class="radio-city-b smoke">  
-        <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-course-result' %>
-        <h4>
-          <% if (user_signed_in?) && current_user.id == course.user_id %>
-            <div style="margin-bottom:10px;">
-              <span>
-                <%= image_tag course.user.image, :class => "img-circle img_user_course" %>
-              </span>
-              <span style="text-shadow:none;font-size:14px;">
-                <%= course.user.nickname %>(あなたのプランです)
-              </span>
-            </div>
-            <div>
-              <%= course.title %>
-            </div>
-            <div style="font-size:12px;color:#CCCCCC;margin-top:5px;">
-              <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
-            </div>
-          <% else %>
-            <% if course.kind == "提案" %>
+  <% unless course.points.size == 0 %>
+    <% @point = Point.where(course_id: course.id).order(number: "ASC").first %>
+    <%= link_to "/seeks/course/#{course.id}" do %>
+      <div class="radio-city-b smoke">  
+          <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-course-result' %>
+          <h4>
+            <% if (user_signed_in?) && current_user.id == course.user_id %>
               <div style="margin-bottom:10px;">
                 <span>
                   <%= image_tag course.user.image, :class => "img-circle img_user_course" %>
                 </span>
-                <span style="text-shadow:none;font-size:14px;margin-top:5px;">
-                  <%= course.user.nickname %>
+                <span style="text-shadow:none;font-size:14px;">
+                  <%= course.user.nickname %>(あなたのプランです)
                 </span>
               </div>
               <div>
                 <%= course.title %>
               </div>
-              <div style="font-size:12px;color:#FAFAFA;">
+              <div style="font-size:12px;color:#CCCCCC;margin-top:5px;">
                 <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
               </div>
             <% else %>
-              <div style="margin-bottom:10px;">
-                <span>
-                  <%= image_tag "avatar-default.png", :class => "img-circle img_user_course" %>
-                </span>
-                <span style="text-shadow:none;font-size:14px;">
-                  ユーザー
-                </span>
-              </div>
-              <div>
-                <%= course.city %>デート
-              </div>
-              <div style="font-size:12px;color:#FAFAFA;margin-top:5px;">
-                <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
-              </div>
-            <% end %>
-          <% end %>   
-        </h4>
-        <h2>
-          <a href="" id="btn-like-off-min">
-            <i class="fas fa-heart"></i>&nbsp;<span style="font-size:14px;">0</span>
-           </a>
-        </h2>
-    </div>
+              <% if course.kind == "提案" %>
+                <div style="margin-bottom:10px;">
+                  <span>
+                    <%= image_tag course.user.image, :class => "img-circle img_user_course" %>
+                  </span>
+                  <span style="text-shadow:none;font-size:14px;margin-top:5px;">
+                    <%= course.user.nickname %>
+                  </span>
+                </div>
+                <div>
+                  <%= course.title %>
+                </div>
+                <div style="font-size:12px;color:#FAFAFA;">
+                  <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
+                </div>
+              <% else %>
+                <div style="margin-bottom:10px;">
+                  <span>
+                    <%= image_tag "avatar-default.png", :class => "img-circle img_user_course" %>
+                  </span>
+                  <span style="text-shadow:none;font-size:14px;">
+                    ユーザー
+                  </span>
+                </div>
+                <div>
+                  <%= course.city %>デート
+                </div>
+                <div style="font-size:12px;color:#FAFAFA;margin-top:5px;">
+                  <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
+                </div>
+              <% end %>
+            <% end %>   
+          </h4>
+          <h2>
+            <div id="btn-like-off-min">
+              <i class="fas fa-heart"></i>&nbsp;<span style="font-size:14px;">0</span>
+            </div>
+          </h2>
+      </div>
+    <% end %>
   <% end %>
 <% end %>
