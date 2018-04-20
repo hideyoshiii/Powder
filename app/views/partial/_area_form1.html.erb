@@ -1,0 +1,423 @@
+<div class="form-group">
+<label>prefecture</label>
+	<div class="select-box01">
+		<select class="prefecture"  id="spot_prefecture" name="spot[prefecture]" required="required">
+
+		  <% if @spot.prefecture.blank? %>
+		  	<option value="" selected="selected">指定なし</option>
+		  <% else %>
+		  	<option value="<%= @spot.prefecture %>" selected="selected"><%= @spot.prefecture %></option>
+		  <% end %>
+
+		  <option value="東京">東京</option>
+
+		  <option value="北海道">北海道</option>
+		  <option value="青森">青森</option>
+		  <option value="岩手">岩手</option>
+		  <option value="宮城">宮城</option>
+		  <option value="秋田">秋田</option>
+		  <option value="山形">山形</option>
+		  <option value="福島">福島</option>
+
+		  <option value="富山">富山</option>
+		  <option value="石川">石川</option>
+		  <option value="福井">福井</option>
+
+		  <option value="新潟">新潟</option>
+		  <option value="山梨">山梨</option>
+		  <option value="長野">長野</option>
+
+		  <option value="茨城">茨城</option>
+		  <option value="栃木">栃木</option>
+		  <option value="群馬">群馬</option>
+		  <option value="埼玉">埼玉</option>
+		  
+		  <option value="神奈川">神奈川</option>
+
+		  <option value="岐阜">岐阜</option>
+		  <option value="静岡">静岡</option>
+		  <option value="愛知">愛知</option>
+		  <option value="三重">三重</option>
+
+		  <option value="滋賀">滋賀</option>
+		  <option value="京都">京都</option>
+		  <option value="大阪">大阪</option>
+		  <option value="兵庫">兵庫</option>
+		  <option value="奈良">奈良</option>
+		  <option value="和歌山">和歌山</option>
+
+		  <option value="島根">島根</option>
+		  <option value="鳥取">鳥取</option>
+		  <option value="岡山">岡山</option>
+		  <option value="広島">広島</option>
+		  <option value="山口">山口</option>
+
+		  <option value="徳島">徳島</option>
+		  <option value="香川">香川</option>
+		  <option value="愛媛">愛媛</option>
+		  <option value="高知">高知</option>
+
+		  <option value="福岡">福岡</option>
+		  <option value="佐賀">佐賀</option>
+		  <option value="長崎">長崎</option>
+		  <option value="熊本">熊本</option>
+		  <option value="大分">大分</option>
+		  <option value="宮崎">宮崎</option>
+		  <option value="鹿児島">鹿児島</option>
+		  <option value="沖縄">沖縄</option>
+		</select>
+	</div>
+</div>
+
+<br>
+
+<div class="form-group">
+	<label>City</label>
+	<div class="select-box01">
+		<select class="city" id="spot_city" name="spot[city]" disabled required="required">
+
+		  <% if @spot.city.blank? %>
+		  	<option value="" selected="selected">指定なし</option>
+		  <% else %>
+		  	<option value="<%= @spot.city %>" selected="selected"><%= @spot.city %></option>
+		  <% end %>
+
+		  <option value="旭川・富良野・美瑛" data-val="北海道">旭川・富良野・美瑛</option>
+		  <option value="釧路・根室" data-val="北海道">釧路・根室</option>
+		  <option value="札幌" data-val="北海道">札幌</option>
+		  <option value="小樽・ニセコ・洞爺湖" data-val="北海道">小樽・ニセコ・洞爺湖</option>
+		  <option value="夕張・石狩・石見沢" data-val="北海道">夕張・石狩・石見沢</option>
+		  <option value="苫小牧・千歳・登別" data-val="北海道">苫小牧・千歳・登別</option>
+		  <option value="道南" data-val="北海道">道南</option>
+		  <option value="北見・網走・紋別" data-val="北海道">北見・網走・紋別</option>
+		  <option value="帯広・十勝" data-val="北海道">帯広・十勝</option>
+
+		  <option value="弘前・中津軽・南津軽" data-val="青森">弘前・中津軽・南津軽</option>
+		  <option value="上北・下北" data-val="青森">上北・下北</option>
+		  <option value="青森・東津軽" data-val="青森">青森・東津軽</option>
+		  <option value="八戸・三沢・十和田" data-val="青森">八戸・三沢・十和田</option>
+
+		  <option value="奥州・一関" data-val="岩手">奥州・一関</option>
+		  <option value="釜石・大船渡" data-val="岩手">釜石・大船渡</option>
+		  <option value="久慈・二戸" data-val="岩手">久慈・二戸</option>
+		  <option value="宮古・岩泉" data-val="岩手">宮古・岩泉</option>
+		  <option value="盛岡・八幡平・雫石" data-val="岩手">盛岡・八幡平・雫石</option>
+		  <option value="花巻・北上・遠野" data-val="岩手">花巻・北上・遠野</option>
+
+		  <option value="松島・塩窯" data-val="宮城">松島・塩窯</option>
+		  <option value="石巻・気仙沼" data-val="宮城">石巻・気仙沼</option>
+		  <option value="蔵王・白石・角田" data-val="宮城">蔵王・白石・角田</option>
+		  <option value="大崎・登米" data-val="宮城">大崎・登米</option>
+		  <option value="名取・岩沼" data-val="宮城">名取・岩沼</option>
+		  <option value="仙台市" data-val="宮城">仙台市</option>
+
+		  <option value="秋田・潟上・男鹿" data-val="秋田">秋田・潟上・男鹿</option>
+		  <option value="仙北・大仙" data-val="秋田">仙北・大仙</option>
+		  <option value="能代・大館・鹿角" data-val="秋田">能代・大館・鹿角</option>
+		  <option value="横手・湯沢" data-val="秋田">横手・湯沢</option>
+
+		  <option value="山形・天童・寒河江・尾花沢" data-val="山形">山形・天童・寒河江・尾花沢</option>
+		  <option value="庄内" data-val="山形">庄内</option>
+		  <option value="米沢・南陽・長井" data-val="山形">米沢・南陽・長井</option>
+		  <option value="新庄・最上" data-val="山形">新庄・最上</option>
+
+		  <option value="会津" data-val="福島">会津</option>
+		  <option value="中通り" data-val="福島">中通り</option>
+		  <option value="浜通り" data-val="福島">浜通り</option>
+
+		  <option value="魚津・黒部・滑川" data-val="富山">魚津・黒部・滑川</option>
+		  <option value="高岡・射水・氷見" data-val="富山">高岡・射水・氷見</option>
+		  <option value="砺波・南砺" data-val="富山">砺波・南砺</option>
+
+		  <option value="金沢・野々市・内灘" data-val="石川">金沢・野々市・内灘</option>
+		  <option value="七尾・かほく・輪島" data-val="石川">七尾・かほく・輪島</option>
+		  <option value="小松・白山・加賀" data-val="石川">小松・白山・加賀</option>
+
+		  <option value="坂井・あわら市" data-val="福井">坂井・あわら市</option>
+		  <option value="鯖江・武生・越前海岸" data-val="福井">鯖江・武生・越前海岸</option>
+		  <option value="勝山・大野・和泉" data-val="福井">勝山・大野・和泉</option>
+		  <option value="小浜・高浜・あおい町" data-val="福井">小浜・高浜・あおい町</option>
+		  <option value="敦賀・美浜・若狭" data-val="福井">敦賀・美浜・若狭</option>
+		  <option value="福井・永平寺・美山" data-val="福井">福井・永平寺・美山</option>
+
+		  <option value="新潟市" data-val="新潟">新潟市</option>
+		  <option value="新発田・胎内" data-val="新潟">新発田・胎内</option>
+		  <option value="湯沢・十日町" data-val="新潟">湯沢・十日町</option>
+		  <option value="長岡・柏崎" data-val="新潟">長岡・柏崎</option>
+		  <option value="上越・糸魚川・妙高" data-val="新潟">上越・糸魚川・妙高</option>
+
+		  <option value="甲府・甲斐" data-val="山梨">甲府・甲斐</option>
+		  <option value="山梨・甲州・笛吹" data-val="山梨">山梨・甲州・笛吹</option>
+		  <option value="大月・上野原" data-val="山梨">大月・上野原</option>
+		  <option value="南アルプス・中央市" data-val="山梨">南アルプス・中央市</option>
+		  <option value="南巨摩" data-val="山梨">南巨摩</option>
+		  <option value="富士河口湖・富士吉田" data-val="山梨">富士河口湖・富士吉田</option>
+		  <option value="北杜・韮崎" data-val="山梨">北杜・韮崎</option>
+
+		  <option value="松本・中信" data-val="長野">松本・中信</option>
+		  <option value="上田・東信" data-val="長野">上田・東信</option>
+		  <option value="諏訪・南信" data-val="長野">諏訪・南信</option>
+		  <option value="長野・北信" data-val="長野">長野・北信</option>
+
+		  <option value="鹿島・行方・鹿行地域" data-val="茨城">鹿島・行方・鹿行地域</option>
+		  <option value="水戸・ひたちなか・県央地域" data-val="茨城">水戸・ひたちなか・県央地域</option>
+		  <option value="筑西・下妻・県西地域" data-val="茨城">筑西・下妻・県西地域</option>
+		  <option value="土浦・つくば・県南地域" data-val="茨城">土浦・つくば・県南地域</option>
+		  <option value="日立・常陸大宮・県北地域" data-val="茨城">日立・常陸大宮・県北地域</option>
+
+		  <option value="宇都宮・鹿沼・下野" data-val="栃木">宇都宮・鹿沼・下野</option>
+		  <option value="太田原・那須塩原" data-val="栃木">太田原・那須塩原</option>
+		  <option value="栃木・小山・佐野・足利" data-val="栃木">栃木・小山・佐野・足利</option>
+		  <option value="那珂川・真岡・益子" data-val="栃木">那珂川・真岡・益子</option>
+		  <option value="日光" data-val="栃木">日光</option>
+		  <option value="矢板・さくら・塩谷" data-val="栃木">矢板・さくら・塩谷</option>
+
+		  <option value="伊勢崎・太田・館林・桐生" data-val="群馬">伊勢崎・太田・館林・桐生</option>
+		  <option value="高崎・前橋" data-val="群馬">高崎・前橋</option>
+		  <option value="沼田・みなかみ" data-val="群馬">沼田・みなかみ</option>
+		  <option value="草津・渋川・中之条" data-val="群馬">草津・渋川・中之条</option>
+		  <option value="藤岡・富岡・安中" data-val="群馬">藤岡・富岡・安中</option>
+
+		  <option value="熊谷・深谷・本庄・行田" data-val="埼玉">熊谷・深谷・本庄・行田</option>
+		  <option value="春日部・越谷・草加" data-val="埼玉">春日部・越谷・草加</option>
+		  <option value="上尾・久嬉・鴻巣" data-val="埼玉">上尾・久嬉・鴻巣</option>
+		  <option value="川越・ふじみ野・東松山" data-val="埼玉">川越・ふじみ野・東松山</option>
+		  <option value="川口・蕨・戸田" data-val="埼玉">川口・蕨・戸田</option>
+		  <option value="秩父・長瀞・小川" data-val="埼玉">秩父・長瀞・小川</option>
+		  <option value="さいたま市" data-val="埼玉">さいたま市</option>
+		  <option value="所沢・飯能" data-val="埼玉">所沢・飯能</option>
+
+		  <option value="恵比寿・代官山・中目黒" data-val="東京">恵比寿・代官山・中目黒</option>
+		  <option value="渋谷" data-val="東京">渋谷</option>
+		  <option value="原宿・表参道・青山" data-val="東京">原宿・表参道・青山</option>
+		  <option value="新宿" data-val="東京">新宿</option>
+		  <option value="東京・丸の内・日本橋" data-val="東京">東京・丸の内・日本橋</option>
+		  <option value="六本木・麻布・赤坂" data-val="東京">六本木・麻布・赤坂</option>
+		  <option value="銀座・有楽町" data-val="東京">銀座・有楽町</option>
+		  <option value="品川" data-val="東京">品川</option>
+		  <option value="お台場" data-val="東京">お台場</option>
+		  <option value="池袋" data-val="東京">池袋</option>
+		  <option value="新橋・汐留・浜松町" data-val="東京">新橋・汐留・浜松町</option>
+		  <option value="上野" data-val="東京">上野</option>
+		  <option value="浅草・押上" data-val="東京">浅草・押上</option>
+		  <option value="目黒・白金・五反田" data-val="東京">目黒・白金・五反田</option>
+		  <option value="吉祥寺・三鷹" data-val="東京">吉祥寺・三鷹</option>
+		  <option value="神楽坂・飯田橋" data-val="東京">神楽坂・飯田橋</option>
+		  <option value="下北沢" data-val="東京">下北沢</option>
+		  <option value="谷中・根津・千駄木" data-val="東京">谷中・根津・千駄木</option>
+		  <option value="神田・秋葉原・御茶ノ水" data-val="東京">神田・秋葉原・御茶ノ水</option>
+		  <option value="赤坂・虎ノ門・永田町" data-val="東京">赤坂・虎ノ門・永田町</option>
+		  <option value="四ツ谷・信濃町・千駄ヶ谷" data-val="東京">四ツ谷・信濃町・千駄ヶ谷</option>
+
+		  <option value="海老名・厚木・伊勢原・秦野" data-val="神奈川">海老名・厚木・伊勢原・秦野</option>
+		  <option value="横浜" data-val="神奈川">横浜</option>
+		  <option value="港南区・戸塚区・栄区" data-val="神奈川">港南区・戸塚区・栄区</option>
+		  <option value="港北区" data-val="神奈川">港北区</option>
+		  <option value="横須賀・三浦・逗子・葉山" data-val="神奈川">横須賀・三浦・逗子・葉山</option>
+		  <option value="小田原・箱根・真鶴・湯河原" data-val="神奈川">小田原・箱根・真鶴・湯河原</option>
+		  <option value="湘南・鎌倉" data-val="神奈川">湘南・鎌倉</option>
+		  <option value="青葉区・都筑区" data-val="神奈川">青葉区・都筑区</option>
+		  <option value="相模原・大和" data-val="神奈川">相模原・大和</option>
+
+		  <option value="岐阜・各務原" data-val="岐阜">岐阜・各務原</option>
+		  <option value="西濃" data-val="岐阜">西濃</option>
+		  <option value="中濃" data-val="岐阜">中濃</option>
+		  <option value="東濃" data-val="岐阜">東濃</option>
+		  <option value="飛騨高山" data-val="岐阜">飛騨高山</option>
+
+		  <option value="熱海" data-val="静岡">熱海</option>
+		  <option value="伊東" data-val="静岡">伊東</option>
+		  <option value="下田・南伊豆" data-val="静岡">下田・南伊豆</option>
+		  <option value="伊豆高原・城ヶ崎" data-val="静岡">伊豆高原・城ヶ崎　</option>
+		  <option value="伊豆長岡・修善寺・天城" data-val="静岡">伊豆長岡・修善寺・天城</option>
+		  <option value="東伊豆・河津" data-val="静岡">東伊豆・河津</option>
+		  <option value="西伊豆・松崎" data-val="静岡">西伊豆・松崎</option>
+		  <option value="富士・富士宮" data-val="静岡">富士・富士宮</option>
+		  <option value="沼津" data-val="静岡">沼津</option>
+		  <option value="湖西・三ヶ日・浜名湖" data-val="静岡">湖西・三ヶ日・浜名湖</option>
+		  <option value="浜松" data-val="静岡">浜松</option>
+		  <option value="御殿場・裾野" data-val="静岡">御殿場・裾野</option>
+		  <option value="清水・由比" data-val="静岡">清水・由比</option>
+		  <option value="島田・牧之原・御前崎" data-val="静岡">島田・牧之原・御前崎</option>
+		  <option value="静岡市" data-val="静岡">静岡市</option>
+		  <option value="焼津・藤枝" data-val="静岡">焼津・藤枝</option>
+		  <option value="三島・駿東・田方" data-val="静岡">三島・駿東・田方</option>
+		  <option value="磐田・袋井" data-val="静岡">磐田・袋井</option>
+
+		  <option value="一宮・稲沢・弥富" data-val="愛知">一宮・稲沢・弥富</option>
+		  <option value="刈谷・安城・西尾" data-val="愛知">刈谷・安城・西尾</option>
+		  <option value="天白区・瑞穂区・昭和区・熱田区" data-val="愛知">天白区・瑞穂区・昭和区・熱田区</option>
+		  <option value="春日井・大山・小牧" data-val="愛知">春日井・大山・小牧</option>
+		  <option value="大府・常滑・南知多" data-val="愛知">大府・常滑・南知多</option>
+		  <option value="長久手・日進・瀬戸" data-val="愛知">長久手・日進・瀬戸</option>
+		  <option value="東区・千種区・名東区" data-val="愛知">東区・千種区・名東区</option>
+		  <option value="豊橋・蒲郡・豊川" data-val="愛知">豊橋・蒲郡・豊川</option>
+		  <option value="豊田・岡崎" data-val="愛知">豊田・岡崎</option>
+		  <option value="名古屋" data-val="愛知">名古屋</option>
+		  <option value="緑区・中川区・南区・港区" data-val="愛知">緑区・中川区・南区・港区</option>
+
+		  <option value="伊賀・名張" data-val="三重">伊賀・名張</option>
+		  <option value="伊勢志摩" data-val="三重">伊勢志摩</option>
+		  <option value="尾鷲・熊野" data-val="三重">尾鷲・熊野</option>
+		  <option value="津・松坂" data-val="三重">津・松坂</option>
+		  <option value="四日市・鈴鹿・亀山" data-val="三重">四日市・鈴鹿・亀山</option>
+		  <option value="八丈島" data-val="三重">八丈島</option>
+
+		  <option value="近江八幡・野洲" data-val="滋賀">近江八幡・野洲</option>
+		  <option value="草津・守山・栗東" data-val="滋賀">草津・守山・栗東</option>
+		  <option value="東近江・彦根・米原" data-val="滋賀">東近江・彦根・米原</option>
+		  <option value="甲賀・湖南" data-val="滋賀">甲賀・湖南</option>
+		  <option value="湖北" data-val="滋賀">湖北</option>
+		  <option value="湖西" data-val="滋賀">湖西</option>
+
+		  <option value="亀岡・南丹" data-val="京都">亀岡・南丹</option>
+		  <option value="久御山・八幡" data-val="京都">久御山・八幡</option>
+		  <option value="京都府北部" data-val="京都">京都府北部</option>
+		  <option value="向日・長岡京" data-val="京都">向日・長岡京</option>
+		  <option value="左京区" data-val="京都">左京区</option>
+		  <option value="中京区・下京区・東山区・山科区" data-val="京都">中京区・下京区・東山区・山科区</option>
+		  <option value="城陽・京田辺" data-val="京都">城陽・京田辺</option>
+		  <option value="西京区・右京区" data-val="京都">西京区・右京区</option>
+		  <option value="京都駅周辺・伏見区・宇治" data-val="京都">京都駅周辺・伏見区・宇治</option>
+		  <option value="福知山・綾部・京丹波" data-val="京都">福知山・綾部・京丹波</option>
+		  <option value="上京区" data-val="京都">上京区</option>
+		  <option value="木津川・京都府南部" data-val="京都">木津川・京都府南部</option>
+
+		  <option value="京橋・OBP" data-val="大阪">京橋・OBP</option>
+		  <option value="新大阪・西中島・十三" data-val="大阪">新大阪・西中島・十三</option>
+		  <option value="西天満・南森・天満橋" data-val="大阪">西天満・南森・天満橋</option>
+		  <option value="泉北" data-val="大阪">泉北</option>
+		  <option value="大阪キタ" data-val="大阪">大阪キタ</option>
+		  <option value="大阪ベイエリア" data-val="大阪">大阪ベイエリア</option>
+		  <option value="大阪ミナミ" data-val="大阪">大阪ミナミ</option>
+		  <option value="谷町・上本町・鶴橋" data-val="大阪">谷町・上本町・鶴橋</option>
+		  <option value="淀屋橋・本町・北浜" data-val="大阪">淀屋橋・本町・北浜</option>
+		  <option value="北大阪・千里中央" data-val="大阪">北大阪・千里中央</option>
+		  <option value="北河内・東大阪" data-val="大阪">北河内・東大阪</option>
+
+		  <option value="三田・篠山・西脇" data-val="兵庫">三田・篠山・西脇</option>
+		  <option value="垂水区・西区・北区" data-val="兵庫">垂水区・西区・北区</option>
+		  <option value="西宮・芦屋・尼崎" data-val="兵庫">西宮・芦屋・尼崎</option>
+		  <option value="灘・東灘" data-val="兵庫">灘・東灘</option>
+		  <option value="姫路・加古川・たつの" data-val="兵庫">姫路・加古川・たつの</option>
+		  <option value="兵庫区・長田区・須磨区" data-val="兵庫">兵庫区・長田区・須磨区</option>
+		  <option value="宝塚・伊丹・川西" data-val="兵庫">宝塚・伊丹・川西</option>
+		  <option value="豊岡・朝来" data-val="兵庫">豊岡・朝来</option>
+		  <option value="明石・三木・稲美" data-val="兵庫">明石・三木・稲美</option>
+		  <option value="神戸" data-val="兵庫">神戸</option>
+		  <option value="淡路島" data-val="兵庫">淡路島</option>
+
+		  <option value="奈良中部" data-val="奈良">奈良中部</option>
+		  <option value="奈良南部" data-val="奈良">奈良南部</option>
+		  <option value="奈良北部" data-val="奈良">奈良北部</option>
+
+		  <option value="田辺・みなべ" data-val="和歌山">田辺・みなべ</option>
+		  <option value="白浜・新宮" data-val="和歌山">白浜・新宮</option>
+		  <option value="和歌山・岩出・紀の川" data-val="和歌山">和歌山・岩出・紀の川</option>
+
+		  <option value="隠岐" data-val="島根">隠岐</option>
+		  <option value="益田・津和野・吉賀" data-val="島根">益田・津和野・吉賀</option>
+		  <option value="出雲" data-val="島根">出雲</option>
+		  <option value="浜田・大田・江津" data-val="島根">浜田・大田・江津</option>
+
+		  <option value="鳥取県西部" data-val="鳥取">鳥取県西部</option>
+		  <option value="鳥取県中部" data-val="鳥取">鳥取県中部</option>
+		  <option value="鳥取県東部" data-val="鳥取">鳥取県東部</option>
+
+		  <option value="岡山・玉野" data-val="岡山">岡山・玉野</option>
+		  <option value="新見・真庭" data-val="岡山">新見・真庭</option>
+		  <option value="倉敷・笠岡" data-val="岡山">倉敷・笠岡</option>
+		  <option value="総杜・井原・高粱" data-val="岡山">総杜・井原・高粱</option>
+		  <option value="津山・美作" data-val="岡山">津山・美作</option>
+		  <option value="備前・瀬戸内" data-val="岡山">備前・瀬戸内</option>
+
+		  <option value="広島市" data-val="広島">広島市</option>
+		  <option value="甘日市・宮島" data-val="広島">甘日市・宮島</option>
+		  <option value="福山・尾道・三原" data-val="広島">福山・尾道・三原</option>
+		  <option value="広島南" data-val="広島">広島南</option>
+		  <option value="呉・東広島・竹原" data-val="広島">呉・東広島・竹原</option>
+		  <option value="三吹・北広島・県北" data-val="広島">三吹・北広島・県北</option>
+
+		  <option value="下関・宇部・小野田" data-val="山口">下関・宇部・小野田</option>
+		  <option value="岩国・柳井・光" data-val="山口">岩国・柳井・光</option>
+		  <option value="周南・下松" data-val="山口">周南・下松</option>
+		  <option value="萩・長門・美祢" data-val="山口">萩・長門・美祢</option>
+		  <option value="山口・防府" data-val="山口">山口・防府</option>
+
+		  <option value="久留米・大牟田・筑後" data-val="福岡">久留米・大牟田・筑後</option>
+		  <option value="糸島・姪浜・福岡市西区" data-val="福岡">糸島・姪浜・福岡市西区</option>
+		  <option value="住吉・呉服・その他博多区" data-val="福岡">住吉・呉服・その他博多区</option>
+		  <option value="西新・百道・その他早良区" data-val="福岡">西新・百道・その他早良区</option>
+		  <option value="太宰府・春日・筑紫野" data-val="福岡">太宰府・春日・筑紫野</option>
+		  <option value="中洲・香椎・その他東区" data-val="福岡">中洲・香椎・その他東区</option>
+		  <option value="飯塚・宗像・筑豊" data-val="福岡">飯塚・宗像・筑豊</option>
+		  <option value="北九州" data-val="福岡">北九州</option>
+		  <option value="薬院・今泉・平尾" data-val="福岡">薬院・今泉・平尾</option>
+		  <option value="六本松・桜坂・大濠" data-val="福岡">六本松・桜坂・大濠</option>
+
+		  <option value="武雄・嬉野・鹿島" data-val="佐賀">武雄・嬉野・鹿島</option>
+		  <option value="佐賀・鳥栖" data-val="佐賀">佐賀・鳥栖</option>
+		  <option value="唐津・伊万里・有田" data-val="佐賀">唐津・伊万里・有田</option>
+
+		  <option value="壱岐・対馬" data-val="長崎">壱岐・対馬</option>
+		  <option value="五島" data-val="長崎">五島</option>
+		  <option value="佐世保・波佐見・平戸" data-val="長崎">佐世保・波佐見・平戸</option>
+		  <option value="長崎・諫早・大村" data-val="長崎">長崎・諫早・大村</option>
+		  <option value="島原・雲仙" data-val="長崎">島原・雲仙</option>
+
+		  <option value="玉名・山鹿・菊池" data-val="熊本">玉名・山鹿・菊池</option>
+		  <option value="熊本・宇土・宇城" data-val="熊本">熊本・宇土・宇城</option>
+		  <option value="八代・人吉・水俣" data-val="熊本">八代・人吉・水俣</option>
+		  <option value="阿蘇" data-val="熊本">阿蘇</option>
+		  <option value="天草" data-val="熊本">天草</option>
+
+		  <option value="佐伯・津久見" data-val="大分">佐伯・津久見</option>
+		  <option value="大分・臼杵・佐伯" data-val="大分">大分・臼杵・佐伯</option>
+		  <option value="湯布院・別府・国東半島" data-val="大分">湯布院・別府・国東半島</option>
+		  <option value="中津・宇佐・日田" data-val="大分">中津・宇佐・日田</option>
+
+		  <option value="延岡・日向・臼杵郡" data-val="宮崎">延岡・日向・臼杵郡</option>
+		  <option value="宮崎・東諸県部" data-val="宮崎">宮崎・東諸県部</option>
+		  <option value="西部・児湯郡" data-val="宮崎">西部・児湯郡</option>
+		  <option value="都城・小林" data-val="宮崎">都城・小林</option>
+		  <option value="日南・串間" data-val="宮崎">日南・串間</option>
+
+		  <option value="薩摩川内・出水" data-val="鹿児島">薩摩川内・出水</option>
+		  <option value="鹿児島・日置" data-val="鹿児島">鹿児島・日置</option>
+		  <option value="諸島列島" data-val="鹿児島">諸島列島</option>
+		  <option value="枕崎・指宿" data-val="鹿児島">枕崎・指宿</option>
+		  <option value="霧島・伊佐" data-val="鹿児島">霧島・伊佐</option>
+		  <option value="大隅半島" data-val="鹿児島">大隅半島</option>
+
+		  <option value="那覇" data-val="沖縄">那覇</option>
+		  <option value="沖縄市・本島中部" data-val="沖縄">沖縄市・本島中部</option>
+		  <option value="名護・本島北部" data-val="沖縄">名護・本島北部</option>
+		  <option value="豊見城・本島南部" data-val="沖縄">豊見城・本島南部</option>
+		  <option value="沖縄離島" data-val="沖縄">沖縄離島</option>
+		</select>
+  	</div>
+</div>
+
+<script type="text/javascript">
+	var $city = $('.city');
+var original = $city.html();
+
+$('.prefecture').change(function() {
+
+  var val1 = $(this).val();
+
+  $city.html(original).find('option').each(function() {
+    var val2 = $(this).data('val');
+    if (val1 != val2) {
+      $(this).not(':first-child').remove();
+    }
+  });
+
+  if ($(this).val() == "") {
+    $city.attr('disabled', 'disabled');
+  } else {
+    $city.removeAttr('disabled');
+  }
+
+});
+</script>
