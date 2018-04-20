@@ -1,0 +1,13 @@
+<% if Love.find_by(user_id: current_user.id, course_id: course.id) %>
+	<%= link_to "/loves/#{course.id}/destroy", method: :post, id: "love-button", remote: true do %>
+		<div id="btn-like-on">
+	      <i class="far fa-heart"></i>
+	    </div>
+	<% end %>
+<% else %>
+	<%= link_to "/loves/#{course.id}/create", method: :post, id: "love-button", remote: true do %>
+		<div id="btn-like-off">
+	      <i class="far fa-heart"></i>
+	    </div>
+	<% end %>
+<% end %>

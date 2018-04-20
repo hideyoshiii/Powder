@@ -48,6 +48,10 @@ Rails.application.routes.draw do
   get "seeks/city" => "seeks#city"
   get "seeks/price" => "seeks#price"
   get "seeks/outcome" => "seeks#outcome"
+
+  post "loves/:course_id/create" => "loves#create"
+  get "loves/:course_id/create0" => "loves#create0"
+  post "loves/:course_id/destroy" => "loves#destroy"
  
 
 

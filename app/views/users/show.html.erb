@@ -103,15 +103,19 @@
 
  <!-- 各タブのなかみ -->
  <div class="tab-content">
+   <%# 自分の作ったコース一覧 %>
    <div role="tabpanel" class="tab-pane active fade in" id="main">
-      <%# 自分の作ったコース一覧 %>
       <%= render 'courses' %>
       <div class="text-center">
         <%= paginate @courses %>
       </div>
    </div>
-
+   <%# いいねしたコース一覧 %>
    <div role="tabpanel" class="tab-pane fade in" id="access">
+      <%= render 'loves' %>
+      <div class="text-center">
+        <%= paginate @loves %>
+      </div>
    </div>
  </div>
 

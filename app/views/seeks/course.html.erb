@@ -350,9 +350,17 @@
     </div>
     <%#いいねボタン%>
     <div class="btn-details_2">
-     <a href="" id="btn-like-off">
-      <i class="far fa-heart"></i>
-     </a>
+      <% if user_signed_in? %>
+        <span id="love-of-<%= @course.id %>">
+          <%= render partial: 'loves/love', locals: { course: @course, loves: @loves } %>
+        </span>
+      <% else %>
+        <%= link_to "/loves/#{@course.id}/create0" do %>
+          <div id="btn-like-off">
+              <i class="far fa-heart"></i>
+            </div>
+        <% end %>
+      <% end %>
     </div>
     <%#編集モーダルボタン%>
     <% if (user_signed_in?) && current_user.id == @course.user_id %>

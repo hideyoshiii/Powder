@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   	@wants = Like.where(user_id: @user.id, kind: 1)
   	@dones = Like.where(user_id: @user.id, kind: 2)
 
-    @courses = Course.where(user_id: current_user.id).order('id DESC').page(params[:page]).per(30)   
+    @courses = Course.where(user_id: @user.id).order('id DESC').page(params[:page]).per(30)   
+    @loves = Love.where(user_id: @user.id).order('id DESC').page(params[:page]).per(30)   
   end
 
   def want
