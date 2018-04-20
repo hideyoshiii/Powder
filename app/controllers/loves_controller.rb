@@ -14,9 +14,9 @@ class LovesController < ApplicationController
   def create0
   	@course_id = params[:course_id]
   	if Love.find_by(user_id: current_user.id, course_id: @course_id)
-	    @love = Love.create(user_id: current_user.id, course_id: params[:course_id])  
 	    redirect_to "/seeks/course/#{@course_id}"
 	else
+		@love = Love.create(user_id: current_user.id, course_id: params[:course_id])  
 		redirect_to "/seeks/course/#{@course_id}"
 	end
   end

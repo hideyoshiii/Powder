@@ -1,0 +1,14 @@
+<% love_count = Love.where(course_id: course.id).count %>
+<% if Love.find_by(user_id: current_user.id, course_id: course.id) %>
+	<%= link_to "/loves/#{course.id}/destroy", method: :post, id: "love-button", remote: true do %>
+		<span id="btn-like-on-min">
+          <i class="fas fa-heart"></i>&nbsp;<span style="font-size:14px;"><%= love_count %></span>
+        </span>
+	<% end %>
+<% else %>
+	<%= link_to "/loves/#{course.id}/create", method: :post, id: "love-button", remote: true do %>
+		<span id="btn-like-off-min">
+          <i class="fas fa-heart"></i>&nbsp;<span style="font-size:14px;"><%= love_count %></span>
+        </span>
+	<% end %>
+<% end %>

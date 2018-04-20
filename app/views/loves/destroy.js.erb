@@ -1,1 +1,5 @@
 $("#love-of-<%= @course.id %>").html("<%= j(render partial: 'loves/love', locals: { course: @course}) %>")
+
+$("#min-of-<%= @course.id %>").html("<%= j(render partial: 'loves/min', locals: { course: @course}) %>")
+
+$("#min2-of-<%= @course.id %>").html("<%= j(render partial: 'loves/min2', locals: { course: @course}) %>")

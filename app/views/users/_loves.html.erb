@@ -1,8 +1,8 @@
 <% @loves.each.with_index(1) do |love, i| %>
   <% course = Course.find_by(id: love.course_id) %>
   <% @point = Point.where(course_id: course.id).order(number: "ASC").first %>
-  <%= link_to "/seeks/course/#{course.id}" do %>
-    <div class="radio-city-b smoke">  
+  <div class="radio-city-b smoke">  
+    <%= link_to "/seeks/course/#{course.id}" do %>
       <% if course.points.size == 0 %>
         <%= image_tag "missing.png", :class =>'img-course-result' %>
       <% else %>
@@ -58,11 +58,21 @@
           <% end %>
         <% end %>   
       </h4>
-      <h2>
-        <div id="btn-like-off-min">
-          <i class="fas fa-heart"></i>&nbsp;<span style="font-size:14px;">0</span>
-        </div>
-      </h2>
-    </div>
-  <% end %>
+      <%#画像全体リンク踏めるように%>
+      <p></p>
+    <% end %>
+    <%#いいねボタン%>
+    <h2>
+      <% if user_signed_in? %>
+        <span id="min2-of-<%= course.id %>">
+          <%= render partial: 'loves/min2', locals: { course: course, loves: @loves } %>
+        </span>
+      <% else %>
+        <% love_count = Love.where(course_id: course.id).count %>
+        <span id="btn-like-off-min">
+          <i class="fas fa-heart"></i>&nbsp;<span style="font-size:14px;"><%= love_count %></span>
+        </span>
+      <% end %>
+    </h2>
+  </div>
 <% end %>
