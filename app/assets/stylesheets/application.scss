@@ -6960,7 +6960,7 @@ square_btnn{
 
 .radio-city-b h3 {
   position: absolute;
-  top: 0%;
+  top: 80%;
   left: 0%;
   -ms-transform: translate(0%,0%);
   -webkit-transform: translate(0%,0%);
@@ -6968,11 +6968,10 @@ square_btnn{
   margin:0;
   padding:7px;
   color:white;
-  font-size:18px;
-  font-weight: 300;
+  font-size:17px;
   font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
   text-shadow:
-    black 1px 1px 5px, black 2px 1px 5px,
+    black 1px 1px 5px,
   }
 
   .radio-city-b h4 {
@@ -6983,7 +6982,7 @@ square_btnn{
   -webkit-transform: translate(0%,0%);
   transform: translate(0%,0%);
   margin:0;
-  padding:7px;
+  padding:8px;
   color:white;
   font-size:17px;
   font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
@@ -8540,8 +8539,8 @@ square_btnn{
 
 //コース一覧のユーザー画像
 .img_user_course{
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border:1px solid white;
 	background:rgba(255, 255, 255, 0.7);
 }
@@ -8603,6 +8602,7 @@ square_btnn{
   height: auto;
   overflow:hidden;
   text-align:center;
+  border:0.5px solid #FAFAFA;
 }
 
 .boximg-tag:before {

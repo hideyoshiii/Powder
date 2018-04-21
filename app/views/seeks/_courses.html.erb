@@ -6,14 +6,6 @@
           <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-course-result' %>
           <h4>
             <% if (user_signed_in?) && current_user.id == course.user_id %>
-              <div style="margin-bottom:10px;">
-                <span>
-                  <%= image_tag course.user.image, :class => "img-circle img_user_course" %>
-                </span>
-                <span style="text-shadow:none;font-size:14px;">
-                  <%= course.user.nickname %>(あなたのプランです)
-                </span>
-              </div>
               <div>
                 <%= course.title %>
               </div>
@@ -21,39 +13,56 @@
                 <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
               </div>
             <% else %>
-              <% if course.kind == "提案" %>
-                <div style="margin-bottom:10px;">
-                  <span>
-                    <%= image_tag course.user.image, :class => "img-circle img_user_course" %>
-                  </span>
-                  <span style="text-shadow:none;font-size:14px;margin-top:5px;">
-                    <%= course.user.nickname %>
-                  </span>
-                </div>
+              <% if course.kind == "提案" %>    
                 <div>
                   <%= course.title %>
                 </div>
-                <div style="font-size:12px;color:#FAFAFA;">
+                <div style="font-size:12px;color:#CCCCCC;">
                   <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
                 </div>
-              <% else %>
-                <div style="margin-bottom:10px;">
-                  <span>
-                    <%= image_tag "avatar-default.png", :class => "img-circle img_user_course" %>
-                  </span>
-                  <span style="text-shadow:none;font-size:14px;">
-                    ユーザー
-                  </span>
-                </div>
+              <% else %>         
                 <div>
                   <%= course.city %>デート
                 </div>
-                <div style="font-size:12px;color:#FAFAFA;margin-top:5px;">
+                <div style="font-size:12px;color:#CCCCCC;margin-top:5px;">
                   <i class="fas fa-map-marker-alt"></i>&nbsp;<%= course.city %>
                 </div>
               <% end %>
             <% end %>   
           </h4>
+          <h3>
+            <% if (user_signed_in?) && current_user.id == course.user_id %>
+              <div style="">
+                <span>
+                  <%= image_tag course.user.image, :class => "img-circle img_user_course" %>
+                </span>
+                <span style="text-shadow:none;font-size:12px;color:#CCCCCC;">
+                  <%= course.user.nickname %>(あなたのプランです)
+                </span>
+              </div>     
+            <% else %>
+              <% if course.kind == "提案" %>
+                <div style="">
+                  <span>
+                    <%= image_tag course.user.image, :class => "img-circle img_user_course" %>
+                  </span>
+                  <span style="text-shadow:none;font-size:12px;color:#CCCCCC;">
+                    <%= course.user.nickname %>
+                  </span>
+                </div>  
+              <% else %>
+                <div style="">
+                  <span>
+                    <%= image_tag "avatar-default.png", :class => "img-circle img_user_course" %>
+                  </span>
+                  <span style="text-shadow:none;font-size:12px;color:#CCCCCC;">
+                    ユーザー
+                  </span>
+                </div>
+                
+              <% end %>
+            <% end %>   
+          </h3>
           <%#画像全体リンク踏めるように%>
           <p></p>
         <% end %>
