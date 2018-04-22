@@ -540,6 +540,431 @@
           <% end %>
         <% end %>
       </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "自由が丘・二子玉川" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "jiyugaoka00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                自由が丘・二子玉川
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "中野・荻窪" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "nakano00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                中野・荻窪
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "人形町・門前仲町・葛西" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "ningyocho00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                人形町・門前仲町・葛西
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "立川・八王子・青梅" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "tachikawa00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                立川・八王子・青梅
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "大井町・大森・蒲田" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "oicho00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                大井町・大森・蒲田
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "三軒茶屋・駒沢" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "sangenchaya00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                三軒茶屋・駒沢
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "大塚・巣鴨・駒込" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "otsuka00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                大塚・巣鴨・駒込
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "調布・府中・狛江" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "chofu00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                調布・府中・狛江
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "町田・稲城・多摩" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "machida00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                町田・稲城・多摩
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "千住・綾瀬・葛飾" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "senju00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                千住・綾瀬・葛飾
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "練馬・江古田" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "nerima00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                練馬・江古田
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "大久保・高田馬場・早稲田" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "okubo00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                大久保・高田馬場・早稲田
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "代々木・初台" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "yoyogi00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                代々木・初台
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "板橋・赤羽" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "itabashi00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                板橋・赤羽
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "両国・錦糸町・小岩" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "ryogoku00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                両国・錦糸町・小岩
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "小金井・国分寺・国立" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "koganei00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                小金井・国分寺・国立
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="grid-item">
+        <%= form_tag(seeks_category_path, method: :get) do %>
+          <%= hidden_field_tag :city, "伊豆諸島・小笠原" %>
+          <%= hidden_field_tag :price_min , params[:price_min] %>
+          <%= hidden_field_tag :price_max , params[:price_max] %>
+          <%= hidden_field_tag :distance_on, params[:distance_on] %>
+          <%= hidden_field_tag :distance, params[:distance] %>
+          <%= hidden_field_tag :timezone, params[:timezone] %>
+          <%= hidden_field_tag :small, params[:small] %>
+          <% unless params[:ss].blank? %>
+            <% params[:ss].each.with_index(1) do |s, i| %>
+              <%= hidden_field_tag 'ss[]', s %>
+            <% end %>
+          <% end %>
+          <%= button_tag :type => "submit", :class =>"button1" do %>
+            <div class="box-category-img">
+              <%= image_tag "izushoto00.jpg", :class =>'img-category' %>
+              <div class="text-category2">
+                伊豆諸島・小笠原
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       
     </div>
     </div>

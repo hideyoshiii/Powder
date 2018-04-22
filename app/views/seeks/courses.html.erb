@@ -35,9 +35,9 @@
   <%= form_tag(seeks_courses_path, method: :get) do %>
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="text-center" style="padding-top:30px;">
+        <div class="" style="padding-top:30px;">
             <div class="panel-body">
-            	<h4>条件を絞る</h4>
+            	<h4 class="text-center"><i class="fa fa-search"></i>&nbsp;条件を絞る</h4>
             	<br>
               <div class="form-group">
                 <p class="pull-left">エリア</p>
@@ -51,9 +51,8 @@
                   <%= select_tag :timezone, options_for_select([["指定なし", ""], ["昼から", "昼"], ["夜から", "夜"]], @timezone) %>
                 </div>
               </div>
-              <div class="form-group">
-                <p class="pull-left">タグ</p>
-                <br>  
+              <div class="form-group"> 
+                <p>タグ</p>
                 <span class="radio-city"> 
                   <%= radio_button_tag(:tag, "初デート", @first, {:id => "first"}) %>
                   <%= label_tag('first', "初デート") %>
