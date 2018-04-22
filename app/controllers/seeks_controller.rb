@@ -423,7 +423,7 @@ class SeeksController < ApplicationController
       end
     end
 
-    @courses = @courses.where(kind: "ユーザー").order('id DESC').page(params[:page]).per(30)   
+    @courses = @courses.where.not(kind: "サンプル").order('id DESC').page(params[:page]).per(30)   
 
     @first = false
     @classic = false
