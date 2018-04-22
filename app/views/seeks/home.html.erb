@@ -39,81 +39,127 @@
 
 <div class="container-tag">
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample01.jpg", :class =>'imgbox-tag' %>
-      <h1>初デート</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "初デート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "first99.jpg", :class =>'imgbox-tag' %>
+          <h1>初デート</h1>   
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample02.jpg", :class =>'imgbox-tag' %>
-      <h1>記念日</h1>
-    </div>
-  </div>
-  
-  <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample03.jpg", :class =>'imgbox-tag' %>
-      <h1>ドライブ</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "定番デート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "classic99.jpg", :class =>'imgbox-tag' %>
+          <h1>定番デート</h1>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample04.jpg", :class =>'imgbox-tag' %>
-      <h1>雑貨屋巡り</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "雨の日デート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "rain99.jpg", :class =>'imgbox-tag' %>
+          <h1>雨の日デート</h1>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="grid-tag">
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "アクティブデート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "active99.jpg", :class =>'imgbox-tag' %>
+          <h1>アクティブデート</h1>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample05.jpg", :class =>'imgbox-tag' %>
-      <h1>水族館</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "節約デート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "saving99.jpg", :class =>'imgbox-tag' %>
+          <h1>節約デート</h1>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample06.jpg", :class =>'imgbox-tag' %>
-      <h1>遊園地</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "記念日・サプライズデート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "anniversary99.jpg", :class =>'imgbox-tag' %>
+          <h1>記念日・サプライズデート</h1>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample07.jpg", :class =>'imgbox-tag' %>
-      <h1>公園</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "カジュアルデート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "casual99.jpg", :class =>'imgbox-tag' %>
+          <h1>カジュアルデート</h1>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample08.jpg", :class =>'imgbox-tag' %>
-      <h1>プラネタリウム</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "ユニークデート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "unique99.jpg", :class =>'imgbox-tag' %>
+          <h1>ユニークデート</h1>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="grid-tag">
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "ワンナイトデート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "onenight99.jpg", :class =>'imgbox-tag' %>
+          <h1>ワンナイトデート</h1>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample09.jpg", :class =>'imgbox-tag' %>
-      <h1>夜景</h1>
-    </div>
+    <%= form_tag(seeks_courses_path, method: :get) do %>
+      <%= hidden_field_tag :tag, "酒乱デート" %>
+      <%= button_tag :type => "submit", :class =>"button1" do %>
+        <div class="boximg-tag">
+          <%= image_tag "sake99.jpg", :class =>'imgbox-tag' %>
+          <h1>酒乱デート</h1>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
-  <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample10.jpg", :class =>'imgbox-tag' %>
-      <h1>自然</h1>
-    </div>
-  </div>
-
-  <div class="grid-tag">
-    <div class="boximg-tag">
-      <%= image_tag "sample11.jpg", :class =>'imgbox-tag' %>
-      <h1>海</h1>
-    </div>
-  </div>
 </div>
 
   <div class="pc_2">

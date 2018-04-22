@@ -416,7 +416,58 @@ class SeeksController < ApplicationController
       end
     end
 
+    unless params[:tag].blank?  
+      @tag = params[:tag]
+      unless params[:tag] == "指定なし"
+        @courses = @courses.tagged_with(@tag)
+      end
+    end
+
     @courses = @courses.where(kind: "ユーザー").order('id DESC').page(params[:page]).per(30)   
+
+    @first = false
+    @classic = false
+    @anniversary = false
+    @casual = false
+    @active = false
+    @unique = false
+    @rain = false
+    @saving = false
+    @onenight = false
+    @sake = false
+    if !params[:timezone].blank?
+      if params[:tag] == "初デート"
+        @first = true
+      end
+      if params[:tag] == "定番デート"
+        @classic = true
+      end
+      if params[:tag] == "記念日・サプライズデート"
+        @anniversary = true
+      end
+      if params[:tag] == "カジュアルデート"
+        @casual = true
+      end
+      if params[:tag] == "アクティブデート"
+        @active = true
+      end
+      if params[:tag] == "ユニークデート"
+        @unique = true
+      end
+      if params[:tag] == "雨の日デート"
+        @rain = true
+      end
+      if params[:tag] == "節約デート"
+        @saving = true
+      end
+      if params[:tag] == "ワンナイトデート"
+        @onenight = true
+      end
+      if params[:tag] == "酒乱デート"
+        @sake = true
+      end
+    end
+
   end
 
   def course 
@@ -554,6 +605,27 @@ class SeeksController < ApplicationController
     end   
 
     @course.update(title: params[:title], description: params[:description], city: params[:city], time_start: params[:time_start], time_end: params[:time_end])
+
+
+    unless params[:course_list].blank?
+      #受け取ったタグを配列に
+      @tag_pm = params[:course_list].split(",")
+      #すでにあるタグ
+      @tag_ex = @course.course_list
+      #２つの配列を１つの配列に
+      @tag_du = @tag_pm & @tag_ex
+      #追加するスポットだけを配列に
+      @tag_pm_not = @tag_pm - @tag_du
+      #削除するスポットだけを配列に
+      @tag_ex_not = @tag_ex - @tag_du
+
+      @tag_pm_not.each do |tag|
+        @course.course_list.add(tag)
+      end
+      @tag_ex_not.each do |tag|
+        @course.course_list.remove(tag)
+      end
+    end
 
     unless params[:kind].blank?
       @course.update(kind: params[:kind])
