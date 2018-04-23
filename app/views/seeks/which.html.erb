@@ -1,0 +1,36 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+<div class="pc_1">
+	<div class="box-max">
+
+		<h4>作成方法</h4>
+		<br>
+
+		<div style="width:100%;text-align:center;">
+			<div style="display:inline-block;">
+				<%= link_to seeks_area_path do %>
+				  <div class="btn btn-default">
+				    <i class="fas fa-map-marker-alt"></i>&nbsp;エリアから
+				  </div>
+				<% end %>
+			</div>
+			&nbsp;&nbsp;
+			<div style="display:inline-block;">
+				<%= link_to seeks_category_path do %>
+				  <div class="btn btn-default">
+				    <i class="fas fa-tag"></i>&nbsp;カテゴリーから
+				  </div>
+				<% end %>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="pc_2">
+
+</div>
+
+<%= render "partial/footer" %>
+</mains>

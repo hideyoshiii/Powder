@@ -2,6 +2,9 @@ class SeeksController < ApplicationController
   before_action :set_params, only: [:area,:distance,:category,:choice,:result,:resultsave]
   before_action :authenticate_user!, only: [:area,:distance,:category,:choice,:resultsave]
 
+  def which    
+  end
+
   def city    
   end
 
