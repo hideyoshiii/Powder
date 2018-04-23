@@ -856,7 +856,7 @@ class SeeksController < ApplicationController
     	@spots = @spots.where("small like '%#{@small}%'")
 	  end
     #ランダムにして２つ抽出
-    @spots = @spots.order("RANDOM()")
+    @spots = @spots.order("RANDOM()").page(params[:page]).per(30)   
   end
 
   

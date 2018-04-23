@@ -4,26 +4,31 @@
 <div class="pc_1">
 	<div class="box-max">
 
-		<h4>作成方法</h4>
-		<br>
+		<h4>どちらからコースを作りますか？</h4>
 
-		<div style="width:100%;text-align:center;">
-			<div style="display:inline-block;">
-				<%= link_to seeks_area_path do %>
-				  <div class="btn btn-default">
-				    <i class="fas fa-map-marker-alt"></i>&nbsp;エリアから
-				  </div>
-				<% end %>
+		<div class="box88" id='top'> 
+  		<div style="margin-top:-50px;">
+  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">まずはコースの作成方法を選びましょう</p>
+  			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">どちらからコースを作りますか？</h4>
+  		</div>
+  		<div style="height:100px;"></div>
+      <h1>
+        <div class="box-method">
+			<div class="box-method-item">
+				<a id="fab-which" href="/seeks/area">
+				  <i class="fas fa-map-marker-alt"></i>
+				</a>
+				<p style="font-size:16px;color:white;">エリアから</p>
 			</div>
-			&nbsp;&nbsp;
-			<div style="display:inline-block;">
-				<%= link_to seeks_category_path do %>
-				  <div class="btn btn-default">
-				    <i class="fas fa-tag"></i>&nbsp;カテゴリーから
-				  </div>
-				<% end %>
+			<div class="box-method-item">
+				<a id="fab-which" href="/seeks/category">
+				  <i class="fas fa-tag"></i>
+				</a>
+				<p style="font-size:16px;color:white;">カテゴリーから</p>
 			</div>
 		</div>
+      </h1>
+    </div>
 
 	</div>
 </div>

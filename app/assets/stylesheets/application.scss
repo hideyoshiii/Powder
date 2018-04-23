@@ -2360,6 +2360,96 @@ dl.search1 dd span:hover{
   }
 
 
+.box88 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(city02.jpg);
+  background-size: cover;
+  background-position: center;
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+
+  /* 左右中央寄せ */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-flex-direction: column;
+  justify-content: center;
+
+  /* 上下中央寄せ */
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-flex-direction: column;
+  align-items: center;
+
+  padding: 0px;
+  margin-top:-40px;
+  box-sizing: border-box;
+}
+
+@media (min-width:768px){
+	.box88 {
+	  width: 100%;
+	  height: auto;
+	  min-height: 100vh;
+
+	  position: relative;
+
+	  background: linear-gradient(-45deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(city02.jpg);
+	  background-size: cover;
+	  background-position: center;
+
+	  display: -webkit-box;
+	  display: -ms-flexbox;
+	  display: flex;
+
+	  /* 左右中央寄せ */
+	  -webkit-box-pack: center;
+	  -ms-flex-pack: center;
+	  -webkit-flex-direction: column;
+	  justify-content: center;
+
+	  /* 上下中央寄せ */
+	  -webkit-box-align: center;
+	  -ms-flex-align: center;
+	  -webkit-flex-direction: column;
+	  align-items: center;
+
+	  padding: 0px;
+	  margin-top:0px;
+	  box-sizing: border-box;
+	}
+}
+
+.box88 p{
+	color:white;
+	text-shadow: 1px 1px 2px black;
+	padding:0;
+	margin:0;
+}
+
+.box88 h4{
+	color:white;
+}
+
+.box88 h1 {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  width: 100%;
+  }
+
+
 
 //要素を少し上に
 .box-top{
@@ -7607,7 +7697,7 @@ square_btnn{
 //現在選んでるスポットフッター
 .sticky-bar_now {
     position: fixed;
-    bottom: 0;
+    bottom: 47px;
     left:0;
     background:#F4F5F7;
     width:100%;
@@ -7817,6 +7907,30 @@ square_btnn{
   vertical-align: middle;
   font-size: 50px;/*サイズ*/
 }
+
+#fab-which {/*円の部分*/
+    display: inline-block;
+    width: 80px;/*幅*/
+    height: 80px;/*高さ*/
+    background: rgba(0, 0, 0, .75);/*背景色*/
+    text-align: center;/*中央寄せ*/
+    border-radius: 50%;/*角丸く*/
+    transition: .3s;/*滑らかな動きに*/
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
+    margin:0px 18px 10px;
+}
+
+#fab-which:hover {/*ホバー時*/
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+#fab-which i {/*中央のアイコン*/
+  color: white;
+  line-height: 80px;/*＝幅と高さ*/
+  vertical-align: middle;
+  font-size: 30px;/*サイズ*/
+}
+
 
 //フォームの項目のアイコン
 #fab-item {/*円の部分*/
