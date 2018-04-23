@@ -9138,6 +9138,23 @@ input,select,textarea{
 }
 
 
+//詳細条件のタブバー
+.tab-bar {
+    position: fixed;
+    top: 2px;
+    left:0;
+    width:95%;
+    height:100px;
+    margin:0px 10px;
+    z-index:99;
+    background:#F4F5F7;
+}
+
+.tab-bar-box{
+	height:100px;
+}
+
+
 #map {
  width: 100%;
  height: 80vh;
