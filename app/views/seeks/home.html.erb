@@ -4,17 +4,13 @@
   <div class="pc_1">
   	<div class="img_about_home">
       <div style="height:40px;"></div>
-      <h1 style="font-size:24px;color:white;margin-bottom:5px;line-height:1.4;text-shadow: 1px 1px 2px black;padding:0px 15px;">
-        知りたいのは、
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          あの子が喜ぶデートコース
+      <h1 style="font-size:25px;color:white;margin-bottom:5px;line-height:1.4;text-shadow: 1px 1px 2px black;">
+        誰でも簡単にデートコースを
       </h1>
       <p class="text-center" style="font-size:13px;color:white;text-shadow: 1px 1px 2px black;">
         デートコースがなかなか決まらないあなたへ
         <br>
-        <span class="site-title">A.Date</span>は10秒でデートコースがつくれるサービスです
+        <span class="site-title">A.Date</span>で誰でも簡単にデートプランが作れます
       </p>
       <div style="height:30px;"></div>
       <div class="">
@@ -24,13 +20,6 @@
           </div>
         <% end %>
       </div>
-      <% if (user_signed_in?) %>
-        <% if current_user.authority == "manager" %>
-          <%= link_to seeks_which_path do %>     
-            <div style="color:#CCC;margin-top:10px;">自分でつくる</div>  
-          <% end %>
-        <% end %>
-      <% end %>
       <div style="height:30px;"></div>
       <h4 class="text-center" style="font-size:13px;">
         <a href="#next">
