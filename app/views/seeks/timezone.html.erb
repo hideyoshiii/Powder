@@ -11,7 +11,7 @@
       <h1>
       <div class="home-box">
         <div class="home-box-1">
-          <%= form_tag(seeks_price_path, method: :get) do %>
+          <%= form_tag(seeks_budget_path, method: :get) do %>
 			      <%= hidden_field_tag :city, params[:city] %>
           	<%= hidden_field_tag :timezone, "noon" %>
           	<%= button_tag :type => "submit", :class =>"button1" do %>
@@ -25,7 +25,7 @@
           <% end %>
         </div>
         <div class="home-box-1">
-          <%= form_tag(seeks_price_path, method: :get) do %>
+          <%= form_tag(seeks_budget_path, method: :get) do %>
 			      <%= hidden_field_tag :city, params[:city] %>
 	          <%= hidden_field_tag :timezone, "night" %>
 	          <%= button_tag :type => "submit", :class =>"button1" do %>

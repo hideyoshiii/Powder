@@ -2,6 +2,131 @@ class SeeksController < ApplicationController
   before_action :set_params, only: [:area,:distance,:category,:choice,:result,:resultsave]
   before_action :authenticate_user!, only: [:resultsave]
 
+  def noon 
+    @spots = Spot.all
+    @spots = @spots.where(city: params[:city])
+
+    @cafe = @spots.where("large like '%カフェ%'")
+    @animal = @spots.where("large like '%アニマルカフェ%'")
+    @sweets = @spots.where("large like '%スイーツ%'")
+    @bar = @spots.where("large like '%バー%'")
+    @movie = @spots.where("large like '%映画%'")
+    @shop = @spots.where("large like '%ショップ・雑貨屋%'")
+    @karaoke = @spots.where("large like '%カラオケ%'")
+    @sport = @spots.where("large like '%スポーツ%'")
+    @nitht_view = @spots.where("large like '%夜景%'")
+    @planetarium = @spots.where("large like '%プラネタリウム%'")
+    @zoo = @spots.where("large like '%動物園%'")
+    @aquarium = @spots.where("large like '%水族館%'")
+    @museum = @spots.where("large like '%美術館%'")
+    @amusement_park = @spots.where("large like '%遊園地%'")
+    @bowling = @spots.where("large like '%ボーリング%'")
+    @darts = @spots.where("large like '%ダーツ%'")
+    @walk_eat = @spots.where("large like '%食べ歩き%'")
+    @park = @spots.where("large like '%公園%'")
+    @spa = @spots.where("large like '%スパ・温泉%'")
+    @game = @spots.where("large like '%ゲームセンター%'")
+    @temple = @spots.where("large like '%お寺・神社%'")
+    @theater = @spots.where("large like '%劇場%'")
+    @cyber = @spots.where("large like '%インターネットカフェ%'")
+    @consept = @spots.where("large like '%コンセプトカフェ・バー%'")
+    @street = @spots.where("large like '%ストリート%'")
+    @complex = @spots.where("large like '%複合施設%'")
+    @other = @spots.where("large like '%その他%'")
+    #数を抽出
+    @cafe_n = @cafe.size
+    @animal_n = @animal.size
+    @sweets_n = @sweets.size
+    @bar_n = @bar.size
+    @movie_n = @movie.size
+    @shop_n = @shop.size
+    @karaoke_n = @karaoke.size
+    @sport_n = @sport.size
+    @night_view_n = @nitht_view.size
+    @planetarium_n = @planetarium.size
+    @zoo_n = @zoo.size
+    @aquarium_n = @aquarium.size
+    @museum_n = @museum.size
+    @amusement_park_n = @amusement_park.size
+    @bowling_n = @bowling.size
+    @darts_n = @darts.size
+    @walk_eat_n = @walk_eat.size
+    @park_n = @park.size
+    @spa_n = @spa.size
+    @game_n = @game.size
+    @temple_n = @temple.size
+    @theater_n = @theater.size
+    @cyber_n = @cyber.size
+    @consept_n = @consept.size
+    @street_n = @street.size
+    @complex_n = @complex.size
+    @other_n = @other.size 
+  end
+
+  def night  
+    @spots = Spot.all
+    @spots = @spots.where(city: params[:city])
+
+    @cafe = @spots.where("large like '%カフェ%'")
+    @animal = @spots.where("large like '%アニマルカフェ%'")
+    @sweets = @spots.where("large like '%スイーツ%'")
+    @bar = @spots.where("large like '%バー%'")
+    @movie = @spots.where("large like '%映画%'")
+    @shop = @spots.where("large like '%ショップ・雑貨屋%'")
+    @karaoke = @spots.where("large like '%カラオケ%'")
+    @sport = @spots.where("large like '%スポーツ%'")
+    @nitht_view = @spots.where("large like '%夜景%'")
+    @planetarium = @spots.where("large like '%プラネタリウム%'")
+    @zoo = @spots.where("large like '%動物園%'")
+    @aquarium = @spots.where("large like '%水族館%'")
+    @museum = @spots.where("large like '%美術館%'")
+    @amusement_park = @spots.where("large like '%遊園地%'")
+    @bowling = @spots.where("large like '%ボーリング%'")
+    @darts = @spots.where("large like '%ダーツ%'")
+    @walk_eat = @spots.where("large like '%食べ歩き%'")
+    @park = @spots.where("large like '%公園%'")
+    @spa = @spots.where("large like '%スパ・温泉%'")
+    @game = @spots.where("large like '%ゲームセンター%'")
+    @temple = @spots.where("large like '%お寺・神社%'")
+    @theater = @spots.where("large like '%劇場%'")
+    @cyber = @spots.where("large like '%インターネットカフェ%'")
+    @consept = @spots.where("large like '%コンセプトカフェ・バー%'")
+    @street = @spots.where("large like '%ストリート%'")
+    @complex = @spots.where("large like '%複合施設%'")
+    @other = @spots.where("large like '%その他%'")
+    #数を抽出
+    @cafe_n = @cafe.size
+    @animal_n = @animal.size
+    @sweets_n = @sweets.size
+    @bar_n = @bar.size
+    @movie_n = @movie.size
+    @shop_n = @shop.size
+    @karaoke_n = @karaoke.size
+    @sport_n = @sport.size
+    @night_view_n = @nitht_view.size
+    @planetarium_n = @planetarium.size
+    @zoo_n = @zoo.size
+    @aquarium_n = @aquarium.size
+    @museum_n = @museum.size
+    @amusement_park_n = @amusement_park.size
+    @bowling_n = @bowling.size
+    @darts_n = @darts.size
+    @walk_eat_n = @walk_eat.size
+    @park_n = @park.size
+    @spa_n = @spa.size
+    @game_n = @game.size
+    @temple_n = @temple.size
+    @theater_n = @theater.size
+    @cyber_n = @cyber.size
+    @consept_n = @consept.size
+    @street_n = @street.size
+    @complex_n = @complex.size
+    @other_n = @other.size 
+  end
+
+  def budget 
+  end
+
   def which    
   end
 
@@ -40,14 +165,43 @@ class SeeksController < ApplicationController
    @price_end = params[:price_max].to_i
    @price_startz = params[:price_minz].to_i
    @price_endz = params[:price_maxz].to_i
+   #予算定義2
+   if params[:budget] = 1
+     @price_start = 0
+     @price_end = 2000
+     @price_startz = 0
+     @price_endz = 5000
+   end
+   if params[:budget] = 2
+     @price_start = 0
+     @price_end = 4000
+     @price_startz = 0
+     @price_endz = 8000
+   end
+   if params[:budget] = 3
+     @price_start = 0
+     @price_end = 50000
+     @price_startz = 0
+     @price_endz = 50000
+   end
    #距離定義
    @distance = 0.5.to_f
    #昼のカテゴリー定義
    @category_noons = ["カフェ", "アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "カラオケ", "ボーリング", "ダーツ", "食べ歩き", "公園", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "インターネットカフェ", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    @noons = ["カフェ","バー", "夜景"]
+   if params[:noon].blank?
+    @noon = ["カフェ", "アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "カラオケ", "ボーリング", "ダーツ", "食べ歩き", "公園", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "インターネットカフェ", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+   else
+    @noon = params[:noon]
+   end
    #夜のカテゴリー定義
    @category_nights = ["カフェ", "バー", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
    @nights = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+   if params[:night].blank?
+    @night = ["カフェ", "バー", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
+   else
+    @night = params[:night]
+   end
    #昼からの時
    if params[:timezone] == "noon"
     #スポット１(ランチ)
@@ -60,8 +214,14 @@ class SeeksController < ApplicationController
     @spot2_not_lunch = @spot2_not.where.not("large like '%ランチ%'")
     @spot2_timezone = @spot2_not_lunch.where("timezone like '%昼%'")
     @spot2_category = @spot2_timezone
-    @noons.each.with_index(1) do |noon, i|
-      @spot2_category = @spot2_category.where.not("large like '%#{noon}%'")
+    @spot2_category = @spot2_category.where(
+      @noon.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noon.map { |attr| "%#{attr}%" }
+      )
+    if @spot2_category.blank?
+      @noons.each.with_index(1) do |noon, i|
+        @spot2_category = @spot2_category.where.not("large like '%#{noon}%'")
+      end
     end
     @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
     until @spot2_distance.size >= 1 do
@@ -75,8 +235,14 @@ class SeeksController < ApplicationController
     @spot3_not_lunch = @spot3_not.where.not("large like '%ランチ%'")
     @spot3_timezone = @spot3_not_lunch.where("timezone like '%昼%'")
     @spot3_category = @spot3_timezone
-    @noons.each.with_index(1) do |noon, i|
-      @spot3_category = @spot3_category.where.not("large like '%#{noon}%'")
+    @spot3_category = @spot3_category.where(
+      @noon.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noon.map { |attr| "%#{attr}%" }
+      )
+    if @spot3_category.blank?
+      @noons.each.with_index(1) do |noon, i|
+        @spot3_category = @spot3_category.where.not("large like '%#{noon}%'")
+      end
     end
     @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     until @spot3_distance.size >= 1 do
@@ -102,8 +268,14 @@ class SeeksController < ApplicationController
     @spot5_not_lunch = @spot5_not.where.not("large like '%ディナー%'")
     @spot5_timezone = @spot5_not_lunch.where("timezone like '%夜%'")
     @spot5_category = @spot5_timezone
-    @nights.each.with_index(1) do |night, i|
-      @spot5_category = @spot5_category.where.not("large like '%#{night}%'")
+    @spot5_category = @spot5_category.where(
+      @night.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@night.map { |attr| "%#{attr}%" }
+      )
+    if @spot5_category.blank?
+      @nights.each.with_index(1) do |night, i|
+        @spot5_category = @spot5_category.where.not("large like '%#{night}%'")
+      end
     end
     @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
     until @spot5_distance.size >= 1 do

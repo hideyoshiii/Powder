@@ -1,0 +1,119 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+<div class="pc_1">
+
+	<div class="box97" id=''>
+		<div style="height:100px;"></div>
+		<div style="height:100px;"></div>
+		<div style="margin-top:0px;">
+  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">次に予算を選びましょう。</p>
+  			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はどのくらいにしますか？</h4>
+  		</div>
+  		<div style="height:50px;"></div>
+  		<div class="home-box">
+
+  		<% if params[:timezone] == "noon" %>
+	        <div class="home-box-1">
+	          <%= form_tag(seeks_noon_path, method: :get) do %>
+				    <%= hidden_field_tag :city, params[:city] %>
+					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :budget, 1 %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="budget-btn">
+		              <i class="fas fa-yen-sign"></i>
+		            </div>
+		            <div class="lunch-info">
+		              Bronze
+		            </div>
+	            <% end %>
+	          <% end %>
+	        </div>
+	        <div class="home-box-1">
+	          <%= form_tag(seeks_noon_path, method: :get) do %>
+				    <%= hidden_field_tag :city, params[:city] %>
+					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :budget, 2 %>
+		          <%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="budget-btn">
+		              <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		            </div>
+		            <div class="dinner-info">
+		              Silver
+		            </div>
+		          <% end %>
+	          <% end %>
+	        </div>
+	        <div class="home-box-1">
+	          <%= form_tag(seeks_noon_path, method: :get) do %>
+				    <%= hidden_field_tag :city, params[:city] %>
+					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :budget, 3 %>
+		          <%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="budget-btn">
+		              <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		            </div>
+		            <div class="dinner-info">
+		              Gold
+		            </div>
+		          <% end %>
+	          <% end %>
+	        </div>
+	    <% else %>
+	    	<div class="home-box-1">
+	          <%= form_tag(seeks_night_path, method: :get) do %>
+				    <%= hidden_field_tag :city, params[:city] %>
+					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :budget, 1 %>
+	          	<%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="budget-btn">
+		              <i class="fas fa-yen-sign"></i>
+		            </div>
+		            <div class="lunch-info">
+		              Bronze
+		            </div>
+	            <% end %>
+	          <% end %>
+	        </div>
+	        <div class="home-box-1">
+	          <%= form_tag(seeks_night_path, method: :get) do %>
+				    <%= hidden_field_tag :city, params[:city] %>
+					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :budget, 2 %>
+		          <%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="budget-btn">
+		              <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		            </div>
+		            <div class="dinner-info">
+		              Silver
+		            </div>
+		          <% end %>
+	          <% end %>
+	        </div>
+	        <div class="home-box-1">
+	          <%= form_tag(seeks_night_path, method: :get) do %>
+				    <%= hidden_field_tag :city, params[:city] %>
+					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :budget, 3 %>
+		          <%= button_tag :type => "submit", :class =>"button1" do %>
+		            <div class="budget-btn">
+		              <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		            </div>
+		            <div class="dinner-info">
+		              Gold
+		            </div>
+		          <% end %>
+	          <% end %>
+	        </div>
+	    <% end %>
+
+      </div>
+
+</div>
+
+  <div class="pc_2">
+    <%= render "partial/fotter_home" %>
+  </div>
+
+<%= render "partial/footer" %>
+</mains>

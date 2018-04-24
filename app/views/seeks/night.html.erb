@@ -1,0 +1,151 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+<div class="pc_1">
+<%= form_tag(seeks_outcome_path, method: :get) do %>
+	<%= hidden_field_tag :city, params[:city] %>
+	<%= hidden_field_tag :timezone, params[:timezone] %>
+	<%= hidden_field_tag :price_min , params[:price_min] %>
+	<%= hidden_field_tag :price_max , params[:price_max] %>
+	<%= hidden_field_tag :price_minz , params[:price_minz] %>
+	<%= hidden_field_tag :price_maxz , params[:price_maxz] %>
+	<%= hidden_field_tag :budget, params[:budget] %>
+	<% unless params[:noon].blank? %>
+        <% params[:noon].each.with_index(1) do |n, i| %>
+    		<%= hidden_field_tag 'noon[]', n %>
+  		<% end %>
+    <% end %>
+
+	<br>
+	<p class="text-center" style="color:black;">夜に行ってみたいカテゴリーを選択してください</p>
+
+	<div class="panel-body">
+		<div class="hero-full-wrapper">
+			<div class="grid">
+			    <div class="gutter-sizer"></div>
+			    <div class="grid-sizer"></div>
+
+			    <% unless @bar_n.to_i == 0 %>
+			    <div class="grid-item">		
+		            <div class="check-city1">	
+		            	<%= check_box_tag('night[]', "バー", false, {:id => "bar"}) %>
+				        <label for="bar">
+				          <%= image_tag "bar00.jpg", :class =>'img-category' %>
+				          <h1>
+				            バー
+				          </h1>  
+				        </label>
+			        </div>   		
+			    </div>
+			    <% end %>
+
+			    <% unless @cafe_n.to_i == 0 %>
+			    <div class="grid-item">		
+		            <div class="check-city1">	
+		            	<%= check_box_tag('night[]', "カフェ", false, {:id => "cafe"}) %>
+				        <label for="cafe">
+				          <%= image_tag "cafe00.jpg", :class =>'img-category' %>
+				          <h1>
+				            夜カフェ
+				          </h1>  
+				        </label>
+			        </div>   		
+			    </div>
+			    <% end %>
+
+			    <% unless @night_view_n.to_i == 0 %>
+			    <div class="grid-item">		
+		            <div class="check-city1">	
+		            	<%= check_box_tag('night[]', "夜景", false, {:id => "night-view"}) %>
+				        <label for="night-view">
+				          <%= image_tag "night-view00.jpg", :class =>'img-category' %>
+				          <h1>
+				            夜景
+				          </h1>  
+				        </label>
+			        </div>   		
+			    </div>
+			    <% end %>
+
+			    <% unless @park_n.to_i == 0 %>
+			    <div class="grid-item">		
+		            <div class="check-city1">	
+		            	<%= check_box_tag('night[]', "公園", false, {:id => "park"}) %>
+				        <label for="park">
+				          <%= image_tag "park00.jpg", :class =>'img-category' %>
+				          <h1>
+				            公園
+				          </h1>  
+				        </label>
+			        </div>   		
+			    </div>
+			    <% end %>
+
+			    <% unless @darts_n.to_i == 0 %>
+			    <div class="grid-item">		
+		            <div class="check-city1">	
+		            	<%= check_box_tag('night[]', "ダーツ", false, {:id => "darts"}) %>
+				        <label for="darts">
+				          <%= image_tag "darts00.jpg", :class =>'img-category' %>
+				          <h1>
+				            ダーツ
+				          </h1>  
+				        </label>
+			        </div>   		
+			    </div>
+			    <% end %>
+
+			    <% unless @karaoke_n.to_i == 0 %>
+			    <div class="grid-item">		
+		            <div class="check-city1">	
+		            	<%= check_box_tag('night[]', "カラオケ", false, {:id => "karaoke"}) %>
+				        <label for="karaoke">
+				          <%= image_tag "karaoke00.jpg", :class =>'img-category' %>
+				          <h1>
+				            カラオケ
+				          </h1>  
+				        </label>
+			        </div>   		
+			    </div>
+			    <% end %>
+
+			    <% unless @other_n.to_i == 0 %>
+			    <div class="grid-item">		
+		            <div class="check-city1">	
+		            	<%= check_box_tag('night[]', "その他", false, {:id => "other"}) %>
+				        <label for="other">
+				          <%= image_tag "other00.jpg", :class =>'img-category' %>
+				          <h1>
+				            その他
+				          </h1>  
+				        </label>
+			        </div>   		
+			    </div>
+			    <% end %>
+
+			</div>
+		</div>
+	</div>
+
+	<div style="height:10vh;"></div>
+
+	<div class="btn-bar text-center">
+		<%= submit_tag "次へ進む", :class => "btn btn-default" %>
+	</div>
+	
+	
+<% end %>
+</div>
+
+  <div class="pc_2">
+    <%= render "partial/fotter_home" %>
+  </div>
+
+<%= render "partial/footer" %>
+</mains>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     masonryBuild();
+  });
+</script>
