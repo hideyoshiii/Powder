@@ -3,7 +3,7 @@
 
   <div class="pc_1">
   	<div class="img_about_home">
-      <div style="height:40px;"></div>
+      <div style="height:50px;"></div>
       <h1 style="font-size:25px;color:white;margin-bottom:5px;line-height:1.4;text-shadow: 1px 1px 2px black;">
         誰でも簡単にデートコースを
       </h1>
@@ -12,14 +12,25 @@
         <br>
         <span class="site-title">A.Date</span>で誰でも簡単にデートプランが作れます
       </p>
-      <div style="height:30px;"></div>
+      <div style="height:20px;"></div>
       <div class="">
-        <%= link_to seeks_which_path do %>
+        <%= link_to seeks_city_path do %>
           <div class="raised-trans">
-            デートコースをつくる
+            10秒でデートコースをつくる
           </div>
         <% end %>
       </div>
+      <% if (user_signed_in?) %>
+        <% if current_user.authority == "manager" %>
+          <div class="">
+            <%= link_to seeks_which_path do %>
+              <div style="fotn-size:12px;color:#CCCCCC;margin-top:10px;">
+                自分で作る
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
       <div style="height:30px;"></div>
       <h4 class="text-center" style="font-size:13px;">
         <a href="#next">
