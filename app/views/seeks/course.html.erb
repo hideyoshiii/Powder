@@ -110,10 +110,8 @@
             <i class="far fa-clock"></i>
           </div>
           <div class="result-info">
-	        <% if @course.time_start == @course.time_end %>
-	          <%= @course.time_start %>のみ
-	        <% else %>
-	          <%= @course.time_start %>&nbsp;-&nbsp;<%= @course.time_end %>
+          <% unless @course.time_start.blank? %>
+	          <%= @course.time_start %>から
 	        <% end %>
 	      </div>
         </div>

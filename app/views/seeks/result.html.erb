@@ -12,7 +12,7 @@
 
       <%# 目次 %>
       <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
-      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
+      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースを保存すると編集することができます。</p>        
       <%# コースの諸情報 %>
       <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
       <div class="result-info-box">
@@ -24,19 +24,7 @@
             <%= params[:city] %>付近
           </div>
         </div>
-        <div class="result-info-box-1">
-          <div class="result-info-btn">
-            <i class="far fa-clock"></i>
-          </div>
-          <div class="result-info">
-            <% if params[:timezone] == "noon" %>
-              昼から
-            <% end %>
-            <% if params[:timezone] == "night" %>
-              夜から
-            <% end %>
-          </div>
-        </div>
+        &nbsp;&nbsp;&nbsp;
         <div class="result-info-box-1">
           <div class="result-info-btn">
             <i class="fas fa-yen-sign"></i>
@@ -212,15 +200,7 @@
       </div>
       <%#SP用のフッター%>
       <div class="visible-xs visible-sm">
-        <%#ツイートボタン%>
-        <div style="padding:60px 0px 100px;text-align:center;">
-         <p style="font-size:18px;color:black;">つくったコースをシェアしよう！</p>
-         <div id="tw">
-            <a href="" target="_blank" class="btn-twitter">
-              <i class="fab fa-twitter"></i> ツイートする
-            </a>
-          </div>
-        </div>
+        <div  style="padding:0px 0px 100px;"></div>
       </div>
     </div>
     <%#PC用のmap%>
@@ -237,26 +217,13 @@
             </div>
           <% end %>
         </div>
-        <%#ツイートボタン%>
-        <div style="padding:20px 0px 0px;text-align:center;">
-         <h4>つくったコースをシェアしよう！</h4>
-         <div id="tw">
-            <a href="" target="_blank" class="btn-twitter">
-              <i class="fab fa-twitter"></i> ツイートする
-            </a>
-          </div>
-        </div>
         <%#保存モーダルボタン%>
-        <% if (user_signed_in?) %>
-          <% if current_user.authority == "manager" %>
-            <div style="padding:20px 0px 0px;text-align:center;">
-             <h4>コースを保存できるよ！</h4>
-             <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
-              <i class="far fa-save"></i> 保存する
-             </a>
-            </div>
-          <% end %>
-        <% end %>
+        <div style="padding:20px 0px 0px;text-align:center;">
+         <h4>コースを保存できるよ！</h4>
+         <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
+          <i class="far fa-save"></i> 保存する
+         </a>
+        </div>
       </div>
     </div>
   </div>
@@ -270,26 +237,21 @@
      </a>
     </div>
     <%#保存モーダルボタン%>
-    <% if (user_signed_in?) %>
-      <% if current_user.authority == "manager" %>
-        <div class="btn-details_2">
-         <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
-          <i class="far fa-save"></i>
-         </a>
-        </div>
-      <% end %>
-    <% end %>
+    <div class="btn-details_2">
+     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
+      <i class="far fa-save"></i>
+     </a>
+    </div>
   </div>
 
   <%#保存モーダルの中身%>
   <div class="modal" id="myModal-save">
-    <div style="height:25vh;"></div>
+    <div style="height:10vh;"></div>
     <div class="modal-dialog">
       <div class="modal-content">
         <div style="height:auto;padding:30px 15px 0px;">
           <% if (user_signed_in?) %>
             <%= form_tag(seeks_save_path, method: :get) do %>
-              <%= hidden_field_tag :time_start, @timezone_ja %>
               <%= hidden_field_tag :time_end, "夜" %>
               <%= hidden_field_tag :city, @spot_first.city %>
               <%= hidden_field_tag 'kind', "ユーザー" %>
@@ -298,6 +260,12 @@
               <br>
               <div class="form-group">
                 <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
+              </div>
+              <br>
+              <div class="form-group">
+                <div class="select-box01">
+                  <%= select_tag :time_start, options_for_select([["朝から","朝"],["昼から","昼"],["夜から","夜"]], "昼") %>
+                </div>
               </div>
               <br>
               <% if (user_signed_in?) %>
