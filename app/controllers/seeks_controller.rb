@@ -214,13 +214,14 @@ class SeeksController < ApplicationController
     @spot2_not_lunch = @spot2_not.where.not("large like '%ランチ%'")
     @spot2_timezone = @spot2_not_lunch.where("timezone like '%昼%'")
     @spot2_category = @spot2_timezone
+    @spot2_category_2 = @spot2_timezone
     @spot2_category = @spot2_category.where(
       @noon.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
       *@noon.map { |attr| "%#{attr}%" }
       )
     if @spot2_category.blank?
       @noons.each.with_index(1) do |noon, i|
-        @spot2_category = @spot2_category.where.not("large like '%#{noon}%'")
+        @spot2_category = @spot2_category_2.where.not("large like '%#{noon}%'")
       end
     end
     @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
@@ -235,13 +236,14 @@ class SeeksController < ApplicationController
     @spot3_not_lunch = @spot3_not.where.not("large like '%ランチ%'")
     @spot3_timezone = @spot3_not_lunch.where("timezone like '%昼%'")
     @spot3_category = @spot3_timezone
+    @spot3_category_2 = @spot3_timezone
     @spot3_category = @spot3_category.where(
       @noon.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
       *@noon.map { |attr| "%#{attr}%" }
       )
     if @spot3_category.blank?
       @noons.each.with_index(1) do |noon, i|
-        @spot3_category = @spot3_category.where.not("large like '%#{noon}%'")
+        @spot3_category = @spot3_category_2.where.not("large like '%#{noon}%'")
       end
     end
     @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
@@ -268,13 +270,14 @@ class SeeksController < ApplicationController
     @spot5_not_lunch = @spot5_not.where.not("large like '%ディナー%'")
     @spot5_timezone = @spot5_not_lunch.where("timezone like '%夜%'")
     @spot5_category = @spot5_timezone
+    @spot5_category_2 = @spot5_timezone
     @spot5_category = @spot5_category.where(
       @night.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
       *@night.map { |attr| "%#{attr}%" }
       )
     if @spot5_category.blank?
       @nights.each.with_index(1) do |night, i|
-        @spot5_category = @spot5_category.where.not("large like '%#{night}%'")
+        @spot5_category = @spot5_category_2.where.not("large like '%#{night}%'")
       end
     end
     @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
