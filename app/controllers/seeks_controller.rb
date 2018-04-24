@@ -299,8 +299,15 @@ class SeeksController < ApplicationController
     @spot2_not_lunch = @spot2_not.where.not("large like '%ディナー%'")
     @spot2_timezone = @spot2_not_lunch.where("timezone like '%夜%'")
     @spot2_category = @spot2_timezone
-    @nights.each.with_index(1) do |night, i|
-      @spot2_category = @spot2_category.where.not("large like '%#{night}%'")
+    @spot2_category_2 = @spot2_timezone
+    @spot2_category = @spot2_category.where(
+      @night.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@night.map { |attr| "%#{attr}%" }
+      )
+    if @spot2_category.blank?
+      @nights.each.with_index(1) do |night, i|
+        @spot2_category = @spot2_category_2.where.not("large like '%#{night}%'")
+      end
     end
     @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
     until @spot2_distance.size >= 1 do
