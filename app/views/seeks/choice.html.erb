@@ -51,13 +51,12 @@
       	<div class="text-center" style="padding-top:30px;">
           	<div class="panel-body">
           	<%#タブ%>
-            <div style="height:30px;"></div>
 		        <ul class="nav nav-pills">
 		            <li class="active box-tab"><a data-toggle="tab" href="#city"><i class="fas fa-map-marker-alt"></i></a>
 		            </li>
+                <li class="box-tab"><a data-toggle="tab" href="#timezone"><i class="fas fa-tag"></i></a>
+                </li>
 		            <li class="box-tab"><a data-toggle="tab" href="#price"><i class="fas fa-yen-sign"></i></a>
-		            </li>
-		            <li class="box-tab"><a data-toggle="tab" href="#timezone"><i class="far fa-clock"></i></a>
 		            </li>
 		            <li class="box-tab"><a data-toggle="tab" href="#genre"><i class="far fa-star"></i></a>
 		            </li>
@@ -181,7 +180,7 @@
                         <%= radio_button_tag(:city, "四ツ谷・信濃町・千駄ヶ谷", @yotsuya, {:id => "yotsuya"}) %>
                         <%= label_tag('yotsuya', "四ツ谷・信濃町・千駄ヶ谷") %>
                       </span>
-                      <div style="height:30px;"></div>
+                      <div style="height:50px;"></div>
                     </div>
                   <% else %>  
     		            <p>エリアを指定しますか？</p>
@@ -270,7 +269,7 @@
                         <%= radio_button_tag(:city, "四ツ谷・信濃町・千駄ヶ谷", @yotsuya, {:id => "yotsuya"}) %>
                         <%= label_tag('yotsuya', "四ツ谷・信濃町・千駄ヶ谷") %>
                       </span>
-			        	      <div style="height:30px;"></div>
+			        	      <div style="height:50px;"></div>
                   <% end %>  
 		            </div>
 		            <div id="price" class="tab-pane fade">
@@ -299,21 +298,125 @@
                     <% end %>
       		      </div>
 		            <div id="timezone" class="tab-pane fade">
-		            	<p>営業時間を指定しますか？</p>
+		            	<p>どのカテゴリーにしますか？</p>
 				          <br>
-                    <span class="check-city"> 
-                      <%= check_box_tag('timezone[]', "朝", @morning, {:id => "morning"}) %>
-                      <%= label_tag('morning', "朝") %>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "ランチ", @lunch, {:id => "lunch"}) %>
+                      <%= label_tag('lunch', "ランチ") %>
                     </span>
-                    <span class="check-city"> 
-                      <%= check_box_tag('timezone[]', "昼", @noon, {:id => "noon"}) %>
-                      <%= label_tag('noon', "昼") %>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "ディナー", @dinner, {:id => "dinner"}) %>
+                      <%= label_tag('dinner', "ディナー") %>
                     </span>
-                    <span class="check-city"> 
-                      <%= check_box_tag('timezone[]', "夜", @night, {:id => "night"}) %>
-                      <%= label_tag('night', "夜") %>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "カフェ", @cafe, {:id => "cafe"}) %>
+                      <%= label_tag('cafe', "カフェ") %>
                     </span>
-                    <div style="height:30px;"></div>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "アニマルカフェ", @animal, {:id => "animal"}) %>
+                      <%= label_tag('animal', "アニマルカフェ") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "バー", @bar, {:id => "bar"}) %>
+                      <%= label_tag('bar', "バー") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "映画", @movie, {:id => "movie"}) %>
+                      <%= label_tag('movie', "映画") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "ショップ・雑貨屋", @shop, {:id => "shop"}) %>
+                      <%= label_tag('shop', "ショップ・雑貨屋") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "カラオケ", @karaoke, {:id => "karaoke"}) %>
+                      <%= label_tag('karaoke', "カラオケ") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "スポーツ", @sport, {:id => "sport"}) %>
+                      <%= label_tag('sport', "スポーツ") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "夜景", @nitht_view, {:id => "nitht_view"}) %>
+                      <%= label_tag('nitht_view', "夜景") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "プラネタリウム", @planetarium, {:id => "planetarium"}) %>
+                      <%= label_tag('planetarium', "プラネタリウム") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "動物園", @zoo, {:id => "zoo"}) %>
+                      <%= label_tag('zoo', "動物園") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "水族館", @aquarium, {:id => "aquarium"}) %>
+                      <%= label_tag('aquarium', "水族館") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "美術館", @museum, {:id => "museum"}) %>
+                      <%= label_tag('museum', "美術館") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "遊園地", @amusement_park, {:id => "amusement_park"}) %>
+                      <%= label_tag('amusement_park', "遊園地") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "ボーリング", @bowling, {:id => "bowling"}) %>
+                      <%= label_tag('bowling', "ボーリング") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "ダーツ", @darts, {:id => "darts"}) %>
+                      <%= label_tag('darts', "ダーツ") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "食べ歩き", @walk_eat, {:id => "walk_eat"}) %>
+                      <%= label_tag('walk_eat', "食べ歩き") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "公園", @park, {:id => "park"}) %>
+                      <%= label_tag('park', "公園") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "スパ・温泉", @spa, {:id => "spa"}) %>
+                      <%= label_tag('spa', "スパ・温泉") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "ゲームセンター", @game, {:id => "game"}) %>
+                      <%= label_tag('game', "ゲームセンター") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "お寺・神社", @temple, {:id => "temple"}) %>
+                      <%= label_tag('temple', "お寺・神社") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "劇場", @theater, {:id => "theater"}) %>
+                      <%= label_tag('theater', "劇場") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "インターネットカフェ", @cyber, {:id => "cyber"}) %>
+                      <%= label_tag('cyber', "インターネットカフェ") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "コンセプトカフェ・バー", @consept, {:id => "consept"}) %>
+                      <%= label_tag('consept', "コンセプトカフェ・バー") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "体験", @experience, {:id => "experience"}) %>
+                      <%= label_tag('experience', "体験") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "ストリート", @street, {:id => "street"}) %>
+                      <%= label_tag('street', "ストリート") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "複合施設", @complex, {:id => "complex"}) %>
+                      <%= label_tag('complex', "複合施設") %>
+                    </span>
+                    <span class="radio-city"> 
+                      <%= radio_button_tag(:large, "その他", @other, {:id => "other"}) %>
+                      <%= label_tag('other', "その他") %>
+                    </span>
+                    <div style="height:50px;"></div>
 		            </div>
 		            <div id="genre" class="tab-pane fade">
 				            <p>ジャンルを指定しますか？</p>
