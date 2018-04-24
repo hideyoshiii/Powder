@@ -52,7 +52,7 @@
           	<div class="panel-body">
           	<%#タブ%>
             <div class="tab-bar">
-              <div style="height:40px;"></div>
+              <div style="height:30px;"></div>
   		        <ul class="nav nav-pills">
   		            <li class="active box-tab"><a data-toggle="tab" href="#city"><i class="fas fa-map-marker-alt"></i></a>
   		            </li>
@@ -300,90 +300,93 @@
                     <% end %>
       		      </div>
 		            <div id="timezone" class="tab-pane fade">
-		            	<p>時間帯を指定しますか？</p>
+		            	<p>営業時間を指定しますか？</p>
 				          <br>
-                    <p style="font-size:10px;">※只今,時間帯で絞る機能を準備しております</p>
+                    <span class="check-city"> 
+                      <%= check_box_tag('timezone[]', "朝", @morning, {:id => "morning"}) %>
+                      <%= label_tag('morning', "朝") %>
+                    </span>
+                    <span class="check-city"> 
+                      <%= check_box_tag('timezone[]', "昼", @noon, {:id => "noon"}) %>
+                      <%= label_tag('noon', "昼") %>
+                    </span>
+                    <span class="check-city"> 
+                      <%= check_box_tag('timezone[]', "夜", @night, {:id => "night"}) %>
+                      <%= label_tag('night', "夜") %>
+                    </span>
 		            </div>
 		            <div id="genre" class="tab-pane fade">
 				            <p>ジャンルを指定しますか？</p>
 				            <br>
                     <% if @large == "ランチ" || @large == "ディナー" %>
-				          	　<span class="radio-city"> 
-                        <%= radio_button_tag(:small, "すべてのジャンル", @all_genre, {:id => "all-genre"}) %>
-                        <%= label_tag('all-genre', "すべてのジャンル") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "和食", @japanese, {:id => "japanese"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "和食", @japanese, {:id => "japanese"}) %>
                         <%= label_tag('japanese', "和食") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "焼き鳥・鳥料理", @yakitori, {:id => "yakitori"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "焼き鳥・鳥料理", @yakitori, {:id => "yakitori"}) %>
                         <%= label_tag('yakitori', "焼き鳥・鳥料理") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "寿司", @sushi, {:id => "sushi"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "寿司", @sushi, {:id => "sushi"}) %>
                         <%= label_tag('sushi', "寿司") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "焼肉・ホルモン", @yakiniku, {:id => "yakiniku"}) %>
                         <%= label_tag('yakiniku', "焼肉・ホルモン") %>
                       </span>                       
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "ステーキ・ハンバーグ", @steak, {:id => "steak"}) %>
                         <%= label_tag('steak', "ステーキ・ハンバーグ") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "鍋", @pot, {:id => "pot"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "鍋", @pot, {:id => "pot"}) %>
                         <%= label_tag('pot', "鍋") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "フレンチ", @french, {:id => "french"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "フレンチ", @french, {:id => "french"}) %>
                         <%= label_tag('french', "フレンチ") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "イタリアン", @italian, {:id => "italian"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "イタリアン", @italian, {:id => "italian"}) %>
                         <%= label_tag('italian', "イタリアン") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "西洋各国料理", @western, {:id => "western"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "西洋各国料理", @western, {:id => "western"}) %>
                         <%= label_tag('western', "西洋各国料理") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "中華料理", @chinese, {:id => "chinese"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "中華料理", @chinese, {:id => "chinese"}) %>
                         <%= label_tag('chinese', "中華料理") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "アジア・エスニック", @asia, {:id => "asia"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "アジア・エスニック", @asia, {:id => "asia"}) %>
                         <%= label_tag('asia', "アジア・エスニック") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "カフェ", @cafe_s, {:id => "cafe-s"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "カフェ", @cafe_s, {:id => "cafe-s"}) %>
                         <%= label_tag('cafe-s', "カフェ") %>
                       </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
+                      <span class="check-city"> 
+                        <%= check_box_tag('small[]', "その他", @otherwise, {:id => "otherwise"}) %>
                         <%= label_tag('otherwise', "その他") %>
                       </span>
                     <% else %>
                       <% if @large == "食べ歩き" %>
                         <span class="radio-city"> 
-                          <%= radio_button_tag(:small, "すべてのジャンル", @all_genre, {:id => "all-genre"}) %>
-                          <%= label_tag('all-genre', "すべてのジャンル") %>
-                        </span>
-                        <span class="radio-city"> 
-                          <%= radio_button_tag(:small, "パン・サンドイッチ", @bread, {:id => "bread"}) %>
+                          <%= check_box_tag('small[]', "パン・サンドイッチ", @bread, {:id => "bread"}) %>
                           <%= label_tag('bread', "パン・サンドイッチ") %>
                         </span>
                         <span class="radio-city"> 
-                          <%= radio_button_tag(:small, "コーヒー・ジュース", @coffee, {:id => "coffee"}) %>
+                          <%= check_box_tag('small[]', "コーヒー・ジュース", @coffee, {:id => "coffee"}) %>
                           <%= label_tag('coffee', "コーヒー・ジュース") %>
                         </span>
                         <span class="radio-city"> 
-                          <%= radio_button_tag(:small, "スイーツ", @sweets, {:id => "sweets"}) %>
+                          <%= check_box_tag('small[]', "スイーツ", @sweets, {:id => "sweets"}) %>
                           <%= label_tag('sweets', "スイーツ") %>
                         </span>
                         <span class="radio-city"> 
-                          <%= radio_button_tag(:small, "その他", @otherwise, {:id => "otherwise"}) %>
+                          <%= check_box_tag('small[]', "その他", @otherwise, {:id => "otherwise"}) %>
                           <%= label_tag('otherwise', "その他") %>
                         </span>
                       <% else %>

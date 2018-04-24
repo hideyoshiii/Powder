@@ -3258,24 +3258,24 @@ footer p {
 }
 .radio-city label {
     position: relative;
-    padding: 0.3em 0.5em;
+    padding: 0.5em 0.7em;
     text-decoration: none;
     color: black;
     border: solid 1px black;
     border-radius: 5px;
-    font-size:14px;
+    font-size:15px;
     transition:0.1s;
     background:white;
     margin-bottom:15px;
 }
 .radio-city input[type="radio"]:checked + label {
     position: relative;
-    padding: 0.3em 0.5em;
+    padding: 0.5em 0.7em;
     text-decoration: none;
     color: white;
     border: solid 1px black;
     border-radius: 5px;
-    font-size:14px;
+    font-size:15px;
     transition:0.1s;
     background:rgba(0, 0, 0, 0.85);
     margin-bottom:15px;
@@ -7912,12 +7912,13 @@ square_btnn{
     display: inline-block;
     width: 80px;/*幅*/
     height: 80px;/*高さ*/
-    background: rgba(0, 0, 0, .75);/*背景色*/
+    background: rgba(0, 0, 0, .7);/*背景色*/
     text-align: center;/*中央寄せ*/
     border-radius: 50%;/*角丸く*/
     transition: .3s;/*滑らかな動きに*/
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
     margin:0px 18px 10px;
+    border:1px solid silver;
 }
 
 #fab-which:hover {/*ホバー時*/
@@ -8803,7 +8804,33 @@ square_btnn{
 
 
 
-
+.check-city input{
+    display: none;
+}
+.check-city label {
+    position: relative;
+    padding: 0.5em 0.7em;
+    text-decoration: none;
+    color: black;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:15px;
+    transition:0.1s;
+    background:white;
+    margin-bottom:15px;
+}
+.check-city input[type="checkbox"]:checked + label {
+    position: relative;
+    padding: 0.5em 0.7em;
+    text-decoration: none;
+    color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+    font-size:15px;
+    transition:0.1s;
+    background:rgba(0, 0, 0, 0.85);
+    margin-bottom:15px;
+}
 
 
 
@@ -9144,14 +9171,14 @@ input,select,textarea{
     top: 2px;
     left:0;
     width:95%;
-    height:140px;
+    height:130px;
     margin:0px 10px;
     z-index:99;
     background:#F4F5F7;
 }
 
 .tab-bar-box{
-	height:140px;
+	height:110px;
 }
 
 

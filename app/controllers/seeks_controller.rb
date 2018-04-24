@@ -689,12 +689,6 @@ class SeeksController < ApplicationController
         @spots = @spots.where.not(title: @spot.title)
       end
     end
-  	#時間帯で絞る
-  	if params[:timezone] == "すべての時間帯"
-  	else
-  		@timezone = params[:timezone]
-  		@spots = @spots.where("timezone like '%#{@timezone}%'")
-  	end
   	#距離で絞るorエリアで絞る
     if params[:distance_on] == "true"
       unless @ss.blank?
@@ -716,16 +710,8 @@ class SeeksController < ApplicationController
     @breakfast = @spots.where(price_lunch: @price_start..@price_end)    
     @lunch = @spots.where(price_lunch: @price_start..@price_end) 
     @dinner = @spots.where(price_dinner: @price_start..@price_end)
-    #朝食,ランチ,ディナー用にジャンルで絞る
-    if params[:small] == "すべてのジャンル"
-    else
-      @small = params[:small]
-      @breakfast = @breakfast.where("small like '%#{@small}%'")
-      @lunch = @lunch.where("small like '%#{@small}%'")
-      @dinner = @dinner.where("small like '%#{@small}%'")
-  	end
     
-	#カテゴリーごとに抽出
+	  #カテゴリーごとに抽出
   	@breakfast = @breakfast.where("large like '%朝食%'")
   	@lunch = @lunch.where("large like '%ランチ%'")
   	@dinner = @dinner.where("large like '%ディナー%'")
@@ -806,11 +792,13 @@ class SeeksController < ApplicationController
   	@large = params[:large]
   	@spots = @spots.where("large like '%#{@large}%'")
   	#時間帯で絞る
-  	if params[:timezone] == "すべての時間帯"
-  	else
-  		@timezone = params[:timezone]
-  		@spots = @spots.where("timezone like '%#{@timezone}%'")
-  	end
+  	if params[:timezone].blank?
+    else
+      @spots = @spots.where(
+      params[:timezone].map { |attr|  "\"spots\".\"timezone\" LIKE ?" }.join(' OR '),
+      *params[:timezone].map { |attr| "%#{attr}%" }
+      )
+    end
   	#距離で絞るorエリアで絞る
   	if params[:distance_on] == "true"
       unless @ss.blank?
@@ -850,10 +838,12 @@ class SeeksController < ApplicationController
     	end
     end
     #ジャンルで絞る
-  	if params[:small] == "すべてのジャンル"
+  	if params[:small].blank?
   	else
-    	@small = params[:small]
-    	@spots = @spots.where("small like '%#{@small}%'")
+      @spots = @spots.where(
+      params[:small].map { |attr|  "\"spots\".\"small\" LIKE ?" }.join(' OR '),
+      *params[:small].map { |attr| "%#{attr}%" }
+      )
 	  end
     #ランダムにして２つ抽出
     @spots = @spots.order("RANDOM()").page(params[:page]).per(30)   
@@ -989,11 +979,6 @@ class SeeksController < ApplicationController
   	end
 
   	#時間帯で絞る
-  	if params[:timezone].blank?
-  		params[:timezone] = "すべての時間帯"
-  	end
-
-  	#時間帯で絞る
   	if params[:distance].blank?
   		params[:distance] = 500
   	end
@@ -1021,12 +1006,7 @@ class SeeksController < ApplicationController
   		params[:price_max] = 20000
   	end
 
-  	#params[price_max]がない時のの定義
-    if params[:small].blank?
-      params[:small] = "すべてのジャンル"
-    end
-  
-  	@all_genre = false
+  	#params[small]の定義
     @japanese = false
     @yakitori = false
     @sushi = false
@@ -1044,55 +1024,52 @@ class SeeksController < ApplicationController
     @coffee = false
     @sweets = false
     if !params[:small].blank?
-      if params[:small] == "すべてのジャンル"
-        @all_genre = true
-      end
-      if params[:small] == "和食"
+      if params[:small].include?("和食")
         @japanese = true
       end
-      if params[:small] == "焼き鳥・鳥料理"
+      if params[:small].include?("焼き鳥・鳥料理")
         @yakitori = true
       end
-      if params[:small] == "寿司"
+      if params[:small].include?("寿司")
         @sushi = true
       end
-      if params[:small] == "焼肉・ホルモン"
+      if params[:small].include?("焼肉・ホルモン")
         @yakiniku = true
       end
-      if params[:small] == "ステーキ・ハンバーグ"
+      if params[:small].include?("ステーキ・ハンバーグ")
         @steak = true
       end
-      if params[:small] == "鍋"
+      if params[:small].include?("鍋")
         @pot = true
       end
-      if params[:small] == "フレンチ"
+      if params[:small].include?("フレンチ")
         @french = true
       end
-      if params[:small] == "イタリアン"
+      if params[:small].include?("イタリアン")
         @italian = true
       end
-      if params[:small] == "西洋各国料理"
+      if params[:small].include?("西洋各国料理")
         @western = true
       end
-      if params[:small] == "中華料理"
+      if params[:small].include?("中華料理")
         @chinese = true
       end
-      if params[:small] == "アジア・エスニック"
+      if params[:small].include?("アジア・エスニック")
         @asia = true
       end
-      if params[:small] == "カフェ"
+      if params[:small].include?("カフェ")
         @cafe = true
       end
-      if params[:small] == "その他"
+      if params[:small].include?("その他")
         @otherwise = true
       end
-      if params[:small] == "パン・サンドイッチ"
+      if params[:small].include?("パン・サンドイッチ")
         @bread = true
       end
-      if params[:small] == "コーヒー・ジュース"
+      if params[:small].include?("コーヒー・ジュース")
         @coffee = true
       end
-      if params[:small] == "スイーツ"
+      if params[:small].include?("スイーツ")
         @sweets = true
       end
     end
@@ -1316,26 +1293,18 @@ class SeeksController < ApplicationController
       @distance_on = true
     end
 
-    @all_timezone = false
     @morning = false
     @noon = false
     @night = false
-    @late_night = false
     if !params[:timezone].blank?
-      if params[:timezone] == "すべての時間帯"
-        @all_timezone = true
-      end
-      if params[:timezone] == "朝"
+      if params[:timezone].include?("朝")
         @morning = true
       end
-      if params[:timezone] == "昼"
+      if params[:timezone].include?("昼")
         @noon = true
       end
-      if params[:timezone] == "夜"
+      if params[:timezone].include?("夜")
         @night = true
-      end
-      if params[:timezone] == "深夜"
-        @late_night = true
       end
     end
 
