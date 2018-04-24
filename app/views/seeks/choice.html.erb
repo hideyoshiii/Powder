@@ -90,186 +90,23 @@
                           </div>
                         </div>
                       </div>
-                      <div style="height:30px;"></div>
-                      <div style="height:30px;"></div>
+                      <div style="height:50px;"></div>
                     </div>
                     <div id="secondBox">
                       <p>エリアを指定できます</p>
                       <br>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
-                        <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "渋谷", @shibuya, {:id => "shibuya"}) %>
-                        <%= label_tag('shibuya', "渋谷") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "原宿・表参道・青山", @harajuku, {:id => "harajuku"}) %>
-                        <%= label_tag('harajuku', "原宿・表参道・青山") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "新宿", @shinjuku, {:id => "shinjuku"}) %>
-                        <%= label_tag('shinjuku', "新宿") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "東京・丸の内・日本橋", @tokyo, {:id => "tokyo"}) %>
-                        <%= label_tag('tokyo', "東京・丸の内・日本橋") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "六本木・麻布・赤坂", @roppongi, {:id => "roppongi"}) %>
-                        <%= label_tag('roppongi', "六本木・麻布・赤坂") %>
-                      </span>    
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "お台場", @odaiba, {:id => "odaiba"}) %>
-                        <%= label_tag('odaiba', "お台場") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "品川", @shinagawa, {:id => "shinagawa"}) %>
-                        <%= label_tag('shinagawa', "品川") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "池袋", @ikebukuro, {:id => "ikebukuro"}) %>
-                        <%= label_tag('ikebukuro', "池袋") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "銀座・有楽町", @ginze, {:id => "ginze"}) %>
-                        <%= label_tag('ginze', "銀座・有楽町") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "新橋・汐留・浜松町", @shinbashi, {:id => "shinbashi"}) %>
-                        <%= label_tag('shinbashi', "新橋・汐留・浜松町") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "上野", @ueno, {:id => "ueno"}) %>
-                        <%= label_tag('ueno', "上野") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "浅草・押上", @asakusa, {:id => "asakusa"}) %>
-                        <%= label_tag('asakusa', "浅草・押上") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "目黒・白金・五反田", @meguro, {:id => "meguro"}) %>
-                        <%= label_tag('meguro', "目黒・白金・五反田") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "吉祥寺・三鷹", @kichijoji, {:id => "kichijoji"}) %>
-                        <%= label_tag('kichijoji', "吉祥寺・三鷹") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "神楽坂・飯田橋", @kagurazaka, {:id => "kagurazaka"}) %>
-                        <%= label_tag('kagurazaka', "神楽坂・飯田橋") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "下北沢", @shimokitazawa, {:id => "shimokitazawa"}) %>
-                        <%= label_tag('shimokitazawa', "下北沢") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "谷中・根津・千駄木", @taninaka, {:id => "taninaka"}) %>
-                        <%= label_tag('taninaka', "谷中・根津・千駄木") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "神田・秋葉原・御茶ノ水", @kanda, {:id => "kanda"}) %>
-                        <%= label_tag('kanda', "神田・秋葉原・御茶ノ水") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "赤坂・虎ノ門・永田町", @akasaka, {:id => "akasaka"}) %>
-                        <%= label_tag('akasaka', "赤坂・虎ノ門・永田町") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "四ツ谷・信濃町・千駄ヶ谷", @yotsuya, {:id => "yotsuya"}) %>
-                        <%= label_tag('yotsuya', "四ツ谷・信濃町・千駄ヶ谷") %>
-                      </span>
+                      <div style="width:90%;text-align:center;margin:0 auto;">
+                        <%= render "partial/area_form2" %>
+                      </div>
                       <div style="height:50px;"></div>
                     </div>
                   <% else %>  
     		            <p>エリアを指定しますか？</p>
                     <br>
-  				            <span class="radio-city"> 
-  				              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu"}) %>
-  				              <%= label_tag('ebisu', "恵比寿・代官山・中目黒") %>
-  				            </span>
-  				            <span class="radio-city"> 
-  				              <%= radio_button_tag(:city, "渋谷", @shibuya, {:id => "shibuya"}) %>
-  				              <%= label_tag('shibuya', "渋谷") %>
-  				            </span>
-  				            <span class="radio-city"> 
-  				              <%= radio_button_tag(:city, "原宿・表参道・青山", @harajuku, {:id => "harajuku"}) %>
-  				              <%= label_tag('harajuku', "原宿・表参道・青山") %>
-  				            </span>
-  				            <span class="radio-city"> 
-  				              <%= radio_button_tag(:city, "新宿", @shinjuku, {:id => "shinjuku"}) %>
-  				              <%= label_tag('shinjuku', "新宿") %>
-  				            </span>
-  				            <span class="radio-city"> 
-  				              <%= radio_button_tag(:city, "東京・丸の内・日本橋", @tokyo, {:id => "tokyo"}) %>
-  				              <%= label_tag('tokyo', "東京・丸の内・日本橋") %>
-  				            </span>
-  				            <span class="radio-city"> 
-  				              <%= radio_button_tag(:city, "六本木・麻布・赤坂", @roppongi, {:id => "roppongi"}) %>
-  				              <%= label_tag('roppongi', "六本木・麻布・赤坂") %>
-  				            </span>    
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "お台場", @odaiba, {:id => "odaiba"}) %>
-                        <%= label_tag('odaiba', "お台場") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "品川", @shinagawa, {:id => "shinagawa"}) %>
-                        <%= label_tag('shinagawa', "品川") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "池袋", @ikebukuro, {:id => "ikebukuro"}) %>
-                        <%= label_tag('ikebukuro', "池袋") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "銀座・有楽町", @ginze, {:id => "ginze"}) %>
-                        <%= label_tag('ginze', "銀座・有楽町") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "新橋・汐留・浜松町", @shinbashi, {:id => "shinbashi"}) %>
-                        <%= label_tag('shinbashi', "新橋・汐留・浜松町") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "上野", @ueno, {:id => "ueno"}) %>
-                        <%= label_tag('ueno', "上野") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "浅草・押上", @asakusa, {:id => "asakusa"}) %>
-                        <%= label_tag('asakusa', "浅草・押上") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "目黒・白金・五反田", @meguro, {:id => "meguro"}) %>
-                        <%= label_tag('meguro', "目黒・白金・五反田") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "吉祥寺・三鷹", @kichijoji, {:id => "kichijoji"}) %>
-                        <%= label_tag('kichijoji', "吉祥寺・三鷹") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "神楽坂・飯田橋", @kagurazaka, {:id => "kagurazaka"}) %>
-                        <%= label_tag('kagurazaka', "神楽坂・飯田橋") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "下北沢", @shimokitazawa, {:id => "shimokitazawa"}) %>
-                        <%= label_tag('shimokitazawa', "下北沢") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "谷中・根津・千駄木", @taninaka, {:id => "taninaka"}) %>
-                        <%= label_tag('taninaka', "谷中・根津・千駄木") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "神田・秋葉原・御茶ノ水", @kanda, {:id => "kanda"}) %>
-                        <%= label_tag('kanda', "神田・秋葉原・御茶ノ水") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "赤坂・虎ノ門・永田町", @akasaka, {:id => "akasaka"}) %>
-                        <%= label_tag('akasaka', "赤坂・虎ノ門・永田町") %>
-                      </span>
-                      <span class="radio-city"> 
-                        <%= radio_button_tag(:city, "四ツ谷・信濃町・千駄ヶ谷", @yotsuya, {:id => "yotsuya"}) %>
-                        <%= label_tag('yotsuya', "四ツ谷・信濃町・千駄ヶ谷") %>
-                      </span>
-			        	      <div style="height:50px;"></div>
+                    <div style="width:90%;text-align:center;margin:0 auto;">
+                      <%= render "partial/area_form2" %>
+                    </div>
+		        	      <div style="height:50px;"></div>
                   <% end %>  
 		            </div>
 		            <div id="price" class="tab-pane fade">
@@ -474,7 +311,7 @@
                         <%= check_box_tag('small[]', "その他", @otherwise, {:id => "otherwise"}) %>
                         <%= label_tag('otherwise', "その他") %>
                       </span>
-                      <div style="height:30px;"></div>
+                      <div style="height:50px;"></div>
                     <% else %>
                       <% if @large == "食べ歩き" %>
                         <span class="radio-city"> 
@@ -493,7 +330,7 @@
                           <%= check_box_tag('small[]', "その他", @otherwise, {:id => "otherwise"}) %>
                           <%= label_tag('otherwise', "その他") %>
                         </span>
-                        <div style="height:30px;"></div>
+                        <div style="height:50px;"></div>
                       <% else %>
                         <p style="font-size:10px;">※ランチ,ディナー,食べ歩きのみジャンルで絞る機能が使えます</p>
                       <% end %>
@@ -504,11 +341,11 @@
 	    </div>
     </div>
     </div>
-    <div class="">
-      <%= submit_tag "絞る", :class => "btn btn-default inline" %>
+    <div style="box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);">
+      <%= submit_tag "条件を絞る", :class => "btn btn-primary inline" %>
     </div>
     <% end %>  
-    <div class="btn-details">
+    <div class="btn-details_0">
      <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
       <i class="fa fa-close"></i>
      </a>
