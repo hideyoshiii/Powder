@@ -342,7 +342,7 @@
   <div class="visible-xs visible-sm">
     <%#マップモーダルボタン%>
     <div class="btn-details">
-     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-map">
+     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
       <i class="far fa-map"></i>
      </a>
     </div>
@@ -363,7 +363,7 @@
     <%#編集モーダルボタン%>
     <% if (user_signed_in?) && current_user.id == @course.user_id %>
       <div class="btn-details_3">
-       <%= link_to "/seeks/course/#{@course.id}/edit", :id => 'btn-edit' do %>
+       <%= link_to "/seeks/course/#{@course.id}/edit", :id => 'btn-detail' do %>
         <i class="far fa-edit"></i>
        <% end %>
       </div>
@@ -378,7 +378,7 @@
       </div>
     </div>
     <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-map">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
       <i class="fa fa-close"></i>
      </a>
     </div>

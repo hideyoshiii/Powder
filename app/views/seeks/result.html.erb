@@ -232,13 +232,13 @@
   <div class="visible-xs visible-sm">
     <%#マップモーダルボタン%>
     <div class="btn-details">
-     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-map">
+     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
       <i class="far fa-map"></i>
      </a>
     </div>
     <%#保存モーダルボタン%>
     <div class="btn-details_2">
-     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-save">
+     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
       <i class="far fa-save"></i>
      </a>
     </div>
@@ -252,6 +252,7 @@
         <div style="height:auto;padding:30px 15px 0px;">
           <% if (user_signed_in?) %>
             <%= form_tag(seeks_save_path, method: :get) do %>
+              <%= hidden_field_tag :time_start, @timezone_ja %>
               <%= hidden_field_tag :time_end, "夜" %>
               <%= hidden_field_tag :city, @spot_first.city %>
               <%= hidden_field_tag 'kind', "ユーザー" %>
@@ -260,12 +261,6 @@
               <br>
               <div class="form-group">
                 <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
-              </div>
-              <br>
-              <div class="form-group">
-                <div class="select-box01">
-                  <%= select_tag :time_start, options_for_select([["朝から","朝"],["昼から","昼"],["夜から","夜"]], "昼") %>
-                </div>
               </div>
               <br>
               <% if (user_signed_in?) %>
@@ -305,7 +300,7 @@
       </div>
     </div>
     <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-save">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
       <i class="fa fa-close"></i>
      </a>
     </div>
@@ -319,7 +314,7 @@
       </div>
     </div>
     <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-map">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
       <i class="fa fa-close"></i>
      </a>
     </div>

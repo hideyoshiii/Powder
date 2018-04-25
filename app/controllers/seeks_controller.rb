@@ -162,6 +162,45 @@ class SeeksController < ApplicationController
   end
 
   def outcome   
+   #再検索用の定義
+   @timezone_lunch = false
+   @timezone_night = false
+    unless params[:timezone].blank?
+      if params[:timezone] == "noon"
+        @timezone_lunch = true
+      end
+      if params[:timezone] == "night"
+        @timezone_night = true
+      end
+    end
+    @budget_one = false
+    @budget_two = false
+    @budget_three = false
+    unless params[:budget].blank?
+      if params[:budget] == "1"
+        @budget_one = true
+      end
+      if params[:budget] == "2"
+        @budget_two = true
+      end
+      if params[:budget] == "3"
+        @budget_three = true
+      end
+    end
+    @scene_cool = false
+    @scene_casual = false
+    @scene_unique = false
+    unless params[:scene].blank?
+      if params[:scene] == "クール"
+        @scene_cool = true
+      end
+      if params[:scene] == "カジュアル"
+        @scene_casual = true
+      end
+      if params[:scene] == "ユニーク"
+        @scene_unique = true
+      end
+    end
    #@spotsを定義
    @spots = Spot.all
    #@latitudeがない物を排除
@@ -172,19 +211,19 @@ class SeeksController < ApplicationController
    @price_startz = params[:price_minz].to_i
    @price_endz = params[:price_maxz].to_i
    #予算定義2
-   if params[:budget] = 1
+   if params[:budget] = "1"
      @price_start = 0
      @price_end = 2000
      @price_startz = 0
      @price_endz = 5000
    end
-   if params[:budget] = 2
+   if params[:budget] = "2"
      @price_start = 0
      @price_end = 4000
      @price_startz = 0
      @price_endz = 8000
    end
-   if params[:budget] = 3
+   if params[:budget] = "3"
      @price_start = 0
      @price_end = 50000
      @price_startz = 0
