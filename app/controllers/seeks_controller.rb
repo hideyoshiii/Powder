@@ -2,6 +2,9 @@ class SeeksController < ApplicationController
   before_action :set_params, only: [:area,:distance,:category,:choice,:result,:resultsave]
   before_action :authenticate_user!, only: [:resultsave]
 
+  def terms
+  end
+
   def noon 
     @spots = Spot.all
     @spots = @spots.where(city: params[:city])

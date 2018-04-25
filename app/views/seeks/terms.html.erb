@@ -1,0 +1,134 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+<div class="pc_1">
+
+	<div class="box87" id=''>
+		<%= form_tag(seeks_outcome_path, method: :get) do %>
+		<%= hidden_field_tag :city, params[:city] %>
+
+		<div style="height:60px;"></div>
+		<p class="text-center" style="color:white;">条件を絞りましょう</p>
+		
+		
+
+		<h4 style="color:#CCCCCC;padding:0px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">1</span>,&nbsp;Timezone</h4>
+		<div class="home-box">
+			<div class="home-box-1">
+	  			<div class="radio-city00"> 
+	              <%= radio_button_tag(:timezone, "noon", true, {:id => "lunch"}) %>
+	              <label for="lunch">
+		            <i class="fas fa-sun"></i>
+        		  </label>
+	            </div>
+	            <div class="lunch-info">
+	              ランチから
+	            </div>
+            </div>
+            <div class="home-box-1">
+	  			<div class="radio-city00"> 
+	              <%= radio_button_tag(:timezone, "night", false, {:id => "dinner"}) %>
+	              <label for="dinner">
+		            <i class="fas fa-moon"></i>
+        		  </label>
+	            </div>
+	            <div class="lunch-info">
+	              ディナーから
+	            </div>
+            </div>
+        </div>
+
+
+		<h4 style="color:#CCCCCC;padding:0px 0px 10px 10px;font-size:17px;"><span style="font-size:24px;">2</span>,&nbsp;Budget</h4>
+  		<div class="home-box">
+  			<div class="home-box-1">
+	  			<div class="radio-city0"> 
+	              <%= radio_button_tag(:budget, 1, true, {:id => "one"}) %>
+	              <label for="one">
+		            <i class="fas fa-yen-sign"></i>
+        		  </label>
+	            </div>
+	            <div class="lunch-info">
+	              Bronze
+	            </div>
+            </div>
+            <div class="home-box-1">
+	  			<div class="radio-city0"> 
+	              <%= radio_button_tag(:budget, 2, false, {:id => "two"}) %>
+	              <label for="two">
+		            <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+        		  </label>
+	            </div>
+	            <div class="lunch-info">
+	              Silver
+	            </div>
+            </div>
+            <div class="home-box-1">
+	  			<div class="radio-city0"> 
+	              <%= radio_button_tag(:budget, 3, false, {:id => "three"}) %>
+	              <label for="three">
+		            <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+        		  </label>
+	            </div>
+	            <div class="lunch-info">
+	              Gold
+	            </div>
+            </div>   
+     	</div>
+
+        <h4 style="color:#CCCCCC;padding:10px 0px 10px 10px;font-size:17px;"><span style="font-size:24px;">3</span>,&nbsp;Scene</h4>
+        <div class="home-box">
+	        <div class="home-box-1">
+	        	
+	        		<div class="radio-city000">	
+		        		<%= radio_button_tag(:scene, "クール", true, {:id => "cool"}) %>
+		        		<label for="cool">
+				            <%= image_tag "cool00.jpg", :class =>'img-scene' %>
+		        		</label>
+	        		</div>
+	        	
+	        	<div class="lunch-info">
+			        クール
+			    </div>
+	        </div>
+	        <div class="home-box-1">
+        		<div class="radio-city000">	
+	        		<%= radio_button_tag(:scene, "カジュアル", false, {:id => "casual"}) %>
+	        		<label for="casual">
+			            <%= image_tag "casual00.jpg", :class =>'img-scene' %>
+	        		</label>
+        		</div>
+	        	<div class="lunch-info">
+			        カジュアル
+			    </div>
+	        </div>
+	        <div class="home-box-1">
+        		<div class="radio-city000">	
+	        		<%= radio_button_tag(:scene, "ユニーク", false, {:id => "unique"}) %>
+	        		<label for="unique">
+			            <%= image_tag "unique00.jpg", :class =>'img-scene' %>
+	        		</label>
+        		</div>
+	        	<div class="lunch-info">
+			        ユニーク
+			    </div>
+	        </div>
+      	</div>
+
+      	<div style="height:50px"></div>
+	    <div class="text-center">
+			<%= submit_tag "コースを作成する", :class => "btn btn-default" %>
+		</div>
+		<div style="height:50px"></div>
+	
+    <% end %>
+
+	</div>
+</div>
+
+  <div class="pc_2">
+    <%= render "partial/fotter_home" %>
+  </div>
+
+<%= render "partial/footer" %>
+</mains>
