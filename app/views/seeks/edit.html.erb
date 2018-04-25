@@ -2,25 +2,29 @@
 <mains class="" id="main-collapse">
 
 <%= form_tag("/seeks/course/#{@course.id}/sort", method: :get) do %>
+	<%= hidden_field_tag :time_start, @course.time_start %>
+  	<%= hidden_field_tag :time_end, @course.time_end %>
+  	<%= hidden_field_tag :city, @course.city %>
+  	<%= hidden_field_tag :kind, @course.kind %>
 	<div style="padding:20px 15px 0px;">
-		<h4 class="text-center"><span class="what">コースを編集する</span></h4>
+		<h4 class="text-center"><span class="what">コース情報を編集する</span></h4>
 	</div>
-	<div style="padding:20px 30px;">
+	<div style="padding:40px 30px;">
 		<div class="form-group">
 	      <%= text_field_tag :title, @course.title, placeholder: "タイトル", class: "form-control", required: "true" %>
 	    </div>
 	    <br>
 	    <div class="form-group">
-            <div class="select-box01">
-              <%= select_tag :time_start, options_for_select([["朝から","朝"],["昼から","昼"],["夜から","夜"]], "昼") %>
-            </div>
-        </div>
+	        <%= text_area_tag :description, @course.description, rows: 4, placeholder: "コースの説明", class: "form-control" %>
+	    </div>
 	    <% if (user_signed_in?) %>
 	    	<% if current_user.authority == "manager" %>
-			    <br>
-			    <div class="form-group">
-			        <%= text_area_tag :description, @course.description, rows: 4, placeholder: "コースの説明", class: "form-control" %>
-			    </div>
+	    		<br>
+	    		<div class="form-group">
+		            <div class="select-box01">
+		              <%= select_tag :time_start, options_for_select([["朝から","朝"],["昼から","昼"],["夜から","夜"]], @course.time_start) %>
+		            </div>
+		        </div>
 			    <br>
 		        <div class="form-group">
 		          <div class="select-box01">
@@ -45,6 +49,9 @@
 		    <% end %> 
 	    <% end %> 
 	</div>	
+
+<% if (user_signed_in?) %>
+<% if current_user.authority == "manager" %>
     <ul class="sortable li_none">
     	<% @points.each do |point| %>
 	        <li class="li_none box-edit" id="<%= point.number %>">
@@ -118,6 +125,8 @@
 		　<% end %>
      <% end %>
      <br>
+<% end %> 
+<% end %> 
      <div class="text-center">
     	<%= submit_tag "編集を完了する", :class => "btn btn-primary" %>
      </div>
