@@ -20,32 +20,44 @@
         <p style="font-size:12px;color:black;">あなたの代わりにデートコースを</p>
       </div>
 
-      <% if (user_signed_in?) %>
-        <% if current_user.authority == "manager" %>
-          <div class="hidden-xs">
-            <p class="button-menu">
-              <%= link_to root_path do %>
-                <i class="fas fa-home btn-menu"></i>
-              <% end %>
-              <%= link_to "/seeks/courses" do %>
-                <i class="fas fa-align-justify btn-menu" aria-hidden="true"></i>
-              <% end %>
+      
+      <div class="hidden-xs">
+        <p class="button-menu">
+          <%= link_to root_path do %>
+            <i class="fas fa-home btn-menu"></i>
+          <% end %>
+          <%= link_to "/seeks/courses" do %>
+            <i class="fas fa-search btn-menu"></i>
+          <% end %>
+          <%= link_to seeks_city_path do %>
+            <i class="fas fa-plus btn-menu"></i>
+          <% end %>
+          <% if (user_signed_in?) %>
+            <% if current_user.authority == "manager" %>
               <%= link_to "/spots" do %>
-                <i class="fas fa-map-marker-alt btn-menu" aria-hidden="true"></i>
+                <i class="fas fa-map-marker-alt btn-menu"></i>
               <% end %>
-              <% if (user_signed_in?) %>
-                <%= link_to user_path(current_user) do %>
-                  <i class="far fa-user btn-menu"></i>
-                <% end %>
-              <% else %>
-                <%= link_to new_user_session_path do %>
-                  <i class="fas fa-sign-in-alt btn-menu" aria-hidden="true"></i>
-                <% end %>
+            <% else %>
+              <%= link_to seeks_personal_path do %>
+                <i class="far fa-clipboard btn-menu"></i>
               <% end %>
-            </p>
-          </div>
-        <% end %>
-      <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to seeks_personal_path do %>
+              <i class="far fa-clipboard btn-menu"></i>
+            <% end %>
+          <% end %>
+          <% if (user_signed_in?) %>
+            <%= link_to user_path(current_user) do %>
+              <i class="far fa-user btn-menu"></i>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <i class="fas fa-sign-in-alt btn-menu" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
 
 
       <ul class="nav">  
