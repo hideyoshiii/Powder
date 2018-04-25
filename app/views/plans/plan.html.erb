@@ -1,0 +1,610 @@
+<%= render "partial/navbar" %>
+
+<mains class="" id="main-collapse">
+
+<% if @ss.blank? %>
+  該当するデートコースはありません
+<% else %>
+  <div class="course">
+    <div class="course_in">
+
+      <%# 目次 %>
+      <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
+      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
+      <%# コースの諸情報 %>
+      <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
+      <div class="result-info-box">
+        <div class="result-info-box-1">
+          <div class="result-info-btn">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="result-info">
+            <%= params[:city] %>付近
+          </div>
+        </div>
+        <div class="result-info-box-1">
+          <div class="result-info-btn">
+            <i class="far fa-clock"></i>
+          </div>
+          <div class="result-info">
+            <% if params[:timezone] == "noon" %>
+              昼から
+            <% end %>
+            <% if params[:timezone] == "night" %>
+              夜から
+            <% end %>
+          </div>
+        </div>
+        <div class="result-info-box-1">
+          <div class="result-info-btn">
+            <i class="fas fa-yen-sign"></i>
+          </div>
+          <div class="result-info">
+            <% if @total_min == @total_max %>
+              <%= @total_min %>円程度
+            <% else %>
+              <%= @total_min %>~<%= @total_max %>円程度
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <%# スポット %>
+      <div style="padding:0px 15px;">
+      	<h4 class="text-center">Spots</h4>   
+        <% @ss.each.with_index(1) do |s, i| %>
+          <% spot = Spot.find(s) %>
+          <%# 経路 %>
+          <% unless i == 1 %>
+            <div class="box-distance-bb">
+              <% spot_pre_n = @ss[i - 2] %>
+              <% spot_pre = Spot.find(spot_pre_n) %>
+              <% @distance_two = Geocoder::Calculations.distance_between([spot_pre.latitude,spot_pre.longitude], [spot.latitude,spot.longitude], :units => :km) %>
+              <% @distance_two = @distance_two.to_f.round(4) * 1000 %>
+              <% @distance_two = @distance_two.to_i %>
+                <span class="text-distance-bb">
+                  <i class="fa fa-angle-down"></i>&nbsp;<%= @distance_two %>m
+                </span>
+                <a href="https://www.google.com/maps?saddr=<%= spot_pre.address %>&daddr=<%= spot.address %>&dirflg=w" target="_blank" class="raise5-result">
+                  <i class="fas fa-location-arrow"></i>&nbsp;経路
+                </a>
+            </div>
+          <% end %>
+          <%# アイキャッチ %>
+          <a href="" data-toggle="modal" data-target="#myModal<%= i %>">
+            <div class="radio-city-bbb">  
+                <%= image_tag spot.pictures.first.image.url, :class =>'img-city-bb' %>
+                <h1>
+                  <%# 番号 %>
+                  <span class="number">0<%= i %></span>
+                  <%# 調整 %>
+                  <div style="height:20px;"></div>
+                  <%# タイトル %>
+                  <%= spot.title %>
+                  <%# 調整 %>
+                  <div style="height:0px;"></div>
+                  <%# 駅 %>
+                  <span style="font-size:9px;text-shadow:none;opacity:0.8;"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %></span>
+                  <%# 調整 %>
+                  <div style="height:20px;"></div>
+                </h1> 
+            </div>
+          </a>
+          <%# description %>
+          <% unless spot.description.blank? %>
+            <p class="text-center" style="font-size:12px;padding:5px 5px 0px;margin:0;">
+            <%= spot.description %>
+            </p>
+          <% end %>
+          <!-- モーダルウィンドウの中身 -->
+          <div class="modal" id="myModal<%= i %>">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <%# 画像 %>
+                <div class="box-one">
+                  <%= image_tag spot.pictures.first.image.url, :class =>'img-one' %>
+                  <p class="quote-one">
+                    <% if !spot.pictures.first.url.blank? %>
+                      <% if !spot.pictures.first.quote.blank? %>
+                        <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                          出典&nbsp;<%= spot.pictures.first.quote %>
+                        </a>
+                      <% else %> 
+                        <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                          出典&nbsp;
+                        </a>
+                      <% end %>
+                    <% else %> 
+                        &nbsp;
+                    <% end %>  
+                  </p>
+                </div>
+                <div class="panel-body">
+                  <%# タイトル %>
+                  <div class="title-one"><%= spot.title %></div>
+                  <%# 都道府県、エリア %>
+                  <p style="color: #66666;margin:4px 0px;font-size:10px">
+                    <i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %>
+                  </p> 
+                  <%# 料金 %>
+                  <p style="color: #666666;margin:4px 0px;font-size:10px">
+                    <% unless spot.price_lunch.blank? %>
+                      <% unless spot.price_lunch == 0 %>
+                        <i class="far fa-sun"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                      <% end %>
+                    <% end %>
+                    <% unless spot.price_dinner.blank? %>
+                      <% unless spot.price_dinner == 0 %>
+                        <i class="far fa-moon"></i>&nbsp;~<%= spot.price_dinner %>円
+                      <% end %>
+                    <% end %>
+                  </p> 
+                  <%# カテゴリー %>
+                  <% unless spot.large.blank? %>
+                    <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fas fa-tag"></i>
+                    <% @i = 0 %>
+                      <% spot.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == spot.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# ジャンル %>
+                  <% unless spot.small.blank? %>
+                    <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fas fa-utensils"></i>&nbsp;
+                    <% @i = 0 %>
+                      <% spot.small.each do |small| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == spot.small.size %>
+                          <%= small %>
+                        <% else %>
+                          <%= small %>/
+                        <% end %>
+                      <% end %>
+                    </p> 
+                  <% end %>
+                  <%# 食べログ、rettyボタン等 %>
+                  <h4 style="margin:10px 0px 7px;font-size:13px">For your infomation</h4>
+                  <div class="">
+                    <% unless spot.tabelog.blank? %>
+                      <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+                    <% end %>
+                    <% unless spot.retty.blank? %>
+                      <a href="<%= spot.retty %>" target="_blank" class="raise3-result"><i class="fas fa-utensils"></i>&nbsp;Retty</a>
+                    <% end %>
+                    <% unless spot.introduction.blank? %>
+                      <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><span><i class="fab fa-instagram"></i>&nbsp;Instagram</span></a>
+                    <% end %>
+                    <% if spot.tabelog.blank? %>
+                      <% unless spot.browser.blank? %>
+                        <a href="<%= spot.browser %>" target="_blank" class="raise2-result"><span><i class="fas fa-globe"></i>&nbsp;公式</span></a>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <%# Description %>
+                  <% unless spot.description.blank? %>
+                    <h4 style="margin:10px 0px 7px;font-size:13px">Description</h4>
+                    <p style="font-size:11px"><%= spot.description %></p>
+                  <% end %>
+                </div>  
+              </div>
+            </div>
+            <div class="btn-details">
+             <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+              <i class="fa fa-close"></i>
+             </a>
+            </div>
+          </div>
+        <% end %>
+        <%#SP用のマップ%>
+        <div class="visible-xs visible-sm">
+          <h4 class="text-center">Map</h4>   
+          <div class="box-map_sp">
+            <div id="map_10_sp"></div>
+          </div>
+        </div>
+      </div>
+      <%#SP用のフッター%>
+      <div class="visible-xs visible-sm">
+        <%#ツイートボタン%>
+        <div style="padding:60px 0px 60px;text-align:center;">
+         <p style="font-size:18px;color:black;">つくったコースをシェアしよう！</p>
+         <div id="tw">
+            <a href="" target="_blank" class="btn-twitter">
+              <i class="fab fa-twitter"></i> ツイートする
+            </a>
+          </div>
+        </div>
+      </div>
+      <%#PC用のボタン%>
+	  <div class="visible-md visible-lg">   
+        <%#chngeボタン%>
+        <div style="padding:40px 0px 0px;text-align:center;">
+         <p>あなたも10秒でコースを作ろう！</p>
+         <a href="/plans/home" class="btn btn-info">
+          <i class="fas fa-sync-alt"></i> 10秒でコースをつくる
+         </a>
+        </div>
+        <%#ツイートボタン%>
+        <div style="padding:20px 0px 20px;text-align:center;">
+         <p>つくったコースをシェアしよう！</p>
+         <div id="tw">
+            <a href="" target="_blank" class="btn-twitter">
+              <i class="fab fa-twitter"></i> ツイートする
+            </a>
+          </div>
+        </div>
+        <%#保存モーダルボタン%>
+        <% if (user_signed_in?) %>
+      		<% if current_user.authority == "manager" %>
+		        <div style="padding:20px 0px 20px;text-align:center;">
+		         <p>コースを保存できるよ！</p>
+		         <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
+		          <i class="far fa-save"></i> 保存する
+		         </a>
+		        </div>
+		    <% end %>
+		<% end %>
+      </div>   
+    </div>
+    <%#PC用のmap%>
+    <div class="visible-md visible-lg">
+      <div class="course_map">
+        <%#map%>
+        <div id="map_10_pc"></div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class="visible-xs visible-sm">
+    <%#chngeボタン%>
+    <div class="btn-details_3">
+     <a href="javascript:;" onclick="koshin()" id="btn-detail">
+      <i class="fas fa-sync-alt"></i>
+     </a>
+    </div>
+    <%#条件変更モーダルボタン%>
+    <div class="btn-details_2">
+     <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
+      <i class="fas fa-search"></i>
+     </a>
+    </div>
+    <%#マップモーダルボタン%>
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
+      <i class="far fa-map"></i>
+     </a>
+    </div>
+    <%#シェアモーダルボタン%>
+    <div class="btn-details_4">
+     <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
+      <i class="fa fa-external-link-alt"></i>
+     </a>
+    </div>
+    <%#保存モーダルボタン%>
+    <% if (user_signed_in?) %>
+      	<% if current_user.authority == "manager" %>
+		    <div class="btn-details_5">
+		     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
+		      <i class="far fa-save"></i>
+		     </a>
+		    </div>
+    	<% end %>
+	<% end %>
+  </div>
+
+  <%#保存モーダルの中身%>
+  <div class="modal" id="myModal-save">
+    <div style="height:10vh;"></div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div style="height:auto;padding:30px 15px 0px;">
+          <% if (user_signed_in?) %>
+            <%= form_tag(seeks_save_path, method: :get) do %>
+              <%= hidden_field_tag :time_start, @timezone_ja %>
+              <%= hidden_field_tag :time_end, "夜" %>
+              <%= hidden_field_tag :city, @spot_first.city %>
+              <%= hidden_field_tag 'kind', "ユーザー" %>
+              <br>
+              <h4 class="text-center">コースを保存する</h4>
+              <br>
+              <div class="form-group">
+                <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
+              </div>
+              <br>
+              <% if (user_signed_in?) %>
+                <% if current_user.authority == "manager" %>
+                  <div class="form-group">
+                    <div class="select-box01">
+                      <%= select_tag :kind, options_for_select([["提案","提案"],["ユーザー","ユーザー"],["サンプル","サンプル"]], "提案") %>
+                    </div>
+                  </div>
+                  <br>
+                <% end %>
+              <% end %>
+              <% params[:ss].each.with_index(1) do |s, i| %>
+                <%= hidden_field_tag 'ss[]', s %>
+              <% end %>
+              <div class="text-center">
+                <%= submit_tag "保存する", :class => "btn btn-default" %>
+              </div>
+              <br><br>
+            <% end %>
+          <% else %>
+            <%= form_tag(seeks_result_save_path, method: :get) do %>
+              <%= hidden_field_tag :timezone, params[:timezone] %>
+              <br>
+              <h4 class="text-center">コースを保存するにはログインが必要です</h4>
+              <br>
+              <% params[:ss].each.with_index(1) do |s, i| %>
+                <%= hidden_field_tag 'ss[]', s %>
+              <% end %>
+              <div class="text-center">
+                <%= submit_tag "ログインする", :class => "btn btn-default" %>
+              </div>
+              <br><br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+      <i class="fa fa-close"></i>
+     </a>
+    </div>
+  </div>
+
+  <%#条件変更モーダルの中身%>
+  <div class="modal" id="myModal-terms">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="box87" id=''>
+          <%= form_tag(seeks_outcome_path, method: :get) do %>
+            <%= hidden_field_tag :city, params[:city] %>
+            <div style="padding:0px 15px;">
+              <div style="height:60px;"></div>
+              <p class="text-center" style="color:white;">条件を変更する</p>
+              <%# 時間帯 %>
+              <h4 style="color:#CCCCCC;padding:0px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">1</span>,&nbsp;Timezone</h4>
+              <div class="home-box">
+                <div class="home-box-1">
+                    <div class="radio-city00"> 
+                          <%= radio_button_tag(:timezone, "noon", @timezone_lunch, {:id => "lunch"}) %>
+                          <label for="lunch">
+                          <i class="fas fa-sun"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          ランチから
+                        </div>
+                      </div>
+                      <div class="home-box-1">
+                    <div class="radio-city00"> 
+                          <%= radio_button_tag(:timezone, "night", @timezone_night, {:id => "dinner"}) %>
+                          <label for="dinner">
+                          <i class="fas fa-moon"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          ディナーから
+                        </div>
+                      </div>
+                  </div>
+                  <%# 予算 %>
+              <h4 style="color:#CCCCCC;padding:0px 0px 5px 10px;font-size:17px;"><span style="font-size:24px;">2</span>,&nbsp;Budget</h4>
+                <div class="home-box">
+                  <div class="home-box-1">
+                    <div class="radio-city0"> 
+                          <%= radio_button_tag(:budget, "1", @budget_one, {:id => "one"}) %>
+                          <label for="one">
+                          <i class="fas fa-yen-sign"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          Bronze
+                        </div>
+                      </div>
+                      <div class="home-box-1">
+                    <div class="radio-city0"> 
+                          <%= radio_button_tag(:budget, "2", @budget_two, {:id => "two"}) %>
+                          <label for="two">
+                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          Silver
+                        </div>
+                      </div>
+                      <div class="home-box-1">
+                    <div class="radio-city0"> 
+                          <%= radio_button_tag(:budget, "3", @budget_three, {:id => "three"}) %>
+                          <label for="three">
+                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          Gold
+                        </div>
+                      </div>   
+                </div>
+                <%# シーン %>
+                  <h4 style="color:#CCCCCC;padding:10px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">3</span>,&nbsp;Scene</h4>
+                  <div class="home-box">
+                    <div class="home-box-1">
+                      
+                        <div class="radio-city000"> 
+                          <%= radio_button_tag(:scene, "クール", @scene_cool, {:id => "cool"}) %>
+                          <label for="cool">
+                              <%= image_tag "cool00.jpg", :class =>'img-scene' %>
+                          </label>
+                        </div>
+                      
+                      <div class="lunch-info">
+                        クール
+                    </div>
+                    </div>
+                    <div class="home-box-1">
+                      <div class="radio-city000"> 
+                        <%= radio_button_tag(:scene, "カジュアル", @scene_casual, {:id => "casual"}) %>
+                        <label for="casual">
+                            <%= image_tag "casual00.jpg", :class =>'img-scene' %>
+                        </label>
+                      </div>
+                      <div class="lunch-info">
+                        カジュアル
+                    </div>
+                    </div>
+                    <div class="home-box-1">
+                      <div class="radio-city000"> 
+                        <%= radio_button_tag(:scene, "ユニーク", @scene_unique, {:id => "unique"}) %>
+                        <label for="unique">
+                            <%= image_tag "unique00.jpg", :class =>'img-scene' %>
+                        </label>
+                      </div>
+                      <div class="lunch-info">
+                        ユニーク
+                    </div>
+                    </div>
+                  </div>
+                <div class="text-center" style="padding:50px 0px;">
+                <%= submit_tag "コースを再作成する", :class => "btn btn-default" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+      <i class="fa fa-close"></i>
+     </a>
+    </div>
+  </div>
+
+  <%#マップモーダルの中身%>
+  <div class="modal" id="myModal-map">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div id="map"></div>
+      </div>
+    </div>
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+      <i class="fa fa-close"></i>
+     </a>
+    </div>
+  </div>
+
+<% end %>
+
+
+
+</mains>
+
+<%# googlemapのJS %>
+<script>
+function initMap() {
+    // ルート検索の条件
+    var request = {
+        origin: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // 出発地
+        destination: new google.maps.LatLng(<%= @spot_last.latitude %>,<%= @spot_last.longitude %>), // 目的地
+        waypoints: [ // 経由地点(指定なしでも可)
+            <% @ss.each.with_index(1) do |s, i| %>
+              <% spot = Spot.find(s) %>
+              <% if i == 1 || i == @ss.size %> 
+              <% else %>
+                { location: new google.maps.LatLng(<%= spot.latitude %>,<%= spot.longitude %>) },
+              <% end %>
+            <% end %>
+        ],
+        travelMode: google.maps.DirectionsTravelMode.WALKING, // 交通手段(歩行。DRIVINGの場合は車)
+    };
+
+    // マップの生成
+    var map = new google.maps.Map(document.getElementById("map"), {
+        <%# $$$出発地と同じ緯度経度を記入 %>
+        gestureHandling: 'greedy',
+        center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
+        zoom: 14 // ズームレベル
+    });
+
+    var map_10_pc = new google.maps.Map(document.getElementById("map_10_pc"), {
+        <%# $$$出発地と同じ緯度経度を記入 %>
+        gestureHandling: 'greedy',
+        center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
+        zoom: 14 // ズームレベル
+    });
+
+    var map_10_sp = new google.maps.Map(document.getElementById("map_10_sp"), {
+        <%# $$$出発地と同じ緯度経度を記入 %>
+        gestureHandling: 'greedy',
+        center: new google.maps.LatLng(<%= @spot_first.latitude %>,<%= @spot_first.longitude %>), // マップの中心
+        zoom: 14 // ズームレベル
+    });
+
+    var d = new google.maps.DirectionsService(); // ルート検索オブジェクト
+    var r = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+        map: map, // 描画先の地図
+        preserveViewport: true, // 描画後に中心点をずらさない
+    });
+    // ルート検索
+    d.route(request, function(result, status){
+        // OKの場合ルート描画
+        if (status == google.maps.DirectionsStatus.OK) {
+            r.setDirections(result);
+        }
+    });
+
+    var e = new google.maps.DirectionsService(); // ルート検索オブジェクト
+    var s = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+        map: map_10_pc, // 描画先の地図
+        preserveViewport: true, // 描画後に中心点をずらさない
+    });
+    // ルート検索
+    e.route(request, function(result, status){
+        // OKの場合ルート描画
+        if (status == google.maps.DirectionsStatus.OK) {
+            s.setDirections(result);
+        }
+    });
+
+    var f = new google.maps.DirectionsService(); // ルート検索オブジェクト
+    var t = new google.maps.DirectionsRenderer({ // ルート描画オブジェクト
+        map: map_10_sp, // 描画先の地図
+        preserveViewport: true, // 描画後に中心点をずらさない
+    });
+    // ルート検索
+    f.route(request, function(result, status){
+        // OKの場合ルート描画
+        if (status == google.maps.DirectionsStatus.OK) {
+            t.setDirections(result);
+        }
+    });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1SfOngJW_fXuuUcTf9-0BTn9Io38U10A&callback=initMap" async defer></script>
+
+<%#ツイートのJS%>
+<script>
+  var url = 'http://twitter.com/share?url=' + encodeURIComponent('<%= @url %>') + '&text=A.Date%0a10秒でデートコースをつくってみた%0a';
+  $('#tw a').attr({"href":url}); // aタグのhrefに設定
+</script>
+
+<%#チェンジのJS%>
+<script>
+function koshin(){
+	$('body,html').animate({
+  scrollTop: 0},0);
+
+  location.reload();
+}
+</script>
+
+

@@ -4,6 +4,12 @@ Rails.application.routes.draw do
 
   get "/homes" => "homes#index"
 
+  get "plans/home" => "plans#home"
+  get "plans/area" => "plans#area"
+  get "plans/terms" => "plans#terms"
+  get "plans/result" => "plans#result"
+  get "plan" => "plans#plan"
+
   get "seeks/new" => "seeks#new"
   post "seeks/create" => "seeks#create"
   get "seeks/area" => "seeks#area"

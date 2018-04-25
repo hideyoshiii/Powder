@@ -1,0 +1,416 @@
+<%= render "partial/navbar" %>
+<mains class="" id="main-collapse">
+
+    <div class="visible-xs visible-sm">
+	  	<div class="img_box_home">
+	      <h1 style="font-size:25px;color:white;margin-bottom:5px;line-height:1.4;text-shadow: 1px 1px 2px black;">
+	        誰でも簡単にデートコースを
+	      </h1>
+	      <p class="text-center" style="font-size:13px;color:white;text-shadow: 1px 1px 2px black;">
+	        デートコースがなかなか決まらないあなたへ
+	        <br>
+	        <span class="site-title">A.Date</span>で誰でも簡単にデートプランが作れます
+	      </p>
+	      <div style="height:30px;"></div>
+	      <div class="">
+	        <%= link_to plans_area_path do %>
+	          <div class="raised-trans">
+	            10秒でデートコースをつくる
+	          </div>
+	        <% end %>
+	      </div>
+	      <% if (user_signed_in?) %>
+	        <% if current_user.authority == "manager" %>
+	          <div class="">
+	            <%= link_to seeks_which_path do %>
+	              <div style="fotn-size:12px;color:#CCCCCC;margin-top:10px;">
+	                自分で作る
+	              </div>
+	            <% end %>
+	          </div>
+	        <% end %>
+	      <% end %>
+	      <div style="height:0px;"></div>
+	    </div>
+	</div>
+
+
+
+
+
+	<div class="visible-md visible-lg">
+	  	<div class="img_box_home_pc">
+	  		<%= form_tag(seeks_outcome_path, method: :get) do %>
+	      
+			<div style="width:49%;float:left;overflow-y:scroll;height:100vh;padding:20px 20px;">
+				<h4 style="color:black;padding:0px 0px 20px 10px;"><span style="font-size:24px;">1</span>,&nbsp;Area</h4>
+
+				<div class="hero-full-wrapper">
+			    <div class="grid">
+			      <div class="gutter-sizer"></div>
+			      <div class="grid-sizer"></div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", true, {:id => "ebisu"}) %>
+		              <label for="ebisu">
+			            <%= image_tag "ebisu00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>恵比寿・代官山・中目黒</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "渋谷", false, {:id => "shibuya"}) %>
+		              <label for="shibuya">
+			            <%= image_tag "shibuya00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>渋谷</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "原宿・表参道・青山", false, {:id => "harajuku"}) %>
+		              <label for="harajuku">
+			            <%= image_tag "harajuku00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>原宿・表参道・青山</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "東京・丸の内・日本橋", false, {:id => "tokyo"}) %>
+		              <label for="tokyo">
+			            <%= image_tag "tokyo00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>東京・丸の内・日本橋</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "新宿", false, {:id => "shinnjuku"}) %>
+		              <label for="shinnjuku">
+			            <%= image_tag "shinnjuku00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>新宿</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "六本木・麻布・赤坂", false, {:id => "roppongi"}) %>
+		              <label for="roppongi">
+			            <%= image_tag "roppongi00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>六本木・麻布・赤坂</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "お台場", false, {:id => "odaiba"}) %>
+		              <label for="odaiba">
+			            <%= image_tag "odaiba00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>お台場</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "品川", false, {:id => "shinagawa"}) %>
+		              <label for="shinagawa">
+			            <%= image_tag "shinagawa00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>品川</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "池袋", false, {:id => "ikebukuro"}) %>
+		              <label for="ikebukuro">
+			            <%= image_tag "ikebukuro00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>池袋</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "銀座・有楽町", false, {:id => "ginza"}) %>
+		              <label for="ginza">
+			            <%= image_tag "ginza00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>銀座・有楽町</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "新橋・汐留・浜松町", false, {:id => "shinbashi"}) %>
+		              <label for="shinbashi">
+			            <%= image_tag "shinbashi00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>新橋・汐留・浜松町</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "上野", false, {:id => "ueno"}) %>
+		              <label for="ueno">
+			            <%= image_tag "ueno00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>上野</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "浅草・押上", false, {:id => "asakusa"}) %>
+		              <label for="asakusa">
+			            <%= image_tag "asakusa00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>浅草・押上</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "目黒・白金・五反田", false, {:id => "meguro"}) %>
+		              <label for="meguro">
+			            <%= image_tag "meguro00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>目黒・白金・五反田</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "吉祥寺・三鷹", false, {:id => "kichijoji"}) %>
+		              <label for="kichijoji">
+			            <%= image_tag "kichijoji00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>吉祥寺・三鷹</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "神楽坂・飯田橋", false, {:id => "kagurazaka"}) %>
+		              <label for="kagurazaka">
+			            <%= image_tag "kagurazaka00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>神楽坂・飯田橋</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "下北沢", false, {:id => "shimokitazawa"}) %>
+		              <label for="shimokitazawa">
+			            <%= image_tag "kagurazaka00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>下北沢</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "谷中・根津・千駄木", false, {:id => "taninaka"}) %>
+		              <label for="taninaka">
+			            <%= image_tag "taninaka00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>谷中・根津・千駄木</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "神田・秋葉原・御茶ノ水", false, {:id => "kanda"}) %>
+		              <label for="kanda">
+			            <%= image_tag "kanda00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>神田・秋葉原・御茶ノ水</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "赤坂・虎ノ門・永田町", false, {:id => "akasaka"}) %>
+		              <label for="akasaka">
+			            <%= image_tag "akasaka00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>赤坂・虎ノ門・永田町</p>
+		            </div>
+			      </div>
+
+			      <div class="grid-item">
+		          	<div class="radio-city111"> 
+		              <%= radio_button_tag(:city, "四ツ谷・信濃町・千駄ヶ谷", false, {:id => "yotsuya"}) %>
+		              <label for="yotsuya">
+			            <%= image_tag "yotsuya00.jpg", :class =>'img-category' %>
+	        		  </label>
+	        		  <p>四ツ谷・信濃町・千駄ヶ谷</p>
+		            </div>
+			      </div>
+			      
+			    </div>
+			    </div>
+			</div>
+
+
+
+			<div style="width:49%;float:left;overflow-y:scroll;height:100vh;padding:20px 20px;">
+			
+				<%# 時間帯 %>
+				<h4 style="color:black;padding:0px 0px 20px 10px;"><span style="font-size:24px;">2</span>,&nbsp;Timezone</h4>
+				<div class="home-box">
+					<div class="home-box-1">
+			  			<div class="radio-city00-pc"> 
+			              <%= radio_button_tag(:timezone, "noon", true, {:id => "lunch"}) %>
+			              <label for="lunch">
+				            <i class="fas fa-sun"></i>
+		        		  </label>
+			            </div>
+			            <div class="terms-info">
+			              ランチから
+			            </div>
+		            </div>
+		            <div class="home-box-1">
+			  			<div class="radio-city00-pc"> 
+			              <%= radio_button_tag(:timezone, "night", false, {:id => "dinner"}) %>
+			              <label for="dinner">
+				            <i class="fas fa-moon"></i>
+		        		  </label>
+			            </div>
+			            <div class="terms-info">
+			              ディナーから
+			            </div>
+		            </div>
+		        </div>
+		        <%# 予算 %>
+				<h4 style="color:black;padding:20px 0px 20px 10px;"><span style="font-size:24px;">3</span>,&nbsp;Budget</h4>
+		  		<div class="home-box">
+		  			<div class="home-box-1">
+			  			<div class="radio-city0-pc"> 
+			              <%= radio_button_tag(:budget, "1", true, {:id => "one"}) %>
+			              <label for="one">
+				            <i class="fas fa-yen-sign"></i>
+		        		  </label>
+			            </div>
+			            <div class="terms-info">
+			              Bronze
+			            </div>
+		            </div>
+		            <div class="home-box-1">
+			  			<div class="radio-city0-pc"> 
+			              <%= radio_button_tag(:budget, "2", false, {:id => "two"}) %>
+			              <label for="two">
+				            <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		        		  </label>
+			            </div>
+			            <div class="terms-info">
+			              Silver
+			            </div>
+		            </div>
+		            <div class="home-box-1">
+			  			<div class="radio-city0-pc"> 
+			              <%= radio_button_tag(:budget, "3", false, {:id => "three"}) %>
+			              <label for="three">
+				            <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		        		  </label>
+			            </div>
+			            <div class="terms-info">
+			              Gold
+			            </div>
+		            </div>   
+		     	</div>
+		     	<%# シーン %>
+		        <h4 style="color:black;padding:20px 0px 20px 10px;"><span style="font-size:24px;">4</span>,&nbsp;Scene</h4>
+		        <div class="home-box">
+			        <div class="home-box-1">
+			        	
+			        		<div class="radio-city000-pc">	
+				        		<%= radio_button_tag(:scene, "クール", true, {:id => "cool"}) %>
+				        		<label for="cool">
+						            <%= image_tag "cool00.jpg", :class =>'img-scene' %>
+				        		</label>
+			        		</div>
+			        	
+			        	<div class="terms-info">
+					        クール
+					    </div>
+			        </div>
+			        <div class="home-box-1">
+		        		<div class="radio-city000-pc">	
+			        		<%= radio_button_tag(:scene, "カジュアル", false, {:id => "casual"}) %>
+			        		<label for="casual">
+					            <%= image_tag "casual00.jpg", :class =>'img-scene' %>
+			        		</label>
+		        		</div>
+			        	<div class="terms-info">
+					        カジュアル
+					    </div>
+			        </div>
+			        <div class="home-box-1">
+		        		<div class="radio-city000-pc">	
+			        		<%= radio_button_tag(:scene, "ユニーク", false, {:id => "unique"}) %>
+			        		<label for="unique">
+					            <%= image_tag "unique00.jpg", :class =>'img-scene' %>
+			        		</label>
+		        		</div>
+			        	<div class="terms-info">
+					        ユニーク
+					    </div>
+			        </div>
+		      	</div>
+			    <div class="text-center" style="padding:50px 0px;">
+					<%= submit_tag "コースを作成する", :class => "btn btn-default" %>
+				</div>
+			
+	    	</div>
+
+	    <% end %>
+	    </div>
+	</div>
+
+
+</mains>
+
+
+
+<script>
+    $(function() {
+  $("body").on("click", "a", function(e) {
+    var _this = $(this);
+    var _href = _this.attr("href");
+  
+    if (_href.charAt(0,1) == "#") {
+      e.preventDefault();
+      var _target  = $(_href == "#" || _href == "" ? $("html") : _href);
+      if (_target.length == "0") _target = $("html");
+      var position = _target.offset().top;
+      var _scroll  = _this.data("scroll");
+      if (_scroll !== undefined) position = position + Number(_scroll);
+      if (position <= 0) position = 1;  //Android2系でスクロールのバグ対策
+      $("html, body").animate({scrollTop : position} ,500, "swing");
+      return false;
+    }
+  });
+});
+
+  </script>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     masonryBuild();
+  });
+</script>
+
+
