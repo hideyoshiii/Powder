@@ -10,9 +10,8 @@
 
       <%# 目次 %>
       <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
-      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:-5px;color:black;">コースが気に入らない場合はchangeボタンで再作成できます</p>        
+      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:0px;color:black;">コースが気に入らない場合は再作成または条件変更ができます</p>        
       <%# コースの諸情報 %>
-      <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
       <div class="result-info-box">
         <div class="result-info-box-1">
           <div class="result-info-btn">
@@ -206,18 +205,7 @@
           <div class="box-map_sp">
             <div id="map_10_sp"></div>
           </div>
-        </div>
-      </div>
-      <%#SP用のフッター%>
-      <div class="visible-xs visible-sm">
-        <%#ツイートボタン%>
-        <div style="padding:60px 0px 60px;text-align:center;">
-         <p style="font-size:18px;color:black;">つくったコースをシェアしよう！</p>
-         <div id="tw">
-            <a href="" target="_blank" class="btn-twitter">
-              <i class="fab fa-twitter"></i> ツイートする
-            </a>
-          </div>
+          <div style="height:30px;"></div>
         </div>
       </div>
       <%#PC用のボタン%>
@@ -262,8 +250,7 @@
     <div class="visible-md visible-lg">
       <div class="course_map">
         <%#map%>
-        <div id="map_10_pc"></div>
-        
+        <div id="map_10_pc"></div> 
       </div>
     </div>
   </div>
@@ -360,6 +347,35 @@
           <% end %>
         </div>
       </div>
+    </div>
+    <div class="btn-details">
+     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+      <i class="fa fa-close"></i>
+     </a>
+    </div>
+  </div>
+
+  <%#シェアモーダルの中身%>
+  <div class="modal" id="myModal-share">
+    <div style="height:10vh;"></div>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div style="height:auto;padding:30px 15px 0px;">
+          <div style="padding:60px 0px 0px;text-align:center;">
+             <p style="font-size:18px;color:black;">コースのURLを保存しよう！</p>
+             <div class="text-center" style="margin:20px 0px;">
+              <button class="btn btn-default" data-clipboard-text="<%= @url %>"><i class="far fa-copy"></i>URLをコピー</button>
+            </div>
+          </div>
+          <div style="padding:30px 0px 60px;text-align:center;">
+            <p style="font-size:18px;color:black;">コースをシェアしよう！</p>
+            <div id="tw">
+              <a href="" target="_blank" class="btn-twitter">
+                <i class="fab fa-twitter"></i> ツイートする
+              </a>
+            </div>
+          </div>   
+        </div>
     </div>
     <div class="btn-details">
      <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
@@ -512,6 +528,10 @@
 <% end %>
 
 
+<script type="text/javascript">
+var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
+</script>
+<script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
 </mains>
 
 <%# googlemapのJS %>
@@ -611,6 +631,19 @@ function koshin(){
 
   location.reload();
 }
+</script>
+
+<%#コピーのJS%>
+<script>
+  var clipboard = new Clipboard('.btn');
+  clipboard.on('success', function(e) {
+    console.info('Trigger:', e.trigger);
+    alert('コピーできました');
+  });
+  clipboard.on('error', function(e) {
+    console.error('Trigger:', e.trigger);
+    alert('このブラウザでは対応していません');
+  });
 </script>
 
 
