@@ -3,63 +3,66 @@
 
 <div class="pc_1">
 
-	<div class="box97" id=''>
+	<div class="box87" id=''>
 		<div style="height:100px;"></div>
 		<div style="height:100px;"></div>
 		<div style="margin-top:0px;">
-  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">次に予算を選びましょう。</p>
-  			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はどのくらいにしますか？</h4>
+  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">次にイメージを選びましょう。</p>
+  			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">どんなデートがしたいですか？</h4>
   		</div>
-  		<div style="height:50px;"></div>
+  		<div style="height:30px;"></div>
   		<div class="home-box">
 
   		
 	        <div class="home-box-1">
-	          <%= form_tag(seeks_scene_path, method: :get) do %>
+	          <%= form_tag(seeks_outcome_path, method: :get) do %>
 				    <%= hidden_field_tag :city, params[:city] %>
 					<%= hidden_field_tag :timezone, params[:timezone] %>
-					<%= hidden_field_tag :budget, 1 %>
+					<%= hidden_field_tag :budget, params[:budget] %>
+					<%= hidden_field_tag :scene, "クール" %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="budget-btn">
-		              <i class="fas fa-yen-sign"></i>
+		            <div class="scene-btn">
+		              <%= image_tag "cool00.jpg", :class =>'img-scene' %>
 		            </div>
 		            <div class="lunch-info">
-		              Bronze
+		              クール
 		            </div>
 	            <% end %>
 	          <% end %>
 	        </div>
 	        <div class="home-box-1">
-	          <%= form_tag(seeks_scene_path, method: :get) do %>
+	          <%= form_tag(seeks_outcome_path, method: :get) do %>
 				    <%= hidden_field_tag :city, params[:city] %>
 					<%= hidden_field_tag :timezone, params[:timezone] %>
-					<%= hidden_field_tag :budget, 2 %>
+					<%= hidden_field_tag :budget, params[:budget] %>
+					<%= hidden_field_tag :scene, "カジュアル" %>
 		          <%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="budget-btn">
-		              <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		            <div class="scene-btn">
+		              <%= image_tag "casual00.jpg", :class =>'img-scene' %>
 		            </div>
 		            <div class="dinner-info">
-		              Silver
+		              カジュアル
 		            </div>
 		          <% end %>
 	          <% end %>
 	        </div>
 	        <div class="home-box-1">
-	          <%= form_tag(seeks_scene_path, method: :get) do %>
+	          <%= form_tag(seeks_outcome_path, method: :get) do %>
 				    <%= hidden_field_tag :city, params[:city] %>
 					<%= hidden_field_tag :timezone, params[:timezone] %>
-					<%= hidden_field_tag :budget, 3 %>
+					<%= hidden_field_tag :budget, params[:budget] %>
+					<%= hidden_field_tag :scene, "ユニーク" %>
 		          <%= button_tag :type => "submit", :class =>"button1" do %>
-		            <div class="budget-btn">
-		              <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+		            <div class="scene-btn">
+		              <%= image_tag "unique00.jpg", :class =>'img-scene' %>
 		            </div>
 		            <div class="dinner-info">
-		              Gold
+		              ユニーク
 		            </div>
 		          <% end %>
 	          <% end %>
 	        </div>
-	    
+
       </div>
 
 </div>

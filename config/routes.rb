@@ -41,6 +41,7 @@ Rails.application.routes.draw do
   get "seeks/noon" => "seeks#noon"
   get "seeks/night" => "seeks#night"
   get "seeks/budget" => "seeks#budget"
+  get "seeks/scene" => "seeks#scene"
 
   get "course/:id/point/spot" => "points#spot"
   get "course/:id/point/distance" => "points#distance"

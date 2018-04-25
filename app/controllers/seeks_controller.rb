@@ -127,6 +127,9 @@ class SeeksController < ApplicationController
   def budget 
   end
 
+  def scene
+  end
+
   def which    
   end
 
@@ -187,21 +190,28 @@ class SeeksController < ApplicationController
    #距離定義
    @distance = 0.5.to_f
    #昼のカテゴリー定義
-   @category_noons = ["カフェ", "アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "カラオケ", "ボーリング", "ダーツ", "食べ歩き", "公園", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "インターネットカフェ", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
-   @noons = ["カフェ","バー", "夜景"]
-   if params[:noon].blank?
-    @noon = ["カフェ", "アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "カラオケ", "ボーリング", "ダーツ", "食べ歩き", "公園", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "インターネットカフェ", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
-   else
-    @noon = params[:noon]
+   if params[:scene] = "クール"
+    @noons = ["映画", "プラネタリウム", "動物園", "水族館", "美術館", "ボーリング", "ダーツ", "食べ歩き", "スパ・温泉", "体験", "ストリート", "複合施設"]
    end
+   if params[:scene] = "カジュアル"
+    @noons = ["映画", "ショップ・雑貨屋", "スポーツ", "動物園", "水族館", "遊園地", "カラオケ", "ボーリング", "食べ歩き", "公園", "ゲームセンター", "体験", "ストリート", "複合施設"]
+   end
+   if params[:scene] = "ユニーク"
+    @noons = ["アニマルカフェ", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "インターネットカフェ", "コンセプトカフェ・バー", "体験", "その他"]
+   end
+   @noons_not = ["カフェ","バー", "夜景"]
    #夜のカテゴリー定義
    @category_nights = ["カフェ", "バー", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
-   @nights = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
-   if params[:night].blank?
-    @night = ["カフェ", "バー", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
-   else
-    @night = params[:night]
+   if params[:scene] = "クール"
+    @nights = ["バー", "夜景", "ダーツ"]
    end
+   if params[:scene] = "カジュアル"
+    @nights = ["カフェ", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
+   end
+   if params[:scene] = "ユニーク"
+    @nights = ["カフェ", "バー", "夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
+   end
+   @nights_not = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #昼からの時
    if params[:timezone] == "noon"
     #スポット１(ランチ)
@@ -216,11 +226,11 @@ class SeeksController < ApplicationController
     @spot2_category = @spot2_timezone
     @spot2_category_2 = @spot2_timezone
     @spot2_category = @spot2_category.where(
-      @noon.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
-      *@noon.map { |attr| "%#{attr}%" }
+      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noons.map { |attr| "%#{attr}%" }
       )
     if @spot2_category.blank?
-      @noons.each.with_index(1) do |noon, i|
+      @noons_not.each.with_index(1) do |noon, i|
         @spot2_category = @spot2_category_2.where.not("large like '%#{noon}%'")
       end
     end
@@ -238,11 +248,11 @@ class SeeksController < ApplicationController
     @spot3_category = @spot3_timezone
     @spot3_category_2 = @spot3_timezone
     @spot3_category = @spot3_category.where(
-      @noon.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
-      *@noon.map { |attr| "%#{attr}%" }
+      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noons.map { |attr| "%#{attr}%" }
       )
     if @spot3_category.blank?
-      @noons.each.with_index(1) do |noon, i|
+      @noons_not.each.with_index(1) do |noon, i|
         @spot3_category = @spot3_category_2.where.not("large like '%#{noon}%'")
       end
     end
@@ -272,11 +282,11 @@ class SeeksController < ApplicationController
     @spot5_category = @spot5_timezone
     @spot5_category_2 = @spot5_timezone
     @spot5_category = @spot5_category.where(
-      @night.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
-      *@night.map { |attr| "%#{attr}%" }
+      @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@nights.map { |attr| "%#{attr}%" }
       )
     if @spot5_category.blank?
-      @nights.each.with_index(1) do |night, i|
+      @nights_not.each.with_index(1) do |night, i|
         @spot5_category = @spot5_category_2.where.not("large like '%#{night}%'")
       end
     end
@@ -301,11 +311,11 @@ class SeeksController < ApplicationController
     @spot2_category = @spot2_timezone
     @spot2_category_2 = @spot2_timezone
     @spot2_category = @spot2_category.where(
-      @night.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
-      *@night.map { |attr| "%#{attr}%" }
+      @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@nights.map { |attr| "%#{attr}%" }
       )
     if @spot2_category.blank?
-      @nights.each.with_index(1) do |night, i|
+      @nights_not.each.with_index(1) do |night, i|
         @spot2_category = @spot2_category_2.where.not("large like '%#{night}%'")
       end
     end
