@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   
-  root :to => 'seeks#home'
+  root :to => 'plans#home'
 
   get "/homes" => "homes#index"
 
-  get "plans/home" => "plans#home"
   get "plans/area" => "plans#area"
   get "plans/timezone" => "plans#timezone"
   get "plans/budget" => "plans#budget"
@@ -21,6 +20,7 @@ Rails.application.routes.draw do
 
   get 'plans/course/:id' => 'plans#course'
 
+  get "seeks/home" => "seeks#home"
   get "seeks/new" => "seeks#new"
   post "seeks/create" => "seeks#create"
   get "seeks/area" => "seeks#area"
