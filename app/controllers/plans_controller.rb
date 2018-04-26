@@ -6,6 +6,15 @@ end
 def area	
 end
 
+def timezone	
+end
+
+def budget	
+end
+
+def scene
+end
+
 def terms
 end
 

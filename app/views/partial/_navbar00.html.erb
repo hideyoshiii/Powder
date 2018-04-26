@@ -95,7 +95,8 @@
             <span style="font-size: 13px;">プライバシーポリシー</span>
           <% end %>
         </li>      
-        <br>
+        <br><br>
+
         <% if (user_signed_in?) %>
         <%= link_to user_path(current_user) do %>
         <%= image_tag current_user.image, :class => "img-circle profile-4" %>
@@ -114,7 +115,7 @@
         <% end %>
 
         
-        <br>
+      
         <p class="nav-footer-social-buttons">
           <a class="fa-icon" href="https://www.instagram.com/adate_ig/" target="_blank">
             <i class="fab fa-instagram"></i>
@@ -127,7 +128,7 @@
           </a>
         </p>
         <br>
-        <p style="color:black;">Copyright © 2018 A.Date All rights reserved</p>
+        <p style="color:black;padding:0px 10px 0px -10px;font-size:10px;">Copyright © 2018 A.Date All rights reserved</p>
       </nav>  
     </div> 
   </nav>

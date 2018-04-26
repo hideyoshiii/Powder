@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get "plans/home" => "plans#home"
   get "plans/area" => "plans#area"
+  get "plans/timezone" => "plans#timezone"
+  get "plans/budget" => "plans#budget"
+  get "plans/scene" => "plans#scene"
   get "plans/terms" => "plans#terms"
   get "plans/result" => "plans#result"
   get "plan" => "plans#plan"

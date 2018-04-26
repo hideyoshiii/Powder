@@ -2484,6 +2484,40 @@ dl.search1 dd span:hover{
 	}
 }
 
+.box86 {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(timezone02.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  padding: 0px;
+  margin-top:-40px;
+  box-sizing: border-box;
+}
+
+@media (min-width:768px){
+	.box86 {
+	  width: 100%;
+	  height: auto;
+	  min-height: 100vh;
+
+	  position: relative;
+
+	  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(timezone02.jpg) ;
+	  background-size: cover;
+	  background-position: center;
+
+	  padding: 0px;
+	  margin:0px;
+	  box-sizing: border-box;
+	}
+}
+
 
 
 //要素を少し上に
@@ -5990,15 +6024,15 @@ display: inline-block;
 
 .lunch-info{
 	text-align: center;
-	font-size:12px;
-	margin:0px 0 0;
+	font-size:14px;
+	margin:5px 0 0;
 	color:white;
 }
 
 .dinner-info{
 	text-align: center;
-	font-size:12px;
-	margin:0px 0 0;
+	font-size:14px;
+	margin:5px 0 0;
 	color:white;
 }
 
