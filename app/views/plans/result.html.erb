@@ -80,7 +80,7 @@
                   <div style="height:0px;"></div>
                   <%# カテゴリー %>
                   <% unless spot.large.blank? %>
-                    <span style="font-size:9px;text-shadow:none;opacity:0.85;">
+                    <span style="font-size:9px;text-shadow:none;opacity:0.9;">
                     <% @i = 0 %>
                       <% spot.large.each do |large| %>
                         <% @i = @i + 1 %>
@@ -90,7 +90,7 @@
                           <%= large %>/
                         <% end %> 
                       <% end %>
-                    </p> 
+                    </span> 
                   <% end %>
                   <%# 調整 %>
                   <div style="height:20px;"></div>

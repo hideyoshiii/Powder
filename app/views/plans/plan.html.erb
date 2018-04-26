@@ -6,8 +6,7 @@
   該当するデートコースはありません
 <% else %>
   <div class="course">
-    <div class="course_in">
-             
+    <div class="course_in">         
       <%# コースの諸情報 %>
       <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
       <div class="result-info-box">
@@ -78,7 +77,7 @@
                   <div style="height:0px;"></div>
                   <%# カテゴリー %>
                   <% unless spot.large.blank? %>
-                    <span style="font-size:9px;text-shadow:none;opacity:0.85;">
+                    <span style="font-size:9px;text-shadow:none;opacity:0.9;">
                     <% @i = 0 %>
                       <% spot.large.each do |large| %>
                         <% @i = @i + 1 %>
@@ -88,7 +87,7 @@
                           <%= large %>/
                         <% end %> 
                       <% end %>
-                    </p> 
+                    </span> 
                   <% end %>
                   <%# 調整 %>
                   <div style="height:20px;"></div>
@@ -215,8 +214,7 @@
         </div>
       </div>
       <%#PC用のボタン%>
-	  <div class="visible-md visible-lg">   
-        
+	    <div class="visible-md visible-lg">    
       </div>   
     </div>
     <%#PC用のmap%>
@@ -224,11 +222,9 @@
       <div class="course_map">
         <%#map%>
         <div id="map_10_pc"></div>
-        
       </div>
     </div>
   </div>
-
 
   <div class="visible-xs visible-sm">
     <%#マップモーダルボタン%>
@@ -245,51 +241,51 @@
     </div>
     <%#保存モーダルボタン%>
     <% if (user_signed_in?) %>
-      	<% if current_user.authority == "manager" %>
+      <% if current_user.authority == "manager" %>
 		    <div class="btn-details_3">
 		     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
 		      <i class="far fa-save"></i>
 		     </a>
 		    </div>
     	<% end %>
-	<% end %>
+	  <% end %>
   </div>
 
   <div class="visible-md visible-lg">
     <div class="pc-bar">
       <%#自分も作るボタン%>
-        <div style="padding:40px 0px 0px;text-align:center;">
-         <p>あなたも10秒でコースを作ろう！</p>
-         <a href="/plans/home" class="btn btn-default">
-          10秒でコースをつくる
-         </a>
-        </div>
-        <%#URL保存ボタン%>
+      <div style="padding:40px 0px 0px;text-align:center;">
+       <p>あなたも10秒でコースを作ろう！</p>
+       <a href="/plans/home" class="btn btn-default">
+        10秒でコースをつくる
+       </a>
+      </div>
+      <%#URL保存ボタン%>
       <div style="padding:20px 0px 0px;text-align:center;">
        <p>コースのURLを保存しよう！</p>
         <button class="btn btn-default" data-clipboard-text="<%= @url %>"><i class="far fa-copy"></i>URLをコピー</button>
       </div>
-        <%#ツイートボタン%>
-        <div style="padding:20px 0px 40px;text-align:center;">
-         <p>つくったコースをシェアしよう！</p>
-         <div id="tw">
-            <a href="" target="_blank" class="btn-twitter">
-              <i class="fab fa-twitter"></i> ツイートする
-            </a>
-          </div>
+      <%#ツイートボタン%>
+      <div style="padding:20px 0px 40px;text-align:center;">
+       <p>つくったコースをシェアしよう！</p>
+        <div id="tw">
+          <a href="" target="_blank" class="btn-twitter">
+            <i class="fab fa-twitter"></i> ツイートする
+          </a>
         </div>
-        <%#保存モーダルボタン%>
-        <% if (user_signed_in?) %>
-          <% if current_user.authority == "manager" %>
-            <div style="padding:20px 0px 40px;text-align:center;">
-             <p>コースを保存できるよ！</p>
-             <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
-              <i class="far fa-save"></i> 保存する
-             </a>
-            </div>
-          <% end %>
+      </div>
+      <%#保存モーダルボタン%>
+      <% if (user_signed_in?) %>
+        <% if current_user.authority == "manager" %>
+          <div style="padding:20px 0px 40px;text-align:center;">
+           <p>コースを保存できるよ！</p>
+           <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
+            <i class="far fa-save"></i> 保存する
+           </a>
+          </div>
         <% end %>
-    <div>
+      <% end %>
+    </div>
   </div>
 
   <%#保存モーダルの中身%>
@@ -361,9 +357,9 @@
       <div class="modal-content">
         <div style="height:auto;padding:30px 15px 0px;">
           <div style="padding:60px 0px 0px;text-align:center;">
-             <p style="font-size:18px;color:black;">コースのURLを保存しよう！</p>
-             <div class="text-center" style="margin:20px 0px;">
-                <button class="btn btn-default" data-clipboard-text="<%= @url %>"><i class="far fa-copy"></i>URLをコピー</button>
+            <p style="font-size:18px;color:black;">コースのURLを保存しよう！</p>
+            <div class="text-center" style="margin:20px 0px;">
+              <button class="btn btn-default" data-clipboard-text="<%= @url %>"><i class="far fa-copy"></i>URLをコピー</button>
             </div>
           </div>
           <div style="padding:30px 0px 60px;text-align:center;">
