@@ -1,0 +1,144 @@
+<%= render "partial/navbar00" %>
+<mains class="" id="main-collapse">
+
+  <div class="pc_1">
+    <div class="img_about05">
+      <h4 style="font-size:17px;"><span class="what-white">あなたの代わりにデートコースを考えます</span></h4>
+    </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:20px 0px 20px;">
+        <h3><span class="what">Feature</span></h3>
+        <div style="padding:20px 0px;">
+          <div class="box-feature1">
+            <%= image_tag "idea3.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2">
+            <h4 style="font-size:15px;">３つのプランをご提案</h4>
+            <p style="font-size:12px;">ご要望に合わせたデートプランを３つご提案させていただきます。３つのコースを見比べて参考にしていただけます。</p>
+          </div>
+        </div>
+        <div style="padding:20px 0px;">
+          <div class="box-feature1">
+            <%= image_tag "thumb.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2">
+            <h4 style="font-size:15px;">あなただけのためのコース</h4>
+            <p style="font-size:12px;">A.Dateはあなたの希望に沿ったコースをお作りします。プランの作り直しや細かい修正も対応可能です。</p>
+          </div>
+        </div>
+        <div style="padding:20px 0px;">
+          <div class="box-feature1">
+            <%= image_tag "user.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2">
+            <h4 style="font-size:15px;">面倒な会員登録なし</h4>
+            <p style="font-size:12px;">会員登録することなく、メールで提案してもらえます。ご気軽にご依頼ください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:0px 0px 0px;">
+        <div></div>
+        <h3><span class="what">Example</span></h3>
+        
+        <div style="padding:30px 0px 0px;">
+          <div class="box-feature1">
+            <%= image_tag "man.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2" style="border-radius:5px;border:1px solid black;padding:10px 10px 0px;">
+            <p style="font-size:12px;color:black;">恵比寿駅で<br>仕事終わり19時から終電まで<br>1人あたり1000円以内<br>高級感があって恵比寿っぽいけどコスパがいいお店を教えて欲しい。そのあとはお洒落なバーとかいいなあ。</p>
+          </div>
+        </div>
+        <div style="font-size:30px;color:black;">
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div style="padding:0px 0px 0px;">
+          <div class="box-feature1">
+            <%= image_tag "adate.png", :class =>'img-feature' %>
+          </div>
+          <div class="box-feature2" style="border-radius:5px;border:1px solid black;padding:10px 10px 0px;">
+            <p style="font-size:12px;color:black;">お待たせいたしました。<br>ご要望に応じてデートプランをご提案させていただきます。</p>
+          </div>
+        </div>
+        <div style="font-size:30px;color:black;">
+	        <i class="fas fa-chevron-down"></i>
+	    </div>
+        <a href="https://www.a-date.jp/seeks/course/46">
+          <% @spot1 = Spot.find_by(title: "Ubcra") %>
+          <div class="radio-city-b smoke">  
+              <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
+              <h4>
+                <span id="fab-ex"><i class="">１</i>
+              </h4>
+              <h1>
+                京野菜ディナーと夜景の見える隠れ家バーの恵比寿王道デート
+                <br>
+                <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);">https://www.a-date.jp/seeks/course/46</span>
+              </h1>
+          </div>
+        </a>
+        <a href="https://www.a-date.jp/seeks/course/49">
+          <% @spot1 = Spot.find_by(title: "L'IGNIS（リグニス）") %>
+          <div class="radio-city-b smoke">  
+              <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
+              <h4>
+                <span id="fab-ex"><i class="">２</i>
+              </h4>
+              <h1>
+                京野菜ディナーと夜景の見える隠れ家バーの恵比寿王道デート
+                <br>
+                <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);">https://www.a-date.jp/seeks/course/49</span>
+              </h1>
+          </div>
+        </a>
+        <a href="https://www.a-date.jp/seeks/course/50">
+          <% @spot1 = Spot.find_by(title: "小割烹おはし ゑびすりびんぐ") %>
+          <div class="radio-city-b smoke">  
+              <%= image_tag @spot1.pictures.first.image.url, :class =>'img-course-result' %>
+              <h4>
+                <span id="fab-ex"><i class="">３</i>
+              </h4>
+              <h1>
+                京野菜ディナーと夜景の見える隠れ家バーの恵比寿王道デート
+                <br>
+                <span style="font-size:12px;color:rgba(255, 255, 255, 0.7);">https://www.a-date.jp/seeks/course/50</span>
+              </h1>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="box-what3">
+      <div class="text-center" style="padding:30px 50px 60px;">
+        <h3><span class="what">Price</span></h3>
+        <p style="padding-top:10px;color:black;">１回のご依頼につき300円で３コース提案させていただきます。<br>どなたでもご気軽にご利用ください</p>
+        <p style="font-size:10px;">※対応エリアは東京エリアのみとなります</p>
+        <p style="font-size:10px;margin-top:-10px;">※ご依頼受付から24時間以内にご提案させていただきます</p>
+      </div>
+    </div>
+
+    <div class="img_about06">
+    <h4>
+    <span class="what-white"><span class="site-title">Use&nbsp;&nbsp;A.Date</span></span>
+    </h4>
+      <h4>
+        <%= link_to seeks_form_path do %>
+          <div class="raised-trans">
+            デートコースを提案してもらう
+          </div>
+        <% end %>
+      </h4>
+    </div>
+
+  </div>
+
+  <div class="pc_2">
+    
+  </div>
+
+
+</mains>
+

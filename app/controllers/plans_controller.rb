@@ -3,6 +3,9 @@ class PlansController < ApplicationController
 def home
 end
 
+def personal	
+end
+
 def area	
 end
 

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "plans/result" => "plans#result"
   get "plan" => "plans#plan"
 
+  get "plans/personal" => "plans#personal"
+
   get "seeks/new" => "seeks#new"
   post "seeks/create" => "seeks#create"
   get "seeks/area" => "seeks#area"
