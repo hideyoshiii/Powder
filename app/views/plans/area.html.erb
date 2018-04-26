@@ -311,10 +311,15 @@
   </div>
 
   <div class="pc_2">
-    <%= render "partial/fotter_home" %>
+    
   </div>
 
 </main>
+<% if (user_signed_in?) %>
+  <% if current_user.authority == "manager" %>
+    <%= render "partial/footer" %>
+  <% end %>
+<% end %>
 
 <script>
   document.addEventListener("DOMContentLoaded", function (event) {

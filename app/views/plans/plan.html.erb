@@ -393,6 +393,11 @@
 
 
 </mains>
+<% if (user_signed_in?) %>
+  <% if current_user.authority == "manager" %>
+    <%= render "partial/footer" %>
+  <% end %>
+<% end %>
 
 <%# googlemapのJS %>
 <script>
