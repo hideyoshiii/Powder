@@ -2518,6 +2518,22 @@ dl.search1 dd span:hover{
 	}
 }
 
+.box-details {
+  width: 100%;
+  height: auto;
+  height: auto;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(timezone.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  padding:0px;
+  margin:0px;
+  box-sizing: border-box;
+}
+
 
 
 //要素を少し上に

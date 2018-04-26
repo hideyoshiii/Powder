@@ -364,21 +364,23 @@
     <div style="height:10vh;"></div>
     <div class="modal-dialog">
       <div class="modal-content">
-        <div style="height:auto;padding:30px 15px 0px;">
-          <div style="padding:60px 0px 0px;text-align:center;">
-             <p style="font-size:18px;color:black;">コースのURLを保存しよう！</p>
-             <div class="text-center" style="margin:20px 0px;">
-                <button class="btn btn-default" data-clipboard-text="<%= @url %>"><i class="far fa-copy"></i>URLをコピー</button>
-              </div>
-          </div>
-          <div style="padding:30px 0px 60px;text-align:center;">
-            <p style="font-size:18px;color:black;">コースをシェアしよう！</p>
-            <div id="tw">
-              <a href="" target="_blank" class="btn-twitter">
-                <i class="fab fa-twitter"></i> ツイートする
-              </a>
+        <div class="box-details" id=''>
+          <div style="height:auto;padding:30px 15px 0px;">
+            <div style="padding:60px 0px 0px;text-align:center;">
+               <p style="font-size:18px;color:white;">コースのURLを保存しよう！</p>
+               <div class="text-center" style="margin:20px 0px;">
+                  <button class="btn btn-default" data-clipboard-text="<%= @url %>"><i class="far fa-copy"></i>URLをコピー</button>
+                </div>
             </div>
-          </div>   
+            <div style="padding:30px 0px 60px;text-align:center;">
+              <p style="font-size:18px;color:white;">コースをシェアしよう！</p>
+              <div id="tw">
+                <a href="" target="_blank" class="btn-twitter">
+                  <i class="fab fa-twitter"></i> ツイートする
+                </a>
+              </div>
+            </div>   
+          </div>
         </div>
       </div>
     </div>

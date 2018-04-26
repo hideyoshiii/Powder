@@ -62,7 +62,12 @@
  <% end %>
   <% end %>
 
-      <ul class="nav">     
+      <ul class="nav">  
+        <li>
+          <%= link_to seeks_about_path do %>
+            <i class="far fa-clipboard"></i> <span style="font-size: 13px;">パーソナルプラン</span>
+          <% end %>
+        </li>   
         <% if (user_signed_in?) %>
           <% if current_user.authority == "manager" %>
             <li>
@@ -72,9 +77,7 @@
             </li>
           <% end %>
         <% end %>
-      </ul>
 
-      <nav class="nav-footer">
         <li style="list-style-type: none;">
           <%= link_to manager_path do %>
             <span style="font-size: 13px;">運営者情報</span>
@@ -95,8 +98,9 @@
             <span style="font-size: 13px;">プライバシーポリシー</span>
           <% end %>
         </li>      
-        <br><br>
+      </ul>
 
+      <nav class="nav-footer">
         <% if (user_signed_in?) %>
         <%= link_to user_path(current_user) do %>
         <%= image_tag current_user.image, :class => "img-circle profile-4" %>
@@ -113,7 +117,7 @@
           <% end %>
         <br>
         <% end %>
-
+        <br>
         
       
         <p class="nav-footer-social-buttons">
