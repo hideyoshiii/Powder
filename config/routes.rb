@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "plans/confirm" => "plans#confirm"
   post "plans/sent" => "plans#sent"
   get "plans/complete" => "plans#complete"
+  get "plans/sean" => "plans#sean"
 
   get 'plans/course/:id' => 'plans#course'
 

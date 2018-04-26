@@ -3,6 +3,9 @@ class PlansController < ApplicationController
 def home
 end
 
+def sean
+end
+
 def course
 	@course =  Course.find(params[:id])
     @points = Point.where(course_id: @course.id).order(number: "ASC")
