@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post "plans/sent" => "plans#sent"
   get "plans/complete" => "plans#complete"
 
+  get 'plans/course/:id' => 'plans#course'
+
   get "seeks/new" => "seeks#new"
   post "seeks/create" => "seeks#create"
   get "seeks/area" => "seeks#area"
