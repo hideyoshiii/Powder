@@ -55,29 +55,29 @@ def result
    #@latitudeがない物を排除
    @spots = @spots.where.not(latitude: nil)
    #予算定義
-   if params[:budget] = "1"
+   if params[:budget] == "1"
      @price_start = 0
-     @price_end = 2000
+     @price_end = 1000
      @price_startz = 0
      @price_endz = 5000
    end
-   if params[:budget] = "2"
-     @price_start = 0
-     @price_end = 4000
-     @price_startz = 0
+   if params[:budget] == "2"
+     @price_start = 1001
+     @price_end = 2000
+     @price_startz = 5001
      @price_endz = 8000
    end
-   if params[:budget] = "3"
-     @price_start = 0
-     @price_end = 50000
-     @price_startz = 0
+   if params[:budget] == "3"
+     @price_start = 20001
+     @price_end = 4000
+     @price_startz = 8001
      @price_endz = 50000
    end
    #距離定義
    @distance = 0.5.to_f
    #昼のカテゴリー定義
    if params[:scene] == "クール"
-    @noons = ["映画", "プラネタリウム", "動物園", "水族館", "美術館", "ボーリング", "ダーツ", "食べ歩き", "スパ・温泉", "体験", "ストリート", "複合施設"]
+    @noons = ["映画", "プラネタリウム", "動物園", "水族館", "美術館", "ダーツ", "スパ・温泉", "体験", "ストリート", "複合施設"]
    end
    if params[:scene] == "カジュアル"
     @noons = ["映画", "ショップ・雑貨屋", "スポーツ", "動物園", "水族館", "遊園地", "カラオケ", "ボーリング", "食べ歩き", "公園", "ゲームセンター", "体験", "ストリート", "複合施設"]
@@ -94,7 +94,7 @@ def result
     @nights = ["カフェ", "夜景"]
    end
    if params[:scene] == "ユニーク"
-    @nights = ["夜景", "カラオケ", "ボーリング", "ダーツ", "その他"]
+    @nights = ["夜景", "カラオケ", "ボーリング", "ダーツ", "その他", "カフェ"]
    end
    @nights_not = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #昼からの時
@@ -265,6 +265,40 @@ def result
         end
       end
     end
+
+    #料金２
+    @tatal = 0
+    if params[:timezone] == "noon"
+      @ss.each.with_index(1) do |s, i|
+      	spot = Spot.find(s)
+      	if i < 4
+      		if spot.price_lunch.blank?
+      			@price = 0
+      		else
+      			@price = spot.price_lunch
+      		end
+      	else
+      		if spot.price_dinner.blank?
+      			@price = 0
+      		else
+      			@price = spot.price_dinner
+      		end
+      	end
+      	@total = @total.to_i + @price.to_i
+      end
+    end
+    if params[:timezone] == "night"
+      @ss.each.with_index(1) do |s, i|
+      	spot = Spot.find(s)    	
+      		if spot.price_dinner.blank?
+      			@price = 0
+      		else
+      			@price = spot.price_dinner
+      		end
+      	@total = @total.to_i + @price.to_i
+      end
+    end
+
 
     if params[:timezone] == "noon"
       @timezone_ja = "昼"

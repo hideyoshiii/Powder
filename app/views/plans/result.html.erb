@@ -38,12 +38,8 @@
           <div class="result-info-btn">
             <i class="fas fa-yen-sign"></i>
           </div>
-          <div class="result-info">
-            <% if @total_min == @total_max %>
-              <%= @total_min %>円程度
-            <% else %>
-              <%= @total_min %>~<%= @total_max %>円程度
-            <% end %>
+          <div class="result-info">        
+            <%= @total %>円程度
           </div>
         </div>
       </div>
