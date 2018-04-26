@@ -9,41 +9,26 @@
     <div class="course_in">
 
       <%# 目次 %>
-      <h4 class="text-center" style="margin:30px 0px 5px;">コースが作成されました</h4>   
-      <p class="text-center" style="font-size:12px;padding:0px 25px;margin-bottom:0px;color:black;">コースが気に入らない場合は再作成または条件変更ができます</p>        
-      <%# コースの諸情報 %>
-      <div class="result-info-box">
-        <div class="result-info-box-1">
-          <div class="result-info-btn">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <div class="result-info">
-            <%= params[:city] %>付近
-          </div>
-        </div>
-        <div class="result-info-box-1">
-          <div class="result-info-btn">
-            <i class="far fa-clock"></i>
-          </div>
-          <div class="result-info">
-            <% if params[:timezone] == "noon" %>
-              昼から
-            <% end %>
-            <% if params[:timezone] == "night" %>
-              夜から
-            <% end %>
-          </div>
-        </div>
-        <div class="result-info-box-1">
-          <div class="result-info-btn">
-            <i class="fas fa-yen-sign"></i>
-          </div>
-          <div class="result-info">        
-            <%= @total %>円程度
-          </div>
-        </div>
+      <div style="padding:15px 25px 0px;">
+      <h4 style="margin-bottom:0px;">コースが作成されました</h4>   
+      <p style="font-size:12px;color:black;margin-top:0px;padding-top:0px;">コースが気に入らない場合は再作成または条件変更ができます。</p> 
+      <div style="font-size:12px;color:black;">
+      <i class="fas fa-map-marker-alt"></i>&nbsp;<%= params[:city] %>付近
+      </div>
+      <div style="font-size:12px;color:black;">
+      <% if params[:timezone] == "noon" %>
+        <i class="far fa-clock"></i>&nbsp;昼から
+      <% end %>
+      <% if params[:timezone] == "night" %>
+        <i class="far fa-clock"></i>&nbsp;夜から
+      <% end %>
+      </div>
+      <div style="font-size:12px;color:black;">
+      <i class="fas fa-yen-sign"></i>&nbsp;合計<%= @total %>円程度
+      </div>
       </div>
 
+      
       <%# スポット %>
       <div style="padding:0px 15px;">
       	<h4 class="text-center">Spots</h4>   

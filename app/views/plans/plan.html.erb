@@ -7,38 +7,24 @@
 <% else %>
   <div class="course">
     <div class="course_in">         
-      <%# コースの諸情報 %>
-      <h4 class="text-center" style="margin:30px 0px 0px;">Summary</h4>       
-      <div class="result-info-box">
-        <div class="result-info-box-1">
-          <div class="result-info-btn">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <div class="result-info">
-            <%= @spot_first.city %>付近
-          </div>
-        </div>
-        <div class="result-info-box-1">
-          <div class="result-info-btn">
-            <i class="far fa-clock"></i>
-          </div>
-          <div class="result-info">
-            <% if params[:timezone] == "noon" %>
-              昼から
-            <% end %>
-            <% if params[:timezone] == "night" %>
-              夜から
-            <% end %>
-          </div>
-        </div>
-        <div class="result-info-box-1">
-          <div class="result-info-btn">
-            <i class="fas fa-yen-sign"></i>
-          </div>
-          <div class="result-info">
-            <%= @total %>円程度
-          </div>
-        </div>
+      <%# 目次 %>
+      <div style="padding:15px 25px 0px;">
+      <h4 style="margin-bottom:2px;font-size:18px;"><%= @spot_first.city %>デート</h4>   
+      <p style="font-size:12px;color:black;margin-top:0px;padding-top:0px;">ホームから他のエリアのコースも作成できます。</p> 
+      <div style="font-size:12px;color:black;">
+      <i class="fas fa-map-marker-alt"></i>&nbsp;<%= @spot_first.city %>付近
+      </div>
+      <div style="font-size:12px;color:black;">
+      <% if params[:timezone] == "noon" %>
+        <i class="far fa-clock"></i>&nbsp;昼から
+      <% end %>
+      <% if params[:timezone] == "night" %>
+        <i class="far fa-clock"></i>&nbsp;夜から
+      <% end %>
+      </div>
+      <div style="font-size:12px;color:black;">
+      <i class="fas fa-yen-sign"></i>&nbsp;合計<%= @total %>円程度
+      </div>
       </div>
 
       <%# スポット %>
