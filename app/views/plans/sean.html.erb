@@ -1,1 +1,71 @@
-ただいま準備中です
+<%= render "partial/navbar00" %>
+<mains class="" id="main-collapse">
+
+<div class="pc_1">
+
+  <div class="sean-back"></div>
+  <div class="text-center" style="margin-top:-80px;z-index:99;">
+  	<a href="" data-toggle="modal" data-target="#myModal-sean" class="black">
+    	<%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+    	<h4>ショーン</h4>
+    </a>
+  </div>
+  <div class="panel-body">
+    <div class="text-center">
+      <h3 style="padding:0px 0px 20px;"><span class="what">About</span></h3>
+      <h4>デートスポットを教えてくれる</h4>
+      <p>ショーンは東京のデートスポットを知り尽くしているデートマスターです。<br>あなたが行きたいスポットの条件をショーンに伝えると最適なスポットを教えてくれます。</p>
+    </div>
+    <div class="row" style="padding:40px 0px;">
+      <div class="col-xs-6">
+      <h4 style="margin-bottom:25px;"><span class="what">希望の条件を</span></h4>
+      <p>「東京でおすすめの水族館ってどこ？」</p>
+      <p>「え、そこ行く？みたいなユニークなスポット教えて！」</p>
+      <p>「お洒落とかじゃなくてカジュアルなデートスポットを教えて欲しいいな」</p>
+      </div>
+      <div class="col-xs-6" style="padding-left:0px;">
+        <%= image_tag "sean01.jpg", :class =>'img-sean-use' %>
+      </div>
+    </div>
+    <div class="text-center" style="">
+        <p>※無料でご利用いただけます<br>※対応時間は10時〜22時までです<br>※対応エリアは東京エリアのみです</p>
+    </div>
+    <div class="text-center" style="padding:40px 0px;">
+      <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+        ショーンと友達になる
+      </a>
+    </div>
+
+    <%#ショーンとはモーダルの中身%>
+    <div class="modal" id="myModal-sean">
+      <div class="modal-dialog">
+      	<div style="height:25vh;"></div>
+        <div class="modal-content">
+        	<div class="box-details" id=''>
+	        	<div style="padding:70px 10px;text-align:center;">
+		            <a href="https://line.me/R/ti/p/%40zjy4954t" target="_blank" class="btn btn-default">
+		        		ショーンと友達になる
+		      		</a>
+	      		</div>
+      		</div>
+        </div>
+      </div>
+      <div class="btn-details">
+        <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
+          <i class="fa fa-close"></i>
+        </a>
+      </div>
+    </div>
+
+</div>
+
+  <div class="pc_2">
+    
+  </div>
+
+</mains>
+<% if (user_signed_in?) %>
+  <% if current_user.authority == "manager" %>
+    <%= render "partial/footer" %>
+  <% end %>
+<% end %>
