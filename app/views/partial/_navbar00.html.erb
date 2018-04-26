@@ -6,7 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a href="/" class="navbar-brand navbar-brand-center">A.Date</a>
+    <a href="/" class="navbar-brand navbar-brand-center" style="color:#CCCCCC;">A.Date<span class="site-title" style="font-size:12px;">&nbsp;Tokyo</span></a>
   </div>
 
   <nav class="sidebar">
@@ -14,33 +14,120 @@
       <div class="site-header hidden-xs">
           <a class="site-brand" href="/" title="">
             <h2>
-              <%= image_tag 'mashup-logo.svg', :class =>'site-logo' %>
-              <span class="site-title">A.Date</span>
+              <span class="site-title">A.Date</span><span class="site-title" style="font-size:12px;">&nbsp;Tokyo</span>
             </h2>
           </a>
-        <p style="font-weight: bold;">デートコースを驚くほど簡単に</p>
+          <p style="font-size:14px;color:black;">誰でもデートコースを10秒で</p>
       </div>
 
-      <ul class="nav">               
+   <% if (user_signed_in?) %>
+            <% if current_user.authority == "manager" %>   
+      <div class="hidden-xs">
+        <p class="button-menu">
+          <%= link_to root_path do %>
+            <i class="fas fa-home btn-menu"></i>
+          <% end %>
+          <%= link_to "/seeks/courses" do %>
+            <i class="fas fa-search btn-menu"></i>
+          <% end %>
+          <%= link_to seeks_city_path do %>
+            <i class="fas fa-plus btn-menu"></i>
+          <% end %>
+          <% if (user_signed_in?) %>
+            <% if current_user.authority == "manager" %>
+              <%= link_to "/spots" do %>
+                <i class="fas fa-map-marker-alt btn-menu"></i>
+              <% end %>
+            <% else %>
+              <%= link_to seeks_personal_path do %>
+                <i class="far fa-clipboard btn-menu"></i>
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to seeks_personal_path do %>
+              <i class="far fa-clipboard btn-menu"></i>
+            <% end %>
+          <% end %>
+          <% if (user_signed_in?) %>
+            <%= link_to user_path(current_user) do %>
+              <i class="far fa-user btn-menu"></i>
+            <% end %>
+          <% else %>
+            <%= link_to new_user_session_path do %>
+              <i class="fas fa-sign-in-alt btn-menu" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+ <% end %>
+  <% end %>
 
+      <ul class="nav">     
+        <% if (user_signed_in?) %>
+          <% if current_user.authority == "manager" %>
+            <li>
+              <%= link_to new_spot_path do %>
+                <i class="fas fa-plus-circle"></i> <span style="font-size: 13px;">デートスポットを投稿する</span>
+              <% end %>
+            </li>
+          <% end %>
+        <% end %>
       </ul>
 
       <nav class="nav-footer">
-           
+        <li style="list-style-type: none;">
+          <%= link_to manager_path do %>
+            <span style="font-size: 13px;">運営者情報</span>
+          <% end %>
+        </li>  
+        <li style="list-style-type: none;">
+          <%= link_to terms_path do %>
+            <span style="font-size: 13px;">利用規約</span>
+          <% end %>
+        </li>  
+        <li style="list-style-type: none;">
+          <%= link_to law_path do %>
+            <span style="font-size: 13px;">特定商取引法に基づく表記</span>
+          <% end %>
+        </li>  
+        <li style="list-style-type: none;">
+          <%= link_to policy_path do %>
+            <span style="font-size: 13px;">プライバシーポリシー</span>
+          <% end %>
+        </li>      
+        <br>
+        <% if (user_signed_in?) %>
+        <%= link_to user_path(current_user) do %>
+        <%= image_tag current_user.image, :class => "img-circle profile-4" %>
+        &nbsp;&nbsp;<%= current_user.nickname %>
+        <% end %>
+        <br>
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i> ログアウト
+          <% end %>
+        <br>
+        <% else %>
+          <%= link_to new_user_session_path do %>
+          <i class="fas fa-sign-in-alt"></i> ログイン
+          <% end %>
+        <br>
+        <% end %>
+
+        
+        <br>
         <p class="nav-footer-social-buttons">
-          <a class="fa-icon" href="/" target="_blank">
-            <i class="fa fa-instagram"></i>
+          <a class="fa-icon" href="https://www.instagram.com/adate_ig/" target="_blank">
+            <i class="fab fa-instagram"></i>
           </a>
-          <a class="fa-icon" href="/" target="_blank">
-            <i class="fa fa-facebook" aria-hidden="true"></i>
+          <a class="fa-icon" href="https://www.facebook.com/adate.fa/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
           </a>
-          <a class="fa-icon" href="/" target="_blank">
-            <i class="fa fa-twitter"></i>
-          </a>
-          <a class="fa-icon" href="/" target="_blank">
-            <i class="fa fa-pinterest" aria-hidden="true"></i>
+          <a class="fa-icon" href="https://twitter.com/adate_tw/" target="_blank">
+            <i class="fab fa-twitter"></i>
           </a>
         </p>
+        <br>
+        <p style="color:black;">Copyright © 2018 A.Date All rights reserved</p>
       </nav>  
     </div> 
   </nav>

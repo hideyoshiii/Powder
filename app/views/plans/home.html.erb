@@ -1,10 +1,10 @@
-<%= render "partial/navbar" %>
+<%= render "partial/navbar00" %>
 <mains class="" id="main-collapse">
 
     <div class="visible-xs visible-sm">
 	  	<div class="img_box_home">
 	      <h1 style="font-size:25px;color:white;margin-bottom:5px;line-height:1.4;text-shadow: 1px 1px 2px black;">
-	        誰でも簡単にデートコースを
+	        誰でもデートコースを10秒で
 	      </h1>
 	      <p class="text-center" style="font-size:13px;color:white;text-shadow: 1px 1px 2px black;">
 	        デートコースがなかなか決まらないあなたへ
@@ -42,7 +42,7 @@
 	  	<div class="img_box_home_pc">
 	  		<%= form_tag(plans_result_path, method: :get) do %>
 	      
-			<div style="width:49%;float:left;overflow-y:scroll;height:100vh;padding:20px 20px;">
+			<div style="width:49%;float:left;overflow-y:scroll;height:100vh;padding:20px 40px;">
 				<h4 style="color:black;padding:0px 0px 20px 10px;"><span style="font-size:24px;">1</span>,&nbsp;Area</h4>
 
 				<div class="hero-full-wrapper">
@@ -266,7 +266,7 @@
 
 
 
-			<div style="width:49%;float:left;overflow-y:scroll;height:100vh;padding:20px 20px;">
+			<div style="width:42%;float:left;overflow-y:scroll;height:100vh;padding:70px 10px;">
 			
 				<%# 時間帯 %>
 				<h4 style="color:black;padding:0px 0px 20px 10px;"><span style="font-size:24px;">2</span>,&nbsp;Timezone</h4>
@@ -370,8 +370,8 @@
 					    </div>
 			        </div>
 		      	</div>
-			    <div class="text-center" style="padding:50px 0px;">
-					<%= submit_tag "コースを作成する", :class => "btn btn-default" %>
+			    <div class="text-center" style="padding:60px 0px;">
+					<%= submit_tag "コースを作成する", :class => "btn btn-primary" %>
 				</div>
 	    	</div>
 

@@ -1,4 +1,4 @@
-<%= render "partial/navbar" %>
+<%= render "partial/navbar00" %>
 
 <mains class="" id="main-collapse">
 
@@ -71,13 +71,25 @@
                   <%# 番号 %>
                   <span class="number">0<%= i %></span>
                   <%# 調整 %>
-                  <div style="height:20px;"></div>
+                  <div style="height:22px;"></div>
                   <%# タイトル %>
                   <%= spot.title %>
                   <%# 調整 %>
                   <div style="height:0px;"></div>
-                  <%# 駅 %>
-                  <span style="font-size:9px;text-shadow:none;opacity:0.8;"><i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %></span>
+                  <%# カテゴリー %>
+                  <% unless spot.large.blank? %>
+                    <span style="font-size:9px;text-shadow:none;opacity:0.85;">
+                    <% @i = 0 %>
+                      <% spot.large.each do |large| %>
+                        <% @i = @i + 1 %>
+                        <% if @i == spot.large.size %>
+                          <%= large %>
+                        <% else %>
+                          <%= large %>/
+                        <% end %> 
+                      <% end %>
+                    </p> 
+                  <% end %>
                   <%# 調整 %>
                   <div style="height:20px;"></div>
                 </h1> 
@@ -204,33 +216,7 @@
       </div>
       <%#PC用のボタン%>
 	  <div class="visible-md visible-lg">   
-        <%#自分も作るボタン%>
-        <div style="padding:40px 0px 0px;text-align:center;">
-         <p>あなたも10秒でコースを作ろう！</p>
-         <a href="/plans/home" class="btn btn-info">
-          <i class="fas fa-sync-alt"></i> 10秒でコースをつくる
-         </a>
-        </div>
-        <%#ツイートボタン%>
-        <div style="padding:20px 0px 20px;text-align:center;">
-         <p>つくったコースをシェアしよう！</p>
-         <div id="tw">
-            <a href="" target="_blank" class="btn-twitter">
-              <i class="fab fa-twitter"></i> ツイートする
-            </a>
-          </div>
-        </div>
-        <%#保存モーダルボタン%>
-        <% if (user_signed_in?) %>
-      		<% if current_user.authority == "manager" %>
-		        <div style="padding:20px 0px 20px;text-align:center;">
-		         <p>コースを保存できるよ！</p>
-		         <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
-		          <i class="far fa-save"></i> 保存する
-		         </a>
-		        </div>
-		    <% end %>
-		<% end %>
+        
       </div>   
     </div>
     <%#PC用のmap%>
@@ -267,6 +253,43 @@
 		    </div>
     	<% end %>
 	<% end %>
+  </div>
+
+  <div class="visible-md visible-lg">
+    <div class="pc-bar">
+      <%#自分も作るボタン%>
+        <div style="padding:40px 0px 0px;text-align:center;">
+         <p>あなたも10秒でコースを作ろう！</p>
+         <a href="/plans/home" class="btn btn-default">
+          10秒でコースをつくる
+         </a>
+        </div>
+        <%#URL保存ボタン%>
+      <div style="padding:20px 0px 0px;text-align:center;">
+       <p>コースのURLを保存しよう！</p>
+        <button class="btn btn-default" data-clipboard-text="<%= @url %>"><i class="far fa-copy"></i>URLをコピー</button>
+      </div>
+        <%#ツイートボタン%>
+        <div style="padding:20px 0px 40px;text-align:center;">
+         <p>つくったコースをシェアしよう！</p>
+         <div id="tw">
+            <a href="" target="_blank" class="btn-twitter">
+              <i class="fab fa-twitter"></i> ツイートする
+            </a>
+          </div>
+        </div>
+        <%#保存モーダルボタン%>
+        <% if (user_signed_in?) %>
+          <% if current_user.authority == "manager" %>
+            <div style="padding:20px 0px 40px;text-align:center;">
+             <p>コースを保存できるよ！</p>
+             <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
+              <i class="far fa-save"></i> 保存する
+             </a>
+            </div>
+          <% end %>
+        <% end %>
+    <div>
   </div>
 
   <%#保存モーダルの中身%>
