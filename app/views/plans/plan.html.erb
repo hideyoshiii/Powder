@@ -37,11 +37,7 @@
             <i class="fas fa-yen-sign"></i>
           </div>
           <div class="result-info">
-            <% if @total_min == @total_max %>
-              <%= @total_min %>円程度
-            <% else %>
-              <%= @total_min %>~<%= @total_max %>円程度
-            <% end %>
+            <%= @total %>円程度
           </div>
         </div>
       </div>
@@ -264,7 +260,7 @@
     <%#保存モーダルボタン%>
     <% if (user_signed_in?) %>
       	<% if current_user.authority == "manager" %>
-		    <div class="btn-details_5">
+		    <div class="btn-details_3">
 		     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
 		      <i class="far fa-save"></i>
 		     </a>

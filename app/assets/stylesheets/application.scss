@@ -5836,6 +5836,7 @@ display: inline-block;
 .result-info-box{
 	text-align: center;
 	padding:20px 0px 10px;
+	line-height:1.2;
 
 }
 
@@ -8931,7 +8932,15 @@ square_btnn{
   }
 
 
+//条件のボタン固定
+.fix-btn {
+    position: fixed;
+    top: 90%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    z-index:99;
 
+}
 
 
 

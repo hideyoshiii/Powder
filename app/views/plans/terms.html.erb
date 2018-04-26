@@ -6,8 +6,7 @@
 		<%= form_tag(plans_result_path, method: :get) do %>
 			<%= hidden_field_tag :city, params[:city] %>
 			<div style="padding:0px 15px;">
-				<div style="height:60px;"></div>
-				<p class="text-center" style="color:white;">条件を絞りましょう</p>
+				<div style="height:50px;"></div>
 				<%# 時間帯 %>
 				<h4 style="color:#CCCCCC;padding:0px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">1</span>,&nbsp;Timezone</h4>
 				<div class="home-box">
@@ -110,7 +109,7 @@
 					    </div>
 			        </div>
 		      	</div>
-			    <div class="text-center" style="padding:50px 0px;">
+			    <div class="text-center fix-btn" style="padding:0px 0px;">
 					<%= submit_tag "コースを作成する", :class => "btn btn-default" %>
 				</div>
 			</div>

@@ -68,8 +68,8 @@ def result
      @price_endz = 8000
    end
    if params[:budget] == "3"
-     @price_start = 20001
-     @price_end = 4000
+     @price_start = 1001
+     @price_end = 6000
      @price_startz = 8001
      @price_endz = 50000
    end
@@ -362,6 +362,39 @@ def result
         end
       end
 
+    end
+
+    #料金２
+    @tatal = 0
+    if params[:timezone] == "noon"
+      @ss.each.with_index(1) do |s, i|
+      	spot = Spot.find(s)
+      	if i < 4
+      		if spot.price_lunch.blank?
+      			@price = 0
+      		else
+      			@price = spot.price_lunch
+      		end
+      	else
+      		if spot.price_dinner.blank?
+      			@price = 0
+      		else
+      			@price = spot.price_dinner
+      		end
+      	end
+      	@total = @total.to_i + @price.to_i
+      end
+    end
+    if params[:timezone] == "night"
+      @ss.each.with_index(1) do |s, i|
+      	spot = Spot.find(s)    	
+      		if spot.price_dinner.blank?
+      			@price = 0
+      		else
+      			@price = spot.price_dinner
+      		end
+      	@total = @total.to_i + @price.to_i
+      end
     end
 
     if params[:timezone] == "noon"
