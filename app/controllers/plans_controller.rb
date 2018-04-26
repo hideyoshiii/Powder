@@ -6,6 +6,72 @@ end
 def personal	
 end
 
+def form 
+#params[price_min]がない時のの定義
+if params[:price_min].blank?
+  params[:price_min] = 0
+end
+#params[price_max]がない時のの定義
+if params[:price_max].blank?
+  params[:price_max] = 20000
+end
+end
+
+def confirm 
+if params[:spot].blank?
+  params[:spot] = "特になし"
+end
+if params[:term].blank?
+  params[:term] = "特になし"
+end
+end
+
+def sent  
+if params[:spot].blank?
+  params[:spot] = "特になし"
+end
+if params[:term].blank?
+  params[:term] = "特になし"
+end
+
+email = params[:mail]
+area = params[:area]
+time_start = params[:time_start]
+time_end = params[:time_end]
+price_min = params[:price_min]
+price_max = params[:price_max]
+image = params[:image]
+relation = params[:relation]
+age_you = params[:age_you]
+sex_you = params[:sex_you]
+age_opponent = params[:age_opponent]
+sex_opponent = params[:sex_opponent]
+spot = params[:spot]
+term = params[:term]
+
+@amount = 300
+customer = Stripe::Customer.create(
+  :email => params[:stripeEmail], 
+  :source  => params[:stripeToken] 
+)
+charge = Stripe::Charge.create(
+  :customer    => customer.id,
+  :amount      => @amount,
+  :description => 'A.Date customer',
+  :currency    => 'jpy'
+)
+if SampleMailer.send_when_accept(email,area,time_start,time_end,price_min,price_max,image,relation,age_you,sex_you,age_opponent,sex_opponent,spot,term).deliver
+  redirect_to seeks_complete_path, notice: "受付が完了しました" 
+end
+rescue Stripe::CardError => e
+  flash[:error] = e.message
+  render 'confirm'
+  flash.now[:alert] = "受付に失敗しました"
+end
+
+def complete  
+end
+
 def area	
 end
 

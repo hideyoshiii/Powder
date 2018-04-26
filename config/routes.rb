@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   get "plan" => "plans#plan"
 
   get "plans/personal" => "plans#personal"
+  get "plans/form" => "plans#form"
+  get "plans/confirm" => "plans#confirm"
+  post "plans/sent" => "plans#sent"
+  get "plans/complete" => "plans#complete"
 
   get "seeks/new" => "seeks#new"
   post "seeks/create" => "seeks#create"
