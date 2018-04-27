@@ -12,20 +12,20 @@
       <div style="padding:15px 25px 5px;">
         <h4 style="margin-bottom:0px;">コースが作成されました</h4>   
         <p style="font-size:12px;color:black;margin:0px;padding:0px 0px 5px;">コースが気に入らない場合は再作成または条件変更ができます。</p> 
-      </div>
-      <div style="font-size:12px;color:black;">
-        <i class="fas fa-map-marker-alt"></i>&nbsp;<%= params[:city] %>付近
-      </div>
-      <div style="font-size:12px;color:black;">
-        <% if params[:timezone] == "noon" %>
-          <i class="far fa-clock"></i>&nbsp;昼から
-        <% end %>
-        <% if params[:timezone] == "night" %>
-          <i class="far fa-clock"></i>&nbsp;夜から
-        <% end %>
-      </div>
-      <div style="font-size:12px;color:black;">
-        <i class="fas fa-yen-sign"></i>&nbsp;合計<%= @total %>円程度
+        <div style="font-size:12px;color:black;">
+          <i class="fas fa-map-marker-alt"></i>&nbsp;<%= params[:city] %>付近
+        </div>
+        <div style="font-size:12px;color:black;">
+          <% if params[:timezone] == "noon" %>
+            <i class="far fa-clock"></i>&nbsp;昼から
+          <% end %>
+          <% if params[:timezone] == "night" %>
+            <i class="far fa-clock"></i>&nbsp;夜から
+          <% end %>
+        </div>
+        <div style="font-size:12px;color:black;">
+          <i class="fas fa-yen-sign"></i>&nbsp;合計<%= @total %>円程度
+        </div>
       </div>
       
       <%# スポット %>
@@ -191,22 +191,22 @@
             </div>
           </div>
         <% end %>
-      </div>
-      <%#SP用のマップ%>
-      <div class="visible-xs visible-sm">
-        <h4 class="text-center">Map</h4>   
-        <div class="box-map_sp">
-          <div id="map_10_sp"></div>
+        <%#SP用のマップ%>
+        <div class="visible-xs visible-sm">
+          <h4 class="text-center">Map</h4>   
+          <div class="box-map_sp">
+            <div id="map_10_sp"></div>
+          </div>
+          <div style="height:30px;"></div>
         </div>
-        <div style="height:30px;"></div>
+        <%#広告%>
+        <div class="visible-xs" style=";">
+          <script type="text/javascript">
+          var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
+          </script>
+          <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+        </div>  
       </div>
-      <%#広告%>
-      <div class="visible-xs" style=";">
-        <script type="text/javascript">
-        var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
-        </script>
-        <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
-      </div>  
     </div>
     <%#PC用のmap%>
     <div class="visible-md visible-lg">
