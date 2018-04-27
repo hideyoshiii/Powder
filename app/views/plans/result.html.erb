@@ -200,11 +200,6 @@
           </div>
           <div style="height:30px;"></div>
         </div>
-        <%#広告%>
-        <script type="text/javascript">
-        var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
-        </script>
-        <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
       </div>
       <%#PC用のボタン%>
 	    <div class="visible-md visible-lg">   
@@ -218,30 +213,37 @@
         <div id="map_10_pc"></div> 
       </div>
     </div>
+    <%#広告%>
+    <div class="visible-xs" style="height:10px;">
+      <script type="text/javascript">
+      var nend_params = {"media":54485,"site":296581,"spot":869611,"type":1,"oriented":1};
+      </script>
+      <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+    </div>
   </div>
 
 
   <div class="visible-xs visible-sm">
     <%#chngeボタン%>
-    <div class="btn-details_4">
+    <div class="btn-details_12">
      <a href="javascript:;" onclick="koshin()" id="btn-detail">
       <i class="fas fa-sync-alt"></i>
      </a>
     </div>
     <%#条件変更モーダルボタン%>
-    <div class="btn-details_3">
+    <div class="btn-details_11">
      <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
       <i class="fas fa-search"></i>
      </a>
     </div>
     <%#マップモーダルボタン%>
-    <div class="btn-details_2">
+    <div class="btn-details_10">
      <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
       <i class="far fa-map"></i>
      </a>
     </div>
     <%#シェアモーダルボタン%>
-    <div class="btn-details_5">
+    <div class="btn-details_13">
      <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
       <i class="fa fa-external-link-alt"></i>
      </a>
@@ -249,7 +251,7 @@
     <%#保存モーダルボタン%>
     <% if (user_signed_in?) %>
       	<% if current_user.authority == "manager" %>
-		    <div class="btn-details_5">
+		    <div class="btn-details_14">
 		     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
 		      <i class="far fa-save"></i>
 		     </a>
