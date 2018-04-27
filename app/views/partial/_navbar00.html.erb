@@ -64,15 +64,13 @@
 
       <ul class="nav">  
         <li>
-          <%= link_to plans_personal_path do %>
-            <i class="far fa-clipboard"></i> <span style="font-size: 13px;">パーソナルプラン</span>
-          <% end %>
-        </li> 
-        <li>
           <%= link_to plans_sean_path do %>
-            <i class="fab fa-line"></i> <span style="font-size: 13px;">ショーン</span>
+            <%= image_tag "line.jpg", :class => "img-circle profile-4" %>&nbsp;<span style="font-size: 13px;">ショーンに聞く</span>
           <% end %>
         </li>   
+        <li>
+          &nbsp;
+        </li>
         <% if (user_signed_in?) %>
           <% if current_user.authority == "manager" %>
             <li>
