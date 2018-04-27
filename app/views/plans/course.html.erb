@@ -8,22 +8,30 @@
   <div class="course">
     <div class="course_in">
 
+      <%#広告%>
+      <div class="visible-xs" style=";">
+        <script type="text/javascript">
+        var nend_params = {"media":54485,"site":296581,"spot":870110,"type":1,"oriented":1};
+        </script>
+        <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+      </div> 
+
       <%# アイキャッチタイトル %>
       <% @point = Point.where(course_id: @course.id).order(number: "ASC").first %>
       <div class="imgbox-eye">  
           <%= image_tag @point.spot.pictures.first.image.url, :class =>'img-imgbox-eye' %>
           <h1>
-		      <div style="margin-bottom:10px;">
-		        <%= @course.title %>
-		      </div>
-		      <div>
-		        <span>
-		          <%= image_tag @course.user.image, :class => "img-circle img_user_course" %>
-		        </span>
-		        <span style="text-shadow:none;font-size:12px;color:#CCCCCC;">
-		          <%= @course.user.nickname %>
-		        </span>
-		      </div>
+  		      <div style="margin-bottom:10px;">
+  		        <%= @course.title %>
+  		      </div>
+  		      <div>
+  		        <span>
+  		          <%= image_tag @course.user.image, :class => "img-circle img_user_course" %>
+  		        </span>
+  		        <span style="text-shadow:none;font-size:12px;color:#CCCCCC;">
+  		          <%= @course.user.nickname %>
+  		        </span>
+  		      </div>
           </h1>
       </div>
       <%# description %>
