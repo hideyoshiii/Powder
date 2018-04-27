@@ -9519,10 +9519,23 @@ square_btnn{
 
 
 
+.ad-fotter
 
 
+//広告(フッター)
+.sticky-bar {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    width:100%;
+    height:auto;
+    z-index:100;
 
+}
 
+.box-ad-fotter{
+	height:100px;
+}
 
 
 
