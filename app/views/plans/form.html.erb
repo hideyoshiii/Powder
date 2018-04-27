@@ -133,18 +133,6 @@
     
   </div>
 
-<%#広告%>
-<% unless (user_signed_in?) %>
-  <div class="visible-xs visible-md">
-    <div class="ad-fotter">
-    <script type="text/javascript">
-    var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
-    </script>
-    <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
-    </div>
-    <div class="box-ad-fotter"></div>
-  </div>
-<% end %>
 </mains>
 <% if (user_signed_in?) %>
   <% if current_user.authority == "manager" %>
