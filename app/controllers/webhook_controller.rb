@@ -96,7 +96,7 @@ class WebhookController < ApplicationController
 
           else
 
-          	@iii = {
+          	iii = {
 					  "type": "template",
 					  "altText": "this is a carousel template",
 					  "template": {
