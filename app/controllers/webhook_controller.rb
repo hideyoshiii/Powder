@@ -1,62 +1,45 @@
 class WebhookController < ApplicationController
-  
+  #Lineからのcallbackか認証
   protect_from_forgery :except => [:callback]
- 
-require 'line/bot'
-require 'net/http'
- 
-def client
-       client = Line::Bot::Client.new { |config|
- config.channel_secret = 'd2d5c258acd03feab6fbd012692f2fcf'
- config.channel_token = 'rVDPe/rfvnbow62VjKgjB+6YXo55/z1HDRbo7Ctbhk3XY+mYj/aEp1MKuN0tV4mUbBAvisPtDkAerJZz7p/eeJCHfM6ONH8M/f8bv2nyjdjCOkuLVa39vdsiqN0aivJF7LezBftVN69MJ6WLWGDceQdB04t89/1O/w1cDnyilFU='
- }
-end
- 
- 
- 
-def callback
- 
-  body = request.body.read
- 
-  signature = request.env['HTTP_X_LINE_SIGNATURE']
- 
-  event = params["events"][0]
-  event_type = event["type"]
- 
-  #送られたテキストメッセージをinput_textに取得
-  input_text = event["message"]["text"]
- 
-  events = client.parse_events_from(body)
- 
-  events.each { |event|
- 
-    case event
-      when Line::Bot::Event::Message
-        case event.type
-          #テキストメッセージが送られた場合、そのままおうむ返しする
-          when Line::Bot::Event::MessageType::Text
-             message = {
-                  type: 'text',
-                  text: input_text
-                  }
- 
-          #画像が送られた場合、適当な画像を送り返す
-          #画像を返すには、画像が保存されたURLを指定する。
-          #なお、おうむ返しするには、１度AWSなど外部に保存する必要がある。ここでは割愛する
-          when Line::Bot::Event::MessageType::Image
-            image_url = "https://cdn.pixabay.com/photo/2017/08/01/09/07/mobile-2563782_1280.jpg"  #httpsであること
-              message = {
-                  type: "image",
-                  originalContentUrl: image_url,
-                  previewImageUrl: image_url
-                  }
-         end #event.type
-         #メッセージを返す
-         client.reply_message(event['replyToken'],message)
-    end #event
- } #events.each
- 
-end  #def
- 
- 
+
+  CHANNEL_SECRET = ENV['CHANNEL_SECRET']
+  OUTBOUND_PROXY = ENV['OUTBOUND_PROXY']
+  CHANNEL_ACCESS_TOKEN = ENV['CHANNEL_ACCESS_TOKEN']
+
+  def callback
+    unless is_validate_signature
+      render :nothing => true, status: 470
+    end
+
+    event = params["events"][0]
+    event_type = event["type"]
+    replyToken = event["replyToken"]
+
+    case event_type
+    when "message"
+      input_text = event["message"]["text"]
+      output_text = input_text
+    end
+
+    client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
+    res = client.reply(replyToken, output_text)
+
+    if res.status == 200
+      logger.info({success: res})
+    else
+      logger.info({fail: res})
+    end
+
+    render :nothing => true, status: :ok
+  end
+
+  private
+  # verify access from LINE
+  def is_validate_signature
+    signature = request.headers["X-LINE-Signature"]
+    http_request_body = request.raw_post
+    hash = OpenSSL::HMAC::digest(OpenSSL::Digest::SHA256.new, CHANNEL_SECRET, http_request_body)
+    signature_answer = Base64.strict_encode64(hash)
+    signature == signature_answer
+  end
 end
