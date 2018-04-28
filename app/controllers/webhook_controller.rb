@@ -107,7 +107,7 @@ class WebhookController < ApplicationController
 					      "type": "carousel",
 					      "columns": [
 					          {
-					            "thumbnailImageUrl": "tokyo.jpg",
+					            "thumbnailImageUrl": "https://www.a-date.jp/assets/ebisu00.jpg",
 					            "imageBackgroundColor": "#FFFFFF",
 					            "title": "this is menu",
 					            "text": "description",
@@ -135,7 +135,7 @@ class WebhookController < ApplicationController
 					            ]
 					          },
 					          {
-					            "thumbnailImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/JRE-Yamanote-LIne-Ebisu-Station.jpg",
+					            "thumbnailImageUrl": "https://www.a-date.jp/assets/shibuya00.jpg",
 					            "imageBackgroundColor": "#000000",
 					            "title": "this is menu",
 					            "text": "description",
@@ -146,9 +146,9 @@ class WebhookController < ApplicationController
 					            },
 					            "actions": [
 					                {
-					                    "type": "postback",
-					                    "label": "Buy",
-					                    "data": "action=buy&itemid=222"
+					                    "type": "message",
+					                    "label": "こっちも恵比寿",
+					                    "text": "恵比寿"
 					                },
 					                {
 					                    "type": "postback",
