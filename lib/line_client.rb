@@ -1,4 +1,5 @@
 class LineClient
+	require 'line/bot'  # gem 'line-bot-api'
   END_POINT = "https://api.line.me"
 
   def initialize(channel_access_token, proxy = nil)

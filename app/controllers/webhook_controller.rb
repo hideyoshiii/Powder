@@ -12,11 +12,6 @@ class WebhookController < ApplicationController
   end
 
   def callback
-  	client ||= Line::Bot::Client.new { |config|
-      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
-      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
-    }
-    
     body = request.body.read
 
     signature = request.env['HTTP_X_LINE_SIGNATURE']
@@ -35,7 +30,7 @@ class WebhookController < ApplicationController
             type: 'text',
             text: event.message['text']
           }
-          client.reply_message(event['replyToken'], message)
+          res = client.reply_message(event['replyToken'], message)
         end
       end
     }
