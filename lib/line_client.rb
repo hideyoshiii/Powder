@@ -1,3 +1,9 @@
+require "faraday"
+require "faraday_middleware"
+require "json"
+require "pp"
+
+
 class LineClient
   END_POINT = "https://api.line.me"
 
