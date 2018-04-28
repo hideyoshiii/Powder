@@ -89,6 +89,10 @@ class WebhookController < ApplicationController
 
 			    kkk = {
 		            type: 'text',
+		            text: "恵比寿の・代官山・中目黒のデートコースです。"
+		          }
+		          {
+		            type: 'text',
 		            text: @url
 		          }
 
@@ -103,7 +107,7 @@ class WebhookController < ApplicationController
 					      "type": "carousel",
 					      "columns": [
 					          {
-					            "thumbnailImageUrl": "https://cdn.macaro-ni.jp/image/summary/0/73/c7176a11ebae1345f6e328a2ac7f4857.jpg",
+					            "thumbnailImageUrl": "tokyo.jpg",
 					            "imageBackgroundColor": "#FFFFFF",
 					            "title": "this is menu",
 					            "text": "description",
