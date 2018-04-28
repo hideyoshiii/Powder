@@ -35,6 +35,8 @@ class WebhookController < ApplicationController
           if message.has_value?("恵比寿")
           	@nights = ["カフェ","バー", "夜景"]
           	@nights_not = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+          	#距離定義
+   			@distance = 0.5.to_f
           	#@spotsを定義
 		   	@spots = Spot.all
 		   	#@latitudeがない物を排除
@@ -78,7 +80,7 @@ class WebhookController < ApplicationController
 
 			   #ツイート用のURL作成
 			    @timezone = "night"
-			    @url = root_url(only_path: false)
+			    @url = "https://www.a-date.jp"
 			    @url = @url.to_s + '/plan?'
 			    params[:ss].each.with_index(1) do |s, i|
 			      @url = @url.to_s + "&ss%5B%5D=#{s}"
