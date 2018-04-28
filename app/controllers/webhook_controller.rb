@@ -103,7 +103,7 @@ class WebhookController < ApplicationController
 					      "type": "carousel",
 					      "columns": [
 					          {
-					            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+					            "thumbnailImageUrl": "assets/images/tokyo.jpg",
 					            "imageBackgroundColor": "#FFFFFF",
 					            "title": "this is menu",
 					            "text": "description",
