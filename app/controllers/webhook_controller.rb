@@ -103,7 +103,7 @@ class WebhookController < ApplicationController
 					      "type": "carousel",
 					      "columns": [
 					          {
-					            "thumbnailImageUrl": "https://example.com/bot/images/item1.jpg",
+					            "thumbnailImageUrl": "https://cdn.macaro-ni.jp/image/summary/0/73/c7176a11ebae1345f6e328a2ac7f4857.jpg",
 					            "imageBackgroundColor": "#FFFFFF",
 					            "title": "this is menu",
 					            "text": "description",
@@ -114,7 +114,7 @@ class WebhookController < ApplicationController
 					            },
 					            "actions": [
 					                {
-					                    "type": "postback",
+					                    "type": "message",
 					                    "label": "恵比寿",
 					                    "text": "恵比寿"
 					                },
