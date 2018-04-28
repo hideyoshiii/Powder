@@ -90,7 +90,7 @@ class WebhookController < ApplicationController
 			    kkk = {
 		            type: 'text',
 		            text: "恵比寿の・代官山・中目黒のデートコースです。"
-		          }
+		          },
 		          {
 		            type: 'text',
 		            text: @url
@@ -135,7 +135,7 @@ class WebhookController < ApplicationController
 					            ]
 					          },
 					          {
-					            "thumbnailImageUrl": "https://example.com/bot/images/item2.jpg",
+					            "thumbnailImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/JRE-Yamanote-LIne-Ebisu-Station.jpg",
 					            "imageBackgroundColor": "#000000",
 					            "title": "this is menu",
 					            "text": "description",
