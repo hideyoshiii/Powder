@@ -103,7 +103,7 @@ class WebhookController < ApplicationController
 					      "type": "carousel",
 					      "columns": [
 					          {
-					            "thumbnailImageUrl": "assets/images/tokyo.jpg",
+					            "thumbnailImageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4a/JRE-Yamanote-LIne-Ebisu-Station.jpg",
 					            "imageBackgroundColor": "#FFFFFF",
 					            "title": "this is menu",
 					            "text": "description",
@@ -116,7 +116,7 @@ class WebhookController < ApplicationController
 					                {
 					                    "type": "postback",
 					                    "label": "Buy",
-					                    "data": "action=buy&itemid=111"
+					                    "text": "恵比寿"
 					                },
 					                {
 					                    "type": "postback",
