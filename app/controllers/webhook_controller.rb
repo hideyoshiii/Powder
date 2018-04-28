@@ -1,45 +1,38 @@
-class WebhookController < ApplicationController
-  #Lineからのcallbackか認証
+require 'line/bot'  # gem 'line-bot-api'
+
+  # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
 
-  CHANNEL_SECRET = ENV['CHANNEL_SECRET']
-  OUTBOUND_PROXY = ENV['OUTBOUND_PROXY']
-  CHANNEL_ACCESS_TOKEN = ENV['CHANNEL_ACCESS_TOKEN']
+  def client
+    @client ||= Line::Bot::Client.new { |config|
+      config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
+      config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
+    }
+  end
 
   def callback
-    unless is_validate_signature
-      head 470
+    body = request.body.read
+
+    signature = request.env['HTTP_X_LINE_SIGNATURE']
+    unless client.validate_signature(body, signature)
+      error 400 do 'Bad Request' end
     end
 
-    event = params["events"][0]
-    event_type = event["type"]
-    replyToken = event["replyToken"]
+    events = client.parse_events_from(body)
 
-    case event_type
-    when "message"
-      input_text = event["message"]["text"]
-      output_text = input_text
-    end
-
-    client = LineClient.new(CHANNEL_ACCESS_TOKEN, OUTBOUND_PROXY)
-    res = client.reply(replyToken, output_text)
-
-    if res.status == 200
-      logger.info({success: res})
-    else
-      logger.info({fail: res})
-    end
+    events.each { |event|
+      case event
+      when Line::Bot::Event::Message
+        case event.type
+        when Line::Bot::Event::MessageType::Text
+          message = {
+            type: 'text',
+            text: event.message['text']
+          }
+          client.reply_message(event['replyToken'], message)
+        end
+      end
+    }
 
     head :ok
   end
-
-  private
-  # verify access from LINE
-  def is_validate_signature
-    signature = request.headers["X-LINE-Signature"]
-    http_request_body = request.raw_post
-    hash = OpenSSL::HMAC::digest(OpenSSL::Digest::SHA256.new, CHANNEL_SECRET, http_request_body)
-    signature_answer = Base64.strict_encode64(hash)
-    signature == signature_answer
-  end
-end
