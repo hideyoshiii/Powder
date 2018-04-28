@@ -8,7 +8,7 @@ class WebhookController < ApplicationController
 
   def callback
     unless is_validate_signature
-      render :nothing => true, status: 470
+      head: 470
     end
 
     event = params["events"][0]
@@ -30,7 +30,7 @@ class WebhookController < ApplicationController
       logger.info({fail: res})
     end
 
-    render :nothing => true, status: :ok
+    head: :ok
   end
 
   private
