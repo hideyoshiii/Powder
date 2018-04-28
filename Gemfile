@@ -50,7 +50,6 @@ gem 'jquery-turbolinks'
 gem 'rack-rewrite'
 gem 'google-analytics-rails'
 gem 'stripe'
-gem 'line-bot-api'
 gem 'dotenv-rails'
 gem "faraday"
 gem "faraday_middleware"
