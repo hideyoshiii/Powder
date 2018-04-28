@@ -42,7 +42,7 @@ class WebhookController < ApplicationController
 		   	#スポット１
 		    @spot1_city = @spots.where(city: "恵比寿・代官山・中目黒")
 		    @spot1_category = @spot1_city.where("large like '%ディナー%'")
-		    @spot1 = @spot1_price.order("RANDOM()").first
+		    @spot1 = @spot1_category.order("RANDOM()").first
 		    #スポット２
 		    @spot2_not = @spots.where.not(title: @spot1.title)
 		    @spot2_not_lunch = @spot2_not.where.not("large like '%ディナー%'")
