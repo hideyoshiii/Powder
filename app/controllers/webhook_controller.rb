@@ -8,7 +8,7 @@ class WebhookController < ApplicationController
 
   def callback
     unless is_validate_signature
-      head: 470
+      error 400 do 'Bad Request' end
     end
 
     event = params["events"][0]
@@ -30,7 +30,7 @@ class WebhookController < ApplicationController
       logger.info({fail: res})
     end
 
-    head: :ok
+    head :ok
   end
 
   private
