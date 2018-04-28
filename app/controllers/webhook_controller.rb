@@ -1,4 +1,5 @@
-require 'line/bot'  # gem 'line-bot-api'
+class WebhookController < ApplicationController
+  require 'line/bot'  # gem 'line-bot-api'
 
   # callbackアクションのCSRFトークン認証を無効
   protect_from_forgery :except => [:callback]
@@ -36,3 +37,4 @@ require 'line/bot'  # gem 'line-bot-api'
 
     head :ok
   end
+end
