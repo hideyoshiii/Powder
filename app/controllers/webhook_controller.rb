@@ -32,7 +32,7 @@ class WebhookController < ApplicationController
           }
 
 
-          if message.include?("恵比寿")
+          if message.has_value?("恵比寿")
           	@nights = ["カフェ","バー", "夜景"]
           	@nights_not = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
           	#@spotsを定義
