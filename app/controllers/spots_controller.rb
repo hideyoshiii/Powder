@@ -1,6 +1,10 @@
 class SpotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
+  def station
+    @spots = Spot.group(:station).having('count(*) >= 2')
+  end
+
   def result
     @q = Spot.ransack(params[:q])
     @spots = @q.result(distinct: true)

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   root :to => 'plans#home'
 
+  get "spots/station" => "spots#station"
+
   post '/callback' => 'webhook#callback'
 
   get "/homes" => "homes#index"
