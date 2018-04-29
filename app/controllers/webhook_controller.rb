@@ -45,6 +45,9 @@ class WebhookController < ApplicationController
           #部分一致しているものを配列に
           @mess_city = @citys.select {|item| item.include?(@mess_city_first)}
 
+          @toshin = ["東京・丸の内・日本橋", "銀座・有楽町", "六本木・麻布・赤坂", "赤坂・虎ノ門・永田町", "新橋・汐留・浜松町", "神楽坂・飯田橋", "神田・秋葉原・御茶ノ水"]
+          @toshin_pic = ["tokyo00", "ginza00", "roppongi00", "akasaka00", "shinbashi00", "kagurazaka00", "kanda00"]
+
 	          if @menus.include?(@mess)
 	          	#エリア選択
 	          	message = {
@@ -62,11 +65,11 @@ class WebhookController < ApplicationController
 				            }
 				          },
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/shinjuku00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/shinnjuku00.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "副都心エリア",
-				              "text": "都心エリア"
+				              "text": "副都心エリア"
 				            }
 				          },
 				          {
@@ -124,10 +127,12 @@ class WebhookController < ApplicationController
 						  "template": {
 						      "type": "carousel",
 						      "columns": [
+						      	@toshin.each.with_index(0) do |city, i|
+
 						          {
-						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ebisu00.jpg",
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/#{@toshin_pic[i]}.jpg",
 						            "imageBackgroundColor": "#FFFFFF",
-						            "title": "東京・丸の内・日本橋",
+						            "title": city,
 						            "text": "時間帯を選択してください",
 						            "defaultAction": {
 						                "type": "uri",
@@ -137,39 +142,17 @@ class WebhookController < ApplicationController
 						            "actions": [
 						                {
 						                    "type": "message",
-						                    "label": "東京・丸の内・日本橋、昼から",
-						                    "text": "東京・丸の内・日本橋、昼から"
+						                    "label": "昼から",
+						                    "text": "#{city}、昼から"
 						                },
 						                {
 						                    "type": "message",
-						                    "label": "東京・丸の内・日本橋、夜から",
-						                    "text": "東京・丸の内・日本橋、夜から"
+						                    "label": "夜から",
+						                    "text": "#{city}、夜から"
 						                }
 						            ]
 						          },
-						          {
-						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ginza00.jpg",
-						            "imageBackgroundColor": "#FFFFFF",
-						            "title": "銀座・有楽町",
-						            "text": "時間帯を選択してください",
-						            "defaultAction": {
-						                "type": "uri",
-						                "label": "View detail",
-						                "uri": "https://www.a-date.jp"
-						            },
-						            "actions": [
-						                {
-						                    "type": "message",
-						                    "label": "銀座・有楽町、昼から",
-						                    "text": "銀座・有楽町、昼から"
-						                },
-						                {
-						                    "type": "message",
-						                    "label": "銀座・有楽町、夜から",
-						                    "text": "銀座・有楽町、夜から"
-						                }
-						            ]
-						          }
+						        end
 						      ],
 						      "imageAspectRatio": "rectangle",
 						      "imageSize": "cover"
