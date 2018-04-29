@@ -35,7 +35,7 @@ class WebhookController < ApplicationController
           @citys = ["渋谷", "新宿", "池袋"]
 
 
-	          if event.message['text'].has_value?("エリア")
+	          if message.has_value?("エリア")
 	          	lll = {
 			            type: 'text',
 			            text: "エリア正解"
