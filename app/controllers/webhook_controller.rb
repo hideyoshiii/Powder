@@ -2645,14 +2645,12 @@ class WebhookController < ApplicationController
 		          			end
 		          		end
 		          	else
+		          		docomo_client = Docomoru::Client.new(api_key: ENV["DOCOMO_API_KEY"])
+    					response = client.create_dialogue(event.message['text'])
 		          		#それ以外はオウム返し
 		          		message = {
 				            type: 'text',
-				            text: "ボクまだ頭悪いから難しいこと言われるとオウム返ししちゃうヨ！"
-				          },
-				          {
-				            type: 'text',
-            				text: event.message['text']
+				            text: response.body['utt']
 				          }
 		          		client.reply_message(event['replyToken'], message)
 		          	end

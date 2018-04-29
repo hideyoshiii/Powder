@@ -54,6 +54,7 @@ gem 'line-bot-api'
 gem 'dotenv-rails'
 gem "faraday"
 gem "faraday_middleware"
+gem 'docomoru'
 
 
 
