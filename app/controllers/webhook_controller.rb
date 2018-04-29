@@ -140,52 +140,79 @@ class WebhookController < ApplicationController
           }
       ]
   }
-},
-{
-  "type": "template",
-  "altText": "This is a buttons template",
-  "template": {
-      "type": "buttons",
-      "thumbnailImageUrl": "https://example.com/bot/images/image.jpg",
-      "imageAspectRatio": "rectangle",
-      "imageSize": "cover",
-      "imageBackgroundColor": "#FFFFFF",
-      "title": "Menu",
-      "text": "Please select",
-      "defaultAction": {
-          "type": "uri",
-          "label": "View detail",
-          "uri": "http://example.com/page/123"
-      },
-      "actions": [
-          {
-            "type": "message",
-            "label": "恵比寿",
-            "text": "恵比寿"
-	      },
-          {
-            "type": "postback",
-            "label": "Add to cart",
-            "data": "action=add&itemid=123"
-          },
-          {
-            "type": "postback",
-            "label": "Add to cart",
-            "data": "action=add&itemid=123"
-          },
-          {
-            "type": "uri",
-            "label": "View detail",
-            "uri": "http://example.com/page/123"
-          }
-      ]
-  }
 }
 
 client.reply_message(event['replyToken'], ppp)
           	else
 
           	iii = {
+					  "type": "template",
+					  "altText": "this is a carousel template",
+					  "template": {
+					      "type": "carousel",
+					      "columns": [
+					          {
+					            "thumbnailImageUrl": "https://www.a-date.jp/assets/ebisu00.jpg",
+					            "imageBackgroundColor": "#FFFFFF",
+					            "title": "this is menu",
+					            "text": "description",
+					            "defaultAction": {
+					                "type": "uri",
+					                "label": "View detail",
+					                "uri": "http://example.com/page/123"
+					            },
+					            "actions": [
+					                {
+					                    "type": "message",
+					                    "label": "恵比寿",
+					                    "text": "恵比寿"
+					                },
+					                {
+					                    "type": "postback",
+					                    "label": "Add to cart",
+					                    "data": "action=add&itemid=111"
+					                },
+					                {
+					                    "type": "uri",
+					                    "label": "View detail",
+					                    "uri": "http://example.com/page/111"
+					                }
+					            ]
+					          },
+					          {
+					            "thumbnailImageUrl": "https://www.a-date.jp/assets/shibuya00.jpg",
+					            "imageBackgroundColor": "#000000",
+					            "title": "this is menu",
+					            "text": "description",
+					            "defaultAction": {
+					                "type": "uri",
+					                "label": "View detail",
+					                "uri": "http://example.com/page/222"
+					            },
+					            "actions": [
+					                {
+					                    "type": "message",
+					                    "label": "こっちも恵比寿",
+					                    "text": "恵比寿"
+					                },
+					                {
+					                    "type": "postback",
+					                    "label": "Add to cart",
+					                    "data": "action=add&itemid=222"
+					                },
+					                {
+					                    "type": "uri",
+					                    "label": "View detail",
+					                    "uri": "http://example.com/page/222"
+					                }
+					            ]
+					          }
+					      ],
+					      "imageAspectRatio": "rectangle",
+					      "imageSize": "cover"
+					  }
+					},
+					{
 					  "type": "template",
 					  "altText": "this is a carousel template",
 					  "template": {
