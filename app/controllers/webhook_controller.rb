@@ -120,45 +120,11 @@ class WebhookController < ApplicationController
 	          	if @mess_area.size >= 1
 	          		#city選択
 	          		@area = @mess_area.first
-	          		if @area == "都心エリア"
-	          			message = {
-						  "type": "template",
-						  "altText": "都心エリアのcityを選んで下さい",
-						  "template": {
-						      "type": "carousel",
-						      "columns": [
-						      	@toshin.each.with_index(0) do |city, i|
-
-						          {
-						            "thumbnailImageUrl": "https://www.a-date.jp/assets/#{@toshin_pic[i]}.jpg",
-						            "imageBackgroundColor": "#FFFFFF",
-						            "title": city,
-						            "text": "時間帯を選択してください",
-						            "defaultAction": {
-						                "type": "uri",
-						                "label": "View detail",
-						                "uri": "https://www.a-date.jp"
-						            },
-						            "actions": [
-						                {
-						                    "type": "message",
-						                    "label": "昼から",
-						                    "text": "#{city}、昼から"
-						                },
-						                {
-						                    "type": "message",
-						                    "label": "夜から",
-						                    "text": "#{city}、夜から"
-						                }
-						            ]
-						          },
-						        end
-						      ],
-						      "imageAspectRatio": "rectangle",
-						      "imageSize": "cover"
-						  }
-						}
-	          		end
+	          		message = {
+            type: 'text',
+            text: "#{@area}のcityを選んでね"
+          }
+	          		
           			client.reply_message(event['replyToken'], message)
 	          	else
 		          	if @mess_city.size >= 1
