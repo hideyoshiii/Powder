@@ -128,6 +128,7 @@ class WebhookController < ApplicationController
 						      "type": "carousel",
 						      "columns": [
 						      	@toshin.each.with_index(0) do |city, i|
+						      	  @city_n = city
 						          {
 						            "thumbnailImageUrl": "https://www.a-date.jp/assets/#{@toshin_pic[i]}.jpg",
 						            "imageBackgroundColor": "#FFFFFF",
@@ -151,7 +152,6 @@ class WebhookController < ApplicationController
 						                }
 						            ]
 						          },
-						        end
 						        end
 						      ],
 						      "imageAspectRatio": "rectangle",
