@@ -2,7 +2,7 @@ class SpotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def station
-    @spots = Spot.order(:id).group(:station).having('count(*) >= 2')
+    @spots = Spot.select("DISTINCT ON (station) *")
   end
 
   def result
