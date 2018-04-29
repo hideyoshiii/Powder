@@ -32,7 +32,7 @@ class WebhookController < ApplicationController
           }
 
           @mess = event.message['text']
-          @menus = ["エリア"]
+          @menus = ["デート"]
           @areas = ["都心エリア", "副都心エリア", "区東エリア", "区西エリア", "区南エリア", "区北エリア", "市町村エリア"]
           @mess_area = @areas.select {|item| item.include?(@mess)}
           @citys = ["東京・丸の内・日本橋", "銀座・有楽町", "六本木・麻布・赤坂", "赤坂・虎ノ門・永田町", "新橋・汐留・浜松町", "神楽坂・飯田橋", "神田・秋葉原・御茶ノ水", "新宿", "渋谷", "池袋", "お台場", "原宿・表参道・青山", "恵比寿・代官山・中目黒", "四ツ谷・信濃町・千駄ヶ谷", "代々木・初台", "上野", "浅草・押上", "谷中・根津・千駄木", "人形町・門前仲町・葛西", "千住・綾瀬・葛飾", "両国・錦糸町・小岩", "中野・荻窪", "練馬・江古田", "品川", "目黒・白金・五反田", "下北沢", "自由が丘・二子玉川", "三軒茶屋・駒沢", "大井町・大森・蒲田", "大久保・高田馬場・早稲田", "池袋", "大塚・巣鴨・駒込", "板橋・赤羽", "吉祥寺・三鷹", "立川・八王子・青梅", "調布・府中・狛江", "町田・稲城・多摩", "小金井・国分寺・国立", "伊豆諸島・小笠原"]
@@ -47,7 +47,12 @@ class WebhookController < ApplicationController
 
 	          if @menus.include?(@mess)
 	          	#エリア選択
+	          	message = 
 	          	message = {
+		            type: 'text',
+		            text: "デートコースね！任せて！まずはエリアを選んで！"
+		        },
+	          	{
 				  "type": "template",
 				  "altText": "エリアを選択してください",
 				  "template": {
@@ -119,6 +124,10 @@ class WebhookController < ApplicationController
 	          		@area = @mess_area.first
 	          		if @area == "都心エリア"
 	          			message = {
+				            type: 'text',
+				            text: "#{@area}かぁ、やっぱ東京なら都会だよねぇ。もっと細かいエリアを選んでいこう！"
+				        },
+	          			{
 						  "type": "template",
 						  "altText": "都心エリアのcityを選んで下さい",
 						  "template": {
@@ -293,6 +302,10 @@ class WebhookController < ApplicationController
 	          		end
 	          		if @area == "副都心エリア"
 	          			message = {
+				            type: 'text',
+				            text: "#{@area}かぁ、グルメスポット多いしgood!もっと細かいエリアを選んでいこう！"
+				        },
+	          			{
 						  "type": "template",
 						  "altText": "副都心エリアのcityを選んで下さい",
 						  "template": {
@@ -490,6 +503,10 @@ class WebhookController < ApplicationController
 	          		end
 	          		if @area == "区東エリア"
 	          			message = {
+				            type: 'text',
+				            text: "#{@area}かぁ、下町デートは落ち着くよね。もっと細かいエリアを選んでいこう！"
+				        },
+	          			{
 						  "type": "template",
 						  "altText": "区東エリアのcityを選んで下さい",
 						  "template": {
@@ -641,6 +658,10 @@ class WebhookController < ApplicationController
 	          		end
 	          		if @area == "区西エリア"
 	          			message = {
+				            type: 'text',
+				            text: "#{@area}かぁ、独特のカルチャーを楽しんじゃおう！もっと細かいエリアを選んでいこう！"
+				        },
+	          			{
 						  "type": "template",
 						  "altText": "区西エリアのcityを選んで下さい",
 						  "template": {
@@ -700,6 +721,10 @@ class WebhookController < ApplicationController
 	          		end
 	          		if @area == "区南エリア"
 	          			message = {
+				            type: 'text',
+				            text: "#{@area}かぁ、意外と穴場な感じがいいよね。もっと細かいエリアを選んでいこう！"
+				        },
+	          			{
 						  "type": "template",
 						  "altText": "区南エリアのcityを選んで下さい",
 						  "template": {
@@ -851,6 +876,10 @@ class WebhookController < ApplicationController
 	          		end
 	          		if @area == "区北エリア"
 	          			message = {
+				            type: 'text',
+				            text: "#{@area}かぁ、ゴリゴリの穴場攻めるやん。もっと細かいエリアを選んでいこう！"
+				        },
+	          			{
 						  "type": "template",
 						  "altText": "区北エリアのcityを選んで下さい",
 						  "template": {
@@ -933,6 +962,10 @@ class WebhookController < ApplicationController
 	          		end
 	          		if @area == "市町村エリア"
 	          			message = {
+				            type: 'text',
+				            text: "#{@area}かぁ、自然も多いし人気なとこ多いよね。もっと細かいエリアを選んでいこう！"
+				        },
+	          			{
 						  "type": "template",
 						  "altText": "市町村エリアのcityを選んで下さい",
 						  "template": {
@@ -1197,7 +1230,7 @@ class WebhookController < ApplicationController
 
 							    message = {
 						            type: 'text',
-						            text: "#{@city}で#{@time}からダネ！もうできちゃったヨ！このコースとかどうデスカ？"
+						            text: "#{@city}で#{@time}からのデートね！ショーン優秀だからもうつくっちゃたよ。このコースとかどう？"
 						          },
 						          {
 						            type: 'text',
@@ -1261,7 +1294,7 @@ class WebhookController < ApplicationController
 
 							    message = {
 						            type: 'text',
-						            text: "#{@city}で#{@time}からダネ！もうできちゃったヨ！このコースとかどうデスカ？"
+						            text: "#{@city}で#{@time}からのデートね！ショーン優秀だからもうつくっちゃたよ。このコースとかどう？"
 						          },
 						          {
 						            type: 'text',
@@ -1276,7 +1309,7 @@ class WebhookController < ApplicationController
 		          				if @city == "東京・丸の内・日本橋"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1312,7 +1345,7 @@ class WebhookController < ApplicationController
 								if @city == "銀座・有楽町"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1348,7 +1381,7 @@ class WebhookController < ApplicationController
 								if @city == "六本木・麻布・赤坂"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1384,7 +1417,7 @@ class WebhookController < ApplicationController
 								if @city == "赤坂・虎ノ門・永田町"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1420,7 +1453,7 @@ class WebhookController < ApplicationController
 								if @city == "新橋・汐留・浜松町"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1456,7 +1489,7 @@ class WebhookController < ApplicationController
 								if @city == "神楽坂・飯田橋"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1492,7 +1525,7 @@ class WebhookController < ApplicationController
 								if @city == "神田・秋葉原・御茶ノ水"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1528,7 +1561,7 @@ class WebhookController < ApplicationController
 								if @city == "新宿"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1564,7 +1597,7 @@ class WebhookController < ApplicationController
 								if @city == "渋谷"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1600,7 +1633,7 @@ class WebhookController < ApplicationController
 								if @city == "池袋"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1636,7 +1669,7 @@ class WebhookController < ApplicationController
 								if @city == "お台場"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1672,7 +1705,7 @@ class WebhookController < ApplicationController
 								if @city == "原宿・表参道・青山"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1708,7 +1741,7 @@ class WebhookController < ApplicationController
 								if @city == "恵比寿・代官山・中目黒"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1744,7 +1777,7 @@ class WebhookController < ApplicationController
 								if @city == "四ツ谷・信濃町・千駄ヶ谷"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1780,7 +1813,7 @@ class WebhookController < ApplicationController
 								if @city == "代々木・初台"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1816,7 +1849,7 @@ class WebhookController < ApplicationController
 								if @city == "上野"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1852,7 +1885,7 @@ class WebhookController < ApplicationController
 								if @city == "浅草・押上"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1888,7 +1921,7 @@ class WebhookController < ApplicationController
 								if @city == "谷中・根津・千駄木"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1924,7 +1957,7 @@ class WebhookController < ApplicationController
 								if @city == "人形町・門前仲町・葛西"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1960,7 +1993,7 @@ class WebhookController < ApplicationController
 								if @city == "千住・綾瀬・葛飾"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -1996,7 +2029,7 @@ class WebhookController < ApplicationController
 								if @city == "両国・錦糸町・小岩"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2032,7 +2065,7 @@ class WebhookController < ApplicationController
 								if @city == "中野・荻窪"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2068,7 +2101,7 @@ class WebhookController < ApplicationController
 								if @city == "練馬・江古田"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2104,7 +2137,7 @@ class WebhookController < ApplicationController
 								if @city == "品川"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2140,7 +2173,7 @@ class WebhookController < ApplicationController
 								if @city == "目黒・白金・五反田"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2176,7 +2209,7 @@ class WebhookController < ApplicationController
 								if @city == "下北沢"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2212,7 +2245,7 @@ class WebhookController < ApplicationController
 								if @city == "自由が丘・二子玉川"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2248,7 +2281,7 @@ class WebhookController < ApplicationController
 								if @city == "三軒茶屋・駒沢"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2284,7 +2317,7 @@ class WebhookController < ApplicationController
 								if @city == "大井町・大森・蒲田"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2320,7 +2353,7 @@ class WebhookController < ApplicationController
 								if @city == "大久保・高田馬場・早稲田"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2356,7 +2389,7 @@ class WebhookController < ApplicationController
 								if @city == "大塚・巣鴨・駒込"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2392,7 +2425,7 @@ class WebhookController < ApplicationController
 								if @city == "板橋・赤羽"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2428,7 +2461,7 @@ class WebhookController < ApplicationController
 								if @city == "吉祥寺・三鷹"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2464,7 +2497,7 @@ class WebhookController < ApplicationController
 								if @city == "立川・八王子・青梅"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2500,7 +2533,7 @@ class WebhookController < ApplicationController
 								if @city == "調布・府中・狛江"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2536,7 +2569,7 @@ class WebhookController < ApplicationController
 								if @city == "町田・稲城・多摩"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2572,7 +2605,7 @@ class WebhookController < ApplicationController
 								if @city == "小金井・国分寺・国立"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
@@ -2608,7 +2641,7 @@ class WebhookController < ApplicationController
 								if @city == "伊豆諸島・小笠原"
 			          				message = {
 							            type: 'text',
-							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							            text: "#{@city}ね！どの時間帯からデートするの？"
 							        },
 			          				{
 									  "type": "template",
