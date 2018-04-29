@@ -34,8 +34,9 @@ class WebhookController < ApplicationController
           @mess = event.message['text']
           @menus = ["エリア"]
           @areas = ["都心", "副都心", "区東", "区西", "区南", "区北", "市町村"]
+          @mess_area = @areas.select {|item| item.include?(@mess)}
           @citys = ["東京・丸の内・日本橋", "銀座・有楽町", "六本木・麻布・赤坂", "赤坂・虎ノ門・永田町", "新橋・汐留・浜松町", "神楽坂・飯田橋", "神田・秋葉原・御茶ノ水", "新宿", "渋谷", "池袋", "お台場", "原宿・表参道・青山", "恵比寿・代官山・中目黒", "四ツ谷・信濃町・千駄ヶ谷", "代々木・初台", "上野", "浅草・押上", "谷中・根津・千駄木", "人形町・門前仲町・葛西", "千住・綾瀬・葛飾", "両国・錦糸町・小岩", "中野・荻窪", "練馬・江古田", "品川", "目黒・白金・五反田", "下北沢", "自由が丘・二子玉川", "三軒茶屋・駒沢", "大井町・大森・蒲田", "大久保・高田馬場・早稲田", "池袋", "大塚・巣鴨・駒込", "板橋・赤羽", "吉祥寺・三鷹", "立川・八王子・青梅", "調布・府中・狛江", "町田・稲城・多摩", "小金井・国分寺・国立", "伊豆諸島・小笠原"]
-
+          @mess_city = @citys.select {|item| item.include?(@mess)}
 
 	          if @menus.include?(@mess)
 	          	#エリア選択
@@ -45,7 +46,7 @@ class WebhookController < ApplicationController
           }
           client.reply_message(event['replyToken'], message)
 	          else
-	          	if @areas.select {|item| item.include?(@mess)} >= 1
+	          	if @mess_area.size >= 1
 	          		#city選択
 	          		message = {
             type: 'text',
@@ -53,12 +54,13 @@ class WebhookController < ApplicationController
           }
           client.reply_message(event['replyToken'], message)
 	          	else
-		          	if @citys.select {|item| item.include?(@mess)}.size > 0
+		          	if @mess_city.size > 0
 		          		if @mess.include?("昼から")
 		          			#昼からコース提案
+		          			@city = @mess_city.first
 		          			message = {
             type: 'text',
-            text: "昼からのコースだよん"
+            text: "#{@city}の昼からのコースだよん"
           }
           client.reply_message(event['replyToken'], message)
 		          		else
