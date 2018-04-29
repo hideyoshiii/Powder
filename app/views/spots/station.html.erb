@@ -1,4 +1,10 @@
 <% @spots.each do |spot| %>
-	<%= spot.station %>→(<%= spot.city %>)
+	<% unless spot.station.blank? %>
+		<%= spot.station %>
+	<% end %>
+	→
+	<% unless spot.city.blank? %>
+		(<%= spot.city %>)
+	<% end %>
 	<br>
 <% end %>  

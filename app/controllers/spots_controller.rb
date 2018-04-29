@@ -2,7 +2,7 @@ class SpotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def station
-    @spots = Spot.group(:station).having('count(*) >= 2')
+    @spots = Spot.group(:station).having('count(*) >= 2').order(nil)
   end
 
   def result
