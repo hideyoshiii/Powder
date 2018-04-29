@@ -1196,6 +1196,14 @@ class WebhookController < ApplicationController
 
 							    message = {
 						            type: 'text',
+						            text: "#{@city}で#{@time}からダネ！今つくってるからちょっと待っててネ！"
+						          },
+						          {
+						            type: 'text',
+						            text: "できたヨ！このコースとかどう？"
+						          },
+						          {
+						            type: 'text',
 						            text: @url
 						          }
 						          
