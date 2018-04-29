@@ -1272,7 +1272,1376 @@ class WebhookController < ApplicationController
 		          				
 		          			else
 		          				#timezone選択ボタン
-		          				city = @mess_city.first
+		          				@city = @mess_city.first
+		          				if @city == "東京・丸の内・日本橋"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/tokyo00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "銀座・有楽町"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/ginza00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "六本木・麻布・赤坂"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/roppongi00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "赤坂・虎ノ門・永田町"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/akasaka00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "新橋・汐留・浜松町"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/shinbashi00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "神楽坂・飯田橋"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/kagurazaka00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "神田・秋葉原・御茶ノ水"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/kanda00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "新宿"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/shinnjuku00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "渋谷"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/shibuya00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "池袋"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/ikebukuro00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "お台場"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/odaiba00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "原宿・表参道・青山"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/harajuku00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "恵比寿・代官山・中目黒"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/ebisu00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "四ツ谷・信濃町・千駄ヶ谷"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/yotsuya00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "代々木・初台"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/yoyogi00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "上野"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/ueno00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "浅草・押上"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/asakusa00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "谷中・根津・千駄木"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/taninaka00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "人形町・門前仲町・葛西"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/ningyocho00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "千住・綾瀬・葛飾"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/senju00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "両国・錦糸町・小岩"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/ryogoku00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "中野・荻窪"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/nakano00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "練馬・江古田"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/nerima00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "品川"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/shinagawa00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "目黒・白金・五反田"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/meguro00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "下北沢"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/shimokitazawa00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "自由が丘・二子玉川"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/jiyugaoka00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "三軒茶屋・駒沢"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/sangenchaya00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "大井町・大森・蒲田"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/oicho00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "大久保・高田馬場・早稲田"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/okubo00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "大塚・巣鴨・駒込"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/otsuka00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "板橋・赤羽"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/itabashi00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "吉祥寺・三鷹"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/kichijoji00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "立川・八王子・青梅"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/tachikawa00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "調布・府中・狛江"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/chofu00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "町田・稲城・多摩"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/machida00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "小金井・国分寺・国立"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/koganei00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								if @city == "伊豆諸島・小笠原"
+			          				message = {
+							            type: 'text',
+							            text: "#{@city}ダネ！どの時間帯からデートするの？"
+							        },
+			          				{
+									  "type": "template",
+									  "altText": "時間帯を選択してください",
+									  "template": {
+									      "type": "buttons",
+									      "thumbnailImageUrl": "https://www.a-date.jp/assets/izushoto00.jpg",
+									      "imageAspectRatio": "rectangle",
+									      "imageSize": "cover",
+									      "imageBackgroundColor": "#FFFFFF",
+									      "title": @city,
+									      "text": "時間帯を選択してください",
+									      "defaultAction": {
+									          "type": "uri",
+									          "label": "View detail",
+									          "uri": "https://www.a-date.jp"
+									      },
+									      "actions": [
+									          {
+									            "type": "message",
+							                    "label": "昼から",
+							                    "text": "#{@city}、昼から"
+									          },
+									          {
+							                    "type": "message",
+							                    "label": "夜から",
+							                    "text": "#{@city}、夜から"
+							                  }
+									      ]
+									  }
+									}
+								end
+								client.reply_message(event['replyToken'], message)
 		          			end
 		          		end
 		          	else
