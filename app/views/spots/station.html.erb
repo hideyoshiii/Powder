@@ -6,5 +6,7 @@
 	<% unless spot.city.blank? %>
 		(<%= spot.city %>)
 	<% end %>
+	<% count = Spot.where(station: spot.station).count %>
+	<%= count %>
 	<br>
 <% end %>  
