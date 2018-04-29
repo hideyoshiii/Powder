@@ -120,7 +120,7 @@ class WebhookController < ApplicationController
 	          	if @mess_area.size >= 1
 	          		#city選択
 	          		@area = @mess_area.first
-	          		if @area == "都心エリア"
+	          		
 	          			message = {
 						  "type": "template",
 						  "altText": "都心エリアのcityを選んで下さい",
@@ -158,7 +158,7 @@ class WebhookController < ApplicationController
 						  }
 						}
 						client.reply_message(event['replyToken'], message)
-	          		end
+	          		
           			
 	          	else
 		          	if @mess_city.size >= 1
