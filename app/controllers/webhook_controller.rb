@@ -42,7 +42,7 @@ class WebhookController < ApplicationController
 			          }
 			          client.reply_message(event['replyToken'], lll)
 	          else
-	          	if @citys.where('name LIKE(?)', "%#{@kr}%")
+	          	if @citys.include?(@kr)
 	          		nnn = {
 			            type: 'text',
 			            text: "city正解"
