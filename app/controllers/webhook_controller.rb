@@ -42,9 +42,10 @@ class WebhookController < ApplicationController
 	          	message = {
             type: 'text',
             text: "エリアを選択してね"
+            client.reply_message(event['replyToken'], message)
           }
 	          else
-	          	if @areas.include?(@mess)
+	          	if @areas.select {|item| item.include?(@mess)}
 	          		#city選択
 	          		message = {
             type: 'text',
@@ -52,7 +53,7 @@ class WebhookController < ApplicationController
           }
           client.reply_message(event['replyToken'], message)
 	          	else
-		          	if @citys.include?(@mess)
+		          	if @citys.select {|item| item.include?(@mess)}.size > 0
 		          		if @mess.include?("昼から")
 		          			#昼からコース提案
 		          			message = {
