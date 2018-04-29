@@ -128,7 +128,31 @@ class WebhookController < ApplicationController
 						      "type": "carousel",
 						      "columns": [
 						      	@toshin.each.with_index(0) do |city, i|
-						      	  @city_n = city
+						      	  if i == @toshin.size - 1
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/#{@toshin_pic[i]}.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "#{city}",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "#{city}、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "#{city}、夜から"
+						                }
+						            ]
+						          }
+						         else
 						          {
 						            "thumbnailImageUrl": "https://www.a-date.jp/assets/#{@toshin_pic[i]}.jpg",
 						            "imageBackgroundColor": "#FFFFFF",
@@ -152,6 +176,7 @@ class WebhookController < ApplicationController
 						                }
 						            ]
 						          },
+						         end
 						        end
 						      ],
 						      "imageAspectRatio": "rectangle",
