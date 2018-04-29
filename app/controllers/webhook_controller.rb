@@ -1089,13 +1089,14 @@ class WebhookController < ApplicationController
 		          			#昼からコース提案
 		          			@city = @mess_city.first
 		          			@time = "昼"
-		          			
 		          			#@spotsを定義
 						    @spots = Spot.all
 						    #@latitudeがない物を排除
 						    @spots = @spots.where.not(latitude: nil)
+						    #カテゴリー類定義
 		          			@noons_not = ["カフェ","バー", "夜景"]
 		          			@nights_not = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+		          			#@distance定義
 		          			@distance = 0.5.to_f
 		          			#スポット１(ランチ)
 						    @spot1_city = @spots.where(city: @city)
@@ -1196,11 +1197,7 @@ class WebhookController < ApplicationController
 
 							    message = {
 						            type: 'text',
-						            text: "#{@city}で#{@time}からダネ！今つくってるからちょっと待っててネ！"
-						          },
-						          {
-						            type: 'text',
-						            text: "できたヨ！このコースとかどう？"
+						            text: "#{@city}で#{@time}からダネ！もうできちゃったヨ！このコースとかどうデスカ？"
 						          },
 						          {
 						            type: 'text',
@@ -1212,23 +1209,82 @@ class WebhookController < ApplicationController
 		          		else
 		          			if @mess.include?("夜から")
 		          				#夜からコース提案
-		          				@city = @mess_city.first
-		          				message = {
-            type: 'text',
-            text: "#{@city}の夜からのコースを作成中だよん"
-          }
-          client.reply_message(event['replyToken'], message)
+			          			@city = @mess_city.first
+			          			@time = "夜"
+			          			#@spotsを定義
+							    @spots = Spot.all
+							    #@latitudeがない物を排除
+							    @spots = @spots.where.not(latitude: nil)
+							    #カテゴリー類定義
+			          			@noons_not = ["カフェ","バー", "夜景"]
+			          			@nights_not = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+			          			#@distance定義
+			          			@distance = 0.5.to_f
+			          			#スポット１(ランチ)
+							    @spot1_city = @spots.where(city: @city)
+							    @spot1_category = @spot1_city.where("large like '%ディナー%'")
+							    @spot1 = @spot1_category.order("RANDOM()").first
+							    #スポット２
+							    unless @spot1.blank?
+								    @spot2_not = @spots.where.not(title: @spot1.title)
+								    @spot2_not_lunch = @spot2_not.where.not("large like '%ディナー%'")
+								    @spot2_timezone = @spot2_not_lunch.where("timezone like '%夜%'")
+								    @spot2_category = @spot2_timezone
+							      	@nights_not.each.with_index(1) do |night, i|
+							          @spot2_category = @spot2_category.where.not("large like '%#{night}%'")
+							      	end
+								    @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+								    until @spot2_distance.size >= 1 do
+								      @distance = @distance + 0.2.to_f
+								      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+								    end
+								    @spot2 = @spot2_distance.order("RANDOM()").first
+								end
+
+								#配列を作る
+							   @ss = []
+							   unless @spot1.blank?
+							     @ss.push(@spot1.id)
+							   end
+							   unless @spot2.blank?
+							     @ss.push(@spot2.id)
+							   end
+
+							    #ツイート用のURL作成
+							    @timezone = "noon"
+							    @url = "https://www.a-date.jp"
+							    @url = @url.to_s + '/plan?'
+							    @ss.each.with_index(1) do |s, i|
+							      @url = @url.to_s + "&ss%5B%5D=#{s}"
+							    end
+							    @url = @url.to_s + "&timezone=#{@timezone}"
+
+							    message = {
+						            type: 'text',
+						            text: "#{@city}で#{@time}からダネ！もうできちゃったヨ！このコースとかどうデスカ？"
+						          },
+						          {
+						            type: 'text',
+						            text: @url
+						          }
+
+						        client.reply_message(event['replyToken'], message)
+		          				
 		          			else
 		          				#timezone選択ボタン
-		          				message = {
-            type: 'text',
-            text: "timezoneボタンだよん"
-          }
-          client.reply_message(event['replyToken'], message)
+		          				city = @mess_city.first
 		          			end
 		          		end
 		          	else
 		          		#それ以外はオウム返し
+		          		message = {
+				            type: 'text',
+				            text: "ボクまだ頭悪いから難しいこと言われるとオウム返ししちゃうヨ！"
+				          },
+				          {
+				            type: 'text',
+            				text: event.message['text']
+				          }
 		          		client.reply_message(event['replyToken'], message)
 		          	end
 		         end
