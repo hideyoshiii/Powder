@@ -45,7 +45,7 @@ class WebhookController < ApplicationController
           }
           client.reply_message(event['replyToken'], message)
 	          else
-	          	if @areas.select {|item| item.include?(@mess)}
+	          	if @areas.select {|item| item.include?(@mess)} >= 1
 	          		#city選択
 	          		message = {
             type: 'text',
