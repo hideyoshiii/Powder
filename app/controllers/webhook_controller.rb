@@ -124,7 +124,7 @@ class WebhookController < ApplicationController
 						  "template": {
 						      "type": "carousel",
 						      "columns": [
-						          {
+						         {
 						            "thumbnailImageUrl": "https://www.a-date.jp/assets/tokyo00.jpg",
 						            "imageBackgroundColor": "#FFFFFF",
 						            "title": "東京・丸の内・日本橋",
@@ -169,6 +169,948 @@ class WebhookController < ApplicationController
 						                    "text": "銀座・有楽町、夜から"
 						                }
 						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/roppongi00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "六本木・麻布・赤坂",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "六本木・麻布・赤坂、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "六本木・麻布・赤坂、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/akasaka00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "赤坂・虎ノ門・永田町",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "赤坂・虎ノ門・永田町、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "赤坂・虎ノ門・永田町、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/shinbashi00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "新橋・汐留・浜松町",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "新橋・汐留・浜松町、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "新橋・汐留・浜松町、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/kagurazaka00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "神楽坂・飯田橋",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "神楽坂・飯田橋、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "神楽坂・飯田橋、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/kanda00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "神田・秋葉原・御茶ノ水",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "神田・秋葉原・御茶ノ水、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "神田・秋葉原・御茶ノ水、夜から"
+						                }
+						            ]
+						          }
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+	          		if @area == "都心エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "都心エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						         {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/tokyo00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "東京・丸の内・日本橋",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "東京・丸の内・日本橋、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "東京・丸の内・日本橋、夜から"
+						                }
+						            ]
+						          },
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+	          		if @area == "副都心エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "副都心エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						         {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/shinnjuku00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "新宿",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "新宿、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "新宿、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/shibuya00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "渋谷",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "渋谷、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "渋谷、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ikebukuro00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "池袋",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "池袋、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "池袋、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/odaiba00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "お台場",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "お台場、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "お台場、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/harajuku00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "原宿・表参道・青山",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "原宿・表参道・青山、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "原宿・表参道・青山、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ebisu00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "恵比寿・代官山・中目黒",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "恵比寿・代官山・中目黒、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "恵比寿・代官山・中目黒、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/yotsuya00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "四ツ谷・信濃町・千駄ヶ谷",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "四ツ谷・信濃町・千駄ヶ谷、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "四ツ谷・信濃町・千駄ヶ谷、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/yoyogi00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "代々木・初台",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "代々木・初台、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "代々木・初台、夜から"
+						                }
+						            ]
+						          }
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+	          		if @area == "区東エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "区東エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						         {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ueno00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "上野",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "上野、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "上野、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/asakusa00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "浅草・押上",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "浅草・押上、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "浅草・押上、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/taninaka00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "谷中・根津・千駄木",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "谷中・根津・千駄木、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "谷中・根津・千駄木、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ningyocho00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "人形町・門前仲町・葛西",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "人形町・門前仲町・葛西、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "人形町・門前仲町・葛西、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/senju00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "千住・綾瀬・葛飾",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "千住・綾瀬・葛飾、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "千住・綾瀬・葛飾、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ryogoku00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "両国・錦糸町・小岩",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "両国・錦糸町・小岩、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "両国・錦糸町・小岩、夜から"
+						                }
+						            ]
+						          }
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+	          		if @area == "区西エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "区西エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						         {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/tokyo00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "中野・荻窪",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "中野・荻窪、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "中野・荻窪、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/tokyo00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "練馬・江古田",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "練馬・江古田、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "練馬・江古田、夜から"
+						                }
+						            ]
+						          }
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+	          		if @area == "区南エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "区南エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						         {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/shinagawa00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "品川",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "品川、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "品川、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/meguro00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "目黒・白金・五反田",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "目黒・白金・五反田、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "目黒・白金・五反田、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/shimokitazawa00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "下北沢",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "下北沢、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "下北沢、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/jiyugaoka00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "自由が丘・二子玉川",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "自由が丘・二子玉川、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "自由が丘・二子玉川、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/sangenchaya00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "三軒茶屋・駒沢",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "三軒茶屋・駒沢、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "三軒茶屋・駒沢、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/oicho00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "大井町・大森・蒲田",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "大井町・大森・蒲田、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "大井町・大森・蒲田、夜から"
+						                }
+						            ]
+						          }
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+	          		if @area == "区北エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "区北エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						         {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/okubo00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "大久保・高田馬場・早稲田",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "大久保・高田馬場・早稲田、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "大久保・高田馬場・早稲田、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/otsuka00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "大塚・巣鴨・駒込",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "大塚・巣鴨・駒込、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "大塚・巣鴨・駒込、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/itabashi00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "板橋・赤羽",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "板橋・赤羽、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "板橋・赤羽、夜から"
+						                }
+						            ]
+						          }
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+	          		if @area == "市町村エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "市町村エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						         {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/kichijoji00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "吉祥寺・三鷹",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "吉祥寺・三鷹、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "吉祥寺・三鷹、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/tachikawa00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "立川・八王子・青梅",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "立川・八王子・青梅、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "立川・八王子・青梅、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/fuchu00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "調布・府中・狛江",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "調布・府中・狛江、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "調布・府中・狛江、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/machida00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "町田・稲城・多摩",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "町田・稲城・多摩、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "町田・稲城・多摩、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/koganei00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "小金井・国分寺・国立",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "小金井・国分寺・国立、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "小金井・国分寺・国立、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/izushoto00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "伊豆諸島・小笠原",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "昼から",
+						                    "text": "伊豆諸島・小笠原、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "夜から",
+						                    "text": "伊豆諸島・小笠原、夜から"
+						                }
+						            ]
 						          }
 						      ],
 						      "imageAspectRatio": "rectangle",
@@ -184,7 +1126,7 @@ class WebhookController < ApplicationController
 		          			@city = @mess_city.first
 		          			message = {
             type: 'text',
-            text: "#{@city}の昼からのコースだよん"
+            text: "#{@city}の昼からのコースを作成中だよん"
           }
           client.reply_message(event['replyToken'], message)
 		          		else
@@ -193,7 +1135,7 @@ class WebhookController < ApplicationController
 		          				@city = @mess_city.first
 		          				message = {
             type: 'text',
-            text: "#{@city}の夜からのコースだよん"
+            text: "#{@city}の夜からのコースを作成中だよん"
           }
           client.reply_message(event['replyToken'], message)
 		          			else
