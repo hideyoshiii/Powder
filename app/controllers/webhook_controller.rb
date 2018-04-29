@@ -2646,7 +2646,7 @@ class WebhookController < ApplicationController
 		          		end
 		          	else
 		          		docomo_client = Docomoru::Client.new(api_key: ENV["DOCOMO_API_KEY"])
-    					response = client.create_dialogue(event.message['text'])
+    					response = docomo_client.create_dialogue(event.message['text'])
 		          		#それ以外はオウム返し
 		          		message = {
 				            type: 'text',
