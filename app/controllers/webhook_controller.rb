@@ -1089,12 +1089,7 @@ class WebhookController < ApplicationController
 		          			#昼からコース提案
 		          			@city = @mess_city.first
 		          			@time = "昼"
-		          			#とりあえずメッセージ
-		          			before = {
-						            type: 'text',
-						            text: "#{@city}で#{@time}からダネ！今つくってるからちょっと待っててネ！"
-						          }
-          					client.reply_message(event['replyToken'], before)
+		          			
 		          			#@spotsを定義
 						    @spots = Spot.all
 						    #@latitudeがない物を排除
