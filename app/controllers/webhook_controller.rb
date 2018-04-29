@@ -116,11 +116,67 @@ class WebhookController < ApplicationController
 	          else
 	          	if @mess_area.size >= 1
 	          		#city選択
-	          		message = {
-            type: 'text',
-            text: "cityを選択してね"
-          }
-          client.reply_message(event['replyToken'], message)
+	          		@area = @mess_area.first
+	          		if @area == "都心エリア"
+	          			message = {
+						  "type": "template",
+						  "altText": "都心エリアのcityを選んで下さい",
+						  "template": {
+						      "type": "carousel",
+						      "columns": [
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ebisu00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "東京・丸の内・日本橋",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "東京・丸の内・日本橋、昼から",
+						                    "text": "東京・丸の内・日本橋、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "東京・丸の内・日本橋、夜から",
+						                    "text": "東京・丸の内・日本橋、夜から"
+						                }
+						            ]
+						          },
+						          {
+						            "thumbnailImageUrl": "https://www.a-date.jp/assets/ginza00.jpg",
+						            "imageBackgroundColor": "#FFFFFF",
+						            "title": "銀座・有楽町",
+						            "text": "時間帯を選択してください",
+						            "defaultAction": {
+						                "type": "uri",
+						                "label": "View detail",
+						                "uri": "https://www.a-date.jp"
+						            },
+						            "actions": [
+						                {
+						                    "type": "message",
+						                    "label": "銀座・有楽町、昼から",
+						                    "text": "銀座・有楽町、昼から"
+						                },
+						                {
+						                    "type": "message",
+						                    "label": "銀座・有楽町、夜から",
+						                    "text": "銀座・有楽町、夜から"
+						                }
+						            ]
+						          }
+						      ],
+						      "imageAspectRatio": "rectangle",
+						      "imageSize": "cover"
+						  }
+						}
+	          		end
+          			client.reply_message(event['replyToken'], message)
 	          	else
 		          	if @mess_city.size >= 1
 		          		if @mess.include?("昼から")
