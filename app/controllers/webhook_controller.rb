@@ -1201,12 +1201,9 @@ class WebhookController < ApplicationController
 
 							    message = {
 						            type: 'text',
-						            text: "このコースはどうデスカ？"
-						          },
-						          {
-						            type: 'text',
-						            text: "#{@url}"
+						            text: @url
 						          }
+						          
 		          			
           					client.reply_message(event['replyToken'], message)
 		          		else
