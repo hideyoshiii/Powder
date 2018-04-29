@@ -42,8 +42,8 @@ class WebhookController < ApplicationController
 	          	message = {
             type: 'text',
             text: "エリアを選択してね"
-            client.reply_message(event['replyToken'], message)
           }
+          client.reply_message(event['replyToken'], message)
 	          else
 	          	if @areas.select {|item| item.include?(@mess)}
 	          		#city選択
