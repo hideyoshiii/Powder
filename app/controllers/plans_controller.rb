@@ -447,7 +447,7 @@ def result
     #ツイート用のURL作成
     @timezone = params[:timezone]
     @url = root_url(only_path: false)
-    @url = @url.to_s + '/plan?'
+    @url = @url.to_s + 'plan?'
     params[:ss].each.with_index(1) do |s, i|
       @url = @url.to_s + "&ss%5B%5D=#{s}"
     end
@@ -544,7 +544,7 @@ def result
     #ツイート用のURL作成
     @timezone = params[:timezone]
     @url = root_url(only_path: false)
-    @url = @url.to_s + '/plan?'
+    @url = @url.to_s + 'plan?'
     params[:ss].each.with_index(1) do |s, i|
       @url = @url.to_s + "&ss%5B%5D=#{s}"
     end

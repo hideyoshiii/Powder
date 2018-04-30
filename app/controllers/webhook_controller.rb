@@ -59,7 +59,7 @@ class WebhookController < ApplicationController
 				      "type": "image_carousel",
 				      "columns": [
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/tokyo00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/toshin.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "都心エリア",
@@ -67,7 +67,7 @@ class WebhookController < ApplicationController
 				            }
 				          },
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/shinnjuku00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/fukutoshin.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "副都心エリア",
@@ -75,7 +75,7 @@ class WebhookController < ApplicationController
 				            }
 				          },
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/ueno00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/kuto.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "区東エリア",
@@ -83,7 +83,7 @@ class WebhookController < ApplicationController
 				            }
 				          },
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/nakano00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/kusei.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "区西エリア",
@@ -91,7 +91,7 @@ class WebhookController < ApplicationController
 				            }
 				          },
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/shinagawa00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/kunan.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "区南エリア",
@@ -99,7 +99,7 @@ class WebhookController < ApplicationController
 				            }
 				          },
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/okubo00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/kuhoku.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "区北エリア",
@@ -107,7 +107,7 @@ class WebhookController < ApplicationController
 				            }
 				          },
 				          {
-				            "imageUrl": "https://www.a-date.jp/assets/kichijoji00.jpg",
+				            "imageUrl": "https://www.a-date.jp/assets/shichoson.jpg",
 				            "action": {
 				              "type": "message",
 				              "label": "市町村エリア",
