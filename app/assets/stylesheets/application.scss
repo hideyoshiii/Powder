@@ -8433,6 +8433,24 @@ square_btnn{
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
 }
 
+//友達になるボタン
+.btn-sean{
+  color: #FFF;
+  border-radius: 25px;
+  display: inline-block;
+  font-size: 17px;
+  background: #00c300;
+  padding:8px 25px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14), 0 1px 7px 0 rgba(0,0,0,0.12), 0 3px 1px -1px rgba(0,0,0,0.2);
+  vertical-align: middle;
+}
+
+.btn-sean i {/*アイコン*/
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 25px;
+}
+
 
 
 //コースの編集box
@@ -9051,6 +9069,7 @@ square_btnn{
 	left: 50%;
 	transform: translate(-50%, -50%);
     z-index:99;
+    width:100%;
 
 }
 

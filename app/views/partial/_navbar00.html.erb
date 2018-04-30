@@ -63,14 +63,14 @@
   <% end %>
 
       <ul class="nav">  
-        <li>
-          <%= link_to plans_sean_path do %>
-            <%= image_tag "line.jpg", :class => "img-circle profile-4" %>&nbsp;<span style="font-size: 13px;">ショーンに聞く</span>
-          <% end %>
-        </li>   
-        <li>
-          &nbsp;
-        </li>
+        <div class="visible-xs bisible-sm">
+          <li style="padding-bottom:5px;">
+            <%= link_to plans_sean_path do %>
+              <%= image_tag "line.jpg", :class => "img-circle profile-4" %>&nbsp;<span style="font-size:13px;color:black;">ショーンに聞く</span>
+            <% end %>
+          </li>  
+        </div> 
+
         <% if (user_signed_in?) %>
           <% if current_user.authority == "manager" %>
             <li>
