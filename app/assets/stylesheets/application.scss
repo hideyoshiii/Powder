@@ -9560,6 +9560,50 @@ square_btnn{
 
 
 
+//ショーン横スクロール
+.horizontal_scroll_sean{
+    background: #F4F5F7;
+    width:100%;
+    height: auto;
+    overflow-y: hidden;
+    margin: 0px;
+    padding: 0px;
+}
+
+.scroll_lst_sean {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding:0;
+    margin:0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll_item_sean {
+    margin-right: 30px;
+    display: inline-block;
+    width: 230px;
+    background: #FAFAFA;
+    border-radius:10px;
+}
+
+.scroll_item_sean:first-child {
+    margin-left: 40px;
+}
+
+.scroll_item_inr_sean {
+    display: inline-block; /* インラインブロック化 */
+    vertical-align: top;   /* 上端を揃える */
+}
+
+.img-scroll_sean{
+	width:100%;
+	height:auto;
+	border-radius:5px;
+}
+
+
+
 
 
 
