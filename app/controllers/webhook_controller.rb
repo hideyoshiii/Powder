@@ -55,30 +55,20 @@ class WebhookController < ApplicationController
 		        },
 		        {
 				  "type": "imagemap",
-				  "baseUrl": "https://example.com/bot/images/rm001",
-				  "altText": "This is an imagemap",
+				  "baseUrl": "https://www.a-date.jp/assets/roppongi00.jpg",
+				  "altText": "エリアを選択してください",
 				  "baseSize": {
 				      "height": 1040,
 				      "width": 1040
 				  },
 				  "actions": [
 				      {
-				          "type": "uri",
-				          "linkUri": "https://example.com/",
-				          "area": {
-				              "x": 0,
-				              "y": 0,
-				              "width": 520,
-				              "height": 1040
-				          }
-				      },
-				      {
 				          "type": "message",
 				          "text": "Hello",
 				          "area": {
-				              "x": 520,
+				              "x": 0,
 				              "y": 0,
-				              "width": 520,
+				              "width": 1040,
 				              "height": 1040
 				          }
 				      }
@@ -2713,7 +2703,7 @@ class WebhookController < ApplicationController
 		          		#その他の時
 		          		message = {
 				            type: 'text',
-				            text: "ショーンはまだ勉強不足ですので会話ができません。¥n¥n「デートしたい」と言っていただくとコースを提案させていただきます。¥n¥n詳細な条件でコースがつくりたい場合はWebサイトへどうぞ。%0ahttps://www.a-date.jp"
+				            text: "ショーンはまだ勉強不足ですので会話ができません。\n\n「デートしたい」と言っていただくとコースを提案させていただきます。\n詳細な条件でコースがつくりたい場合はWebサイトへどうぞ。\nhttps://www.a-date.jp"
 				          }
 		          		client.reply_message(event['replyToken'], message)
 		          	end
