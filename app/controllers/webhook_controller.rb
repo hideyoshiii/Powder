@@ -58,18 +58,29 @@ class WebhookController < ApplicationController
 				  "baseUrl": "https://www.a-date.jp/assets/skin",
 				  "altText": "エリアを選択してください",
 				  "baseSize": {
-				      "height": 700,
-				      "width": 700
+				      "height": 1040,
+				      "width": 1040
 				  },
 				  "actions": [
+				  	  {
+				          "type": "uri",
+				          "label": "https://www.a-date.jp/assets/roppongi00.jpg",
+				          "linkUri": "https://www.a-date.jp/assets/roppongi00.jpg",
+				          "area": {
+				              "x": 0,
+				              "y": 0,
+				              "width": 0,
+				              "height": 1040
+				          }
+				      },
 				      {
 				          "type": "message",
 				          "text": "Hello",
 				          "area": {
-				              "x": 0,
+				              "x": 520,
 				              "y": 0,
-				              "width": 700,
-				              "height": 700
+				              "width": 520,
+				              "height": 1040
 				          }
 				      }
 				  ]
