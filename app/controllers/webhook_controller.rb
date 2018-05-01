@@ -62,14 +62,13 @@ class WebhookController < ApplicationController
 				      "width": 1040
 				  },
 				  "actions": [
-				  	  {
+				      {
 				          "type": "uri",
-				          "label": "https://www.a-date.jp/assets/roppongi00.jpg",
-				          "linkUri": "https://www.a-date.jp/assets/roppongi00.jpg",
+				          "linkUri": "https://example.com/",
 				          "area": {
 				              "x": 0,
 				              "y": 0,
-				              "width": 0,
+				              "width": 520,
 				              "height": 1040
 				          }
 				      },
