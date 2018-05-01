@@ -55,7 +55,7 @@ class WebhookController < ApplicationController
 		        },
 		        {
 				  "type": "imagemap",
-				  "baseUrl": "https://www.a-date.jp/assets/roppongi00/700",
+				  "baseUrl": "https://www.a-date.jp/assets/skin/700",
 				  "altText": "エリアを選択してください",
 				  "baseSize": {
 				      "height": 700,
