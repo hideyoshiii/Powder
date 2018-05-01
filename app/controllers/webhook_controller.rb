@@ -84,6 +84,38 @@ class WebhookController < ApplicationController
 				      }
 				  ]
 				},
+				{
+				  "type": "imagemap",
+				  "baseUrl": "https://www.a-date.jp/assets/skin",
+				  "altText": "エリアを選択してください",
+				  "baseSize": {
+				      "height": 1040,
+				      "width": 1040
+				  },
+				  "actions": [
+				      {
+				          "type": "uri",
+				          "linkUri": "https://example.com/",
+				          "area": {
+				              "x": 0,
+				              "y": 0,
+				              "width": 520,
+				              "height": 1040
+				          }
+				      },
+				      {  
+						   "type": "uri",
+						   "label": "https://example.com/",
+						   "linkUri": "https://example.com/",
+						   "area":{  
+						      "x": 0,
+						      "y": 0,
+						      "width": 520,
+						      "height": 1040
+						   }
+					}
+				  ]
+				},
 	          	{
 				  "type": "template",
 				  "altText": "エリアを選択してください",
