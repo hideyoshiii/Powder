@@ -2686,17 +2686,16 @@ class WebhookController < ApplicationController
 				          }
 		          		client.reply_message(event['replyToken'], message)
 		          	end
-		          	when Line::Bot::Event::MessageType::STICKER
-		          		#その他の時
-		          		message = {
-				            type: 'text',
-				            text: "ショーンはまだ勉強不足ですので会話ができません。\n\n「デートしたい」と言っていただくとコースを提案させていただきます。\n\n詳細な条件でコースがつくりたい場合はWebサイトへどうぞ。\nhttps://www.a-date.jp"
-				          }
-		          		client.reply_message(event['replyToken'], message)
 		         end
 	      	  end
 
-
+	      	when Line::Bot::Event::MessageType::Sticker
+	  		#その他の時
+	  		message = {
+	            type: 'text',
+	            text: "ショーンはまだ勉強不足ですので会話ができません。\n\n「デートしたい」と言っていただくとコースを提案させていただきます。\n\n詳細な条件でコースがつくりたい場合はWebサイトへどうぞ。\nhttps://www.a-date.jp"
+	          }
+	  		client.reply_message(event['replyToken'], message)
         end
       end
     }
