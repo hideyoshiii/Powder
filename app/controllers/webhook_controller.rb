@@ -53,71 +53,69 @@ class WebhookController < ApplicationController
 		            type: 'text',
 		            text: "デートコースね！任せて！まずはエリアを選んで！"
 		        },
-	          	{
-				  "type": "template",
+		        {
+				  "type": "imagemap",
+				  "baseUrl": "https://www.a-date.jp/assets/roppongi00.jpg",
 				  "altText": "エリアを選択してください",
-				  "template": {
-				      "type": "image_carousel",
-				      "columns": [
-				          {
-				            "imageUrl": "https://www.a-date.jp/assets/roppongi00.jpg",
-				            "action": {
-				              "type": "message",
-				              "label": "都心エリア",
-				              "text": "都心エリア"
-				            }
-				          },
-				          {
-				            "imageUrl": "https://www.a-date.jp/assets/odaiba00.jpg",
-				            "action": {
-				              "type": "message",
-				              "label": "副都心エリア",
-				              "text": "副都心エリア"
-				            }
-				          },
-				          {
-				            "imageUrl": "https://www.a-date.jp/assets/asakusa00.jpg",
-				            "action": {
-				              "type": "message",
-				              "label": "区東エリア",
-				              "text": "区東エリア"
-				            }
-				          },
-				          {
-				            "imageUrl": "https://www.a-date.jp/assets/nakano00.jpg",
-				            "action": {
-				              "type": "message",
-				              "label": "区西エリア",
-				              "text": "区西エリア"
-				            }
-				          },
-				          {
-				            "imageUrl": "https://www.a-date.jp/assets/jiyugaoka00.jpg",
-				            "action": {
-				              "type": "message",
-				              "label": "区南エリア",
-				              "text": "区南エリア"
-				            }
-				          },
-				          {
-				            "imageUrl": "https://www.a-date.jp/assets/otsuka00.jpg",
-				            "action": {
-				              "type": "message",
-				              "label": "区北エリア",
-				              "text": "区北エリア"
-				            }
-				          },
-				          {
-				            "imageUrl": "https://www.a-date.jp/assets/tachikawa00.jpg",
-				            "action": {
-				              "type": "message",
-				              "label": "市町村エリア",
-				              "text": "市町村エリア"
-				            }
+				  "baseSize": {
+				      "height": 1040,
+				      "width": 1040
+				  },
+				  "actions": [
+				      {
+				          "type": "uri",
+				          "linkUri": "https://example.com/",
+				          "area": {
+				              "x": 0,
+				              "y": 0,
+				              "width": 520,
+				              "height": 1040
 				          }
-				      ]
-				  }
+				      },
+				      {
+				          "type": "message",
+				          "text": "Hello",
+				          "area": {
+				              "x": 520,
+				              "y": 0,
+				              "width": 520,
+				              "height": 1040
+				          }
+				      }
+				  ]
+				},
+				{
+				  "type": "imagemap",
+				  "baseUrl": "https://www.a-date.jp/assets/roppongi00.jpg",
+				  "altText": "エリアを選択してください",
+				  "baseSize": {
+				      "height": 1040,
+				      "width": 1040
+				  },
+				  "actions": [
+				      {
+				          "type": "uri",
+				          "linkUri": "https://example.com/",
+				          "area": {
+				              "x": 0,
+				              "y": 0,
+				              "width": 520,
+				              "height": 1040
+				          }
+				      },
+				      {
+				          "type": "message",
+				          "text": "Hello",
+				          "area": {
+				              "x": 520,
+				              "y": 0,
+				              "width": 520,
+				              "height": 1040
+				          }
+				      }
+				  ]
 				}
+	          	
           		client.reply_message(event['replyToken'], message)
 	          else
 	          	if @mess_area.size >= 1
@@ -2679,12 +2677,10 @@ class WebhookController < ApplicationController
 		          			end
 		          		end
 		          	else
-		          		docomo_client = Docomoru::Client.new(api_key: ENV["DOCOMO_API_KEY"])
-    					response = docomo_client.create_dialogue(event.message['text'])
-		          		#それ以外はオウム返し
+		          		#その他の時
 		          		message = {
 				            type: 'text',
-				            text: response.body['utt']
+				            text: "ショーンはまだ勉強不足ですので会話ができません。%0a%0a「デートしたい」と言っていただくとコースを提案させていただきます。%0a%0a詳細な条件でコースがつくりたい場合はWebサイトへどうぞ。%0ahttps://www.a-date.jp"
 				          }
 		          		client.reply_message(event['replyToken'], message)
 		          	end
