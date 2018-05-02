@@ -2664,8 +2664,13 @@ class WebhookController < ApplicationController
 		          			#その他の時
 			          		message = {
 					            type: 'text',
-					            text: "了解しました。\nまたいつでもデートコースに困った時は気軽に頼ってくださいね！\n\n楽しいデートになることを祈ってます&#100090;"
+					            text: "了解しました。\nまたいつでもデートコースに困った時は気軽に頼ってくださいね！\n\n楽しいデートになることを祈ってます！"
 					          }
+					          ,{
+								  "type": "sticker",
+								  "packageId": "1",
+								  "stickerId": "14"
+								}
 			          		client.reply_message(event['replyToken'], message)
 		          		else
 			          		#その他の時
