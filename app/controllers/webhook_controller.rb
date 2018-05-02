@@ -2660,11 +2660,11 @@ class WebhookController < ApplicationController
 		          			end
 		          		end
 		          	else
-		          		if @mess == "もういい"
+		          		if @mess.include?("もういい")
 		          			#その他の時
 			          		message = {
 					            type: 'text',
-					            text: "了解しました。\nまたいつでもデートコースに困った時は気軽に頼ってくださいね！\n\n楽しいデートになることを祈ってます\uDBC0\uDC90"
+					            text: "了解しました。\nまたいつでもデートコースに困った時は気軽に頼ってくださいね！\n\n楽しいデートになることを祈ってます&#100090;"
 					          }
 			          		client.reply_message(event['replyToken'], message)
 		          		else
