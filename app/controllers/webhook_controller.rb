@@ -1213,7 +1213,27 @@ class WebhookController < ApplicationController
 						          {
 						            type: 'text',
 						            text: @url
-						          }
+						          },
+						          {
+									  "type": "template",
+									  "altText": "コースの再作成",
+									  "template": {
+									      "type": "confirm",
+									      "text": "コースを再作成しますか？",
+									      "actions": [
+									          {
+									            "type": "message",
+									            "label": "再作成する",
+									            "text": "#{@city}、昼から"
+									          },
+									          {
+									            "type": "message",
+									            "label": "もういい",
+									            "text": "もういい"
+									          }
+									      ]
+									  }
+									}
 						          
 		          			
           					client.reply_message(event['replyToken'], message)
@@ -1277,7 +1297,27 @@ class WebhookController < ApplicationController
 						          {
 						            type: 'text',
 						            text: @url
-						          }
+						          },
+						          {
+									  "type": "template",
+									  "altText": "コースの再作成",
+									  "template": {
+									      "type": "confirm",
+									      "text": "コースを再作成しますか？",
+									      "actions": [
+									          {
+									            "type": "message",
+									            "label": "再作成する",
+									            "text": "#{@city}、夜から"
+									          },
+									          {
+									            "type": "message",
+									            "label": "もういい",
+									            "text": "もういい"
+									          }
+									      ]
+									  }
+									}
 
 						        client.reply_message(event['replyToken'], message)
 		          				
@@ -2620,12 +2660,21 @@ class WebhookController < ApplicationController
 		          			end
 		          		end
 		          	else
-		          		#その他の時
-		          		message = {
-				            type: 'text',
-				            text: "ショーンはまだ勉強不足ですので会話ができません。\n\n「デートしたい」と言っていただくとコースを提案させていただきます。\n\n詳細な条件でコースがつくりたい場合はWebサイトへどうぞ。\nhttps://www.a-date.jp"
-				          }
-		          		client.reply_message(event['replyToken'], message)
+		          		if @mess == "もういい"
+		          			#その他の時
+			          		message = {
+					            type: 'text',
+					            text: "了解しました。\nまたいつでもデートコースに困った時は気軽に頼ってくださいね！\n\n楽しいデートになることを祈ってます\uDBC0\uDC90"
+					          }
+			          		client.reply_message(event['replyToken'], message)
+		          		else
+			          		#その他の時
+			          		message = {
+					            type: 'text',
+					            text: "ショーンはまだ勉強不足ですので会話ができません。\n\n「デートしたい」と言っていただくとコースを提案させていただきます。\n\n詳細な条件でコースがつくりたい場合はWebサイトへどうぞ。\nhttps://www.a-date.jp"
+					          }
+			          		client.reply_message(event['replyToken'], message)
+		          		end
 		          	end
 		         end
 	      	  end
