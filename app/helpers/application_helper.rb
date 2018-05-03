@@ -1,14 +1,12 @@
 module ApplicationHelper
 	def default_meta_tags
     {
-      site: 'A.Date',
       title: 'A.Date',
       reverse: true,
       charset: 'utf-8',
       description: '誰でもデートコースを10秒で',
       keywords: 'デート, 東京, 提案',
       canonical: 'https://www.a-date.jp',
-      separator: '|',
       icon: [
         { href: image_url('favicon.ico') },
         { href: image_url('apple-touch-icon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' }
