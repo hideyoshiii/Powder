@@ -11,7 +11,7 @@ module ApplicationHelper
       separator: '|',
       icon: [
         { href: image_url('favicon.ico') },
-        { href: image_url('apple-touch-icon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' },
+        { href: image_url('apple-touch-icon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' }
       ],
       og: {
         site_name: 'A.Date',
@@ -20,7 +20,7 @@ module ApplicationHelper
         type: 'website',
         url: 'https://www.a-date.jp',
         image: image_url('title.jpg'),
-        locale: 'ja_JP',
+        locale: 'ja_JP'
       },
       twitter: {
         card: 'summary_large_image',
@@ -28,8 +28,8 @@ module ApplicationHelper
         title: 'A.Date',
         description: '誰でもデートコースを10秒で',
         type: 'website',
-        url: 'https://www.a-date.jp'
-        image: image_url('title.jpg'),
+        url: 'https://www.a-date.jp',
+        image: image_url('title.jpg')
       }
     }
   end
