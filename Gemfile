@@ -55,6 +55,7 @@ gem 'dotenv-rails'
 gem "faraday"
 gem "faraday_middleware"
 gem 'docomoru'
+gem 'meta-tags'
 
 
 
