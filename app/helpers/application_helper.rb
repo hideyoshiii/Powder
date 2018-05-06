@@ -1,19 +1,21 @@
 module ApplicationHelper
 	def default_meta_tags
     {
-      title: 'A.Date',
+      site: 'A.Date(アデート)',
+      title: '誰でもデートコースを10秒で',
       reverse: true,
       charset: 'utf-8',
-      description: '誰でもデートコースを10秒で',
-      keywords: 'デート, 東京, 提案',
+      description: 'A.Date(アデート)はデートコースを10秒でつくれるサービスです。WebもしくはLINEで質問に答えていくだけでAIにデートコースを提案してもらうことができます。',
+      keywords: 'デートコース, 東京, 提案, 10秒',
       canonical: 'https://www.a-date.jp',
+      separator: '|',
       icon: [
         { href: image_url('favicon.ico') },
         { href: image_url('apple-touch-icon.png'), rel: 'apple-touch-icon', sizes: '180x180', type: 'image/png' }
       ],
       og: {
-        site_name: 'A.Date',
-        title: 'A.Date',
+        site_name: 'A.Date(アデート)',
+        title: 'A.Date(アデート)',
         description: '誰でもデートコースを10秒で',
         type: 'website',
         url: 'https://www.a-date.jp',
@@ -23,7 +25,7 @@ module ApplicationHelper
       twitter: {
         card: 'summary_large_image',
         site: '@adate_tw',
-        title: 'A.Date',
+        title: 'A.Date(アデート)',
         description: '誰でもデートコースを10秒で',
         type: 'website',
         url: 'https://www.a-date.jp',
