@@ -5867,6 +5867,7 @@ display: inline-block;
 
 .modal-content{
 	background-color:#F4F5F7;
+	border-radius:3px;
 }
 
 @media only screen and (min-width: 991px) {
@@ -8844,7 +8845,7 @@ square_btnn{
 
 .img_box_home h4 {
   position: absolute;
-  top: 79%;
+  top: 78%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
