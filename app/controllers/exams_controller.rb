@@ -159,7 +159,7 @@ def result
     @spot4_distance = @spot4_category.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
     until @spot4_distance.size >= 1 do
       @distance = @distance.to_f + 0.2.to_f
-      @spot4_distance = @spot4_price.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
+      @spot4_distance = @spot4_category.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
     end
     @spot4 = @spot4_distance.order("RANDOM()").first
     #スポット５
@@ -192,7 +192,7 @@ def result
     @spot1_distance = @spot1_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
       @distance = @distance.to_f + 0.2.to_f
-      @spot1_distance = @spot1_price.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+      @spot1_distance = @spot1_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
     #スポット３
@@ -219,7 +219,7 @@ def result
     @spot4_distance = @spot4_category.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
     until @spot4_distance.size >= 1 do
       @distance = @distance.to_f + 0.2.to_f
-      @spot4_distance = @spot4_price.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
+      @spot4_distance = @spot4_category.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
     end
     @spot4 = @spot4_distance.order("RANDOM()").first
     #スポット５
@@ -285,7 +285,7 @@ def result
     @spot1_distance = @spot1_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
       @distance = @distance.to_f + 0.2.to_f
-      @spot1_distance = @spot1_price.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+      @spot1_distance = @spot1_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
     #スポット５
@@ -318,7 +318,7 @@ def result
     @spot4_distance = @spot4_category.near([@spot5.latitude, @spot5.longitude], @distance, :units => :km, :order => false)
     until @spot4_distance.size >= 1 do
       @distance = @distance.to_f + 0.2.to_f
-      @spot4_distance = @spot4_price.near([@spot5.latitude, @spot5.longitude], @distance, :units => :km, :order => false)
+      @spot4_distance = @spot4_category.near([@spot5.latitude, @spot5.longitude], @distance, :units => :km, :order => false)
     end
     @spot4 = @spot4_distance.order("RANDOM()").first
     #スポット３
@@ -363,7 +363,7 @@ def result
     @spot1_distance = @spot1_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
       @distance = @distance.to_f + 0.2.to_f
-      @spot1_distance = @spot1_price.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+      @spot1_distance = @spot1_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
    end
