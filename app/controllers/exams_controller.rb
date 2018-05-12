@@ -6,7 +6,7 @@ def home
 	#@latitudeがない物を排除
     @spots = @spots.where.not(latitude: nil)
     #@スポットを10個に限定
-	@spots = @spots.where(prefecture: "東京").limit(10).order('id DESC')
+	@spots = @spots.where(prefecture: "東京").order("RANDOM()").page(params[:page]).per(10)
 
 	if params[:city].blank?  
       @city = "指定なし"
@@ -56,7 +56,7 @@ def result
    #夜のカテゴリー定義
    @nights = ["カフェ","バー", "夜景"]
    #timezomeを定義
-   params[:timezone] == "noon"
+   params[:timezone] = "noon"
    #基本スポットを定義
    unless params[:spot].blank?
    	@spot = Spot.find(params[:spot])
