@@ -1,7 +1,11 @@
 class ExamsController < ApplicationController
 
 def home
-	@spots = Spot.where(prefecture: "東京").limit(10).order('id DESC')
+	#@spotsを定義
+	@spots = Spot.all
+	#@latitudeがない物を排除
+    @spots = @spots.where.not(latitude: nil)
+	@spots = @spots.where(prefecture: "東京").limit(10).order('id DESC')
 end
 
 def spots
