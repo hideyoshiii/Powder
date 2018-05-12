@@ -16,9 +16,19 @@ def home
       @category = "指定なし"
     end
 
-    if params[:price].blank?  
-      @price = "指定なし"
+    #params[price_min]がない時のの定義
+    if params[:price_min].blank?
+      params[:price_min] = 0
     end
+    #params[price_max]がない時のの定義
+    if params[:price_max].blank?
+      params[:price_max] = 10000
+    end
+    #@price_minを定義
+    @price_min = params[:price_min].to_i
+    #@price_maxを定義
+    @price_max = params[:price_max].to_i
+
 end
 
 def spots
@@ -45,25 +55,40 @@ def spots
       end
     end
 
-    if params[:price].blank?  
-    	@price = "指定なし"
-    else
-      @price = params[:price]
-      unless params[:price] == "指定なし"
-      	@prices = @price.split("~")
-      	@price_max = @prices.first.to_i
-      	@price_min = @prices.second.to_i
-      	if @category == "朝食"
-      		@spots = @spots.where(price_lunch: @price_max..@price_min)
-      	end
-      	if @category == "ランチ"
-      		@spots = @spots.where(price_lunch: @price_max..@price_min)
-      	end
-      	if @category == "ディナー"
-      		@spots = @spots.where(price_dinner: @price_max..@price_min)
-      	end
-      end
+    #params[price_min]がない時のの定義
+    if params[:price_min].blank?
+      params[:price_min] = 0
     end
+    #params[price_max]がない時のの定義
+    if params[:price_max].blank?
+      params[:price_max] = 10000
+    end
+    #@price_minを定義
+    @price_min = params[:price_min].to_i
+    #@price_maxを定義
+    @price_max = params[:price_max].to_i
+    #料金で絞る
+    if @category == "朝食"
+    	if @price_max == 10000
+    		@spots = @spots.where(price_lunch: @price_min..50000)
+    	else
+  			@spots = @spots.where(price_lunch: @price_min..@price_max)
+  		end
+  	end
+  	if @category == "ランチ"
+  		if @price_max == 10000
+  			@spots = @spots.where(price_lunch: @price_min..50000)
+    	else
+  			@spots = @spots.where(price_lunch: @price_min..@price_max)
+  		end
+  	end
+  	if @category == "ディナー"
+  		if @price_max == 10000
+  			@spots = @spots.where(price_dinner: @price_min..50000)
+    	else
+  			@spots = @spots.where(price_dinner: @price_min..@price_max)
+  		end
+  	end
 
     @spots = @spots.order("RANDOM()").page(params[:page]).per(30)
 end

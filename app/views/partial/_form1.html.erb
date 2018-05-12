@@ -15,91 +15,69 @@
 
 
 <div class="form-group">
-	<p class="pull-left"><span style="font-size:8px;"><i class="fas fa-yen"></i></span>&nbsp;料金<span style="font-size:6px;">&nbsp;&nbsp;※朝食,ランチ,ディナーのみ絞り込めます</span></p></p>
-	<div class="select-box01">
-		<select class="city" id="price" name="price" disabled required="required">
+	<div style="height:15px;"></div>
+	<p style="text-align:left;"><span style="font-size:8px;"><i class="fas fa-yen"></i></span>&nbsp;料金<span style="font-size:6px;">&nbsp;&nbsp;※朝食,ランチ,ディナーのみ絞り込めます</span></p>
 
-		  <% if @price.blank? %>
-		  	<option value="指定なし" selected="selected">指定なし</option>
-		  <% else %>
-		  	<% if @category == "朝食" || @category == "ランチ" || @category == "ディナー" %>
-		  		<% if @price == "指定なし" %>
-		  			<option value="<%= @price %>" selected="selected"><%= @price %></option>
-		  		<% else %>
-		  			<option value="<%= @price %>" selected="selected"><%= @price %>円</option>
-		  		<% end %>
-		  	<% else %>
-		  		<option value="指定なし" selected="selected">指定なし</option>
-		  	<% end %>
-		  <% end %>
+	<div style="margin-top:-10px;"></div>
 
-		  <option value="指定なし" data-val="朝食">指定なし</option>
-		  <option value="0~1000" data-val="朝食">~1000円</option>
-		  <option value="1001~2000" data-val="朝食">1001~2000円</option>
-		  <option value="2001~50000" data-val="朝食">2001円~</option>
-
-		  <option value="指定なし" data-val="ランチ">指定なし</option>
-		  <option value="0~1000" data-val="ランチ">~1000円</option>
-		  <option value="1001~2000" data-val="ランチ">1001~2000円</option>
-		  <option value="2001~50000" data-val="ランチ">2001円~</option>
-
-		  <option value="指定なし" data-val="ディナー">指定なし</option>
-		  <option value="0~4000" data-val="ディナー">~4000円</option>
-		  <option value="4001~6000" data-val="ディナー">4001~6000円</option>
-		  <option value="6001~8000" data-val="ディナー">6001~8000円</option>
-		  <option value="8001~50000" data-val="ディナー">8001円~</option>
-
-		  <option value="指定なし" data-val="カフェ">指定なし</option>
-		  <option value="指定なし" data-val="アニマルカフェ">指定なし</option>
-		  <option value="指定なし" data-val="バー">指定なし</option>
-		  <option value="指定なし" data-val="映画">指定なし</option>
-		  <option value="指定なし" data-val="ショップ・雑貨屋">指定なし</option>
-		  <option value="指定なし" data-val="スポーツ">指定なし</option>
-		  <option value="指定なし" data-val="プラネタリウム">指定なし</option>
-		  <option value="指定なし" data-val="動物園">指定なし</option>
-		  <option value="指定なし" data-val="水族館">指定なし</option>
-		  <option value="指定なし" data-val="美術館">指定なし</option>
-		  <option value="指定なし" data-val="遊園地">指定なし</option>
-		  <option value="指定なし" data-val="カラオケ">指定なし</option>
-		  <option value="指定なし" data-val="ボーリング">指定なし</option>
-		  <option value="指定なし" data-val="ダーツ">指定なし</option>
-		  <option value="指定なし" data-val="食べ歩き">指定なし</option>
-		  <option value="指定なし" data-val="公園">指定なし</option>
-		  <option value="指定なし" data-val="スパ・温泉">指定なし</option>
-		  <option value="指定なし" data-val="ゲームセンター">指定なし</option>
-		  <option value="指定なし" data-val="お寺・神社">指定なし</option>
-		  <option value="指定なし" data-val="インターネットカフェ">指定なし</option>
-		  <option value="指定なし" data-val="コンセプトカフェ・バー">指定なし</option>
-		  <option value="指定なし" data-val="体験">指定なし</option>
-		  <option value="指定なし" data-val="ストリート">指定なし</option>
-		  <option value="指定なし" data-val="複合施設">指定なし</option>
-		  <option value="指定なし" data-val="その他">指定なし</option>
-		  
-		  
-		</select>
-  	</div>
+	  <div style="width:100%;margin:0 auto;">
+	    <span class="pull-left">
+	      <span id="value-lower"></span>円
+	    </span>
+	    <span class="pull-right">
+	      <span id="value-upper"></span><span class="kmTxt">円</span>
+	    </span>
+	  </div>
+	  <div style="height:40px;"></div>
+	  <div style="width:90%;margin:0 auto;">  
+	    <div id="slider"></div>
+	  </div>
+	  <%= hidden_field_tag :price_min , params[:price_min].to_i, :class =>"min" %>
+	  <%= hidden_field_tag :price_max , params[:price_max].to_i, :class =>"max" %>
+    
 </div>
 
-<script type="text/javascript">
-	var $city = $('.city');
-var original = $city.html();
-
-$('.prefecture').change(function() {
-
-  var val1 = $(this).val();
-
-  $city.html(original).find('option').each(function() {
-    var val2 = $(this).data('val');
-    if (val1 != val2) {
-      $(this).not(':first-child').remove();
-    }
-  });
-
-  if ($(this).val() == "") {
-    $city.attr('disabled', 'disabled');
-  } else {
-    $city.removeAttr('disabled');
+<script>
+$("#slider").noUiSlider({
+  start: [<%= params[:price_min].to_i %>, <%= params[:price_max].to_i %>],
+  step: 500,
+  connect: true,
+  format: wNumb({
+    decimals: 0
+  }),
+  range: {
+    'min': 0,
+    'max': 10000
   }
-
 });
+
+$('#slider').Link('lower').to($('#value-lower'), 'html');
+$('#slider').Link('upper').to($('#value-upper'), 'html');
+
+var upperNum0 = $("#value-upper").text();
+	$(function(){
+    if (upperNum0 == '10000'){
+        $("#value-upper").text('上限なし');
+        $(".kmTxt").hide();
+    } else {
+    
+        $(".kmTxt").show();
+    }
+    });
+
+$("#slider").on('slide', function(event, values) {
+	var upperNum = $("#value-upper").text();
+	$(function(){
+    if (upperNum === '10000'){
+        $("#value-upper").text('上限なし');
+        $(".kmTxt").hide();
+    } else {
+    
+        $(".kmTxt").show();
+    }
+    });
+
+    $("input.min").val(values[0]);
+    $("input.max").val(values[1]);
+  });
 </script>
