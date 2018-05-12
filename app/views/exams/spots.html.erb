@@ -8,7 +8,11 @@
 	    &nbsp;<%= @city %>
 	    &nbsp;/&nbsp;<%= @category %>
 	    <% if @category == "朝食" || @category == "ランチ" || @category == "ディナー" %>
-	    &nbsp;/&nbsp;<%= @price %>円
+		    <% if @price_max == 10000 %>
+		    	&nbsp;/&nbsp;<%= @price_min %>円~
+		    <% else %>
+		    	&nbsp;/&nbsp;<%= @price_min %>~<%= @price_max %>円
+		    <% end %>
 	    <% end %>
 	  </div>
 	  <div class="course-bar-box">   
