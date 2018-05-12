@@ -61,7 +61,7 @@
               <% end %>  
             </p>
           </div>
-          <div class="panel-body" style="padding-bottom:20px;">
+          <div class="panel-body" style="padding-bottom:17px;">
             <%# タイトル %>
             <div class="title-one"><%= spot.title %></div>
             <%# 都道府県、エリア %>
@@ -135,12 +135,14 @@
           </div>  
         </div>
         <div class="btn-modal">
-        	<%= form_tag(seeks_distance_path, method: :get) do %>
+        	<%= form_tag(exams_result_path, method: :get) do %>
         	<%= hidden_field_tag :spot, spot.id %>
 				<div class="btn-modal-next">
-					<div>
-						<i class="fas fa-map-pin"></i>&nbsp;このスポットからコースをつくる
-					</div>
+					<%= button_tag :type => "submit", :class =>"button-half" do %>
+						<div>
+							<i class="fas fa-map-pin"></i>&nbsp;このスポットからコースをつくる
+						</div>
+					<% end %>
 				</div>
 			<% end %>
 			<a href="" data-toggle="modal" data-dismiss="modal">

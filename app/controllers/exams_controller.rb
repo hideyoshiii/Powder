@@ -5,6 +5,27 @@ def home
 end
 
 def spots
+	@spots = Spot.all
+
+	if params[:city].blank?  
+      @city = "指定なし"
+    else
+	  @city = params[:city]
+      unless params[:city] == "指定なし"
+        @spots = @spots.where(city: @city)
+      end
+    end
+
+    if params[:category].blank?  
+    	@category = "指定なし"
+    else
+      @category = params[:category]
+      unless params[:category] == "指定なし"
+        @spots = @spots.where("large like '%#{@category}%'")
+      end
+    end
+
+    @spots = @spots.order("RANDOM()").page(params[:page]).per(30)
 end
 
 def result   
