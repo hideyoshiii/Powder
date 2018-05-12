@@ -61,7 +61,15 @@
 		  <% if @price.blank? %>
 		  	<option value="指定なし" selected="selected">指定なし</option>
 		  <% else %>
-		  	<option value="<%= @price %>" selected="selected"><%= @price %>円</option>
+		  	<% if @category == "朝食" || @category == "ランチ" || @category == "ディナー" %>
+		  		<% if @price == "指定なし" %>
+		  			<option value="<%= @price %>" selected="selected"><%= @price %></option>
+		  		<% else %>
+		  			<option value="<%= @price %>" selected="selected"><%= @price %>円</option>
+		  		<% end %>
+		  	<% else %>
+		  		<option value="指定なし" selected="selected">指定なし</option>
+		  	<% end %>
 		  <% end %>
 
 		  <option value="指定なし" data-val="朝食">指定なし</option>
