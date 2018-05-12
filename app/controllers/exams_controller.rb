@@ -42,6 +42,8 @@ def result
    @noons = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #夜のカテゴリー定義
    @nights = ["カフェ","バー", "夜景"]
+   #timezomeを定義
+   params[:timezone] == "noon"
    #基本スポットを定義
    unless params[:spot].blank?
    	@spot = Spot.find(params[:spot])
@@ -358,37 +360,7 @@ def result
     @spot_first = Spot.find(@ss_first)
     @spot_last = Spot.find(@ss_last)
 
-    @total_min = 0
-    @total_max = 0
-
-    @ss.each.with_index(1) do |s, i|
-      spot = Spot.find(s)
-      if spot.price_lunch.blank? || spot.price_lunch == 0
-        if spot.price_dinner.blank? || spot.price_lunch == 0
-          @price_1 = 0
-          @price_2 = 0
-        else
-          @price_1 = spot.price_dinner
-          @price_2 = spot.price_dinner
-        end
-      else
-        if spot.price_dinner.blank? || spot.price_lunch == 0
-          @price_1 = spot.price_lunch
-          @price_2 = spot.price_lunch
-        else
-          @price_1 = spot.price_lunch
-          @price_2 = spot.price_dinner
-        end
-      end
-      unless @price_1.blank?
-        unless  @price_2.blank?
-          @total_min = @total_min + @price_1
-          @total_max = @total_max + @price_2
-        end
-      end
-    end
-
-    #料金２
+    #料金
     @tatal = 0
     if params[:timezone] == "noon"
       @ss.each.with_index(1) do |s, i|
@@ -420,7 +392,6 @@ def result
       	@total = @total.to_i + @price.to_i
       end
     end
-
 
     if params[:timezone] == "noon"
       @timezone_ja = "昼"

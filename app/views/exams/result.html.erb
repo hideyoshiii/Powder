@@ -21,7 +21,7 @@
         <h4 style="margin-bottom:0px;">コースが作成されました</h4>   
         <p style="font-size:12px;color:black;margin:0px;padding:0px 0px 5px;">コースが気に入らない場合は再作成または条件変更ができます。</p> 
         <div style="font-size:12px;color:black;">
-          <i class="fas fa-map-marker-alt"></i>&nbsp;<%= params[:city] %>付近
+          <i class="fas fa-map-marker-alt"></i>&nbsp;<%= @spot_first.city %>付近
         </div>
         <div style="font-size:12px;color:black;">
           <% if params[:timezone] == "noon" %>
