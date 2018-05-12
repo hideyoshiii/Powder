@@ -15,6 +15,10 @@ def home
     if params[:category].blank?  
       @category = "指定なし"
     end
+
+    if params[:price].blank?  
+      @price = "指定なし"
+    end
 end
 
 def spots
@@ -38,6 +42,26 @@ def spots
       @category = params[:category]
       unless params[:category] == "指定なし"
         @spots = @spots.where("large like '%#{@category}%'")
+      end
+    end
+
+    if params[:price].blank?  
+    	@price = "指定なし"
+    else
+      @price = params[:price]
+      unless params[:price] == "指定なし"
+      	@prices = @price.split("~")
+      	@price_max = @prices.first.to_i
+      	@price_min = @prices.second.to_i
+      	if @category == "朝食"
+      		@spots = @spots.where(price_lunch: @price_max..@price_min)
+      	end
+      	if @category == "ランチ"
+      		@spots = @spots.where(price_lunch: @price_max..@price_min)
+      	end
+      	if @category == "ディナー"
+      		@spots = @spots.where(price_dinner: @price_max..@price_min)
+      	end
       end
     end
 

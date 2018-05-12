@@ -1,0 +1,136 @@
+<div class="form-group">
+    <p class="pull-left"><span style="font-size:8px;"><i class="fas fa-map-marker-alt"></i></span>&nbsp;エリア</p>
+    <div class="select-box01">
+      <%= select_tag :city, options_for_select([["指定なし", "指定なし"],["恵比寿・代官山・中目黒","恵比寿・代官山・中目黒"],["渋谷","渋谷"],["原宿・表参道・青山","原宿・表参道・青山"],["新宿","新宿"],["東京・丸の内・日本橋","東京・丸の内・日本橋"],["六本木・麻布・赤坂","六本木・麻布・赤坂"],["銀座・有楽町","銀座・有楽町"],["品川","品川"],["お台場","お台場"],["池袋","池袋"],["新橋・汐留・浜松町","新橋・汐留・浜松町"],["上野","上野"],["浅草・押上","浅草・押上"],["目黒・白金・五反田","目黒・白金・五反田"],["吉祥寺・三鷹","吉祥寺・三鷹"],["神楽坂・飯田橋","神楽坂・飯田橋"],["下北沢","下北沢"],["谷中・根津・千駄木","谷中・根津・千駄木"],["神田・秋葉原・御茶ノ水","神田・秋葉原・御茶ノ水"],["赤坂・虎ノ門・永田町","赤坂・虎ノ門・永田町"],["四ツ谷・信濃町・千駄ヶ谷","四ツ谷・信濃町・千駄ヶ谷"],["自由が丘・二子玉川","自由が丘・二子玉川"],["中野・荻窪","中野・荻窪"],["人形町・門前仲町・葛西","人形町・門前仲町・葛西"],["立川・八王子・青梅","立川・八王子・青梅"],["大井町・大森・蒲田","大井町・大森・蒲田"],["三軒茶屋・駒沢","三軒茶屋・駒沢"],["大塚・巣鴨・駒込","大塚・巣鴨・駒込"],["調布・府中・狛江","調布・府中・狛江"],["町田・稲城・多摩","町田・稲城・多摩"],["千住・綾瀬・葛飾","千住・綾瀬・葛飾"],["練馬・江古田","練馬・江古田"],["大久保・高田馬場・早稲田","大久保・高田馬場・早稲田"],["代々木・初台","代々木・初台"],["板橋・赤羽","板橋・赤羽"],["両国・錦糸町・小岩","両国・錦糸町・小岩"],["小金井・国分寺・国立","小金井・国分寺・国立"],["伊豆諸島・小笠原","伊豆諸島・小笠原"]], @city) %>
+    </div>
+</div>
+
+
+<div class="form-group">
+<p class="pull-left"><span style="font-size:8px;"><i class="fas fa-tag"></i></span>&nbsp;カテゴリー</p>
+	<div class="select-box01">
+		<select class="prefecture"  id="category" name="category" required="required">
+
+		  <% if @category.blank? %>
+		  	<option value="" selected="selected">指定なし</option>
+		  <% else %>
+		  	<option value="<%= @category %>" selected="selected"><%= @category %></option>
+		  <% end %>
+
+		  <option value="指定なし">指定なし</option>
+		  <option value="朝食">朝食</option>
+		  <option value="ランチ">ランチ</option>
+		  <option value="ディナー">ディナー</option>
+		  <option value="カフェ">カフェ</option>
+		  <option value="アニマルカフェ">アニマルカフェ</option>
+		  <option value="バー">バー</option>
+		  <option value="映画">映画</option>
+		  <option value="ショップ・雑貨屋">ショップ・雑貨屋</option>
+		  <option value="スポーツ">スポーツ</option>
+		  <option value="夜景">夜景</option>
+		  <option value="プラネタリウム">プラネタリウム</option>
+		  <option value="動物園">動物園</option>
+		  <option value="水族館">水族館</option>
+		  <option value="美術館">美術館</option>
+		  <option value="遊園地">遊園地</option>
+		  <option value="カラオケ">カラオケ</option>
+		  <option value="ボーリング">ボーリング</option>
+		  <option value="ダーツ">ダーツ</option>
+		  <option value="食べ歩き">食べ歩き</option>
+		  <option value="公園">公園</option>
+		  <option value="スパ・温泉">スパ・温泉</option>
+		  <option value="ゲームセンター">ゲームセンター</option>
+		  <option value="お寺・神社">お寺・神社</option>
+		  <option value="劇場">劇場</option>
+		  <option value="インターネットカフェ">インターネットカフェ</option>
+		  <option value="コンセプトカフェ・バー">コンセプトカフェ・バー</option>
+		  <option value="体験">体験</option>
+		  <option value="ストリート">ストリート</option>
+		  <option value="複合施設">複合施設</option>
+		  <option value="その他">その他</option>
+		</select>
+	</div>
+</div>
+
+
+<div class="form-group">
+	<p class="pull-left"><span style="font-size:8px;"><i class="fas fa-yen"></i></span>&nbsp;料金<span style="font-size:6px;">&nbsp;&nbsp;※朝食,ランチ,ディナーのみ絞り込めます</span></p></p>
+	<div class="select-box01">
+		<select class="city" id="price" name="price" disabled required="required">
+
+		  <% if @price.blank? %>
+		  	<option value="指定なし" selected="selected">指定なし</option>
+		  <% else %>
+		  	<option value="<%= @price %>" selected="selected"><%= @price %>円</option>
+		  <% end %>
+
+		  <option value="指定なし" data-val="朝食">指定なし</option>
+		  <option value="0~1000" data-val="朝食">~1000円</option>
+		  <option value="1001~2000" data-val="朝食">1001~2000円</option>
+		  <option value="2001~50000" data-val="朝食">2001円~</option>
+
+		  <option value="指定なし" data-val="ランチ">指定なし</option>
+		  <option value="0~1000" data-val="ランチ">~1000円</option>
+		  <option value="1001~2000" data-val="ランチ">1001~2000円</option>
+		  <option value="2001~50000" data-val="ランチ">2001円~</option>
+
+		  <option value="指定なし" data-val="ディナー">指定なし</option>
+		  <option value="0~4000" data-val="ディナー">~4000円</option>
+		  <option value="4001~6000" data-val="ディナー">4001~6000円</option>
+		  <option value="6001~8000" data-val="ディナー">6001~8000円</option>
+		  <option value="8001~50000" data-val="ディナー">8001円~</option>
+
+		  <option value="指定なし" data-val="カフェ">指定なし</option>
+		  <option value="指定なし" data-val="アニマルカフェ">指定なし</option>
+		  <option value="指定なし" data-val="バー">指定なし</option>
+		  <option value="指定なし" data-val="映画">指定なし</option>
+		  <option value="指定なし" data-val="ショップ・雑貨屋">指定なし</option>
+		  <option value="指定なし" data-val="スポーツ">指定なし</option>
+		  <option value="指定なし" data-val="プラネタリウム">指定なし</option>
+		  <option value="指定なし" data-val="動物園">指定なし</option>
+		  <option value="指定なし" data-val="水族館">指定なし</option>
+		  <option value="指定なし" data-val="美術館">指定なし</option>
+		  <option value="指定なし" data-val="遊園地">指定なし</option>
+		  <option value="指定なし" data-val="カラオケ">指定なし</option>
+		  <option value="指定なし" data-val="ボーリング">指定なし</option>
+		  <option value="指定なし" data-val="ダーツ">指定なし</option>
+		  <option value="指定なし" data-val="食べ歩き">指定なし</option>
+		  <option value="指定なし" data-val="公園">指定なし</option>
+		  <option value="指定なし" data-val="スパ・温泉">指定なし</option>
+		  <option value="指定なし" data-val="ゲームセンター">指定なし</option>
+		  <option value="指定なし" data-val="お寺・神社">指定なし</option>
+		  <option value="指定なし" data-val="インターネットカフェ">指定なし</option>
+		  <option value="指定なし" data-val="コンセプトカフェ・バー">指定なし</option>
+		  <option value="指定なし" data-val="体験">指定なし</option>
+		  <option value="指定なし" data-val="ストリート">指定なし</option>
+		  <option value="指定なし" data-val="複合施設">指定なし</option>
+		  <option value="指定なし" data-val="その他">指定なし</option>
+		  
+		  
+		</select>
+  	</div>
+</div>
+
+<script type="text/javascript">
+	var $city = $('.city');
+var original = $city.html();
+
+$('.prefecture').change(function() {
+
+  var val1 = $(this).val();
+
+  $city.html(original).find('option').each(function() {
+    var val2 = $(this).data('val');
+    if (val1 != val2) {
+      $(this).not(':first-child').remove();
+    }
+  });
+
+  if ($(this).val() == "") {
+    $city.attr('disabled', 'disabled');
+  } else {
+    $city.removeAttr('disabled');
+  }
+
+});
+</script>
