@@ -7,49 +7,10 @@
 
 
 <div class="form-group">
-<p class="pull-left"><span style="font-size:8px;"><i class="fas fa-tag"></i></span>&nbsp;カテゴリー</p>
-	<div class="select-box01">
-		<select class="prefecture"  id="category" name="category" required="required">
-
-		  <% if @category.blank? %>
-		  	<option value="" selected="selected">指定なし</option>
-		  <% else %>
-		  	<option value="<%= @category %>" selected="selected"><%= @category %></option>
-		  <% end %>
-
-		  <option value="指定なし">指定なし</option>
-		  <option value="朝食">朝食</option>
-		  <option value="ランチ">ランチ</option>
-		  <option value="ディナー">ディナー</option>
-		  <option value="カフェ">カフェ</option>
-		  <option value="アニマルカフェ">アニマルカフェ</option>
-		  <option value="バー">バー</option>
-		  <option value="映画">映画</option>
-		  <option value="ショップ・雑貨屋">ショップ・雑貨屋</option>
-		  <option value="スポーツ">スポーツ</option>
-		  <option value="夜景">夜景</option>
-		  <option value="プラネタリウム">プラネタリウム</option>
-		  <option value="動物園">動物園</option>
-		  <option value="水族館">水族館</option>
-		  <option value="美術館">美術館</option>
-		  <option value="遊園地">遊園地</option>
-		  <option value="カラオケ">カラオケ</option>
-		  <option value="ボーリング">ボーリング</option>
-		  <option value="ダーツ">ダーツ</option>
-		  <option value="食べ歩き">食べ歩き</option>
-		  <option value="公園">公園</option>
-		  <option value="スパ・温泉">スパ・温泉</option>
-		  <option value="ゲームセンター">ゲームセンター</option>
-		  <option value="お寺・神社">お寺・神社</option>
-		  <option value="劇場">劇場</option>
-		  <option value="インターネットカフェ">インターネットカフェ</option>
-		  <option value="コンセプトカフェ・バー">コンセプトカフェ・バー</option>
-		  <option value="体験">体験</option>
-		  <option value="ストリート">ストリート</option>
-		  <option value="複合施設">複合施設</option>
-		  <option value="その他">その他</option>
-		</select>
-	</div>
+    <p class="pull-left"><span style="font-size:8px;"><i class="fas fa-tag"></i></span>&nbsp;カテゴリー</p>
+    <div class="select-box01">
+      <%= select_tag(:category, options_for_select([["指定なし", "指定なし"], ["朝食", "朝食"], ["ランチ", "ランチ"], ["ディナー", "ディナー"], ["カフェ", "カフェ"], ["アニマルカフェ", "アニマルカフェ"], ["バー", "バー"], ["映画", "映画"], ["ショップ・雑貨屋", "ショップ・雑貨屋"], ["スポーツ", "スポーツ"], ["夜景", "夜景"], ["プラネタリウム", "プラネタリウム"], ["動物園", "動物園"], ["水族館", "水族館"], ["美術館", "美術館"], ["遊園地", "遊園地"], ["カラオケ", "カラオケ"], ["ボーリング", "ボーリング"], ["ダーツ", "ダーツ"], ["食べ歩き", "食べ歩き"], ["公園", "公園"], ["スパ・温泉", "スパ・温泉"], ["ゲームセンター", "ゲームセンター"], ["お寺・神社", "お寺・神社"], ["劇場", "劇場"], ["インターネットカフェ", "インターネットカフェ"], ["コンセプトカフェ・バー", "コンセプトカフェ・バー"], ["体験", "体験"], ["ストリート", "ストリート"], ["複合施設", "複合施設"], ["その他", "その他"]], @category), {:class => 'prefecture'}) %>
+    </div>
 </div>
 
 
