@@ -134,24 +134,23 @@
             <% end %>
           </div>  
         </div>
-        </div>
-        <div class="">
-          <%= form_tag(seeks_distance_path, method: :get) do %>
-            <% if params[:ss].blank? %>
-              <%= hidden_field_tag 'ss[]', spot.id %>
-            <% else %>
-              <% params[:ss].each.with_index(1) do |s, i| %>
-                <%= hidden_field_tag 'ss[]', s %>
-              <% end %>
-              <%= hidden_field_tag 'ss[]', spot.id %>
-            <% end %>
-            <%= submit_tag "このスポットにする", :class => "btn btn-default inline" %>
-          <% end %>
-        </div>
-        <div class="btn-details_0">
-         <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-          <i class="fa fa-close"></i>
-         </a>
+        <div class="btn-modal">
+        	<%= form_tag(seeks_distance_path, method: :get) do %>
+        	<%= hidden_field_tag :spot, spot.id %>
+				<div class="btn-modal-next">
+					<div>
+						<i class="fas fa-map-pin"></i>&nbsp;このスポットからコースをつくる
+					</div>
+				</div>
+			<% end %>
+			<a href="" data-toggle="modal" data-dismiss="modal">
+				<div class="btn-modal-back">
+					<div>
+						閉じる
+					</div>
+				</div>
+			</a>	
+		</div>
         </div>
       </div>
   
