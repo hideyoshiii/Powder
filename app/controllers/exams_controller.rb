@@ -1,8 +1,7 @@
 class ExamsController < ApplicationController
 
 def home
-	@spots = Spot.limit(10).order('id DESC')
-	@spots = @spots.page(params[:page]).per(30)
+	@spots = Spot.where(prefecture: "東京").limit(10).order('id DESC')
 end
 
 def spots
