@@ -94,16 +94,6 @@ def spots
 end
 
 def result   
-   #基本スポットを定義
-   unless params[:spot].blank?
-   	@spot = Spot.find_by(id: params[:spot].to_i)  
-   	#基本スポットのカテゴリーを定義
-   	if params[:large].blank?
-   		@large = @spot.large.sample
-   	else
-   		@large = params[:large]
-   	end
-   end
    #@spotsを定義
    @spots = Spot.all
    #@latitudeがない物を排除
@@ -111,11 +101,21 @@ def result
    #距離定義
    @distance = 0.5.to_f
    #昼のカテゴリー定義
-   @noons = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+   @noons = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "ボーリング", "ダーツ", "カラオケ", "公園", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #夜のカテゴリー定義
    @nights = ["カフェ","バー", "夜景"]
    #timezomeを定義
    params[:timezone] = "noon"
+   #基本スポットを定義
+   unless params[:spot].blank?
+   	@spot = Spot.find(params[:spot])
+   	#基本スポットのカテゴリーを定義
+   	if params[:large].blank?
+   		@large = @spot.large.sample
+   	else
+   		@large = params[:large]
+   	end
+   end
    #ランチの時
    if @large == "ランチ"
    	#スポット１(ランチ)
