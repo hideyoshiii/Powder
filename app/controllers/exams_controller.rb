@@ -5,7 +5,16 @@ def home
 	@spots = Spot.all
 	#@latitudeがない物を排除
     @spots = @spots.where.not(latitude: nil)
+    #@スポットを10個に限定
 	@spots = @spots.where(prefecture: "東京").limit(10).order('id DESC')
+
+	if params[:city].blank?  
+      @city = "指定なし"
+    end
+
+    if params[:category].blank?  
+      @category = "指定なし"
+    end
 end
 
 def spots
