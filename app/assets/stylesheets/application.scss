@@ -8773,6 +8773,17 @@ square_btnn{
 }
 
 
+.nav-pills>div.active>a,.nav-pills>div.active>a:focus,.nav-pills>div.active>a:hover{color:white;}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -9610,6 +9621,76 @@ square_btnn{
 	  box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.3);
 	  border-radius:0px 0px 3px 3px;
 	  margin-top:-3px;
+	  text-align:center;
+}
+
+.btn-modal-change{
+	  width: 99.8%;
+	  height: 8vh;
+	  position: relative;
+	  background:#1b1b1b;
+	  padding: 0px;
+	  margin: 0px; 
+	  box-shadow: 0px 1px 3px 3px rgba(0,0,0,0.3);
+	  border-radius:3px 3px 0px 0px;
+	  margin-bottom:0px;
+	  text-align:center;
+}
+
+.btn-modal-center{
+	float: left;
+	width: 100%;
+	height: 8vh;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	/* 左右中央寄せ */
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-flex-direction: column;
+	justify-content: center;
+
+	/* 上下中央寄せ */
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-flex-direction: column;
+	align-items: center;
+
+	padding: 0px;
+	margin: 0px; 
+
+	color:white;
+	font-size:15px;
+}
+
+.btn-modal-fourth{
+	float: left;
+	width: 24.5%;
+	height: 8vh;
+
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+
+	/* 左右中央寄せ */
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-flex-direction: column;
+	justify-content: center;
+
+	/* 上下中央寄せ */
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-flex-direction: column;
+	align-items: center;
+
+	padding: 0px;
+	margin: 0px; 
+
+	color:white;
+	font-size:15px;
 }
 
 .btn-modal-next{
@@ -9747,6 +9828,18 @@ square_btnn{
 	height:auto;
 	border-radius:5px;
 }
+
+
+.grid_no{
+	display:inline-block;
+	width:49%;
+	height:auto;
+}
+
+
+
+
+
 
 
 

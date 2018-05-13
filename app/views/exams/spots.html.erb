@@ -33,18 +33,27 @@
 
 		<%#詳細条件モーダルの中身%>
 		<div class="modal" id="myModal-distance">
-		  <%= form_tag(exams_spots_path, method: :get) do %>
+		  <%= form_tag(exams_spots_path, method: :get) do %>  		
 		    <div class="modal-dialog">
-		      <div class="modal-content">
-		        <div class="text-center" style="padding-top:30px;">
-		        	<h4 class="text-center">
-		            	条件を絞ってスポットを探す
-		            </h4>
-		            <div style="padding:20px 40px 40px;">
-		              <%= render "partial/form1" %>
-		            </div>
+	    		<%#タブ%>
+		        <div class="nav nav-pills btn-modal-change">
+	            	<div class="active btn-modal-fourth">
+	            		<a data-toggle="tab" href="#city"><i class="fas fa-map-marker-alt"></i></a>
+	            	</div>			            
+            		<div class="active btn-modal-fourth">
+            			<a data-toggle="tab" href="#category"><i class="fas fa-tag"></i></a>
+            		</div>
+	            	<div class="active btn-modal-fourth">
+	            		<a data-toggle="tab" href="#price"><i class="fas fa-yen-sign"></i></a>
+	            	</div>
+	            	<div class="active btn-modal-fourth">
+	            		<a data-toggle="tab" href="#genre"><i class="far fa-star"></i></a>
+	            	</div>
 		        </div>
-		      </div>
+		    	<%#タブ中身%>
+		        <div class="modal-content" style="max-height:80vh;">
+		             <%= render "partial/form2" %>
+		        </div>
 			    <div class="btn-modal">
 			        <div class="btn-modal-next">
 			          <%= button_tag :type => "submit", :class =>"button-half" do %>
@@ -78,9 +87,5 @@
   <% end %>
 <% end %>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function (event) {
-     masonryBuild();
-  });
-</script>
+
 

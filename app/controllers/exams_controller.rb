@@ -1,5 +1,7 @@
 class ExamsController < ApplicationController
 
+before_action :set_params, only: [:spots]
+
 def home
 	#@spotsを定義
 	@spots = Spot.all
@@ -8,10 +10,12 @@ def home
     #@スポットを10個に限定
 	@spots = @spots.where(prefecture: "東京").order("RANDOM()").page(params[:page]).per(10)
 
+	#@cityを定義
 	if params[:city].blank?  
       @city = "指定なし"
     end
 
+    #@categoryを定義
     if params[:category].blank?  
       @category = "指定なし"
     end
@@ -473,6 +477,292 @@ def result
 
     flash.now[:notice] = "コースが作成されました"
     
+  end
+
+
+  private
+  def set_params
+
+  	
+    @ebisu = false
+    @shibuya = false
+    @harajuku = false
+    @shinjuku = false
+    @tokyo = false
+    @roppongi = false
+    @odaiba = false
+    @shinagawa = false
+    @ikebukuro = false
+    @ginze = false
+    @shinbashi = false
+    @ueno = false
+    @asakusa = false
+    @meguro = false
+    @kichijoji = false
+    @kagurazaka = false
+    @shimokitazawa = false
+    @taninaka = false
+    @kanda = false
+    @akasaka = false
+    @yotsuya = false
+    @jiyugaoka = false
+    @nakano = false
+    @ningyocho = false
+    @tachikawa = false
+    @oicho = false
+    @sangenchaya = false
+    @otsuka = false
+    @chofu = false
+    @machida = false
+    @senju = false
+    @nerima = false
+    @okubo = false
+    @yoyogi = false
+    @itabashi = false
+    @ryogoku = false
+    @koganei = false
+    @izushoto = false
+
+    if !params[:city].blank?
+      if params[:city] == "恵比寿・代官山・中目黒"
+        @ebisu = true
+      end
+      if params[:city] == "渋谷"
+        @shibuya = true
+      end
+      if params[:city] == "原宿・表参道・青山"
+        @harajuku = true
+      end
+      if params[:city] == "新宿"
+        @shinjuku = true
+      end
+      if params[:city] == "東京・丸の内・日本橋"
+        @tokyo = true
+      end
+      if params[:city] == "六本木・麻布・赤坂"
+        @roppongi = true
+      end
+      if params[:city] == "お台場"
+        @odaiba = true
+      end
+      if params[:city] == "品川"
+        @shinagawa = true
+      end
+      if params[:city] == "池袋"
+        @ikebukuro = true
+      end
+      if params[:city] == "銀座・有楽町"
+        @ginze = true
+      end
+      if params[:city] == "新橋・汐留・浜松町"
+        @shinbashi = true
+      end
+      if params[:city] == "上野"
+        @ueno = true
+      end
+      if params[:city] == "浅草・押上"
+        @asakusa = true
+      end
+      if params[:city] == "目黒・白金・五反田"
+        @meguro = true
+      end
+      if params[:city] == "吉祥寺・三鷹"
+        @kichijoji = true
+      end
+      if params[:city] == "神楽坂・飯田橋"
+        @kagurazaka = true
+      end
+      if params[:city] == "下北沢"
+        @shimokitazawa = true
+      end
+      if params[:city] == "谷中・根津・千駄木"
+        @taninaka = true
+      end
+      if params[:city] == "神田・秋葉原・御茶ノ水"
+        @kanda = true
+      end
+      if params[:city] == "赤坂・虎ノ門・永田町"
+        @akasaka = true
+      end
+      if params[:city] == "四ツ谷・信濃町・千駄ヶ谷"
+        @yotsuya = true
+      end
+      if params[:city] == "自由が丘・二子玉川"
+        @jiyugaoka = true
+      end
+      if params[:city] == "中野・荻窪"
+        @nakano = true
+      end
+      if params[:city] == "人形町・門前仲町・葛西"
+        @ningyocho = true
+      end
+      if params[:city] == "立川・八王子・青梅"
+        @tachikawa = true
+      end
+      if params[:city] == "大井町・大森・蒲田"
+        @oicho = true
+      end
+      if params[:city] == "三軒茶屋・駒沢"
+        @sangenchaya = true
+      end
+      if params[:city] == "大塚・巣鴨・駒込"
+        @otsuka = true
+      end
+      if params[:city] == "調布・府中・狛江"
+        @chofu = true
+      end
+      if params[:city] == "町田・稲城・多摩"
+        @machida = true
+      end
+      if params[:city] == "千住・綾瀬・葛飾"
+        @senju = true
+      end
+      if params[:city] == "練馬・江古田"
+        @nerima = true
+      end
+      if params[:city] == "大久保・高田馬場・早稲田"
+        @okubo = true
+      end
+      if params[:city] == "代々木・初台"
+        @yoyogi = true
+      end
+      if params[:city] == "板橋・赤羽"
+        @itabashi = true
+      end
+      if params[:city] == "両国・錦糸町・小岩"
+        @ryogoku = true
+      end
+      if params[:city] == "小金井・国分寺・国立"
+        @koganei = true
+      end
+      if params[:city] == "伊豆諸島・小笠原"
+        @izushoto = true
+      end
+    end
+
+    @breakfast = false
+    @lunch = false
+    @dinner = false
+    @cafe = false
+    @animal = false
+    @bar = false
+    @movie = false
+    @shop = false
+    @karaoke = false
+    @sport = false
+    @nitht_view = false
+    @planetarium = false
+    @zoo = false
+    @aquarium = false
+    @museum = false
+    @amusement_park = false
+    @bowling = false
+    @darts = false
+    @walk_eat = false
+    @park = false
+    @spa = false
+    @game = false
+    @temple = false
+    @theater = false
+    @cyber = false
+    @consept = false
+    @experience = false
+    @street = false
+    @complex = false
+    @other = false
+    if !params[:category].blank?
+    	if params[:category] == "朝食"
+        @breakfast = true
+      end
+      if params[:category] == "ランチ"
+        @lunch = true
+      end
+      if params[:category] == "ディナー"
+        @dinner = true
+      end
+      if params[:category] == "カフェ"
+        @cafe = true
+      end
+      if params[:category] == "アニマルカフェ"
+        @animal = true
+      end
+      if params[:category] == "バー"
+        @bar = true
+      end
+      if params[:category] == "映画"
+        @movie = true
+      end
+      if params[:category] == "ショップ・雑貨屋"
+        @shop = true
+      end
+      if params[:category] == "カラオケ"
+        @karaoke = true
+      end
+      if params[:category] == "スポーツ"
+        @sport = true
+      end
+      if params[:category] == "夜景"
+        @nitht_view = true
+      end
+      if params[:category] == "プラネタリウム"
+        @planetarium = true
+      end
+      if params[:category] == "動物園"
+        @zoo = true
+      end
+      if params[:category] == "水族館"
+        @aquarium = true
+      end
+      if params[:category] == "美術館"
+        @museum = true
+      end
+      if params[:category] == "遊園地"
+        @amusement_park = true
+      end
+      if params[:category] == "ボーリング"
+        @bowling = true
+      end
+      if params[:category] == "ダーツ"
+        @darts = true
+      end
+      if params[:category] == "食べ歩き"
+        @walk_eat = true
+      end
+      if params[:category] == "公園"
+        @park = true
+      end
+      if params[:category] == "スパ・温泉"
+        @spa = true
+      end
+      if params[:category] == "ゲームセンター"
+        @game = true
+      end
+      if params[:category] == "お寺・神社"
+        @temple = true
+      end
+      if params[:category] == "劇場"
+        @theater = true
+      end
+      if params[:category] == "インターネットカフェ"
+        @cyber = true
+      end
+      if params[:category] == "コンセプトカフェ・バー"
+        @consept = true
+      end
+      if params[:category] == "体験"
+        @experience = true
+      end
+      if params[:category] == "ストリート"
+        @street = true
+      end
+      if params[:category] == "複合施設"
+        @complex = true
+      end
+      if params[:category] == "その他"
+        @other = true
+      end
+    end
+
   end
 
 
