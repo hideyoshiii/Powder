@@ -232,20 +232,14 @@
       <i class="fas fa-sync-alt"></i>
      </a>
     </div>
-    <%#条件変更モーダルボタン%>
-    <div class="btn-details_11">
-     <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
-      <i class="fas fa-search"></i>
-     </a>
-    </div>
     <%#マップモーダルボタン%>
-    <div class="btn-details_13">
+    <div class="btn-details_12">
      <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
       <i class="far fa-map"></i>
      </a>
     </div>
     <%#シェアモーダルボタン%>
-    <div class="btn-details_12">
+    <div class="btn-details_11">
      <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
       <i class="fa fa-external-link-alt"></i>
      </a>
@@ -253,7 +247,7 @@
     <%#保存モーダルボタン%>
     <% if (user_signed_in?) %>
       <% if current_user.authority == "manager" %>
-		    <div class="btn-details_14">
+		    <div class="btn-details_13">
 		     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
 		      <i class="far fa-save"></i>
 		     </a>
@@ -269,13 +263,6 @@
        <p>コースが気に入りませんでしたか？</p>
        <a href="javascript:;" onclick="koshin()" class="btn btn-default">
         <i class="fas fa-sync-alt"></i> 再作成する
-       </a>
-      </div>
-      <%#chngeボタン%>
-      <div style="padding:20px 0px 0px;text-align:center;">
-       <p>条件を変更しますか？</p>
-       <a href="" data-toggle="modal" data-target="#myModal-terms" class="btn btn-default">
-        <i class="fas fa-search"></i> 条件を変更する
        </a>
       </div>
       <%#URL保存ボタン%>
@@ -392,11 +379,15 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-      <i class="fa fa-close"></i>
-     </a>
+      <div class="btn-modal">
+	      <a href="" data-toggle="modal" data-dismiss="modal">
+	        <div class="btn-modal-center">
+	          <div>
+	            <i class="fas fa-times"></i>&nbsp;閉じる
+	          </div>
+	        </div>
+	      </a>  
+	  </div>
     </div>
   </div>
 
@@ -538,11 +529,15 @@
       <div class="modal-content">
         <div id="map"></div>
       </div>
-    </div>
-    <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-      <i class="fa fa-close"></i>
-     </a>
+      <div class="btn-modal">
+	      <a href="" data-toggle="modal" data-dismiss="modal">
+	        <div class="btn-modal-center">
+	          <div>
+	            <i class="fas fa-times"></i>&nbsp;閉じる
+	          </div>
+	        </div>
+	      </a>  
+	  </div>
     </div>
   </div>
 

@@ -136,29 +136,29 @@
         </div>
         <div class="btn-modal">
         	<%= form_tag(exams_result_path, method: :get) do %>
-        	<%= hidden_field_tag :spot, spot.id %>
-        	<% unless @category.blank? %>
-	        	<% if @category != "指定なし" %>
-	        		<%= hidden_field_tag :large, @category %>
-	        	<% end %>
-        	<% end %>
-				<div class="btn-modal-next">
-					<%= button_tag :type => "submit", :class =>"button-half" do %>
-						<div>
-							<i class="fas fa-map-pin"></i>&nbsp;このスポットからコースをつくる
-						</div>
-					<% end %>
-				</div>
-			<% end %>
-			<a href="" data-toggle="modal" data-dismiss="modal">
-				<div class="btn-modal-back">
-					<div>
-						閉じる
-					</div>
-				</div>
-			</a>	
-		</div>
-        </div>
+        	 <%= hidden_field_tag :spot, spot.id %>
+          	<% unless @category.blank? %>
+  	        	<% if @category != "指定なし" %>
+  	        		<%= hidden_field_tag :large, @category %>
+  	        	<% end %>
+          	<% end %>
+    				<div class="btn-modal-next">
+    					<%= button_tag :type => "submit", :class =>"button-half" do %>
+    						<div>
+    							<i class="fas fa-map-pin"></i>&nbsp;このスポットからコースをつくる
+    						</div>
+    					<% end %>
+    				</div>
+			    <% end %>
+			    <a href="" data-toggle="modal" data-dismiss="modal">
+    				<div class="btn-modal-back">
+    					<div>
+    						閉じる
+    					</div>
+    				</div>
+			    </a>	
+		    </div>
       </div>
+    </div>
   
 	<% end %>
