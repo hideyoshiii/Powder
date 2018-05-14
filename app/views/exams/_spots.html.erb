@@ -7,6 +7,21 @@
             <%= spot.title %>
             <%# 駅 %>
             <span style="font-size:11px;"><br><i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %></span>
+            <%# カテゴリー %>
+            <% unless spot.large.blank? %>
+              <span style="font-size:11px;"><br><i class="fas fa-tag"></i></span>
+              <% @i = 0 %>
+              <% spot.large.each do |large| %>
+                <% @i = @i + 1 %>
+                <span style="font-size:11px;">
+                  <% if @i == spot.large.size %>
+                    <%= large %>
+                  <% else %>
+                    <%= large %>/
+                  <% end %>
+                </span>
+              <% end %>
+            <% end %>
             <%# ジャンル %>
             <% unless spot.small.blank? %>
               <span style="font-size:11px;"><br><i class="fas fa-utensils"></i>&nbsp;</span>
