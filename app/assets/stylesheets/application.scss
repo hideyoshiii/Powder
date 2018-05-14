@@ -5868,6 +5868,7 @@ display: inline-block;
 .modal-content{
 	background-color:#F4F5F7;
 	border-radius:3px;
+	max-height:76vh;
 }
 
 @media only screen and (min-width: 991px) {
@@ -9662,7 +9663,7 @@ square_btnn{
 	margin: 0px; 
 
 	color:white;
-	font-size:15px;
+	font-size:14px;
 }
 
 .btn-modal-fourth{
