@@ -22,21 +22,6 @@
                 </span>
               <% end %>
             <% end %>
-            <%# ジャンル %>
-            <% unless spot.small.blank? %>
-              <span style="font-size:11px;"><br><i class="fas fa-utensils"></i>&nbsp;</span>
-              <% @i = 0 %>
-              <% spot.small.each do |small| %>
-                <% @i = @i + 1 %>
-                <span style="font-size:11px;">
-                  <% if @i == spot.small.size %>
-                    <%= small %>
-                  <% else %>
-                    <%= small %>/
-                  <% end %>
-                </span>
-              <% end %>
-            <% end %>
             <%# 料金 %>
             <span style="font-size:11px;"><br>
               <% unless spot.price_lunch.blank? %>
