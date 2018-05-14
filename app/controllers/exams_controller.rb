@@ -8,7 +8,7 @@ def home
 	#@latitudeがない物を排除
     @spots = @spots.where.not(latitude: nil)
     #@スポットを10個に限定
-	@spots = @spots.where(prefecture: "東京").order("RANDOM()").page(params[:page]).per(10)
+	@spots = @spots.where(prefecture: "東京").order("RANDOM()").page(params[:page]).per(5)
 
 	#@cityを定義
 	if params[:city].blank?  
