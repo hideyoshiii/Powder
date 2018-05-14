@@ -1,0 +1,119 @@
+<%= render "partial/navbar00" %>
+<mains class="" id="main-collapse">
+
+    <div class="visible-xs visible-sm">
+
+    	<div class="course-bar">
+	    <i class="fa fa-search"></i>&nbsp;
+	    &nbsp;<%= @city %>
+	    &nbsp;/&nbsp;<%= @category %>
+	    <% if @category == "朝食" || @category == "ランチ" || @category == "ディナー" %>
+		    <% if @price_max == 10000 %>
+		    	&nbsp;/&nbsp;<%= @price_min %>円~
+		    <% else %>
+		    	&nbsp;/&nbsp;<%= @price_min %>~<%= @price_max %>円
+		    <% end %>
+	    <% end %>
+	  </div>
+	  <div class="course-bar-box">   
+	  </div>
+
+
+		<%= render 'spots' %>
+		<div class="text-center">
+		  <%= paginate @spots %>
+		</div>
+
+		<%#詳細条件モーダルボタン%>
+		<div class="btn-details_0">
+		 <a href="" data-toggle="modal" data-target="#myModal-distance" id="btn-detail">
+		  <i class="fa fa-search"></i>
+		 </a>
+		</div>
+
+		<%#詳細条件モーダルの中身%>
+		<div class="modal" id="myModal-distance">
+		  <%= form_tag(plans_spots_path, method: :get) do %>  		
+		    <div class="modal-dialog">
+	    		<%#タブ%>
+		        <div class="nav nav-pills btn-modal-change">
+	            	<div class="active btn-modal-fourth">
+	            		<a data-toggle="tab" href="#city">
+	            		<div>
+	            			<i class="fas fa-map-marker-alt"></i>
+	            		</div>
+	            		<div style="font-size:8px;margin-top:-3px;">
+	            			エリア
+	            		</div>
+	            		</a>
+	            	</div>			            
+            		<div class="active btn-modal-fourth">
+            			<a data-toggle="tab" href="#category">
+	            		<div>
+	            			<i class="fas fa-tag"></i>
+	            		</div>
+	            		<div style="font-size:8px;margin-top:-3px;">
+	            			カテゴリー
+	            		</div>
+	            		</a>
+            		</div>
+	            	<div class="active btn-modal-fourth">
+	            		<a data-toggle="tab" href="#price">
+	            		<div>
+	            			<i class="fas fa-yen-sign"></i>
+	            		</div>
+	            		<div style="font-size:8px;margin-top:-3px;">
+	            			料金
+	            		</div>
+	            		</a>
+	            	</div>
+	            	<div class="active btn-modal-fourth">
+	            		<a data-toggle="tab" href="#genre">
+	            		<div>
+	            			<i class="far fa-star"></i>
+	            		</div>
+	            		<div style="font-size:8px;margin-top:-3px;">
+	            			ジャンル
+	            		</div>
+	            		</a>
+	            	</div>
+		        </div>
+		    	<%#タブ中身%>
+		        <div class="modal-content" style="max-height:70vh;">
+		             <%= render "partial/form2" %>
+		        </div>
+			    <div class="btn-modal">
+			        <div class="btn-modal-next">
+			          <%= button_tag :type => "submit", :class =>"button-half" do %>
+			            <div>
+			              条件を絞る
+			            </div>
+			          <% end %>
+			        </div>
+			      <% end %>
+			      <a href="" data-toggle="modal" data-dismiss="modal">
+			        <div class="btn-modal-back">
+			          <div>
+			            閉じる
+			          </div>
+			        </div>
+			      </a>  
+			    </div>
+		    </div>
+		</div>
+
+	    
+	<div class="visible-md visible-lg">
+	  	
+	</div>
+	  		
+
+</mains>
+<% if (user_signed_in?) %>
+  <% if current_user.authority == "manager" %>
+    <%= render "partial/footer" %>
+  <% end %>
+<% end %>
+
+
+

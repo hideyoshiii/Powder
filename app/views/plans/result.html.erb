@@ -21,7 +21,11 @@
         <h4 style="margin-bottom:0px;">コースが作成されました</h4>   
         <p style="font-size:12px;color:black;margin:0px;padding:0px 0px 5px;">コースが気に入らない場合は再作成または条件変更ができます。</p> 
         <div style="font-size:12px;color:black;">
-          <i class="fas fa-map-marker-alt"></i>&nbsp;<%= params[:city] %>付近
+          <% if params[:spot].blank? %>
+            <i class="fas fa-map-marker-alt"></i>&nbsp;<%= params[:city] %>付近
+          <% else %>
+            <i class="fas fa-map-marker-alt"></i>&nbsp;<%= @spot_first.city %>付近
+          <% end %>
         </div>
         <div style="font-size:12px;color:black;">
           <% if params[:timezone] == "noon" %>
@@ -230,40 +234,72 @@
   </div>
 
   <div class="visible-xs visible-sm">
-    <%#chngeボタン%>
-    <div class="btn-details_10">
-     <a href="javascript:;" onclick="koshin()" id="btn-detail">
-      <i class="fas fa-sync-alt"></i>
-     </a>
-    </div>
-    <%#条件変更モーダルボタン%>
-    <div class="btn-details_11">
-     <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
-      <i class="fas fa-search"></i>
-     </a>
-    </div>
-    <%#マップモーダルボタン%>
-    <div class="btn-details_13">
-     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
-      <i class="far fa-map"></i>
-     </a>
-    </div>
-    <%#シェアモーダルボタン%>
-    <div class="btn-details_12">
-     <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
-      <i class="fa fa-external-link-alt"></i>
-     </a>
-    </div>
-    <%#保存モーダルボタン%>
-    <% if (user_signed_in?) %>
-      <% if current_user.authority == "manager" %>
-		    <div class="btn-details_14">
-		     <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
-		      <i class="far fa-save"></i>
-		     </a>
-		    </div>
-    	<% end %>
-	  <% end %>
+    <% if params[:spot].blank? %>
+      <%#chngeボタン%>
+      <div class="btn-details_10">
+       <a href="javascript:;" onclick="koshin()" id="btn-detail">
+        <i class="fas fa-sync-alt"></i>
+       </a>
+      </div>
+      <%#条件変更モーダルボタン%>
+      <div class="btn-details_11">
+       <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
+        <i class="fas fa-search"></i>
+       </a>
+      </div>
+      <%#マップモーダルボタン%>
+      <div class="btn-details_13">
+       <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
+        <i class="far fa-map"></i>
+       </a>
+      </div>
+      <%#シェアモーダルボタン%>
+      <div class="btn-details_12">
+       <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
+        <i class="fa fa-external-link-alt"></i>
+       </a>
+      </div>
+      <%#保存モーダルボタン%>
+      <% if (user_signed_in?) %>
+        <% if current_user.authority == "manager" %>
+          <div class="btn-details_14">
+           <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
+            <i class="far fa-save"></i>
+           </a>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%#chngeボタン%>
+      <div class="btn-details_10">
+       <a href="javascript:;" onclick="koshin()" id="btn-detail">
+        <i class="fas fa-sync-alt"></i>
+       </a>
+      </div>
+      <%#マップモーダルボタン%>
+      <div class="btn-details_12">
+       <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
+        <i class="far fa-map"></i>
+       </a>
+      </div>
+      <%#シェアモーダルボタン%>
+      <div class="btn-details_11">
+       <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
+        <i class="fa fa-external-link-alt"></i>
+       </a>
+      </div>
+      <%#保存モーダルボタン%>
+      <% if (user_signed_in?) %>
+        <% if current_user.authority == "manager" %>
+          <div class="btn-details_13">
+           <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
+            <i class="far fa-save"></i>
+           </a>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+    
   </div>
 
   <div class="visible-md visible-lg">
@@ -275,13 +311,15 @@
         <i class="fas fa-sync-alt"></i> 再作成する
        </a>
       </div>
-      <%#chngeボタン%>
-      <div style="padding:20px 0px 0px;text-align:center;">
-       <p>条件を変更しますか？</p>
-       <a href="" data-toggle="modal" data-target="#myModal-terms" class="btn btn-default">
-        <i class="fas fa-search"></i> 条件を変更する
-       </a>
-      </div>
+      <% if params[:spot].blank? %>
+        <%#条件変更タン%>
+        <div style="padding:20px 0px 0px;text-align:center;">
+         <p>条件を変更しますか？</p>
+         <a href="" data-toggle="modal" data-target="#myModal-terms" class="btn btn-default">
+          <i class="fas fa-search"></i> 条件を変更する
+         </a>
+        </div>
+      <% end %>
       <%#URL保存ボタン%>
       <div style="padding:20px 0px 0px;text-align:center;">
         <p>コースのURLを保存しよう！</p>

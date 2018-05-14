@@ -1,0 +1,164 @@
+<% @spots.each.with_index(1) do |spot, i| %>
+    <a href="" data-toggle="modal" data-target="#myModal<%= i %>">
+      <div class="radio-city-b smoke">	
+          <%= image_tag spot.pictures.first.image.url, :class =>'img-course-result' %>
+          <h4>
+            <%# タイトル %>
+            <%= spot.title %>
+            <%# 駅 %>
+            <span style="font-size:11px;"><br><i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %></span>
+            <%# カテゴリー %>
+            <% unless spot.large.blank? %>
+              <span style="font-size:11px;"><br><i class="fas fa-tag"></i></span>
+              <% @i = 0 %>
+              <% spot.large.each do |large| %>
+                <% @i = @i + 1 %>
+                <span style="font-size:11px;">
+                  <% if @i == spot.large.size %>
+                    <%= large %>
+                  <% else %>
+                    <%= large %>/
+                  <% end %>
+                </span>
+              <% end %>
+            <% end %>
+            <%# 料金 %>
+            <span style="font-size:11px;"><br>
+              <% unless spot.price_lunch.blank? %>
+                <% unless spot.price_lunch == 0 %>
+                  <i class="far fa-sun"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                <% end %>
+              <% end %>
+              <% unless spot.price_dinner.blank? %>
+                <% unless spot.price_lunch == 0 %>
+                  <i class="far fa-moon"></i>&nbsp;~<%= spot.price_dinner %>円
+                <% end %>
+              <% end %>
+            </span>
+          </h4> 
+      </div>
+    </a>
+      <!-- モーダルウィンドウの中身 -->
+      <div class="modal" id="myModal<%= i %>">
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <%# 画像 %>
+          <div class="box-one">
+            <%= image_tag spot.pictures.first.image.url, :class =>'img-one' %>
+            <p class="quote-one">
+              <% if !spot.pictures.first.url.blank? %>
+                <% if !spot.pictures.first.quote.blank? %>
+                  <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                    出典&nbsp;<%= spot.pictures.first.quote %>
+                  </a>
+                <% else %> 
+                  <a href="<%= spot.pictures.first.url %>" target="_blank" class="gray">
+                    出典&nbsp;
+                  </a>
+                <% end %>
+              <% else %> 
+                  &nbsp;
+              <% end %>  
+            </p>
+          </div>
+          <div class="panel-body" style="padding-bottom:17px;">
+            <%# タイトル %>
+            <div class="title-one"><%= spot.title %></div>
+            <%# 都道府県、エリア %>
+            <p style="color: #66666;margin:4px 0px;font-size:10px">
+              <i class="fas fa-map-marker-alt"></i>&nbsp;<%= spot.station %>
+            </p> 
+            <%# 料金 %>
+            <p style="color: #666666;margin:4px 0px;font-size:10px">
+              <% unless spot.price_lunch.blank? %>
+                <% unless spot.price_lunch == 0 %>
+                  <i class="far fa-sun"></i>&nbsp;~<%= spot.price_lunch %>円&nbsp;&nbsp;&nbsp;
+                <% end %>
+              <% end %>
+              <% unless spot.price_dinner.blank? %>
+                <% unless spot.price_lunch == 0 %>
+                  <i class="far fa-moon"></i>&nbsp;~<%= spot.price_dinner %>円
+                <% end %>
+              <% end %>
+            </p> 
+            <%# カテゴリー %>
+            <% unless spot.large.blank? %>
+              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fas fa-tag"></i>
+              <% @i = 0 %>
+                <% spot.large.each do |large| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == spot.large.size %>
+                    <%= large %>
+                  <% else %>
+                    <%= large %>/
+                  <% end %> 
+                <% end %>
+              </p> 
+            <% end %>
+            <%# ジャンル %>
+            <% unless spot.small.blank? %>
+              <p style="color: #666666;margin:4px 0px;font-size:10px"><i class="fas fa-utensils"></i>&nbsp;
+              <% @i = 0 %>
+                <% spot.small.each do |small| %>
+                  <% @i = @i + 1 %>
+                  <% if @i == spot.small.size %>
+                    <%= small %>
+                  <% else %>
+                    <%= small %>/
+                  <% end %>
+                <% end %>
+              </p> 
+            <% end %>
+            <%# 食べログ、rettyボタン等 %>
+            <h4 style="margin:10px 0px 7px;font-size:13px">For your infomation</h4>
+            <div style="">
+              <% unless spot.tabelog.blank? %>
+                <a href="<%= spot.tabelog %>" target="_blank" class="raise2-result"><%= image_tag "tabelog.png", :style =>'width:20px;height:auto;' %>食べログ</a>
+              <% end %>
+              <% unless spot.retty.blank? %>
+                <a href="<%= spot.retty %>" target="_blank" class="raise3-result"><i class="fas fa-utensils"></i>&nbsp;Retty</a>
+              <% end %>
+              <% unless spot.introduction.blank? %>
+                <a href="<%= spot.introduction %>" target="_blank" class="raise4-result"><span><i class="fab fa-instagram"></i>&nbsp;Instagram</span></a>
+              <% end %>
+              <% if spot.tabelog.blank? %>
+                <% unless spot.browser.blank? %>
+                  <a href="<%= spot.browser %>" target="_blank" class="raise2-result"><span><i class="fas fa-globe"></i>&nbsp;公式</span></a>
+                <% end %>
+              <% end %>
+            </div>
+            <%# Description %>
+            <% unless spot.description.blank? %>
+              <h4 style="margin:10px 0px 7px;font-size:13px">Description</h4>
+              <p style="font-size:11px"><%= spot.description %></p>
+            <% end %>
+          </div>  
+        </div>
+        <div class="btn-modal">
+        	<%= form_tag(plans_result_path, method: :get) do %>
+        	 <%= hidden_field_tag :spot, spot.id %>
+          	<% unless @category.blank? %>
+  	        	<% if @category != "指定なし" %>
+  	        		<%= hidden_field_tag :large, @category %>
+  	        	<% end %>
+          	<% end %>
+    				<div class="btn-modal-next">
+    					<%= button_tag :type => "submit", :class =>"button-half" do %>
+    						<div>
+    							<i class="fas fa-map-pin"></i>&nbsp;このスポットからコースをつくる
+    						</div>
+    					<% end %>
+    				</div>
+			    <% end %>
+			    <a href="" data-toggle="modal" data-dismiss="modal">
+    				<div class="btn-modal-back">
+    					<div>
+    						閉じる
+    					</div>
+    				</div>
+			    </a>	
+		    </div>
+      </div>
+    </div>
+  
+	<% end %>

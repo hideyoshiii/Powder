@@ -17,7 +17,7 @@
               <span class="site-title">A.Date</span><span class="site-title" style="font-size:12px;">&nbsp;Tokyo</span>
             </h2>
           </a>
-          <p style="font-size:14px;color:black;">誰でもデートコースを10秒で</p>
+          <p style="font-size:14px;color:black;">デートコースを10秒で</p>
       </div>
 
    <% if (user_signed_in?) %>
@@ -63,13 +63,24 @@
   <% end %>
 
       <ul class="nav">  
-        <div class="visible-xs bisible-sm">
-          <li style="padding-bottom:5px;">
-            <%= link_to plans_sean_path do %>
-              <%= image_tag "line.jpg", :class => "img-circle profile-4" %>&nbsp;<span style="font-size:13px;color:black;">ショーンに聞く</span>
-            <% end %>
-          </li>  
-        </div> 
+
+        <li class="visible-xs bisible-sm" style="padding-bottom:5px;">
+          <%= link_to plans_sean_path do %>
+            <%= image_tag "line.jpg", :class => "img-circle profile-4" %>&nbsp;<span style="font-size:13px;color:black;">ショーンに聞く</span>
+          <% end %>
+        </li>  
+
+        <li class="visible-xs bisible-sm" style="list-style-type: none;">
+          <%= link_to manager_path do %>
+            <span style="font-size: 13px;">10秒でデートコースをつくる</span>
+          <% end %>
+        </li> 
+
+        <li class="visible-xs bisible-sm" style="list-style-type: none;">
+          <%= link_to manager_path do %>
+            <span style="font-size: 13px;">デートスポットを探す</span>
+          <% end %>
+        </li> 
 
         <% if (user_signed_in?) %>
           <% if current_user.authority == "manager" %>
@@ -80,6 +91,11 @@
             </li>
           <% end %>
         <% end %>
+
+        <li class="visible-xs bisible-sm" style="list-style-type: none;">
+          &nbsp;
+        </li> 
+        
 
         <li style="list-style-type: none;">
           <%= link_to manager_path do %>

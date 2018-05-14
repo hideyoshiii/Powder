@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "exams/spots" => "exams#spots"
   get "exams/result" => "exams#result"
 
+  get "plans/spots" => "plans#spots"
+
   get "plans/area" => "plans#area"
   get "plans/timezone" => "plans#timezone"
   get "plans/budget" => "plans#budget"
