@@ -6,15 +6,17 @@
 		<div style="height:100px;"></div>
 		<div style="height:100px;"></div>
 		<div style="margin-top:0px;">
-  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">次に予算を選びましょう。</p>
+  			<p class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">最後に予算を選びましょう。</p>
   			<h4 class="text-center" style="color:white;text-shadow: 1px 1px 2px black;">予算はどのくらいにしますか？</h4>
   		</div>
   		<div style="height:50px;"></div>
   		<div class="home-box">
 	        <div class="home-box-1">
-	          <%= form_tag(plans_scene_path, method: :get) do %>
+	          <%= form_tag(plans_result_path, method: :get) do %>
 				    <%= hidden_field_tag :city, params[:city] %>
 					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :spot, params[:spot] %>
+					<%= hidden_field_tag :theme, params[:theme] %>
 					<%= hidden_field_tag :budget, "1" %>
 	          	<%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="budget-btn">
@@ -27,9 +29,11 @@
 	          <% end %>
 	        </div>
 	        <div class="home-box-1">
-	          <%= form_tag(plans_scene_path, method: :get) do %>
+	          <%= form_tag(plans_result_path, method: :get) do %>
 				    <%= hidden_field_tag :city, params[:city] %>
 					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :spot, params[:spot] %>
+					<%= hidden_field_tag :theme, params[:theme] %>
 					<%= hidden_field_tag :budget, "2" %>
 		          <%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="budget-btn">
@@ -42,9 +46,11 @@
 	          <% end %>
 	        </div>
 	        <div class="home-box-1">
-	          <%= form_tag(plans_scene_path, method: :get) do %>
+	          <%= form_tag(plans_result_path, method: :get) do %>
 				    <%= hidden_field_tag :city, params[:city] %>
 					<%= hidden_field_tag :timezone, params[:timezone] %>
+					<%= hidden_field_tag :spot, params[:spot] %>
+					<%= hidden_field_tag :theme, params[:theme] %>
 					<%= hidden_field_tag :budget, "3" %>
 		          <%= button_tag :type => "submit", :class =>"button1" do %>
 		            <div class="budget-btn">

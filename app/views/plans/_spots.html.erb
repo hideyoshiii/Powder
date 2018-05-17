@@ -135,13 +135,8 @@
           </div>  
         </div>
         <div class="btn-modal">
-        	<%= form_tag(plans_result_path, method: :get) do %>
+        	<%= form_tag(plans_budget_path, method: :get) do %>
         	 <%= hidden_field_tag :spot, spot.id %>
-          	<% unless @category.blank? %>
-  	        	<% if @category != "指定なし" %>
-  	        		<%= hidden_field_tag :large, @category %>
-  	        	<% end %>
-          	<% end %>
     				<div class="btn-modal-next">
     					<%= button_tag :type => "submit", :class =>"button-half" do %>
     						<div>

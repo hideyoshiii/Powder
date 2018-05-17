@@ -1,97 +1,18 @@
 class PlansController < ApplicationController
 
 def home
-  #@spotsを定義
-  @spots = Spot.all
-  #@latitudeがない物を排除
-    @spots = @spots.where.not(latitude: nil)
-    #@スポットを10個に限定
-  @spots = @spots.where(prefecture: "東京").order("RANDOM()").page(params[:page]).per(5)
+end
 
-  #@cityを定義
-  if params[:city].blank?  
-      @city = "指定なし"
-    end
-
-    #@categoryを定義
-    if params[:category].blank?  
-      @category = "指定なし"
-    end
-
-    #params[price_min]がない時のの定義
-    if params[:price_min].blank?
-      params[:price_min] = 0
-    end
-    #params[price_max]がない時のの定義
-    if params[:price_max].blank?
-      params[:price_max] = 10000
-    end
-    #@price_minを定義
-    @price_min = params[:price_min].to_i
-    #@price_maxを定義
-    @price_max = params[:price_max].to_i
+def theme
 end
 
 def spots
   #@spotsを定義
   @spots = Spot.all
   #@latitudeがない物を排除
-    @spots = @spots.where.not(latitude: nil)
-
-  if params[:city].blank?  
-      @city = "指定なし"
-    else
-    @city = params[:city]
-      unless params[:city] == "指定なし"
-        @spots = @spots.where(city: @city)
-      end
-    end
-
-    if params[:category].blank?  
-      @category = "指定なし"
-    else
-      @category = params[:category]
-      unless params[:category] == "指定なし"
-        @spots = @spots.where("large like '%#{@category}%'")
-      end
-    end
-
-    #params[price_min]がない時のの定義
-    if params[:price_min].blank?
-      params[:price_min] = 0
-    end
-    #params[price_max]がない時のの定義
-    if params[:price_max].blank?
-      params[:price_max] = 10000
-    end
-    #@price_minを定義
-    @price_min = params[:price_min].to_i
-    #@price_maxを定義
-    @price_max = params[:price_max].to_i
-    #料金で絞る
-    if @category == "朝食"
-      if @price_max == 10000
-        @spots = @spots.where(price_lunch: @price_min..50000)
-      else
-        @spots = @spots.where(price_lunch: @price_min..@price_max)
-      end
-    end
-    if @category == "ランチ"
-      if @price_max == 10000
-        @spots = @spots.where(price_lunch: @price_min..50000)
-      else
-        @spots = @spots.where(price_lunch: @price_min..@price_max)
-      end
-    end
-    if @category == "ディナー"
-      if @price_max == 10000
-        @spots = @spots.where(price_dinner: @price_min..50000)
-      else
-        @spots = @spots.where(price_dinner: @price_min..@price_max)
-      end
-    end
-
-    @spots = @spots.order("RANDOM()").page(params[:page]).per(30)
+  @spots = @spots.where.not(latitude: nil)
+  #@スポットを10個に限定
+  @spots = @spots.where(prefecture: "東京").order("RANDOM()").page(params[:page]).per(20)
 end
 
 def sean
@@ -445,7 +366,7 @@ if params[:spot].blank?
 
 else
 
-  #@spotsを定義
+   #@spotsを定義
    @spots = Spot.all
    #@latitudeがない物を排除
    @spots = @spots.where.not(latitude: nil)
