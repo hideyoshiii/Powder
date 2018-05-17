@@ -230,42 +230,6 @@
   </div>
 
   <div class="visible-xs visible-sm">
-    <% if params[:spot].blank? %>
-      <%#chngeボタン%>
-      <div class="btn-details_10">
-       <a href="javascript:;" onclick="koshin()" id="btn-detail">
-        <i class="fas fa-sync-alt"></i>
-       </a>
-      </div>
-      <%#条件変更モーダルボタン%>
-      <div class="btn-details_11">
-       <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
-        <i class="fas fa-search"></i>
-       </a>
-      </div>
-      <%#マップモーダルボタン%>
-      <div class="btn-details_13">
-       <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
-        <i class="far fa-map"></i>
-       </a>
-      </div>
-      <%#シェアモーダルボタン%>
-      <div class="btn-details_12">
-       <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
-        <i class="fa fa-external-link-alt"></i>
-       </a>
-      </div>
-      <%#保存モーダルボタン%>
-      <% if (user_signed_in?) %>
-        <% if current_user.authority == "manager" %>
-          <div class="btn-details_14">
-           <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
-            <i class="far fa-save"></i>
-           </a>
-          </div>
-        <% end %>
-      <% end %>
-    <% else %>
       <%#chngeボタン%>
       <div class="btn-details_10">
        <a href="javascript:;" onclick="koshin()" id="btn-detail">
@@ -294,8 +258,6 @@
           </div>
         <% end %>
       <% end %>
-    <% end %>
-    
   </div>
 
   <div class="visible-md visible-lg">
@@ -307,7 +269,7 @@
         <i class="fas fa-sync-alt"></i> 再作成する
        </a>
       </div>
-      <% if params[:spot].blank? %>
+      <% unless params[:city].blank? %>
         <%#条件変更タン%>
         <div style="padding:20px 0px 0px;text-align:center;">
          <p>条件を変更しますか？</p>
