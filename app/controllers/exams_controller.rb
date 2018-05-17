@@ -472,7 +472,7 @@ unless params[:theme].blank?
     @spot3_category = @spot3_timezone
     @spot3_series = @spot3_category.near([@spot2.latitude, @spot2.longitude], 0.70, :units => :km, :order => false)
     unless @spot3_series.size = 0
-    	@spot3_same = @spots.where("large like '%美術館%'")
+    	@spot3_same = @spot3_series.where("large like '%美術館%'")
     	@spot3 = @spot3_same.order("RANDOM()").first
     end
     if @spot3.blank?
