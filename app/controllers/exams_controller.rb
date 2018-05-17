@@ -893,23 +893,16 @@ unless params[:theme].blank?
     @spot3_not_lunch = @spot3_not.where.not("large like '%ランチ%'")
     @spot3_timezone = @spot3_not_lunch.where("timezone like '%昼%'")
     @spot3_category = @spot3_timezone
-    @spot3_series = @spot3_category.near([@spot2.latitude, @spot2.longitude], 0.70, :units => :km, :order => false)
-    unless @spot3_series.size == 0
-    	@spot3_same = @spot3_series.where("large like '%食べ歩き%'")
-    	@spot3 = @spot3_same.order("RANDOM()").first
+    @spot3_category = @spot3_category.where(
+      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noons.map { |attr| "%#{attr}%" }
+      )
+    @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+    until @spot3_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
     end
-    if @spot3.blank?
-	    @spot3_category = @spot3_category.where(
-	      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
-	      *@noons.map { |attr| "%#{attr}%" }
-	      )
-	    @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
-	    until @spot3_distance.size >= 1 do
-	      @distance = @distance + 0.2.to_f
-	      @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
-	    end
-	    @spot3 = @spot3_distance.order("RANDOM()").first
-   	end
+    @spot3 = @spot3_distance.order("RANDOM()").first
     #スポット４(ディナー)
     @spot4_not = @spots.where.not(title: @spot1.title)
     @spot4_not = @spot4_not.where.not(title: @spot2.title)
