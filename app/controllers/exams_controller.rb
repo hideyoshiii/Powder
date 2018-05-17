@@ -117,6 +117,25 @@ unless params[:theme].blank?
    @noons = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "ボーリング", "ダーツ", "カラオケ", "公園", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #夜のカテゴリー定義
    @nights = ["カフェ","バー", "夜景"]
+   #予算定義
+   if params[:budget] == "1"
+     @price_start = 0
+     @price_end = 1000
+     @price_startz = 0
+     @price_endz = 5000
+   end
+   if params[:budget] == "2"
+     @price_start = 1001
+     @price_end = 2000
+     @price_startz = 5001
+     @price_endz = 8000
+   end
+   if params[:budget] == "3"
+     @price_start = 1001
+     @price_end = 6000
+     @price_startz = 8001
+     @price_endz = 50000
+   end
 
    #ディナーデート
    if params[:theme] == "ディナー"
