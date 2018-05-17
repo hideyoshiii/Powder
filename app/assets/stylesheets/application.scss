@@ -2518,6 +2518,24 @@ dl.search1 dd span:hover{
 	}
 }
 
+
+.box-modal {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+
+  position: relative;
+
+  background: linear-gradient(-45deg, rgba(0, 0, 0, .7), rgba(0, 0, 0, .5)) , url(timezone.jpg) ;
+  background-size: cover;
+  background-position: center;
+
+  padding: 0px;
+  margin-top:0px;
+  box-sizing: border-box;
+
+}
+
 .box-details {
   width: 100%;
   height: auto;
@@ -5994,6 +6012,29 @@ display: inline-block;
 
 .dinner-btn:hover {/*ホバー時*/
   box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+.btn-method{
+  display: inline-block;
+  background: rgba(0, 0, 0, 0);
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-size:30px;
+  color:#FAFAFA;
+  border:1px solid white;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+}
+
+.info-method{
+	text-align: center;
+	font-size:14px;
+	margin:5px 0 0;
+	color:white;
 }
 
 .budget-btn{

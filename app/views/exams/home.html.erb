@@ -44,30 +44,47 @@
 	    <!-- モーダルウィンドウの中身 -->
           <div class="modal" id="myModal_home">
             <div class="modal-dialog">
-              <div class="modal-content">
+              <div style="height:10vh;"></div>
+              <div class="modal-content" style="max-height:50vh;">
+              	<div class="box-modal text-center">
 
-              	<div class="text-center" style="padding:30px;">
-              	<h4>コースを作る方法を選ぼう!</h4>
-              	<div style="height:30px;"></div>
-              	<%= link_to plans_area_path do %>
-		          <div class="btn btn-default">
-		            <i class="fas fa-map"></i>&nbsp;エリアから
-		          </div>
-		        <% end %>
-		        <div style="height:30px;"></div>
-		        <%= link_to exams_theme_path do %>
-		          <div class="btn btn-default">
-		            <i class="fas fa-tag"></i>&nbsp;テーマから
-		          </div>
-		        <% end %>
-		        <div style="height:30px;"></div>
-		        <%= link_to plans_spots_path do %>
-		          <div class="btn btn-default">
-		            <i class="fas fa-map-marker-alt"></i>&nbsp;おすすめスポットから
-		          </div>
-		        <% end %>
+              	<div style="height:10vh;"></div>
+                <p style="color:white;">あなたにぴったりのコースを提案します</p>
+                <p style="color:white;">方法を選んでください</p>
+                <div style="height:5vh;"></div>
+
+		        <div style="display:inline-block;width:30%;">
+		          <%= link_to plans_spots_path do %>		 
+		              <div class="btn-method">
+		                <i class="fas fa-map"></i>
+		              </div>
+		              <div class="info-method">
+		                エリアから
+		              </div>
+		          <% end %>
 		        </div>
-                
+		        <div style="display:inline-block;width:30%;">
+		          <%= link_to exams_theme_path do %>
+		              <div class="btn-method">
+		                <i class="fas fa-tag"></i>
+		              </div>
+		              <div class="info-method">
+		                テーマから
+		              </div>
+		          <% end %>
+		        </div>
+		        <div style="display:inline-block;width:30%;">
+		          <%= link_to plans_spots_path do %>
+		              <div class="btn-method">
+		                <i class="fas fa-map-marker-alt"></i>
+		              </div>
+		              <div class="info-method">
+		                スポットから
+		              </div>
+		          <% end %>
+		        </div>
+		        
+		        </div>
               </div>
               <div class="btn-modal">
                 <a href="" data-toggle="modal" data-dismiss="modal">
