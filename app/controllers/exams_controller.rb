@@ -2,6 +2,9 @@ class ExamsController < ApplicationController
 
 before_action :set_params, only: [:spots]
 
+def theme
+end
+
 def home
 	#@spotsを定義
 	@spots = Spot.all

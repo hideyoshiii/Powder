@@ -14,11 +14,11 @@
 	      </p>
 	      <div style="height:30px;"></div>
 	      <div class="">
-	        <%= link_to plans_area_path do %>
+	        <a href="" data-toggle="modal" data-target="#myModal_home">
 	          <div class="raised-trans">
 	            10秒でデートコースをつくる
 	          </div>
-	        <% end %>
+	        </a>
 	      </div>
 	      <% if (user_signed_in?) %>
 	        <% if current_user.authority == "manager" %>
@@ -40,6 +40,46 @@
 	        </a>
 	      </h4>
 	    </div>
+
+	    <!-- モーダルウィンドウの中身 -->
+          <div class="modal" id="myModal_home">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+              	<div class="text-center" style="padding:30px;">
+              	<h4>コースを作る方法を選ぼう!</h4>
+              	<div style="height:30px;"></div>
+              	<%= link_to plans_area_path do %>
+		          <div class="btn btn-default">
+		            <i class="fas fa-map"></i>&nbsp;エリアから
+		          </div>
+		        <% end %>
+		        <div style="height:30px;"></div>
+		        <%= link_to exams_theme_path do %>
+		          <div class="btn btn-default">
+		            <i class="fas fa-tag"></i>&nbsp;テーマから
+		          </div>
+		        <% end %>
+		        <div style="height:30px;"></div>
+		        <%= link_to plans_spots_path do %>
+		          <div class="btn btn-default">
+		            <i class="fas fa-map-marker-alt"></i>&nbsp;おすすめスポットから
+		          </div>
+		        <% end %>
+		        </div>
+                
+              </div>
+              <div class="btn-modal">
+                <a href="" data-toggle="modal" data-dismiss="modal">
+                  <div class="btn-modal-center">
+                    <div>
+                      <i class="fas fa-times"></i>&nbsp;閉じる
+                    </div>
+                  </div>
+                </a>  
+              </div>
+            </div>
+          </div>
 
 	    <div class="box-max" style="margin-bottom:-40px;" id="next">
 		    <div style="padding:0px 10px;text-align:center;font-size:20px;color:black;">
