@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/homes" => "homes#index"
 
   get "exams/theme" => "exams#theme"
+  get "exams/budget" => "exams#budget"
 
   get "exams/home" => "exams#home"
   get "exams/spots" => "exams#spots"

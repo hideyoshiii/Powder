@@ -5,6 +5,9 @@ before_action :set_params, only: [:spots]
 def theme
 end
 
+def budget	
+end
+
 def home
 	#@spotsを定義
 	@spots = Spot.all
@@ -101,6 +104,141 @@ def spots
 end
 
 def result   
+
+unless params[:theme].blank?
+
+   #@spotsを定義
+   @spots = Spot.all
+   #@latitudeがない物を排除
+   @spots = @spots.where.not(latitude: nil)
+   #距離定義
+   @distance = 0.5.to_f
+   #昼のカテゴリー定義
+   @noons = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "ボーリング", "ダーツ", "カラオケ", "公園", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+   #夜のカテゴリー定義
+   @nights = ["カフェ","バー", "夜景"]
+
+   #ディナーデート
+   if params[:theme] == "ディナー"
+   	#timezomeを定義
+    params[:timezone] = "night"
+    #スポット１
+    @spot1_category = @spots.where("large like '%ディナー%'")
+    @spot1_price = @spot1_category.where(price_dinner: @price_startz..@price_endz)
+    @spot1 = @spot1_price.order("RANDOM()").first
+    #スポット２
+    @spot2_not = @spots.where.not(title: @spot1.title)
+    @spot2_not_lunch = @spot2_not.where.not("large like '%ディナー%'")
+    @spot2_timezone = @spot2_not_lunch.where("timezone like '%夜%'")
+    @spot2_category = @spot2_timezone
+    @spot2_category = @spot2_category.where(
+      @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@nights.map { |attr| "%#{attr}%" }
+      )
+    @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    until @spot2_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot2 = @spot2_distance.order("RANDOM()").first
+   end
+
+   #ランチデート
+   if params[:theme] == "ランチ"
+   	#timezomeを定義
+    params[:timezone] = "noon"
+   	#スポット１(ランチ)
+    @spot1_category = @spots.where("large like '%ランチ%'")
+    @spot1_price = @spot1_category.where(price_lunch: @price_start..@price_end)
+    @spot1 = @spot1_price.order("RANDOM()").first
+    #スポット２
+    @spot2_not = @spots.where.not(title: @spot1.title)
+    @spot2_not_lunch = @spot2_not.where.not("large like '%ランチ%'")
+    @spot2_timezone = @spot2_not_lunch.where("timezone like '%昼%'")
+    @spot2_category = @spot2_timezone
+    @spot2_category = @spot2_category.where(
+      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noons.map { |attr| "%#{attr}%" }
+      )
+    @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    until @spot2_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot2 = @spot2_distance.order("RANDOM()").first
+   end
+
+   #水族館デート
+   if params[:theme] == "水族館"
+   	#timezomeを定義
+    params[:timezone] = "noon"
+   	#スポット１
+   	@spot1_category = @spots.where("large like '%水族館%'")
+   	@spot1 = @spot1_category.order("RANDOM()").first
+   	#スポット２(ランチ)
+    @spot2_not = @spots.where.not(title: @spot1.title)
+    @spot2_category = @spot2_not.where("large like '%ランチ%'")
+    @spot2_price = @spot2_category.where(price_lunch: @price_start..@price_end)
+    @spot2_distance = @spot2_price.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    until @spot2_distance.size >= 1 do
+      @distance = @distance.to_f + 0.2.to_f
+      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot2 = @spot2_distance.order("RANDOM()").first
+    #スポット３
+    @spot3_not = @spots.where.not(title: @spot1.title)
+    @spot3_not = @spot3_not.where.not(title: @spot2.title)
+    @spot3_not_lunch = @spot3_not.where.not("large like '%ランチ%'")
+    @spot3_timezone = @spot3_not_lunch.where("timezone like '%昼%'")
+    @spot3_category = @spot3_timezone
+    @spot3_category = @spot3_category.where(
+      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noons.map { |attr| "%#{attr}%" }
+      )
+    @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+    until @spot3_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot3 = @spot3_distance.order("RANDOM()").first
+    #スポット４(ディナー)
+    @spot4_not = @spots.where.not(title: @spot1.title)
+    @spot4_not = @spot4_not.where.not(title: @spot2.title)
+    @spot4_not = @spot4_not.where.not(title: @spot3.title)
+    @spot4_category = @spot4_not.where("large like '%ディナー%'")
+    @spot4_price = @spot4_category.where(price_dinner: @price_startz..@price_endz)
+    @spot4_distance = @spot4_price.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
+    until @spot4_distance.size >= 1 do
+      @distance = @distance.to_f + 0.2.to_f
+      @spot4_distance = @spot4_category.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot4 = @spot4_distance.order("RANDOM()").first
+    #スポット５
+    @spot5_not = @spots.where.not(title: @spot1.title)
+    @spot5_not = @spot5_not.where.not(title: @spot2.title)
+    @spot5_not = @spot5_not.where.not(title: @spot3.title)
+    @spot5_not = @spot5_not.where.not(title: @spot4.title)
+    @spot5_not_lunch = @spot5_not.where.not("large like '%ディナー%'")
+    @spot5_timezone = @spot5_not_lunch.where("timezone like '%夜%'")
+    @spot5_category = @spot5_timezone
+    @spot5_category = @spot5_category.where(
+      @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@nights.map { |attr| "%#{attr}%" }
+      )
+    @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
+    until @spot5_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot5 = @spot5_distance.order("RANDOM()").first
+   end
+
+
+
+end
+
+unless params[:spot].blank?
+
    #@spotsを定義
    @spots = Spot.all
    #@latitudeがない物を排除
@@ -404,6 +542,11 @@ def result
     end
     @spot2 = @spot2_distance.order("RANDOM()").first
    end
+
+end
+
+
+
    #配列を作る
    @ss = []
    unless @spot1.blank?
