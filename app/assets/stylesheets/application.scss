@@ -7188,14 +7188,15 @@ square_btnn{
   border-radius: 5px;/*角の丸み*/
     cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-  transition: .3s ease-out;/*変化を緩やかに*/
+  transition: .1s ease-out;/*変化を緩やかに*/
   border: 1px solid white;
   display: inline-block; 
+  box-shadow: 0px 0px 7px 0 rgba(225,225,225,0.7);
   
 }
 
 .raised-trans:hover{
-	box-shadow: 0px 0px 7px 0 rgba(225,225,225,1);
+	box-shadow: 0px 0px 0px 0 rgba(225,225,225,1);
 }
 
 //Bサーチのホームのボタン(透明)
@@ -8899,7 +8900,7 @@ square_btnn{
 
 .img_box_home h4 {
   position: absolute;
-  top: 78%;
+  top: 77%;
   left: 50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
