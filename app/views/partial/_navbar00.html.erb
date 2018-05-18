@@ -70,18 +70,6 @@
           <% end %>
         </li>  
 
-        <li class="visible-xs bisible-sm" style="list-style-type: none;">
-          <%= link_to plans_area_path do %>
-            <span style="font-size: 13px;">10秒でデートコースをつくる</span>
-          <% end %>
-        </li> 
-
-        <li class="visible-xs bisible-sm" style="list-style-type: none;">
-          <%= link_to plans_spots_path do %>
-            <span style="font-size: 13px;">デートスポットを探す</span>
-          <% end %>
-        </li> 
-
         <% if (user_signed_in?) %>
           <% if current_user.authority == "manager" %>
             <li>
