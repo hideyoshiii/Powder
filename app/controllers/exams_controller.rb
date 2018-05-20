@@ -114,24 +114,30 @@ def result
      @price_start = 0
      @price_end = 1000
      @price_startz = 0
-     @price_endz = 5000
+     @price_endz = 4000
+     @price_min = 0
+     @price_max = 2000
    end
    if params[:budget] == "2"
-     @price_start = 1001
+     @price_start = 0
      @price_end = 2000
-     @price_startz = 5001
+     @price_startz = 4001
      @price_endz = 8000
+     @price_min = 0
+     @price_max = 4000
    end
    if params[:budget] == "3"
      @price_start = 1001
      @price_end = 6000
      @price_startz = 8001
      @price_endz = 50000
+     @price_min = 0
+     @price_max = 50000
    end
    #距離定義
    @distance = 0.5.to_f
    #昼のカテゴリー定義
-   @noons = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "ボーリング", "公園", "動物園", "水族館", "美術館", "遊園地", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
+   @noons = ["アニマルカフェ", "映画", "ショップ・雑貨屋", "スポーツ", "プラネタリウム", "ボーリング", "公園", "動物園", "水族館", "美術館", "食べ歩き", "スパ・温泉", "ゲームセンター", "お寺・神社", "劇場", "コンセプトカフェ・バー", "体験", "ストリート", "複合施設", "その他"]
    #夜のカテゴリー定義
    @nights = ["カフェ","バー", "夜景", "ダーツ", "カラオケ", "公園"]
 
@@ -221,7 +227,8 @@ unless params[:city].blank?
     @spot2_not = @spots.where.not(title: @spot1.title)
     @spot2_not_lunch = @spot2_not.where.not("large like '%ランチ%'")
     @spot2_timezone = @spot2_not_lunch.where("timezone like '%昼%'")
-    @spot2_category = @spot2_timezone
+    @spot2_price = @spot2_timezone.where(price_lunch: @price_min..@price_max)
+    @spot2_category = @spot2_price
     @spot2_category = @spot2_category.where(
       @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
       *@noons.map { |attr| "%#{attr}%" }
@@ -237,7 +244,8 @@ unless params[:city].blank?
     @spot3_not = @spot3_not.where.not(title: @spot2.title)
     @spot3_not_lunch = @spot3_not.where.not("large like '%ランチ%'")
     @spot3_timezone = @spot3_not_lunch.where("timezone like '%昼%'")
-    @spot3_category = @spot3_timezone
+    @spot3_price = @spot3_timezone.where(price_lunch: @price_min..@price_max)
+    @spot3_category = @spot3_price
     @spot3_category = @spot3_category.where(
       @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
       *@noons.map { |attr| "%#{attr}%" }
@@ -267,7 +275,8 @@ unless params[:city].blank?
     @spot5_not = @spot5_not.where.not(title: @spot4title)
     @spot5_not_lunch = @spot5_not.where.not("large like '%ディナー%'")
     @spot5_timezone = @spot5_not_lunch.where("timezone like '%夜%'")
-    @spot5_category = @spot5_timezone
+    @spot5_price = @spot5_timezone.where(price_dinner: @price_min..@price_max)
+    @spot5_category = @spot5_price
     @spot5_category = @spot5_category.where(
       @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
       *@nights.map { |attr| "%#{attr}%" }
@@ -290,7 +299,8 @@ unless params[:city].blank?
     @spot2_not = @spots.where.not(title: @spot1.title)
     @spot2_not_lunch = @spot2_not.where.not("large like '%ディナー%'")
     @spot2_timezone = @spot2_not_lunch.where("timezone like '%夜%'")
-    @spot2_category = @spot2_timezone
+    @spot2_price = @spot2_timezone.where(price_dinner: @price_min..@price_max)
+    @spot2_category = @spot2_price
     @spot2_category = @spot2_category.where(
       @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
       *@nights.map { |attr| "%#{attr}%" }
