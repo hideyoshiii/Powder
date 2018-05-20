@@ -43,8 +43,8 @@
 	    <!-- モーダルウィンドウの中身 -->
           <div class="modal" id="myModal_home">
             <div class="modal-dialog">
-              <div style="height:10vh;"></div>
-              <div class="modal-content" style="max-height:60vh;">
+              <div style="height:5vh;"></div>
+              <div class="modal-content" style="max-height:70vh;">
               	<div class="box-modal text-center" style="padding:80px 0px 90px;">
 
                 <p style="color:white;">あなたにぴったりのコースを提案します</p>
@@ -80,6 +80,14 @@
 		                スポットから
 		              </div>
 		          <% end %>
+		        </div>
+
+		        <div style="padding-top:40px;">
+		        	<%= link_to plans_result_path do %>
+			        	<div class="btn-idea">
+			        		<i class="far fa-lightbulb"></i>&nbsp;お任せでつくる
+			        	</div>
+		        	<% end %>
 		        </div>
 		        
 		        </div>
