@@ -83,10 +83,13 @@
 		        </div>
 
 		        <div style="padding-top:40px;">
-		        	<%= link_to plans_result_path do %>
-			        	<div class="btn-idea">
+		        	<%= form_tag(exams_result_path, method: :get) do %>
+		        		<%= hidden_field_tag :rely, "true" %>
+			        	<%= button_tag :type => "submit", :class =>"button1" do %>
+    						<div class="btn-idea">
 			        		<i class="far fa-lightbulb"></i>&nbsp;お任せでつくる
 			        	</div>
+    					<% end %>
 		        	<% end %>
 		        </div>
 		        

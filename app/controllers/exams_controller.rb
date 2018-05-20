@@ -136,7 +136,9 @@ def result
    @nights = ["カフェ","バー", "夜景", "ダーツ", "カラオケ", "公園"]
 
 #お任せサーチ
-if params[:city].blank? && params[:theme].blank? && params[:spot].blank?
+if params[:rely] == "true"
+   #時間帯定義
+   params[:timezone] = "noon"
    #スポット１(ランチ)
     @spot1_category = @spots.where("large like '%ランチ%'")
     @spot1_price = @spot1_category.where(price_lunch: 0..2000)
