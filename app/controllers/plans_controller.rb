@@ -321,10 +321,10 @@ unless params[:station].blank?
     #スポット１(ランチ)
     @spot1_category = @spots.where("large like '%ランチ%'")
     @spot1_price = @spot1_category.where(price_lunch: @price_start..@price_end)
-    @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+    @spot1_distance = @spot1_price.near([@station_l[1].to_f, @station_l[2].to_f], @distance, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
       @distance = @distance + 0.5.to_f
-      @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+      @spot1_distance = @spot1_price.near([@station_l[1].to_f, @station_l[2].to_f], @distance, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
     #スポット２
@@ -397,10 +397,10 @@ unless params[:station].blank?
     #スポット１
     @spot1_category = @spots.where("large like '%ディナー%'")
     @spot1_price = @spot1_category.where(price_dinner: @price_startz..@price_endz)
-    @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+    @spot1_distance = @spot1_price.near([@station_l[1].to_f, @station_l[2].to_f], @distance, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
       @distance = @distance + 0.5.to_f
-      @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+      @spot1_distance = @spot1_price.near([@station_l[1].to_f, @station_l[2].to_f], @distance, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
     #スポット２
