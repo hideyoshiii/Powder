@@ -313,13 +313,13 @@ end
 unless params[:station].blank?
 
   #駅の緯度軽度を定義
-  @station = "東京都" + params[:station].to_s + "駅"
+  @station = "東京都," + params[:station].to_s + "駅"
   @station_l = Geocoder.coordinates(@station)
 
    #昼からの時
    if params[:timezone] == "noon"
     #スポット１(ランチ)
-    @spot1_category = @spot1_city.where("large like '%ランチ%'")
+    @spot1_category = @spots.where("large like '%ランチ%'")
     @spot1_price = @spot1_category.where(price_lunch: @price_start..@price_end)
     @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
@@ -395,7 +395,7 @@ unless params[:station].blank?
    #夜からの時
    if params[:timezone] == "night"
     #スポット１
-    @spot1_category = @spot1_city.where("large like '%ディナー%'")
+    @spot1_category = @spots.where("large like '%ディナー%'")
     @spot1_price = @spot1_category.where(price_dinner: @price_startz..@price_endz)
     @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
