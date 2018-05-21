@@ -210,14 +210,14 @@ def result
      @price_start = 0
      @price_end = 1000
      @price_startz = 0
-     @price_endz = 5000
+     @price_endz = 4000
      @price_min = 0
      @price_max = 3000
    end
    if params[:budget] == "2"
-     @price_start = 1001
+     @price_start = 0
      @price_end = 2000
-     @price_startz = 5001
+     @price_startz = 4001
      @price_endz = 8000
      @price_min = 0
      @price_max = 5000
