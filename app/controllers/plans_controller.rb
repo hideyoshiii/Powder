@@ -312,9 +312,20 @@ end
 #駅サーチ
 unless params[:station].blank?
 
+  @distance = 1.5.to_f
+
   #駅の緯度軽度を定義
-  @station = "東京都," + params[:station].to_s + "駅"
-  @station_l = Geocoder.coordinates(@station)
+  @station = params[:station]
+  if @station = "恵比寿"
+    @station_a ="東京都渋谷区恵比寿南１丁目５"
+  end
+  if @station = "代官山"
+    @station_a ="東京都渋谷区代官山町１９−４"
+  end
+  if @station = "中目黒"
+    @station_a ="東京都目黒区上目黒３−４−１"
+  end
+  @station_l = Geocoder.coordinates(@station_a)
 
    #昼からの時
    if params[:timezone] == "noon"
