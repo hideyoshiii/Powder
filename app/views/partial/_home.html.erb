@@ -12,29 +12,40 @@
 
                 	<div class="grid_no3">
 			          	<div class="radio-city333"> 
-			              <%= radio_button_tag(:staion, "恵比寿", @ebisu_s, {:id => "ebisu_s", :onclick => "document.face.submit();"}) %>
-			              <label for="ebisu_s">
-				            <%= image_tag "ebisu00.jpg", :class =>'img-category0' %>
-			    		  </label>
-			    		  <p>
-			    		  	<span>恵比寿</span><br>
-			    		  </p>
-			            </div>
-				    </div>
-
-		            <div class="grid_no3">
-			          	<div class="radio-city333"> 
-			              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu", :onclick => "document.face.submit();"}) %>
+			              <%= radio_button_tag(:station, "恵比寿", @ebisu, {:id => "ebisu", :onclick => "document.face.submit();"}) %>
 			              <label for="ebisu">
 				            <%= image_tag "ebisu00.jpg", :class =>'img-category0' %>
 			    		  </label>
 			    		  <p>
-			    		  	<span>恵比寿</span><br>
-			    		  	<span>代官山</span><br>
+			    		  	<span>恵比寿</span>
+			    		  </p>
+			            </div>
+				    </div>
+
+				    <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:station, "代官山", @daikanyama, {:id => "daikanyama", :onclick => "document.face.submit();"}) %>
+			              <label for="daikanyama">
+				            <%= image_tag "ebisu00.jpg", :class =>'img-category0' %>
+			    		  </label>
+			    		  <p>
+			    		  	<span>代官山</span>
+			    		  </p>
+			            </div>
+				    </div>
+
+				    <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:station, "中目黒", @nakameguro, {:id => "nakameguro", :onclick => "document.face.submit();"}) %>
+			              <label for="nakameguro">
+				            <%= image_tag "ebisu00.jpg", :class =>'img-category0' %>
+			    		  </label>
+			    		  <p>
 			    		  	<span>中目黒</span>
 			    		  </p>
 			            </div>
 				    </div>
+
 
 				    <div class="grid_no3">
 			          	<div class="radio-city333"> 
