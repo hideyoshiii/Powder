@@ -49,7 +49,11 @@
 	      <%= form_tag(exams_result_path, method: :get) do %>
 
 	      <!-- エリアモーダルウィンドウの中身 -->
-          
+          <div class="modal" id="myModal_home">
+            <div class="modal-dialog">
+              <div style="height:5vh;"></div>
+              <div class="modal-content" style="max-height:60vh;">
+              	<div class="box-modal text-center" style="padding:30px 5px;">
 
 	                <p style="color:white;">あなたにぴったりのコースを提案します</p>
 	                <p style="color:white;">エリアを選んでください</p>
@@ -258,8 +262,19 @@
 
 			        
 		        
-		        
-              
+		        </div>
+              </div>
+              <div class="btn-modal">
+                <a href="" data-toggle="modal" data-dismiss="modal">
+                  <div class="btn-modal-center">
+                    <div>
+                      <i class="fas fa-times"></i>&nbsp;閉じる
+                    </div>
+                  </div>
+                </a>  
+              </div>
+            </div>
+          </div>
 
           <!-- 詳細条件モーダルウィンドウの中身 -->
           <div class="modal" id="myModal_detail">
