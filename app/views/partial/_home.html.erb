@@ -10,6 +10,18 @@
 	                <p style="color:white;">エリアを選んでください</p>
                 	<div style="height:5px;"></div>
 
+                	<div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:staion, "恵比寿", @ebisu_s, {:id => "ebisu_s", :onclick => "document.face.submit();"}) %>
+			              <label for="ebisu_s">
+				            <%= image_tag "ebisu00.jpg", :class =>'img-category0' %>
+			    		  </label>
+			    		  <p>
+			    		  	<span>恵比寿</span><br>
+			    		  </p>
+			            </div>
+				    </div>
+
 		            <div class="grid_no3">
 			          	<div class="radio-city333"> 
 			              <%= radio_button_tag(:city, "恵比寿・代官山・中目黒", @ebisu, {:id => "ebisu", :onclick => "document.face.submit();"}) %>
@@ -334,7 +346,7 @@
 		        		  <p>
 		        		  	<span>立川</span><br>
 		        		  	<span>八王子</span><br>
-		        		  	<span>八王子</span>
+		        		  	<span>青梅</span>
 		        		  </p>
 			            </div>
 					  </div>
