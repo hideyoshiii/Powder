@@ -4,7 +4,7 @@
           <div class="modal" id="myModal_home">
             <div class="modal-dialog">
               <div class="modal-content" style="max-height:75vh;">
-              	<div class="box-modal text-center" style="padding:10px 3px;">
+              	<div class="box-modal text-center" style="padding:15px 3px;">
 
 	                <p style="color:white;">あなたにぴったりのコースを提案します</p>
 	                <p style="color:white;">エリアを選んでください</p>
@@ -30,7 +30,9 @@
 			              <label for="shibuya">
 				            <%= image_tag "shibuya00.jpg", :class =>'img-category0' %>
 		        		  </label>
-		        		  <p><span>渋谷</span></p>
+		        		  <p>
+		        		  	<span>渋谷</span>
+		        		  </p>
 			            </div>
 				    </div>
 
@@ -83,7 +85,6 @@
 		        		  <p>
 		        		  	<span>六本木</span><br>
 		        		  	<span>麻布</span><br>
-		        		  	<span>赤坂</span>
 		        		  </p>
 			            </div>
 				      </div>
@@ -284,6 +285,216 @@
 			            </div>
 				      </div>
 
+				      <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "自由が丘・二子玉川", @jiyugaoka, {:id => "jiyugaoka", :onclick => "document.face.submit();"}) %>
+			              <label for="jiyugaoka">
+				            <%= image_tag "jiyugaoka00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>自由が丘</span><br>
+		        		  	<span>二子玉川</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "中野・荻窪", @nakano, {:id => "nakano", :onclick => "document.face.submit();"}) %>
+			              <label for="nakano">
+				            <%= image_tag "nakano00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>中野</span><br>
+		        		  	<span>荻窪</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "人形町・門前仲町・葛西", @ningyocho, {:id => "ningyocho", :onclick => "document.face.submit();"}) %>
+			              <label for="ningyocho">
+				            <%= image_tag "ningyocho00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>人形町</span><br>
+		        		  	<span>門前仲町</span><br>
+		        		  	<span>葛西</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "立川・八王子・青梅", @tachikawa, {:id => "tachikawa", :onclick => "document.face.submit();"}) %>
+			              <label for="tachikawa">
+				            <%= image_tag "tachikawa00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>立川</span><br>
+		        		  	<span>八王子</span><br>
+		        		  	<span>八王子</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "大井町・大森・蒲田", @oicho, {:id => "oicho", :onclick => "document.face.submit();"}) %>
+			              <label for="oicho">
+				            <%= image_tag "oicho00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>大井町</span><br>
+		        		  	<span>大森</span><br>
+		        		  	<span>蒲田</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "三軒茶屋・駒沢", @sangenchaya, {:id => "sangenchaya", :onclick => "document.face.submit();"}) %>
+			              <label for="sangenchaya">
+				            <%= image_tag "sangenchaya00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>三軒茶屋</span><br>
+		        		  	<span>駒沢</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "大塚・巣鴨・駒込", @otsuka, {:id => "otsuka", :onclick => "document.face.submit();"}) %>
+			              <label for="otsuka">
+				            <%= image_tag "otsuka00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>大塚</span><br>
+		        		  	<span>巣鴨</span><br>
+		        		  	<span>駒込</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "調布・府中・狛江", @chofu, {:id => "chofu", :onclick => "document.face.submit();"}) %>
+			              <label for="chofu">
+				            <%= image_tag "chofu00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>調布</span><br>
+		        		  	<span>府中</span><br>
+		        		  	<span>狛江</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "町田・稲城・多摩", @machida, {:id => "machida", :onclick => "document.face.submit();"}) %>
+			              <label for="machida">
+				            <%= image_tag "machida00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>町田</span><br>
+		        		  	<span>稲城</span><br>
+		        		  	<span>多摩</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "千住・綾瀬・葛飾", @senju, {:id => "senju", :onclick => "document.face.submit();"}) %>
+			              <label for="senju">
+				            <%= image_tag "senju00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>千住</span><br>
+		        		  	<span>綾瀬</span><br>
+		        		  	<span>葛飾</span><br>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "練馬・江古田", @nerima, {:id => "nerima", :onclick => "document.face.submit();"}) %>
+			              <label for="nerima">
+				            <%= image_tag "nerima00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>練馬</span><br>
+		        		  	<span>江古田</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "大久保・高田馬場・早稲田", @okubo, {:id => "okubo", :onclick => "document.face.submit();"}) %>
+			              <label for="okubo">
+				            <%= image_tag "okubo00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>大久保</span><br>
+		        		  	<span>高田馬場</span><br>
+		        		  	<span>早稲田</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "代々木・初台", @yoyogi, {:id => "yoyogi", :onclick => "document.face.submit();"}) %>
+			              <label for="yoyogi">
+				            <%= image_tag "yoyogi00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>代々木</span><br>
+		        		  	<span>初台</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "板橋・赤羽", @itabashi, {:id => "itabashi", :onclick => "document.face.submit();"}) %>
+			              <label for="itabashi">
+				            <%= image_tag "itabashi00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>板橋</span><br>
+		        		  	<span>赤羽</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  <div class="grid_no3">
+			          	<div class="radio-city333"> 
+			              <%= radio_button_tag(:city, "両国・錦糸町・小岩", @ryogoku, {:id => "ryogoku", :onclick => "document.face.submit();"}) %>
+			              <label for="ryogoku">
+				            <%= image_tag "ryogoku00.jpg", :class =>'img-category0' %>
+		        		  </label>
+		        		  <p>
+		        		  	<span>両国</span><br>
+		        		  	<span>錦糸町</span><br>
+		        		  	<span>小岩</span>
+		        		  </p>
+			            </div>
+					  </div>
+
+					  
+
+					  
+
+
+
 			        
 		        
 		        </div>
@@ -316,7 +527,7 @@
             <div class="modal-dialog">
               <div style="height:0vh;"></div>
               <div class="modal-content" style="max-height:75vh;">
-              	<div class="box-modal text-center" style="padding:10px 0px 65px;">
+              	<div class="box-modal text-center" style="padding:15px 0px 65px;">
 
               		<p style="color:white;">あなたにぴったりのコースを提案します</p>
 	                <p style="color:white;">コースの条件を指定してください</p>
