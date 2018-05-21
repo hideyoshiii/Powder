@@ -316,44 +316,44 @@ unless params[:station].blank?
 
   #駅の緯度軽度を定義
   @station = params[:station]
-  if @station = "恵比寿"
-    @station_a ="東京都渋谷区恵比寿南１丁目５"
+  if @station == "恵比寿"
+    @station_a = "東京都渋谷区恵比寿南１丁目５"
   end
-  if @station = "代官山"
-    @station_a ="東京都渋谷区代官山町１９−４"
+  if @station == "代官山"
+    @station_a = "東京都渋谷区代官山町１９−４"
   end
-  if @station = "中目黒"
-    @station_a ="東京都目黒区上目黒３−４−１"
+  if @station == "中目黒"
+    @station_a = "東京都目黒区上目黒３−４−１"
   end
-  if @station = "渋谷"
-    @station_a ="東京都渋谷区道玄坂"
+  if @station == "渋谷"
+    @station_a = "東京都渋谷区道玄坂"
   end
-  if @station = "原宿"
-    @station_a ="東京都渋谷区神宮前 1 丁目 18"
+  if @station == "原宿"
+    @station_a = "東京都渋谷区神宮前 1 丁目 18"
   end
-  if @station = "表参道・青山"
-    @station_a ="東京都 港区北青山３丁目６−１２"
+  if @station == "表参道・青山"
+    @station_a = "東京都 港区北青山３丁目６−１２"
   end
-  if @station = "東京・丸の内・日本橋"
-    @station_a ="東京都千代田区丸の内１丁目"
+  if @station == "東京・丸の内・日本橋"
+    @station_a = "東京都千代田区丸の内１丁目"
   end
-  if @station = "新宿"
-    @station_a ="東京都新宿区新宿３丁目"
+  if @station == "新宿"
+    @station_a = "東京都新宿区新宿３丁目"
   end
-  if @station = "六本木"
-    @station_a ="東京都港区赤坂９丁目７−３９"
+  if @station == "六本木"
+    @station_a = "東京都港区赤坂９丁目７−３９"
   end
-  if @station = "麻布"
-    @station_a ="東京都港区麻布十番１丁目１０ 港区麻布十番１丁目４−６"
+  if @station == "麻布"
+    @station_a = "東京都港区麻布十番１丁目１０ 港区麻布十番１丁目４−６"
   end
-  if @station = "お台場"
-    @station_a ="東京都港区台場２丁目３"
+  if @station == "お台場"
+    @station_a = "東京都港区台場２丁目３"
   end
-  if @station = "品川"
-    @station_a ="東京都港区高輪３丁目"
+  if @station == "品川"
+    @station_a = "東京都港区高輪３丁目"
   end
-  if @station = "池袋"
-    @station_a ="東京都豊島 南池袋１丁目２８−１"
+  if @station == "池袋"
+    @station_a = "東京都豊島 南池袋１丁目２８−１"
   end
   
   @station_l = Geocoder.coordinates(@station_a)
