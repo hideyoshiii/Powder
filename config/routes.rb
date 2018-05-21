@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "exams/budget" => "exams#budget"
 
   get "exams/home" => "exams#home"
+  get "exams/home2" => "exams#home2"
   get "exams/spots" => "exams#spots"
   get "exams/result" => "exams#result"
 

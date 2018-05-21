@@ -1,0 +1,464 @@
+<%= render "partial/navbar00" %>
+<mains class="" id="main-collapse">
+
+    <div class="visible-xs visible-sm">
+
+    	<div class="img_box_home">
+	      <h1 style="font-size:30px;color:white;margin-bottom:3px;line-height:1.4;text-shadow: 1px 1px 2px black;">
+	        デートコースを10秒で
+	      </h1>
+	      <p class="text-center" style="font-size:13px;color:white;text-shadow: 1px 1px 2px black;">
+	        デートコースがなかなか決まらないあなたへ
+	        <br>
+	        <span class="site-title">A.Date</span>で誰でも簡単にデートプランが作れます
+	      </p>
+	      <div style="height:30px;"></div>
+	      <div class="">
+	        <a href="" data-toggle="modal" data-target="#myModal_home">
+	          <div class="raised-trans">
+	            10秒でデートコースをつくる
+	          </div>
+	        </a>
+	      </div>
+	      <a href="" data-toggle="modal" data-target="#myModal_detail">
+	          <div class="">
+	            詳細条件
+	          </div>
+	        </a>
+	      <% if (user_signed_in?) %>
+	        <% if current_user.authority == "manager" %>
+	          <div class="">
+	            <%= link_to seeks_which_path do %>
+	              <div style="fotn-size:12px;color:#CCCCCC;margin-top:10px;">
+	                自分で作る
+	              </div>
+	            <% end %>
+	          </div>
+	        <% end %>
+	      <% end %>
+	      <h4 class="text-center" style="font-size:13px;">
+	        <a href="#next">
+	          <span class="what-white">LINEでつくってもらう</span>
+	          <div style="margin-top:7px;color:white;">
+	            <i class="fas fa-chevron-down"></i>
+	          </div>
+	        </a>
+	      </h4>
+	    </div>
+
+	      <%= form_tag(exams_result_path, method: :get) do %>
+
+	      <!-- エリアモーダルウィンドウの中身 -->
+          <div class="modal" id="myModal_home">
+            <div class="modal-dialog">
+              <div style="height:0vh;"></div>
+              <div class="modal-content" style="max-height:74vh;">
+              	<div class="box-modal text-center" style="padding:30px 5px;">
+
+	                <p style="color:white;">あなたにぴったりのコースを提案します</p>
+	                <p style="color:white;">エリアを選んでください</p>
+                	<div style="height:30px;"></div>
+
+                	<div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "恵比寿・代官山・中目黒", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "ebisu00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                恵比寿・代官山・中目黒
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "渋谷", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "shibuya00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                渋谷
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "原宿・表参道・青山", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "harajuku00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                原宿・表参道・青山
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "東京・丸の内・日本橋", :class =>"button1" do %>
+				            <div class="box-category-img">
+				              <%= image_tag "tokyo00.jpg", :class =>'img-category' %>
+				              <div class="text-category2">
+				                東京・丸の内・日本橋
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "新宿", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "shinnjuku00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                新宿
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "六本木・麻布・赤坂", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "roppongi00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                六本木・麻布・赤坂
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "品川", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "shinagawa00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                品川
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "池袋", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "ikebukuro00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                池袋
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "銀座・有楽町", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "ginza00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                銀座・有楽町
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "新橋・汐留・浜松町", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "shinbashi00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                新橋・汐留・浜松町
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "上野", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "ueno00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                上野
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "浅草・押上", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "asakusa00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                浅草・押上
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "目黒・白金・五反田", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "meguro00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                目黒・白金・五反田
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "吉祥寺・三鷹", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "kichijoji00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                吉祥寺・三鷹
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "神楽坂・飯田橋", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "kagurazaka00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                神楽坂・飯田橋
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "下北沢", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "shimokitazawa00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                下北沢
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "谷中・根津・千駄木", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "taninaka00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                谷中・根津・千駄木
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "神田・秋葉原・御茶ノ水", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "kanda00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                神田・秋葉原・御茶ノ水
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "赤坂・虎ノ門・永田町", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "akasaka00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                赤坂・虎ノ門・永田町
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+			        <div class="grid_no3">
+	                	<%= button_tag :name => "city", :type => "submit", :value => "四ツ谷・信濃町・千駄ヶ谷", :class =>"button1" do %>
+				            <div class="box-category-img0">
+				              <%= image_tag "yotsuya00.jpg", :class =>'img-category0' %>
+				              <div class="text-category2">
+				                四ツ谷・信濃町・千駄ヶ谷
+				              </div>
+				            </div>
+				        <% end %>
+			        </div>
+
+			        
+		        
+		        </div>
+              </div>
+              <div class="btn-modal">
+                <a href="" data-toggle="modal" data-dismiss="modal">
+                  <div class="btn-modal-center">
+                    <div>
+                      <i class="fas fa-times"></i>&nbsp;閉じる
+                    </div>
+                  </div>
+                </a>  
+              </div>
+            </div>
+          </div>
+
+          <!-- 詳細条件モーダルウィンドウの中身 -->
+          <div class="modal" id="myModal_detail">
+            <div class="modal-dialog">
+              <div style="height:10vh;"></div>
+              <div class="modal-content" style="max-height:55vh;">
+              	<div class="box-modal text-center" style="padding:80px 0px;">
+
+	          <%# 時間帯 %>
+              <h4 style="color:#CCCCCC;padding:20px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">2</span>,&nbsp;Timezone</h4>
+              <div class="home-box">
+                <div class="home-box-1">
+                    <div class="radio-city00"> 
+                          <%= radio_button_tag(:timezone, "noon", @timezone_lunch, {:id => "lunch"}) %>
+                          <label for="lunch">
+                          <i class="fas fa-sun"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          ランチから
+                        </div>
+                      </div>
+                      <div class="home-box-1">
+                    <div class="radio-city00"> 
+                          <%= radio_button_tag(:timezone, "night", @timezone_night, {:id => "dinner"}) %>
+                          <label for="dinner">
+                          <i class="fas fa-moon"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          ディナーから
+                        </div>
+                      </div>
+                  </div>
+              <%# 予算 %>
+              <h4 style="color:#CCCCCC;padding:0px 0px 5px 10px;font-size:17px;"><span style="font-size:24px;">3</span>,&nbsp;Budget</h4>
+                <div class="home-box">
+                  <div class="home-box-1">
+                    <div class="radio-city0"> 
+                          <%= radio_button_tag(:budget, "1", @budget_one, {:id => "one"}) %>
+                          <label for="one">
+                          <i class="fas fa-yen-sign"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          Bronze
+                        </div>
+                      </div>
+                      <div class="home-box-1">
+                    <div class="radio-city0"> 
+                          <%= radio_button_tag(:budget, "2", @budget_two, {:id => "two"}) %>
+                          <label for="two">
+                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          Silver
+                        </div>
+                      </div>
+                      <div class="home-box-1">
+                    <div class="radio-city0"> 
+                          <%= radio_button_tag(:budget, "3", @budget_three, {:id => "three"}) %>
+                          <label for="three">
+                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                        </label>
+                        </div>
+                        <div class="lunch-info">
+                          Gold
+                        </div>
+                      </div>   
+                </div>
+		        
+		        </div>
+              </div>
+              <div class="btn-modal">
+                <a href="" data-toggle="modal" data-dismiss="modal">
+                  <div class="btn-modal-center">
+                    <div>
+                      <i class="fas fa-times"></i>&nbsp;閉じる
+                    </div>
+                  </div>
+                </a>  
+              </div>
+            </div>
+          </div>
+
+          <% end %>
+
+	    <div class="box-max" style="margin-bottom:-40px;" id="next">
+		    <div style="padding:0px 10px;text-align:center;font-size:20px;color:black;">
+			  	<h4 class="text-center">LINEでもデートコースを提案</h4>
+			    <p style="font-size:13px;padding:0px 20px;color:black;">
+			      ショーンがLINEでもデートコースを提案してくれます。
+			      <br><span style="font-size:10px;">※対応エリアは東京エリアのみです</span>   
+			    </p>
+			    <div style="padding:0px 0px 0px;text-align:center;margin:-20px auto 0;font-size:20px;color:black;">
+			        <a href="/plans/sean" class="black">
+			          <%= image_tag "line.jpg", :class =>'img-circle profile-line' %>
+			          <br>
+			          <h4>ショーン&nbsp;<span style="font-size:12px;">＠zjy4945t</span></h4> 
+			          <div class="btn btn-default" style="margin-top:10px;">
+			          	ショーンについてもっと詳しく知る
+			      	  </div>   
+			        </a>
+			    </div>
+			    <div style="height:60px;"></div>
+			    <h4 class="text-center" style="font-size:13px;">
+			        <a href="#next2" style="color:black;">
+			          <span class="what">デートスポットから探す</span>
+			          <div style="margin-top:7px;">
+			            <i class="fas fa-chevron-down"></i>
+			          </div>
+			        </a>
+			    </h4>
+			</div>
+		</div>
+
+		<div style="height:40px;" id="next2"></div>
+
+		
+	    <div class="box-max">
+		  <div style="padding:0px 10px 0px;text-align:center;font-size:20px;color:black;">
+			  <div style="text-align:center;font-size:20px;color:black;padding:20px 0px 0px;">
+			    <a href="/" class="site-title black" style="letter-spacing:0em;font-size:26px;">A.Date</a>
+			    <p style="margin-top:-5px;">デートコースを10秒で</p>
+			  </div>
+			  <div style="text-align:center;">
+			    <a class="btn-sns" href="https://www.instagram.com/adate_ig/" target="_blank">
+			      <i class="fab fa-instagram"></i>
+			    </a>
+			    <a class="btn-sns" href="https://www.facebook.com/adate.fa/" target="_blank">
+			      <i class="fab fa-facebook-f"></i>
+			    </a>
+			    <a class="btn-sns" href="https://twitter.com/adate_tw/" target="_blank">
+			      <i class="fab fa-twitter"></i>
+			    </a>
+			    <a class="btn-sns" href="mailto:adate.ask@gmail.com?subject=お問い合わせ" target="_blank">
+			      <i class="far fa-envelope"></i>
+			    </a>
+			  </div>
+			  <p style="color:black;padding:20px 10px 0px 0px;font-size:10px;">Copyright © 2018 A.Date All rights reserved</p>
+		  </div>    
+		</div>    
+  
+	</div>
+
+
+
+	<div class="visible-md visible-lg">
+	  	
+	</div>
+	  		
+
+</mains>
+<% if (user_signed_in?) %>
+  <% if current_user.authority == "manager" %>
+    <%= render "partial/footer" %>
+  <% end %>
+<% end %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     masonryBuild();
+  });
+</script>
+
+<script>
+    $(function() {
+  $("h4").on("click", "a", function(e) {
+    var _this = $(this);
+    var _href = _this.attr("href");
+  
+    if (_href.charAt(0,1) == "#") {
+      e.preventDefault();
+      var _target  = $(_href == "#" || _href == "" ? $("html") : _href);
+      if (_target.length == "0") _target = $("html");
+      var position = _target.offset().top;
+      var _scroll  = _this.data("scroll");
+      if (_scroll !== undefined) position = position + Number(_scroll);
+      if (position <= 0) position = 1;  //Android2系でスクロールのバグ対策
+      $("html, body").animate({scrollTop : position} ,500, "swing");
+      return false;
+    }
+  });
+});
+</script>
+

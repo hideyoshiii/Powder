@@ -7013,11 +7013,39 @@ square_btnn{
 	background: rgba(0, 0, 0, 0.17); 
 }
 
+.box-category-img0{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+  overflow:hidden;
+  text-align:center;
+  border-radius: 2px;
+}
+
+.box-category-img0:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.17); 
+}
+
 .img-category{
   width:100%;
   height:auto;
   display: inline-block; 
   border-radius: 5px;
+}
+
+.img-category0{
+  width:100%;
+  height:auto;
+  display: inline-block; 
+  border-radius: 2px;
 }
 
 .text-category{
@@ -7047,11 +7075,12 @@ square_btnn{
   margin:0;
   padding:0;
   color:white;
-  font-size:15px;
+  font-size:12px;
   width:100%;
   text-shadow:
     black 1px 1px 1px,black 1px 1px 1px;
   line-height:1.2;
+  padding:0px 5px;
 }
 
 .text-category3{
@@ -9924,6 +9953,12 @@ square_btnn{
 .grid_no{
 	display:inline-block;
 	width:49%;
+	height:auto;
+}
+
+.grid_no3{
+	display:inline-block;
+	width:32%;
 	height:auto;
 }
 

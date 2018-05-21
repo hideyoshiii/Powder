@@ -2,6 +2,9 @@ class ExamsController < ApplicationController
 
 before_action :set_params, only: [:spots]
 
+def home2
+end
+
 def theme
 end
 
