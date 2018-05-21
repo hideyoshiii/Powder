@@ -46,12 +46,12 @@
 	      </h4>
 	    </div>
 
-	      <%= form_tag(exams_result_path, method: :get, :name => "face") do %>
+	      <%= form_tag(plans_result_path, method: :get, :name => "face") do %>
 
 	      <!-- エリアモーダルウィンドウの中身 -->
           <div class="modal" id="myModal_home">
             <div class="modal-dialog">
-              <div class="modal-content" style="max-height:74vh;">
+              <div class="modal-content" style="max-height:75vh;">
               	<div class="box-modal text-center" style="padding:30px 5px;">
 
 	                <p style="color:white;">あなたにぴったりのコースを提案します</p>
@@ -291,71 +291,71 @@
               <div class="modal-content" style="max-height:55vh;">
               	<div class="box-modal text-center" style="padding:80px 0px;">
 
-	          <%# 時間帯 %>
-              <h4 style="color:#CCCCCC;padding:20px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">2</span>,&nbsp;Timezone</h4>
-              <div class="home-box">
-                <div class="home-box-1">
-                    <div class="radio-city00"> 
-                          <%= radio_button_tag(:timezone, "noon", @timezone_lunch, {:id => "lunch"}) %>
-                          <label for="lunch">
-                          <i class="fas fa-sun"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          ランチから
-                        </div>
-                      </div>
-                      <div class="home-box-1">
-                    <div class="radio-city00"> 
-                          <%= radio_button_tag(:timezone, "night", @timezone_night, {:id => "dinner"}) %>
-                          <label for="dinner">
-                          <i class="fas fa-moon"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          ディナーから
-                        </div>
-                      </div>
-                  </div>
-              <%# 予算 %>
-              <h4 style="color:#CCCCCC;padding:0px 0px 5px 10px;font-size:17px;"><span style="font-size:24px;">3</span>,&nbsp;Budget</h4>
-                <div class="home-box">
-                  <div class="home-box-1">
-                    <div class="radio-city0"> 
-                          <%= radio_button_tag(:budget, "1", @budget_one, {:id => "one"}) %>
-                          <label for="one">
-                          <i class="fas fa-yen-sign"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          Bronze
-                        </div>
-                      </div>
-                      <div class="home-box-1">
-                    <div class="radio-city0"> 
-                          <%= radio_button_tag(:budget, "2", @budget_two, {:id => "two"}) %>
-                          <label for="two">
-                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          Silver
-                        </div>
-                      </div>
-                      <div class="home-box-1">
-                    <div class="radio-city0"> 
-                          <%= radio_button_tag(:budget, "3", @budget_three, {:id => "three"}) %>
-                          <label for="three">
-                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          Gold
-                        </div>
-                      </div>   
-                </div>
-		        
-		        </div>
+	          		<%# 時間帯 %>
+              		<h4 style="color:#CCCCCC;padding:20px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">2</span>,&nbsp;Timezone</h4>
+          			<div class="home-box">
+            			<div class="home-box-1">
+                			<div class="radio-city00"> 
+                      			<%= radio_button_tag(:timezone, "noon", true, {:id => "lunch"}) %>
+                      			<label for="lunch">
+                      				<i class="fas fa-sun"></i>
+                   				</label>
+                    		</div>
+                    		<div class="lunch-info">
+                      			ランチから
+                    		</div>
+                  		</div>
+                      	<div class="home-box-1">
+                    		<div class="radio-city00"> 
+                          		<%= radio_button_tag(:timezone, "night", @timezone_night, {:id => "dinner"}) %>
+                          		<label for="dinner">
+                          			<i class="fas fa-moon"></i>
+                        		</label>
+                        	</div>
+                        	<div class="lunch-info">
+                          		ディナーから
+                        	</div>
+                  		</div>
+              		</div>
+              		<%# 予算 %>
+              		<h4 style="color:#CCCCCC;padding:0px 0px 5px 10px;font-size:17px;"><span style="font-size:24px;">3</span>,&nbsp;Budget</h4>
+                	<div class="home-box">
+                  		<div class="home-box-1">
+                    		<div class="radio-city0"> 
+                          		<%= radio_button_tag(:budget, "1", @budget_one, {:id => "one"}) %>
+                          		<label for="one">
+                          			<i class="fas fa-yen-sign"></i>
+                        		</label>
+                        	</div>
+                        	<div class="lunch-info">
+                          		Bronze
+                        	</div>
+                      	</div>
+                      	<div class="home-box-1">
+                    		<div class="radio-city0"> 
+                          		<%= radio_button_tag(:budget, "2", true, {:id => "two"}) %>
+                          		<label for="two">
+                          			<i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                        		</label>
+                        	</div>
+                        	<div class="lunch-info">
+                          		Silver
+                        	</div>
+                      	</div>
+                      	<div class="home-box-1">
+                    		<div class="radio-city0"> 
+                          		<%= radio_button_tag(:budget, "3", @budget_three, {:id => "three"}) %>
+                          		<label for="three">
+                          			<i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                        		</label>
+                        	</div>
+                        	<div class="lunch-info">
+                          		Gold
+                        	</div>
+                    	</div> 
+                	</div> 
+
+		      	</div>
               </div>
               <div class="btn-modal">
                 <a href="" data-toggle="modal" data-dismiss="modal">
