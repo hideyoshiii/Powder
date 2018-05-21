@@ -9958,10 +9958,71 @@ square_btnn{
 
 .grid_no3{
 	display:inline-block;
-	width:31%;
+	width:32%;
 	height:auto;
-	padding:5px 0px;
+	padding:3px 0px;
 }
+
+//エリアのラジオ選択
+.radio-city333 {
+  	position: relative;
+  	width:100%;
+    height:auto;
+    overflow:hidden;
+  }
+
+.radio-city333 input{
+    display: none;
+}
+.radio-city333 label {
+    position: relative;
+    transition:0.1s;
+}
+.radio-city333 input[type="radio"]:checked + label {
+    position: relative;
+    transition:0.1s;
+}
+
+.radio-city333 input[type="radio"] + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.17); /* カラーを重ねる */
+	border-radius: 5px;
+}
+
+.radio-city333 input[type="radio"]:checked + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.17); /* カラーを重ねる */
+	border-radius: 5px;
+}
+
+.radio-city333 p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0px 5px;
+  width:100%;
+  color:white;
+  font-size:12px;
+  text-shadow:
+    black 1px 1px 1px,black 1px 1px 1px;
+  line-height:1.3;
+  text-align:center;
+  }
+
 
 
 
