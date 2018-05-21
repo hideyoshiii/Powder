@@ -8334,6 +8334,38 @@ square_btnn{
 	color:white;
 }
 
+//テキストフィーすどのデザイン
+.text-box01 input {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.text-box01 input {
+	width: 100%;
+	padding: 6px 0px 6px 20px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid white;
+	background: rgba(0,0,0,0);
+	border-radius: 0px;
+	font-size:14px;
+	color:white;
+}
+
+.form-control2::-webkit-input-placeholder {
+	color: #CCCCCC;
+}
+.form-control2::-moz-placeholder {
+	color: #CCCCCC;
+}
+.form-control2::-ms-input-placeholder {
+	color: #CCCCCC;
+}
+
+.form-control2:focus{border-color:white;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}
+
 
 //バルーン
 .box-balloon {

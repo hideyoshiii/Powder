@@ -309,6 +309,120 @@ if params[:rely] == "true"
 
 end
 
+#駅サーチ
+unless params[:station].blank?
+
+  #駅の緯度軽度を定義
+  @station = "東京都" + params[:station].to_s + "駅"
+  @station_l = Geocoder.coordinates(@station)
+
+   #昼からの時
+   if params[:timezone] == "noon"
+    #スポット１(ランチ)
+    @spot1_category = @spot1_city.where("large like '%ランチ%'")
+    @spot1_price = @spot1_category.where(price_lunch: @price_start..@price_end)
+    @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+    until @spot1_distance.size >= 1 do
+      @distance = @distance + 0.5.to_f
+      @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot1 = @spot1_distance.order("RANDOM()").first
+    #スポット２
+    @spot2_not = @spots.where.not(title: @spot1.title)
+    @spot2_not_lunch = @spot2_not.where.not("large like '%ランチ%'")
+    @spot2_timezone = @spot2_not_lunch.where("timezone like '%昼%'")
+    @spot2_price = @spot2_timezone.where(price_lunch: @price_min..@price_max)
+    @spot2_category = @spot2_price
+    @spot2_category = @spot2_category.where(
+      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noons.map { |attr| "%#{attr}%" }
+      )
+    @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    until @spot2_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot2 = @spot2_distance.order("RANDOM()").first
+    #スポット３
+    @spot3_not = @spots.where.not(title: @spot1.title)
+    @spot3_not = @spot3_not.where.not(title: @spot2.title)
+    @spot3_not_lunch = @spot3_not.where.not("large like '%ランチ%'")
+    @spot3_timezone = @spot3_not_lunch.where("timezone like '%昼%'")
+    @spot3_price = @spot3_timezone.where(price_lunch: @price_min..@price_max)
+    @spot3_category = @spot3_price
+    @spot3_category = @spot3_category.where(
+      @noons.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@noons.map { |attr| "%#{attr}%" }
+      )
+    @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+    until @spot3_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot3_distance = @spot3_category.near([@spot2.latitude, @spot2.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot3 = @spot3_distance.order("RANDOM()").first
+    #スポット４(ディナー)
+    @spot4_not = @spots.where.not(title: @spot1.title)
+    @spot4_not = @spot4_not.where.not(title: @spot2.title)
+    @spot4_not = @spot4_not.where.not(title: @spot3.title)
+    @spot4_category = @spot4_not.where("large like '%ディナー%'")
+    @spot4_price = @spot4_category.where(price_dinner: @price_startz..@price_endz)
+    @spot4_distance = @spot4_price.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
+    until @spot4_distance.size >= 1 do
+      @distance = @distance.to_f + 0.2.to_f
+      @spot4_distance = @spot4_price.near([@spot3.latitude, @spot3.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot4 = @spot4_distance.order("RANDOM()").first
+    #スポット５
+    @spot5_not = @spots.where.not(title: @spot1.title)
+    @spot5_not = @spot5_not.where.not(title: @spot2.title)
+    @spot5_not = @spot5_not.where.not(title: @spot3.title)
+    @spot5_not = @spot5_not.where.not(title: @spot4title)
+    @spot5_not_lunch = @spot5_not.where.not("large like '%ディナー%'")
+    @spot5_timezone = @spot5_not_lunch.where("timezone like '%夜%'")
+    @spot5_price = @spot5_timezone.where(price_dinner: @price_min..@price_max)
+    @spot5_category = @spot5_price
+    @spot5_category = @spot5_category.where(
+      @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@nights.map { |attr| "%#{attr}%" }
+      )
+    @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
+    until @spot5_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot5_distance = @spot5_category.near([@spot4.latitude, @spot4.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot5 = @spot5_distance.order("RANDOM()").first
+   end
+   #夜からの時
+   if params[:timezone] == "night"
+    #スポット１
+    @spot1_category = @spot1_city.where("large like '%ディナー%'")
+    @spot1_price = @spot1_category.where(price_dinner: @price_startz..@price_endz)
+    @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+    until @spot1_distance.size >= 1 do
+      @distance = @distance + 0.5.to_f
+      @spot1_distance = @spot1_price.near([@station_l.latitude, @station_l.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot1 = @spot1_distance.order("RANDOM()").first
+    #スポット２
+    @spot2_not = @spots.where.not(title: @spot1.title)
+    @spot2_not_lunch = @spot2_not.where.not("large like '%ディナー%'")
+    @spot2_timezone = @spot2_not_lunch.where("timezone like '%夜%'")
+    @spot2_price = @spot2_timezone.where(price_dinner: @price_min..@price_max)
+    @spot2_category = @spot2_price
+    @spot2_category = @spot2_category.where(
+      @nights.map { |attr|  "\"spots\".\"large\" LIKE ?" }.join(' OR '),
+      *@nights.map { |attr| "%#{attr}%" }
+      )
+    @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    until @spot2_distance.size >= 1 do
+      @distance = @distance + 0.2.to_f
+      @spot2_distance = @spot2_category.near([@spot1.latitude, @spot1.longitude], @distance, :units => :km, :order => false)
+    end
+    @spot2 = @spot2_distance.order("RANDOM()").first
+   end
+
+end
+
 #エリアサーチ
 unless params[:city].blank?
 
