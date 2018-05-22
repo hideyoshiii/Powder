@@ -161,7 +161,7 @@ end
 
 def result  
 
-  #再検索用の定義
+   #再検索用の定義
    @timezone_lunch = false
    @timezone_night = false
     unless params[:timezone].blank?

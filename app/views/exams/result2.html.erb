@@ -8,20 +8,12 @@
   <div class="course">
     <div class="course_in">
 
-      <%#広告%>
-      <div class="visible-xs" style=";">
-        <script type="text/javascript">
-        var nend_params = {"media":54485,"site":296581,"spot":870110,"type":1,"oriented":1};
-        </script>
-        <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
-      </div> 
-
       <%# 目次 %>
       <div style="padding:15px 25px 5px;">
-        <h4 style="margin-bottom:0px;">コースが作成されました</h4>   
-        <p style="font-size:12px;color:black;margin:0px;padding:0px 0px 5px;">コースが気に入らない場合は再作成または条件変更ができます。</p> 
+        <h4 style="margin-bottom:3px;"><%= @station %>デート</h4> 
+        <p style="font-size:12px;color:#444444;margin:0px;padding:0px 0px 10px;">コースが気に入らない場合は再作成または条件変更ができます。</p>   
         <div style="font-size:12px;color:black;">
-          <i class="fas fa-map-marker-alt"></i>&nbsp;<%= @spot_first.city %>付近
+          <i class="fas fa-map-marker-alt"></i>&nbsp;<%= @station %>付近
         </div>
         <div style="font-size:12px;color:black;">
           <% if params[:timezone] == "noon" %>
@@ -211,13 +203,6 @@
           </div>
           <div style="height:30px;"></div>
         </div>
-        <%#広告%>
-        <div class="visible-xs" style=";">
-          <script type="text/javascript">
-          var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
-          </script>
-          <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
-        </div>  
       </div>
     </div>
     <%#PC用のmap%>
@@ -230,34 +215,30 @@
   </div>
 
   <div class="visible-xs visible-sm">
-      <%#chngeボタン%>
-      <div class="btn-details_10">
-       <a href="javascript:;" onclick="koshin()" id="btn-detail">
-        <i class="fas fa-sync-alt"></i>
-       </a>
-      </div>
-      <%#マップモーダルボタン%>
-      <div class="btn-details_12">
-       <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
-        <i class="far fa-map"></i>
-       </a>
-      </div>
-      <%#シェアモーダルボタン%>
-      <div class="btn-details_11">
-       <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
-        <i class="fa fa-external-link-alt"></i>
-       </a>
-      </div>
-      <%#保存モーダルボタン%>
-      <% if (user_signed_in?) %>
-        <% if current_user.authority == "manager" %>
-          <div class="btn-details_13">
-           <a href="" data-toggle="modal" data-target="#myModal-save" id="btn-detail">
-            <i class="far fa-save"></i>
-           </a>
-          </div>
-        <% end %>
-      <% end %>
+    <%#マップモーダルボタン%>
+    <div class="btn-details_no_0">
+     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
+      <i class="far fa-map"></i>
+     </a>
+    </div>
+    <%#シェアモーダルボタン%>
+    <div class="btn-details_no_1">
+     <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
+      <i class="fa fa-external-link-alt"></i>
+     </a>
+    </div>
+    <%#条件変更ボタン%>
+    <div class="btn-details_no_2">
+     <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
+      <i class="fas fa-search"></i>
+     </a>
+    </div>
+    <%#chngeボタン%>
+    <div class="btn-details_no_3">
+     <a href="javascript:;" onclick="koshin()" id="btn-detail">
+      <i class="fas fa-sync-alt"></i>
+     </a>
+    </div>
   </div>
 
   <div class="visible-md visible-lg">
@@ -292,79 +273,6 @@
           </a>
         </div>
       </div>
-      <%#保存モーダルボタン%>
-      <% if (user_signed_in?) %>
-        <% if current_user.authority == "manager" %>
-          <div style="padding:20px 0px 40px;text-align:center;">
-           <p>コースを保存できるよ！</p>
-           <a href="" data-toggle="modal" data-target="#myModal-save" class="btn btn-default">
-            <i class="far fa-save"></i> 保存する
-           </a>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <%#保存モーダルの中身%>
-  <div class="modal" id="myModal-save">
-    <div style="height:10vh;"></div>
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div style="height:auto;padding:30px 15px 0px;">
-          <% if (user_signed_in?) %>
-            <%= form_tag(seeks_save_path, method: :get) do %>
-              <%= hidden_field_tag :time_start, @timezone_ja %>
-              <%= hidden_field_tag :time_end, "夜" %>
-              <%= hidden_field_tag :city, @spot_first.city %>
-              <%= hidden_field_tag 'kind', "ユーザー" %>
-              <br>
-              <h4 class="text-center">コースを保存する</h4>
-              <br>
-              <div class="form-group">
-                <%= text_field_tag :title, '', placeholder: "タイトル", class: "form-control", required: "true" %>
-              </div>
-              <br>
-              <% if (user_signed_in?) %>
-                <% if current_user.authority == "manager" %>
-                  <div class="form-group">
-                    <div class="select-box01">
-                      <%= select_tag :kind, options_for_select([["提案","提案"],["ユーザー","ユーザー"],["サンプル","サンプル"]], "提案") %>
-                    </div>
-                  </div>
-                  <br>
-                <% end %>
-              <% end %>
-              <% params[:ss].each.with_index(1) do |s, i| %>
-                <%= hidden_field_tag 'ss[]', s %>
-              <% end %>
-              <div class="text-center">
-                <%= submit_tag "保存する", :class => "btn btn-default" %>
-              </div>
-              <br><br>
-            <% end %>
-          <% else %>
-            <%= form_tag(seeks_result_save_path, method: :get) do %>
-              <%= hidden_field_tag :timezone, params[:timezone] %>
-              <br>
-              <h4 class="text-center">コースを保存するにはログインが必要です</h4>
-              <br>
-              <% params[:ss].each.with_index(1) do |s, i| %>
-                <%= hidden_field_tag 'ss[]', s %>
-              <% end %>
-              <div class="text-center">
-                <%= submit_tag "ログインする", :class => "btn btn-default" %>
-              </div>
-              <br><br>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <div class="btn-details">
-     <a href="" data-toggle="modal" data-dismiss="modal" id="btn-detail">
-      <i class="fa fa-close"></i>
-     </a>
     </div>
   </div>
 
@@ -407,144 +315,106 @@
   <%#条件変更モーダルの中身%>
   <div class="modal" id="myModal-terms">
     <div class="modal-dialog">
-      <div class="modal-content" style="max-height:75vh">
-        <div class="box87" id=''>
-          <%= form_tag(plans_result_path, method: :get) do %>
-            <%= hidden_field_tag :city, params[:city] %>
-            <div style="padding:0px 15px;">
-              <div style="height:50px;"></div>
+      <%= form_tag(exams_result2_path, method: :get) do %>
+        <div class="modal-content" style="max-height:76vh">
+          <div class="box-modal">
+            <div style="padding:20px 15px 30px;">
+
               <%# エリア %>
-              <h4 style="color:#CCCCCC;padding:0px 0px 10px 10px;font-size:17px;"><span style="font-size:24px;">1</span>,&nbsp;Area</h4>
+              <h4 style="color:#CCCCCC;padding:0px 0px 10px 10px;font-size:17px;">Area</h4>
               <div style="padding:0px 25px;">
-                <%= render "partial/area_form3" %>
+                <%= render "partial/station_form1" %>
               </div>
+              <div style="height:20px;"></div>
               <%# 時間帯 %>
-              <h4 style="color:#CCCCCC;padding:20px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">2</span>,&nbsp;Timezone</h4>
+              <h4 style="color:#CCCCCC;padding:20px 0px 0px 10px;font-size:17px;">Timezone</h4>
               <div class="home-box">
                 <div class="home-box-1">
-                    <div class="radio-city00"> 
-                          <%= radio_button_tag(:timezone, "noon", @timezone_lunch, {:id => "lunch"}) %>
-                          <label for="lunch">
-                          <i class="fas fa-sun"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          ランチから
-                        </div>
-                      </div>
-                      <div class="home-box-1">
-                    <div class="radio-city00"> 
-                          <%= radio_button_tag(:timezone, "night", @timezone_night, {:id => "dinner"}) %>
-                          <label for="dinner">
-                          <i class="fas fa-moon"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          ディナーから
-                        </div>
-                      </div>
+                  <div class="radio-city00"> 
+                    <%= radio_button_tag(:timezone, "noon", @timezone_lunch, {:id => "lunch"}) %>
+                    <label for="lunch">
+                      <i class="fas fa-sun"></i>
+                    </label>
                   </div>
-                  <%# 予算 %>
-              <h4 style="color:#CCCCCC;padding:0px 0px 5px 10px;font-size:17px;"><span style="font-size:24px;">3</span>,&nbsp;Budget</h4>
-                <div class="home-box">
-                  <div class="home-box-1">
-                    <div class="radio-city0"> 
-                          <%= radio_button_tag(:budget, "1", @budget_one, {:id => "one"}) %>
-                          <label for="one">
-                          <i class="fas fa-yen-sign"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          Bronze
-                        </div>
-                      </div>
-                      <div class="home-box-1">
-                    <div class="radio-city0"> 
-                          <%= radio_button_tag(:budget, "2", @budget_two, {:id => "two"}) %>
-                          <label for="two">
-                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          Silver
-                        </div>
-                      </div>
-                      <div class="home-box-1">
-                    <div class="radio-city0"> 
-                          <%= radio_button_tag(:budget, "3", @budget_three, {:id => "three"}) %>
-                          <label for="three">
-                          <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
-                        </label>
-                        </div>
-                        <div class="lunch-info">
-                          Gold
-                        </div>
-                      </div>   
-                </div>
-                <%# シーン %>
-                  <h4 style="color:#CCCCCC;padding:10px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">4</span>,&nbsp;Scene</h4>
-                  <div class="home-box">
-                    <div class="home-box-1">
-                      
-                        <div class="radio-city000"> 
-                          <%= radio_button_tag(:scene, "クール", @scene_cool, {:id => "cool"}) %>
-                          <label for="cool">
-                              <%= image_tag "cool00.jpg", :class =>'img-scene' %>
-                          </label>
-                        </div>
-                      
-                      <div class="lunch-info">
-                        クール
-                    </div>
-                    </div>
-                    <div class="home-box-1">
-                      <div class="radio-city000"> 
-                        <%= radio_button_tag(:scene, "カジュアル", @scene_casual, {:id => "casual"}) %>
-                        <label for="casual">
-                            <%= image_tag "casual00.jpg", :class =>'img-scene' %>
-                        </label>
-                      </div>
-                      <div class="lunch-info">
-                        カジュアル
-                    </div>
-                    </div>
-                    <div class="home-box-1">
-                      <div class="radio-city000"> 
-                        <%= radio_button_tag(:scene, "ユニーク", @scene_unique, {:id => "unique"}) %>
-                        <label for="unique">
-                            <%= image_tag "unique00.jpg", :class =>'img-scene' %>
-                        </label>
-                      </div>
-                      <div class="lunch-info">
-                        ユニーク
-                      </div>
-                    </div>
+                  <div class="lunch-info">
+                    ランチから
                   </div>
                 </div>
-
-            </div>
-          </div>
-
-          <div class="btn-modal">  
-            <div class="btn-modal-next">
-              <%= button_tag :type => "submit", :class =>"button-half" do %>
-                <div>
-                  コースを作り直す
-                </div>
-              <% end %>
-            </div>
-            <a href="" data-toggle="modal" data-dismiss="modal">
-              <div class="btn-modal-back">
-                <div>
-                  閉じる
+                <div class="home-box-1">
+                  <div class="radio-city00"> 
+                    <%= radio_button_tag(:timezone, "night", @timezone_night, {:id => "dinner"}) %>
+                    <label for="dinner">
+                      <i class="fas fa-moon"></i>
+                    </label>
+                  </div>
+                  <div class="lunch-info">
+                    ディナーから
+                  </div>
                 </div>
               </div>
-            </a>  
-          </div>
+              <div style="height:20px;"></div>
+              <%# 予算 %>
+              <h4 style="color:#CCCCCC;padding:0px 0px 5px 10px;font-size:17px;">Budget</h4>
+              <div class="home-box">
+                <div class="home-box-1">
+                  <div class="radio-city0"> 
+                    <%= radio_button_tag(:budget, "1", @budget_one, {:id => "one"}) %>
+                    <label for="one">
+                      <i class="fas fa-yen-sign"></i>
+                    </label>
+                  </div>
+                  <div class="lunch-info">
+                    Low
+                  </div>
+                </div>
+                <div class="home-box-1">
+                  <div class="radio-city0"> 
+                    <%= radio_button_tag(:budget, "2", @budget_two, {:id => "two"}) %>
+                    <label for="two">
+                      <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                    </label>
+                  </div>
+                  <div class="lunch-info">
+                    Average
+                  </div>
+                </div>
+                <div class="home-box-1">
+                  <div class="radio-city0"> 
+                    <%= radio_button_tag(:budget, "3", @budget_three, {:id => "three"}) %>
+                    <label for="three">
+                      <i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i><i class="fas fa-yen-sign"></i>
+                    </label>
+                  </div>
+                  <div class="lunch-info">
+                    High
+                  </div>
+                </div> 
+              </div>      
 
+            </div>
+          </div>
         </div>
-        <% end %>
-      </div>
+
+        <div class="btn-modal">  
+          <div class="btn-modal-next">
+            <%= button_tag :type => "submit", :class =>"button-half" do %>
+              <div>
+                コースを作り直す
+              </div>
+            <% end %>
+          </div>
+          <a href="" data-toggle="modal" data-dismiss="modal">
+            <div class="btn-modal-back">
+              <div>
+                閉じる
+              </div>
+            </div>
+          </a>  
+        </div>
+
+      <% end %>
+    </div>
+  </div>
 
   <%#マップモーダルの中身%>
   <div class="modal" id="myModal-map">
