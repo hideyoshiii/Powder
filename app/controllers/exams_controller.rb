@@ -1545,7 +1545,7 @@ end
 #駅サーチ
 unless params[:station].blank?
 
-  @distance_station = 1.5.to_f
+  @distance_station = 1.3.to_f
 
   #駅の緯度軽度を定義
   @station = params[:station]
