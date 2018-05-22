@@ -7750,13 +7750,17 @@ square_btnn{
   color: white;
   font-size: 18px;
   transition: 0.2s;
-  margin:15px 0px -15px;
+  margin:15px 0px 0px;
+  padding:0px;
+  line-height:1.0;
 }
 
 #btn-detail_no div {/*アイコン*/
   color: white;
   font-size:9px;
     -webkit-transform: scale(0.8);
+    padding:0px;
+    margin-top:-5px;
 }
 
 #btn-detail_no:hover i {/*ホバーでアイコン回転*/
