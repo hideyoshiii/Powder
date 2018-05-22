@@ -361,6 +361,52 @@ unless params[:station].blank?
   if @station == "汐留・新橋"
     @station_l = [35.662899, 139.75997]
   end
+  if @station == "上野"
+    @station_l = [35.712364, 139.776188]
+  end
+  if @station == "浅草"
+    @station_l = [35.710711, 139.797676]
+  end
+  if @station == "押上"
+    @station_l = [35.710332, 139.813297]
+  end
+  if @station == "目黒"
+    @station_l = [35.633913, 139.715556]
+  end
+  if @station == "吉祥寺"
+    @station_l = [35.703149, 139.579809]
+  end
+  if @station == "神楽坂"
+    @station_l = [35.703819, 139.734518]
+  end
+  if @station == "下北沢"
+    @station_l = [35.661523, 139.666982]
+  end
+  if @station == "谷中・根津・千駄木"
+    @station_l = [35.728158, 139.770641]
+  end
+  if @station == "赤坂"
+    @station_l = [35.672212, 139.73638]
+  end
+
+  if @station == "自由が丘"
+    @station_l = [35.60735, 139.668532]
+  end
+  if @station == "二子玉川"
+    @station_l = [35.612417, 139.627567]
+  end
+  if @station == "中野"
+    @station_l = [35.705407, 139.665825]
+  end
+  if @station == "立川"
+    @station_l = [35.697914, 139.413741]
+  end
+  if @station == "巣鴨"
+    @station_l = [35.733413, 139.739289]
+  end
+  if @station == "町田"
+    @station_l = [35.541994, 139.445376]
+  end
 
    #昼からの時
    if params[:timezone] == "noon"
