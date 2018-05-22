@@ -7729,6 +7729,41 @@ square_btnn{
   transform: rotate(180deg);
 }
 
+//文字付き版
+#btn-detail_no {/*円*/
+    display: block;
+    width: 56px;
+    height: 56px;
+    background: rgba(0,0,0,0.8);
+    text-align: center;
+    border-radius: 50%;
+    transition: .2s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    border:1px solid #FAFAFA;
+}
+
+#btn-detail_no:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);}
+
+
+#btn-detail_no i {/*アイコン*/
+  color: white;
+  font-size: 18px;
+  transition: 0.2s;
+  margin:10px 0px -10px;
+}
+
+#btn-detail_no div {/*アイコン*/
+  color: white;
+  font-size:8px;
+    -webkit-transform: scale(0.8);
+}
+
+#btn-detail_no:hover i {/*ホバーでアイコン回転*/
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 //チェンジボタン
 #btn-change {/*円*/
     display: block;
@@ -10050,7 +10085,7 @@ square_btnn{
   width:100%;
   color:white;
   font-size:14px;
-  line-height:1.7;
+  line-height:1.8;
   text-align:center;
   }
 

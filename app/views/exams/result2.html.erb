@@ -217,26 +217,30 @@
   <div class="visible-xs visible-sm">
     <%#マップモーダルボタン%>
     <div class="btn-details_no_0">
-     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
+     <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail_no">
       <i class="far fa-map"></i>
+      <div>マップ</div>
      </a>
     </div>
     <%#シェアモーダルボタン%>
     <div class="btn-details_no_1">
-     <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
+     <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail_no">
       <i class="fa fa-external-link-alt"></i>
+      <div>シェア</div>
      </a>
     </div>
     <%#条件変更ボタン%>
     <div class="btn-details_no_2">
-     <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail">
+     <a href="" data-toggle="modal" data-target="#myModal-terms" id="btn-detail_no">
       <i class="fas fa-search"></i>
+      <div>条件変更</div>
      </a>
     </div>
     <%#chngeボタン%>
     <div class="btn-details_no_3">
-     <a href="javascript:;" onclick="koshin()" id="btn-detail">
+     <a href="javascript:;" onclick="koshin()" id="btn-detail_no">
       <i class="fas fa-sync-alt"></i>
+      <div>再作成</div>
      </a>
     </div>
   </div>
@@ -399,7 +403,7 @@
           <div class="btn-modal-next">
             <%= button_tag :type => "submit", :class =>"button-half" do %>
               <div>
-                コースを作り直す
+                <i class="fas fa-neuter"></i>&nbsp;&nbsp;この条件でコースを作り直す
               </div>
             <% end %>
           </div>
