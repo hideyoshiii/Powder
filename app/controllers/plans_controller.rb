@@ -317,49 +317,49 @@ unless params[:station].blank?
   #駅の緯度軽度を定義
   @station = params[:station]
   if @station == "恵比寿"
-    @station_a = "東京都渋谷区恵比寿南１丁目５"
+    @station_l = [35.647232, 139.70929]
   end
   if @station == "代官山"
-    @station_a = "東京都渋谷区代官山町１９−４"
+    @station_l = [35.648043, 139.703084]
   end
   if @station == "中目黒"
-    @station_a = "東京都目黒区上目黒３−４−１"
+    @station_l = [35.64431, 139.699116]
   end
   if @station == "渋谷"
-    @station_a = "東京都渋谷区道玄坂"
+    @station_l = [35.658034, 139.701636]
   end
   if @station == "原宿"
-    @station_a = "東京都渋谷区神宮前 1 丁目 18"
+    @station_l = [35.670229, 139.702698]
   end
   if @station == "表参道・青山"
-    @station_a = "東京都 港区北青山３丁目６−１２"
+    @station_l = [35.665251, 139.712092]
   end
   if @station == "東京・丸の内・日本橋"
-    @station_a = "東京都千代田区丸の内１丁目"
+    @station_l = [35.681167, 139.767052]
   end
   if @station == "新宿"
-    @station_a = "東京都新宿区新宿３丁目"
+    @station_l = [35.689592, 139.700413]
   end
   if @station == "六本木"
-    @station_a = "東京都港区赤坂９丁目７−３９"
+    @station_l = [35.662866, 139.731507]
   end
   if @station == "麻布"
-    @station_a = "東京都港区麻布十番１丁目１０ 港区麻布十番１丁目４−６"
+    @station_l = [35.656134, 139.736881]
   end
   if @station == "お台場"
-    @station_a = "東京都港区台場２丁目３"
+    @station_l = [35.628836, 139.777649]
   end
   if @station == "品川"
-    @station_a = "東京都港区高輪３丁目"
+    @station_l = [35.628471, 139.73876]
   end
   if @station == "池袋"
-    @station_a = "東京都豊島 南池袋１丁目２８−１"
+    @station_l = [35.729503, 139.7109]
   end
-  
-  @station_l = Geocoder.coordinates(@station_a)
-
-  if @station_l.blank?
-    @station_l = [35.647232, 139.70929]
+  if @station == "銀座"
+    @station_l = [35.671752, 139.764308]
+  end
+  if @station == "汐留・新橋"
+    @station_l = [35.662899, 139.75997]
   end
 
    #昼からの時
@@ -369,7 +369,7 @@ unless params[:station].blank?
     @spot1_price = @spot1_category.where(price_lunch: @price_start..@price_end)
     @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
-      @distance_station = @distance_station + 5.0.to_f
+      @distance_station = @distance_station + 0.5.to_f
       @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
@@ -445,7 +445,7 @@ unless params[:station].blank?
     @spot1_price = @spot1_category.where(price_dinner: @price_startz..@price_endz)
     @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
-      @distance_station = @distance_station + 5.0.to_f
+      @distance_station = @distance_station + 0.5.to_f
       @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
