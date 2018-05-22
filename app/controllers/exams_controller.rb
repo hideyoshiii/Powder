@@ -1567,7 +1567,7 @@ unless params[:station].blank?
   if @station == "表参道・青山"
     @station_l = [35.665251, 139.712092]
   end
-  if @station == "東京・丸の内・日本橋"
+  if @station == "東京・丸の内"
     @station_l = [35.681167, 139.767052]
   end
   if @station == "新宿"
