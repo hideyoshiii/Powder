@@ -1,0 +1,48 @@
+<div class="select-box02">
+	<select class="prefecture"  id="city" name="city" >
+
+
+<% if params[:station].blank? %>
+	<option value="" selected="selected">すべてのエリア</option>
+<% else %>
+	<option value="<%= params[:station] %>" selected="selected"><%= params[:station] %></option>
+<% end %>
+
+
+
+<option value="恵比寿" data-val="東京">恵比寿</option>
+<option value="代官山" data-val="東京">代官山</option>
+<option value="中目黒" data-val="東京">中目黒</option>
+<option value="渋谷" data-val="東京">渋谷</option>
+<option value="原宿" data-val="東京">原宿</option>
+<option value="表参道・青山" data-val="東京">表参道・青山</option>
+<option value="東京・丸の内" data-val="東京">東京・丸の内</option>
+<option value="新宿" data-val="東京">新宿</option>
+<option value="六本木" data-val="東京">六本木</option>
+<option value="麻布" data-val="東京">麻布</option>
+<option value="お台場" data-val="東京">お台場</option>
+<option value="品川" data-val="東京">品川</option>
+<option value="池袋" data-val="東京">池袋</option>
+<option value="銀座" data-val="東京">銀座</option>
+<option value="汐留・新橋" data-val="東京">汐留・新橋</option>
+<option value="上野" data-val="東京">上野</option>
+<option value="浅草" data-val="東京">浅草</option>
+<option value="押上" data-val="東京">押上</option>
+<option value="目黒" data-val="東京">目黒</option>
+<option value="吉祥寺" data-val="東京">吉祥寺</option>
+<option value="神楽坂" data-val="東京">神楽坂</option>
+<option value="下北沢" data-val="東京">下北沢</option>
+<option value="谷中・根津・千駄木" data-val="東京">谷中・根津・千駄木</option>
+<option value="赤坂" data-val="東京">赤坂</option>
+<option value="自由が丘" data-val="東京">自由が丘</option>
+<option value="二子玉川" data-val="東京">二子玉川</option>
+<option value="中野" data-val="東京">中野</option>
+<option value="立川" data-val="東京">立川</option>
+<option value="巣鴨" data-val="東京">巣鴨</option>
+<option value="町田" data-val="東京">町田</option>
+
+
+
+
+	</select>
+</div>

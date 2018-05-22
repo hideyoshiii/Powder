@@ -72,7 +72,7 @@
                   <div style="height:0px;"></div>
                   <%# カテゴリー %>
                   <% unless spot.large.blank? %>
-                    <span style="font-size:9px;text-shadow:none;opacity:0.9;">
+                    <span style="font-size:9px;text-shadow:none;opacity:0.95;">
                     <% @i = 0 %>
                       <% spot.large.each do |large| %>
                         <% @i = @i + 1 %>
@@ -212,12 +212,14 @@
           <div style="height:30px;"></div>
         </div>
         <%#広告%>
-        <div class="visible-xs" style=";">
-          <script type="text/javascript">
-          var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
-          </script>
-          <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
-        </div>  
+        <% if params[:station].blank? %>
+          <div class="visible-xs" style=";">
+            <script type="text/javascript">
+            var nend_params = {"media":54485,"site":296581,"spot":869343,"type":1,"oriented":1};
+            </script>
+            <script type="text/javascript" src="https://js1.nend.net/js/nendAdLoader.js"></script>
+          </div>  
+        <% end %>
       </div>
     </div>
     <%#PC用のmap%>
@@ -230,6 +232,7 @@
   </div>
 
   <div class="visible-xs visible-sm">
+    <% if params[:station].blank? %>
       <%#chngeボタン%>
       <div class="btn-details_10">
        <a href="javascript:;" onclick="koshin()" id="btn-detail">
@@ -258,6 +261,32 @@
           </div>
         <% end %>
       <% end %>
+    <% else %>
+      <%#マップモーダルボタン%>
+      <div class="btn-details_no_0">
+       <a href="" data-toggle="modal" data-target="#myModal-map" id="btn-detail">
+        <i class="far fa-map"></i>
+       </a>
+      </div>
+      <%#シェアモーダルボタン%>
+      <div class="btn-details_no_1">
+       <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-detail">
+        <i class="fa fa-external-link-alt"></i>
+       </a>
+      </div>
+      <%#条件変更ボタン%>
+      <div class="btn-details_no_2">
+       <a href="" data-toggle="modal" data-target="#myModal-share" id="btn-terms">
+        <i class="fa fa-external-link-alt"></i>
+       </a>
+      </div>
+      <%#chngeボタン%>
+      <div class="btn-details_no_3">
+       <a href="javascript:;" onclick="koshin()" id="btn-detail">
+        <i class="fas fa-sync-alt"></i>
+       </a>
+      </div>
+    <% end %>
   </div>
 
   <div class="visible-md visible-lg">
@@ -411,12 +440,11 @@
         <div class="box87" id=''>
           <%= form_tag(plans_result_path, method: :get) do %>
             <%= hidden_field_tag :city, params[:city] %>
-            <div style="padding:0px 15px;">
-              <div style="height:50px;"></div>
+            <div style="padding:40px 15px;">
               <%# エリア %>
               <h4 style="color:#CCCCCC;padding:0px 0px 10px 10px;font-size:17px;"><span style="font-size:24px;">1</span>,&nbsp;Area</h4>
               <div style="padding:0px 25px;">
-                <%= render "partial/area_form3" %>
+                <%= render "partial/station_form1" %>
               </div>
               <%# 時間帯 %>
               <h4 style="color:#CCCCCC;padding:20px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">2</span>,&nbsp;Timezone</h4>
@@ -455,7 +483,7 @@
                         </label>
                         </div>
                         <div class="lunch-info">
-                          Bronze
+                          Low
                         </div>
                       </div>
                       <div class="home-box-1">
@@ -466,7 +494,7 @@
                         </label>
                         </div>
                         <div class="lunch-info">
-                          Silver
+                          Average
                         </div>
                       </div>
                       <div class="home-box-1">
@@ -477,50 +505,10 @@
                         </label>
                         </div>
                         <div class="lunch-info">
-                          Gold
+                          High
                         </div>
                       </div>   
-                </div>
-                <%# シーン %>
-                  <h4 style="color:#CCCCCC;padding:10px 0px 0px 10px;font-size:17px;"><span style="font-size:24px;">4</span>,&nbsp;Scene</h4>
-                  <div class="home-box">
-                    <div class="home-box-1">
-                      
-                        <div class="radio-city000"> 
-                          <%= radio_button_tag(:scene, "クール", @scene_cool, {:id => "cool"}) %>
-                          <label for="cool">
-                              <%= image_tag "cool00.jpg", :class =>'img-scene' %>
-                          </label>
-                        </div>
-                      
-                      <div class="lunch-info">
-                        クール
-                    </div>
-                    </div>
-                    <div class="home-box-1">
-                      <div class="radio-city000"> 
-                        <%= radio_button_tag(:scene, "カジュアル", @scene_casual, {:id => "casual"}) %>
-                        <label for="casual">
-                            <%= image_tag "casual00.jpg", :class =>'img-scene' %>
-                        </label>
-                      </div>
-                      <div class="lunch-info">
-                        カジュアル
-                    </div>
-                    </div>
-                    <div class="home-box-1">
-                      <div class="radio-city000"> 
-                        <%= radio_button_tag(:scene, "ユニーク", @scene_unique, {:id => "unique"}) %>
-                        <label for="unique">
-                            <%= image_tag "unique00.jpg", :class =>'img-scene' %>
-                        </label>
-                      </div>
-                      <div class="lunch-info">
-                        ユニーク
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </div>           
 
             </div>
           </div>
