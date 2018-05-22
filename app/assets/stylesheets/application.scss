@@ -7750,7 +7750,7 @@ square_btnn{
   color: white;
   font-size: 18px;
   transition: 0.2s;
-  margin:15px 0px -12px;
+  margin:15px 0px -15px;
 }
 
 #btn-detail_no div {/*アイコン*/
@@ -10097,9 +10097,10 @@ square_btnn{
 
 
 .sharpe {
-	padding:0px 30px 3px 0px;
+	padding:0px 30px 2px 0px;
 	border-bottom: solid 2px #606470;
 	position: relative;
+	line-height:1.6;
 }
 
 .sharpe:after {
