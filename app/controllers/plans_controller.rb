@@ -358,6 +358,10 @@ unless params[:station].blank?
   
   @station_l = Geocoder.coordinates(@station_a)
 
+  if @station_l.blank?
+    @station_l = [35.647232, 139.70929]
+  end
+
    #昼からの時
    if params[:timezone] == "noon"
     #スポット１(ランチ)
