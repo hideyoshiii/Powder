@@ -365,7 +365,7 @@ unless params[:station].blank?
     @spot1_price = @spot1_category.where(price_lunch: @price_start..@price_end)
     @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
-      @distance_station = @distance_station + 0.5.to_f
+      @distance_station = @distance_station + 5.0.to_f
       @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
@@ -441,7 +441,7 @@ unless params[:station].blank?
     @spot1_price = @spot1_category.where(price_dinner: @price_startz..@price_endz)
     @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     until @spot1_distance.size >= 1 do
-      @distance_station = @distance_station + 0.5.to_f
+      @distance_station = @distance_station + 5.0.to_f
       @spot1_distance = @spot1_price.near(@station_l, @distance_station, :units => :km, :order => false)
     end
     @spot1 = @spot1_distance.order("RANDOM()").first
