@@ -10034,14 +10034,14 @@ square_btnn{
 	display:inline-block;
 	width:49%;
 	height:auto;
-	padding:5px 2px;
+	padding:5px 3px;
 }
 
 //エリアのラジオ選択
 .radio-city333 {
   	position: relative;
   	width:100%;
-    height:22vh;
+    height:auto;
     overflow:hidden;
   }
 
@@ -10063,6 +10063,7 @@ square_btnn{
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
+	border-radius:4px;
 }
 
 .radio-city333 input[type="radio"]:checked + label:before {
@@ -10073,11 +10074,12 @@ square_btnn{
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
+	border-radius:4px;
 }
 
 .img-category333{
   width:100%;
-  height:22vh;
+  height:auto;
   display: inline-block; 
   border-radius:4px;
 }
