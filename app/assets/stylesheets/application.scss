@@ -10043,38 +10043,11 @@ square_btnn{
   	width:100%;
     height:20vh;
     overflow:hidden;
+    border-radius: 4px;
   }
 
 .radio-city333 input{
     display: none;
-}
-.radio-city333 label {
-    position: relative;
-    border-radius: 4px;
-}
-.radio-city333 input[type="radio"]:checked + label {
-    position: relative;
-    border-radius: 4px;
-}
-
-.radio-city333 input[type="radio"] + label:before {
-	position: absolute;
-	content: "";
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
-}
-
-.radio-city333 input[type="radio"]:checked + label:before {
-	position: absolute;
-	content: "";
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
 }
 
 .img-category333{
