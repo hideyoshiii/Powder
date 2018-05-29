@@ -10038,22 +10038,24 @@ square_btnn{
 }
 
 //エリアのラジオ選択
-.radio-city333 {
-  	position: relative;
-  	width:100%;
-    height:20vh;
-    overflow:hidden;
-    border-radius: 4px;
-  }
+
 
 .radio-city333 input{
     display: none;
 }
 .radio-city333 label {
     position: relative;
+    width:100%;
+    height:20vh;
+    border-radius: 4px;
+    overflow:hidden;
 }
 .radio-city333 input[type="radio"]:checked + label {
-    position: relative;
+	position: relative;
+    width:100%;
+    height:20vh;
+    border-radius: 4px;
+    overflow:hidden;
 }
 
 .radio-city333 input[type="radio"] + label:before {
