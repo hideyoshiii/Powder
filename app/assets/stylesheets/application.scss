@@ -2526,9 +2526,8 @@ dl.search1 dd span:hover{
   position: relative;
 
   background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(70deg, #2A2A2A, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(70deg, #2A2A2A, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: -webkit-linear-gradient(70deg, #2A2A2A, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(70deg, #2A2A2A, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   padding: 0px;
   margin-top:0px;
@@ -10033,10 +10032,9 @@ square_btnn{
 
 .grid_no3{
 	display:inline-block;
-	width:49%;
+	width:32.3%;
 	height:auto;
-	padding:2px 2px;
-	border-radius: 4px;
+	padding:0px 0px;
 }
 
 //エリアのラジオ選択
@@ -10045,7 +10043,6 @@ square_btnn{
   	width:100%;
     height:auto;
     overflow:hidden;
-    border-radius: 4px;
   }
 
 .radio-city333 input{
@@ -10066,7 +10063,7 @@ square_btnn{
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
-	
+	border-radius: 2px;
 }
 
 .radio-city333 input[type="radio"]:checked + label:before {
@@ -10077,6 +10074,7 @@ square_btnn{
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
+	border-radius: 2px;
 }
 
 .radio-city333 p {
@@ -10099,12 +10097,6 @@ square_btnn{
     display: inline;
     padding: 4px 7px 4px;
     background: rgba(0, 0, 0, 0.6);
-}
-
-.img-category333{
-	width:100%;
-  	height:auto;
-  	display: inline-block; 
 }
 
 
