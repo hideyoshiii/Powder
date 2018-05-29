@@ -10034,7 +10034,7 @@ square_btnn{
 	display:inline-block;
 	width:49%;
 	height:auto;
-	padding:5px 2px;
+	margin:5px 2px;
 }
 
 //エリアのラジオ選択
@@ -10042,12 +10042,38 @@ square_btnn{
   	position: relative;
   	width:100%;
     height:20vh;
+    border-radius:4px;
     overflow:hidden;
-    border-radius: 4px;
   }
 
 .radio-city333 input{
     display: none;
+}
+.radio-city333 label {
+    position: relative;
+}
+.radio-city333 input[type="radio"]:checked + label {
+    position: relative;
+}
+
+.radio-city333 input[type="radio"] + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
+}
+
+.radio-city333 input[type="radio"]:checked + label:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
 }
 
 .img-category333{
