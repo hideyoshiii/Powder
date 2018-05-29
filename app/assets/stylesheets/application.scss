@@ -10034,8 +10034,8 @@ square_btnn{
 .grid_no3{
 	display:inline-block;
 	width:49%;
-	height:22vh;
-	padding:5px 2px;
+	height:auto;
+	padding:2px 2px;
 	border-radius: 4px;
 }
 
@@ -10043,7 +10043,7 @@ square_btnn{
 .radio-city333 {
   	position: relative;
   	width:100%;
-    height:22vh;
+    height:auto;
     overflow:hidden;
     border-radius: 4px;
   }
@@ -10077,7 +10077,6 @@ square_btnn{
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.15); /* カラーを重ねる */
-	border-radius: 4px;
 }
 
 .radio-city333 p {
@@ -10106,7 +10105,6 @@ square_btnn{
 	width:100%;
   	height:auto;
   	display: inline-block; 
-  	margin-top:-2vh;
 }
 
 
