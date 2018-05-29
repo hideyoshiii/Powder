@@ -3,11 +3,16 @@
 	      <!-- エリアモーダルウィンドウの中身 -->
           <div class="modal" id="myModal_home">
             <div class="modal-dialog">
+
+            	<div class="tab-content">
+				<div id="city" class="tab-pane fade">
+
+
               <div class="modal-content" style="max-height:76vh;">
               	<div class="box-modal text-center" style="padding:15px 3px;">
 
 	                <p style="color:white;">あなたにぴったりのコースを提案します</p>
-	                <p style="color:white;">エリアを選んでください</p>
+	                <p style="color:white;">エリア選択してください</p>
                 	<div style="height:5px;"></div>
 
                 	<div class="grid_no3">
@@ -384,9 +389,15 @@
 			    <div class="btn-modal">	
 					<a href="" data-toggle="modal" data-target="#myModal_detail">
 					<div class="btn-modal-next">
-			    		<div>
-			    			<i class="fas fa-neuter"></i>&nbsp;&nbsp;コースの条件を絞る
-			    		</div>
+			    		<div class="nav nav-pills">
+			            	<div class="active">
+			            		<a data-toggle="tab" href="#category">
+			            		<div>
+			            			<i class="fas fa-long-arrow-alt-left"></i>&nbsp;条件選択に戻る
+			            		</div>
+			            		</a>
+			            	</div>			            	
+				        </div>
 					</div>
 					</a>			
 				    <a href="" data-toggle="modal" data-dismiss="modal">
@@ -398,14 +409,12 @@
 				    </a>
 				</div>
 
-            </div>
-          </div>
 
-          <!-- 詳細条件モーダルウィンドウの中身 -->
-          <div class="modal" id="myModal_detail">
-            <div class="modal-dialog">
-              <div style="height:0vh;"></div>
-              <div class="modal-content" style="max-height:75vh;">
+				</div>
+
+				<div id="category" class="tab-pane fade in active">
+
+			  <div class="modal-content" style="max-height:75vh;">
               	<div class="box-modal text-center" style="padding:15px 0px 65px;">
 
               		<p style="color:white;">あなたにぴったりのコースを提案します</p>
@@ -413,7 +422,7 @@
                 	<div style="height:35px;"></div>
 
 	          		<%# 時間帯 %>
-              		<h4 style="color:#CCCCCC;padding:0px 0px 0px 10px;font-size:17px;">Timezone</h4>
+              		<h4 style="color:#CCCCCC;padding:0px 0px 0px 15px;font-size:17px;">Timezone</h4>
           			<div class="home-box">
             			<div class="home-box-1">
                 			<div class="radio-city00"> 
@@ -439,7 +448,7 @@
                   		</div>
               		</div>
               		<%# 予算 %>
-              		<h4 style="color:#CCCCCC;padding:30px 0px 5px 10px;font-size:17px;">Budget</h4>
+              		<h4 style="color:#CCCCCC;padding:30px 0px 5px 15px;font-size:17px;">Budget</h4>
                 	<div class="home-box">
                   		<div class="home-box-1">
                     		<div class="radio-city0"> 
@@ -449,7 +458,7 @@
                         		</label>
                         	</div>
                         	<div class="lunch-info">
-                          		Low
+                          		低め
                         	</div>
                       	</div>
                       	<div class="home-box-1">
@@ -460,7 +469,7 @@
                         		</label>
                         	</div>
                         	<div class="lunch-info">
-                          		Average
+                          		普通
                         	</div>
                       	</div>
                       	<div class="home-box-1">
@@ -471,23 +480,40 @@
                         		</label>
                         	</div>
                         	<div class="lunch-info">
-                          		High
+                          		高め
                         	</div>
                     	</div> 
                 	</div> 
 
 		      	</div>
               </div>
-              <div class="btn-modal">
-                <a href="" data-toggle="modal" data-dismiss="modal">
-                  <div class="btn-modal-center">
-                    <div>
-                      絞る
-                    </div>
-                  </div>
-                </a>  
-              </div>
+              <div class="btn-modal">	
+					<a href="" data-toggle="modal" data-target="#myModal_detail">
+					<div class="btn-modal-next">
+			    		<div class="nav nav-pills">
+			            	<div class="active">
+			            		<a data-toggle="tab" href="#city">
+			            		<div>
+			            			エリアを選択する&nbsp;<i class="fas fa-long-arrow-alt-right"></i>
+			            		</div>
+			            		</a>
+			            	</div>			            	
+				        </div>
+					</div>
+					</a>			
+				    <a href="" data-toggle="modal" data-dismiss="modal">
+						<div class="btn-modal-back">
+							<div>
+								閉じる
+							</div>
+						</div>
+				    </a>
+				</div>
+				</div>
+
+				</div>
+
             </div>
           </div>
 
-          <% end %>
+<% end %>
