@@ -285,7 +285,7 @@
     <div style="height:10vh;"></div>
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="box-details" id=''>
+        <div class="box-modal">
           <div style="height:auto;padding:30px 15px 0px;">
             <div style="padding:60px 0px 0px;text-align:center;">
                <p style="font-size:18px;color:white;">コースのURLを保存しよう！</p>
@@ -323,15 +323,15 @@
         <div class="modal-content" style="max-height:76vh">
           <div class="box-modal">
             <div style="padding:20px 15px 30px;">
-
+              <div style="height:10px;"></div>
+              <p style="color:white;text-align:center;"><span class="what-white">条件変更</span></p>
               <%# エリア %>
-              <h4 style="color:#CCCCCC;padding:0px 0px 10px 10px;font-size:17px;">Area</h4>
+              <div style="height:10px;"></div>
               <div style="padding:0px 25px;">
                 <%= render "partial/station_form1" %>
               </div>
-              <div style="height:20px;"></div>
+              <div style="height:50px;"></div>
               <%# 時間帯 %>
-              <h4 style="color:#CCCCCC;padding:20px 0px 0px 10px;font-size:17px;">Timezone</h4>
               <div class="home-box">
                 <div class="home-box-1">
                   <div class="radio-city00"> 
@@ -356,9 +356,8 @@
                   </div>
                 </div>
               </div>
-              <div style="height:20px;"></div>
+              <div style="height:50px;"></div>
               <%# 予算 %>
-              <h4 style="color:#CCCCCC;padding:0px 0px 5px 10px;font-size:17px;">Budget</h4>
               <div class="home-box">
                 <div class="home-box-1">
                   <div class="radio-city0"> 
@@ -368,7 +367,7 @@
                     </label>
                   </div>
                   <div class="lunch-info">
-                    Low
+                    低め
                   </div>
                 </div>
                 <div class="home-box-1">
@@ -379,7 +378,7 @@
                     </label>
                   </div>
                   <div class="lunch-info">
-                    Average
+                    普通
                   </div>
                 </div>
                 <div class="home-box-1">
@@ -390,11 +389,11 @@
                     </label>
                   </div>
                   <div class="lunch-info">
-                    High
+                    高め
                   </div>
                 </div> 
               </div>      
-
+              <div style="height:40px;"></div>
             </div>
           </div>
         </div>

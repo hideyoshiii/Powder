@@ -6419,7 +6419,20 @@ h4 span.what {
         border-bottom: 1px solid black;
 }
 
+p span.what {
+        display: inline;
+        padding: 2px 0;
+        border-bottom: 1px solid black;
+}
+
 h4 span.what-white {
+        display: inline;
+        padding: 2px 0;
+        border-bottom: 1px solid white;
+        color:white;
+}
+
+p span.what-white {
         display: inline;
         padding: 2px 0;
         border-bottom: 1px solid white;
@@ -7498,7 +7511,7 @@ square_btnn{
     height:25vh;
     overflow:hidden;
     border-radius: 5px;
-    box-shadow: 0 0 8px rgba(0,0,0,.8);
+    box-shadow: 0 0 5px rgba(0,0,0,.9);
   }
 
 @media only screen and (min-width: 768px) {
@@ -10034,7 +10047,7 @@ square_btnn{
 	display:inline-block;
 	width:49%;
 	height:auto;
-	padding:4px 2px;
+	padding:4px 3px;
 }
 
 //エリアのラジオ選択
